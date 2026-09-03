@@ -1,7 +1,7 @@
 # CLARION — the CLIF test suite and benchmark project
 
 **CLARION** (*Contextual Localization Accuracy, Robustness, Instruction-following and Overhead beNchmark*) is the independent test, validation and measurement project for the CLIF format. Repository name: `clif-test`;
-The format specification itself lives in **[clif](../clif)**; this project
+The format specification itself lives in **[clif](https://github.com/clif-format/clif)**; this project
 contains everything needed to verify CLIF implementations and measure its
 cost/quality properties.
 
@@ -166,14 +166,14 @@ the command.
 
 ## Relation to the specification
 
-- Normative spec: [../clif/spec/clif-1.0.0.md](../clif/spec/clif-1.0.0.md)
-- Grammar: [../clif/spec/abnf/clif-1.0.abnf](../clif/spec/abnf/clif-1.0.abnf)
+- Normative spec: [clif-1.0.0.md](https://github.com/clif-format/clif/blob/main/spec/clif-1.0.0.md)
+- Grammar: [clif-1.0.abnf](https://github.com/clif-format/clif/blob/main/spec/abnf/clif-1.0.abnf)
 - Layout: both the canonical folder layout `<target-language>/<clan>.clif`
   and the flat layout `<clan>.<target-language>.clif` are accepted. The four
   header fields (`namespace`, `clan`, `source-language`, `target-language`)
   are required; layouts are checked for consistency with the header only.
 - Emotion/status tag definitions:
-  [../clif/references](../clif/references)
+  [content/emotion/status tag references](https://github.com/clif-format/clif/tree/main/references)
 - Spec changes that affect parsing MUST be accompanied by validator and
   fixture changes in this project.
 

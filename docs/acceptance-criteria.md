@@ -9,14 +9,14 @@ model and are labeled as such. All recorded numbers below are updated by
 
 ## C1 — Standard format specification
 
-- Normative spec: `../clif/spec/clif-1.0.0.md`
+- Normative spec: [clif-1.0.0.md](https://github.com/clif-format/clif/blob/main/spec/clif-1.0.0.md)
 
-- Normative grammar: `../clif/spec/abnf/clif-1.0.abnf`
-- Valid examples: `../clif/spec/examples/clif-1.0.0/`; conformance fixtures:
+- Normative grammar: [clif-1.0.abnf](https://github.com/clif-format/clif/blob/main/spec/abnf/clif-1.0.abnf)
+- Valid examples: [clif-1.0.0 examples](https://github.com/clif-format/clif/tree/main/spec/examples/clif-1.0.0); conformance fixtures:
   `tests/fixtures/`
 - Reference validator: `tools/clif_validator.py`
-- Tag references: `../clif/references/content-types.md`,
-  `emotion-tags.md`, `status-tags.md`
+- Tag references: [content-types.md](https://github.com/clif-format/clif/blob/main/references/content-types.md),
+  [emotion-tags.md](https://github.com/clif-format/clif/blob/main/references/emotion-tags.md), [status-tags.md](https://github.com/clif-format/clif/blob/main/references/status-tags.md)
 
 ## C2 — Token savings ≥ 30% vs common formats (average)
 
@@ -68,7 +68,7 @@ model and are labeled as such. All recorded numbers below are updated by
 | C5.5 | Comments are discardable without losing translation context | `tests/fixtures/valid/comments-blanks.zh-CN.clif`; design rationale §15 |
 | C5.6 | Canonical IDs are lowercase `namespace.clan.group.entry` and unique | `tests/fixtures/invalid/duplicate-entry-id.zh-CN.clif`, `--ids` |
 | C5.7 | Token benchmark is deterministic and reproducible | two-run verification of `tools/token_benchmark.py` |
-| C5.8 | No multi-line structural construct exists in the grammar | `../clif/spec/abnf/clif-1.0.abnf`, design rationale |
+| C5.8 | No multi-line structural construct exists in the grammar | [clif-1.0.abnf](https://github.com/clif-format/clif/blob/main/spec/abnf/clif-1.0.abnf), design rationale |
 | C5.9 | Four header fields are required; flat file name `<clan>.<target-language>.clif` is checked for consistency only | `filename-mismatch.zh-CN.clif`; `missing-*` fixtures |
 | C5.10 | Glossary variant is restricted to term-level types (warning) | `variant: glossary` fixtures |
 | C5.11 | `=` and `:` are equivalent; tolerant whitespace never changes meaning | tolerant-syntax fixtures |

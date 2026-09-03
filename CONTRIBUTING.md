@@ -8,7 +8,7 @@ sibling `clif` repository.
 1. **Conformance fixtures** — valid and invalid `.clif` files under
    `tests/fixtures/`.
 2. **Validator changes** — keep `tools/clif_validator.py` in lockstep with
-   `../clif/spec/clif-1.0.0.md`.
+   [clif-1.0.0.md](https://github.com/clif-format/clif/blob/main/spec/clif-1.0.0.md).
 3. **Benchmark improvements** — new format emitters or corpora in
    `tools/token_benchmark.py`, with fairness notes.
 4. **Quality corpus growth** — difficult translation cases plus gold

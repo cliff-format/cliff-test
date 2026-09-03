@@ -32,7 +32,7 @@ POLICY_ROOT = CLIF_TEST_ROOT / "clarion" / "policy"
 
 _PYCLIF_HINT = (
     "pyclif is required by CLARION. Either install it "
-    "(pip install -e ../clif-python) or keep the clif-python checkout next to "
+    "(pip install -e git+https://github.com/clif-format/clif-python.git) or keep the clif-python checkout next to "
     "clif-test so that {src} exists."
 )
 
