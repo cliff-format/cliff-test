@@ -1,0 +1,99 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* clif:source: The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night. */
+"brief-tide-run" = "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.";
+/* clif:source: Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark. */
+"brief-ninth-light" = "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.";
+/* clif:source: Willow's Last Watch */
+"quest-title-last-watch" = "Willow's Last Watch";
+/* clif:source: Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off. */
+"journal-note-order" = "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.";
+/* clif:source: Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier. */
+"brief-warning-fog" = "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.";
+/* clif:source: Deliver the Sealed Manifest to Marrow */
+"objective-03a" = "Deliver the Sealed Manifest to Marrow";
+/* clif:source: Deliver the Sealed Manifest to Marrow */
+"objective-03b" = "Deliver the Sealed Manifest to Marrow";
+/* clif:source: Restore Power to the Tide Gate */
+"objective-04a" = "Restore Power to the Tide Gate";
+/* clif:source: Restore Power to the Tide Gate */
+"objective-04b" = "Restore Power to the Tide Gate";
+/* clif:source: Relight the Ninth Light before the ebb */
+"objective-relight" = "Relight the Ninth Light before the ebb";
+/* clif:source: {secured, plural, one {# crate secured} other {# crates secured}} */
+"objective-count-crates" = "{secured, plural, one {# crate secured} other {# crates secured}}";
+/* clif:source: Check the mooring lines on the east pier */
+"objective-check-lines" = "Check the mooring lines on the east pier";
+/* clif:source: Hand me the lantern, friend. */
+"hail-01a" = "Hand me the lantern, friend.";
+/* clif:source: Hand me the lantern, friend. */
+"hail-01b" = "Hand me the lantern, friend.";
+/* clif:source: Marrow says the dock is open to you. */
+"hail-02a" = "Marrow says the dock is open to you.";
+/* clif:source: Marrow says the dock is open to you. */
+"hail-02b" = "Marrow says the dock is open to you.";
+/* clif:source: Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil. */
+"dialogue-willow-keeps" = "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.";
+/* clif:source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing. */
+"dialogue-burn-it" = "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.";
+/* clif:source: The Ninth Light is yours to keep now. Do not make me regret the hand-over. */
+"success-echo" = "The Ninth Light is yours to keep now. Do not make me regret the hand-over.";
+/* clif:source: The gate holds. Whatever you did down there, the water is going where it should. */
+"line-success-tide" = "The gate holds. Whatever you did down there, the water is going where it should.";
+/* clif:source: The gate is jammed and the pier is under water. Come back when the tide drops and we will try again. */
+"line-failure-tide" = "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.";
+/* clif:source: The relay grid is robust: one failed beacon does not break the chain. */
+"item-relay-grid-desc" = "The relay grid is robust: one failed beacon does not break the chain.";
+/* clif:source: One flask feeds the lamp for 30 minutes at the default wick height. */
+"item-lamp-oil-desc" = "One flask feeds the lamp for 30 minutes at the default wick height.";
+/* clif:source: A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one. */
+"item-fog-lamp-desc" = "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.";
+/* clif:source: Marrow's Debt */
+"achv-marrow-debt" = "Marrow's Debt";
+/* clif:source: Nine Nights, Nine Lights */
+"achv-nine-nights" = "Nine Nights, Nine Lights";
+/* clif:source: Fair tide, {playerName}. Your last run ended 3 days ago. */
+"system-welcome-runner" = "Fair tide, {playerName}. Your last run ended 3 days ago.";
+/* clif:source: Hold [E] to raise the lantern; press [Q] to signal. */
+"system-keybind-lantern" = "Hold [E] to raise the lantern; press [Q] to signal.";
+/* clif:source: Signal range: 120 m in fog, 400 m in clear air. */
+"system-signal-range" = "Signal range: 120 m in fog, 400 m in clear air.";
+/* clif:source: {state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}} */
+"system-quest-state" = "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}";

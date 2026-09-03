@@ -1,0 +1,42 @@
+{
+  "narration.narration-open": {
+    "message": "这座小镇保留旧日礼节的时间比保留钱财更久。每个工作日结束时，马伦都会沿着港口路行走，就像钟表沿着表盘行走一样；每天傍晚，黑暗降临前她听到的最后声音，是杂货店门上锡制风铃的响声，它告诉街道潮水已转，世界在短时间内将继续运转，而无需她的参与。她不慌不忙。盐分渗入她拥有的一切，而她多年前便已不再介意。",
+    "description": "A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif. | clif:type: narration | clif:emotion: nostalgic|calm | clif:status: initial"
+  },
+  "narration.narration-memory": {
+    "message": "在小镇滑入大海的种种事物中，那铃声是唯一被留在岸上的。人们忘记自己的生日，忘记曾服役的船名，但每个人都能告诉你，上次铃声清晰响起时风在做什么。",
+    "description": "A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif. | clif:type: narration | clif:emotion: nostalgic|calm | clif:status: initial"
+  },
+  "dialogue.dialogue-wall": {
+    "message": "“风回来了，”索尔说。“没想到你会出来。”“我睡不着，”马伦说。“又是那铃声？”“是那铃声。”索尔双臂交叉。“这儿的人认为风铃不是为风而响。它是为风遗忘的东西而响。”“就是这样，”马伦说。“知道这些，你睡得更好吗？”“我知道‘更好’里的‘更’字，就这样，”索尔说。",
+    "description": "An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct. | clif:type: dialogue | clif:emotion: calm|serious | clif:status: initial"
+  },
+  "dialogue.dialogue-breakfast": {
+    "message": "“如果大海把铃还回来，你会留着它，”一天早晨索尔说。“不是吗？”“我会把它挂回现在挂的地方，”马伦说。“那听它做什么？”“为了确认它还在那儿。”索尔摇摇头。“它会在我们俩之后还在，”他说，“而且不会想念我们。”“我知道。”“那你比大多数人懂得多。”“我至少懂得倾听。”“那不是一回事。”“也差不多了，”马伦说。“对我来说差不多了。”",
+    "description": "An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct. | clif:type: dialogue | clif:emotion: calm|serious | clif:status: initial"
+  },
+  "monologue.monologue-tide": {
+    "message": "我从来不知道那铃声是安慰还是责备。它响起的音调与我母亲的名字相同，就像潮水在沙滩上写下同样的字迹又抹去。我想留住那声音，像孩子留住一块石头，但声音没有口袋可以存放，所以我把它放在胸口，假装它没有重量。",
+    "description": "Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive. | clif:type: monologue | clif:emotion: nostalgic|sad | clif:status: initial"
+  },
+  "monologue.monologue-stone": {
+    "message": "我小时候留的那块石头还在我放它的地板下，如果房子烧了，我不会为那块石头悲伤。但铃不存放在任何地方；它只是被听见，而被听见的东西必须再次被听见，否则它从未存在过。所以我不断回去，不是为了留住铃，而是为了留住听见它的那一刻。",
+    "description": "Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive. | clif:type: monologue | clif:emotion: nostalgic|sad | clif:status: initial"
+  },
+  "description.description-dusk": {
+    "message": "港口的灯光将水面染成锤打的黄铜色，一只迟归的海鸥立在桩上，像等待信件的人。雨幕悬在近海，灰色帘幕始终未触及码头。某处水壶即将沸腾，而这一切之上，锡铃在暖风中摆动，发出一声清亮的鸣响，仿佛黄昏一直在等待被敲响。",
+    "description": "Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif. | clif:type: description | clif:emotion: nostalgic|calm | clif:status: initial"
+  },
+  "description.description-lamplighter": {
+    "message": "点灯人用长杆沿着码头一路点亮，每盏被他触碰的灯都苏醒过来，仿佛一直在等待被记起。当他走到杂货店旁时，锡铃捕捉到灯光，将其抛向水面，那一刻，整个港口仿佛悬挂在那一声小小的、摇摆的鸣响上。",
+    "description": "Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif. | clif:type: description | clif:emotion: nostalgic|calm | clif:status: initial"
+  },
+  "description.description-rain": {
+    "message": "当最后一盏灯亮起时，风已转向北方，近海的灰色帘幕开始移动。它缓缓越过沙洲，整面天气之墙向小镇倾斜，最初的雨滴一颗颗落在码头上，每一滴都是按在石头上的冰冷小手。铃在黑暗中继续响着，雨声回应着它。",
+    "description": "Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif. | clif:type: description | clif:emotion: nostalgic|calm | clif:status: initial"
+  },
+  "closing.closing-line": {
+    "message": "潮水不留存任何事物，也不遗忘任何事物。",
+    "description": "The story's final line, spoken over the harbour; the motif resolves and the register stays plain. | clif:type: sentence | clif:emotion: calm|serious | clif:status: initial"
+  }
+}

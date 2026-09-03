@@ -1,0 +1,168 @@
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly.
+clif:source: Great work today, everyone. Really.
+clif:type: sentence
+clif:emotion: grateful|joyful
+clif:status: initial */
+"news-01a" = "今天大家干得真棒。真的。";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite.
+clif:source: Great work today, everyone. Really.
+clif:type: sentence
+clif:emotion: angry|playful
+clif:status: initial */
+"news-01b" = "今天大家干得真棒。真的。";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last.
+clif:source: Six months of roadworks and here we are.
+clif:type: sentence
+clif:emotion: joyful|hopeful
+clif:status: initial */
+"news-02a" = "六个月的修路工程，我们终于到了这一步。";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street.
+clif:source: Six months of roadworks and here we are.
+clif:type: sentence
+clif:emotion: angry|playful
+clif:status: initial */
+"news-02b" = "六个月的修路工程，我们终于到了这一步。";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her.
+clif:source: You are really going to ride that thing?
+clif:type: sentence
+clif:emotion: anxious|polite
+clif:status: initial */
+"news-03a" = "你真的要坐那玩意儿吗？";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user.
+clif:source: You are really going to ride that thing?
+clif:type: sentence
+clif:emotion: rude|playful
+clif:status: initial */
+"news-03b" = "你真的要坐那玩意儿吗？";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise.
+clif:source: Nice shot.
+clif:type: sentence
+clif:emotion: joyful|informal
+clif:status: initial */
+"news-04a" = "拍得不错。";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line.
+clif:source: Nice shot.
+clif:type: sentence
+clif:emotion: joyful|informal
+clif:status: initial */
+"news-04b" = "拍得不错。";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself.
+clif:source: It is back.
+clif:type: sentence
+clif:emotion: joyful|informal
+clif:status: initial */
+"news-05a" = "它回来了。";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier.
+clif:source: It is back.
+clif:type: sentence
+clif:emotion: sad|informal
+clif:status: initial */
+"news-05b" = "它回来了。";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts.
+clif:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay
+clif:type: sentence
+clif:emotion: grateful|informal
+clif:status: initial */
+"news-06" = "非常感谢 @HollowPineCafe 今天早上在车厂门口免费发放咖啡。#TramDay";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood.
+clif:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+clif:type: sentence
+clif:emotion: joyful|playful
+clif:status: initial */
+"news-07" = "今天下午把整条环线坐了一遍，就因为我乐意 🚋💚 不后悔";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene.
+clif:source: The new depot mural absolutely ate. No crumbs left.
+clif:type: sentence
+clif:emotion: joyful|informal
+clif:status: initial */
+"news-08" = "新车厂的壁画简直绝了。一点渣都不剩。";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands.
+clif:source: {count, plural, one {# person} other {# people}} reposted your photo.
+clif:type: prompt
+clif:emotion: mechanical|objective
+clif:status: initial */
+"news-09" = "{count, plural, one {# 人} other {# 人}}转发了你的照片。";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted.
+clif:source: {name} and {others, plural, one {# other} other {# others}} liked your post.
+clif:type: prompt
+clif:emotion: mechanical|objective
+clif:status: initial */
+"news-10" = "{name} 和 {others, plural, one {# 其他人} other {# 其他人}}赞了你的帖子。";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction.
+clif:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.
+clif:type: sentence
+clif:emotion: joyful|informal
+clif:status: initial */
+"news-11" = "在河滨环线上第三天，单程省了40分钟。满分十分，还会再坐。";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account.
+clif:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?
+clif:type: sentence
+clif:emotion: curious|polite
+clif:status: initial */
+"news-12" = "@SablewickTransit 河滨环线在假日周一运行吗？";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question.
+clif:source: Yes, on a Sunday timetable.
+clif:type: sentence
+clif:emotion: polite|objective
+clif:status: initial */
+"news-13" = "是的，按周日时刻表运行。";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction.
+clif:source: And the last one back?
+clif:type: sentence
+clif:emotion: curious|informal
+clif:status: initial */
+"news-14" = "那最后一班回来的呢？";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above.
+clif:source: Eleven forty, from the north end.
+clif:type: sentence
+clif:emotion: polite|objective
+clif:status: initial */
+"news-15" = "十一点四十，从北端出发。";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account.
+clif:source: Perfect, thank you! Adding it to the group chat now.
+clif:type: sentence
+clif:emotion: grateful|informal
+clif:status: initial */
+"news-16" = "太好了，谢谢！现在就加到群聊里。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line.
+clif:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.
+clif:type: sentence
+clif:emotion: objective|formal
+clif:status: initial */
+"news-17" = "服务更新：从周一起，河滨环线每八分钟一班，末班车为晚上11:40。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot.
+clif:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial */
+"news-18" = "车厂开放日于周六上午十点开始，车间参观对所有人免费。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator.
+clif:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial */
+"news-19" = "运营商表示，河滨环线首周客运量达到两万一千人次。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line.
+clif:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.
+clif:type: sentence
+clif:emotion: neutral|informal
+clif:status: initial */
+"news-20" = "大多数早上我都坐第一班电车，座位够舒服，全程坐着没问题。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus.
+clif:source: Does anyone know whether the ticket machine at the north end takes cards?
+clif:type: sentence
+clif:emotion: curious|informal
+clif:status: initial */
+"news-21" = "有人知道北端的售票机能不能刷卡吗？";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony.
+clif:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.
+clif:type: sentence
+clif:emotion: neutral
+clif:status: initial */
+"news-22" = "仪式期间雨没下下来，这对站在站台上的每个人来说都很幸运。";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line.
+clif:source: A single journey costs one euro fifty and a day pass costs four euros.
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial */
+"news-23" = "单程票价一欧元五十美分，日票四欧元。";

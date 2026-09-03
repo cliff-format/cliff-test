@@ -1,0 +1,125 @@
+{
+  "run": "clarion-deepseek-v4-flash",
+  "finished": "2026-09-02T04:52:01+00:00",
+  "pyclif": "0.1.0",
+  "model": "openai:deepseek-v4-flash",
+  "reasoning": "off",
+  "records": 1180,
+  "stages": [
+    {
+      "stage": "secrets",
+      "ok": true,
+      "detail": "key loaded, 0 credential-looking strings in the tree",
+      "seconds": 0.62,
+      "data": {
+        "findings": []
+      }
+    },
+    {
+      "stage": "fetch",
+      "ok": true,
+      "detail": "4 imports",
+      "seconds": 0.0,
+      "data": {
+        "imports": [
+          {
+            "recipe": "godot-l10n",
+            "clif": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\ui\\godot-l10n.zh-CN.clif",
+            "gold": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\ui\\godot-l10n.gold.json",
+            "entries": 40,
+            "tier": "vendor",
+            "committed": true,
+            "context_origin": "native",
+            "cached": true,
+            "enrichment": null,
+            "annotation": null
+          },
+          {
+            "recipe": "sanguo-brewitt-taylor",
+            "clif": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\lit\\sanguo-brewitt-taylor.en-US.clif",
+            "gold": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\lit\\sanguo-brewitt-taylor.gold.json",
+            "entries": 22,
+            "tier": "vendor",
+            "committed": true,
+            "context_origin": "annotated",
+            "cached": true,
+            "enrichment": null,
+            "annotation": null
+          },
+          {
+            "recipe": "hongloumeng-joly",
+            "clif": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\lit\\hongloumeng-joly.en-US.clif",
+            "gold": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\lit\\hongloumeng-joly.gold.json",
+            "entries": 14,
+            "tier": "vendor",
+            "committed": true,
+            "context_origin": "annotated",
+            "cached": true,
+            "enrichment": null,
+            "annotation": null
+          },
+          {
+            "recipe": "wmt24pp",
+            "clif": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\news\\wmt24pp.zh-CN.clif",
+            "gold": "D:\\Projects\\clif-format\\clif-test\\datasets\\clarion-core\\news\\wmt24pp.gold.json",
+            "entries": 42,
+            "tier": "vendor",
+            "committed": true,
+            "context_origin": "annotated",
+            "cached": true,
+            "enrichment": null,
+            "annotation": null
+          }
+        ]
+      }
+    },
+    {
+      "stage": "validate",
+      "ok": true,
+      "detail": "16 files, 392 entries, 0 problems",
+      "seconds": 0.12,
+      "data": {
+        "problems": []
+      }
+    },
+    {
+      "stage": "licence",
+      "ok": true,
+      "detail": "0 problems",
+      "seconds": 0.01,
+      "data": {
+        "problems": []
+      }
+    },
+    {
+      "stage": "tokens",
+      "ok": true,
+      "detail": "320 cells",
+      "seconds": 1.18,
+      "data": {}
+    },
+    {
+      "stage": "fidelity",
+      "ok": true,
+      "detail": "160 conversions, mean retention 95.8%",
+      "seconds": 0.65,
+      "data": {}
+    },
+    {
+      "stage": "translate",
+      "ok": true,
+      "detail": "960 runs, 0 failed, 5103039 prompt + 3724383 output tokens billed",
+      "seconds": 2162.96,
+      "data": {
+        "failed": []
+      }
+    },
+    {
+      "stage": "robustness",
+      "ok": true,
+      "detail": "60 format/arm chains, mean validity 93.1%",
+      "seconds": 807.77,
+      "data": {}
+    }
+  ]
+}

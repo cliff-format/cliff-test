@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.probe-ambiguity" original="clarion.probe-ambiguity">
+    <group id="emotion.reading">
+      <unit id="probe-01a">
+        <segment>
+          <source>Oh, that's just wonderful.</source>
+          <target>哦，那真是太好了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-01b">
+        <segment>
+          <source>Oh, that's just wonderful.</source>
+          <target>哦，那真是太好了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-02a">
+        <segment>
+          <source>After you.</source>
+          <target>您先请。</target>
+        </segment>
+      </unit>
+      <unit id="probe-02b">
+        <segment>
+          <source>After you.</source>
+          <target>您先请。</target>
+        </segment>
+      </unit>
+      <unit id="probe-03a">
+        <segment>
+          <source>Well, here we go again.</source>
+          <target>好吧，又来了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-03b">
+        <segment>
+          <source>Well, here we go again.</source>
+          <target>好吧，又来了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-04a">
+        <segment>
+          <source>Just relax.</source>
+          <target>放松点。</target>
+        </segment>
+      </unit>
+      <unit id="probe-04b">
+        <segment>
+          <source>Just relax.</source>
+          <target>放松点。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="type.register">
+      <unit id="probe-05a">
+        <segment>
+          <source>Save</source>
+          <target>保存</target>
+        </segment>
+      </unit>
+      <unit id="probe-05b">
+        <segment>
+          <source>Save</source>
+          <target>保存</target>
+        </segment>
+      </unit>
+      <unit id="probe-06a">
+        <segment>
+          <source>Forge</source>
+          <target>锻造</target>
+        </segment>
+      </unit>
+      <unit id="probe-06b">
+        <segment>
+          <source>Forge</source>
+          <target>锻造</target>
+        </segment>
+      </unit>
+      <unit id="probe-07a">
+        <segment>
+          <source>Break a leg!</source>
+          <target>祝你好运！</target>
+        </segment>
+      </unit>
+      <unit id="probe-07b">
+        <segment>
+          <source>Break a leg!</source>
+          <target>祝你好运！</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="context.referent">
+      <unit id="probe-08a">
+        <segment>
+          <source>Rate</source>
+          <target>评分</target>
+        </segment>
+      </unit>
+      <unit id="probe-08b">
+        <segment>
+          <source>Rate</source>
+          <target>评分</target>
+        </segment>
+      </unit>
+      <unit id="probe-09a">
+        <segment>
+          <source>Seal</source>
+          <target>封印</target>
+        </segment>
+      </unit>
+      <unit id="probe-09b">
+        <segment>
+          <source>Seal</source>
+          <target>封印</target>
+        </segment>
+      </unit>
+      <unit id="probe-10a">
+        <segment>
+          <source>It won't start.</source>
+          <target>它启动不了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-10b">
+        <segment>
+          <source>It won't start.</source>
+          <target>它启动不了。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="width.budget">
+      <unit id="probe-11a">
+        <segment>
+          <source>Restore Default Settings</source>
+          <target>恢复默认设置</target>
+        </segment>
+      </unit>
+      <unit id="probe-11b">
+        <segment>
+          <source>Restore Default Settings</source>
+          <target>恢复默认设置</target>
+        </segment>
+      </unit>
+      <unit id="probe-12a">
+        <segment>
+          <source>View Frequently Asked Questions</source>
+          <target>查看常见问题</target>
+        </segment>
+      </unit>
+      <unit id="probe-12b">
+        <segment>
+          <source>View Frequently Asked Questions</source>
+          <target>查看常见问题</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

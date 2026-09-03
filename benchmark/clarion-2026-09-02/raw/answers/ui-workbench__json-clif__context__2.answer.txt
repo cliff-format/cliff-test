@@ -1,0 +1,267 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "ui-workbench",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "Slatepath 数据工作台界面字符串",
+    "info": "Slatepath 是一个数据分析工作台，供分析师打开数据集、从中绘制图表并将图表固定到共享看板。其模块包括 Quarry（用于浏览和打开数据集）、图表编辑器、计算集群页面、存储页面和通知页面。临时表是分析师对结果集自己的草稿副本：它存在于浏览器标签页中，不是数据库临时表，每个提到它的条目都必须以相同的方式称呼它。有些操作标签出现两次，一次在设置页面的宽菜单中，一次在屏幕边缘的窄检查器栏中，这就是为什么其中一些带有显示宽度预算。受众：在桌面浏览器中工作的分析师和数据工程师。",
+    "standard": "保留产品名称 Slatepath 和模块名称（如 Quarry）为拉丁字母；切勿音译或将其作为普通词翻译。在每个提到它的条目中，以相同方式呈现“scratch table”，不要借用数据库术语中的临时表。保持 ICU MessageFormat 结构、参数名称和引擎占位符（如 {name}）与源文本完全一致。在汉字与拉丁字母或数字之间使用一个空格，在汉字句子中使用全角标点。避免教科书术语：写“默认”而非“缺省”，“缓存”而非“高速缓存”，“延迟”而非“时延”，“分辨率”而非“解析度”，“吞吐量”而非“吞吐率”。标签简短且不以句号结尾，而帮助和设置行是完整句子。显示宽度预算按单元格计数，拉丁字母和数字计 1 个单元格，汉字或全角字符计 2 个；窄槽必须重写得更短，而不是截断。"
+  },
+  "groups": [
+    {
+      "path": "workbench.labels",
+      "context": "Slatepath 工作台中的短标签：侧边栏条目、面板标题、列标题以及产品附带的演示数据集的值。同一个英文单词可以在一个页面上作为面板标题，在另一个页面上作为列标题，因此标签所属的页面决定了其含义。",
+      "type": "label",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "nav-scratch-tables",
+          "source": "Scratch tables",
+          "status": "initial",
+          "context": "侧边栏条目，打开分析师在本会话中创建的结果集副本列表。"
+        },
+        {
+          "id": "mode-01a",
+          "source": "Quarry",
+          "type": "proper-noun",
+          "status": "initial",
+          "context": "侧边栏条目，打开浏览和打开数据集的模块。"
+        },
+        {
+          "id": "mode-01b",
+          "source": "Quarry",
+          "type": "noun",
+          "status": "initial",
+          "context": "产品附带的演示数据集的站点类型列中的值，其中每一行都是某种采矿站点。"
+        },
+        {
+          "id": "term-02a",
+          "source": "Volume",
+          "status": "initial",
+          "context": "存储页面上的列标题；该列报告每个表持有的数据量。"
+        },
+        {
+          "id": "term-02b",
+          "source": "Volume",
+          "status": "initial",
+          "context": "通知页面上滑块上方的标签，用于设置桌面警报声音的音量。"
+        },
+        {
+          "id": "term-03a",
+          "source": "Scale",
+          "status": "initial",
+          "context": "图表编辑器中轴选项上方的标签，分析师在此选择轴如何划分其值。"
+        },
+        {
+          "id": "term-03b",
+          "source": "Scale",
+          "status": "initial",
+          "context": "计算集群页面上工作器选项上方的标签，分析师在此选择作业可以使用多少台机器。"
+        }
+      ]
+    },
+    {
+      "path": "workbench.actions",
+      "context": "菜单、工具栏和检查器栏中的操作标签，以及编号的入门清单，引导新分析师完成相同的操作。屏幕边缘的栏比设置页面窄得多，清单作为运行说明阅读。",
+      "type": "label",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "mode-04a",
+          "source": "Refresh the sample",
+          "status": "initial",
+          "context": "Quarry 页面预览表上方工具栏中的按钮。"
+        },
+        {
+          "id": "mode-04b",
+          "source": "Refresh the sample",
+          "type": "sentence",
+          "status": "initial",
+          "context": "入门清单的第二步，新分析师在首次运行前阅读。"
+        },
+        {
+          "id": "slot-05a",
+          "source": "Save the current view as a preset",
+          "status": "initial",
+          "context": "设置页面视图菜单中的菜单项，整个措辞适合一行。",
+          "max-width": 24
+        },
+        {
+          "id": "slot-05b",
+          "source": "Save the current view as a preset",
+          "status": "initial",
+          "context": "屏幕边缘检查器栏中的相同操作，槽宽不到一半。",
+          "max-width": 10
+        },
+        {
+          "id": "slot-06a",
+          "source": "Compare with the previous run",
+          "status": "initial",
+          "context": "运行历史表行内的按钮，单元格为标签提供完整宽度。",
+          "max-width": 22
+        },
+        {
+          "id": "slot-06b",
+          "source": "Compare with the previous run",
+          "status": "initial",
+          "context": "图表工具栏中的相同操作，按钮与其他四个按钮共享一行。",
+          "max-width": 10
+        },
+        {
+          "id": "note-step-order",
+          "source": "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.",
+          "type": "sentence",
+          "status": "initial",
+          "context": "入门清单下方打印的注释。在该清单上，刷新样本是第 2 步，行限制是第 3 步，这里的数字必须与该顺序匹配。"
+        }
+      ]
+    },
+    {
+      "path": "workbench.messages",
+      "context": "工作台本身渲染的字符串：计数器、状态横幅、主页问候语、错误提示、空状态和一条屏幕阅读器提示。ICU MessageFormat 结构、参数名称和占位符由引擎填充。",
+      "type": "sentence",
+      "emotion": [
+        "mechanical"
+      ],
+      "entries": [
+        {
+          "id": "msg-row-count",
+          "source": "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}",
+          "status": "initial",
+          "context": "预览表下方的计数器；工作台替换到目前为止已复制的行数。"
+        },
+        {
+          "id": "msg-table-state",
+          "source": "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}",
+          "status": "initial",
+          "context": "保存复制结果集的面板顶部的横幅；工作台传递状态名称。"
+        },
+        {
+          "id": "msg-welcome-back",
+          "source": "Welcome back, {name}. Your last run took 12 minutes.",
+          "emotion": [
+            "polite"
+          ],
+          "status": "initial",
+          "context": "登录后工作台主页上的问候语；占位符携带分析师的显示名称。"
+        },
+        {
+          "id": "msg-job-outcome",
+          "source": "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}",
+          "status": "initial",
+          "context": "集群页面上作业状态更改时显示的提示。工作台传递状态名称并渲染四种措辞之一；选择器键是引擎值，不是屏幕上的单词。"
+        },
+        {
+          "id": "msg-sample-loading",
+          "source": "The scratch table could not be created because the sample is still loading.",
+          "status": "initial",
+          "context": "当分析师在预览完成加载之前复制结果集时显示的错误提示。"
+        },
+        {
+          "id": "msg-board-empty",
+          "source": "Nothing is pinned to this board yet. Open a chart and pin it here.",
+          "status": "initial",
+          "context": "共享看板上的空状态，还没有人放置图表。"
+        },
+        {
+          "id": "cue-chart-updated",
+          "source": "Chart updated",
+          "type": "accessibility-cue",
+          "status": "initial",
+          "context": "当新行到达后图表重绘时宣布的屏幕阅读器提示。"
+        }
+      ]
+    },
+    {
+      "path": "workbench.help",
+      "context": "帮助面板中的段落，为首次打开工作台的分析师编写。它们在宽页面上阅读，因此句子完整且从容。",
+      "type": "description",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "help-scratch-table",
+          "source": "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.",
+          "status": "initial",
+          "context": "关于结果集的帮助部分的第一段；向新分析师介绍该对象的段落。"
+        },
+        {
+          "id": "help-empty-before-run",
+          "source": "Empty it before you leave the page, or the next run starts from rows that are already stale.",
+          "status": "initial",
+          "context": "Quarry 页面底部两个按钮下方的提示。它告诉分析师清空的对象是上面帮助段落描述的对象，而不是同一页面下方进一步的缓存选项。"
+        },
+        {
+          "id": "help-board-pin",
+          "source": "Once it is pinned, the chart stays on the board until someone takes it down.",
+          "status": "initial",
+          "context": "关于共享看板的帮助部分中的句子。它回答了此文件的空状态行，并且必须重用该行用于将图表放在看板上的动词。"
+        },
+        {
+          "id": "help-keyboard-rows",
+          "source": "Press the up and down arrows to move through the rows without taking your hands off the keyboard.",
+          "status": "initial",
+          "context": "帮助面板辅助功能部分的段落。"
+        },
+        {
+          "id": "help-archive",
+          "source": "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.",
+          "status": "initial",
+          "context": "帮助面板中解释没有人查看的图表会发生什么的段落。"
+        }
+      ]
+    },
+    {
+      "path": "workbench.settings",
+      "context": "工作台的设置页面：选项标签和每个选项下方打印的解释行。",
+      "type": "description",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "set-time-window",
+          "source": "New charts open with the default time window until you pin one of your own.",
+          "status": "initial",
+          "context": "时间窗口选项下方的行；分析师从未更改过图表启动时使用的窗口。"
+        },
+        {
+          "id": "set-export-resolution",
+          "source": "Charts are exported at the screen resolution, or at 2x for print.",
+          "status": "initial",
+          "context": "设置页面导出选项下方的行。"
+        },
+        {
+          "id": "set-cache-latency",
+          "source": "Charts read from the cache first, which keeps latency under half a second on a normal connection.",
+          "status": "initial",
+          "context": "缓存选项下方的行，解释工作台为什么保留最近结果的副本。"
+        },
+        {
+          "id": "set-throughput",
+          "source": "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.",
+          "status": "initial",
+          "context": "集群选项下方的读数，在作业运行时显示。"
+        },
+        {
+          "id": "set-retention",
+          "source": "Scratch tables are kept for 7 days and are then removed without a warning.",
+          "status": "initial",
+          "context": "设置页面保留选项下方的行。"
+        },
+        {
+          "id": "set-timezone",
+          "source": "Times on this page follow the workspace time zone, not the time zone of your browser.",
+          "status": "initial",
+          "context": "设置页面时区选项下方的行。"
+        }
+      ]
+    }
+  ]
+}

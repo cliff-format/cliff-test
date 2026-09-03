@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the invoice and payment screen.
+clif:source: Billing
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="billing">账单</string>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the live stream management screen.
+clif:source: Streaming
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="streaming">直播</string>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that lists the user's isolated project environments.
+clif:source: Workspaces
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="workspaces">工作区</string>
+    <!--Billing screen: invoices, rates and usage totals. Column header in the invoice summary; the price charged per gigabyte.
+clif:source: Billing rate
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="billing-rate">计费费率</string>
+    <!--Billing screen: invoices, rates and usage totals. Empty state shown when the account has never generated an invoice.
+clif:source: No invoices yet
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="no-invoices">暂无账单</string>
+    <!--Billing screen: invoices, rates and usage totals. Error toast after a rejected card charge.
+clif:source: Payment failed
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="payment-failed">支付失败</string>
+    <!--Live stream management screen: sources, keys and quality settings. Field that shows the secret value the encoder sends with the live stream.
+clif:source: Stream key
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="stream-key">推流密钥</string>
+    <!--Live stream management screen: sources, keys and quality settings. Label beside the frames-per-second selector on the quality panel.
+clif:source: Frame rate
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="frame-rate">帧率</string>
+    <!--Live stream management screen: sources, keys and quality settings. Dropdown label above the output resolution list.
+clif:source: Resolution
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="resolution">分辨率</string>
+    <!--Live stream management screen: sources, keys and quality settings. Menu action that attaches the selected stream to a project environment.
+clif:source: Add to workspace
+clif:type: label
+clif:emotion: objective
+clif:status: initial
+clif:max-width: 10-->
+    <string name="add-to-workspace">添加到工作区</string>
+    <!--Live stream management screen: sources, keys and quality settings. Error toast when the encoder cannot establish the live stream.
+clif:source: Stream failed to start
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="stream-failed">推流启动失败</string>
+    <!--Live stream management screen: sources, keys and quality settings. Summary line under the stream list showing how many streams run in how many regions.
+clif:source: {count, plural, other {# streams}} across {regions, plural, other {# regions}}
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="stream-summary">{count, plural, other {# 个推流}} 跨 {regions, plural, other {# 个区域}}</string>
+    <!--Workspace settings page: region, network and cache options. Button that resets every option on this page to its initial value.
+clif:source: Restore defaults
+clif:type: label
+clif:emotion: objective
+clif:status: initial
+clif:max-width: 8-->
+    <string name="restore-defaults">恢复默认</string>
+    <!--Workspace settings page: region, network and cache options. Button that empties the stored responses so the next request reaches the origin.
+clif:source: Clear cache
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="clear-cache">清除缓存</string>
+    <!--Workspace settings page: region, network and cache options. Tooltip over the latency badge; the round-trip time in milliseconds.
+clif:source: Latency
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="latency">延迟</string>
+    <!--Workspace settings page: region, network and cache options. Label of the credential field used to authenticate programmatic calls.
+clif:source: API token
+clif:type: label
+clif:emotion: objective
+clif:status: initial-->
+    <string name="api-token">API Token</string>
+    <!--Workspace settings page: region, network and cache options. Field in the throttling section; the maximum requests allowed per second.
+clif:source: Request rate limit
+clif:type: label
+clif:emotion: objective
+clif:status: initial
+clif:max-width: 8-->
+    <string name="request-rate-limit">请求速率限制</string>
+    <!--Workspace settings page: region, network and cache options. Status line at the top of the page showing the currently selected region name.
+clif:source: Region: %s
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="status-line">区域：%s</string>
+    <!--Workspace settings page: region, network and cache options. Explanatory paragraph under the cache options heading.
+clif:source: Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.
+clif:type: description
+clif:emotion: objective
+clif:status: initial-->
+    <string name="cache-description">缓存的响应会保留 24 小时，并在过期前继续提供。清除缓存可将每个请求重新发送到源服务器。</string>
+    <!--First-run onboarding and workspace management dialogs. Primary button on the onboarding screen that opens the workspace creation flow.
+clif:source: Create new workspace
+clif:type: label
+clif:emotion: objective
+clif:status: initial
+clif:max-width: 10-->
+    <string name="create-workspace">创建工作区</string>
+    <!--First-run onboarding and workspace management dialogs. Greeting heading shown after sign-in, with the account holder's display name.
+clif:source: Welcome back to Harborline, {name}
+clif:type: prompt
+clif:emotion: polite
+clif:status: initial-->
+    <string name="welcome-back">欢迎回到 Harborline，{name}</string>
+    <!--First-run onboarding and workspace management dialogs. Caption under the workspace list that reports the total number of project environments.
+clif:source: {count, plural, one {# workspace} other {# workspaces}}
+clif:type: sentence
+clif:emotion: objective
+clif:status: initial-->
+    <string name="workspace-count">{count, plural, one {# 个工作区} other {# 个工作区}}</string>
+    <!--First-run onboarding and workspace management dialogs. Confirmation dialog shown before permanently removing a project environment.
+clif:source: Delete this workspace? This cannot be undone.
+clif:type: sentence
+clif:emotion: serious
+clif:status: initial-->
+    <string name="delete-confirm">删除此工作区？此操作无法撤销。</string>
+    <!--First-run onboarding and workspace management dialogs. Screen-reader cue announcing the action bound to the Escape key.
+clif:source: Close dialog
+clif:type: accessibility-cue
+clif:emotion: objective
+clif:status: initial-->
+    <string name="close-dialog">关闭对话框</string>
+</resources>

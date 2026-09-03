@@ -1,0 +1,228 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly.
+#. clif:type: sentence
+#. clif:emotion: grateful|joyful
+#. clif:status: initial
+msgctxt "posts.reactions.news-01a"
+msgid "Great work today, everyone. Really."
+msgstr "今天大家干得真棒。真的。"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite.
+#. clif:type: sentence
+#. clif:emotion: angry|playful
+#. clif:status: initial
+msgctxt "posts.reactions.news-01b"
+msgid "Great work today, everyone. Really."
+msgstr "今天大家干得真棒。真的。"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last.
+#. clif:type: sentence
+#. clif:emotion: joyful|hopeful
+#. clif:status: initial
+msgctxt "posts.reactions.news-02a"
+msgid "Six months of roadworks and here we are."
+msgstr "六个月的修路工程，我们终于到了这一步。"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street.
+#. clif:type: sentence
+#. clif:emotion: angry|playful
+#. clif:status: initial
+msgctxt "posts.reactions.news-02b"
+msgid "Six months of roadworks and here we are."
+msgstr "六个月的修路工程，我们又回到了这一步。"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her.
+#. clif:type: sentence
+#. clif:emotion: anxious|polite
+#. clif:status: initial
+msgctxt "posts.reactions.news-03a"
+msgid "You are really going to ride that thing?"
+msgstr "你真的要坐那玩意儿吗？"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user.
+#. clif:type: sentence
+#. clif:emotion: rude|playful
+#. clif:status: initial
+msgctxt "posts.reactions.news-03b"
+msgid "You are really going to ride that thing?"
+msgstr "你真的要坐那玩意儿？"
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise.
+#. clif:type: sentence
+#. clif:emotion: joyful|informal
+#. clif:status: initial
+msgctxt "posts.referents.news-04a"
+msgid "Nice shot."
+msgstr "拍得真好。"
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line.
+#. clif:type: sentence
+#. clif:emotion: joyful|informal
+#. clif:status: initial
+msgctxt "posts.referents.news-04b"
+msgid "Nice shot."
+msgstr "好球。"
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself.
+#. clif:type: sentence
+#. clif:emotion: joyful|informal
+#. clif:status: initial
+msgctxt "posts.referents.news-05a"
+msgid "It is back."
+msgstr "它回来了。"
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier.
+#. clif:type: sentence
+#. clif:emotion: sad|informal
+#. clif:status: initial
+msgctxt "posts.referents.news-05b"
+msgid "It is back."
+msgstr "它又回来了。"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts.
+#. clif:type: sentence
+#. clif:emotion: grateful|informal
+#. clif:status: initial
+msgctxt "platform.conventions.news-06"
+msgid "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+msgstr "非常感谢 @HollowPineCafe 今天早上在车厂门口免费发放咖啡。#TramDay"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood.
+#. clif:type: sentence
+#. clif:emotion: joyful|playful
+#. clif:status: initial
+msgctxt "platform.conventions.news-07"
+msgid "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+msgstr "今天下午把整条环线坐了一遍，就因为我乐意 🚋💚 不后悔"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene.
+#. clif:type: sentence
+#. clif:emotion: joyful|informal
+#. clif:status: initial
+msgctxt "platform.conventions.news-08"
+msgid "The new depot mural absolutely ate. No crumbs left."
+msgstr "新的车厂壁画简直绝了。一点渣都不剩。"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands.
+#. clif:type: prompt
+#. clif:emotion: mechanical|objective
+#. clif:status: initial
+msgctxt "platform.conventions.news-09"
+msgid "{count, plural, one {# person} other {# people}} reposted your photo."
+msgstr "{count, plural, one {# 人} other {# 人}}转发了你的照片。"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted.
+#. clif:type: prompt
+#. clif:emotion: mechanical|objective
+#. clif:status: initial
+msgctxt "platform.conventions.news-10"
+msgid "{name} and {others, plural, one {# other} other {# others}} liked your post."
+msgstr "{name} 和其他 {others, plural, one {# 人} other {# 人}}赞了你的帖子。"
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction.
+#. clif:type: sentence
+#. clif:emotion: joyful|informal
+#. clif:status: initial
+msgctxt "platform.conventions.news-11"
+msgid "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+msgstr "河滨环线第三天，单程省了40分钟。满分十分，还会再坐。"
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account.
+#. clif:type: sentence
+#. clif:emotion: curious|polite
+#. clif:status: initial
+msgctxt "thread.replies.news-12"
+msgid "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+msgstr "@SablewickTransit 河滨环线在假日周一运营吗？"
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question.
+#. clif:type: sentence
+#. clif:emotion: polite|objective
+#. clif:status: initial
+msgctxt "thread.replies.news-13"
+msgid "Yes, on a Sunday timetable."
+msgstr "是的，按周日时刻表运行。"
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction.
+#. clif:type: sentence
+#. clif:emotion: curious|informal
+#. clif:status: initial
+msgctxt "thread.replies.news-14"
+msgid "And the last one back?"
+msgstr "那末班返程呢？"
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above.
+#. clif:type: sentence
+#. clif:emotion: polite|objective
+#. clif:status: initial
+msgctxt "thread.replies.news-15"
+msgid "Eleven forty, from the north end."
+msgstr "十一点四十，从北端出发。"
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account.
+#. clif:type: sentence
+#. clif:emotion: grateful|informal
+#. clif:status: initial
+msgctxt "thread.replies.news-16"
+msgid "Perfect, thank you! Adding it to the group chat now."
+msgstr "太好了，谢谢！现在就加到群聊里。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line.
+#. clif:type: sentence
+#. clif:emotion: objective|formal
+#. clif:status: initial
+msgctxt "feed.updates.news-17"
+msgid "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+msgstr "服务更新：从周一起，河滨环线每八分钟一班，末班车晚上11点40分发车。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "feed.updates.news-18"
+msgid "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+msgstr "车厂开放日周六上午十点开始，车间参观对所有人免费。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "feed.updates.news-19"
+msgid "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+msgstr "运营商表示，河滨环线首周客运量达到两万一千人次。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line.
+#. clif:type: sentence
+#. clif:emotion: neutral|informal
+#. clif:status: initial
+msgctxt "feed.updates.news-20"
+msgid "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+msgstr "我大多数早上都坐首班电车，座位够舒服，全程坐着都不累。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus.
+#. clif:type: sentence
+#. clif:emotion: curious|informal
+#. clif:status: initial
+msgctxt "feed.updates.news-21"
+msgid "Does anyone know whether the ticket machine at the north end takes cards?"
+msgstr "有人知道北端的售票机能不能刷卡吗？"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony.
+#. clif:type: sentence
+#. clif:emotion: neutral
+#. clif:status: initial
+msgctxt "feed.updates.news-22"
+msgid "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+msgstr "仪式期间雨没下下来，这对站在站台上的每个人来说都很幸运。"
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "feed.updates.news-23"
+msgid "A single journey costs one euro fifty and a day pass costs four euros."
+msgstr "单程票价一欧元五十美分，日票四欧元。"

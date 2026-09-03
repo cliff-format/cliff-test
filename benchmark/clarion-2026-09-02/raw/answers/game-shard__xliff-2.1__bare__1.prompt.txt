@@ -1,0 +1,173 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.game-shard" original="clarion.game-shard">
+    <group id="dialog.ash-and-flint">
+      <unit id="ash-greets-flint">
+        <segment>
+          <source>Flint, you still owe me a proper blade.</source>
+        </segment>
+      </unit>
+      <unit id="flint-replies-ash">
+        <segment>
+          <source>Ash, you could not hold a whetstone straight if the forge froze over.</source>
+        </segment>
+      </unit>
+      <unit id="ash-fearful">
+        <segment>
+          <source>Flint, the frost is moving. I saw it breathe.</source>
+        </segment>
+      </unit>
+      <unit id="flint-angry">
+        <segment>
+          <source>You lit that spark, Ash, and now the whole valley pays for it.</source>
+        </segment>
+      </unit>
+      <unit id="flint-calls-ash">
+        <segment>
+          <source>Ash! Get away from the wall — it is coming through!</source>
+        </segment>
+      </unit>
+      <unit id="ash-grateful">
+        <segment>
+          <source>Flint, you forged me a name when no one else would. Thank you.</source>
+        </segment>
+      </unit>
+      <unit id="flint-polite-threat">
+        <segment>
+          <source>You are, of course, welcome to try again. I will even hold the door for you.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="monologue.ash">
+      <unit id="monologue-ash-fire">
+        <segment>
+          <source>The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.</source>
+        </segment>
+      </unit>
+      <unit id="monologue-ash-name">
+        <segment>
+          <source>Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="skills.items">
+      <unit id="skill-ember-burst">
+        <segment>
+          <source>Ember Burst</source>
+        </segment>
+      </unit>
+      <unit id="skill-frost-whip">
+        <segment>
+          <source>Frost Whip</source>
+        </segment>
+      </unit>
+      <unit id="skill-cinder-sidestep">
+        <segment>
+          <source>Cinder Sidestep</source>
+        </segment>
+      </unit>
+      <unit id="skill-thorn-snare">
+        <segment>
+          <source>Thorn Snare</source>
+        </segment>
+      </unit>
+      <unit id="item-emberbloom-tonic">
+        <segment>
+          <source>Emberbloom Tonic</source>
+        </segment>
+      </unit>
+      <unit id="item-axe-pun-desc">
+        <segment>
+          <source>This greataxe is a real splitting headache — swing once and the argument is over.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="tutorial.system">
+      <unit id="tutorial-loot">
+        <segment>
+          <source>Press [F] to loot.</source>
+        </segment>
+      </unit>
+      <unit id="combat-log-damage">
+        <segment>
+          <source>{count, plural, one {# point of damage} other {# points of damage}}</source>
+        </segment>
+      </unit>
+      <unit id="faction-claim">
+        <segment>
+          <source>{faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}</source>
+        </segment>
+      </unit>
+      <unit id="hit-taken">
+        <segment>
+          <source>You take {damage} damage from the frost.</source>
+        </segment>
+      </unit>
+      <unit id="welcome-name">
+        <segment>
+          <source>Welcome back, {playerName}.</source>
+        </segment>
+      </unit>
+      <unit id="settings-cache">
+        <segment>
+          <source>Clear cache and restore default settings</source>
+        </segment>
+      </unit>
+      <unit id="tutorial-regen">
+        <segment>
+          <source>Drink to restore 40 HP over 10 seconds.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="cutscene.subtitles">
+      <unit id="subtitle-frost">
+        <segment>
+          <source>The frost does not forgive.</source>
+        </segment>
+      </unit>
+      <unit id="sfx-ember-crackle">
+        <segment>
+          <source>[Soft ember crackle]</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

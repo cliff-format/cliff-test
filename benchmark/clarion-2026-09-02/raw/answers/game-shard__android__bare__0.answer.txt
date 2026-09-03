@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: Flint, you still owe me a proper blade.-->
+    <string name="ash-greets-flint">弗林特，你还欠我一把像样的刀。</string>
+    <!--clif:source: Ash, you could not hold a whetstone straight if the forge froze over.-->
+    <string name="flint-replies-ash">阿什，就算熔炉冻住了，你也拿不稳磨刀石。</string>
+    <!--clif:source: Flint, the frost is moving. I saw it breathe.-->
+    <string name="ash-fearful">弗林特，霜在移动。我看见它在呼吸。</string>
+    <!--clif:source: You lit that spark, Ash, and now the whole valley pays for it.-->
+    <string name="flint-angry">你点燃了那火花，阿什，现在整个山谷都在为此付出代价。</string>
+    <!--clif:source: Ash! Get away from the wall — it is coming through!-->
+    <string name="flint-calls-ash">阿什！离开那堵墙——它要穿过来了！</string>
+    <!--clif:source: Flint, you forged me a name when no one else would. Thank you.-->
+    <string name="ash-grateful">弗林特，别人都不肯时，你为我铸就了一个名字。谢谢你。</string>
+    <!--clif:source: You are, of course, welcome to try again. I will even hold the door for you.-->
+    <string name="flint-polite-threat">你当然可以再试一次。我甚至会为你扶着门。</string>
+    <!--clif:source: The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.-->
+    <string name="monologue-ash-fire">我胸中的火焰有自己的记忆。它在寒冷到来之前就感知到寒冷，并且感到恐惧。</string>
+    <!--clif:source: Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.-->
+    <string name="monologue-ash-name">弗林特说名字是把手，不是镜子。但名字仍然可以是你对自己许下的承诺。</string>
+    <!--clif:source: Ember Burst-->
+    <string name="skill-ember-burst">余烬爆发</string>
+    <!--clif:source: Frost Whip-->
+    <string name="skill-frost-whip">霜之鞭</string>
+    <!--clif:source: Cinder Sidestep-->
+    <string name="skill-cinder-sidestep">灰烬侧步</string>
+    <!--clif:source: Thorn Snare-->
+    <string name="skill-thorn-snare">荆棘陷阱</string>
+    <!--clif:source: Emberbloom Tonic-->
+    <string name="item-emberbloom-tonic">余烬花药水</string>
+    <!--clif:source: This greataxe is a real splitting headache — swing once and the argument is over.-->
+    <string name="item-axe-pun-desc">这把巨斧真是让人头疼——一挥之下，争论就此结束。</string>
+    <!--clif:source: Press [F] to loot.-->
+    <string name="tutorial-loot">按 [F] 拾取。</string>
+    <!--clif:source: {count, plural, one {# point of damage} other {# points of damage}}-->
+    <string name="combat-log-damage">{count, plural, one {# 点伤害} other {# 点伤害}}</string>
+    <!--clif:source: {faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}-->
+    <string name="faction-claim">{faction, select, emberborn {余烬族宣称你的名字。} frostward {霜卫族宣称你的名字。} other {没有阵营宣称你的名字。}}</string>
+    <!--clif:source: You take {damage} damage from the frost.-->
+    <string name="hit-taken">你受到 {damage} 点霜冻伤害。</string>
+    <!--clif:source: Welcome back, {playerName}.-->
+    <string name="welcome-name">欢迎回来，{playerName}。</string>
+    <!--clif:source: Clear cache and restore default settings-->
+    <string name="settings-cache">清除缓存并恢复默认设置</string>
+    <!--clif:source: Drink to restore 40 HP over 10 seconds.-->
+    <string name="tutorial-regen">饮用后可在 10 秒内恢复 40 点生命值。</string>
+    <!--clif:source: The frost does not forgive.-->
+    <string name="subtitle-frost">霜冻不会宽恕。</string>
+    <!--clif:source: [Soft ember crackle]-->
+    <string name="sfx-ember-crackle">[余烬轻响]</string>
+</resources>

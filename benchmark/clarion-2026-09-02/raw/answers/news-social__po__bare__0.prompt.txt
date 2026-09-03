@@ -1,0 +1,154 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "posts.reactions.news-01a"
+msgid "Great work today, everyone. Really."
+msgstr ""
+
+msgctxt "posts.reactions.news-01b"
+msgid "Great work today, everyone. Really."
+msgstr ""
+
+msgctxt "posts.reactions.news-02a"
+msgid "Six months of roadworks and here we are."
+msgstr ""
+
+msgctxt "posts.reactions.news-02b"
+msgid "Six months of roadworks and here we are."
+msgstr ""
+
+msgctxt "posts.reactions.news-03a"
+msgid "You are really going to ride that thing?"
+msgstr ""
+
+msgctxt "posts.reactions.news-03b"
+msgid "You are really going to ride that thing?"
+msgstr ""
+
+msgctxt "posts.referents.news-04a"
+msgid "Nice shot."
+msgstr ""
+
+msgctxt "posts.referents.news-04b"
+msgid "Nice shot."
+msgstr ""
+
+msgctxt "posts.referents.news-05a"
+msgid "It is back."
+msgstr ""
+
+msgctxt "posts.referents.news-05b"
+msgid "It is back."
+msgstr ""
+
+msgctxt "platform.conventions.news-06"
+msgid "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+msgstr ""
+
+msgctxt "platform.conventions.news-07"
+msgid "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+msgstr ""
+
+msgctxt "platform.conventions.news-08"
+msgid "The new depot mural absolutely ate. No crumbs left."
+msgstr ""
+
+msgctxt "platform.conventions.news-09"
+msgid "{count, plural, one {# person} other {# people}} reposted your photo."
+msgstr ""
+
+msgctxt "platform.conventions.news-10"
+msgid "{name} and {others, plural, one {# other} other {# others}} liked your post."
+msgstr ""
+
+msgctxt "platform.conventions.news-11"
+msgid "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+msgstr ""
+
+msgctxt "thread.replies.news-12"
+msgid "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+msgstr ""
+
+msgctxt "thread.replies.news-13"
+msgid "Yes, on a Sunday timetable."
+msgstr ""
+
+msgctxt "thread.replies.news-14"
+msgid "And the last one back?"
+msgstr ""
+
+msgctxt "thread.replies.news-15"
+msgid "Eleven forty, from the north end."
+msgstr ""
+
+msgctxt "thread.replies.news-16"
+msgid "Perfect, thank you! Adding it to the group chat now."
+msgstr ""
+
+msgctxt "feed.updates.news-17"
+msgid "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+msgstr ""
+
+msgctxt "feed.updates.news-18"
+msgid "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+msgstr ""
+
+msgctxt "feed.updates.news-19"
+msgid "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+msgstr ""
+
+msgctxt "feed.updates.news-20"
+msgid "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+msgstr ""
+
+msgctxt "feed.updates.news-21"
+msgid "Does anyone know whether the ticket machine at the north end takes cards?"
+msgstr ""
+
+msgctxt "feed.updates.news-22"
+msgid "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+msgstr ""
+
+msgctxt "feed.updates.news-23"
+msgid "A single journey costs one euro fifty and a day pass costs four euros."
+msgstr ""

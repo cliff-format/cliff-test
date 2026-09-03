@@ -1,0 +1,89 @@
+# clif:source = 潮水每天涨落两次，港口也每天两次忘记谁欠谁。在水位上涨之前，将密封的货物清单交给军需官，账本就能再多保持一夜的诚实。
+brief-tide-run = 潮水每天涨落两次，港口也每天两次忘记谁欠谁。在水位上涨之前，将密封的货物清单交给军需官，账本就能再多保持一夜的诚实。
+
+# clif:source = 九盏灯环绕内港。八盏由港口公会照看；最后一盏立在公会假装看不见的岩石上，而它从未熄灭过一次。
+brief-ninth-light = 九盏灯环绕内港。八盏由港口公会照看；最后一盏立在公会假装看不见的岩石上，而它从未熄灭过一次。
+
+# clif:source = 柳树的最后一班岗
+quest-title-last-watch = 柳树的最后一班岗
+
+# clif:source = 马罗在打开闸门之前会先阅读货物清单，所以目标2会一直锁定，直到目标1被签字确认。
+journal-note-order = 马罗在打开闸门之前会先阅读货物清单，所以目标2会一直锁定，直到目标1被签字确认。
+
+# clif:source = 雾气毫无预兆地从西边涌来。如果你看不到下一盏灯，就停止划桨等待：这里的水流很有耐心，迟早会把你带回码头。
+brief-warning-fog = 雾气毫无预兆地从西边涌来。如果你看不到下一盏灯，就停止划桨等待：这里的水流很有耐心，迟早会把你带回码头。
+
+# clif:source = 将密封的货物清单交给马罗
+objective-03a = 将密封的货物清单交给马罗
+
+# clif:source = 将密封的货物清单交给马罗
+objective-03b = 将密封的货物清单交给马罗
+
+# clif:source = 恢复潮汐闸门的电力
+objective-04a = 恢复潮汐闸门的电力
+
+# clif:source = 恢复潮汐闸门的电力
+objective-04b = 恢复潮汐闸门的电力
+
+# clif:source = 在退潮前重新点亮第九盏灯
+objective-relight = 在退潮前重新点亮第九盏灯
+
+# clif:source = {secured, plural, one {# 个箱子已固定} other {# 个箱子已固定}}
+objective-count-crates = {secured, plural, one {# 个箱子已固定} other {# 个箱子已固定}}
+
+# clif:source = 检查东码头上的系泊缆绳
+objective-check-lines = 检查东码头上的系泊缆绳
+
+# clif:source = 把灯笼递给我，朋友。
+hail-01a = 把灯笼递给我，朋友。
+
+# clif:source = 把灯笼递给我，朋友。
+hail-01b = 把灯笼递给我，朋友。
+
+# clif:source = 马罗说码头对你开放。
+hail-02a = 马罗说码头对你开放。
+
+# clif:source = 马罗说码头对你开放。
+hail-02b = 马罗说码头对你开放。
+
+# clif:source = 柳树已经让第九盏灯燃烧了十一个冬天，而她从未向公会要过一滴油。
+dialogue-willow-keeps = 柳树已经让第九盏灯燃烧了十一个冬天，而她从未向公会要过一滴油。
+
+# clif:source = 在马罗的船到达码头之前把它烧掉。冰冷的灰烬不会告诉他任何事。
+dialogue-burn-it = 在马罗的船到达码头之前把它烧掉。冰冷的灰烬不会告诉他任何事。
+
+# clif:source = 第九盏灯现在归你保管了。别让我后悔这次交接。
+success-echo = 第九盏灯现在归你保管了。别让我后悔这次交接。
+
+# clif:source = 闸门撑住了。不管你在下面做了什么，水都流向了它该去的地方。
+line-success-tide = 闸门撑住了。不管你在下面做了什么，水都流向了它该去的地方。
+
+# clif:source = 闸门卡住了，码头被水淹了。等退潮后再来，我们再试一次。
+line-failure-tide = 闸门卡住了，码头被水淹了。等退潮后再来，我们再试一次。
+
+# clif:source = 中继网络非常稳健：一个信标失效不会破坏整条链路。
+item-relay-grid-desc = 中继网络非常稳健：一个信标失效不会破坏整条链路。
+
+# clif:source = 一瓶油在默认灯芯高度下可供灯具燃烧30分钟。
+item-lamp-oil-desc = 一瓶油在默认灯芯高度下可供灯具燃烧30分钟。
+
+# clif:source = 一盏矮胖的黄铜灯，带有划痕的蓝色遮光板。它发出的光很弱，但在雾中，弱光比强光散射得更少。
+item-fog-lamp-desc = 一盏矮胖的黄铜灯，带有划痕的蓝色遮光板。它发出的光很弱，但在雾中，弱光比强光散射得更少。
+
+# clif:source = 马罗的债务
+achv-marrow-debt = 马罗的债务
+
+# clif:source = 九夜九灯
+achv-nine-nights = 九夜九灯
+
+# clif:source = 顺潮而行，{playerName}。你上一次行动结束于3天前。
+system-welcome-runner = 顺潮而行，{playerName}。你上一次行动结束于3天前。
+
+# clif:source = 按住 [E] 举起灯笼；按 [Q] 发出信号。
+system-keybind-lantern = 按住 [E] 举起灯笼；按 [Q] 发出信号。
+
+# clif:source = 信号范围：雾中120米，晴朗空气中400米。
+system-signal-range = 信号范围：雾中120米，晴朗空气中400米。
+
+# clif:source = {state, select, updated {任务已更新} complete {任务完成} other {任务失败}}
+system-quest-state = {state, select, updated {任务已更新} complete {任务完成} other {任务失败}}

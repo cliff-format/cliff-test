@@ -1,0 +1,231 @@
+header:
+  namespace: clarion
+  clan: news-social
+  source-language: en-US
+  target-language: zh-CN
+  title: '一条新电车线路开通当天的城市社交信息流：帖子、回复、通知和评论'
+  info: '虚构城市萨布尔威克（Sablewick）中一天的社交媒体内容，当地一条名为“河畔环线”的新电车线路刚刚开通。受众：公共社交平台的普通用户，以及本地新闻网站下的读者评论。内容为帖子、帖子回复、应用内通知和读者评论，采用当下随意的口语风格；用户名、话题标签、表情符号和消息参数都是文本的一部分，属于平台本身，不属于句子。'
+  standard: 'zh-CN 内部风格：中文与拉丁字母或数字之间留一个空格，中文句子内使用全角标点，避免教科书式术语。@用户名、话题标签和表情符号按原文原样保留，位置不变。网络流行语用同样当下的中文表达，不逐字直译。保持帖子的随意语气，不要提升为新闻语体。情绪标签要通过措辞、语气词和标点体现，不要用中性释义。保留 ICU 参数、参数名及其结构。线路名、地名或账号名若多次出现，在本文件所有条目中必须保持一致；回复必须根据其所回复的消息补全语义。'
+groups:
+- path: posts.reactions
+  context: 同一天同一小时内发布的帖子。每条措辞在信息流中出现两次；每条帖子下的注释说明作者是谁，以及刚刚发生了什么。
+  type: sentence
+  entries:
+  - id: news-01a
+    source: Great work today, everyone. Really.
+    emotion:
+    - grateful
+    - joyful
+    status: initial
+    context: 志愿者协调员在团队提前两天完成车辆段壁画后发布；感谢是真诚的。
+  - id: news-01b
+    source: Great work today, everyone. Really.
+    emotion:
+    - angry
+    - playful
+    status: initial
+    context: 通勤者在当天早上第三次服务警报发布二十分钟后发布；这句夸奖是讽刺的，意思相反。
+  - id: news-02a
+    source: Six months of roadworks and here we are.
+    emotion:
+    - joyful
+    - hopeful
+    status: initial
+    context: 一位居民在马罗街开通仪式现场发布，对工程终于完工感到高兴。
+  - id: news-02b
+    source: Six months of roadworks and here we are.
+    emotion:
+    - angry
+    - playful
+    status: initial
+    context: 一周后，一位居民站在同一条街上新立起的一排围挡前发布。
+  - id: news-03a
+    source: You are really going to ride that thing?
+    emotion:
+    - anxious
+    - polite
+    status: initial
+    context: 回复一位刚发帖说今晚风暴预警期间要坐新线路回家的朋友；作者担心她。
+  - id: news-03b
+    source: You are really going to ride that thing?
+    emotion:
+    - rude
+    - playful
+    status: initial
+    context: 来自一个整整一周都在嘲讽该项目的账号的回复；作者觉得这车是破烂，在挑衅对方。
+- path: posts.referents
+  context: 措辞完全相同的短回复。每条注释说明作者发布时正在看什么。
+  type: sentence
+  entries:
+  - id: news-04a
+    source: Nice shot.
+    emotion:
+    - joyful
+    - informal
+    status: initial
+    context: 评论粉丝拍摄的第一辆电车在日出时过河的照片。
+  - id: news-04b
+    source: Nice shot.
+    emotion:
+    - joyful
+    - informal
+    status: initial
+    context: 评论车辆段慈善篮球赛的片段，发布于某球员从中场线投篮命中的瞬间。
+  - id: news-05a
+    source: It is back.
+    emotion:
+    - joyful
+    - informal
+    status: initial
+    context: 评论风暴后服务恢复的通知；作者指的是电车线路本身。
+  - id: news-05b
+    source: It is back.
+    emotion:
+    - sad
+    - informal
+    status: initial
+    context: 评论马罗街上施工围挡再次立起的照片；作者指的是围挡。
+- path: platform.conventions
+  context: 平台自身的帖子和应用内通知。用户名、话题标签、表情符号和消息参数都是用户看到的文本的一部分。
+  type: sentence
+  entries:
+  - id: news-06
+    source: 'Huge thanks to @HollowPineCafe for handing out free coffee at the depot
+      gate this morning. #TramDay'
+    emotion:
+    - grateful
+    - informal
+    status: initial
+    context: 一位乘客发帖感谢本地咖啡馆。用户名和话题标签是其他用户找到该咖啡馆和当天帖子的方式。
+  - id: news-07
+    source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+    emotion:
+    - joyful
+    - playful
+    status: initial
+    context: 一位乘客发帖说下午纯粹为了好玩坐了一整圈。两个表情符号位于句子两半之间，承载情绪。
+  - id: news-08
+    source: The new depot mural absolutely ate. No crumbs left.
+    emotion:
+    - joyful
+    - informal
+    status: initial
+    context: 称赞电车车辆段壁画的帖子。两句话都是当下形容作品极其出色的俚语；场景中并没有吃东西。
+  - id: news-09
+    source: '{count, plural, one {# person} other {# people}} reposted your photo.'
+    type: prompt
+    emotion:
+    - mechanical
+    - objective
+    status: initial
+    context: 照片被转发时活动列表中的应用内通知。参数决定单复数形式，数字显示在井号所在位置。
+  - id: news-10
+    source: '{name} and {others, plural, one {# other} other {# others}} liked your
+      post.'
+    type: prompt
+    emotion:
+    - mechanical
+    - objective
+    status: initial
+    context: 点赞的应用内通知。第一个参数是显示名称，第二个参数统计其他点赞人数。
+  - id: news-11
+    source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out
+      of 10, would ride again.
+    emotion:
+    - joyful
+    - informal
+    status: initial
+    context: 一位通勤者发帖计算新线路节省的时间。结尾短语是评分，不是分数。
+- path: thread.replies
+  context: 服务公告下的一条评论串，按发布顺序排列。每条回复都承接正上方的消息，省略该消息已说过的内容。
+  type: sentence
+  entries:
+  - id: news-12
+    source: '@SablewickTransit Will the Riverside Loop run on the holiday Monday?'
+    emotion:
+    - curious
+    - polite
+    status: initial
+    context: 评论串中的第一条消息：一位乘客向交通账号提问。
+  - id: news-13
+    source: Yes, on a Sunday timetable.
+    emotion:
+    - polite
+    - objective
+    status: initial
+    context: 交通账号对正上方问题的回复。句子本身没有动词，需要借用那个问题中的动词。
+  - id: news-14
+    source: And the last one back?
+    emotion:
+    - curious
+    - informal
+    status: initial
+    context: 乘客在同一条评论串中追问。这个光秃秃的名词短语指的是刚确认的服务的末班车，方向为返程。
+  - id: news-15
+    source: Eleven forty, from the north end.
+    emotion:
+    - polite
+    - objective
+    status: initial
+    context: 交通账号回答追问。时间是乘客问的晚间发车时间，动词同样来自上面的消息。
+  - id: news-16
+    source: Perfect, thank you! Adding it to the group chat now.
+    emotion:
+    - grateful
+    - informal
+    status: initial
+    context: 乘客结束这条评论串。转发的是刚给出的发车信息，不是电车，也不是账号。
+- path: feed.updates
+  context: 交通账号的常规帖子和同一天的客观读者评论。
+  type: sentence
+  entries:
+  - id: news-17
+    source: 'Service update: from Monday the Riverside Loop runs every eight minutes,
+      with the last departure at 11:40 pm.'
+    emotion:
+    - objective
+    - formal
+    status: initial
+    context: 交通账号发布定时帖子，宣布线路的新发车频率。
+  - id: news-18
+    source: The depot open day starts at ten on Saturday morning and the workshop
+      tour is free for everyone.
+    emotion:
+    - objective
+    status: initial
+    context: 发布车辆段开放日公告的帖子。
+  - id: news-19
+    source: Ridership on the Riverside Loop reached twenty-one thousand journeys in
+      its first week, the operator said.
+    emotion:
+    - objective
+    status: initial
+    context: 总结运营商公布的首周客流数据的帖子。
+  - id: news-20
+    source: I take the first tram most mornings and the seats are comfortable enough
+      for the whole ride.
+    emotion:
+    - neutral
+    - informal
+    status: initial
+    context: 读者评论描述在该线路上的普通通勤体验。
+  - id: news-21
+    source: Does anyone know whether the ticket machine at the north end takes cards?
+    emotion:
+    - curious
+    - informal
+    status: initial
+    context: 读者评论询问北端终点站售票机的实际问题。
+  - id: news-22
+    source: The rain held off for the ceremony, which was lucky for everyone standing
+      on the platform.
+    emotion:
+    - neutral
+    status: initial
+    context: 读者评论开通仪式期间的天气。
+  - id: news-23
+    source: A single journey costs one euro fifty and a day pass costs four euros.
+    emotion:
+    - objective
+    status: initial
+    context: 交通账号发布新线路票价的帖子。

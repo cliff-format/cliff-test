@@ -1,0 +1,215 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the invoice and payment screen.
+# clif:source = Billing
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+billing = Billing
+
+# Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the live stream management screen.
+# clif:source = Streaming
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+streaming = Streaming
+
+# Primary navigation links in the Harborline Console sidebar. Sidebar link that lists the user's isolated project environments.
+# clif:source = Workspaces
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+workspaces = Workspaces
+
+# Billing screen: invoices, rates and usage totals. Column header in the invoice summary; the price charged per gigabyte.
+# clif:source = Billing rate
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+billing-rate = Billing rate
+
+# Billing screen: invoices, rates and usage totals. Empty state shown when the account has never generated an invoice.
+# clif:source = No invoices yet
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+no-invoices = No invoices yet
+
+# Billing screen: invoices, rates and usage totals. Error toast after a rejected card charge.
+# clif:source = Payment failed
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+payment-failed = Payment failed
+
+# Live stream management screen: sources, keys and quality settings. Field that shows the secret value the encoder sends with the live stream.
+# clif:source = Stream key
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+stream-key = Stream key
+
+# Live stream management screen: sources, keys and quality settings. Label beside the frames-per-second selector on the quality panel.
+# clif:source = Frame rate
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+frame-rate = Frame rate
+
+# Live stream management screen: sources, keys and quality settings. Dropdown label above the output resolution list.
+# clif:source = Resolution
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+resolution = Resolution
+
+# Live stream management screen: sources, keys and quality settings. Menu action that attaches the selected stream to a project environment.
+# clif:source = Add to workspace
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+# clif:max-width = 10
+add-to-workspace = Add to workspace
+
+# Live stream management screen: sources, keys and quality settings. Error toast when the encoder cannot establish the live stream.
+# clif:source = Stream failed to start
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+stream-failed = Stream failed to start
+
+# Live stream management screen: sources, keys and quality settings. Summary line under the stream list showing how many streams run in how many regions.
+# clif:source = {count, plural, other {# streams}} across {regions, plural, other {# regions}}
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+stream-summary = {count, plural, other {# streams}} across {regions, plural, other {# regions}}
+
+# Workspace settings page: region, network and cache options. Button that resets every option on this page to its initial value.
+# clif:source = Restore defaults
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+# clif:max-width = 8
+restore-defaults = Restore defaults
+
+# Workspace settings page: region, network and cache options. Button that empties the stored responses so the next request reaches the origin.
+# clif:source = Clear cache
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+clear-cache = Clear cache
+
+# Workspace settings page: region, network and cache options. Tooltip over the latency badge; the round-trip time in milliseconds.
+# clif:source = Latency
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+latency = Latency
+
+# Workspace settings page: region, network and cache options. Label of the credential field used to authenticate programmatic calls.
+# clif:source = API token
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+api-token = API token
+
+# Workspace settings page: region, network and cache options. Field in the throttling section; the maximum requests allowed per second.
+# clif:source = Request rate limit
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+# clif:max-width = 8
+request-rate-limit = Request rate limit
+
+# Workspace settings page: region, network and cache options. Status line at the top of the page showing the currently selected region name.
+# clif:source = Region: %s
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+status-line = Region: %s
+
+# Workspace settings page: region, network and cache options. Explanatory paragraph under the cache options heading.
+# clif:source = Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.
+# clif:type = description
+# clif:emotion = objective
+# clif:status = initial
+cache-description = Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.
+
+# First-run onboarding and workspace management dialogs. Primary button on the onboarding screen that opens the workspace creation flow.
+# clif:source = Create new workspace
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+# clif:max-width = 10
+create-workspace = Create new workspace
+
+# First-run onboarding and workspace management dialogs. Greeting heading shown after sign-in, with the account holder's display name.
+# clif:source = Welcome back to Harborline, {name}
+# clif:type = prompt
+# clif:emotion = polite
+# clif:status = initial
+welcome-back = Welcome back to Harborline, {name}
+
+# First-run onboarding and workspace management dialogs. Caption under the workspace list that reports the total number of project environments.
+# clif:source = {count, plural, one {# workspace} other {# workspaces}}
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+workspace-count = {count, plural, one {# workspace} other {# workspaces}}
+
+# First-run onboarding and workspace management dialogs. Confirmation dialog shown before permanently removing a project environment.
+# clif:source = Delete this workspace? This cannot be undone.
+# clif:type = sentence
+# clif:emotion = serious
+# clif:status = initial
+delete-confirm = Delete this workspace? This cannot be undone.
+
+# First-run onboarding and workspace management dialogs. Screen-reader cue announcing the action bound to the Escape key.
+# clif:source = Close dialog
+# clif:type = accessibility-cue
+# clif:emotion = objective
+# clif:status = initial
+close-dialog = Close dialog

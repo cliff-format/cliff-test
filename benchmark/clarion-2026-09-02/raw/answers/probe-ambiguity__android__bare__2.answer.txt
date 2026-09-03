@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: Oh, that's just wonderful.-->
+    <string name="probe-01a">哦，那真是太好了。</string>
+    <!--clif:source: Oh, that's just wonderful.-->
+    <string name="probe-01b">哦，那真是太好了。</string>
+    <!--clif:source: After you.-->
+    <string name="probe-02a">您先请。</string>
+    <!--clif:source: After you.-->
+    <string name="probe-02b">您先请。</string>
+    <!--clif:source: Well, here we go again.-->
+    <string name="probe-03a">好吧，又来了。</string>
+    <!--clif:source: Well, here we go again.-->
+    <string name="probe-03b">好吧，又来了。</string>
+    <!--clif:source: Just relax.-->
+    <string name="probe-04a">放松点。</string>
+    <!--clif:source: Just relax.-->
+    <string name="probe-04b">放松点。</string>
+    <!--clif:source: Save-->
+    <string name="probe-05a">保存</string>
+    <!--clif:source: Save-->
+    <string name="probe-05b">保存</string>
+    <!--clif:source: Forge-->
+    <string name="probe-06a">锻造</string>
+    <!--clif:source: Forge-->
+    <string name="probe-06b">锻造</string>
+    <!--clif:source: Break a leg!-->
+    <string name="probe-07a">祝你好运！</string>
+    <!--clif:source: Break a leg!-->
+    <string name="probe-07b">祝你好运！</string>
+    <!--clif:source: Rate-->
+    <string name="probe-08a">评分</string>
+    <!--clif:source: Rate-->
+    <string name="probe-08b">评分</string>
+    <!--clif:source: Seal-->
+    <string name="probe-09a">封印</string>
+    <!--clif:source: Seal-->
+    <string name="probe-09b">封印</string>
+    <!--clif:source: It won't start.-->
+    <string name="probe-10a">它启动不了。</string>
+    <!--clif:source: It won't start.-->
+    <string name="probe-10b">它启动不了。</string>
+    <!--clif:source: Restore Default Settings-->
+    <string name="probe-11a">恢复默认设置</string>
+    <!--clif:source: Restore Default Settings-->
+    <string name="probe-11b">恢复默认设置</string>
+    <!--clif:source: View Frequently Asked Questions-->
+    <string name="probe-12a">查看常见问题</string>
+    <!--clif:source: View Frequently Asked Questions-->
+    <string name="probe-12b">查看常见问题</string>
+</resources>

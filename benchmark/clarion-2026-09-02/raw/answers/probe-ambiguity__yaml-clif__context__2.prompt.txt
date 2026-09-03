@@ -1,0 +1,263 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+header:
+  namespace: clarion
+  clan: probe-ambiguity
+  source-language: en-US
+  target-language: zh-CN
+  title: Minimal-pair diagnostic set where the brief is decisive
+  info: 'The probe stratum measures what a translation brief is worth: entries come
+    in minimal pairs whose source text is identical or nearly so, and only one CLIF
+    field (emotion, type, context or max-width) tells the two members apart. A translation
+    that ignores that field must fail at least one member. Every item is original
+    text written for CLARION, drawn from generic software, transit, stage, warehouse
+    and support scenarios.'
+  standard: 'Use one space between Han text and Latin letters or digits, and fullwidth
+    punctuation inside Han sentences. Render the emotion tag in the wording, particles
+    and punctuation, never as a neutral gloss. Honor the type field''s register: a
+    label stays a bare noun, a sentence is a full instruction, an idiom is an idiomatic
+    wish, a proper noun is a place name. Choose the referent the context line names.
+    Fit the declared max-width in display cells, where Latin letters and digits count
+    one cell and Han or fullwidth characters count two. No textbook jargon.'
+groups:
+- path: emotion.reading
+  context: Spoken lines that come in pairs; the emotion tag, not the words, decides
+    how the line should sound.
+  type: dialogue
+  entries:
+  - id: probe-01a
+    source: Oh, that's just wonderful.
+    emotion:
+    - joyful
+    - grateful
+    status: initial
+    context: The speaker has just opened an acceptance letter and means the compliment
+      warmly.
+  - id: probe-01b
+    source: Oh, that's just wonderful.
+    emotion:
+    - angry
+    - playful
+    status: initial
+    context: The speaker has just watched the plan fall apart; the line is bitter
+      irony.
+  - id: probe-02a
+    source: After you.
+    emotion:
+    - polite
+    - calm
+    status: initial
+    context: A cafe customer holds the door open and genuinely lets the other person
+      go first.
+  - id: probe-02b
+    source: After you.
+    emotion:
+    - polite
+    - angry
+    status: initial
+    context: The speaker gestures toward the unlit stairwell; the courtesy is really
+      an order to go first.
+  - id: probe-03a
+    source: Well, here we go again.
+    emotion:
+    - joyful
+    - playful
+    status: initial
+    context: Two friends line up for another round of the board game; said with a
+      grin.
+  - id: probe-03b
+    source: Well, here we go again.
+    emotion:
+    - sad
+    - calm
+    status: initial
+    context: A repair worker returns to the same machine for the third time; said
+      with a sigh.
+  - id: probe-04a
+    source: Just relax.
+    emotion:
+    - calm
+    - hopeful
+    status: initial
+    context: A nurse reassures a patient before a routine procedure.
+  - id: probe-04b
+    source: Just relax.
+    emotion:
+    - serious
+    - angry
+    status: initial
+    context: A guard tells a cornered intruder to stop moving; the tone is steady,
+      not warm.
+- path: type.register
+  context: Pairs where the same English string changes rendering with its type; honor
+    the register the type implies.
+  entries:
+  - id: probe-05a
+    source: Save
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Toolbar button that writes the open document to disk.
+  - id: probe-05b
+    source: Save
+    type: sentence
+    emotion:
+    - objective
+    status: initial
+    context: Step in the shutdown checklist telling the operator to write the session
+      to disk before closing.
+  - id: probe-06a
+    source: Forge
+    type: proper-noun
+    emotion:
+    - objective
+    status: initial
+    context: Neighborhood name on the transit map, after the foundry that once stood
+      there.
+  - id: probe-06b
+    source: Forge
+    type: verb
+    emotion:
+    - objective
+    status: initial
+    context: 'Single-word task on the smith''s workbench menu: begin shaping the heated
+      metal.'
+  - id: probe-07a
+    source: Break a leg!
+    type: idiom
+    emotion:
+    - objective
+    status: initial
+    context: Wished to a performer just before they walk on stage.
+  - id: probe-07b
+    source: Break a leg!
+    type: sentence
+    emotion:
+    - objective
+    status: initial
+    context: 'Safety notice in the warehouse: watch the wet floor, do not slip and
+      hurt yourself.'
+- path: context.referent
+  context: Pairs where the context line names the referent; choose the word the scene
+    requires.
+  entries:
+  - id: probe-08a
+    source: Rate
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Column header on the invoice; the amount charged per hour of work.
+  - id: probe-08b
+    source: Rate
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Setting in the video editor's playback panel; how many frames are drawn
+      each second.
+  - id: probe-09a
+    source: Seal
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Caption on the marine-animals picture card in the children's set.
+  - id: probe-09b
+    source: Seal
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Label on the office-supplies drawer; the wax stamp used to close documents.
+  - id: probe-10a
+    source: It won't start.
+    type: sentence
+    emotion:
+    - objective
+    status: initial
+    context: 'Roadside call: the driver means the car engine, which will not turn
+      over.'
+  - id: probe-10b
+    source: It won't start.
+    type: sentence
+    emotion:
+    - objective
+    status: initial
+    context: 'Support call: the user means the desktop application, which will not
+      launch.'
+- path: width.budget
+  context: Pairs where the width budget forces a shorter wording; stay within the
+    declared cells.
+  type: label
+  entries:
+  - id: probe-11a
+    source: Restore Default Settings
+    emotion:
+    - objective
+    status: initial
+    context: Button on the settings screen, with room for the full wording.
+    max-width: 14
+  - id: probe-11b
+    source: Restore Default Settings
+    emotion:
+    - objective
+    status: initial
+    context: Button on the narrow mobile settings bar, where space is tight.
+    max-width: 8
+  - id: probe-12a
+    source: View Frequently Asked Questions
+    emotion:
+    - objective
+    status: initial
+    context: Menu item on the desktop help screen, with room for the full wording.
+    max-width: 16
+  - id: probe-12b
+    source: View Frequently Asked Questions
+    emotion:
+    - objective
+    status: initial
+    context: Footer link on the narrow mobile page, where space is tight.
+    max-width: 8

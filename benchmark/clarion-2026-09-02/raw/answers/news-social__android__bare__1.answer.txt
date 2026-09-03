@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: Great work today, everyone. Really.-->
+    <string name="news-01a">今天大家干得真棒。真的。</string>
+    <!--clif:source: Great work today, everyone. Really.-->
+    <string name="news-01b">今天大家干得真棒。真的。</string>
+    <!--clif:source: Six months of roadworks and here we are.-->
+    <string name="news-02a">六个月的修路工程，我们终于到了。</string>
+    <!--clif:source: Six months of roadworks and here we are.-->
+    <string name="news-02b">六个月的修路工程，我们终于到了。</string>
+    <!--clif:source: You are really going to ride that thing?-->
+    <string name="news-03a">你真的要骑那个东西吗？</string>
+    <!--clif:source: You are really going to ride that thing?-->
+    <string name="news-03b">你真的要骑那个东西吗？</string>
+    <!--clif:source: Nice shot.-->
+    <string name="news-04a">好球。</string>
+    <!--clif:source: Nice shot.-->
+    <string name="news-04b">好球。</string>
+    <!--clif:source: It is back.-->
+    <string name="news-05a">它回来了。</string>
+    <!--clif:source: It is back.-->
+    <string name="news-05b">它回来了。</string>
+    <!--clif:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay-->
+    <string name="news-06">非常感谢@HollowPineCafe今天早上在停车场门口免费发放咖啡。#电车日</string>
+    <!--clif:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets-->
+    <string name="news-07">今天下午骑了整条环线，就因为我行 🚋💚 不后悔</string>
+    <!--clif:source: The new depot mural absolutely ate. No crumbs left.-->
+    <string name="news-08">新的停车场壁画简直绝了。一点渣都不剩。</string>
+    <!--clif:source: {count, plural, one {# person} other {# people}} reposted your photo.-->
+    <string name="news-09">{count, plural, one {# 人} other {# 人}}转发了你的照片。</string>
+    <!--clif:source: {name} and {others, plural, one {# other} other {# others}} liked your post.-->
+    <string name="news-10">{name}和{others, plural, one {# 其他人} other {# 其他人}}赞了你的帖子。</string>
+    <!--clif:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.-->
+    <string name="news-11">在河滨环线第三天，我单程省了40分钟。满分十分，还会再坐。</string>
+    <!--clif:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?-->
+    <string name="news-12">@SablewickTransit 河滨环线在假日星期一运行吗？</string>
+    <!--clif:source: Yes, on a Sunday timetable.-->
+    <string name="news-13">是的，按星期日时刻表运行。</string>
+    <!--clif:source: And the last one back?-->
+    <string name="news-14">那最后一班回来的呢？</string>
+    <!--clif:source: Eleven forty, from the north end.-->
+    <string name="news-15">十一点四十分，从北端出发。</string>
+    <!--clif:source: Perfect, thank you! Adding it to the group chat now.-->
+    <string name="news-16">太好了，谢谢！现在就加到群聊里。</string>
+    <!--clif:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.-->
+    <string name="news-17">服务更新：从星期一起，河滨环线每八分钟一班，末班车晚上11:40发车。</string>
+    <!--clif:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.-->
+    <string name="news-18">停车场开放日星期六上午十点开始，车间参观对所有人免费。</string>
+    <!--clif:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.-->
+    <string name="news-19">运营商表示，河滨环线第一周客流量达到两万一千人次。</string>
+    <!--clif:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.-->
+    <string name="news-20">我大多数早上都坐第一班电车，座位够舒服，全程都很舒适。</string>
+    <!--clif:source: Does anyone know whether the ticket machine at the north end takes cards?-->
+    <string name="news-21">有人知道北端的售票机能不能刷卡吗？</string>
+    <!--clif:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.-->
+    <string name="news-22">仪式期间雨没下，这对站在站台上的每个人来说都很幸运。</string>
+    <!--clif:source: A single journey costs one euro fifty and a day pass costs four euros.-->
+    <string name="news-23">单程票价一欧元五十美分，日票四欧元。</string>
+</resources>

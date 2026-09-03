@@ -1,0 +1,228 @@
+header:
+  namespace: clarion
+  clan: ui-workbench
+  source-language: en-US
+  target-language: zh-CN
+  title: Slatepath 数据工作台界面字符串
+  info: 'Slatepath 是一个数据分析工作台，供分析师打开数据集、从中绘制图表并将图表固定到共享看板。其模块包括 Quarry（浏览和打开数据集）、图表编辑器、计算集群页面、存储页面和通知页面。临时表（scratch table）是分析师自己草拟的结果集副本：它存在于浏览器标签页中，不是数据库临时表，所有提及它的条目都必须使用相同的表述。部分操作标签出现两次，一次在设置页面的宽菜单中，一次在屏幕边缘的窄检查器侧栏中，因此其中一些带有显示宽度预算。受众：在桌面浏览器中工作的分析师和数据工程师。'
+  standard: '保持产品名称 Slatepath 和模块名称（如 Quarry）使用拉丁字母；切勿音译或将其作为普通词语翻译。在所有提及“scratch table”的条目中使用完全一致的翻译，不要借用数据库临时表的措辞。保持 ICU MessageFormat 结构、参数名称和引擎占位符（如 {name}）与源文本完全一致。在中文文本与拉丁字母或数字之间使用一个空格，中文句子内使用全角标点。避免教科书式术语：写“默认”而非“缺省”，“缓存”而非“高速缓存”，“延迟”而非“时延”，“分辨率”而非“解析度”，“吞吐量”而非“吞吐率”。标签应简短且不以句号结尾，而帮助和设置说明应为完整句子。显示宽度预算以单元格计，拉丁字母和数字计 1 格，中文或全角字符计 2 格；窄槽位必须重写得更短，而非截断。'
+
+groups:
+- path: workbench.labels
+  context: 'Slatepath 工作台中的短标签：侧边栏条目、面板标题、列标题以及产品附带的演示数据集中的值。同一个英文单词可以在一个页面上作为面板标题，在另一个页面上作为列标题，因此标签所属的页面决定了其含义。'
+  type: label
+  emotion:
+  - objective
+  entries:
+  - id: nav-scratch-tables
+    source: Scratch tables
+    status: initial
+    context: 侧边栏条目，打开分析师在本会话中创建的结果集副本列表。
+    target: 临时表
+  - id: mode-01a
+    source: Quarry
+    type: proper-noun
+    status: initial
+    context: 侧边栏条目，打开浏览和打开数据集的模块。
+    target: Quarry
+  - id: mode-01b
+    source: Quarry
+    type: noun
+    status: initial
+    context: 产品附带的演示数据集中站点类型列的值，其中每一行都是某种类型的采矿站点。
+    target: Quarry
+  - id: term-02a
+    source: Volume
+    status: initial
+    context: 存储页面上的列标题；该列报告每个表持有的数据量。
+    target: 数据量
+  - id: term-02b
+    source: Volume
+    status: initial
+    context: 通知页面上滑块上方的标签，用于设置桌面提醒声音的音量。
+    target: 音量
+  - id: term-03a
+    source: Scale
+    status: initial
+    context: 图表编辑器中轴选项上方的标签，分析师在此选择轴如何划分其值。
+    target: 刻度
+  - id: term-03b
+    source: Scale
+    status: initial
+    context: 计算集群页面上工作器选项上方的标签，分析师在此选择作业可以使用多少台机器。
+    target: 规模
+
+- path: workbench.actions
+  context: 菜单、工具栏和检查器侧栏中的操作标签，以及引导新分析师完成相同操作的分步入门清单。屏幕边缘的侧栏比设置页面窄得多，清单则作为连续的操作说明阅读。
+  type: label
+  emotion:
+  - objective
+  entries:
+  - id: mode-04a
+    source: Refresh the sample
+    status: initial
+    context: Quarry 页面预览表上方工具栏中的按钮。
+    target: 刷新示例
+  - id: mode-04b
+    source: Refresh the sample
+    type: sentence
+    status: initial
+    context: 入门清单的第二步，新分析师在首次运行前阅读。
+    target: 刷新示例
+  - id: slot-05a
+    source: Save the current view as a preset
+    status: initial
+    context: 设置页面视图菜单中的菜单项，整个措辞可在一行内显示。
+    max-width: 24
+    target: 将当前视图保存为预设
+  - id: slot-05b
+    source: Save the current view as a preset
+    status: initial
+    context: 屏幕边缘检查器侧栏中的相同操作，槽位宽度不到前者的一半。
+    max-width: 10
+    target: 保存为预设
+  - id: slot-06a
+    source: Compare with the previous run
+    status: initial
+    context: 运行历史表行内的按钮，单元格为标签提供完整宽度。
+    max-width: 22
+    target: 与上次运行比较
+  - id: slot-06b
+    source: Compare with the previous run
+    status: initial
+    context: 图表工具栏中的相同操作，按钮与其他四个按钮共享一行。
+    max-width: 10
+    target: 对比上次
+  - id: note-step-order
+    source: Step 3 sets the row limit, so do not raise it before you have run step
+      2 at least once.
+    type: sentence
+    status: initial
+    context: 入门清单下方打印的说明。在该清单中，刷新示例是第 2 步，行数限制是第 3 步，此处的数字必须与该顺序一致。
+    target: 第 3 步设置行数限制，因此请至少运行一次第 2 步后再提高限制。
+
+- path: workbench.messages
+  context: '工作台本身渲染的字符串：计数器、状态横幅、首页问候语、错误提示、空状态以及一条屏幕阅读器提示。ICU MessageFormat 结构、参数名称和占位符由引擎填充。'
+  type: sentence
+  emotion:
+  - mechanical
+  entries:
+  - id: msg-row-count
+    source: '{rows, plural, one {# row copied to the scratch table} other {# rows
+      copied to the scratch table}}'
+    status: initial
+    context: 预览表下方的计数器；工作台替换已复制的行数。
+    target: '{rows, plural, one {已将 # 行复制到临时表} other {已将 # 行复制到临时表}}'
+  - id: msg-table-state
+    source: '{state, select, ready {Scratch table ready} building {Building the scratch
+      table} other {Scratch table failed}}'
+    status: initial
+    context: 持有复制结果集的面板顶部的横幅；工作台传入状态名称。
+    target: '{state, select, ready {临时表已就绪} building {正在构建临时表} other {临时表创建失败}}'
+  - id: msg-welcome-back
+    source: Welcome back, {name}. Your last run took 12 minutes.
+    emotion:
+    - polite
+    status: initial
+    context: 登录后工作台首页的问候语；占位符携带分析师的显示名称。
+    target: 欢迎回来，{name}。您上次运行耗时 12 分钟。
+  - id: msg-job-outcome
+    source: '{state, select, running {The job is still running} done {The job finished}
+      failed {The job failed} other {The job state is unknown}}'
+    status: initial
+    context: 集群页面上作业状态变化时显示的提示。工作台传入状态名称并渲染四种措辞之一；选择器键是引擎值，不是屏幕上的文字。
+    target: '{state, select, running {作业仍在运行} done {作业已完成} failed {作业失败} other {作业状态未知}}'
+  - id: msg-sample-loading
+    source: The scratch table could not be created because the sample is still loading.
+    status: initial
+    context: 分析师在预览加载完成前复制结果集时显示的错误提示。
+    target: 无法创建临时表，因为示例仍在加载中。
+  - id: msg-board-empty
+    source: Nothing is pinned to this board yet. Open a chart and pin it here.
+    status: initial
+    context: 尚未有人放置图表的共享看板的空状态。
+    target: 此看板尚未固定任何内容。打开图表并将其固定在此处。
+  - id: cue-chart-updated
+    source: Chart updated
+    type: accessibility-cue
+    status: initial
+    context: 新行到达后图表重绘时播报的屏幕阅读器提示。
+    target: 图表已更新
+
+- path: workbench.help
+  context: 帮助面板中的段落，面向首次打开工作台的分析师。它们在宽页面上阅读，因此句子完整且从容。
+  type: description
+  emotion:
+  - objective
+  entries:
+  - id: help-scratch-table
+    source: A scratch table is your own copy of a result set. It lives in this browser
+      tab, it is never shared with the team, and it is thrown away when you sign out.
+    status: initial
+    context: 关于结果集的帮助部分的第一段；向新分析师介绍该对象的段落。
+    target: 临时表是您自己的结果集副本。它存在于此浏览器标签页中，不会与团队共享，并在您退出登录时被丢弃。
+  - id: help-empty-before-run
+    source: Empty it before you leave the page, or the next run starts from rows that
+      are already stale.
+    status: initial
+    context: Quarry 页面底部两个按钮下方的提示。它告诉分析师清空的对象是上面帮助段落描述的对象，而不是同一页面下方更远处的缓存选项。
+    target: 离开页面之前请将其清空，否则下次运行将从已过时的行开始。
+  - id: help-board-pin
+    source: Once it is pinned, the chart stays on the board until someone takes it
+      down.
+    status: initial
+    context: 关于共享看板的帮助部分中的句子。它回应了本文件中空状态行的内容，并且必须复用该行用于将图表放置到看板的动词。
+    target: 一旦固定，图表将保留在看板上，直到有人将其取下。
+  - id: help-keyboard-rows
+    source: Press the up and down arrows to move through the rows without taking your
+      hands off the keyboard.
+    status: initial
+    context: 帮助面板无障碍部分中的段落。
+    target: 按上箭头和下箭头可在行之间移动，无需将手离开键盘。
+  - id: help-archive
+    source: A chart you have not opened for a month moves to the archive page on its
+      own. Nothing is deleted, and opening it again brings it back.
+    status: initial
+    context: 帮助面板中解释无人查看的图表会发生什么情况的段落。
+    target: 一个月未打开的图表会自动移至归档页面。不会删除任何内容，重新打开即可将其恢复。
+
+- path: workbench.settings
+  context: '工作台的设置页面：选项标签及其下方打印的说明行。'
+  type: description
+  emotion:
+  - objective
+  entries:
+  - id: set-time-window
+    source: New charts open with the default time window until you pin one of your
+      own.
+    status: initial
+    context: 时间窗口选项下方的说明行；分析师从未更改时图表启动时使用的窗口。
+    target: 新图表默认使用默认时间窗口，直到您固定自己的窗口。
+  - id: set-export-resolution
+    source: Charts are exported at the screen resolution, or at 2x for print.
+    status: initial
+    context: 设置页面导出选项下方的说明行。
+    target: 图表以屏幕分辨率导出，打印时以 2 倍分辨率导出。
+  - id: set-cache-latency
+    source: Charts read from the cache first, which keeps latency under half a second
+      on a normal connection.
+    status: initial
+    context: 缓存选项下方的说明行，解释工作台为何保留近期结果的副本。
+    target: 图表首先从缓存读取，在正常连接下可将延迟保持在半秒以内。
+  - id: set-throughput
+    source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB
+      of them in memory.
+    status: initial
+    context: 集群选项下方的读数，在作业运行时显示。
+    target: 吞吐量约为每秒 1,200 行，集群在内存中保留 30 GB 的数据。
+  - id: set-retention
+    source: Scratch tables are kept for 7 days and are then removed without a warning.
+    status: initial
+    context: 设置页面保留选项下方的说明行。
+    target: 临时表保留 7 天，之后将无警告地删除。
+  - id: set-timezone
+    source: Times on this page follow the workspace time zone, not the time zone of
+      your browser.
+    status: initial
+    context: 设置页面时区选项下方的说明行。
+    target: 此页面上的时间遵循工作区时区，而非浏览器的时区。

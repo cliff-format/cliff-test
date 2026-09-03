@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="zh-CN" trgLang="en-US">
+  <file id="clarion.lit-classical" original="clarion.lit-classical">
+    <group id="aphorisms">
+      <unit id="water-holds">
+        <segment>
+          <source>水静则清，器满则倾。</source>
+          <target state="translated">Still water is clear; a full vessel tips over.</target>
+        </segment>
+      </unit>
+      <unit id="mountain-river">
+        <segment>
+          <source>山不增高，因登而高；川不返流，因逝而长。</source>
+          <target state="translated">The mountain does not grow taller, yet it is high because it is climbed; the river does not flow back, yet it is long because it flows away.</target>
+        </segment>
+      </unit>
+      <unit id="mirror">
+        <segment>
+          <source>镜不自照，故能照人；泉不自饮，故能济渴。</source>
+          <target state="translated">A mirror does not reflect itself, so it can reflect others; a spring does not drink itself, so it can quench thirst.</target>
+        </segment>
+      </unit>
+      <unit id="scale">
+        <segment>
+          <source>尺短寸长，各有所宜。</source>
+          <target state="translated">A foot may be short, an inch may be long; each has its proper use.</target>
+        </segment>
+      </unit>
+      <unit id="lantern-heart">
+        <segment>
+          <source>灯焰高者，其膏易尽；其光微者，其夜乃长。</source>
+          <target state="translated">A tall flame burns its oil quickly; a dim light makes the night last longer.</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="parallel-prose">
+      <unit id="parallel-prose-1">
+        <segment>
+          <source>层峦千仞，藏云于顶；寒江万里，送舟于天。</source>
+          <target state="translated">Ridge upon ridge, a thousand fathoms high, hides clouds at its peak; a cold river, ten thousand miles long, sends boats to the horizon.</target>
+        </segment>
+      </unit>
+      <unit id="parallel-prose-2">
+        <segment>
+          <source>谷静无应，苍梧闻钟；灯微自摇，苍梧照水。</source>
+          <target state="translated">The valley is still and gives no echo; in the green shade, a bell is heard; the faint lamp sways by itself; in the green shade, it lights the water.</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quatrain">
+      <unit id="quatrain-1">
+        <segment>
+          <source>渡口秋灯暗，</source>
+          <target state="translated">At the ferry, the autumn lamp is dim,</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-2">
+        <segment>
+          <source>江寒雨自斜。</source>
+          <target state="translated">The river is cold, and the rain falls aslant.</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-3">
+        <segment>
+          <source>潮回沙上字，</source>
+          <target state="translated">The tide returns over words written in the sand,</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-4">
+        <segment>
+          <source>钟入隔岸家。</source>
+          <target state="translated">And the bell reaches homes across the shore.</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

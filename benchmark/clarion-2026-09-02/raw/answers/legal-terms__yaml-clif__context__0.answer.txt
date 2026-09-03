@@ -1,0 +1,159 @@
+header:
+  namespace: clarion
+  clan: legal-terms
+  source-language: en-US
+  target-language: zh-CN
+  title: Ledgerline 许可协议与研究摘要
+  info: '两份原始文件：Ledgerline（一款托管式审计追踪平台）的最终用户许可，以及一份独立评估论文的摘要。语体为正式的法律与学术英语。'
+  standard: 按法律效力翻译情态动词，保持定义术语和品牌名称一致，保留占位符和拉丁术语不译，使用全角标点，并在汉字与拉丁字母或数字之间留一个空格。
+groups:
+- path: definitions
+  context: Ledgerline 最终用户许可的开篇定义。大写术语在整份文件中始终具有其定义含义。
+  type: sentence
+  emotion:
+  - objective
+  entries:
+  - id: licensee
+    source: “Licensee” means the legal entity that enters into this Agreement and
+      accepts its terms on behalf of its Authorised Users.
+    status: initial
+    context: 第一个定义术语；后续条款以该大写名词指代此当事方。
+  - id: authorised-user
+    source: “Authorised User” means an employee, contractor or agent of the Licensee
+      whom the Licensee authorises to access the Service on its behalf.
+    status: initial
+    context: 指被许可方可允许使用服务的个人的定义术语。
+  - id: service-data
+    source: “Service Data” means all records, documents and metadata that the Licensee
+      or its Authorised Users submit to or store within the Service.
+    status: initial
+    context: 涵盖客户上传至平台的所有内容的定义术语。
+  - id: service
+    source: “Service” means the Ledgerline audit-trail platform described in Schedule
+      A, together with any updates that the Operator makes generally available.
+    status: initial
+    context: 产品本身的定义术语；品牌名称保留拉丁字母。
+  - id: operator
+    source: “Operator” means the company identified in the privacy notice as responsible
+      for processing Service Data.
+    status: initial
+    context: 服务提供方的定义术语；隐私声明中载明实际公司名称。
+- path: grant
+  context: '许可授予与核心义务。情态动词具有法律效力：许可不是预测，义务也不是意图陈述。'
+  type: sentence
+  emotion:
+  - formal
+  entries:
+  - id: grant-license
+    source: Subject to the terms of this Agreement, the Operator grants the Licensee
+      a non-exclusive, non-transferable, revocable licence to access and use the Service
+      solely for its internal business purposes.
+    status: initial
+    context: 核心授予条款；其范围受后续限制条款的约束。
+  - id: licensee-shall
+    source: The Licensee shall ensure that every Authorised User complies with the
+      terms of this Agreement.
+    status: initial
+    context: 义务条款。“Shall”在此表示义务，而非将来时态。
+  - id: operator-must
+    source: The Operator must maintain the confidentiality of Service Data in accordance
+      with Section 4.2 of this Agreement.
+    status: initial
+    context: 安全义务条款，含交叉引用；条款编号必须保留。
+  - id: licensee-may
+    source: The Licensee may reproduce the documentation solely for the purpose of
+      training its Authorised Users.
+    status: initial
+    context: 许可条款。“May”授予权利，而非预测可能性。
+  - id: termination
+    source: Either party may terminate this Agreement on thirty days' written notice
+      to the other party.
+    status: initial
+    context: 终止权；此处“may”同样表示许可。
+- path: restrictions
+  context: 禁止性使用。否定情态动词表示禁止，而非无能力或预测。
+  type: sentence
+  emotion:
+  - formal
+  entries:
+  - id: licensee-may-not
+    source: The Licensee may not sublicense, rent or lease the Service to any third
+      party.
+    status: initial
+    context: 禁止条款。“May not”禁止某项行为，而非陈述可能性。
+  - id: restricted-acts
+    source: 'The Licensee may not: (a) reverse engineer, decompile or disassemble
+      the Service; (b) remove or obscure any proprietary notice from the Service;
+      or (c) use the Service to process data on behalf of any third party.'
+    status: initial
+    context: 逐项列举的禁止事项；项目标记必须保留，以确保引用有效。
+  - id: no-derivative
+    source: The Licensee may not create derivative works based on the Service or any
+      part of it.
+    status: initial
+    context: 与列举清单平行的简短禁止条款。
+  - id: confidentiality
+    source: The Licensee shall keep confidential all non-public information about
+      the Service disclosed by the Operator.
+    status: initial
+    context: 保密义务；该义务由被许可方承担。
+- path: notices
+  context: 免责声明、责任限制与隐私声明。免责声明的效力通过措辞体现，而非排版。
+  type: sentence
+  emotion:
+  - formal
+  entries:
+  - id: warranty-disclaimer
+    source: THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF
+      ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
+      WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+    status: initial
+    context: 全大写免责声明；中文以同等效力表达，不添加任何格式。
+  - id: limitation-liability
+    source: To the maximum extent permitted by law, the aggregate liability of the
+      Operator for all claims arising out of or relating to this Agreement shall not
+      exceed the fees paid by the Licensee during the twelve months preceding the
+      claim.
+    status: initial
+    context: 责任限制条款；完整翻译，不得遗漏费用基准或时间窗口。
+  - id: severability
+    source: If any provision of this Agreement is held to be unenforceable, the remaining
+      provisions remain in full force and effect.
+    status: initial
+    context: 标准可分割性条款。
+  - id: privacy-operator
+    source: This Service is operated by {operator}, which acts as the data controller
+      for Service Data processed through the platform.
+    status: initial
+    context: 隐私声明模板；{operator} 由计费系统在运行时填充。
+  - id: privacy-purpose
+    source: The Operator processes Service Data only for the purposes of providing,
+      securing and improving the Service.
+    status: initial
+    context: 隐私声明中的目的限制条款。
+  - id: retention-period
+    source: Unless a longer period is required by law, Service Data is deleted {months}
+      months after the Licensee closes its account.
+    status: initial
+    context: 保留条款；{months} 为运行时数字，不属于可翻译文本。
+- path: abstract
+  context: 一篇关于金融审计追踪异常检测的原创评估论文摘要。技术术语遵循既定术语表；一个术语保留拉丁字母。
+  type: description
+  emotion:
+  - objective
+  entries:
+  - id: abstract
+    source: Financial audit trails grow by millions of events each day, and the teams
+      that review them need detectors that flag genuine anomalies without overwhelming
+      human analysts. We evaluate three detection approaches on a corpus of synthetic
+      ledger events, measuring false-positive rate, end-to-end latency and processing
+      throughput under adversarial noise. Our results show that a sequence model built
+      on learned event Embedding improves robustness to noise while keeping latency
+      below the interactive threshold. We release the evaluation harness and the synthetic
+      corpus to support reproducible comparison.
+    status: initial
+    context: 完整摘要；保持评估框架和三项测量指标完整。
+  - id: abstract
+    source: 金融审计追踪每天新增数百万条事件，负责审查这些数据的团队需要能够在标记真正异常的同时不使人工分析师不堪重负的检测器。我们在一个合成账本事件语料库上评估了三种检测方法，测量了对抗性噪声下的误报率、端到端延迟和处理吞吐量。结果表明，基于学习的事件 Embedding 构建的序列模型在提高抗噪声稳健性的同时，将延迟保持在交互阈值以下。我们发布了评估工具和合成语料库，以支持可复现的比较。
+    status: initial
+    context: 完整摘要；保持评估框架和三项测量指标完整。

@@ -1,0 +1,323 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = OK
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp|editor/editor_node.cpp|editor/run/editor_run_bar.cpp|editor/scene/2d/scene_paint_2d_editor_plugin.cpp|editor/scene/gui/theme_editor_plugin.cpp|editor/script/script_editor_plugin.cpp|modules/visual_shader/editor/visual_shader_editor_plugin.cpp
+ok = OK
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Failed
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+failed = Failed
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Unavailable
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+unavailable = Unavailable
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Unconfigured
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+unconfigured = Unconfigured
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Unauthorized
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+unauthorized = Unauthorized
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Parameter out of range
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+parameter-out-of-range = Parameter out of range
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Out of memory
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+out-of-memory = Out of memory
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File not found
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-not-found = File not found
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File: Bad drive
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-bad-drive = File: Bad drive
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File: Bad path
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-bad-path = File: Bad path
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File: Permission denied
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-permission-denied = File: Permission denied
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File already in use
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-already-in-use = File already in use
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't open file
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-open-file = Can't open file
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't write file
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-write-file = Can't write file
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't read file
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-read-file = Can't read file
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File unrecognized
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-unrecognized = File unrecognized
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = File corrupt
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+file-corrupt = File corrupt
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Missing dependencies for file
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+missing-dependencies-for-file = Missing dependencies for file
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = End of file
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+end-of-file = End of file
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't open
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-open = Can't open
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't create
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-create = Can't create
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Query failed
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+query-failed = Query failed
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Already in use
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+already-in-use = Already in use
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Locked
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp|editor/scene/3d/node_3d_editor_plugin.cpp|editor/scene/canvas_item_editor_plugin.cpp|scene/debugger/runtime_node_select.cpp
+locked = Locked
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Timeout
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+timeout = Timeout
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't connect
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-connect = Can't connect
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't resolve
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-resolve = Can't resolve
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Connection error
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+connection-error = Connection error
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't acquire resource
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-acquire-resource = Can't acquire resource
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't fork
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-fork = Can't fork
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Invalid data
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+invalid-data = Invalid data
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Invalid parameter
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+invalid-parameter = Invalid parameter
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Already exists
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+already-exists = Already exists
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Does not exist
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+does-not-exist = Does not exist
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't read database
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-read-database = Can't read database
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Can't write database
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+can-t-write-database = Can't write database
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Compilation failed
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+compilation-failed = Compilation failed
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Method not found
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+method-not-found = Method not found
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Link failed
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+link-failed = Link failed
+
+# Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.
+# clif:source = Script failed
+# clif:type = label
+# clif:status = initial
+# clif:reference = core/error/error_list.cpp
+script-failed = Script failed

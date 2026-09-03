@@ -1,0 +1,90 @@
+header:
+  namespace: clarion
+  clan: lit-drama
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: scene.arrival
+  entries:
+  - id: open-house-lights
+    source: The house lights are dead. One work lamp burns downstage, and the dust
+      turns slowly in its beam.
+    target: 剧场观众席的灯光已经熄灭。一盏工作灯在舞台前部亮着，灰尘在光束中缓缓旋转。
+  - id: enter-cassian
+    source: I could find this stage in my sleep.
+    target: 我闭着眼睛都能找到这个舞台。
+  - id: lit-01a
+    source: You came back.
+    target: 你回来了。
+  - id: lit-01b
+    source: You came back.
+    target: 你回来了。
+  - id: reply-cassian
+    source: The call board still has my name spelled wrong.
+    target: 通告板上我的名字还是拼错的。
+- path: scene.confrontation
+  entries:
+  - id: motif-promise
+    source: This theatre kept its promises. People did not.
+    target: 这座剧院信守承诺，而人没有。
+  - id: lit-02a
+    source: Wonderful. Just wonderful.
+    target: 太好了。真是太好了。
+  - id: lit-02b
+    source: Wonderful. Just wonderful.
+    target: 太好了。真是太好了。
+  - id: callback-promise
+    source: You said the theatre kept its promises.
+    target: 你说过这座剧院信守承诺。
+  - id: address-early
+    source: Mr. Vale, the call is in five minutes.
+    target: 维尔先生，还有五分钟就要开场了。
+  - id: address-late
+    source: Cassian. Please. Sit down.
+    target: 卡西安。请坐。
+  - id: lit-03a
+    source: She turns the lamp toward him.
+    target: 她把灯转向他。
+  - id: lit-03b
+    source: She turns the lamp toward him.
+    target: 她把灯转向他。
+- path: scene.house
+  entries:
+  - id: roof-year
+    source: The roof has not been touched since 1974.
+    target: 屋顶自1974年以来就没有动过。
+  - id: lamp-count
+    source: Two 500-watt lamps, and a fuse box older than both of us.
+    target: 两盏500瓦的灯，还有一个比我们俩都老的保险丝盒。
+  - id: venue-name
+    source: The Halloway does not close tonight. It closes when the last person leaves.
+    target: 哈洛威剧院今晚不会关门。它会在最后一个人离开时才关门。
+  - id: board-default
+    source: Use the default setting on the board and do not touch anything else.
+    target: 使用控制台上的默认设置，不要碰其他任何东西。
+  - id: disbelief
+    source: Are you serious? Now? After everything?
+    target: 你是认真的吗？现在？经历了这一切之后？
+- path: scene.monologue
+  entries:
+  - id: monologue-open
+    source: I have swept this floor more times than I have slept in my own bed. I
+      know which board creaks under a heavy actor and which one gives way under a
+      light one. A building learns you, if you stay long enough.
+    target: 我扫这地板的次数，比我在自己床上睡觉的次数还多。我知道哪块木板在沉重的演员脚下会吱呀作响，哪块会在轻盈的演员脚下松动。只要你待得够久，建筑会认识你。
+  - id: monologue-turn
+    source: And then one night the lights do not come up, and it turns out the building
+      never learned anything at all.
+    target: 然后有一天晚上，灯光没有亮起，结果发现这座建筑其实什么都没学会。
+- path: scene.verse
+  entries:
+  - id: verse-01
+    source: The lamps go dark, the boards remain.
+    target: 灯熄灭了，木板还在。
+  - id: verse-02
+    source: The players go, the play remains.
+    target: 演员走了，戏还在。
+  - id: final-direction
+    source: She reaches up and switches off the work lamp. Darkness, and then the
+      house door closing.
+    target: 她伸手关掉了工作灯。一片黑暗，然后是剧场门关上的声音。

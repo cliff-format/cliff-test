@@ -1,0 +1,113 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif.
+# clif:source = The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago.
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+narration-open = The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago.
+
+# A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif.
+# clif:source = Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain.
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+narration-memory = Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain.
+
+# An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct.
+# clif:source = "Wind's back," said Sol. "Didn't figure you'd be out." "I couldn't sleep," Maren said. "The bell again?" "The bell." Sol folded his arms. "Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot." "That's the whole of it," Maren said. "You sleep any better for knowing?" "I know the letter F in better, and that's the whole of it," said Sol.
+# clif:type = dialogue
+# clif:emotion = calm|serious
+# clif:status = initial
+dialogue-wall = "Wind's back," said Sol. "Didn't figure you'd be out." "I couldn't sleep," Maren said. "The bell again?" "The bell." Sol folded his arms. "Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot." "That's the whole of it," Maren said. "You sleep any better for knowing?" "I know the letter F in better, and that's the whole of it," said Sol.
+
+# An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct.
+# clif:source = "You'd keep the bell if the sea gave it back," Sol said one morning. "Wouldn't you?" "I'd hang it where it hangs now," Maren said. "Then what's all the listening for?" "To be sure it's still there." Sol shook his head. "It'll be there after both of us," he said, "and it won't miss us." "I know." "Then you know more than most." "I know the listening, anyway." "That's not the same thing." "It's close enough," Maren said. "It's close enough for me."
+# clif:type = dialogue
+# clif:emotion = calm|serious
+# clif:status = initial
+dialogue-breakfast = "You'd keep the bell if the sea gave it back," Sol said one morning. "Wouldn't you?" "I'd hang it where it hangs now," Maren said. "Then what's all the listening for?" "To be sure it's still there." Sol shook his head. "It'll be there after both of us," he said, "and it won't miss us." "I know." "Then you know more than most." "I know the listening, anyway." "That's not the same thing." "It's close enough," Maren said. "It's close enough for me."
+
+# Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive.
+# clif:source = I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything.
+# clif:type = monologue
+# clif:emotion = nostalgic|sad
+# clif:status = initial
+monologue-tide = I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything.
+
+# Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive.
+# clif:source = The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it.
+# clif:type = monologue
+# clif:emotion = nostalgic|sad
+# clif:status = initial
+monologue-stone = The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it.
+
+# Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.
+# clif:source = The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck.
+# clif:type = description
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+description-dusk = The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck.
+
+# Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.
+# clif:source = The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note.
+# clif:type = description
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+description-lamplighter = The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note.
+
+# Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.
+# clif:source = By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it.
+# clif:type = description
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+description-rain = By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it.
+
+# The story's final line, spoken over the harbour; the motif resolves and the register stays plain.
+# clif:source = The tide keeps nothing, and forgets nothing.
+# clif:type = sentence
+# clif:emotion = calm|serious
+# clif:status = initial
+closing-line = The tide keeps nothing, and forgets nothing.

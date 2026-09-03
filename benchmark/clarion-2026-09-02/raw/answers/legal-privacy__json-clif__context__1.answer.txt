@@ -1,0 +1,226 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "legal-privacy",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "Quillmark 同意门户：隐私通知、数据处理协议和会议摘要",
+    "info": "随 Quillmark 同意门户一起发布的三份原始文件：账户持有人阅读的隐私通知、运营方（作为控制者）与受聘运营门户的处理者之间签订的数据处理协议，以及一篇关于同意审计的会议论文摘要。受众：账户持有人、签署协议的企业客户以及学术研讨会的评审人员。通知中的两个字符串由门户引擎在运行时渲染，并带有 ICU MessageFormat 载荷。通知和协议中打印的条款编号是本文件其他条款引用的编号。",
+    "standard": "定义术语在整个通知和整个协议中固定不变，并且在每个条款中必须保持一致：Personal Data 为 个人信息，绝不用 个人数据；Data Subject 为 信息主体，绝不用 数据主体；Controller 为 控制者，绝不用 委托方；Processor 为 处理者，绝不用 受托方；Operator 为 运营方；Portal 为 本门户。每个情态动词都要按其法律效力翻译，绝不能译成预测：shall 为 应当，must 为 必须，may 表示授予许可，may not 为 不得，且 将 或 会 都不能用来表示义务。Quillmark Data Services 和 Halberd Cloud GmbH 等公司名称是注册法律实体，保持拉丁字母不变。保留 ICU MessageFormat 结构、参数名称和枚举项标记（如 (a)），与源文本完全一致。日期按年-月-日顺序书写，数字分组方式与源文本一致，绝不四舍五入已公布的数字。不要模仿源文本的全大写排版；以全大写书写的条款，其效力体现在句子的措辞中。汉字与拉丁字母或数字之间使用一个空格，汉字句子内使用全角标点。避免教科书式术语：写 默认 而非 缺省，写 稳健 而非 鲁棒。会议摘要是一份独立文件，不受通知中定义术语的约束。"
+  },
+  "groups": [
+    {
+      "path": "policy.definitions",
+      "context": "Quillmark 隐私通知的开篇定义。大写术语在本文件后续所有条款中保持其定义含义，因此此处选择的措辞是通知和协议条款必须重复使用的措辞。",
+      "type": "sentence",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "def-personal-data",
+          "source": "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal.",
+          "status": "initial",
+          "context": "通知的第一个定义术语。后续条款使用该术语而非重新描述数据，本项目的术语表决定了两个竞争译法中采用哪一个。"
+        },
+        {
+          "id": "def-data-subject",
+          "source": "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator.",
+          "status": "initial",
+          "context": "第二个定义术语。通知全文以第三人称提及该个人，请求条款原样重复该术语。"
+        },
+        {
+          "id": "def-operator",
+          "source": "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal.",
+          "status": "initial",
+          "context": "第三个定义术语。两个公司名称均为商业登记条目，在本通知的所有语言版本中保持一致，因为读者必须能够查询到它们。"
+        },
+        {
+          "id": "def-processing",
+          "source": "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure.",
+          "status": "initial",
+          "context": "第四个定义术语。它基于本节前两个条目中定义的术语，协议条款逐字复用这两个术语。"
+        },
+        {
+          "id": "def-portal",
+          "source": "“Portal” means the web application through which a request is submitted, tracked and answered.",
+          "status": "initial",
+          "context": "第五个定义术语，描述本通知所涉及的产品。"
+        }
+      ]
+    },
+    {
+      "path": "policy.requests",
+      "context": "账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节打印的数字具有法律效力：日期、已公布的数字以及其他条款引用的条款编号。",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "policy-effective-date",
+          "source": "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024.",
+          "status": "initial",
+          "context": "通知的开头行，打印在定义上方。第一个日期是本版本开始适用的日期，第二个日期标识被替换的版本，因此读者必须一眼就能区分两者。"
+        },
+        {
+          "id": "policy-volume-figures",
+          "source": "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period.",
+          "status": "initial",
+          "context": "每年发布一次并由外部审计师核查的透明度数据。计数和百分比按实际统计结果如实报告。"
+        },
+        {
+          "id": "policy-retention-clause",
+          "source": "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law.",
+          "status": "initial",
+          "context": "通知中打印的保留条款，带有通知赋予的条款编号。其他条款引用此编号而非重复该规则。"
+        },
+        {
+          "id": "policy-request-right",
+          "source": "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them.",
+          "status": "initial",
+          "context": "通知的权利条款。它基于本文件定义部分固定的两个术语，读者比较两处时必须找到相同的措辞。"
+        },
+        {
+          "id": "policy-erasure-crossref",
+          "source": "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal.",
+          "status": "initial",
+          "context": "交叉引用条款。它指向的规则是本文件前面打印的保留条款，引用必须将读者引向该条款而非其他条款。"
+        },
+        {
+          "id": "portal-request-count",
+          "source": "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}",
+          "emotion": [
+            "mechanical"
+          ],
+          "status": "initial",
+          "context": "门户仪表板上的计数器；门户引擎替换仍处于开放状态的请求数量。"
+        },
+        {
+          "id": "portal-answer-channel",
+          "source": "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}",
+          "emotion": [
+            "mechanical"
+          ],
+          "status": "initial",
+          "context": "提交请求后显示的确认信息；门户引擎传入账户持有人选择的渠道。"
+        }
+      ]
+    },
+    {
+      "path": "dpa.authorised",
+      "context": "运营方（作为控制者）与受聘运营门户的处理者之间签订的数据处理协议第 6 章。本章每个条款都授予授权或规定授权的条件，本章被视为处理者被允许做什么的依据。",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "dpa-scope-instructions",
+          "source": "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law.",
+          "status": "initial",
+          "context": "协议的核心义务条款。每项义务都是当前约束一方的责任，而非对双方未来预期的预测。"
+        },
+        {
+          "id": "dpa-audit-right",
+          "source": "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires.",
+          "status": "initial",
+          "context": "带编号的审计条款，后续章节按编号引用。第一个情态动词赋予一方权利，第二个对另一方施加义务，句子两半的措辞不得相同。"
+        },
+        {
+          "id": "clause-07a",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article.",
+          "status": "initial",
+          "context": "该条款结束了本章的授权列表，并告知处理者所列目的已涵盖在控制者授予的范围内。它应被理解为授权本身，而非对授权的限制。"
+        },
+        {
+          "id": "clause-09a",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties.",
+          "status": "initial",
+          "context": "授权章节的开篇条款。它确定了控制者在门户中签署协议的时点，这使本章的授权生效；此处不涉及协议后续如何执行。"
+        },
+        {
+          "id": "dpa-hosting-region",
+          "source": "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night.",
+          "status": "initial",
+          "context": "普通运营条款，打印在授权章节末尾。"
+        }
+      ]
+    },
+    {
+      "path": "dpa.restrictions",
+      "context": "同一协议的第 7 章。本章每个条款都缩小了前一章授予的范围：它规定处理者被禁止做什么、其日常履行如何被检查，以及运营方不承诺什么。本章条款应被理解为授权的边界。",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "clause-07b",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article.",
+          "status": "initial",
+          "context": "与前一章目的条款相同的句子，在此作为结束性限制重复。在本章中，所列目的是穷尽性的：未列出的目的不在授权范围内，该条款的存在正是为了说明这一点。"
+        },
+        {
+          "id": "clause-09b",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties.",
+          "status": "initial",
+          "context": "同一句子，打印在限制授权的章节中。在此，它使处理者日常履行协议的方式可追溯，以便控制者随时检查本章限制是否被遵守；文件签署在较早章节中处理。"
+        },
+        {
+          "id": "dpa-enumerated-prohibition",
+          "source": "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind.",
+          "status": "initial",
+          "context": "枚举式禁止条款。审计员在调查报告中按标记引用这些项目，因此标记必须保持在源文本中的位置并保留各自的项目。"
+        },
+        {
+          "id": "dpa-caps-disclaimer",
+          "source": "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.",
+          "status": "initial",
+          "context": "结束本章的免责声明。源文本使用全大写，因为源司法管辖区的法律要求显著通知；目标语言环境通过句子本身而非排版来标记显著通知。"
+        },
+        {
+          "id": "dpa-audit-crossref",
+          "source": "Nothing in this Article limits the audit right granted in Section 6.1.",
+          "status": "initial",
+          "context": "保留条款。它通过前一章审计条款在本文件中的编号指回该条款，审计员遵循编号而非措辞。"
+        }
+      ]
+    },
+    {
+      "path": "paper.abstract",
+      "context": "提交给隐私工程研讨会的原创会议论文摘要。它是一份独立文件，报告了对同意门户的实地研究，不使用通知中的定义术语。语域为学术性，句子完整。",
+      "type": "description",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "paper-title",
+          "source": "Auditing Consent Records at Scale: A Field Study of Three Consent Portals",
+          "type": "label",
+          "status": "initial",
+          "context": "摘要开头和会议程序中的论文标题。"
+        },
+        {
+          "id": "paper-abstract-opening",
+          "source": "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months.",
+          "status": "initial",
+          "context": "摘要的前两句：问题与研究。"
+        },
+        {
+          "id": "paper-abstract-method",
+          "source": "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log.",
+          "status": "initial",
+          "context": "摘要的方法句。"
+        },
+        {
+          "id": "paper-abstract-findings",
+          "source": "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study.",
+          "status": "initial",
+          "context": "摘要的发现和结束主张。"
+        }
+      ]
+    }
+  ]
+}

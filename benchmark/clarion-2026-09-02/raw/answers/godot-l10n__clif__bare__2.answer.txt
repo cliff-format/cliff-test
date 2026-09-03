@@ -1,0 +1,247 @@
+CLIF 1.0
+namespace: clarion
+clan: godot-l10n
+source-language: en-US
+target-language: zh-CN
+
+[core-error]
+
+<ok>
+source: "OK"
+target: "确定"
+type: sentence
+status: translated
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: translated
+
+<unavailable>
+source: "Unavailable"
+target: "不可用"
+type: sentence
+status: translated
+
+<unconfigured>
+source: "Unconfigured"
+target: "未配置"
+type: sentence
+status: translated
+
+<unauthorized>
+source: "Unauthorized"
+target: "未授权"
+type: sentence
+status: translated
+
+<parameter-out-of-range>
+source: "Parameter out of range"
+target: "参数超出范围"
+type: sentence
+status: translated
+
+<out-of-memory>
+source: "Out of memory"
+target: "内存不足"
+type: sentence
+status: translated
+
+<file-not-found>
+source: "File not found"
+target: "找不到文件"
+type: sentence
+status: translated
+
+<file-bad-drive>
+source: "File: Bad drive"
+target: "文件：驱动器错误"
+type: sentence
+status: translated
+
+<file-bad-path>
+source: "File: Bad path"
+target: "文件：路径错误"
+type: sentence
+status: translated
+
+<file-permission-denied>
+source: "File: Permission denied"
+target: "文件：权限被拒绝"
+type: sentence
+status: translated
+
+<file-already-in-use>
+source: "File already in use"
+target: "文件已被使用"
+type: sentence
+status: translated
+
+<can-t-open-file>
+source: "Can't open file"
+target: "无法打开文件"
+type: sentence
+status: translated
+
+<can-t-write-file>
+source: "Can't write file"
+target: "无法写入文件"
+type: sentence
+status: translated
+
+<can-t-read-file>
+source: "Can't read file"
+target: "无法读取文件"
+type: sentence
+status: translated
+
+<file-unrecognized>
+source: "File unrecognized"
+target: "无法识别的文件"
+type: sentence
+status: translated
+
+<file-corrupt>
+source: "File corrupt"
+target: "文件损坏"
+type: sentence
+status: translated
+
+<missing-dependencies-for-file>
+source: "Missing dependencies for file"
+target: "文件缺少依赖项"
+type: sentence
+status: translated
+
+<end-of-file>
+source: "End of file"
+target: "文件末尾"
+type: sentence
+status: translated
+
+<can-t-open>
+source: "Can't open"
+target: "无法打开"
+type: sentence
+status: translated
+
+<can-t-create>
+source: "Can't create"
+target: "无法创建"
+type: sentence
+status: translated
+
+<query-failed>
+source: "Query failed"
+target: "查询失败"
+type: sentence
+status: translated
+
+<already-in-use>
+source: "Already in use"
+target: "已被使用"
+type: sentence
+status: translated
+
+<locked>
+source: "Locked"
+target: "已锁定"
+type: sentence
+status: translated
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: sentence
+status: translated
+
+<can-t-connect>
+source: "Can't connect"
+target: "无法连接"
+type: sentence
+status: translated
+
+<can-t-resolve>
+source: "Can't resolve"
+target: "无法解析"
+type: sentence
+status: translated
+
+<connection-error>
+source: "Connection error"
+target: "连接错误"
+type: sentence
+status: translated
+
+<can-t-acquire-resource>
+source: "Can't acquire resource"
+target: "无法获取资源"
+type: sentence
+status: translated
+
+<can-t-fork>
+source: "Can't fork"
+target: "无法创建子进程"
+type: sentence
+status: translated
+
+<invalid-data>
+source: "Invalid data"
+target: "无效数据"
+type: sentence
+status: translated
+
+<invalid-parameter>
+source: "Invalid parameter"
+target: "无效参数"
+type: sentence
+status: translated
+
+<already-exists>
+source: "Already exists"
+target: "已存在"
+type: sentence
+status: translated
+
+<does-not-exist>
+source: "Does not exist"
+target: "不存在"
+type: sentence
+status: translated
+
+<can-t-read-database>
+source: "Can't read database"
+target: "无法读取数据库"
+type: sentence
+status: translated
+
+<can-t-write-database>
+source: "Can't write database"
+target: "无法写入数据库"
+type: sentence
+status: translated
+
+<compilation-failed>
+source: "Compilation failed"
+target: "编译失败"
+type: sentence
+status: translated
+
+<method-not-found>
+source: "Method not found"
+target: "找不到方法"
+type: sentence
+status: translated
+
+<link-failed>
+source: "Link failed"
+target: "链接失败"
+type: sentence
+status: translated
+
+<script-failed>
+source: "Script failed"
+target: "脚本失败"
+type: sentence
+status: translated

@@ -1,0 +1,116 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "posts.reactions.news-01a"
+msgid "Great work today, everyone. Really."
+msgstr "今天大家干得真棒。真的。"
+
+msgctxt "posts.reactions.news-01b"
+msgid "Great work today, everyone. Really."
+msgstr "今天大家干得真棒。真的。"
+
+msgctxt "posts.reactions.news-02a"
+msgid "Six months of roadworks and here we are."
+msgstr "六个月的修路工程，我们终于到了。"
+
+msgctxt "posts.reactions.news-02b"
+msgid "Six months of roadworks and here we are."
+msgstr "六个月的修路工程，我们终于到了。"
+
+msgctxt "posts.reactions.news-03a"
+msgid "You are really going to ride that thing?"
+msgstr "你真的要骑那个东西吗？"
+
+msgctxt "posts.reactions.news-03b"
+msgid "You are really going to ride that thing?"
+msgstr "你真的要骑那个东西吗？"
+
+msgctxt "posts.referents.news-04a"
+msgid "Nice shot."
+msgstr "拍得不错。"
+
+msgctxt "posts.referents.news-04b"
+msgid "Nice shot."
+msgstr "拍得不错。"
+
+msgctxt "posts.referents.news-05a"
+msgid "It is back."
+msgstr "它回来了。"
+
+msgctxt "posts.referents.news-05b"
+msgid "It is back."
+msgstr "它回来了。"
+
+msgctxt "platform.conventions.news-06"
+msgid "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+msgstr "非常感谢@HollowPineCafe今天早上在车厂门口发放免费咖啡。#电车日"
+
+msgctxt "platform.conventions.news-07"
+msgid "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+msgstr "今天下午把整条环线都坐了一遍，就因为我乐意 🚋💚 不后悔"
+
+msgctxt "platform.conventions.news-08"
+msgid "The new depot mural absolutely ate. No crumbs left."
+msgstr "新车厂的壁画简直绝了。一点渣都不剩。"
+
+msgctxt "platform.conventions.news-09"
+msgid "{count, plural, one {# person} other {# people}} reposted your photo."
+msgstr "{count, plural, one {# 个人} other {# 个人}}转发了你的照片。"
+
+msgctxt "platform.conventions.news-10"
+msgid "{name} and {others, plural, one {# other} other {# others}} liked your post."
+msgstr "{name}和其他{others, plural, one {# 个人} other {# 个人}}赞了你的帖子。"
+
+msgctxt "platform.conventions.news-11"
+msgid "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+msgstr "河畔环线第三天，单程省了40分钟。满分十分，还会再坐。"
+
+msgctxt "thread.replies.news-12"
+msgid "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+msgstr "@SablewickTransit 河畔环线在假日周一运行吗？"
+
+msgctxt "thread.replies.news-13"
+msgid "Yes, on a Sunday timetable."
+msgstr "运行，按周日时刻表。"
+
+msgctxt "thread.replies.news-14"
+msgid "And the last one back?"
+msgstr "那末班车呢？"
+
+msgctxt "thread.replies.news-15"
+msgid "Eleven forty, from the north end."
+msgstr "晚上十一点四十，从北端出发。"
+
+msgctxt "thread.replies.news-16"
+msgid "Perfect, thank you! Adding it to the group chat now."
+msgstr "太好了，谢谢！我现在就加到群里。"
+
+msgctxt "feed.updates.news-17"
+msgid "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+msgstr "服务更新：从周一起，河畔环线每八分钟一班，末班车晚上11:40发车。"
+
+msgctxt "feed.updates.news-18"
+msgid "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+msgstr "车厂开放日周六上午十点开始，车间参观对所有人免费。"
+
+msgctxt "feed.updates.news-19"
+msgid "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+msgstr "运营商表示，河畔环线首周客流量达到两万一千人次。"
+
+msgctxt "feed.updates.news-20"
+msgid "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+msgstr "我大多数早上都坐第一班电车，座位够舒服，全程坐着都行。"
+
+msgctxt "feed.updates.news-21"
+msgid "Does anyone know whether the ticket machine at the north end takes cards?"
+msgstr "有人知道北端的售票机能不能刷卡吗？"
+
+msgctxt "feed.updates.news-22"
+msgid "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+msgstr "仪式期间雨没下下来，这对站在站台上的每个人来说都很幸运。"
+
+msgctxt "feed.updates.news-23"
+msgid "A single journey costs one euro fifty and a day pass costs four euros."
+msgstr "单程票一欧元五十美分，日票四欧元。"

@@ -1,0 +1,157 @@
+CLIF 1.0
+namespace: clarion
+clan: probe-ambiguity
+source-language: en-US
+target-language: zh-CN
+
+[emotion.reading]
+
+<probe-01a>
+source: "Oh, that's just wonderful."
+type: sentence
+status: translated
+target: "哦，那真是太棒了。"
+
+<probe-01b>
+source: "Oh, that's just wonderful."
+type: sentence
+status: translated
+target: "哦，那真是太好了。"
+
+<probe-02a>
+source: "After you."
+type: sentence
+status: translated
+target: "您先请。"
+
+<probe-02b>
+source: "After you."
+type: sentence
+status: translated
+target: "你先请。"
+
+<probe-03a>
+source: "Well, here we go again."
+type: sentence
+status: translated
+target: "唉，又来了。"
+
+<probe-03b>
+source: "Well, here we go again."
+type: sentence
+status: translated
+target: "好吧，又开始了。"
+
+<probe-04a>
+source: "Just relax."
+type: sentence
+status: translated
+target: "放松点。"
+
+<probe-04b>
+source: "Just relax."
+type: sentence
+status: translated
+target: "别紧张。"
+
+[type.register]
+
+<probe-05a>
+source: "Save"
+type: sentence
+status: translated
+target: "保存"
+
+<probe-05b>
+source: "Save"
+type: sentence
+status: translated
+target: "存档"
+
+<probe-06a>
+source: "Forge"
+type: sentence
+status: translated
+target: "锻造"
+
+<probe-06b>
+source: "Forge"
+type: sentence
+status: translated
+target: "熔炉"
+
+<probe-07a>
+source: "Break a leg!"
+type: sentence
+status: translated
+target: "祝你好运！"
+
+<probe-07b>
+source: "Break a leg!"
+type: sentence
+status: translated
+target: "加油！"
+
+[context.referent]
+
+<probe-08a>
+source: "Rate"
+type: sentence
+status: translated
+target: "评分"
+
+<probe-08b>
+source: "Rate"
+type: sentence
+status: translated
+target: "费率"
+
+<probe-09a>
+source: "Seal"
+type: sentence
+status: translated
+target: "印章"
+
+<probe-09b>
+source: "Seal"
+type: sentence
+status: translated
+target: "海豹"
+
+<probe-10a>
+source: "It won't start."
+type: sentence
+status: translated
+target: "它启动不了。"
+
+<probe-10b>
+source: "It won't start."
+type: sentence
+status: translated
+target: "它不会开始的。"
+
+[width.budget]
+
+<probe-11a>
+source: "Restore Default Settings"
+type: sentence
+status: translated
+target: "恢复默认设置"
+
+<probe-11b>
+source: "Restore Default Settings"
+type: sentence
+status: translated
+target: "还原默认设置"
+
+<probe-12a>
+source: "View Frequently Asked Questions"
+type: sentence
+status: translated
+target: "查看常见问题"
+
+<probe-12b>
+source: "View Frequently Asked Questions"
+type: sentence
+status: translated
+target: "查看常见问题解答"

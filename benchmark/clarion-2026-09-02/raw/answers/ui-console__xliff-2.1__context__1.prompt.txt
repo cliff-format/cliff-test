@@ -1,0 +1,444 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.ui-console" original="clarion.ui-console">
+    <mda:metadata>
+      <mda:metaGroup category="clif">
+        <mda:meta type="title">Harborline Console interface strings</mda:meta>
+        <mda:meta type="info">Developer-facing control panel of the Harborline cloud streaming product, for product engineers operating workspaces, billing and live streams.</mda:meta>
+        <mda:meta type="standard">Follow the zh-CN house style: one space between Han text and Latin or digits, fullwidth punctuation inside Han sentences, and no textbook jargon. UI labels are short, fit their width budget, and never end with a full stop.</mda:meta>
+        <mda:meta type="dependency">ui-console-terms.zh-CN.clif</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="nav">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">Primary navigation links in the Harborline Console sidebar.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Primary navigation links in the Harborline Console sidebar.</note>
+      </notes>
+      <unit id="billing">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Sidebar link that opens the invoice and payment screen.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that opens the invoice and payment screen.</note>
+        </notes>
+        <segment state="initial">
+          <source>Billing</source>
+        </segment>
+      </unit>
+      <unit id="streaming">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Sidebar link that opens the live stream management screen.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that opens the live stream management screen.</note>
+        </notes>
+        <segment state="initial">
+          <source>Streaming</source>
+        </segment>
+      </unit>
+      <unit id="workspaces">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Sidebar link that lists the user's isolated project environments.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that lists the user's isolated project environments.</note>
+        </notes>
+        <segment state="initial">
+          <source>Workspaces</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="billing">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">Billing screen: invoices, rates and usage totals.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Billing screen: invoices, rates and usage totals.</note>
+      </notes>
+      <unit id="billing-rate">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Column header in the invoice summary; the price charged per gigabyte.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Column header in the invoice summary; the price charged per gigabyte.</note>
+        </notes>
+        <segment state="initial">
+          <source>Billing rate</source>
+        </segment>
+      </unit>
+      <unit id="no-invoices">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Empty state shown when the account has never generated an invoice.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Empty state shown when the account has never generated an invoice.</note>
+        </notes>
+        <segment state="initial">
+          <source>No invoices yet</source>
+        </segment>
+      </unit>
+      <unit id="payment-failed">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Error toast after a rejected card charge.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Error toast after a rejected card charge.</note>
+        </notes>
+        <segment state="initial">
+          <source>Payment failed</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="streaming">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">Live stream management screen: sources, keys and quality settings.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Live stream management screen: sources, keys and quality settings.</note>
+      </notes>
+      <unit id="stream-key">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Field that shows the secret value the encoder sends with the live stream.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Field that shows the secret value the encoder sends with the live stream.</note>
+        </notes>
+        <segment state="initial">
+          <source>Stream key</source>
+        </segment>
+      </unit>
+      <unit id="frame-rate">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Label beside the frames-per-second selector on the quality panel.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Label beside the frames-per-second selector on the quality panel.</note>
+        </notes>
+        <segment state="initial">
+          <source>Frame rate</source>
+        </segment>
+      </unit>
+      <unit id="resolution">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Dropdown label above the output resolution list.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Dropdown label above the output resolution list.</note>
+        </notes>
+        <segment state="initial">
+          <source>Resolution</source>
+        </segment>
+      </unit>
+      <unit id="add-to-workspace">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Menu action that attaches the selected stream to a project environment.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Menu action that attaches the selected stream to a project environment.</note>
+        </notes>
+        <segment state="initial">
+          <source>Add to workspace</source>
+        </segment>
+      </unit>
+      <unit id="stream-failed">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Error toast when the encoder cannot establish the live stream.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Error toast when the encoder cannot establish the live stream.</note>
+        </notes>
+        <segment state="initial">
+          <source>Stream failed to start</source>
+        </segment>
+      </unit>
+      <unit id="stream-summary">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Summary line under the stream list showing how many streams run in how many regions.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Summary line under the stream list showing how many streams run in how many regions.</note>
+        </notes>
+        <segment state="initial">
+          <source>{count, plural, other {# streams}} across {regions, plural, other {# regions}}</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="settings">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">Workspace settings page: region, network and cache options.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Workspace settings page: region, network and cache options.</note>
+      </notes>
+      <unit id="restore-defaults">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Button that resets every option on this page to its initial value.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button that resets every option on this page to its initial value.</note>
+        </notes>
+        <segment state="initial">
+          <source>Restore defaults</source>
+        </segment>
+      </unit>
+      <unit id="clear-cache">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Button that empties the stored responses so the next request reaches the origin.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button that empties the stored responses so the next request reaches the origin.</note>
+        </notes>
+        <segment state="initial">
+          <source>Clear cache</source>
+        </segment>
+      </unit>
+      <unit id="latency">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Tooltip over the latency badge; the round-trip time in milliseconds.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Tooltip over the latency badge; the round-trip time in milliseconds.</note>
+        </notes>
+        <segment state="initial">
+          <source>Latency</source>
+        </segment>
+      </unit>
+      <unit id="api-token">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Label of the credential field used to authenticate programmatic calls.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Label of the credential field used to authenticate programmatic calls.</note>
+        </notes>
+        <segment state="initial">
+          <source>API token</source>
+        </segment>
+      </unit>
+      <unit id="request-rate-limit">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Field in the throttling section; the maximum requests allowed per second.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Field in the throttling section; the maximum requests allowed per second.</note>
+        </notes>
+        <segment state="initial">
+          <source>Request rate limit</source>
+        </segment>
+      </unit>
+      <unit id="status-line">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Status line at the top of the page showing the currently selected region name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Status line at the top of the page showing the currently selected region name.</note>
+        </notes>
+        <segment state="initial">
+          <source>Region: %s</source>
+        </segment>
+      </unit>
+      <unit id="cache-description">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="context">Explanatory paragraph under the cache options heading.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Explanatory paragraph under the cache options heading.</note>
+        </notes>
+        <segment state="initial">
+          <source>Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="onboarding">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">First-run onboarding and workspace management dialogs.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>First-run onboarding and workspace management dialogs.</note>
+      </notes>
+      <unit id="create-workspace">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="context">Primary button on the onboarding screen that opens the workspace creation flow.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Primary button on the onboarding screen that opens the workspace creation flow.</note>
+        </notes>
+        <segment state="initial">
+          <source>Create new workspace</source>
+        </segment>
+      </unit>
+      <unit id="welcome-back">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">prompt</mda:meta>
+            <mda:meta type="emotion">polite</mda:meta>
+            <mda:meta type="context">Greeting heading shown after sign-in, with the account holder's display name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Greeting heading shown after sign-in, with the account holder's display name.</note>
+        </notes>
+        <segment state="initial">
+          <source>Welcome back to Harborline, {name}</source>
+        </segment>
+      </unit>
+      <unit id="workspace-count">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Caption under the workspace list that reports the total number of project environments.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Caption under the workspace list that reports the total number of project environments.</note>
+        </notes>
+        <segment state="initial">
+          <source>{count, plural, one {# workspace} other {# workspaces}}</source>
+        </segment>
+      </unit>
+      <unit id="delete-confirm">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">serious</mda:meta>
+            <mda:meta type="context">Confirmation dialog shown before permanently removing a project environment.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Confirmation dialog shown before permanently removing a project environment.</note>
+        </notes>
+        <segment state="initial">
+          <source>Delete this workspace? This cannot be undone.</source>
+        </segment>
+      </unit>
+      <unit id="close-dialog">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">accessibility-cue</mda:meta>
+            <mda:meta type="context">Screen-reader cue announcing the action bound to the Escape key.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Screen-reader cue announcing the action bound to the Escape key.</note>
+        </notes>
+        <segment state="initial">
+          <source>Close dialog</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

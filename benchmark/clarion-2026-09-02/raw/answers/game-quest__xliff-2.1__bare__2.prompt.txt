@@ -1,0 +1,203 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.game-quest" original="clarion.game-quest">
+    <group id="quest.brief">
+      <unit id="brief-tide-run">
+        <segment>
+          <source>The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.</source>
+        </segment>
+      </unit>
+      <unit id="brief-ninth-light">
+        <segment>
+          <source>Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.</source>
+        </segment>
+      </unit>
+      <unit id="quest-title-last-watch">
+        <segment>
+          <source>Willow's Last Watch</source>
+        </segment>
+      </unit>
+      <unit id="journal-note-order">
+        <segment>
+          <source>Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.</source>
+        </segment>
+      </unit>
+      <unit id="brief-warning-fog">
+        <segment>
+          <source>Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.objectives">
+      <unit id="objective-03a">
+        <segment>
+          <source>Deliver the Sealed Manifest to Marrow</source>
+        </segment>
+      </unit>
+      <unit id="objective-03b">
+        <segment>
+          <source>Deliver the Sealed Manifest to Marrow</source>
+        </segment>
+      </unit>
+      <unit id="objective-04a">
+        <segment>
+          <source>Restore Power to the Tide Gate</source>
+        </segment>
+      </unit>
+      <unit id="objective-04b">
+        <segment>
+          <source>Restore Power to the Tide Gate</source>
+        </segment>
+      </unit>
+      <unit id="objective-relight">
+        <segment>
+          <source>Relight the Ninth Light before the ebb</source>
+        </segment>
+      </unit>
+      <unit id="objective-count-crates">
+        <segment>
+          <source>{secured, plural, one {# crate secured} other {# crates secured}}</source>
+        </segment>
+      </unit>
+      <unit id="objective-check-lines">
+        <segment>
+          <source>Check the mooring lines on the east pier</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.dialogue">
+      <unit id="hail-01a">
+        <segment>
+          <source>Hand me the lantern, friend.</source>
+        </segment>
+      </unit>
+      <unit id="hail-01b">
+        <segment>
+          <source>Hand me the lantern, friend.</source>
+        </segment>
+      </unit>
+      <unit id="hail-02a">
+        <segment>
+          <source>Marrow says the dock is open to you.</source>
+        </segment>
+      </unit>
+      <unit id="hail-02b">
+        <segment>
+          <source>Marrow says the dock is open to you.</source>
+        </segment>
+      </unit>
+      <unit id="dialogue-willow-keeps">
+        <segment>
+          <source>Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.</source>
+        </segment>
+      </unit>
+      <unit id="dialogue-burn-it">
+        <segment>
+          <source>Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.</source>
+        </segment>
+      </unit>
+      <unit id="success-echo">
+        <segment>
+          <source>The Ninth Light is yours to keep now. Do not make me regret the hand-over.</source>
+        </segment>
+      </unit>
+      <unit id="line-success-tide">
+        <segment>
+          <source>The gate holds. Whatever you did down there, the water is going where it should.</source>
+        </segment>
+      </unit>
+      <unit id="line-failure-tide">
+        <segment>
+          <source>The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="items.rewards">
+      <unit id="item-relay-grid-desc">
+        <segment>
+          <source>The relay grid is robust: one failed beacon does not break the chain.</source>
+        </segment>
+      </unit>
+      <unit id="item-lamp-oil-desc">
+        <segment>
+          <source>One flask feeds the lamp for 30 minutes at the default wick height.</source>
+        </segment>
+      </unit>
+      <unit id="item-fog-lamp-desc">
+        <segment>
+          <source>A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.</source>
+        </segment>
+      </unit>
+      <unit id="achv-marrow-debt">
+        <segment>
+          <source>Marrow's Debt</source>
+        </segment>
+      </unit>
+      <unit id="achv-nine-nights">
+        <segment>
+          <source>Nine Nights, Nine Lights</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="system.messages">
+      <unit id="system-welcome-runner">
+        <segment>
+          <source>Fair tide, {playerName}. Your last run ended 3 days ago.</source>
+        </segment>
+      </unit>
+      <unit id="system-keybind-lantern">
+        <segment>
+          <source>Hold [E] to raise the lantern; press [Q] to signal.</source>
+        </segment>
+      </unit>
+      <unit id="system-signal-range">
+        <segment>
+          <source>Signal range: 120 m in fog, 400 m in clear air.</source>
+        </segment>
+      </unit>
+      <unit id="system-quest-state">
+        <segment>
+          <source>{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

@@ -1,0 +1,158 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.news-wire" original="clarion.news-wire">
+    <group id="wire">
+      <unit id="headline">
+        <segment>
+          <source>Harbor bridge: third night closed, tens of thousands rerouted</source>
+        </segment>
+      </unit>
+      <unit id="subhead">
+        <segment>
+          <source>Engineers race the weather to certify the last of 214 cables</source>
+        </segment>
+      </unit>
+      <unit id="lede">
+        <segment>
+          <source>The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic.</source>
+        </segment>
+      </unit>
+      <unit id="body-1">
+        <segment>
+          <source>Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again.</source>
+        </segment>
+      </unit>
+      <unit id="body-2">
+        <segment>
+          <source>The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall.</source>
+        </segment>
+      </unit>
+      <unit id="quote">
+        <segment>
+          <source>Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”</source>
+        </segment>
+      </unit>
+      <unit id="photo-caption">
+        <segment>
+          <source>Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure.</source>
+        </segment>
+      </unit>
+      <unit id="news-alert">
+        <segment>
+          <source>Bridge closure: expect delays of up to 90 minutes on all harbor crossings.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="feature">
+      <unit id="feature-headline">
+        <segment>
+          <source>The harbor's quiet ferry revival</source>
+        </segment>
+      </unit>
+      <unit id="feature-lede">
+        <segment>
+          <source>For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential.</source>
+        </segment>
+      </unit>
+      <unit id="feature-body-1">
+        <segment>
+          <source>The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide.</source>
+        </segment>
+      </unit>
+      <unit id="feature-body-2">
+        <segment>
+          <source>Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days.</source>
+        </segment>
+      </unit>
+      <unit id="feature-quote">
+        <segment>
+          <source>Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="social">
+      <unit id="post-sarcastic">
+        <segment>
+          <source>Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks.</source>
+        </segment>
+      </unit>
+      <unit id="post-enthusiastic">
+        <segment>
+          <source>The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="comments">
+      <unit id="comment-1">
+        <segment>
+          <source>Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall.</source>
+        </segment>
+      </unit>
+      <unit id="comment-2">
+        <segment>
+          <source>Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours.</source>
+        </segment>
+      </unit>
+      <unit id="comment-3">
+        <segment>
+          <source>My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="editors-note">
+      <unit id="editors-note">
+        <segment>
+          <source>This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay.</source>
+        </segment>
+      </unit>
+      <unit id="editors-note-correction">
+        <segment>
+          <source>An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours.</source>
+        </segment>
+      </unit>
+      <unit id="editors-note-signoff">
+        <segment>
+          <source>— The Editors</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

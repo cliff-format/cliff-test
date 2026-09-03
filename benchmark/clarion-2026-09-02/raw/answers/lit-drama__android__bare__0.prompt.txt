@@ -1,0 +1,88 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.-->
+    <string name="open-house-lights">The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.</string>
+    <!--clif:source: I could find this stage in my sleep.-->
+    <string name="enter-cassian">I could find this stage in my sleep.</string>
+    <!--clif:source: You came back.-->
+    <string name="lit-01a">You came back.</string>
+    <!--clif:source: You came back.-->
+    <string name="lit-01b">You came back.</string>
+    <!--clif:source: The call board still has my name spelled wrong.-->
+    <string name="reply-cassian">The call board still has my name spelled wrong.</string>
+    <!--clif:source: This theatre kept its promises. People did not.-->
+    <string name="motif-promise">This theatre kept its promises. People did not.</string>
+    <!--clif:source: Wonderful. Just wonderful.-->
+    <string name="lit-02a">Wonderful. Just wonderful.</string>
+    <!--clif:source: Wonderful. Just wonderful.-->
+    <string name="lit-02b">Wonderful. Just wonderful.</string>
+    <!--clif:source: You said the theatre kept its promises.-->
+    <string name="callback-promise">You said the theatre kept its promises.</string>
+    <!--clif:source: Mr. Vale, the call is in five minutes.-->
+    <string name="address-early">Mr. Vale, the call is in five minutes.</string>
+    <!--clif:source: Cassian. Please. Sit down.-->
+    <string name="address-late">Cassian. Please. Sit down.</string>
+    <!--clif:source: She turns the lamp toward him.-->
+    <string name="lit-03a">She turns the lamp toward him.</string>
+    <!--clif:source: She turns the lamp toward him.-->
+    <string name="lit-03b">She turns the lamp toward him.</string>
+    <!--clif:source: The roof has not been touched since 1974.-->
+    <string name="roof-year">The roof has not been touched since 1974.</string>
+    <!--clif:source: Two 500-watt lamps, and a fuse box older than both of us.-->
+    <string name="lamp-count">Two 500-watt lamps, and a fuse box older than both of us.</string>
+    <!--clif:source: The Halloway does not close tonight. It closes when the last person leaves.-->
+    <string name="venue-name">The Halloway does not close tonight. It closes when the last person leaves.</string>
+    <!--clif:source: Use the default setting on the board and do not touch anything else.-->
+    <string name="board-default">Use the default setting on the board and do not touch anything else.</string>
+    <!--clif:source: Are you serious? Now? After everything?-->
+    <string name="disbelief">Are you serious? Now? After everything?</string>
+    <!--clif:source: I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.-->
+    <string name="monologue-open">I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.</string>
+    <!--clif:source: And then one night the lights do not come up, and it turns out the building never learned anything at all.-->
+    <string name="monologue-turn">And then one night the lights do not come up, and it turns out the building never learned anything at all.</string>
+    <!--clif:source: The lamps go dark, the boards remain.-->
+    <string name="verse-01">The lamps go dark, the boards remain.</string>
+    <!--clif:source: The players go, the play remains.-->
+    <string name="verse-02">The players go, the play remains.</string>
+    <!--clif:source: She reaches up and switches off the work lamp. Darkness, and then the house door closing.-->
+    <string name="final-direction">She reaches up and switches off the work lamp. Darkness, and then the house door closing.</string>
+</resources>

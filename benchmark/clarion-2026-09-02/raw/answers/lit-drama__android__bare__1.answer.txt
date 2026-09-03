@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.-->
+    <string name="open-house-lights">剧场灯光已熄灭。一盏工作灯在舞台前部亮着，灰尘在光束中缓缓旋转。</string>
+    <!--clif:source: I could find this stage in my sleep.-->
+    <string name="enter-cassian">我闭着眼睛都能找到这个舞台。</string>
+    <!--clif:source: You came back.-->
+    <string name="lit-01a">你回来了。</string>
+    <!--clif:source: You came back.-->
+    <string name="lit-01b">你回来了。</string>
+    <!--clif:source: The call board still has my name spelled wrong.-->
+    <string name="reply-cassian">通告板上我的名字还是拼错了。</string>
+    <!--clif:source: This theatre kept its promises. People did not.-->
+    <string name="motif-promise">这座剧院信守了承诺。人却没有。</string>
+    <!--clif:source: Wonderful. Just wonderful.-->
+    <string name="lit-02a">太好了。真是太好了。</string>
+    <!--clif:source: Wonderful. Just wonderful.-->
+    <string name="lit-02b">太好了。真是太好了。</string>
+    <!--clif:source: You said the theatre kept its promises.-->
+    <string name="callback-promise">你说过这座剧院信守承诺。</string>
+    <!--clif:source: Mr. Vale, the call is in five minutes.-->
+    <string name="address-early">维尔先生，还有五分钟就要集合了。</string>
+    <!--clif:source: Cassian. Please. Sit down.-->
+    <string name="address-late">卡西安。请坐。</string>
+    <!--clif:source: She turns the lamp toward him.-->
+    <string name="lit-03a">她把灯转向他。</string>
+    <!--clif:source: She turns the lamp toward him.-->
+    <string name="lit-03b">她把灯转向他。</string>
+    <!--clif:source: The roof has not been touched since 1974.-->
+    <string name="roof-year">屋顶自1974年以来从未修缮过。</string>
+    <!--clif:source: Two 500-watt lamps, and a fuse box older than both of us.-->
+    <string name="lamp-count">两盏500瓦的灯，还有一个比我们俩都老的保险丝盒。</string>
+    <!--clif:source: The Halloway does not close tonight. It closes when the last person leaves.-->
+    <string name="venue-name">哈洛威剧院今晚不关门。它要等最后一个人离开才关门。</string>
+    <!--clif:source: Use the default setting on the board and do not touch anything else.-->
+    <string name="board-default">使用控制台上的默认设置，不要碰其他任何东西。</string>
+    <!--clif:source: Are you serious? Now? After everything?-->
+    <string name="disbelief">你是认真的吗？现在？经历了这一切之后？</string>
+    <!--clif:source: I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.-->
+    <string name="monologue-open">我扫这地板的次数比我在自己床上睡觉的次数还多。我知道哪块木板在重演员脚下会吱嘎作响，哪块在轻演员脚下会松动。如果你待得够久，建筑会认识你。</string>
+    <!--clif:source: And then one night the lights do not come up, and it turns out the building never learned anything at all.-->
+    <string name="monologue-turn">然后有一天晚上，灯光没有亮起，结果发现这建筑其实什么都没学会。</string>
+    <!--clif:source: The lamps go dark, the boards remain.-->
+    <string name="verse-01">灯光熄灭，木板犹存。</string>
+    <!--clif:source: The players go, the play remains.-->
+    <string name="verse-02">演员离去，戏剧犹存。</string>
+    <!--clif:source: She reaches up and switches off the work lamp. Darkness, and then the house door closing.-->
+    <string name="final-direction">她伸手关掉工作灯。一片黑暗，然后是剧场门关上的声音。</string>
+</resources>

@@ -1,0 +1,1341 @@
+--- SPEC SUPPLEMENT ---
+# CLIF generation supplement
+
+## Ids
+
+- Every id is a lowercase kebab-case name: `editors-note`, `the-block-of-grass`.
+- Build an id from a source term by keeping lowercase letters and joining the
+  remaining parts with hyphens: `editor's note` -> `editors-note`.
+
+## Fields
+
+- One field per line: `key: value`.
+- Each entry has one `source`, one `target`, one `type`, and one `status`.
+- Text values are quoted strings; tags are bare names; list fields keep their
+  brackets.
+
+## Strings
+
+- The whole value stays one quoted string.
+- Escape inner double quotes as `\"`, backslash as `\\`, newline as `\n`, and
+  tab as `\t`.
+- Apostrophes are ordinary characters inside double-quoted strings.
+- Raw newline and raw tab are invalid inside strings.
+
+## Glossary
+
+- Use `variant: glossary` and clan `<clan>-terms`.
+- One entry per term; glossary ids follow the same kebab-case rule and are
+  unique.
+- Keep the glossary concise.
+
+## Serialization
+
+- `key: value` with one space after the colon, LF endings, no trailing
+  whitespace.
+- The document ends after the last field.
+
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+This task has one required deliverable, the translated file, and one
+optional deliverable: a concise CLIF glossary when the file's terminology is
+widespread or highly repeated.
+
+The file below contains 26 entries in 5 sections.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+This task has one required deliverable, the translated file, and one
+optional deliverable: a concise CLIF glossary when the file's terminology is
+widespread or highly repeated.
+
+Terminology workflow.
+
+Append a glossary when terminology is widespread or highly repeated: the brief
+asks for consistency or a naming policy, many product or domain terms recur, or
+renderings must stay consistent across the file.
+
+Keep the glossary concise: one entry per distinct term that needs a locked
+rendering, only the renderings that matter, and stop after the last needed
+term.
+
+When appended, add a CLIF document after the translated file:
+
+CLIF 1.0
+namespace: <same namespace>
+clan: <clan>-terms
+source-language: <same>
+target-language: <same>
+variant: glossary
+title: "Terms decided while translating <clan>"
+
+[terms]
+type: noun
+
+<term-id>
+source: "<source term>"
+target: "<the rendering you used>"
+type: <a CLIF type tag>
+status: translated
+context: "<why this rendering, in one line>"
+
+Each entry holds a term that made the glossary useful, carries the rendering
+you used, and satisfies CLIF.
+
+===== REFERENCE: FULL CLIF SPECIFICATION =====
+Before writing the answer, consult the relevant sections of this full specification. For long files or dense context this is required.
+
+# CLIF 1.0.0 — Contextual Localization Integrated Format
+
+- **Version:** 1.0.0
+- **File extension:** `.clif`
+- **Media type:** `text/vnd.clif` (provisional, unregistered)
+- **Encoding:** UTF-8 (BOM optional), LF preferred, CRLF accepted
+- **Normative grammar:** [abnf/clif-1.0.abnf](abnf/clif-1.0.abnf)
+- **License:** MIT
+
+> CLIF is the Contextual Localization Integrated Format. CLIF is not an
+> interchange wrapper around other formats: it is the single lossless
+> **working format** for the whole localization lifecycle.
+
+All text in this specification is normative unless otherwise labeled.
+
+---
+
+## 1. Introduction
+
+CLIF is a **line-oriented, context-first data format for translators**. One
+file describes one translation family (`clan`): a coherent body of content
+such as all settings text of an application, one act of a game story, a film's
+subtitles, or one product catalog.
+
+A CLIF file carries enough context natively — situation, content type,
+emotion, glossary dependencies, translation standards, and width limits — that
+a translator (human or LLM) never has to translate in the dark. It is designed
+to support **faithfulness, expressiveness, and elegance** ("信达雅", also called the three elements of translation)
+throughout the lifecycle: extraction, translation, review, and delivery all
+use the same lossless file.
+
+CLIF is designed for two consumers whose needs usually conflict:
+
+1. **Human translators and localization engineers**, who need rigor,
+   type-checkable metadata, fixed vocabularies, and interoperability with
+   XLIFF, PO, and Fluent toolchains.
+2. **Large language models**, which edit text autoregressively and must never
+   corrupt structure by producing unbalanced tags or brackets.
+
+The format therefore uses **only line-local syntax**: every construct is one
+line; there are no multi-line open/close pairs in the structural grammar.
+Required, closed-set metadata (`type`, `emotion`, `status`) is "enforced
+orchestration": it makes translation inputs explicit instead of implicit,
+which measurably improves LLM translation quality.
+
+## 2. Goals and objectives
+
+CLIF exists to:
+
+1. Provide **one lossless, self-contained file format** for the entire
+   translation lifecycle — extraction, machine/human translation, review,
+   delivery — instead of an interchange-only wrapper (XLIFF) or a runtime
+   message format.
+2. Put **context first**: situation, content type, emotion, glossary
+   dependencies, and translation standards are first-class data, never
+   comments, so "faithfulness, expressiveness, and elegance" is an actionable
+   target rather than a slogan.
+3. Be **optimized for LLM translation workflows**: minimal token cost,
+   edit-safe line-local syntax, and enforced structured attributes.
+4. Be **easy for humans to read and write**: markdown-like surface habits,
+   tolerant `:` / `=` assignment, generous but deterministic whitespace rules,
+   and instantly recognizable groups and entries.
+5. Be **easy for machines to parse**: a single-pass line parser, an ABNF
+   grammar, a reference validator, and a JSON-shaped data model. No parser
+   needs a document-level stack.
+6. Reuse **existing standards** instead of inventing new ones: BCP 47, XLIFF
+   concepts, Unicode MessageFormat (MF1/MF2), UAX #11 display widths, CLDR.
+
+### 2.1 Non-goals
+
+- CLIF is **not a runtime localization engine format**. It is an authoring,
+  working, and delivery format; runtimes should consume compiled resources.
+- CLIF does **not store translation memories, revision history, engine
+  confidence, dates, or authors**. Those are tool-chain/VCS data.
+- CLIF does **not define UI**. It defines data.
+- CLIF is **not a general serialization format** (unlike YAML/JSON). It has a
+  fixed translation data model with a closed field vocabulary.
+
+## 3. Quick example
+
+```clif
+CLIF 1.0
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: zh-CN
+title: "Demo application settings"
+info: "End-user UI strings of the demo app; shown in the settings screen."
+standard: "Keep UI terms short; do not translate product names."
+dependency: ["../shared/terms.zh-CN.clif", "docs/style-guide.md"]
+
+[video]
+context: "Video settings screen."
+type: label
+emotion: [objective]
+max-width: 12
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+type: noun
+emotion: [objective]
+status: final
+
+<fullscreen>
+source: "Fullscreen"
+target: "全屏"
+type: noun
+status: reviewed
+context: "Toggle label on the video settings screen."
+```
+
+The same file is valid for humans (tolerant `=` and whitespace) and is
+canonicalized by any serializer to the form above.
+
+## 4. Conformance
+
+A conforming CLIF 1.0 document:
+
+1. Is a valid UTF-8 text stream.
+2. Matches the grammar in [abnf/clif-1.0.abnf](abnf/clif-1.0.abnf) after the
+   lexical pre-pass in §5.
+3. Satisfies every semantic constraint in §6–§14.
+
+A **strict validator** MUST reject documents that fail syntactic or semantic
+constraints. A **tolerant parser** MAY accept unknown `x-` extension keys and
+issue warnings.
+
+The words MUST, MUST NOT, SHOULD, and MAY are used as in
+[RFC 2119](https://www.rfc-editor.org/rfc/rfc2119).
+
+## 5. Lexical structure
+
+### 5.1 Characters and encoding
+
+Documents are UTF-8 encoded. A leading byte-order mark (U+FEFF) is permitted
+and ignored. Unpaired surrogates are invalid. Unicode normalization form is
+not enforced; writers SHOULD emit NFC.
+
+### 5.2 Lines
+
+The preferred line ending is LF (`\n`). CRLF is accepted and treated as LF.
+A bare CR is invalid.
+
+### 5.3 Whitespace
+
+- Space is U+0020 and tab is U+0009.
+- **Tolerant grammar:** leading/trailing whitespace is permitted on version,
+  section, entry, field, blank, and comment lines, and around `:` / `=` and
+  inside single-line lists. Whitespace never changes meaning, and indentation
+  carries no meaning at all: fields may be written flat, with no indentation
+  under their entry, exactly like INI and TOML. Blank lines are likewise
+  insignificant and may appear anywhere.
+- **Canonical form:** no leading or trailing whitespace; exactly one space
+  after `key:`; one space between list items; fields written flat with a
+  blank line before each entry and each section for readability.
+- **Wrapped continuation presentation:** when a long value is wrapped across
+  physical lines for human-readable presentation, continuation lines SHOULD be
+  indented so their opening quote or bracket aligns with the opening quote or
+  bracket of the field value. Indentation remains non-semantic.
+- Tabs or spaces are allowed inside quoted strings only as escaped (`\t`) or
+  literal U+0020 characters; raw tabs are invalid inside strings and between
+  tokens.
+- Blank lines contain only whitespace and are ignored anywhere.
+
+### 5.4 Comments
+
+```clif
+# A full-line comment.
+# Leading whitespace is allowed.
+```
+
+- A comment line starts with optional whitespace followed by `#`.
+- There are **no inline comments**. `#` inside a quoted string or after a
+  value is data or an error, never a comment.
+- Comments are **developer notes only**. They MUST NOT carry information a
+  translator needs; a translator MUST be able to delete every comment without
+  losing translation context.
+- Parsers MUST NOT preserve comments in the data model.
+
+### 5.5 Names, strings, and paths
+
+A **name** is a lowercase kebab-case ASCII identifier used for keys, IDs,
+group paths, and fixed tags:
+
+```
+name = %x61-7A *( %x61-7A / DIGIT / "-" )
+```
+
+Names are case-sensitive and lowercase-only: `resolution`, `inv-sword-iron`,
+`zh-hant` (but language tags, which are not names, use BCP 47 casing). No
+underscores, no uppercase, no leading digits or hyphens. This is the canonical
+form of every identifier in the format.
+
+A **string** is a single-line string delimited by either double quotes or
+single quotes. Both delimiters share identical semantics; the canonical
+serializer always emits double quotes:
+
+```clif
+"Resolution"
+"Anvil says: \"That is a fine blade.\""
+'Anvil says: "That is a fine blade."'
+"Line one\nLine two"
+```
+
+Recognized escapes:
+
+| Escape | Character | Valid in |
+| --- | --- | --- |
+| `\"` | U+0022 | double-quoted strings |
+| `\'` | U+0027 | single-quoted strings |
+| `\\` | U+005C | both |
+| `\n` | U+000A | both |
+| `\r` | U+000D | both |
+| `\t` | U+0009 | both |
+
+All other characters — including `#`, `{`, `}`, `<`, `>`, `[`, `]`, `:`, `=`,
+and non-ASCII Unicode scalar values — may appear literally inside strings,
+except that the closing delimiter itself must be escaped (an unescaped `"`
+ends a double-quoted string; an unescaped `'` ends a single-quoted one).
+A string MUST NOT contain a raw newline, raw tab, or unescaped control
+character. Unknown escape sequences are errors. Note that English apostrophes
+(`It's`) are fine inside double-quoted strings and must be written `\'`
+inside single-quoted strings.
+
+A **path string** (used by `dependency` and `reference`) is an ordinary quoted
+string holding a relative POSIX-style path such as `"../shared/terms.zh-CN.clif"`
+or `"docs/style-guide.md"`. Forward slashes SHOULD be used; consumers MUST
+resolve paths safely (see §19).
+
+## 6. Syntax
+
+A CLIF document contains, in order:
+
+1. A mandatory version line.
+2. Header fields.
+3. Zero or more sections.
+
+```abnf
+clif-file    = version-line *header-line *section
+version-line = *WSP %s"CLIF" SP %s"1.0" *WSP LF
+```
+
+The version line MUST be the first non-blank, non-comment line. `CLIF` and
+`1.0` are case-sensitive; `clif 1.0` is invalid. The canonical spelling is
+exactly `CLIF 1.0`. Implementations MUST reject major versions they do not
+support.
+
+### 6.1 Fields
+
+```abnf
+field-line   = *WSP field *WSP LF *continuation-line
+field        = key *WSP ( "=" / ":" ) *WSP value
+value        = string-value / list / integer / name / language-tag
+string-value = string *( *WSP string )
+list         = "[" *WSP [ list-items ] *WSP "]"
+list-items   = list-item *( *WSP "," *WSP list-item ) *WSP [ "," ]
+list-item    = string / integer / name / language-tag
+key          = name
+```
+
+Rules:
+
+- **Two separators, one meaning.** `key: value` and `key = value` are
+  equivalent. The separator is the first `=` or `:` outside a quoted string.
+- **Canonical form is `key: value`** — no space before the colon, exactly one
+  space after it. Tolerant parsers accept any whitespace around either
+  separator.
+- **Adjacent strings, C-style, across physical lines.** Any scalar string
+  field (`source`, `target`, `title`, `info`, `standard`, `context`,
+  `reviewer`, …) MAY continue onto following physical lines as additional
+  quoted strings — the continuation lines repeat neither the key nor the
+  separator, and may be indented to align under the opening quote:
+
+  ```clif
+  info: "CLIF is a translator-optimized, context-first data format for"
+        "localization. It provides one lossless working file for the whole"
+        "translation lifecycle — extraction, translation, review, delivery —"
+        "and carries enough native context for faithful, expressive, elegant"
+        "translation."
+  ```
+
+  Adjacent string literals are concatenated **verbatim, with no inserted
+  character** — exactly like C. Writers own any spaces: include a trailing
+  space at the end of a line, or a leading space at the start of the next,
+  when the text needs one; CJK text typically needs none:
+
+  ```clif
+  info: "CLIF（Contextual Localization Integrated Format，读作“cliff”）是一种"
+        "面向翻译员优化的语境本地化数据格式。它为整个翻译生命周期（抽取、"
+        "翻译、审校、交付）提供单一的无损工作文件格式，并原生提供充足语境"
+  ```
+
+  This works for `source` and `target` too; the semantic value is identical
+  to one long single-line string, and ICU payloads are preserved. Validators
+  apply brace-balance and width checks to the **concatenated** value.
+
+- **List continuation lines.** A list field (`emotion`, `dependency`,
+  `reference`, …) may continue on following physical lines as bare lists —
+  again no repeated key, and may be indented to align under the opening
+  bracket:
+
+  ```clif
+  dependency: ["../terms/terms.zh-CN.clif"]
+              ["docs/act3-script.md", "docs/style-guide.md"]
+  ```
+
+  Each `[...]` still opens and closes on the same physical line, so no
+  bracket pair ever spans lines. The effective list is the ordered
+  concatenation of all fragments. Strings inside a list never continue
+  across lines.
+
+- **Continuation rules (strings and lists alike).**
+
+  - A continuation line is a line whose only tokens are quoted strings (for
+    a string field) or a single list (for a list field), optionally
+    surrounded by whitespace:
+
+    ```abnf
+    continuation-line = *WSP ( string-value / list ) *WSP LF
+    ```
+
+    It attaches to the immediately preceding field; a blank or comment line
+    ends the continuation.
+  - An orphan continuation line (no preceding compatible field) is a syntax
+    error with a line number.
+  - The canonical serializer always emits one normalized line per field
+    (single string, or one merged list); wrapped forms are a tolerant,
+    human-facing presentation that parsers MUST accept and serializers MAY
+    normalize away.
+  - `\n` inside a string is the only way to produce an actual line break in
+    the text value itself.
+- A **list** is single-line, may be empty, MAY have one trailing comma, and
+  MUST NOT nest another list. List items are strings, integers, names, or
+  language tags — never another list.
+- **List-typed fields are always written as lists.** `emotion`,
+  `dependency`, and `reference` MUST use the `[...]` form even when they
+  hold exactly one item (`emotion: [neutral]`, `reference: ["src/ui.cpp:12"]`).
+  A bare scalar in a list-typed field is a validity error; there is no
+  single-item shorthand. This keeps the value's type readable from the line
+  itself and keeps writers from drifting between two spellings of one field.
+- **Tags are never quoted.** A scalar value that is a name is a *tag*
+  (`status: final`, `type: noun`, `emotion: [calm]`) or an identifier
+  depending on the key. Tags and identifiers are bare lowercase names; quoting
+  one turns it into a string and is a validity error. Only text values are
+  quoted.
+- **No repeated fields.** Every key MAY appear at most once per scope
+  (header, group, entry). Duplicates are validity errors. There is no
+  "repeatable field" concept; multi-value data is expressed with lists or
+  continuation lines.
+- Unknown keys are **extension fields**. They MUST start with `x-`
+  (e.g. `x-engine: "..."`). Strict validators MUST warn about unknown keys and
+  MUST NOT reject them. Extension fields are never inherited.
+
+### 6.1.1 The two rules writers get wrong
+
+Every other rule in this section is either obvious or forgiving. These two are
+neither, they are the two a hand author or a language model violates first, and
+a validator rejects both:
+
+| Wrong | Right | Why |
+| --- | --- | --- |
+| `emotion: "calm"` | `emotion: [calm]` | a tag is a bare name, and `emotion` is list-typed |
+| `emotion: calm` | `emotion: [calm]` | list-typed fields keep their brackets even for one item |
+| `type: "label"` | `type: label` | tags are never quoted |
+| `status: "final"` | `status: final` | tags are never quoted |
+| `reference: "src/ui.cpp:12"` | `reference: ["src/ui.cpp:12"]` | `reference` is list-typed |
+| `dependency: "terms.zh-CN.clif"` | `dependency: ["terms.zh-CN.clif"]` | `dependency` is list-typed |
+
+The rule behind both rows is one sentence: **the shape of the value tells you
+its type, so the shape is not optional.** Brackets mean a list, quotes mean
+text, and a bare lowercase word means a tag or an identifier. A reader, a
+diff, and a validator can all determine the type of a field from the line
+alone, and no writer has to remember which fields "also accept" a shorthand.
+
+The three list-typed fields are `emotion`, `dependency` and `reference`.
+There are no others, and there is no single-item shorthand for any of them.
+
+### 6.2 Sections and groups
+
+```abnf
+section-line = *WSP "[" group-path "]" *WSP LF
+group-path   = name *( "." name )
+```
+
+- A section declares the **current group path** for all following entries
+  until the next section or end of file.
+- Nesting is expressed by path, never by nested brackets:
+  `[video]`, then `[video.advanced]`. Each line carries the complete path, so
+  a moved line never becomes ambiguous.
+- **Human-friendly layout.** Section lines MAY be indented to *display* the
+  nesting depth — two spaces per level, purely cosmetic — and the parser MUST
+  ignore that indentation (the path itself remains authoritative):
+
+  ```clif
+  [video]
+  context: "Video settings."
+
+  [video.advanced]
+  context: "Advanced video settings."
+  ```
+
+  Top-level sections SHOULD sit at column 0, nested sections MAY be indented
+  two spaces per depth as an optional visual cue, and a blank line SHOULD
+  separate every section and every entry. Because there are no closing tags,
+  a reader navigates exactly like a Markdown heading outline: the bracket
+  path is the heading, the blank line is the paragraph break, and the `<id>`
+  marker is the list anchor. Tool UIs SHOULD render groups as a tree from the
+  dotted path; serializers MUST never invent a closing marker.
+- A section path MUST be unique in the file.
+- Empty groups are permitted.
+
+### 6.3 Group metadata (inherited context)
+
+Immediately after a section line and before the first entry line, a section
+MAY contain **group metadata fields**. Only these keys are permitted:
+
+`context`, `type`, `emotion`, `max-width`
+
+Group metadata is inherited by every entry in the section (see §9). Group
+metadata lines are written flat like any field; their position before the
+first entry line identifies them. Once the first entry line appears, any
+later field belongs to that entry until the next section.
+
+### 6.4 Entries
+
+```abnf
+entry-line = *WSP "<" name ">" *WSP LF
+```
+
+- `<resolution>` starts a translation entry; the entry id is the unquoted
+  lowercase kebab-case name inside the angle brackets. Angle brackets have
+  exactly one structural use in CLIF: this single-line entry marker. There
+  is no closing `</...>` tag, and `<`/`>` inside strings remain ordinary
+  payload characters.
+- Entry lines MAY be re-indented by models; the marker itself is
+  authoritative.
+- Entry fields are written flat, with no required indentation; attachment is
+  positional (they follow their entry line until the next entry or section
+  line). A blank line before each entry is the recommended visual separator.
+  Indented entry fields remain valid as tolerant input, but they are not the
+  canonical form.
+- `source`, `type` (direct or inherited), and `status` are required.
+  `target` is optional.
+- An `entry-id` MUST be unique within the file.
+
+## 7. Header fields
+
+Header fields appear after the version line and before the first section.
+
+| Key | Type | Required | Repeatable | Meaning |
+| --- | --- | --- | --- | --- |
+| `namespace` | name | **required** | no | Namespace segment of canonical IDs |
+| `clan` | name | **required** | no | Family segment; one file = one clan |
+| `source-language` | BCP 47 tag | **required** | no | Source language |
+| `target-language` | BCP 47 tag | **required** | no | Target language |
+| `version` | string | no | no | Project or source-content version the translations correspond to, e.g. `"1.4.2"`; not the CLIF spec version |
+| `variant` | `standard` / `glossary` | no (default `standard`) | no | File variant; see §13 |
+| `title` | string | no | no | Short human-readable family description |
+| `info` | string | no | no | Family-level information; may continue across lines (§6.1) |
+| `standard` | string | no | no | Translation standards/policies; may continue across lines (§6.1) |
+| `dependency` | list of path strings | no | no | Relative paths of prerequisite files (glossaries, style guides, source docs) |
+
+`namespace`, `clan`, `source-language`, and `target-language` are all
+required. Authoring plugins and editors SHOULD fill them in automatically, so
+hand authors never type them. The file is therefore self-describing no matter
+where it travels; the file layout (§11) is a delivery convention that MUST
+agree with the header, never a substitute for it.
+
+`source-language` and `target-language` MUST be valid
+[BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tags.
+Comparisons of language tags are case-insensitive per BCP 47. Strict
+validators SHOULD validate tags per RFC 5646; a validator MAY use a
+documented permissive envelope (letters/digits/hyphens) for well-formedness
+while still rejecting invalid constructs such as underscores. When a single
+entry uses another language (an Italian idiom in an English file, say), that
+fact belongs in the entry's `context`, not in the header.
+
+`info` carries free-form family description prose: conversation setup,
+audience, characters, or domain. Only `title`, `info`, and `standard` carry
+family prose, because everything else that matters per entry is structured
+data on the entry itself.
+
+`version` records the project or source-content version the translations were
+made against (the source revision is the one workflow fact that no
+translation can be verified without). Creation/modification timestamps and
+author names belong to version control, not to the file; tools that need them
+out of band MAY use `x-created` / `x-modified` extensions.
+
+Example:
+
+```clif
+CLIF 1.0
+namespace: ironforge-rpg
+clan: game
+source-language: zh-CN
+target-language: en-US
+version: "1.4.2"
+title: "IronForge RPG — Act 3"
+info: "The mountain city of IronForge, one week after the siege." "Anvil is a warm, plain-spoken dwarf blacksmith. Captain Mei is formal in public, warm to friends."
+standard: "Preserve proper nouns; localize idioms for humor." "Keep UI labels under the declared max-width."
+dependency: ["../terms/ironforge.terms.en-US.clif", "docs/act3-script.md"]
+```
+
+## 8. Entry fields
+
+The **entry ID** is not a field: it is the unquoted name in the
+`<id>` entry marker. This saves two quote tokens per entry and keeps the
+ID the only thing an entry is anchored by.
+
+| Key | Type | Required | Repeatable | Inherited from group | Meaning |
+| --- | --- | --- | --- | --- | --- |
+| `source` | string | **required** | no | no | Source-language text; may contain ICU |
+| `target` | string | no | no | no | Target-language text; may contain ICU |
+| `type` | type tag | **required (direct or inherited)** | no | **yes** | Content/grammatical type of the text; see §12.1 |
+| `emotion` | emotion list | no | no | **yes** | Emotion/delivery tags; default depends on `type`; see §12.2 |
+| `status` | status tag | **required** | no | no | Translation status; see §12.3 |
+| `context` | string | no | no | **yes** | Situation of this entry; group value then entry value are joined; may continue across lines (§6.1) |
+| `max-width` | integer > 0 | no | no | **yes** | Maximum rendered display width in cells |
+| `reference` | list of path strings | no | no | no | Source references, e.g. code or document locations. Always a list, even for one item; may continue as bare lists (§6.1) |
+| `reviewer` | string | no | no | no | Latest human reviewer identifier |
+
+Additional `x-` extension keys are permitted under the rule of §6.1.
+
+Notes:
+
+- `target` is optional so extraction and translation phases share one format.
+  A writer MUST set `target` before declaring `status: translated`,
+  `reviewed`, or `final`.
+- `emotion` is optional because its default is derived from `type`. Writing it
+  explicitly is still encouraged for dialogue and idioms. When written, it is
+  always a list — `emotion: [neutral]`, never `emotion: neutral` (§6.1).
+- **`speaker`, `listener`, and `scene` are not CLIF fields.** When `type` is
+  `dialogue`/`monologue`, the translator already knows someone is speaking;
+  *who* is speaking belongs in `context` (e.g. `context: "Anvil speaks to the
+  player at the forge."`). CLIF deliberately does not provide an optional
+  structured speaker field: an optional field would be ignored exactly as
+  often as `context` is, while adding schema surface without adding
+  guarantees.
+- There is **no `format` field.** MessageFormat dialect is auto-detected; see
+  §14.
+
+## 9. Group inheritance
+
+For an entry `E` in section path `G`:
+
+- `context`: the effective context is the group `context` value followed by
+  the entry `context` value, joined with a single space when both exist.
+- `type`: the entry value overrides the group value; at least one of the two
+  MUST exist.
+- `emotion`: the entry value overrides the group value. Lists do not merge.
+- `max-width`: the entry value overrides the group value.
+- All other entry fields are never inherited.
+
+```clif
+[video]
+context: "Video settings screen."
+type: label
+emotion: [objective]
+max-width: 12
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final
+
+<brightness>
+source: "Brightness"
+target: "亮度"
+max-width: 8
+status: reviewed
+```
+
+## 10. Canonical identifiers, keys, and engine adaptation
+
+### 10.1 Names and uniqueness
+
+- Namespace, clan, group segments, and entry IDs are lowercase kebab-case
+  names and MUST NOT contain `.`, uppercase letters, or `_`.
+- The canonical ID of an entry in section `G` is:
+
+```
+namespace.clan.G.entry-id
+```
+
+Example: `namespace: demo`, `clan: settings`, section `[video.advanced]`,
+entry `resolution` → `demo.settings.video.advanced.resolution`.
+
+- Canonical IDs MUST be unique within the file. They MUST be unique within a
+  translation project; tools SHOULD reject collisions across files.
+- Writers SHOULD choose stable, human-readable IDs and MUST NOT change them
+  merely because the source text changed. The ID is the translation match key.
+
+### 10.2 Duplicate entry IDs — parser behavior
+
+A duplicate `entry-id` (and therefore a duplicate canonical ID) is a
+**validity error**. A strict validator MUST reject the file and report:
+
+- the line number and text of each conflicting `entry` line,
+- both conflicting canonical IDs,
+- the error category `id`.
+
+A tolerant parser MUST NOT silently overwrite one entry with the other; it
+MUST surface the same error. This is deliberate: silent last-wins behavior is
+exactly how translation data gets lost, and a one-line error is cheaper than a
+missing string at runtime.
+
+### 10.3 Key vs ID
+
+| Concept | CLIF term | Meaning |
+| --- | --- | --- |
+| Entry ID | `<id>` entry marker | The stable, human-readable identifier inside the file. It is part of the canonical ID and is the translation match key. |
+| Translation key | canonical ID | The globally unique key a tool uses to look up a unit across files, glossaries, and translation memories: `namespace.clan.group.entry`. |
+| Engine key | (mapping) | The string an engine or runtime resource uses at run time (a hash, a path, a numeric index). It is NOT stored in CLIF. |
+
+CLIF deliberately has **no separate `key` field**: two identity systems in one
+file would drift. If an engine cannot use the canonical ID directly, the
+converter owns the mapping and may emit it out of band (a `.map.json` or the
+engine's own resource format). A hash ID may be *globally unique*, but it is
+meaningless to a reviewer and brittle to regenerate; CLIF keeps meaningful
+IDs in the file and lets engines keep their hashes in their own resources.
+
+### 10.4 Game-engine and app adaptation
+
+| Engine / pipeline | What it wants | CLIF adapter rule |
+| --- | --- | --- |
+| Minecraft / lang files | flat `key=value` | flatten canonical ID → `namespace.clan.group.entry` (or a configured prefix + `group.entry`); preserve the key on re-import so IDs stay stable |
+| Unreal (Localization Dashboard) | `namespace, key` inside culture folders | map canonical ID → UE `namespace`/`key` (e.g. namespace = `clan`, key = `group.entry`); `target-language` selects the culture folder |
+| Unity (I2 Localization / string tables) | `term` = key | use canonical ID as the term; entry `type` can drive gender/plural handling |
+| Godot / CSV importer | `key, source, target` columns | key column = canonical ID |
+| Web/i18n JSON (i18next etc.) | nested or dotted keys | flatten to dotted canonical ID, or nest `namespace.clan.group` then `entry` |
+
+Converters MUST keep the mapping deterministic in both directions so
+re-extraction and re-import do not regenerate keys.
+
+## 11. File layout and naming
+
+CLIF has two valid layouts. Both identify a file the same way; a validator
+MUST accept either.
+
+### 11.1 Folder layout (canonical)
+
+```
+<target-language>/<clan>.clif
+```
+
+Examples: `zh-CN/settings.clif`, `en-US/act3.clif`, `ja-JP/terms.clif`.
+
+This is the **canonical layout** for projects with more than one target
+language. It follows the Unreal Engine convention of one directory per
+language: a Japanese translation team checks out and delivers `ja-JP/`, the
+Spanish team `es-ES/`, CI jobs scope their diffs to one directory, and a
+language pack is simply that directory zipped. A large project with many
+clans therefore reads as "one folder per language, one file per clan" instead
+of hundreds of mixed files in one directory.
+
+### 11.2 Flat layout (allowed for small projects)
+
+```
+<clan>.<target-language>.clif
+```
+
+Examples: `settings.zh-CN.clif`, `act3.en-US.clif`, `terms.zh-Hant-TW.clif`.
+
+The flat layout is convenient for single-language repositories and small
+tools; it remains fully valid. A single-language project is never forced to
+create a language folder.
+
+### 11.3 Consistency rules
+
+The header is authoritative: `namespace`, `clan`, `source-language`, and
+`target-language` are required fields (§7). The layout is a delivery
+convention that MUST agree with the header; it never supplies missing header
+values.
+
+- `<clan>` is a lowercase kebab-case name.
+- `<target-language>` is the BCP 47 tag of the target language in canonical
+  casing (`en-US`, `zh-Hant-TW`); comparison is case-insensitive.
+- A validator MUST check the layout against the header:
+
+  1. **Folder candidate:** if the file's immediate parent directory name is a
+     language tag whose primary subtag is 2–3 letters, optionally followed by
+     `-` subtags of letters/digits (e.g. `en`, `ja-JP`, `zh-Hant-TW`), the
+     directory MUST equal the header `target-language` (case-insensitive) and
+     the file name (minus `.clif`) MUST equal the header `clan`. Directory
+     names that merely look word-like (`valid`, `quality`) are not language
+     tags.
+  2. **File-name candidate:** otherwise, a file name matching
+     `<clan>.<target-language>.clif` MUST equal the header values.
+  3. If both candidates exist, both MUST agree with the header and with each
+     other.
+  4. A file whose name and parent directory do not match either shape is
+     still valid when the four required header fields are present (e.g. a
+     generated file such as `corpus.clif`); the layout check simply does not
+     apply.
+  5. Any mismatch is a validity error.
+- Editors and plugins SHOULD create files in the folder layout when a project
+  has more than one target language, and in the flat layout otherwise.
+
+## 12. Fixed vocabularies
+
+Fixed tag sets are **closed**. Values not listed below are validity errors.
+Closed sets exist so an AI cannot silently invent a slightly different tag and
+so tooling can type-check every field.
+
+### 12.1 Type tags (`type`)
+
+`type` classifies the grammatical or functional kind of text. Definitions and
+translation guidance: [references/content-types.md](../references/content-types.md).
+
+Word-level:
+
+```
+noun, verb, adjective, adverb, pronoun, numeral, preposition, conjunction,
+particle, interjection, proper-noun
+```
+
+Phrase-level:
+
+```
+noun-phrase, verb-phrase, adjective-phrase, adverb-phrase, fixed-phrase, idiom
+```
+
+Text/function-level:
+
+```
+sentence, description, narration, dialogue, monologue, prompt, label,
+subtitle, accessibility-cue
+```
+
+- `fixed-phrase` covers compound names and fixed multi-word terms such as
+  "The Block of Grass"; `proper-noun` covers named entities.
+- `narration` is story/voice-over narration; `dialogue` is spoken exchange;
+  `monologue` is a character's inner thought.
+- `prompt` is UI guidance or tooltip text; `label` is a short UI label or
+  menu item.
+- `accessibility-cue` is a caption shown for accessibility, e.g. a
+  sound-effect cue for deaf/hard-of-hearing viewers ("[door creaks]").
+- `type` is required per entry, but may be inherited from the group to keep
+  token cost low for homogeneous sections.
+
+### 12.2 Emotion tags (`emotion`)
+
+`emotion` accepts one or more of the 23 tags defined in
+[references/emotion-tags.md](../references/emotion-tags.md):
+
+```
+neutral, objective, mechanical,
+joyful, sad, angry, fearful, surprised, curious, disgusted,
+anxious, calm, playful, serious, urgent, romantic, hopeful,
+grateful, formal, informal, polite, rude, nostalgic
+```
+
+The value is always a list, one or more tags long: `emotion: [neutral]`,
+`emotion: [surprised, playful]`. A bare tag (`emotion: neutral`) is a
+validity error (§6.1).
+
+Defaults (when `emotion` is omitted):
+
+| Effective `type` | Default emotion |
+| --- | --- |
+| `dialogue`, `monologue`, `idiom` | `[neutral]` |
+| every other type | `[objective]` |
+
+- `objective` = matter-of-fact, informational (narration, labels, nouns).
+- `mechanical` = deliberately emotionless machine/robot delivery; use it
+  explicitly, it is never a default.
+- Explicit `emotion` always overrides the default.
+
+### 12.3 Status tags (`status`)
+
+`status` is required on every entry and is identical to the XLIFF 2.x state
+model:
+
+```
+initial, translated, reviewed, final
+```
+
+| Tag | Meaning |
+| --- | --- |
+| `initial` | No target text yet (extraction state) |
+| `translated` | Target text exists; not yet human-reviewed |
+| `reviewed` | Target text has passed review |
+| `final` | Locked for release |
+
+State machine and constraints: [references/status-tags.md](../references/status-tags.md).
+`translated`, `reviewed`, and `final` require a `target` field; `target` may
+be omitted only with `status: initial`.
+
+## 13. Variants: standard and glossary
+
+`variant` selects the file's specialized shape. The grammar is identical for
+both variants; only semantics change.
+
+### 13.1 `standard` (default)
+
+A translation-unit file. It MUST have at least one entry.
+
+### 13.2 `glossary`
+
+A **terminology file**: canonical translations of dedicated terms, compound
+nouns, fixed phrases, and idioms (e.g. "The Block of Grass").
+
+A glossary is a normal CLIF document. It differs from a `standard` file in one
+way only: **every entry is a term, not a segment of running text**. The grammar,
+the field vocabulary and the validation rules are identical.
+
+#### 13.2.1 Shape
+
+- Header: `variant: glossary`.
+- Each entry holds one term: `source` = source term, `target` = canonical
+  translation, `type` = its grammatical kind, `status` = workflow state.
+- `type` SHOULD be one of the term-level tags: `noun`, `verb`, `adjective`,
+  `adverb`, `pronoun`, `numeral`, `preposition`, `conjunction`, `particle`,
+  `interjection`, `proper-noun`, `noun-phrase`, `verb-phrase`,
+  `adjective-phrase`, `adverb-phrase`, `fixed-phrase`, `idiom`. A strict
+  validator warns for other types.
+- `target` SHOULD be present; a strict validator warns when it is missing.
+- `context` SHOULD record **why** this rendering was chosen, because a term
+  without its reason is re-litigated at every review.
+- The `clan` of a glossary SHOULD be the clan it serves with the suffix
+  `-terms` (`settings` → `settings-terms`), so the file name follows §11
+  without a new convention: `settings-terms.zh-CN.clif`, or
+  `zh-CN/settings-terms.clif` in the folder layout. A glossary shared by a
+  whole project SHOULD use the clan `terms`.
+- Term files are referenced from `standard` files via `dependency`, e.g.
+  `dependency: ["../terms/terms.zh-CN.clif"]`.
+
+#### 13.2.2 Lifecycle: a glossary is produced, not only consumed
+
+Most projects do not start with a glossary. Terminology decisions are made
+**while translating** — the first time a product name, a character name, a
+recurring interface word or a domain term has to be rendered — and they are
+lost unless they are written down at that moment.
+
+CLIF therefore treats the glossary as a **deliverable of translation**, not
+merely as an input to it:
+
+1. A translator (human or machine) that makes a term decision while translating
+   a `standard` file SHOULD record it in a `variant: glossary` file for that
+   clan, creating the file when it does not exist.
+2. A translation task MAY therefore be answered with **two documents**: the
+   translated `standard` file and the glossary file. Producing a glossary is
+   never a violation of a "return one file" instruction; producing an empty or
+   invented glossary is a defect.
+3. A term belongs in the glossary when it recurs, names something (product,
+   feature, character, place, faction), is a fixed phrase or idiom, or was a
+   judgement call another translator could reasonably decide differently. A
+   sentence that occurs once does not belong in a glossary.
+4. **A glossary is not always warranted, and MUST NOT be created reflexively.**
+   The default is no glossary. It is warranted when the family's `standard` or
+   `info` asks for terminology consistency or a naming policy, when the clan is
+   large enough that a term recurs across entries, or when a naming judgement
+   would otherwise be re-made differently by the next translator. A short file
+   of a few dozen strings whose terms occur once needs none, and producing one
+   there adds a file to maintain without adding a decision to remember.
+5. The rendering recorded MUST be the rendering actually used in the translated
+   file. A glossary that disagrees with its own translation is worse than none.
+6. When merging into an existing glossary, an entry whose `status` is
+   `reviewed` or `final` MUST NOT be overwritten. A conflicting proposal is
+   reported to a human, not applied.
+7. The `standard` file SHOULD gain a `dependency` entry pointing at the
+   glossary, so every later translation of that clan receives the decisions
+   automatically.
+
+#### 13.2.3 Why this belongs in the format
+
+Terminology consistency is the failure mode of every large localization
+project, and the usual remedies live outside the file: a spreadsheet, a
+translation-memory server, a reviewer's memory. Because a CLIF glossary is an
+ordinary CLIF document, it is validated by the same validator, diffed by the
+same tools, reviewed in the same pull request, and attached by one
+`dependency` line. That is what makes "the glossary is part of the working
+file set" true in practice rather than in principle.
+
+```clif
+CLIF 1.0
+namespace: studio
+clan: terms
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+title: "Studio terminology"
+standard: "Canonical translations; dialect-specific files may override."
+
+[items]
+type: noun-phrase
+
+<block-of-grass>
+source: "草方块"
+target: "The Block of Grass"
+type: fixed-phrase
+status: final
+context: "Minecraft-style building block; the article must be preserved."
+```
+
+## 14. ICU MessageFormat support
+
+CLIF stores ICU MessageFormat syntax **verbatim** inside `source` and `target`
+strings. It is payload, never CLIF structure.
+
+- MessageFormat 1: `{count, plural, ...}`, `{gender, select, ...}`.
+- MessageFormat 2: `.input`, `.local`, `.match`, and `{{...}}` placeholders.
+  MF2 is the preferred dialect for new content (it is stable in CLDR 47); MF1
+  remains accepted for legacy content.
+
+There is **no `format` field**. Tools MUST auto-detect the dialect per string:
+
+1. If the string contains MF2 syntax markers (`{{`, `}}`, `.match`, `.input`,
+   `.local`), it is MF2.
+2. Else if it contains `{...}`, it is MF1.
+3. Else it is plain text.
+
+Validators MUST verify brace balance in any string containing `{` or `}` and
+SHOULD reject obviously malformed ICU. A broken ICU expression is a local
+string error, never a document-level corruption.
+
+## 15. Display width (`max-width`)
+
+`max-width` is the maximum number of **display cells** of the rendered target
+text, not a character count.
+
+| Character class (UAX #11) | Cells |
+| --- | --- |
+| East Asian Wide (`W`) or Fullwidth (`F`) | 2 |
+| East Asian Narrow (`Na`), Neutral (`N`), Halfwidth (`H`) | 1 |
+| East Asian Ambiguous (`A`) | 1 |
+| Combining marks (Mn, Mc, Me), variation selectors, zero-width characters | 0 |
+| Emoji with default emoji presentation | 2 |
+| An emoji ZWJ sequence, counted once as a whole | 2 |
+
+Width is counted over **rendered glyphs**, not over code points. A character
+that carries default emoji presentation, or a text-presentation symbol
+followed by variation selector 16 (U+FE0F), occupies 2 cells. An emoji ZWJ
+sequence renders as a single glyph and therefore counts **2 cells in total**,
+not 2 cells per member: `"👩‍💻"` (U+1F469 U+200D U+1F4BB) is 2 cells, because
+the ZWJ and the joined members contribute nothing beyond the one glyph they
+form.
+
+Examples: `"分辨率"` = 6 cells, `"OK"` = 2 cells, `"OK 分辨率"` = 9 cells,
+`"👩‍💻"` = 2 cells, `"e\u0301"` = 1 cell.
+
+The constraint applies to the **rendered** target. For ICU messages, tools
+MUST evaluate each variant with representative argument values.
+
+## 16. Dependencies
+
+`dependency` is a single-line list of quoted **relative paths**, resolved
+against the directory containing the file:
+
+- prerequisite CLIF families — commonly `variant: glossary` term files;
+- non-CLIF reference material (markdown scripts, style guides, design docs).
+
+```clif
+dependency: ["../terms/terms.zh-CN.clif", "docs/act3-script.md"]
+```
+
+Paths use `/` separators. `..` is permitted. Consumers MUST treat paths as
+untrusted and resolve them inside the project sandbox (see §19). A translator
+or LLM given a file SHOULD also be given the referenced files.
+
+## 17. Serialization (canonical form)
+
+A canonical serializer MUST:
+
+1. Emit `CLIF 1.0` as the first line.
+2. Emit the four required header fields `namespace`, `clan`,
+   `source-language`, `target-language`, then `version` (when present),
+   `variant` (only when `glossary`), `title`, `info`, `standard`,
+   `dependency` in that order.
+3. Emit sections and entries in authored order (order is contextual).
+4. Put one blank line before each section and before each entry. Section
+   lines MAY be indented per path depth as an optional human cue, but
+   indentation carries no meaning.
+5. Emit entry fields and group metadata flat, with no indentation.
+6. Use `key: value` with exactly one space after the colon; no trailing
+   whitespace; single spaces inside lists.
+7. Use LF line endings, UTF-8 without BOM, and the minimum escaping necessary.
+8. Place the file at `<target-language>/<clan>.clif` when the project has
+   more than one target language; the flat name `<clan>.<target-language>.clif`
+   is permitted for single-language projects (§11).
+
+## 18. Interoperability
+
+CLIF is a working format; converters to/from other formats are expected but
+need not be lossless in the other direction.
+
+| CLIF 1.0 | XLIFF 2.1/2.2 | gettext PO | Fluent |
+| --- | --- | --- | --- |
+| file | `<xliff>` with one `<file>` | one `.po` file | one `.ftl` resource |
+| `namespace`/`clan` | project metadata + `<file original>` | header metadata | resource naming |
+| section path | nested `<group id>` | `msgctxt` convention | grouping by file |
+| entry | `<unit id>` | `msgid` block | message / term |
+| `source` / `target` | `<source>` / `<target>` | `msgid` / `msgstr` | value |
+| `type` | `<metaGroup category>` or ITS metadata | extracted-comment convention | attribute |
+| `emotion` | annotations metadata | `#.` comment (lossy) | attribute |
+| `status` | `state` attribute | fuzzy flag subset | not applicable |
+| `context` | `<metadata>` + ITS | `#.` (lossy) | comment/attribute |
+| glossary | XLIFF 2.2 glossary module (`variant: glossary`) | external glossary | term with attributes |
+| ICU in strings | inline payload | inline | Fluent select/placeholders |
+
+Converters from PO MUST materialize PO metadata comments into explicit CLIF
+fields (`reference`, `context`). Converters from XLIFF SHOULD preserve
+`<group>` nesting as dotted section paths and SHOULD map XLIFF 2.2 glossary
+modules to `variant: glossary` files.
+
+## 19. Security considerations
+
+- CLIF documents may contain arbitrary strings; consumers MUST treat them as
+  untrusted data and MUST NOT evaluate them (except an explicitly requested
+  ICU formatter).
+- Strings may contain literal `<` and `>`; UI layers must escape HTML as
+  usual.
+- `dependency` and `reference` paths are attacker-controlled. Resolve them
+  inside an explicit project root and reject escapes outside it.
+- Implementations MUST enforce resource limits (file size, line length, string
+  length, section nesting depth, list length) to prevent denial of service.
+
+## 20. Extension fields
+
+Unknown keys are permitted only as `x-` prefixed names, at header, group, and
+entry level. Extensions:
+
+- MUST be ignored by parsers that do not understand them;
+- MUST never be inherited;
+- MUST NOT change the meaning of standard fields;
+- are warned about by strict validators.
+
+A future minor revision may promote a widely used `x-` field into the core
+only if it is generic and has a fixed vocabulary.
+
+## 21. Versioning
+
+The version line declares the supported major version:
+`CLIF 1.0` identifies the 1.x series; this specification document is 1.0.0.
+Implementations MUST reject major versions they do not support.
+
+## Appendix A. Normative references
+
+- [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) — Key words for use in RFCs
+- [BCP 47 / RFC 5646](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) — Tags for Identifying Languages
+- [XLIFF 2.1](https://docs.oasis-open.org/xliff/v2.1/os/xliff-core-v2.1-os.html) — XML Localisation Interchange File Format
+- [XLIFF 2.2 Part 2: Extended](https://docs.oasis-open.org/xliff/xliff-core/v2.2/cs01/xliff-extended-v2.2-cs01-part2.html) — glossary and annotations modules
+- [Unicode TR35 Part 9 — MessageFormat](https://www.unicode.org/reports/tr35/tr35-messageFormat.html)
+- [Unicode UAX #11 — East Asian Width](https://www.unicode.org/reports/tr11/)
+- [Unicode CLDR](https://cldr.unicode.org/)
+- [GNU gettext PO Files](https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html)
+- [Fluent 1.0](https://projectfluent.org/) — localization system for natural-sounding translations
+- [RFC 5234](https://www.rfc-editor.org/rfc/rfc5234) — ABNF
+- [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405) — Case-sensitive strings in ABNF
+
+## Appendix B. Data model (informative)
+
+```
+file ── header: namespace, clan, source-language, target-language,
+│                version, variant, title, info, standard, dependency
+├── [a] ── metadata: context, type, emotion, max-width
+│   ├── <entry-id> ── source, target, type, emotion, status,
+│   │                 context, max-width, reference, reviewer
+│   └── ...
+└── [a.b] ...
+```
+
+The JSON-shaped model is intentionally representable by any tool:
+`{header, groups: [{path, metadata, entries: [...]}]}`. Canonical ID
+`namespace.clan.group-path.entry-id` is the join key across files, tools, and
+translation memories.
+
+CLIF EDIT SAFETY
+Before writing, verify every entry and glossary id is lowercase kebab-case and
+contains only lowercase letters, digits, and hyphens. Glossary ids are unique;
+one entry per term. Sanitize source terms as editor's note -> editors-note.
+Every text value is one quoted string; escape inner double quotes as \" and
+newlines as \n.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+CLIF 1.0
+namespace: clarion
+clan: legal-privacy
+source-language: en-US
+target-language: zh-CN
+
+[policy.definitions]
+
+<def-personal-data>
+source: "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+type: sentence
+status: initial
+
+<def-data-subject>
+source: "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+type: sentence
+status: initial
+
+<def-operator>
+source: "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+type: sentence
+status: initial
+
+<def-processing>
+source: "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+type: sentence
+status: initial
+
+<def-portal>
+source: "“Portal” means the web application through which a request is submitted, tracked and answered."
+type: sentence
+status: initial
+
+[policy.requests]
+
+<policy-effective-date>
+source: "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+type: sentence
+status: initial
+
+<policy-volume-figures>
+source: "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+type: sentence
+status: initial
+
+<policy-retention-clause>
+source: "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+type: sentence
+status: initial
+
+<policy-request-right>
+source: "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+type: sentence
+status: initial
+
+<policy-erasure-crossref>
+source: "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+type: sentence
+status: initial
+
+<portal-request-count>
+source: "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+type: sentence
+status: initial
+
+<portal-answer-channel>
+source: "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+type: sentence
+status: initial
+
+[dpa.authorised]
+
+<dpa-scope-instructions>
+source: "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+type: sentence
+status: initial
+
+<dpa-audit-right>
+source: "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+type: sentence
+status: initial
+
+<clause-07a>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+type: sentence
+status: initial
+
+<clause-09a>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+type: sentence
+status: initial
+
+<dpa-hosting-region>
+source: "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+type: sentence
+status: initial
+
+[dpa.restrictions]
+
+<clause-07b>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+type: sentence
+status: initial
+
+<clause-09b>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+type: sentence
+status: initial
+
+<dpa-enumerated-prohibition>
+source: "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+type: sentence
+status: initial
+
+<dpa-caps-disclaimer>
+source: "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+type: sentence
+status: initial
+
+<dpa-audit-crossref>
+source: "Nothing in this Article limits the audit right granted in Section 6.1."
+type: sentence
+status: initial
+
+[paper.abstract]
+
+<paper-title>
+source: "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+type: sentence
+status: initial
+
+<paper-abstract-opening>
+source: "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+type: sentence
+status: initial
+
+<paper-abstract-method>
+source: "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+type: sentence
+status: initial
+
+<paper-abstract-findings>
+source: "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+type: sentence
+status: initial

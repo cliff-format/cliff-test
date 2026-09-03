@@ -1,0 +1,160 @@
+# 空无一人的观众厅，距最后一场演出还有一个小时。一盏工作灯亮着。场景的开场舞台指示；在任何人开口之前，先设定空荡荡的剧场。
+# clif:source = The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.
+# clif:type = description
+# clif:emotion = calm
+# clif:status = initial
+open-house-lights = 场灯已灭。一盏工作灯在前台燃烧，灰尘在光束中缓缓旋转。
+
+# 空无一人的观众厅，距最后一场演出还有一个小时。一盏工作灯亮着。卡西安离开十年后从侧台走进来，说出他的第一句台词。
+# clif:source = I could find this stage in my sleep.
+# clif:type = dialogue
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+enter-cassian = 我闭着眼睛都能找到这个舞台。
+
+# 空无一人的观众厅，距最后一场演出还有一个小时。一盏工作灯亮着。奥黛特说这句话时是真心高兴见到他；她多年来一直盼着这一刻。
+# clif:source = You came back.
+# clif:type = dialogue
+# clif:emotion = joyful|grateful
+# clif:status = initial
+lit-01a = 你回来了。
+
+# 空无一人的观众厅，距最后一场演出还有一个小时。一盏工作灯亮着。同样的台词在场景稍后出现，在他承认离开的原因后，作为责备说出。
+# clif:source = You came back.
+# clif:type = dialogue
+# clif:emotion = angry|sad
+# clif:status = initial
+lit-01b = 你回来了。
+
+# 空无一人的观众厅，距最后一场演出还有一个小时。一盏工作灯亮着。卡西安用关于后台公告板的小玩笑岔开话题。
+# clif:source = The call board still has my name spelled wrong.
+# clif:type = dialogue
+# clif:emotion = playful
+# clif:status = initial
+reply-cassian = 公告板上我的名字还是拼错的。
+
+# 他们绕开了十年未谈的争执。奥黛特的核心台词。卡西安在场景稍后会引用这句话，因此措辞的重要性超出本条本身。
+# clif:source = This theatre kept its promises. People did not.
+# clif:type = dialogue
+# clif:emotion = serious|sad
+# clif:status = initial
+motif-promise = 这座剧院守住了它的承诺。人却没有。
+
+# 他们绕开了十年未谈的争执。当丢失的灯光控制台钥匙终于被找到时说出；她是认真的。
+# clif:source = Wonderful. Just wonderful.
+# clif:type = dialogue
+# clif:emotion = joyful
+# clif:status = initial
+lit-02a = 太好了。真是太好了。
+
+# 他们绕开了十年未谈的争执。同样的台词在保险丝第二次烧断后说出；是苦涩的讽刺，不是赞美。
+# clif:source = Wonderful. Just wonderful.
+# clif:type = dialogue
+# clif:emotion = angry|playful
+# clif:status = initial
+lit-02b = 太好了。真是太好了。
+
+# 他们绕开了十年未谈的争执。卡西安把奥黛特之前的台词引用回给她；必须读起来是同一句台词的回响。
+# clif:source = You said the theatre kept its promises.
+# clif:type = dialogue
+# clif:emotion = serious
+# clif:status = initial
+callback-promise = 你说过，这座剧院守住了它的承诺。
+
+# 他们绕开了十年未谈的争执。场景早期，奥黛特用姓氏和头衔与他保持距离。
+# clif:source = Mr. Vale, the call is in five minutes.
+# clif:type = dialogue
+# clif:emotion = formal|polite
+# clif:status = initial
+address-early = 维尔先生，还有五分钟就集合了。
+
+# 他们绕开了十年未谈的争执。场景后期，距离感消失，她第一次用他的名字称呼他。
+# clif:source = Cassian. Please. Sit down.
+# clif:type = dialogue
+# clif:emotion = calm|sad
+# clif:status = initial
+address-late = 卡西安。请坐。
+
+# 他们绕开了十年未谈的争执。一条舞台指示：简洁的叙述语气，为工作人员描述动作。
+# clif:source = She turns the lamp toward him.
+# clif:type = description
+# clif:emotion = objective
+# clif:status = initial
+lit-03a = 她把灯转向他。
+
+# 他们绕开了十年未谈的争执。一句对话台词：演员在排练时大声描述走位，是口语。
+# clif:source = She turns the lamp toward him.
+# clif:type = dialogue
+# clif:emotion = playful
+# clif:status = initial
+lit-03b = 她把灯转向他。
+
+# 关于建筑本身的务实交谈，同时他们避开彼此的目光。奥黛特列举建筑需要什么；年份是事实，必须保留。
+# clif:source = The roof has not been touched since 1974.
+# clif:type = dialogue
+# clif:emotion = neutral
+# clif:status = initial
+roof-year = 屋顶自1974年以来就没动过。
+
+# 关于建筑本身的务实交谈，同时他们避开彼此的目光。卡西安数着灯架里还在工作的设备。
+# clif:source = Two 500-watt lamps, and a fuse box older than both of us.
+# clif:type = dialogue
+# clif:emotion = neutral
+# clif:status = initial
+lamp-count = 两盏500瓦的灯，还有一个比我们俩都老的保险丝盒。
+
+# 关于建筑本身的务实交谈，同时他们避开彼此的目光。场馆名称是公司的标志，在所有材料中均不翻译。
+# clif:source = The Halloway does not close tonight. It closes when the last person leaves.
+# clif:type = dialogue
+# clif:emotion = neutral
+# clif:status = initial
+venue-name = 哈洛威今晚不会关门。它会在最后一个人离开时才关门。
+
+# 关于建筑本身的务实交谈，同时他们避开彼此的目光。给操作员关于灯光控制台的技术指示。
+# clif:source = Use the default setting on the board and do not touch anything else.
+# clif:type = dialogue
+# clif:emotion = neutral
+# clif:status = initial
+board-default = 使用控制台上的默认设置，不要碰其他任何东西。
+
+# 关于建筑本身的务实交谈，同时他们避开彼此的目光。卡西安对她告诉他建筑已经卖掉做出反应。
+# clif:source = Are you serious? Now? After everything?
+# clif:type = dialogue
+# clif:emotion = surprised|angry
+# clif:status = initial
+disbelief = 你是认真的吗？现在？经历了这一切之后？
+
+# 卡西安去换装后，奥黛特独自站在工作灯下。她独白的前半部分，独自在舞台上；长篇文学性散文，不是对话。
+# clif:source = I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.
+# clif:type = monologue
+# clif:emotion = nostalgic
+# clif:status = initial
+monologue-open = 我扫这地板的次数，比我在自己床上睡觉的次数还多。我知道哪块木板在沉重的演员脚下会吱呀作响，哪一块在轻盈的演员脚下会松动。只要你待得够久，建筑会认识你。
+
+# 卡西安去换装后，奥黛特独自站在工作灯下。独白中舒适感崩塌的转折点。
+# clif:source = And then one night the lights do not come up, and it turns out the building never learned anything at all.
+# clif:type = monologue
+# clif:emotion = nostalgic
+# clif:status = initial
+monologue-turn = 然后有一天晚上，灯没有亮起来，结果发现这座建筑其实什么都没学会。
+
+# 剧团传统的闭幕对句，在演出季结束时对空无一人的剧场说出。闭幕对句的第一行；两行结构平行，必须保持平行。
+# clif:source = The lamps go dark, the boards remain.
+# clif:type = narration
+# clif:emotion = serious|nostalgic
+# clif:status = initial
+verse-01 = 灯暗了，台板犹在。
+
+# 剧团传统的闭幕对句，在演出季结束时对空无一人的剧场说出。对句的第二行，在结构上逐字呼应第一行。
+# clif:source = The players go, the play remains.
+# clif:type = narration
+# clif:emotion = serious|nostalgic
+# clif:status = initial
+verse-02 = 演员走了，戏犹在。
+
+# 剧团传统的闭幕对句，在演出季结束时对空无一人的剧场说出。场景的结束舞台指示。
+# clif:source = She reaches up and switches off the work lamp. Darkness, and then the house door closing.
+# clif:type = description
+# clif:emotion = calm
+# clif:status = initial
+final-direction = 她伸手关掉工作灯。黑暗，然后是剧场门关上的声音。

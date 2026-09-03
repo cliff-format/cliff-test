@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: “Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.-->
+    <string name="licensee">“被许可方”指签订本协议并代表其授权用户接受本协议条款的法律实体。</string>
+    <!--clif:source: “Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.-->
+    <string name="authorised-user">“授权用户”指被许可方授权代表其访问本服务的被许可方员工、承包商或代理人。</string>
+    <!--clif:source: “Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.-->
+    <string name="service-data">“服务数据”指被许可方或其授权用户提交至本服务或在本服务中存储的所有记录、文档和元数据。</string>
+    <!--clif:source: “Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.-->
+    <string name="service">“服务”指附录A中所述的Ledgerline审计追踪平台，以及运营方普遍提供的任何更新。</string>
+    <!--clif:source: “Operator” means the company identified in the privacy notice as responsible for processing Service Data.-->
+    <string name="operator">“运营方”指隐私通知中确定为负责处理服务数据的公司。</string>
+    <!--clif:source: Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.-->
+    <string name="grant-license">根据本协议条款，运营方授予被许可方非排他性、不可转让、可撤销的许可，仅允许其出于内部业务目的访问和使用本服务。</string>
+    <!--clif:source: The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.-->
+    <string name="licensee-shall">被许可方应确保每位授权用户遵守本协议条款。</string>
+    <!--clif:source: The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.-->
+    <string name="operator-must">运营方必须按照本协议第4.2条对服务数据保密。</string>
+    <!--clif:source: The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.-->
+    <string name="licensee-may">被许可方仅可出于培训其授权用户的目的复制文档。</string>
+    <!--clif:source: Either party may terminate this Agreement on thirty days' written notice to the other party.-->
+    <string name="termination">任何一方均可提前三十天书面通知另一方终止本协议。</string>
+    <!--clif:source: The Licensee may not sublicense, rent or lease the Service to any third party.-->
+    <string name="licensee-may-not">被许可方不得向任何第三方再许可、出租或租赁本服务。</string>
+    <!--clif:source: The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.-->
+    <string name="restricted-acts">被许可方不得：(a) 对本服务进行逆向工程、反编译或反汇编；(b) 移除或掩盖本服务中的任何专有声明；或 (c) 使用本服务代表任何第三方处理数据。</string>
+    <!--clif:source: The Licensee may not create derivative works based on the Service or any part of it.-->
+    <string name="no-derivative">被许可方不得基于本服务或其任何部分创作衍生作品。</string>
+    <!--clif:source: The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.-->
+    <string name="confidentiality">被许可方应对运营方披露的关于本服务的所有非公开信息保密。</string>
+    <!--clif:source: THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.-->
+    <string name="warranty-disclaimer">本服务按“现状”和“现有”提供，不作任何明示或暗示的保证，包括但不限于对适销性、特定用途适用性和不侵权的暗示保证。</string>
+    <!--clif:source: To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.-->
+    <string name="limitation-liability">在法律允许的最大范围内，运营方因本协议引起或与之相关的所有索赔的累计责任不超过被许可方在索赔前十二个月内支付的费用。</string>
+    <!--clif:source: If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.-->
+    <string name="severability">如果本协议的任何条款被认定为不可执行，其余条款仍保持完全有效。</string>
+    <!--clif:source: This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.-->
+    <string name="privacy-operator">本服务由{operator}运营，该方作为通过平台处理的服务数据的数据控制者。</string>
+    <!--clif:source: The Operator processes Service Data only for the purposes of providing, securing and improving the Service.-->
+    <string name="privacy-purpose">运营方仅为提供、保护和改进本服务的目的处理服务数据。</string>
+    <!--clif:source: Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.-->
+    <string name="retention-period">除非法律要求更长的期限，否则服务数据将在被许可方关闭账户{months}个月后被删除。</string>
+    <!--clif:source: Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.-->
+    <string name="abstract">金融审计追踪每天增长数百万条事件，审查这些追踪的团队需要能够标记真实异常而不会让人类分析师不堪重负的检测器。我们在合成账本事件语料库上评估了三种检测方法，测量了对抗性噪声下的误报率、端到端延迟和处理吞吐量。我们的结果表明，基于学习的事件Embedding构建的序列模型提高了对噪声的稳健性，同时将延迟保持在交互阈值以下。我们发布了评估工具和合成语料库，以支持可复现的比较。</string>
+</resources>

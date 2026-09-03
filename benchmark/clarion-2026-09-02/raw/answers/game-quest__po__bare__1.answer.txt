@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "quest.brief.brief-tide-run"
+msgid "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+msgstr "潮水每天涨落两次，港口也每天两次忘记谁欠谁。在水位上涨之前，将密封的货物清单交给军需官，账本就能再多保持一夜的诚实。"
+
+msgctxt "quest.brief.brief-ninth-light"
+msgid "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+msgstr "九盏灯环绕着内港。八盏由港口公会照看；最后一盏立在公会假装看不见的礁石上，而它从未熄灭过一次。"
+
+msgctxt "quest.brief.quest-title-last-watch"
+msgid "Willow's Last Watch"
+msgstr "柳树的最后一班岗"
+
+msgctxt "quest.brief.journal-note-order"
+msgid "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+msgstr "马罗会在打开闸门之前阅读货物清单，因此目标2会一直锁定，直到目标1完成确认。"
+
+msgctxt "quest.brief.brief-warning-fog"
+msgid "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+msgstr "雾气会毫无预兆地从西边涌来。如果你看不到下一盏灯，就停止划桨并等待：这里的水流很有耐心，迟早会把你带回码头。"
+
+msgctxt "quest.objectives.objective-03a"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr "将密封的货物清单交给马罗"
+
+msgctxt "quest.objectives.objective-03b"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr "将密封的货物清单交给马罗"
+
+msgctxt "quest.objectives.objective-04a"
+msgid "Restore Power to the Tide Gate"
+msgstr "恢复潮汐闸门的电力"
+
+msgctxt "quest.objectives.objective-04b"
+msgid "Restore Power to the Tide Gate"
+msgstr "恢复潮汐闸门的电力"
+
+msgctxt "quest.objectives.objective-relight"
+msgid "Relight the Ninth Light before the ebb"
+msgstr "在退潮前重新点亮第九盏灯"
+
+msgctxt "quest.objectives.objective-count-crates"
+msgid "{secured, plural, one {# crate secured} other {# crates secured}}"
+msgstr "{secured, plural, one {已固定 # 个货箱} other {已固定 # 个货箱}}"
+
+msgctxt "quest.objectives.objective-check-lines"
+msgid "Check the mooring lines on the east pier"
+msgstr "检查东码头上的系泊缆绳"
+
+msgctxt "quest.dialogue.hail-01a"
+msgid "Hand me the lantern, friend."
+msgstr "把灯笼递给我，朋友。"
+
+msgctxt "quest.dialogue.hail-01b"
+msgid "Hand me the lantern, friend."
+msgstr "把灯笼递给我，朋友。"
+
+msgctxt "quest.dialogue.hail-02a"
+msgid "Marrow says the dock is open to you."
+msgstr "马罗说码头对你开放。"
+
+msgctxt "quest.dialogue.hail-02b"
+msgid "Marrow says the dock is open to you."
+msgstr "马罗说码头对你开放。"
+
+msgctxt "quest.dialogue.dialogue-willow-keeps"
+msgid "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+msgstr "柳树让第九盏灯燃烧了十一个冬天，而她从未向公会要过一滴油。"
+
+msgctxt "quest.dialogue.dialogue-burn-it"
+msgid "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+msgstr "在马罗的船到达码头之前把它烧掉。冰冷的灰烬什么也不会告诉他。"
+
+msgctxt "quest.dialogue.success-echo"
+msgid "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+msgstr "第九盏灯现在是你的了。别让我后悔把它交给你。"
+
+msgctxt "quest.dialogue.line-success-tide"
+msgid "The gate holds. Whatever you did down there, the water is going where it should."
+msgstr "闸门撑住了。不管你在下面做了什么，水都流向了该去的地方。"
+
+msgctxt "quest.dialogue.line-failure-tide"
+msgid "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+msgstr "闸门卡住了，码头被水淹了。等退潮后再回来，我们再试一次。"
+
+msgctxt "items.rewards.item-relay-grid-desc"
+msgid "The relay grid is robust: one failed beacon does not break the chain."
+msgstr "中继网格非常稳健：一个信标失效不会破坏整条链路。"
+
+msgctxt "items.rewards.item-lamp-oil-desc"
+msgid "One flask feeds the lamp for 30 minutes at the default wick height."
+msgstr "在默认灯芯高度下，一瓶油可供灯燃烧30分钟。"
+
+msgctxt "items.rewards.item-fog-lamp-desc"
+msgid "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+msgstr "一盏矮胖的黄铜灯，配着有划痕的蓝色灯罩。它发出的光很弱，但在雾中，弱光比强光散射得更少。"
+
+msgctxt "items.rewards.achv-marrow-debt"
+msgid "Marrow's Debt"
+msgstr "马罗的债务"
+
+msgctxt "items.rewards.achv-nine-nights"
+msgid "Nine Nights, Nine Lights"
+msgstr "九夜，九灯"
+
+msgctxt "system.messages.system-welcome-runner"
+msgid "Fair tide, {playerName}. Your last run ended 3 days ago."
+msgstr "顺潮而行，{playerName}。你上次行动结束于3天前。"
+
+msgctxt "system.messages.system-keybind-lantern"
+msgid "Hold [E] to raise the lantern; press [Q] to signal."
+msgstr "按住 [E] 举起灯笼；按 [Q] 发出信号。"
+
+msgctxt "system.messages.system-signal-range"
+msgid "Signal range: 120 m in fog, 400 m in clear air."
+msgstr "信号范围：雾中120米，晴朗空气中400米。"
+
+msgctxt "system.messages.system-quest-state"
+msgid "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+msgstr "{state, select, updated {任务已更新} complete {任务完成} other {任务失败}}"

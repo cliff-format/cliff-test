@@ -1,0 +1,168 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.lit-drama" original="clarion.lit-drama">
+    <group id="scene.arrival">
+      <unit id="open-house-lights">
+        <segment>
+          <source>The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.</source>
+        </segment>
+      </unit>
+      <unit id="enter-cassian">
+        <segment>
+          <source>I could find this stage in my sleep.</source>
+        </segment>
+      </unit>
+      <unit id="lit-01a">
+        <segment>
+          <source>You came back.</source>
+        </segment>
+      </unit>
+      <unit id="lit-01b">
+        <segment>
+          <source>You came back.</source>
+        </segment>
+      </unit>
+      <unit id="reply-cassian">
+        <segment>
+          <source>The call board still has my name spelled wrong.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.confrontation">
+      <unit id="motif-promise">
+        <segment>
+          <source>This theatre kept its promises. People did not.</source>
+        </segment>
+      </unit>
+      <unit id="lit-02a">
+        <segment>
+          <source>Wonderful. Just wonderful.</source>
+        </segment>
+      </unit>
+      <unit id="lit-02b">
+        <segment>
+          <source>Wonderful. Just wonderful.</source>
+        </segment>
+      </unit>
+      <unit id="callback-promise">
+        <segment>
+          <source>You said the theatre kept its promises.</source>
+        </segment>
+      </unit>
+      <unit id="address-early">
+        <segment>
+          <source>Mr. Vale, the call is in five minutes.</source>
+        </segment>
+      </unit>
+      <unit id="address-late">
+        <segment>
+          <source>Cassian. Please. Sit down.</source>
+        </segment>
+      </unit>
+      <unit id="lit-03a">
+        <segment>
+          <source>She turns the lamp toward him.</source>
+        </segment>
+      </unit>
+      <unit id="lit-03b">
+        <segment>
+          <source>She turns the lamp toward him.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.house">
+      <unit id="roof-year">
+        <segment>
+          <source>The roof has not been touched since 1974.</source>
+        </segment>
+      </unit>
+      <unit id="lamp-count">
+        <segment>
+          <source>Two 500-watt lamps, and a fuse box older than both of us.</source>
+        </segment>
+      </unit>
+      <unit id="venue-name">
+        <segment>
+          <source>The Halloway does not close tonight. It closes when the last person leaves.</source>
+        </segment>
+      </unit>
+      <unit id="board-default">
+        <segment>
+          <source>Use the default setting on the board and do not touch anything else.</source>
+        </segment>
+      </unit>
+      <unit id="disbelief">
+        <segment>
+          <source>Are you serious? Now? After everything?</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.monologue">
+      <unit id="monologue-open">
+        <segment>
+          <source>I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.</source>
+        </segment>
+      </unit>
+      <unit id="monologue-turn">
+        <segment>
+          <source>And then one night the lights do not come up, and it turns out the building never learned anything at all.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.verse">
+      <unit id="verse-01">
+        <segment>
+          <source>The lamps go dark, the boards remain.</source>
+        </segment>
+      </unit>
+      <unit id="verse-02">
+        <segment>
+          <source>The players go, the play remains.</source>
+        </segment>
+      </unit>
+      <unit id="final-direction">
+        <segment>
+          <source>She reaches up and switches off the work lamp. Darkness, and then the house door closing.</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

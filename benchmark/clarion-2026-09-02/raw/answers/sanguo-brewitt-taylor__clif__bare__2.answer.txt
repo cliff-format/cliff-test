@@ -1,0 +1,141 @@
+CLIF 1.0
+namespace: clarion
+clan: sanguo-brewitt-taylor
+source-language: zh-CN
+target-language: en-US
+
+[chapter-1]
+
+<chapter-1-001>
+source: "建寧二年四月望日，帝御溫德殿。方陞座，殿角狂風驟起，只見一條大青蛇，從梁 上飛將下來，蟠於椅上。帝驚倒，左右急救入宮，百官俱奔避。須臾，蛇不見了。忽然 大雷大雨，加以冰雹，落到半夜方止，壞卻房屋無數。建寧四年二月，洛陽地震；又海 水泛溢，沿海居民，盡被大浪捲入海中。光和元年，雌雞化雄。六月朔，黑氣十餘丈， 飛入溫德殿中。秋七月，有虹見於玉堂；五原山岸，盡皆崩裂。種種不祥，非止一端。"
+target: "In the second year of Jianning, on the fifteenth day of the fourth month, the Emperor held court in the Hall of Warmth and Virtue. As he had just taken his seat, a violent wind suddenly rose in the corner of the hall, and a great green serpent descended from the beams, coiling upon the throne. The Emperor, startled, fell back, and his attendants hurriedly carried him into the palace, while the officials all fled in confusion. In a moment, the serpent vanished. Then came a great thunderstorm with hail, which lasted until midnight and destroyed countless houses. In the second month of the fourth year of Jianning, there was an earthquake in Luoyang; and the sea overflowed, and the coastal inhabitants were all swept into the sea by the great waves. In the first year of Guanghe, hens turned into roosters. On the first day of the sixth month, a black vapor more than ten zhang long flew into the Hall of Warmth and Virtue. In the seventh month of autumn, a rainbow appeared at the Jade Hall; and the cliffs of Wuyuan all collapsed. These various omens of misfortune were not limited to a single instance."
+type: sentence
+status: translated
+
+<chapter-1-002>
+source: "帝下詔問群臣以災異之由，議郎蔡邕上疏，以為蜺墮雞化，乃婦寺干政之所致，言 頗切直。帝覽奏歎息，因起更衣。曹節在後竊視，悉宣告左右。遂以他事陷邕於罪，放 歸田里。後張讓，趙忠，封諝，段珪，曹節，候覽，蹇碩，程曠，夏惲，郭勝十人朋比 為奸，號為「十常侍」。帝尊信張讓，呼為「阿父」，朝政日非，以致天下人心思亂， 盜賊蜂起。"
+target: "The Emperor issued an edict asking his ministers for the cause of these calamities and portents. The Gentleman Consultant Cai Yong submitted a memorial, believing that the falling rainbow and the hens turning into roosters were caused by the interference of women and eunuchs in government, and his words were quite blunt and direct. The Emperor sighed upon reading the memorial, and then rose to change his clothes. Cao Jie, watching secretly from behind, reported everything to those around him. He then framed Cai Yong on other charges and sent him back to his fields. Later, Zhang Rang, Zhao Zhong, Feng Xu, Duan Gui, Cao Jie, Hou Lan, Jian Shuo, Cheng Kuang, Xia Yun, and Guo Sheng, ten men in all, conspired together in villainy and were known as the \"Ten Regular Attendants.\" The Emperor honored and trusted Zhang Rang, calling him \"Father,\" and the court government daily grew worse, until the hearts of the people turned to thoughts of rebellion and bandits rose like swarms of bees."
+type: sentence
+status: translated
+
+<chapter-1-003>
+source: "時鉅鹿郡有兄弟三人：一名張角，一名張寶，一名張梁。那張角本是個不第秀才。 因入山採藥，遇一老人，碧眼童顏，手執藜杖，喚角至一洞中，以天書三卷授之，曰： 「此名太平要術。汝得之，當代天宣化，普救世人；若萌異心，必獲惡報。」角拜問姓 名。老人曰：「吾乃南華老仙也。」言訖，化陣清風而去。"
+target: "At that time, in Julu Commandery, there were three brothers: one named Zhang Jiao, one named Zhang Bao, and one named Zhang Liang. Zhang Jiao had originally been a scholar who had failed the examinations. Once, while gathering herbs in the mountains, he met an old man with blue eyes and a youthful face, holding a staff of wild pear wood. The old man called Jiao into a cave and gave him three volumes of a heavenly book, saying: \"This is called the Essential Arts of Great Peace. If you obtain it, you should proclaim Heaven's teachings on its behalf and broadly save the people of the world; if you harbor different intentions, you will surely receive evil retribution.\" Jiao bowed and asked his name. The old man said: \"I am the Old Immortal of Nanhua.\" With these words, he turned into a gust of clear wind and departed."
+type: sentence
+status: translated
+
+<chapter-1-004>
+source: "張角聞知事露，星夜舉兵，自稱天公將軍，─張寶稱地公將軍，張梁稱人公將軍─ 。申言於眾曰：「今漢運將終，大聖人出﹔汝等皆宜順從天意，以槳太平。」四方百姓 ，裹黃巾從張角反者，四五十萬。賊勢浩大，官軍望風而靡。何進奏帝火速降詔，令各 處備禦，討賊立功；一面遣中郎將盧植，皇甫嵩，朱雋，各引精兵，分三路討之。"
+target: "When Zhang Jiao learned that the matter had been exposed, he raised his troops by starlight, calling himself General of Heaven; Zhang Bao called himself General of Earth, and Zhang Liang General of Man. He declared to the multitude: \"Now the fortune of Han is about to end, and a great sage has appeared; you should all follow the will of Heaven, to bring about Great Peace.\" The common people from all directions, wearing yellow turbans and following Zhang Jiao in rebellion, numbered four to five hundred thousand. The bandit force was vast, and the imperial troops collapsed at the sight of them. He Jin memorialized the Emperor to issue urgent edicts, ordering all places to prepare defenses and to win merit by suppressing the rebels; at the same time, he sent the General of the Household Lu Zhi, Huangfu Song, and Zhu Jun, each leading elite troops, to attack them in three separate routes."
+type: sentence
+status: translated
+
+<chapter-1-005>
+source: "且說張角一軍，前犯幽州界分。幽州太守劉焉，乃江夏竟陵人氏，漢魯恭王之後也 ；當時聞得賊兵將至，召校尉鄒靖計議。靖曰：「賊兵眾，我兵寡，明公宜作速招軍應 敵。」劉焉然其說，隨即出榜招募義兵。榜文行到涿縣，乃引出涿縣中一個英雄。"
+target: "Now let us speak of Zhang Jiao's army, which advanced to invade the borders of Youzhou. The Governor of Youzhou, Liu Yan, was a native of Jingling in Jiangxia, a descendant of Prince Gong of Lu of the Han dynasty. When he heard that the bandit troops were about to arrive, he summoned the Commandant Zou Jing to discuss the matter. Jing said: \"The bandit troops are many, and our troops are few. My lord should quickly recruit soldiers to meet the enemy.\" Liu Yan agreed with his advice and immediately posted notices to recruit volunteer troops. The notice reached Zhuo County, and it brought forth a hero from within Zhuo County."
+type: sentence
+status: translated
+
+<chapter-1-006>
+source: "那人不甚好讀書；性寬和，寡言語，喜怒不形於色；素有大志，專好結交天下豪傑 ；生得身長七尺五寸，兩耳垂肩，雙手過膝，目能自顧其耳，面如冠玉，脣若塗脂；中 山靖王劉勝之後，漢景帝閣下玄孫﹔姓劉，名備，字玄德。昔劉勝之子劉貞，漢武時封 涿鹿亭侯，後坐酬金失侯，因此遺這一枝在涿縣。玄德祖劉雄，父劉弘。弘曾舉孝廉， 亦嘗作吏，早喪。玄德幼孤，事母至孝；家貧，販屨織蓆為業。家住本縣樓桑村。其家 之東南，有一大桑樹，高五丈餘，遙望之，童童如車蓋。相者云：「此家必出貴人。」"
+target: "This man was not very fond of reading; his nature was broad and gentle, he spoke little, and his joy and anger did not show on his face. He had long cherished great ambitions and delighted in befriending the heroes of the world. He was seven chi five cun tall, with ears that hung to his shoulders and hands that reached past his knees; his eyes could see his own ears, his face was like polished jade, and his lips like applied rouge. He was a descendant of Liu Sheng, Prince Jing of Zhongshan, and a great-great-grandson of Emperor Jing of Han. His surname was Liu, his given name Bei, and his style name Xuande. Formerly, Liu Zhen, the son of Liu Sheng, had been enfeoffed as Marquis of Zhuolu Pavilion during the reign of Emperor Wu, but later lost his marquisate for failing to contribute the required gold, and so this branch of the family remained in Zhuo County. Xuande's grandfather was Liu Xiong, and his father Liu Hong. Hong had once been recommended as filial and incorrupt, and had also served as an official, but died early. Xuande was orphaned young and served his mother with utmost filial piety; the family was poor, and he made his living selling straw sandals and weaving mats. His home was in Lou Sang Village in the county. To the southeast of his house stood a great mulberry tree, more than five zhang tall; seen from afar, it was lush and round like a carriage canopy. A physiognomist said: \"This household will surely produce a noble person.\""
+type: sentence
+status: translated
+
+<chapter-1-007>
+source: "飛曰：「吾莊後有一桃園，花開正盛；明日當於園中祭告天地，我三人結為兄弟， 協力同心，然後可圖大事。」玄德、雲長、齊聲應曰：「如此甚好。」次日，於桃園中 ，備下烏牛白馬祭禮等項，三人焚香，再拜而說誓曰：「念劉備、關羽、張飛，雖然異 姓，既結為兄弟，則同心協力，救困扶危；上報國家，下安黎庶；不求同年同月同日生 ，但願同年同月同日死。皇天后土，實鑒此心。背義忘恩，天人共戮。」誓畢，拜玄德 為兄，關羽次之，張飛為弟。祭罷天地，復宰牛設酒，聚鄉中勇士，得三百餘人，就桃 園中痛飲一醉。來日收拾軍器，但恨無馬匹可乘。"
+target: "Fei said: \"Behind my manor there is a peach garden, where the flowers are now in full bloom. Tomorrow we should make sacrifice to Heaven and Earth in the garden, and the three of us shall become sworn brothers, joining our strength and hearts as one; then we may plan great deeds.\" Xuande and Yunchang answered together: \"That would be excellent.\" The next day, in the peach garden, they prepared the sacrificial offerings of a black ox and a white horse and other items. The three burned incense, bowed twice, and swore this oath: \"Thinking on Liu Bei, Guan Yu, and Zhang Fei, though of different surnames, having now become brothers, we shall join our hearts and strength, rescue the distressed and support the imperiled; above, to repay the state, and below, to bring peace to the common people. We do not seek to be born in the same year, month, and day, but only hope to die in the same year, month, and day. May Heaven above and Earth below truly witness this heart. Should we betray righteousness and forget gratitude, may Heaven and man alike destroy us.\" After the oath, they honored Xuande as the elder brother, Guan Yu next, and Zhang Fei as the younger brother. After sacrificing to Heaven and Earth, they slaughtered the ox and set out wine, gathered the brave men of the countryside, numbering more than three hundred, and drank deeply to intoxication in the peach garden. The next day they prepared their weapons, but regretted only that they had no horses to ride."
+type: sentence
+status: translated
+
+<chapter-1-008>
+source: "英雄發穎在今朝，一試矛兮一試刀。初出便將威力展，三分好把姓名標。"
+target: "The hero's brilliance shines forth this day, one tests the spear, one tests the blade. At first appearance his might is shown, and the Three Kingdoms will mark his name."
+type: sentence
+status: translated
+
+<chapter-1-009>
+source: "次日，玄德與鄒靖，引軍鼓譟而進。賊眾迎戰，玄德引軍便退。賊眾乘勢追趕，方 過山嶺，玄德軍中一齊鳴金，左右兩軍齊出，玄德麾軍回身復殺。三路夾攻，賊眾大潰 。直趕至青州城下，太守龔景亦率民兵出城助戰。賊勢大敗，剿戮極多，遂解青州之圍 。後人有詩讚玄德曰："
+target: "The next day, Xuande and Zou Jing led their troops forward with drums and shouts. The bandit host came out to fight, and Xuande led his troops in retreat. The bandits gave chase, taking advantage of the momentum; just as they crossed the mountain ridge, Xuande's army sounded the gong all at once, and the left and right wings both came out together. Xuande wheeled his troops around and fought again. Attacked from three directions, the bandit host utterly collapsed. They were pursued all the way to the walls of Qingzhou, where Governor Gong Jing also led out the local militia to join the battle. The bandit force was badly defeated, with very many killed, and thus the siege of Qingzhou was lifted. Later generations had a poem praising Xuande, saying:"
+type: sentence
+status: translated
+
+<chapter-1-010>
+source: "運籌決算有神功，二虎還須遜一龍。初出便能垂偉績，自應分鼎在孤窮。"
+target: "In planning and calculation he has divine skill, two tigers must yield to one dragon. At first appearance he achieves great deeds, and rightly shall he share the tripods from humble beginnings."
+type: sentence
+status: translated
+
+<chapter-1-011>
+source: "龔景犒軍畢，鄒靖欲回。玄德曰：「近聞中郎將盧植與賊首張角戰於廣宗，備昔曾 師事盧植，欲往助之。」於是鄒靖引軍自回，玄德與關、張引本部五百人投廣宗來。至 盧植軍中，入帳施禮，具道來意。盧植大喜，留在帳前聽調。"
+target: "After Gong Jing had rewarded the troops, Zou Jing wished to return. Xuande said: \"I have recently heard that the General of the Household Lu Zhi is fighting the bandit leader Zhang Jiao at Guangzong. I once studied under Lu Zhi and wish to go and assist him.\" So Zou Jing led his troops back on his own, while Xuande, with Guan and Zhang, led their own five hundred men to Guangzong. Arriving at Lu Zhi's camp, they entered the tent, paid their respects, and explained their purpose. Lu Zhi was greatly pleased and kept them before his tent to await orders."
+type: sentence
+status: translated
+
+<chapter-1-012>
+source: "時張角賊眾十五萬，植兵五萬，相拒於廣宗，未見勝負。植謂玄德曰：「我今圍賊 在此，賊弟張梁，張寶在潁川，與皇甫嵩、朱雋對壘。汝可引本部人馬，我更助汝一千 官軍，前去潁川打探消息，約期剿捕。」玄德領命，引軍星夜投潁川來。時皇甫嵩、朱 雋領軍拒賊，賊戰不利，退入長社，依草結營。嵩與雋計曰：「賊依草結營，當用火攻 之。」遂令軍士，每人束草一把，暗地埋伏。其夜大風忽起。二更以後，一齊縱火，嵩 與雋各引兵攻擊賊寨，火燄張天，賊眾驚慌，馬不及鞍，人不及甲，四散奔走。殺到天 明，張梁、張寶引敗殘軍士，奪路而走。"
+target: "At that time, Zhang Jiao's bandit host numbered one hundred fifty thousand, while Zhi's troops numbered fifty thousand, and they faced each other at Guangzong without yet seeing victory or defeat. Zhi said to Xuande: \"I am now besieging the bandits here, while the bandit brothers Zhang Liang and Zhang Bao are at Yingchuan, facing Huangfu Song and Zhu Jun across the lines. You may lead your own men, and I will further aid you with a thousand imperial troops, to go to Yingchuan to scout the situation and arrange a time for a joint suppression.\" Xuande accepted the order and led his troops by starlight to Yingchuan. At that time, Huangfu Song and Zhu Jun were leading troops against the bandits; the bandits fought unsuccessfully and retreated into Changshe, where they made camp amid the grass. Song and Jun planned together, saying: \"The bandits have made camp amid the grass; we should attack them with fire.\" They then ordered the soldiers, each to bind a bundle of grass and lie in ambush secretly. That night a great wind suddenly arose. After the second watch, they set fire all at once, and Song and Jun each led troops to attack the bandit camp. The flames blazed to the sky, and the bandits, in panic, had no time to saddle their horses or don their armor, scattering in all directions. They were slaughtered until dawn, when Zhang Liang and Zhang Bao led the remnants of their defeated troops, forcing their way through and fleeing."
+type: sentence
+status: translated
+
+<chapter-1-013>
+source: "忽見一彪軍馬，盡打紅旗，當頭來到，截往去路。為首閃出一將，身長七尺，細眼 長髯；官拜騎都尉；沛國譙郡人也：姓曹，名操，字孟德。操父曹嵩，本姓夏侯氏；因 為中常侍曹騰之養子，故冒姓曹。曹嵩生操，小字阿瞞，一名吉利。操幼時，好游獵， 喜歌舞；有權謀，多機變。操有叔父，見操游蕩無度，嘗怒之，言於曹嵩。嵩責操。操 忽心生一計：見叔父來，詐倒於地，作中風之狀。叔父驚告嵩，嵩急視之，操故無恙。 嵩曰：「叔言汝中風，今己愈乎？」操曰：「兒自來無此病；因失愛於叔父，故見罔耳 。」嵩信其言。後叔父但言操過，嵩並不聽。因此，操得恣意放蕩。"
+target: "Suddenly they saw a troop of horsemen, all bearing red banners, arriving head-on and blocking the road. At the front flashed forth a general, seven chi tall, with narrow eyes and a long beard; he held the office of Commandant of Cavalry and was a native of Qiao Commandery in the state of Pei. His surname was Cao, his given name Cao, and his style name Mengde. Cao's father, Cao Song, had originally been of the Xiahou clan, but because he was the adopted son of the eunuch Cao Teng, he had taken the surname Cao. Cao Song begot Cao, whose childhood name was A-Man, also called Jili. In his youth, Cao loved hunting and delighted in song and dance; he had political cunning and was full of schemes. Cao had an uncle who, seeing Cao roaming about without restraint, was often angry with him and spoke of it to Cao Song. Song reproved Cao. Cao suddenly conceived a plan: seeing his uncle coming, he pretended to fall to the ground, feigning the appearance of a stroke. His uncle, alarmed, told Song, who hurried to look at him, but Cao was deliberately unharmed. Song said: \"Your uncle said you had a stroke; have you now recovered?\" Cao said: \"Your son has never had such an illness; because I have lost my uncle's affection, I was falsely accused.\" Song believed his words. Thereafter, whenever the uncle spoke of Cao's faults, Song would not listen. Thus Cao was able to indulge in dissipation at will."
+type: sentence
+status: translated
+
+<chapter-1-014>
+source: "卻說玄德引關、張來潁川，聽得喊殺之聲，又望見火光燭天，急引兵來時，賊已敗 散。玄德見皇甫嵩，朱雋，其道盧植之意。嵩曰：「張梁、張寶勢窮力乏，必投廣宗去 依張角。玄德可即星夜往助。」"
+target: "Now let us speak of Xuande, who led Guan and Zhang to Yingchuan. Hearing the cries of battle and seeing the firelight illuminating the sky, he hurriedly led his troops there, but the bandits had already been defeated and scattered. Xuande met Huangfu Song and Zhu Jun and conveyed Lu Zhi's intentions. Song said: \"Zhang Liang and Zhang Bao, their power exhausted and their strength spent, will surely flee to Guangzong to rely on Zhang Jiao. Xuande should immediately go by starlight to assist.\""
+type: sentence
+status: translated
+
+<chapter-1-015>
+source: "玄德領命，遂引兵復回。到得半路，只見一簇軍馬，護送一輛檻車，車中之囚，乃 盧植也。玄德大驚，滾鞍下馬，問其緣故。植曰：「我圍張角，將次可破；因角用妖術 ，未能即勝。朝廷差黃門左豐前來體探，問我索取賄賂。我答曰：『軍糧尚缺，安有餘 錢奉承天使？』左豐挾恨，回奏朝廷，說我高壘不戰，惰慢軍心；因此朝廷震怒，遣中 郎將董卓來代將我兵，取我回京問罪。」"
+target: "Xuande accepted the order and led his troops back again. Halfway there, he saw a cluster of troops escorting a prison cart, and the prisoner in the cart was none other than Lu Zhi. Xuande was greatly alarmed, rolled off his horse, and asked the reason. Zhi said: \"I was besieging Zhang Jiao and was about to break him; but because Jiao used sorcery, I could not win immediately. The court sent the Yellow Gate official Zuo Feng to investigate, and he demanded a bribe from me. I answered: 'Our military grain is still lacking; how could I have surplus money to flatter the imperial envoy?' Zuo Feng, nursing a grudge, reported back to the court, saying that I had built high ramparts and would not fight, and that I was lazy and negligent of military morale. Therefore the court, in great anger, sent the General of the Household Dong Zhuo to take command of my troops and to bring me back to the capital for questioning.\""
+type: sentence
+status: translated
+
+<chapter-1-016>
+source: "三人飛馬引軍而出。張角正殺敗董卓，乘勢趕來，忽遇三人衝殺，角軍大亂，敗走 五十餘里。三人救了董卓回寨。卓問三人現居何職。玄德曰：「白身。」卓甚輕之，不 為禮。玄德出，張飛大怒曰：「我等親赴血戰，救了這廝，他卻如此無禮﹔若不殺之， 難消我氣！」便要提刀入帳來殺董卓。正是：人情勢利古猶今，誰識英雄是白身？安得 快人如翼德，盡誅世上負心人！畢竟董卓性命如何，且看下文分解。"
+target: "The three spurred their horses and led their troops out. Zhang Jiao had just defeated Dong Zhuo and was pressing the pursuit, when suddenly he encountered the three charging in to attack. Jiao's army fell into great confusion and fled in defeat for more than fifty li. The three rescued Dong Zhuo and returned to camp. Zhuo asked the three what offices they currently held. Xuande said: \"Commoner.\" Zhuo greatly despised him and offered no courtesy. As Xuande left, Zhang Fei angrily said: \"We personally fought in bloody battle and saved this wretch, yet he is so rude; if I do not kill him, my anger will not subside!\" He was about to seize his blade and enter the tent to kill Dong Zhuo. Indeed: Human feelings are ever fickle, ancient as today; who knows the hero is a commoner? How to find a forthright man like Yide, to slay all the ungrateful in the world! As for what became of Dong Zhuo's life, let us see the next chapter for the explanation."
+type: sentence
+status: translated
+
+[chapter-2]
+
+<chapter-2-001>
+source: "中平六年，夏四月，靈帝病篤，召大將軍何進入宮，商議後事。那何進起身屠家； 因妹入宮為貴人，生皇子辯，遂立為皇后，進由是得權重任。帝又寵幸王美人，生皇子 協。何后嫉妒，鴆殺王美人。皇子協養於董太后宮中。董太后乃靈帝之母，解瀆亭侯劉 萇之妻也。初因桓帝無子，迎立解瀆亭侯之子，是為靈帝。靈帝入繼大統，遂迎養母氏 於宮中，尊為太后。"
+target: "In the sixth year of Zhongping, in the fourth month of summer, Emperor Ling was gravely ill and summoned the Grand General He Jin to the palace to discuss matters of succession. That He Jin had risen from a butcher's family; because his sister had entered the palace as a noble lady and given birth to Prince Bian, she was established as Empress, and Jin thereby gained weighty power and office. The Emperor also favored Lady Wang, who gave birth to Prince Xie. Empress He, jealous, poisoned Lady Wang to death. Prince Xie was raised in the palace of Empress Dowager Dong. Empress Dowager Dong was the mother of Emperor Ling and the wife of Liu Chang, Marquis of Jiedu Pavilion. Originally, because Emperor Huan had no sons, the son of the Marquis of Jiedu Pavilion was brought in and established, and this was Emperor Ling. When Emperor Ling succeeded to the great inheritance, he brought his mother to be raised in the palace and honored her as Empress Dowager."
+type: sentence
+status: translated
+
+<chapter-2-002>
+source: "何進聽罷，出謂眾官曰：「蹇碩設謀害我，可族滅其家。其餘不必妄加殘害。」袁 紹曰：「若不斬草除根，必為喪身之本。」進曰：「吾意已決，汝勿多言。」眾官皆退 。"
+target: "When He Jin heard this, he went out and said to the officials: \"Jian Shuo plotted to harm me; his family may be exterminated. The rest need not be wantonly harmed.\" Yuan Shao said: \"If you do not cut the grass and pull the roots, it will surely be the foundation of your own ruin.\" Jin said: \"My mind is made up; say no more.\" The officials all withdrew."
+type: sentence
+status: translated
+
+<chapter-2-003>
+source: "次日，太后命何進參錄尚書事，其餘皆封官職。董太后宣張讓等入宮商議曰：「何 進之妹，始初我抬舉他。今日他孩兒即皇帝位，內外臣僚，皆其心腹：威權太重，我將 如何？」讓奏曰：「娘娘可臨朝，垂簾聽政；封皇子協為王；加國舅董重大官，掌握軍 權；重用臣等：大事可圖矣。」"
+target: "The next day, the Empress Dowager ordered He Jin to participate in and oversee the affairs of the Secretariat, and the rest were all given official posts. Empress Dowager Dong summoned Zhang Rang and others into the palace to discuss, saying: \"He Jin's sister—I was the one who first promoted her. Now her child has ascended the imperial throne, and the officials inside and outside are all his confidants. His power and authority are too great. What shall I do?\" Rang memorialized: \"Your Ladyship may hold court and listen to affairs from behind the curtain; enfeoff Prince Xie as a prince; give the Imperial Uncle Dong Zhong a high office to hold military power; and employ us heavily: then great deeds may be planned.\""
+type: sentence
+status: translated
+
+<chapter-2-004>
+source: "董太后大喜。次日設朝，董太后降旨，封皇子協為陳留王，董重為驃騎將軍，張讓 等共預朝政。何太后見董太后專權，於宮中設一宴，請董太后赴席。酒至半酣，何太后 起身捧盃再拜曰：「我等皆婦人也，參預朝政，非其所宜。昔呂后因握重權，宗族千口 皆被戮。今我等宜深居九重；朝廷大事，任大臣元老自行商議，此國家之幸也。願垂聽 焉。」董太后大怒曰：「汝鴆死王美人，設心嫉妒。今倚汝子為君，與汝兄何進之勢， 輒敢亂言！吾敕驃騎斷汝兄首，如反掌耳！」何后亦怒曰：「吾以好言相勸，何反怒耶 ？」董后曰：「汝家屠沽小輩，有何見識！」"
+target: "Empress Dowager Dong was greatly pleased. The next day, holding court, Empress Dowager Dong issued an edict, enfeoffing Prince Xie as Prince of Chenliu, Dong Zhong as General of Agile Cavalry, and Zhang Rang and others to participate together in court government. Empress Dowager He, seeing Empress Dowager Dong monopolizing power, held a banquet in the palace and invited Empress Dowager Dong to attend. When the wine was half drunk, Empress Dowager He rose, holding a cup, and bowed twice, saying: \"We are all women; participating in court government is not fitting for us. In former times, Empress Lü, because she held great power, had her entire clan of a thousand mouths put to death. Now we should dwell deep within the palace; let the great affairs of the court be discussed by the senior ministers and elders themselves. This would be the fortune of the state. I beg you to heed this.\" Empress Dowager Dong angrily said: \"You poisoned Lady Wang to death, with a heart full of jealousy. Now, relying on your son being the ruler and your brother He Jin's power, you dare to speak recklessly! I could order the Agile Cavalry to cut off your brother's head as easily as turning over my hand!\" Empress He also angrily said: \"I advised you with good words; why do you instead turn angry?\" Empress Dowager Dong said: \"Your family are but butchers and wine-sellers of low birth; what understanding do you have!\""
+type: sentence
+status: translated
+
+<chapter-2-005>
+source: "少頃，何進入白后，欲誅中涓。何后曰：「中官統領禁省，漢家故事。先帝新棄天 下，爾欲誅殺舊臣，非重宗廟也。」進本是沒決斷之人，聽太后言，唯唯而出。袁紹迎 問曰：「大事若何？」進曰：「太后不允，如之奈何？」紹曰：「可召四方英雄人士， 勒兵來京，盡誅閹豎。此時事急，不容太后不從。」進曰：「此計大妙！」便發檄至各 鎮，召赴京師。"
+target: "After a moment, He Jin went in to inform the Empress Dowager that he wished to execute the eunuchs. Empress Dowager He said: \"The eunuchs commanding the palace guard is the established practice of the Han house. The late emperor has only recently left the world; if you wish to execute the old ministers, that is not showing due respect to the ancestral temple.\" Jin was by nature a man without resolution; hearing the Empress Dowager's words, he assented vaguely and went out. Yuan Shao came forward to ask: \"How goes the great matter?\" Jin said: \"The Empress Dowager does not consent. What can be done?\" Shao said: \"You may summon the heroes and worthies of the four quarters, muster troops to the capital, and exterminate all the eunuchs. At this moment, when matters are urgent, the Empress Dowager cannot but consent.\" Jin said: \"This plan is excellent!\" He then issued proclamations to all the garrisons, summoning them to the capital."
+type: sentence
+status: translated
+
+<chapter-2-006>
+source: "主簿陳琳曰：「不可！俗云：『掩目而捕燕雀』，是自欺也。微物尚不可欺以得志 ，況國家大事乎？今將軍仗皇威，掌兵要，龍驤虎步，高下在心：若欲誅宦官，如鼓洪 爐燎毛髮耳。但當速發，行權立斷，則天人順之﹔卻反外檄大臣，臨犯京闕，英雄聚會 ，各懷一心：所謂倒持干戈，授人以柄，功必一成，反生亂矣。」何進笑曰：「此懦夫 之見也！」傍邊一人鼓掌大笑曰：「此事易如反掌，何必多議！」視之，乃曹操也。正 是：欲除君側宵人亂，須聽朝中智士謀。不知曹操說出甚話來，且聽下文分解。"
+target: "The Chief Clerk Chen Lin said: \"This cannot be done! As the proverb says: 'Covering one's eyes to catch sparrows and swallows'—that is self-deception. Even for trifling things one cannot deceive oneself into success, let alone for the great affairs of the state! Now, General, you rely on the imperial majesty, hold the key to military power, stride like a dragon and pace like a tiger, with rise and fall in your heart. If you wish to execute the eunuchs, it is like blowing on a great furnace to singe hairs. You should only act swiftly, exercise authority and decide at once, and Heaven and man will follow you. But instead you issue proclamations to ministers abroad, approaching the imperial capital, where heroes will gather, each harboring his own heart—this is what is called holding a spear upside down and handing the handle to another. Your achievement will surely fail, and instead rebellion will arise.\" He Jin laughed, saying: \"This is the view of a coward!\" A man beside him clapped his hands and laughed loudly, saying: \"This matter is as easy as turning over one's hand; why need so much discussion!\" Looking at him, it was Cao Cao. Indeed: To remove the petty men troubling the ruler's side, one must heed the counsel of the wise in court. As for what words Cao Cao spoke, let us hear the next chapter for the explanation."
+type: sentence
+status: translated

@@ -1,0 +1,369 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "news-social",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "A city social feed the day a tram line opens: posts, replies, notifications and comments",
+    "info": "One day of social media from the invented city of Sablewick, where a new tram line called the Riverside Loop has just opened. Audience: ordinary users of a public social platform and readers commenting under a local news site. The material is posts, replies to posts, in-app notifications and reader comments, written in a casual present-day voice; handles, hashtags, emoji and message arguments are part of the text and belong to the platform, not to the sentence.",
+    "standard": "zh-CN house style: one space between Han text and Latin letters or digits, fullwidth punctuation inside Han sentences, no textbook jargon. Keep @ handles, hashtags and emoji exactly as the source writes them, in the same position. Render current internet slang with an equally current Chinese expression instead of word for word. Keep the offhand voice of a post and do not lift it into news register. Render the emotion tag in the wording, the particles and the punctuation, never as a neutral gloss. Preserve ICU arguments, their names and their structure. A line name, place or account that appears more than once must read the same way in every entry of this file, and a reply must be completed from the message it answers."
+  },
+  "groups": [
+    {
+      "path": "posts.reactions",
+      "context": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "news-01a",
+          "source": "Great work today, everyone. Really.",
+          "emotion": [
+            "grateful",
+            "joyful"
+          ],
+          "status": "initial",
+          "context": "Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly."
+        },
+        {
+          "id": "news-01b",
+          "source": "Great work today, everyone. Really.",
+          "emotion": [
+            "angry",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite."
+        },
+        {
+          "id": "news-02a",
+          "source": "Six months of roadworks and here we are.",
+          "emotion": [
+            "joyful",
+            "hopeful"
+          ],
+          "status": "initial",
+          "context": "Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last."
+        },
+        {
+          "id": "news-02b",
+          "source": "Six months of roadworks and here we are.",
+          "emotion": [
+            "angry",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "Posted a week later by a resident standing in front of a fresh set of barriers on the same street."
+        },
+        {
+          "id": "news-03a",
+          "source": "You are really going to ride that thing?",
+          "emotion": [
+            "anxious",
+            "polite"
+          ],
+          "status": "initial",
+          "context": "A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her."
+        },
+        {
+          "id": "news-03b",
+          "source": "You are really going to ride that thing?",
+          "emotion": [
+            "rude",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user."
+        }
+      ]
+    },
+    {
+      "path": "posts.referents",
+      "context": "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "news-04a",
+          "source": "Nice shot.",
+          "emotion": [
+            "joyful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Comment under a follower's photograph of the first tram crossing the river at sunrise."
+        },
+        {
+          "id": "news-04b",
+          "source": "Nice shot.",
+          "emotion": [
+            "joyful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line."
+        },
+        {
+          "id": "news-05a",
+          "source": "It is back.",
+          "emotion": [
+            "joyful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Comment under the notice that service resumed after the storm; the writer means the tram line itself."
+        },
+        {
+          "id": "news-05b",
+          "source": "It is back.",
+          "emotion": [
+            "sad",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier."
+        }
+      ]
+    },
+    {
+      "path": "platform.conventions",
+      "context": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "news-06",
+          "source": "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay",
+          "emotion": [
+            "grateful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts."
+        },
+        {
+          "id": "news-07",
+          "source": "Rode the whole loop this afternoon just because I could 🚋💚 no regrets",
+          "emotion": [
+            "joyful",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood."
+        },
+        {
+          "id": "news-08",
+          "source": "The new depot mural absolutely ate. No crumbs left.",
+          "emotion": [
+            "joyful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene."
+        },
+        {
+          "id": "news-09",
+          "source": "{count, plural, one {# person} other {# people}} reposted your photo.",
+          "type": "prompt",
+          "emotion": [
+            "mechanical",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands."
+        },
+        {
+          "id": "news-10",
+          "source": "{name} and {others, plural, one {# other} other {# others}} liked your post.",
+          "type": "prompt",
+          "emotion": [
+            "mechanical",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted."
+        },
+        {
+          "id": "news-11",
+          "source": "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.",
+          "emotion": [
+            "joyful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction."
+        }
+      ]
+    },
+    {
+      "path": "thread.replies",
+      "context": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "news-12",
+          "source": "@SablewickTransit Will the Riverside Loop run on the holiday Monday?",
+          "emotion": [
+            "curious",
+            "polite"
+          ],
+          "status": "initial",
+          "context": "First message in the thread: a rider puts a question to the transit account."
+        },
+        {
+          "id": "news-13",
+          "source": "Yes, on a Sunday timetable.",
+          "emotion": [
+            "polite",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question."
+        },
+        {
+          "id": "news-14",
+          "source": "And the last one back?",
+          "emotion": [
+            "curious",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction."
+        },
+        {
+          "id": "news-15",
+          "source": "Eleven forty, from the north end.",
+          "emotion": [
+            "polite",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above."
+        },
+        {
+          "id": "news-16",
+          "source": "Perfect, thank you! Adding it to the group chat now.",
+          "emotion": [
+            "grateful",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account."
+        }
+      ]
+    },
+    {
+      "path": "feed.updates",
+      "context": "Routine posts from the transit account and matter-of-fact reader comments from the same day.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "news-17",
+          "source": "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.",
+          "emotion": [
+            "objective",
+            "formal"
+          ],
+          "status": "initial",
+          "context": "Scheduled post from the transit account announcing the new frequency on the line."
+        },
+        {
+          "id": "news-18",
+          "source": "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.",
+          "emotion": [
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Post announcing the open day at the tram depot."
+        },
+        {
+          "id": "news-19",
+          "source": "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.",
+          "emotion": [
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Post summarizing the first week's ridership figure released by the operator."
+        },
+        {
+          "id": "news-20",
+          "source": "I take the first tram most mornings and the seats are comfortable enough for the whole ride.",
+          "emotion": [
+            "neutral",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Reader comment describing an ordinary commute on the line."
+        },
+        {
+          "id": "news-21",
+          "source": "Does anyone know whether the ticket machine at the north end takes cards?",
+          "emotion": [
+            "curious",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Reader comment asking a practical question about the ticket machine at the northern terminus."
+        },
+        {
+          "id": "news-22",
+          "source": "The rain held off for the ceremony, which was lucky for everyone standing on the platform.",
+          "emotion": [
+            "neutral"
+          ],
+          "status": "initial",
+          "context": "Reader comment on the weather during the opening ceremony."
+        },
+        {
+          "id": "news-23",
+          "source": "A single journey costs one euro fifty and a day pass costs four euros.",
+          "emotion": [
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Post from the transit account listing the fares on the new line."
+        }
+      ]
+    }
+  ]
+}

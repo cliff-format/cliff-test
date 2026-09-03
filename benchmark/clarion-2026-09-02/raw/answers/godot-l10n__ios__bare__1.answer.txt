@@ -1,0 +1,80 @@
+/* clif:source: OK */
+"ok" = "确定";
+/* clif:source: Failed */
+"failed" = "失败";
+/* clif:source: Unavailable */
+"unavailable" = "不可用";
+/* clif:source: Unconfigured */
+"unconfigured" = "未配置";
+/* clif:source: Unauthorized */
+"unauthorized" = "未授权";
+/* clif:source: Parameter out of range */
+"parameter-out-of-range" = "参数超出范围";
+/* clif:source: Out of memory */
+"out-of-memory" = "内存不足";
+/* clif:source: File not found */
+"file-not-found" = "文件未找到";
+/* clif:source: File: Bad drive */
+"file-bad-drive" = "文件：驱动器错误";
+/* clif:source: File: Bad path */
+"file-bad-path" = "文件：路径错误";
+/* clif:source: File: Permission denied */
+"file-permission-denied" = "文件：权限被拒绝";
+/* clif:source: File already in use */
+"file-already-in-use" = "文件已被使用";
+/* clif:source: Can't open file */
+"can-t-open-file" = "无法打开文件";
+/* clif:source: Can't write file */
+"can-t-write-file" = "无法写入文件";
+/* clif:source: Can't read file */
+"can-t-read-file" = "无法读取文件";
+/* clif:source: File unrecognized */
+"file-unrecognized" = "无法识别的文件";
+/* clif:source: File corrupt */
+"file-corrupt" = "文件损坏";
+/* clif:source: Missing dependencies for file */
+"missing-dependencies-for-file" = "文件缺少依赖项";
+/* clif:source: End of file */
+"end-of-file" = "文件结束";
+/* clif:source: Can't open */
+"can-t-open" = "无法打开";
+/* clif:source: Can't create */
+"can-t-create" = "无法创建";
+/* clif:source: Query failed */
+"query-failed" = "查询失败";
+/* clif:source: Already in use */
+"already-in-use" = "已被使用";
+/* clif:source: Locked */
+"locked" = "已锁定";
+/* clif:source: Timeout */
+"timeout" = "超时";
+/* clif:source: Can't connect */
+"can-t-connect" = "无法连接";
+/* clif:source: Can't resolve */
+"can-t-resolve" = "无法解析";
+/* clif:source: Connection error */
+"connection-error" = "连接错误";
+/* clif:source: Can't acquire resource */
+"can-t-acquire-resource" = "无法获取资源";
+/* clif:source: Can't fork */
+"can-t-fork" = "无法创建子进程";
+/* clif:source: Invalid data */
+"invalid-data" = "无效数据";
+/* clif:source: Invalid parameter */
+"invalid-parameter" = "无效参数";
+/* clif:source: Already exists */
+"already-exists" = "已存在";
+/* clif:source: Does not exist */
+"does-not-exist" = "不存在";
+/* clif:source: Can't read database */
+"can-t-read-database" = "无法读取数据库";
+/* clif:source: Can't write database */
+"can-t-write-database" = "无法写入数据库";
+/* clif:source: Compilation failed */
+"compilation-failed" = "编译失败";
+/* clif:source: Method not found */
+"method-not-found" = "方法未找到";
+/* clif:source: Link failed */
+"link-failed" = "链接失败";
+/* clif:source: Script failed */
+"script-failed" = "脚本失败";

@@ -1,0 +1,105 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+header:
+  namespace: clarion
+  clan: lit-drama
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: scene.arrival
+  entries:
+  - id: open-house-lights
+    source: The house lights are dead. One work lamp burns downstage, and the dust
+      turns slowly in its beam.
+  - id: enter-cassian
+    source: I could find this stage in my sleep.
+  - id: lit-01a
+    source: You came back.
+  - id: lit-01b
+    source: You came back.
+  - id: reply-cassian
+    source: The call board still has my name spelled wrong.
+- path: scene.confrontation
+  entries:
+  - id: motif-promise
+    source: This theatre kept its promises. People did not.
+  - id: lit-02a
+    source: Wonderful. Just wonderful.
+  - id: lit-02b
+    source: Wonderful. Just wonderful.
+  - id: callback-promise
+    source: You said the theatre kept its promises.
+  - id: address-early
+    source: Mr. Vale, the call is in five minutes.
+  - id: address-late
+    source: Cassian. Please. Sit down.
+  - id: lit-03a
+    source: She turns the lamp toward him.
+  - id: lit-03b
+    source: She turns the lamp toward him.
+- path: scene.house
+  entries:
+  - id: roof-year
+    source: The roof has not been touched since 1974.
+  - id: lamp-count
+    source: Two 500-watt lamps, and a fuse box older than both of us.
+  - id: venue-name
+    source: The Halloway does not close tonight. It closes when the last person leaves.
+  - id: board-default
+    source: Use the default setting on the board and do not touch anything else.
+  - id: disbelief
+    source: Are you serious? Now? After everything?
+- path: scene.monologue
+  entries:
+  - id: monologue-open
+    source: I have swept this floor more times than I have slept in my own bed. I
+      know which board creaks under a heavy actor and which one gives way under a
+      light one. A building learns you, if you stay long enough.
+  - id: monologue-turn
+    source: And then one night the lights do not come up, and it turns out the building
+      never learned anything at all.
+- path: scene.verse
+  entries:
+  - id: verse-01
+    source: The lamps go dark, the boards remain.
+  - id: verse-02
+    source: The players go, the play remains.
+  - id: final-direction
+    source: She reaches up and switches off the work lamp. Darkness, and then the
+      house door closing.

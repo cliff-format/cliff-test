@@ -1,0 +1,192 @@
+CLIF 1.0
+namespace: clarion
+clan: legal-privacy
+source-language: en-US
+target-language: zh-CN
+title: "Quillmark consent portal: privacy notice, data processing agreement and conference abstract"
+info: "Three original documents that ship together for the Quillmark consent portal: the privacy notice an account holder reads, the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the portal, and the abstract of a conference paper on consent auditing. Audience: account holders, the corporate customers who sign the agreement, and the reviewers of an academic workshop. Two strings of the notice are rendered at runtime by the portal engine and carry ICU MessageFormat payloads. The clause numbers printed in the notice and in the agreement are the numbers that other clauses of this file cite."
+standard: "Defined terms are fixed for the whole notice and the whole agreement and must read the same way in every clause: Personal Data is 个人信息 and never 个人数据, Data Subject is 信息主体 and never 数据主体, Controller is 控制者 and never 委托方, Processor is 处理者 and never 受托方, Operator is 运营方, Portal is 本门户. Render every modal by its legal force and never as a prediction: shall is 应当, must is 必须, may grants a permission, may not is 不得, and neither 将 nor 会 may stand in for a duty. Company names such as Quillmark Data Services and Halberd Cloud GmbH are registered legal entities and stay in Latin script. Keep ICU MessageFormat structure, argument names and enumerated item markers such as (a) exactly as the source writes them. Write a date in the year-month-day order, group digits the way the source groups them, and never round a published figure. Do not imitate the all-capital typography of the source; a clause set in capitals carries its force in the wording of the sentence. Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Avoid textbook jargon: write 默认 rather than 缺省 and 稳健 rather than 鲁棒. The conference abstract is a separate document and is not bound by the defined terms of the notice."
+
+[policy.definitions]
+context: "Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse."
+type: sentence
+emotion: [objective]
+
+<def-personal-data>
+source: "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+target: "“个人信息”是指运营方通过本门户处理的、与已识别或可识别的自然人相关的任何信息。"
+status: translated
+context: "First defined term of the notice. Later clauses use this term instead of describing the data again, and the house term list of this project settles which of the two competing renderings is used."
+
+<def-data-subject>
+source: "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+target: "“信息主体”是指个人信息所涉及的自然人，无论该人是否持有运营方的账户。"
+status: translated
+context: "Second defined term. The notice speaks about this person in the third person throughout, and the request clauses repeat the term unchanged."
+
+<def-operator>
+source: "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+target: "“运营方”是指 Quillmark Data Services，即决定本通知所述处理的目的和方式的公司，并聘请 Halberd Cloud GmbH 托管本门户。"
+status: translated
+context: "Third defined term. Both company names are entries on a commercial register and appear the same way in every language edition of this notice, because a reader has to be able to look them up."
+
+<def-processing>
+source: "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+target: "“处理”是指对个人信息进行的任何操作，无论是否通过自动化方式，包括收集、存储、传输、披露和删除。"
+status: translated
+context: "Fourth defined term. It is built on the term defined two entries earlier in this section, and the clauses of the agreement reuse both terms word for word."
+
+<def-portal>
+source: "“Portal” means the web application through which a request is submitted, tracked and answered."
+target: "“本门户”是指用于提交、跟踪和答复请求的 Web 应用程序。"
+status: translated
+context: "Fifth defined term, describing the product the notice is about."
+
+[policy.requests]
+context: "Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite."
+type: sentence
+emotion: [formal]
+
+<policy-effective-date>
+source: "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+target: "本通知自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的通知。"
+status: translated
+context: "Opening line of the notice, printed above the definitions. The first date is the day this edition starts to apply and the second identifies the edition it replaces, so a reader must be able to tell the two apart at a glance."
+
+<policy-volume-figures>
+source: "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+target: "在 2025 报告年度，运营方通过本门户收到 1,250,000 个请求，并在法定期限内答复了其中 98.6% 的请求。"
+status: translated
+context: "Transparency figure published once a year and checked by an external auditor. The count and the percentage are reported exactly as they were counted."
+
+<policy-retention-clause>
+source: "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+target: "4.2 运营方在 30 天内删除已关闭账户的记录，除非法律要求更长的保留期限。"
+status: translated
+context: "Retention clause as it is printed in the notice, carrying the clause number the notice gives it. Other clauses cite this number instead of repeating the rule."
+
+<policy-request-right>
+source: "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+target: "信息主体可以请求运营方更正或删除运营方持有的关于其的个人信息。"
+status: translated
+context: "Rights clause of the notice. It rests on two terms that the definitions section of this file fixes, and a reader who compares the two passages must find the same wording in both."
+
+<policy-erasure-crossref>
+source: "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+target: "删除请求根据第 4.2 节的保留规则予以答复，运营方通过本门户确认结果。"
+status: translated
+context: "Cross-reference clause. The rule it points at is the retention clause printed earlier in this file, and the citation has to lead the reader to that clause and to no other."
+
+<portal-request-count>
+source: "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+target: "{pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}"
+emotion: [mechanical]
+status: translated
+context: "Counter on the portal dashboard; the portal engine substitutes the number of requests that are still open."
+
+<portal-answer-channel>
+source: "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+target: "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过本门户答复}}"
+emotion: [mechanical]
+status: translated
+context: "Confirmation shown after a request is filed; the portal engine passes the channel the account holder chose."
+
+[dpa.authorised]
+context: "Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do."
+type: sentence
+emotion: [formal]
+
+<dpa-scope-instructions>
+source: "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+target: "处理者应当仅按照控制者的书面指示处理个人信息，并且如果某项指示似乎违反适用法律，应当立即通知控制者。"
+status: translated
+context: "Core duty clause of the agreement. Each obligation is a duty that binds the party now, not a forecast of what the parties expect to happen later."
+
+<dpa-audit-right>
+source: "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+target: "6.1 控制者可以在每个日历年对处理者进行一次审计，处理者必须允许审计人员访问审计所需的记录。"
+status: translated
+context: "Numbered audit clause, cited by number from the chapter that follows. The first modal confers a right on one party and the second lays a duty on the other, and the two halves of the sentence must not read alike."
+
+<clause-07a>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可以将个人信息用于本条所列的目的。"
+status: translated
+context: "The clause closes the list of authorisations in this chapter and tells the Processor that the listed purposes are covered by what the Controller has granted. It is read as the grant itself, not as a boundary drawn around the grant."
+
+<clause-09a>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署记录在本门户中，并向双方确认。"
+status: translated
+context: "Opening clause of the authorisation chapter. It fixes the moment at which the Controller puts its signature to the agreement in the Portal, which is what brings the authorisations of this chapter into force; nothing here concerns how the agreement is carried out afterwards."
+
+<dpa-hosting-region>
+source: "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+target: "根据本协议创建的所有记录均存储在附件 1 中约定的区域，并每晚进行备份。"
+status: translated
+context: "Ordinary operational clause, printed at the end of the authorisation chapter."
+
+[dpa.restrictions]
+context: "Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation."
+type: sentence
+emotion: [formal]
+
+<clause-07b>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可以将个人信息用于本条所列的目的。"
+status: translated
+context: "The same sentence as the purpose clause of the previous chapter, repeated here as the closing limitation. In this chapter the listed purposes are exhaustive: a purpose that is not listed falls outside the authorisation, and the clause exists in order to say so."
+
+<clause-09b>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署记录在本门户中，并向双方确认。"
+status: translated
+context: "The same sentence, printed in the chapter that limits the authorisation. Here it makes the way the Processor carries out the agreement from day to day traceable, so that the Controller can check at any time whether the limits of this chapter were observed; the signing of the document is dealt with in the earlier chapter."
+
+<dpa-enumerated-prohibition>
+source: "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+target: "处理者不得：(a) 未经控制者事先书面授权而委托新的子处理者；(b) 将记录复制到控制者未批准的设备上；或 (c) 使用记录训练任何类型的模型。"
+status: translated
+context: "Enumerated prohibition. An auditor cites these items by their markers in the finding report, so a marker has to stay where the source puts it and keep its own item."
+
+<dpa-caps-disclaimer>
+source: "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+target: "运营方不保证本门户将无中断或无错误地可用，并且在适用法律允许的最大范围内，不承担所有默示保证，包括适销性和特定用途适用性的默示保证。"
+status: translated
+context: "Disclaimer that closes the chapter. The source is set in capitals because the law of the source jurisdiction asks for a conspicuous notice; the target locale marks a conspicuous notice in the sentence itself rather than in the typography."
+
+<dpa-audit-crossref>
+source: "Nothing in this Article limits the audit right granted in Section 6.1."
+target: "本条中的任何内容均不限制第 6.1 节授予的审计权。"
+status: translated
+context: "Saving clause. It points back to the audit clause of the previous chapter by the number that clause carries in this file, and an auditor follows the number rather than the wording."
+
+[paper.abstract]
+context: "Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete."
+type: description
+emotion: [objective]
+
+<paper-title>
+source: "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+target: "大规模审计同意记录：对三个同意门户的实地研究"
+type: label
+status: translated
+context: "Paper title at the head of the abstract and in the conference programme."
+
+<paper-abstract-opening>
+source: "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+target: "当监管机构询问为何使用某人的数据时，同意记录是公司所依赖的证据，然而这些记录本身却很少被审计。我们报告了一项对三家中型公司运营的同意门户进行的为期九个月的实地研究。"
+status: translated
+context: "First two sentences of the abstract: the problem and the study."
+
+<paper-abstract-method>
+source: "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+target: "每个门户都使用固定的常规请求脚本进行测试，并将其返回的每份回执与门户写入自身日志的条目进行比较。"
+status: translated
+context: "Method sentence of the abstract."
+
+<paper-abstract-findings>
+source: "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+target: "三个门户中有两个丢失了至少一次撤回的时间戳，并且没有一个门户能够在无需人工操作的情况下显示某人同意的是哪个版本的通知。我们认为，同意记录的价值不超过其背后的审计追踪，并且我们公开测试脚本，以便其他团队可以重复这项研究。"
+status: translated
+context: "Findings and closing claim of the abstract."

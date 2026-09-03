@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.-->
+    <string name="brief-tide-run">潮水每天涨落两次，而港口每天两次忘记谁欠谁。在水位上涨之前，将密封的货物清单交给军需官，账本就能再保持一夜的诚实。</string>
+    <!--clif:source: Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.-->
+    <string name="brief-ninth-light">九盏灯环绕内港。八盏由港口公会照看；最后一盏立在公会假装看不见的礁石上，它从未熄灭过一次。</string>
+    <!--clif:source: Willow's Last Watch-->
+    <string name="quest-title-last-watch">威洛的最后一班岗</string>
+    <!--clif:source: Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.-->
+    <string name="journal-note-order">马罗在打开闸门之前会先阅读货物清单，因此目标2会一直锁定，直到目标1被确认完成。</string>
+    <!--clif:source: Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.-->
+    <string name="brief-warning-fog">雾气毫无预兆地从西边涌来。如果你看不到下一盏灯，就停止划桨等待：这里的水流很有耐心，迟早会把你带回码头。</string>
+    <!--clif:source: Deliver the Sealed Manifest to Marrow-->
+    <string name="objective-03a">将密封的货物清单交给马罗</string>
+    <!--clif:source: Deliver the Sealed Manifest to Marrow-->
+    <string name="objective-03b">将密封的货物清单交给马罗</string>
+    <!--clif:source: Restore Power to the Tide Gate-->
+    <string name="objective-04a">恢复潮汐闸门的电力</string>
+    <!--clif:source: Restore Power to the Tide Gate-->
+    <string name="objective-04b">恢复潮汐闸门的电力</string>
+    <!--clif:source: Relight the Ninth Light before the ebb-->
+    <string name="objective-relight">在退潮前重新点亮第九盏灯</string>
+    <!--clif:source: {secured, plural, one {# crate secured} other {# crates secured}}-->
+    <string name="objective-count-crates">{secured, plural, one {# 个箱子已固定} other {# 个箱子已固定}}</string>
+    <!--clif:source: Check the mooring lines on the east pier-->
+    <string name="objective-check-lines">检查东码头的系泊缆绳</string>
+    <!--clif:source: Hand me the lantern, friend.-->
+    <string name="hail-01a">把灯笼递给我，朋友。</string>
+    <!--clif:source: Hand me the lantern, friend.-->
+    <string name="hail-01b">把灯笼递给我，朋友。</string>
+    <!--clif:source: Marrow says the dock is open to you.-->
+    <string name="hail-02a">马罗说码头对你开放。</string>
+    <!--clif:source: Marrow says the dock is open to you.-->
+    <string name="hail-02b">马罗说码头对你开放。</string>
+    <!--clif:source: Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.-->
+    <string name="dialogue-willow-keeps">威洛让第九盏灯燃烧了十一个冬天，她从未向公会要过一滴油。</string>
+    <!--clif:source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.-->
+    <string name="dialogue-burn-it">在马罗的船到达码头之前把它烧掉。冰冷的灰烬不会告诉他任何事。</string>
+    <!--clif:source: The Ninth Light is yours to keep now. Do not make me regret the hand-over.-->
+    <string name="success-echo">第九盏灯现在归你保管了。别让我后悔这次交接。</string>
+    <!--clif:source: The gate holds. Whatever you did down there, the water is going where it should.-->
+    <string name="line-success-tide">闸门撑住了。不管你在下面做了什么，水都流向了该去的地方。</string>
+    <!--clif:source: The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.-->
+    <string name="line-failure-tide">闸门卡住了，码头被水淹了。等潮水退了再来，我们再试一次。</string>
+    <!--clif:source: The relay grid is robust: one failed beacon does not break the chain.-->
+    <string name="item-relay-grid-desc">中继网络很稳健：一个信标失效不会破坏整个链条。</string>
+    <!--clif:source: One flask feeds the lamp for 30 minutes at the default wick height.-->
+    <string name="item-lamp-oil-desc">在默认灯芯高度下，一瓶油可供灯燃烧30分钟。</string>
+    <!--clif:source: A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.-->
+    <string name="item-fog-lamp-desc">一盏矮胖的黄铜灯，带有划痕的蓝色灯罩。它发出的光很弱，但在雾中，弱光比强光散射得更少。</string>
+    <!--clif:source: Marrow's Debt-->
+    <string name="achv-marrow-debt">马罗的债务</string>
+    <!--clif:source: Nine Nights, Nine Lights-->
+    <string name="achv-nine-nights">九夜，九灯</string>
+    <!--clif:source: Fair tide, {playerName}. Your last run ended 3 days ago.-->
+    <string name="system-welcome-runner">顺潮，{playerName}。你上次行动在3天前结束。</string>
+    <!--clif:source: Hold [E] to raise the lantern; press [Q] to signal.-->
+    <string name="system-keybind-lantern">按住 [E] 举起灯笼；按 [Q] 发出信号。</string>
+    <!--clif:source: Signal range: 120 m in fog, 400 m in clear air.-->
+    <string name="system-signal-range">信号范围：雾中120米，晴朗空气中400米。</string>
+    <!--clif:source: {state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}-->
+    <string name="system-quest-state">{state, select, updated {任务已更新} complete {任务完成} other {任务失败}}</string>
+</resources>

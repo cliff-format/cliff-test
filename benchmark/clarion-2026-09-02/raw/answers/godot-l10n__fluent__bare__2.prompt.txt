@@ -1,0 +1,158 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# clif:source = OK
+ok = OK
+
+# clif:source = Failed
+failed = Failed
+
+# clif:source = Unavailable
+unavailable = Unavailable
+
+# clif:source = Unconfigured
+unconfigured = Unconfigured
+
+# clif:source = Unauthorized
+unauthorized = Unauthorized
+
+# clif:source = Parameter out of range
+parameter-out-of-range = Parameter out of range
+
+# clif:source = Out of memory
+out-of-memory = Out of memory
+
+# clif:source = File not found
+file-not-found = File not found
+
+# clif:source = File: Bad drive
+file-bad-drive = File: Bad drive
+
+# clif:source = File: Bad path
+file-bad-path = File: Bad path
+
+# clif:source = File: Permission denied
+file-permission-denied = File: Permission denied
+
+# clif:source = File already in use
+file-already-in-use = File already in use
+
+# clif:source = Can't open file
+can-t-open-file = Can't open file
+
+# clif:source = Can't write file
+can-t-write-file = Can't write file
+
+# clif:source = Can't read file
+can-t-read-file = Can't read file
+
+# clif:source = File unrecognized
+file-unrecognized = File unrecognized
+
+# clif:source = File corrupt
+file-corrupt = File corrupt
+
+# clif:source = Missing dependencies for file
+missing-dependencies-for-file = Missing dependencies for file
+
+# clif:source = End of file
+end-of-file = End of file
+
+# clif:source = Can't open
+can-t-open = Can't open
+
+# clif:source = Can't create
+can-t-create = Can't create
+
+# clif:source = Query failed
+query-failed = Query failed
+
+# clif:source = Already in use
+already-in-use = Already in use
+
+# clif:source = Locked
+locked = Locked
+
+# clif:source = Timeout
+timeout = Timeout
+
+# clif:source = Can't connect
+can-t-connect = Can't connect
+
+# clif:source = Can't resolve
+can-t-resolve = Can't resolve
+
+# clif:source = Connection error
+connection-error = Connection error
+
+# clif:source = Can't acquire resource
+can-t-acquire-resource = Can't acquire resource
+
+# clif:source = Can't fork
+can-t-fork = Can't fork
+
+# clif:source = Invalid data
+invalid-data = Invalid data
+
+# clif:source = Invalid parameter
+invalid-parameter = Invalid parameter
+
+# clif:source = Already exists
+already-exists = Already exists
+
+# clif:source = Does not exist
+does-not-exist = Does not exist
+
+# clif:source = Can't read database
+can-t-read-database = Can't read database
+
+# clif:source = Can't write database
+can-t-write-database = Can't write database
+
+# clif:source = Compilation failed
+compilation-failed = Compilation failed
+
+# clif:source = Method not found
+method-not-found = Method not found
+
+# clif:source = Link failed
+link-failed = Link failed
+
+# clif:source = Script failed
+script-failed = Script failed

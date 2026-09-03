@@ -1,0 +1,48 @@
+/* clif:source: Oh, that's just wonderful. */
+"probe-01a" = "哦，那真是太棒了。";
+/* clif:source: Oh, that's just wonderful. */
+"probe-01b" = "哦，那真是太棒了。";
+/* clif:source: After you. */
+"probe-02a" = "您先请。";
+/* clif:source: After you. */
+"probe-02b" = "您先请。";
+/* clif:source: Well, here we go again. */
+"probe-03a" = "好吧，我们又来了。";
+/* clif:source: Well, here we go again. */
+"probe-03b" = "好吧，我们又来了。";
+/* clif:source: Just relax. */
+"probe-04a" = "放松点。";
+/* clif:source: Just relax. */
+"probe-04b" = "放松点。";
+/* clif:source: Save */
+"probe-05a" = "保存";
+/* clif:source: Save */
+"probe-05b" = "保存";
+/* clif:source: Forge */
+"probe-06a" = "锻造";
+/* clif:source: Forge */
+"probe-06b" = "锻造";
+/* clif:source: Break a leg! */
+"probe-07a" = "祝你好运！";
+/* clif:source: Break a leg! */
+"probe-07b" = "祝你好运！";
+/* clif:source: Rate */
+"probe-08a" = "评分";
+/* clif:source: Rate */
+"probe-08b" = "评分";
+/* clif:source: Seal */
+"probe-09a" = "封印";
+/* clif:source: Seal */
+"probe-09b" = "封印";
+/* clif:source: It won't start. */
+"probe-10a" = "它启动不了。";
+/* clif:source: It won't start. */
+"probe-10b" = "它启动不了。";
+/* clif:source: Restore Default Settings */
+"probe-11a" = "恢复默认设置";
+/* clif:source: Restore Default Settings */
+"probe-11b" = "恢复默认设置";
+/* clif:source: View Frequently Asked Questions */
+"probe-12a" = "查看常见问题";
+/* clif:source: View Frequently Asked Questions */
+"probe-12b" = "查看常见问题";

@@ -1,0 +1,108 @@
+header:
+  namespace: clarion
+  clan: news-social
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: posts.reactions
+  entries:
+  - id: news-01a
+    source: Great work today, everyone. Really.
+    target: 大家今天干得真棒。真的。
+  - id: news-01b
+    source: Great work today, everyone. Really.
+    target: 大家今天干得真棒。真的。
+  - id: news-02a
+    source: Six months of roadworks and here we are.
+    target: 六个月的修路工程，我们终于到了。
+  - id: news-02b
+    source: Six months of roadworks and here we are.
+    target: 六个月的修路工程，我们终于到了。
+  - id: news-03a
+    source: You are really going to ride that thing?
+    target: 你真的要骑那个东西吗？
+  - id: news-03b
+    source: You are really going to ride that thing?
+    target: 你真的要骑那个东西吗？
+- path: posts.referents
+  entries:
+  - id: news-04a
+    source: Nice shot.
+    target: 拍得真好。
+  - id: news-04b
+    source: Nice shot.
+    target: 拍得真好。
+  - id: news-05a
+    source: It is back.
+    target: 它回来了。
+  - id: news-05b
+    source: It is back.
+    target: 它回来了。
+- path: platform.conventions
+  entries:
+  - id: news-06
+    source: 'Huge thanks to @HollowPineCafe for handing out free coffee at the depot
+      gate this morning. #TramDay'
+    target: '非常感谢@HollowPineCafe今天早上在车厂门口免费发放咖啡。#电车日'
+  - id: news-07
+    source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+    target: 今天下午把整条环线都坐了一遍，就因为我乐意 🚋💚 不后悔
+  - id: news-08
+    source: The new depot mural absolutely ate. No crumbs left.
+    target: 车厂的新壁画简直绝了。一点渣都不剩。
+  - id: news-09
+    source: '{count, plural, one {# person} other {# people}} reposted your photo.'
+    target: '{count, plural, one {# 个人} other {# 个人}}转发了你的照片。'
+  - id: news-10
+    source: '{name} and {others, plural, one {# other} other {# others}} liked your
+      post.'
+    target: '{name}和{others, plural, one {# 位其他人} other {# 位其他人}}赞了你的帖子。'
+  - id: news-11
+    source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out
+      of 10, would ride again.
+    target: 乘坐河滨环线第三天，单程省了40分钟。满分十分，还会再坐。
+- path: thread.replies
+  entries:
+  - id: news-12
+    source: '@SablewickTransit Will the Riverside Loop run on the holiday Monday?'
+    target: '@SablewickTransit 河滨环线在假日周一运行吗？'
+  - id: news-13
+    source: Yes, on a Sunday timetable.
+    target: 是的，按周日时刻表运行。
+  - id: news-14
+    source: And the last one back?
+    target: 那末班车呢？
+  - id: news-15
+    source: Eleven forty, from the north end.
+    target: 十一点四十，从北端出发。
+  - id: news-16
+    source: Perfect, thank you! Adding it to the group chat now.
+    target: 太好了，谢谢！我现在就加到群聊里。
+- path: feed.updates
+  entries:
+  - id: news-17
+    source: 'Service update: from Monday the Riverside Loop runs every eight minutes,
+      with the last departure at 11:40 pm.'
+    target: '服务更新：从周一起，河滨环线每八分钟一班，末班车于晚上11:40发车。'
+  - id: news-18
+    source: The depot open day starts at ten on Saturday morning and the workshop
+      tour is free for everyone.
+    target: 车厂开放日于周六上午十点开始，车间参观对所有人免费。
+  - id: news-19
+    source: Ridership on the Riverside Loop reached twenty-one thousand journeys in
+      its first week, the operator said.
+    target: 运营商表示，河滨环线首周客运量达到两万一千人次。
+  - id: news-20
+    source: I take the first tram most mornings and the seats are comfortable enough
+      for the whole ride.
+    target: 我大多数早上都坐第一班电车，座位很舒服，全程坐着都不累。
+  - id: news-21
+    source: Does anyone know whether the ticket machine at the north end takes cards?
+    target: 有人知道北端的售票机能不能刷卡吗？
+  - id: news-22
+    source: The rain held off for the ceremony, which was lucky for everyone standing
+      on the platform.
+    target: 仪式期间雨没下下来，这对站在站台上的每个人来说都很幸运。
+  - id: news-23
+    source: A single journey costs one euro fifty and a day pass costs four euros.
+    target: 单程票价一欧元五十美分，日票四欧元。

@@ -1,0 +1,181 @@
+# Quillmark 隐私通知的开篇定义。大写术语在本文件的后续所有条款中保持其定义含义，因此此处选择的措辞即通知及协议的条款需重复使用的措辞。通知的第一个定义术语。后续条款使用该术语而非再次描述数据，且本项目的术语表确定了两种竞争性译法中采用哪一种。
+# clif:source = “Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal.
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+def-personal-data = “个人数据”指与已识别或可识别的自然人相关的任何信息，且该信息由运营方通过门户进行处理。
+
+# Quillmark 隐私通知的开篇定义。大写术语在本文件的后续所有条款中保持其定义含义，因此此处选择的措辞即通知及协议的条款需重复使用的措辞。第二个定义术语。通知通篇以第三人称提及该自然人，请求条款原样重复该术语。
+# clif:source = “Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator.
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+def-data-subject = “数据主体”指个人数据所涉及的自然人，无论该人是否在运营方处持有账户。
+
+# Quillmark 隐私通知的开篇定义。大写术语在本文件的后续所有条款中保持其定义含义，因此此处选择的措辞即通知及协议的条款需重复使用的措辞。第三个定义术语。两个公司名称均为商业登记簿上的条目，在本通知的所有语言版本中以相同方式出现，因为读者必须能够查询到它们。
+# clif:source = “Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal.
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+def-operator = “运营方”指 Quillmark Data Services，即决定本通知所述处理之目的与方式的公司，并委托 Halberd Cloud GmbH 托管门户。
+
+# Quillmark 隐私通知的开篇定义。大写术语在本文件的后续所有条款中保持其定义含义，因此此处选择的措辞即通知及协议的条款需重复使用的措辞。第四个定义术语。它建立在本节前两个条目所定义的术语之上，协议的条款逐字重复使用这两个术语。
+# clif:source = “Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure.
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+def-processing = “处理”指对个人数据执行的任何操作，无论是否通过自动化方式进行，包括收集、存储、传输、披露和删除。
+
+# Quillmark 隐私通知的开篇定义。大写术语在本文件的后续所有条款中保持其定义含义，因此此处选择的措辞即通知及协议的条款需重复使用的措辞。第五个定义术语，描述本通知所涉及的产品。
+# clif:source = “Portal” means the web application through which a request is submitted, tracked and answered.
+# clif:type = sentence
+# clif:emotion = objective
+# clif:status = initial
+def-portal = “门户”指用于提交、跟踪和答复请求的 Web 应用程序。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。通知的开头行，打印在定义上方。第一个日期是本版本开始适用的日期，第二个日期标识其所替代的版本，因此读者必须能够一眼区分两者。
+# clif:source = This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+policy-effective-date = 本通知自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的通知。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。每年公布一次并由外部审计机构核查的透明度数据。计数和百分比均按实际统计结果如实报告。
+# clif:source = In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+policy-volume-figures = 在 2025 报告年度，运营方通过门户收到 1,250,000 份请求，并在法定期限内答复了其中 98.6%。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。通知中打印的保留条款，带有通知赋予的条款编号。其他条款引用该编号而非重复该规则。
+# clif:source = 4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+policy-retention-clause = 4.2 运营方在 30 天内删除已关闭账户的记录，除非法律要求更长的保留期限。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。通知的权利条款。它基于本文件定义部分所确定的两个术语，读者比较两处时必须找到相同的措辞。
+# clif:source = A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+policy-request-right = 数据主体可要求运营方更正或删除运营方所持有的关于其的个人数据。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。交叉引用条款。其所指向的规则是本文件前面打印的保留条款，该引用必须引导读者找到该条款而非其他条款。
+# clif:source = An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+policy-erasure-crossref = 删除请求依据第 4.2 节的保留规则予以答复，运营方通过门户确认结果。
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。门户仪表板上的计数器；门户引擎替换仍处于待处理状态的请求数量。
+# clif:source = {pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}
+# clif:type = sentence
+# clif:emotion = mechanical
+# clif:status = initial
+portal-request-count = {pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}
+
+# 账户持有人在提交请求前阅读的隐私通知条款，以及门户本身在运行时渲染的两个字符串。本节中打印的数字具有法律效力：日期、已公布的数据以及其他条款引用的条款编号。请求提交后显示的确认信息；门户引擎传入账户持有人选择的渠道。
+# clif:source = {channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}
+# clif:type = sentence
+# clif:emotion = mechanical
+# clif:status = initial
+portal-answer-channel = {channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}
+
+# 运营方（作为控制者）与受委托运营门户的处理者之间的数据处理协议第 6 章。本章每一条款均授予授权或规定授权的条件，本章应被解读为处理者被允许从事事项的来源。协议的核心义务条款。每项义务均为当前约束双方的义务，而非对双方未来预期发生事项的预测。
+# clif:source = The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-scope-instructions = 处理者仅可依据控制者的书面指示处理个人数据，如某项指示似乎违反适用法律，处理者应立即告知控制者。
+
+# 运营方（作为控制者）与受委托运营门户的处理者之间的数据处理协议第 6 章。本章每一条款均授予授权或规定授权的条件，本章应被解读为处理者被允许从事事项的来源。带编号的审计条款，后续章节按编号引用。第一个情态动词赋予一方权利，第二个则为另一方设定义务，句子的两半不得读起来相同。
+# clif:source = 6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-audit-right = 6.1 控制者可在每个日历年度对处理者进行一次审计，处理者必须允许审计人员访问审计所需的记录。
+
+# 运营方（作为控制者）与受委托运营门户的处理者之间的数据处理协议第 6 章。本章每一条款均授予授权或规定授权的条件，本章应被解读为处理者被允许从事事项的来源。该条款结束本章的授权清单，并告知处理者所列目的已涵盖于控制者所授予的授权范围内。它应被解读为授权本身，而非围绕授权划定的边界。
+# clif:source = The Processor may use the Personal Data for the purposes set out in this Article.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+clause-07a = 处理者可为本条所列目的使用个人数据。
+
+# 运营方（作为控制者）与受委托运营门户的处理者之间的数据处理协议第 6 章。本章每一条款均授予授权或规定授权的条件，本章应被解读为处理者被允许从事事项的来源。授权章节的开篇条款。它确定控制者在门户中签署协议的时点，该时点使本章的授权生效；此处不涉及协议后续的履行方式。
+# clif:source = Execution of this Agreement is recorded in the Portal and is confirmed to both parties.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+clause-09a = 本协议的签署在门户中予以记录，并向双方确认。
+
+# 运营方（作为控制者）与受委托运营门户的处理者之间的数据处理协议第 6 章。本章每一条款均授予授权或规定授权的条件，本章应被解读为处理者被允许从事事项的来源。普通运营条款，打印在授权章节末尾。
+# clif:source = All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-hosting-region = 根据本协议创建的所有记录存储于附件 1 中约定的区域，并每晚进行备份。
+
+# 同一协议的第 7 章。本章每一条款均缩小前一章所授予的范围：规定处理者被禁止从事的事项、其日常履行如何被检查，以及运营方不承诺的事项。本章条款应被解读为授权的外部边界。与前一章目的条款相同的句子，在此作为收尾限制重复出现。在本章中，所列目的是穷尽性的：未列出的目的不在授权范围内，该条款的存在正是为了说明这一点。
+# clif:source = The Processor may use the Personal Data for the purposes set out in this Article.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+clause-07b = 处理者可为本条所列目的使用个人数据。
+
+# 同一协议的第 7 章。本章每一条款均缩小前一章所授予的范围：规定处理者被禁止从事的事项、其日常履行如何被检查，以及运营方不承诺的事项。本章条款应被解读为授权的外部边界。同一句子，打印在限制授权的章节中。此处使处理者日常履行协议的方式可追溯，以便控制者随时检查本章的限制是否得到遵守；文件的签署在较早的章节中处理。
+# clif:source = Execution of this Agreement is recorded in the Portal and is confirmed to both parties.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+clause-09b = 本协议的签署在门户中予以记录，并向双方确认。
+
+# 同一协议的第 7 章。本章每一条款均缩小前一章所授予的范围：规定处理者被禁止从事的事项、其日常履行如何被检查，以及运营方不承诺的事项。本章条款应被解读为授权的外部边界。列举式禁止条款。审计人员在调查报告中按标记引用这些项目，因此标记必须保持在源文本中的位置并对应各自的项目。
+# clif:source = The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-enumerated-prohibition = 处理者不得：(a) 未经控制者事先书面授权而委托新的子处理者；(b) 将记录复制到控制者未批准的设备上；或 (c) 使用记录训练任何类型的模型。
+
+# 同一协议的第 7 章。本章每一条款均缩小前一章所授予的范围：规定处理者被禁止从事的事项、其日常履行如何被检查，以及运营方不承诺的事项。本章条款应被解读为授权的外部边界。结束本章的免责声明。源文本使用大写字母，因为源司法管辖区的法律要求显著提示；目标语言环境通过在句子本身而非排版中标记显著提示。
+# clif:source = THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-caps-disclaimer = 运营方不保证门户将无中断或无错误地可用，并在适用法律允许的最大范围内，不承担所有默示保证，包括适销性和特定用途适用性的默示保证。
+
+# 同一协议的第 7 章。本章每一条款均缩小前一章所授予的范围：规定处理者被禁止从事的事项、其日常履行如何被检查，以及运营方不承诺的事项。本章条款应被解读为授权的外部边界。保留条款。它按前一章审计条款在本文件中所携带的编号指回该条款，审计人员依据编号而非措辞进行引用。
+# clif:source = Nothing in this Article limits the audit right granted in Section 6.1.
+# clif:type = sentence
+# clif:emotion = formal
+# clif:status = initial
+dpa-audit-crossref = 本条中的任何内容均不限制第 6.1 节授予的审计权利。
+
+# 提交至隐私工程研讨会的原创会议论文摘要。这是一份独立文件，报告了对同意门户的实地研究，不使用通知中的定义术语。语体为学术性，句子完整。论文标题位于摘要开头及会议议程中。
+# clif:source = Auditing Consent Records at Scale: A Field Study of Three Consent Portals
+# clif:type = label
+# clif:emotion = objective
+# clif:status = initial
+paper-title = 大规模审计同意记录：三个同意门户的实地研究
+
+# 提交至隐私工程研讨会的原创会议论文摘要。这是一份独立文件，报告了对同意门户的实地研究，不使用通知中的定义术语。语体为学术性，句子完整。摘要的前两句：问题与研究。
+# clif:source = Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months.
+# clif:type = description
+# clif:emotion = objective
+# clif:status = initial
+paper-abstract-opening = 同意记录是公司在监管机构询问为何使用某人的数据时所依赖的证据，然而这些记录本身很少被审计。我们报告了一项对三家由中型企业运营的同意门户进行的为期九个月的实地研究。
+
+# 提交至隐私工程研讨会的原创会议论文摘要。这是一份独立文件，报告了对同意门户的实地研究，不使用通知中的定义术语。语体为学术性，句子完整。摘要的方法句。
+# clif:source = Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log.
+# clif:type = description
+# clif:emotion = objective
+# clif:status = initial
+paper-abstract-method = 每个门户均使用固定的常规请求脚本进行测试，其返回的每份回执均与门户写入自身日志的条目进行了比对。
+
+# 提交至隐私工程研讨会的原创会议论文摘要。这是一份独立文件，报告了对同意门户的实地研究，不使用通知中的定义术语。语体为学术性，句子完整。摘要的发现与结论性主张。
+# clif:source = Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study.
+# clif:type = description
+# clif:emotion = objective
+# clif:status = initial
+paper-abstract-findings = 三个门户中有两个丢失了至少一次撤回操作的时间戳，且没有一个门户能够在无需人工操作的情况下显示某人同意的是哪个版本的通知。我们认为，同意记录的价值不超过其背后的审计追踪，并公开测试脚本以便其他团队重复该研究。

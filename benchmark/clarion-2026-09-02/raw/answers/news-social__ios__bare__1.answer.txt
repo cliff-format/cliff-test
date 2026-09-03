@@ -1,0 +1,56 @@
+/* clif:source: Great work today, everyone. Really. */
+"news-01a" = "今天大家干得真棒。真的。";
+/* clif:source: Great work today, everyone. Really. */
+"news-01b" = "今天大家干得真棒。真的。";
+/* clif:source: Six months of roadworks and here we are. */
+"news-02a" = "六个月的修路工程，现在我们到了。";
+/* clif:source: Six months of roadworks and here we are. */
+"news-02b" = "六个月的修路工程，现在我们到了。";
+/* clif:source: You are really going to ride that thing? */
+"news-03a" = "你真的要骑那个东西吗？";
+/* clif:source: You are really going to ride that thing? */
+"news-03b" = "你真的要骑那个东西吗？";
+/* clif:source: Nice shot. */
+"news-04a" = "好球。";
+/* clif:source: Nice shot. */
+"news-04b" = "好球。";
+/* clif:source: It is back. */
+"news-05a" = "它回来了。";
+/* clif:source: It is back. */
+"news-05b" = "它回来了。";
+/* clif:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay */
+"news-06" = "非常感谢@HollowPineCafe今天早上在车厂门口发放免费咖啡。#TramDay";
+/* clif:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets */
+"news-07" = "今天下午骑了整条环线，就因为我行🚋💚 不后悔";
+/* clif:source: The new depot mural absolutely ate. No crumbs left. */
+"news-08" = "新车厂的壁画简直绝了。一点渣都不剩。";
+/* clif:source: {count, plural, one {# person} other {# people}} reposted your photo. */
+"news-09" = "{count, plural, one {# 人} other {# 人}}转发了你的照片。";
+/* clif:source: {name} and {others, plural, one {# other} other {# others}} liked your post. */
+"news-10" = "{name}和{others, plural, one {# 其他人} other {# 其他人}}赞了你的帖子。";
+/* clif:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again. */
+"news-11" = "在河滨环线第三天，单程省了40分钟。满分10分，还会再坐。";
+/* clif:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday? */
+"news-12" = "@SablewickTransit 河滨环线在假日周一运行吗？";
+/* clif:source: Yes, on a Sunday timetable. */
+"news-13" = "是的，按周日时刻表运行。";
+/* clif:source: And the last one back? */
+"news-14" = "那最后一班返回呢？";
+/* clif:source: Eleven forty, from the north end. */
+"news-15" = "十一点四十，从北端出发。";
+/* clif:source: Perfect, thank you! Adding it to the group chat now. */
+"news-16" = "太好了，谢谢！现在就加到群聊里。";
+/* clif:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm. */
+"news-17" = "服务更新：从周一起，河滨环线每八分钟一班，末班车晚上11:40发车。";
+/* clif:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone. */
+"news-18" = "车厂开放日周六上午十点开始，车间参观对所有人免费。";
+/* clif:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said. */
+"news-19" = "运营商表示，河滨环线首周客流量达到两万一千人次。";
+/* clif:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride. */
+"news-20" = "大多数早晨我都坐第一班电车，座位在整个行程中都很舒适。";
+/* clif:source: Does anyone know whether the ticket machine at the north end takes cards? */
+"news-21" = "有人知道北端的售票机支持刷卡吗？";
+/* clif:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform. */
+"news-22" = "仪式期间雨没下，这对站在站台上的每个人来说都很幸运。";
+/* clif:source: A single journey costs one euro fifty and a day pass costs four euros. */
+"news-23" = "单程票价一欧元五十美分，日票四欧元。";

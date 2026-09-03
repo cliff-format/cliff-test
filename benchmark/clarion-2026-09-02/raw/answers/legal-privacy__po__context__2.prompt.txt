@@ -1,0 +1,255 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. First defined term of the notice. Later clauses use this term instead of describing the data again, and the house term list of this project settles which of the two competing renderings is used.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "policy.definitions.def-personal-data"
+msgid "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+msgstr ""
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Second defined term. The notice speaks about this person in the third person throughout, and the request clauses repeat the term unchanged.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "policy.definitions.def-data-subject"
+msgid "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+msgstr ""
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Third defined term. Both company names are entries on a commercial register and appear the same way in every language edition of this notice, because a reader has to be able to look them up.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "policy.definitions.def-operator"
+msgid "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+msgstr ""
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Fourth defined term. It is built on the term defined two entries earlier in this section, and the clauses of the agreement reuse both terms word for word.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "policy.definitions.def-processing"
+msgid "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+msgstr ""
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Fifth defined term, describing the product the notice is about.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "policy.definitions.def-portal"
+msgid "“Portal” means the web application through which a request is submitted, tracked and answered."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Opening line of the notice, printed above the definitions. The first date is the day this edition starts to apply and the second identifies the edition it replaces, so a reader must be able to tell the two apart at a glance.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "policy.requests.policy-effective-date"
+msgid "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Transparency figure published once a year and checked by an external auditor. The count and the percentage are reported exactly as they were counted.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "policy.requests.policy-volume-figures"
+msgid "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Retention clause as it is printed in the notice, carrying the clause number the notice gives it. Other clauses cite this number instead of repeating the rule.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "policy.requests.policy-retention-clause"
+msgid "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Rights clause of the notice. It rests on two terms that the definitions section of this file fixes, and a reader who compares the two passages must find the same wording in both.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "policy.requests.policy-request-right"
+msgid "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Cross-reference clause. The rule it points at is the retention clause printed earlier in this file, and the citation has to lead the reader to that clause and to no other.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "policy.requests.policy-erasure-crossref"
+msgid "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Counter on the portal dashboard; the portal engine substitutes the number of requests that are still open.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "policy.requests.portal-request-count"
+msgid "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+msgstr ""
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Confirmation shown after a request is filed; the portal engine passes the channel the account holder chose.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "policy.requests.portal-answer-channel"
+msgid "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+msgstr ""
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Core duty clause of the agreement. Each obligation is a duty that binds the party now, not a forecast of what the parties expect to happen later.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.authorised.dpa-scope-instructions"
+msgid "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+msgstr ""
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Numbered audit clause, cited by number from the chapter that follows. The first modal confers a right on one party and the second lays a duty on the other, and the two halves of the sentence must not read alike.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.authorised.dpa-audit-right"
+msgid "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+msgstr ""
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. The clause closes the list of authorisations in this chapter and tells the Processor that the listed purposes are covered by what the Controller has granted. It is read as the grant itself, not as a boundary drawn around the grant.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.authorised.clause-07a"
+msgid "The Processor may use the Personal Data for the purposes set out in this Article."
+msgstr ""
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Opening clause of the authorisation chapter. It fixes the moment at which the Controller puts its signature to the agreement in the Portal, which is what brings the authorisations of this chapter into force; nothing here concerns how the agreement is carried out afterwards.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.authorised.clause-09a"
+msgid "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+msgstr ""
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Ordinary operational clause, printed at the end of the authorisation chapter.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.authorised.dpa-hosting-region"
+msgid "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+msgstr ""
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. The same sentence as the purpose clause of the previous chapter, repeated here as the closing limitation. In this chapter the listed purposes are exhaustive: a purpose that is not listed falls outside the authorisation, and the clause exists in order to say so.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.restrictions.clause-07b"
+msgid "The Processor may use the Personal Data for the purposes set out in this Article."
+msgstr ""
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. The same sentence, printed in the chapter that limits the authorisation. Here it makes the way the Processor carries out the agreement from day to day traceable, so that the Controller can check at any time whether the limits of this chapter were observed; the signing of the document is dealt with in the earlier chapter.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.restrictions.clause-09b"
+msgid "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+msgstr ""
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Enumerated prohibition. An auditor cites these items by their markers in the finding report, so a marker has to stay where the source puts it and keep its own item.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.restrictions.dpa-enumerated-prohibition"
+msgid "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+msgstr ""
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Disclaimer that closes the chapter. The source is set in capitals because the law of the source jurisdiction asks for a conspicuous notice; the target locale marks a conspicuous notice in the sentence itself rather than in the typography.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.restrictions.dpa-caps-disclaimer"
+msgid "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+msgstr ""
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Saving clause. It points back to the audit clause of the previous chapter by the number that clause carries in this file, and an auditor follows the number rather than the wording.
+#. clif:type: sentence
+#. clif:emotion: formal
+#. clif:status: initial
+msgctxt "dpa.restrictions.dpa-audit-crossref"
+msgid "Nothing in this Article limits the audit right granted in Section 6.1."
+msgstr ""
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Paper title at the head of the abstract and in the conference programme.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "paper.abstract.paper-title"
+msgid "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+msgstr ""
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. First two sentences of the abstract: the problem and the study.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "paper.abstract.paper-abstract-opening"
+msgid "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+msgstr ""
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Method sentence of the abstract.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "paper.abstract.paper-abstract-method"
+msgid "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+msgstr ""
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Findings and closing claim of the abstract.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "paper.abstract.paper-abstract-findings"
+msgid "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+msgstr ""

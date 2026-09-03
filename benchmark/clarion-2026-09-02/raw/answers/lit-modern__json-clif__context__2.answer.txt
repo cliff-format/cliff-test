@@ -1,0 +1,138 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-modern",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "现代文学层——叙述、对话、独白、描写",
+    "info": "为CLARION创作的现代英语文学原文，译成保留声音、节奏、视角和反复出现的风铃母题的文学中文。",
+    "standard": "保留每个角色的声音和叙述者的视角。习语要本地化而非直译。反复出现的母题要一致地呈现。对话必须读起来像自然的中文口语，而不是生硬的书面语。"
+  },
+  "groups": [
+    {
+      "path": "narration",
+      "context": "一段长篇叙述段落，开启一个虚构港口小镇的故事，并引入反复出现的风铃母题。",
+      "type": "narration",
+      "entries": [
+        {
+          "id": "narration-open",
+          "source": "The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago.",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "narration-memory",
+          "source": "Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain.",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "dialogue",
+      "context": "码头墙边马伦与沉默寡言的摆渡人索尔之间的一段对话；两个声音必须保持鲜明。",
+      "type": "dialogue",
+      "entries": [
+        {
+          "id": "dialogue-wall",
+          "source": "\"Wind's back,\" said Sol. \"Didn't figure you'd be out.\" \"I couldn't sleep,\" Maren said. \"The bell again?\" \"The bell.\" Sol folded his arms. \"Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot.\" \"That's the whole of it,\" Maren said. \"You sleep any better for knowing?\" \"I know the letter F in better, and that's the whole of it,\" said Sol.",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "dialogue-breakfast",
+          "source": "\"You'd keep the bell if the sea gave it back,\" Sol said one morning. \"Wouldn't you?\" \"I'd hang it where it hangs now,\" Maren said. \"Then what's all the listening for?\" \"To be sure it's still there.\" Sol shook his head. \"It'll be there after both of us,\" he said, \"and it won't miss us.\" \"I know.\" \"Then you know more than most.\" \"I know the listening, anyway.\" \"That's not the same thing.\" \"It's close enough,\" Maren said. \"It's close enough for me.\"",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "monologue",
+      "context": "摆渡人离开后马伦的内心独白；视角和第一人称节奏必须保留。",
+      "type": "monologue",
+      "entries": [
+        {
+          "id": "monologue-tide",
+          "source": "I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything.",
+          "emotion": [
+            "nostalgic",
+            "sad"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "monologue-stone",
+          "source": "The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it.",
+          "emotion": [
+            "nostalgic",
+            "sad"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "context": "最后一段对话前黄昏的场景设定；确立光线、天气和风铃母题。",
+      "type": "description",
+      "entries": [
+        {
+          "id": "description-dusk",
+          "source": "The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck.",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "description-lamplighter",
+          "source": "The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note.",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "description-rain",
+          "source": "By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it.",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "closing",
+      "context": "故事的最后一句，在港口上空说出；母题得到解决，语域保持平实。",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "closing-line",
+          "source": "The tide keeps nothing, and forgets nothing.",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        }
+      ]
+    }
+  ]
+}

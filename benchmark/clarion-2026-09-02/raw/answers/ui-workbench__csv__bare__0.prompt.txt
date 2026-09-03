@@ -1,0 +1,71 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+namespace,clan,source-language,target-language,version,variant,title,info,standard,dependency,group,group-context,group-type,group-emotion,group-max-width,id,source,target,type,emotion,status,context,max-width,reference,reviewer
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,nav-scratch-tables,Scratch tables,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,mode-01a,Quarry,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,mode-01b,Quarry,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,term-02a,Volume,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,term-02b,Volume,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,term-03a,Scale,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.labels,,,,,term-03b,Scale,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,mode-04a,Refresh the sample,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,mode-04b,Refresh the sample,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,slot-05a,Save the current view as a preset,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,slot-05b,Save the current view as a preset,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,slot-06a,Compare with the previous run,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,slot-06b,Compare with the previous run,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.actions,,,,,note-step-order,"Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-row-count,"{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-table-state,"{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-welcome-back,"Welcome back, {name}. Your last run took 12 minutes.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-job-outcome,"{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-sample-loading,The scratch table could not be created because the sample is still loading.,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,msg-board-empty,Nothing is pinned to this board yet. Open a chart and pin it here.,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.messages,,,,,cue-chart-updated,Chart updated,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.help,,,,,help-scratch-table,"A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.help,,,,,help-empty-before-run,"Empty it before you leave the page, or the next run starts from rows that are already stale.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.help,,,,,help-board-pin,"Once it is pinned, the chart stays on the board until someone takes it down.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.help,,,,,help-keyboard-rows,Press the up and down arrows to move through the rows without taking your hands off the keyboard.,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.help,,,,,help-archive,"A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-time-window,New charts open with the default time window until you pin one of your own.,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-export-resolution,"Charts are exported at the screen resolution, or at 2x for print.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-cache-latency,"Charts read from the cache first, which keeps latency under half a second on a normal connection.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-throughput,"Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.",,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-retention,Scratch tables are kept for 7 days and are then removed without a warning.,,,,,,,,
+clarion,ui-workbench,en-US,zh-CN,,standard,,,,,workbench.settings,,,,,set-timezone,"Times on this page follow the workspace time zone, not the time zone of your browser.",,,,,,,,

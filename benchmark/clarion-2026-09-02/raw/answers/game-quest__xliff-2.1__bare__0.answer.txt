@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.game-quest" original="clarion.game-quest">
+    <group id="quest.brief">
+      <unit id="brief-tide-run">
+        <segment>
+          <source>The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.</source>
+          <target state="translated">潮水每天涨落两次，港口也每天两次忘记谁欠谁。在水位上涨前，将密封的货物清单交给军需官，账本就能再多保持一晚清白。</target>
+        </segment>
+      </unit>
+      <unit id="brief-ninth-light">
+        <segment>
+          <source>Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.</source>
+          <target state="translated">九盏灯环绕内港。八盏由港口公会照看；最后一盏立在公会假装看不见的礁石上，它从未熄灭过一次。</target>
+        </segment>
+      </unit>
+      <unit id="quest-title-last-watch">
+        <segment>
+          <source>Willow's Last Watch</source>
+          <target state="translated">柳枝的最后一班岗</target>
+        </segment>
+      </unit>
+      <unit id="journal-note-order">
+        <segment>
+          <source>Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.</source>
+          <target state="translated">马罗会在打开闸门前先查看清单，因此目标2会保持锁定，直到目标1完成确认。</target>
+        </segment>
+      </unit>
+      <unit id="brief-warning-fog">
+        <segment>
+          <source>Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.</source>
+          <target state="translated">雾气会毫无预兆地从西边袭来。如果你看不到下一盏灯，就停止划桨等待：这里的水流很有耐心，迟早会把你带回码头。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.objectives">
+      <unit id="objective-03a">
+        <segment>
+          <source>Deliver the Sealed Manifest to Marrow</source>
+          <target state="translated">将密封的货物清单交给马罗</target>
+        </segment>
+      </unit>
+      <unit id="objective-03b">
+        <segment>
+          <source>Deliver the Sealed Manifest to Marrow</source>
+          <target state="translated">将密封的货物清单交给马罗</target>
+        </segment>
+      </unit>
+      <unit id="objective-04a">
+        <segment>
+          <source>Restore Power to the Tide Gate</source>
+          <target state="translated">恢复潮汐闸门的动力</target>
+        </segment>
+      </unit>
+      <unit id="objective-04b">
+        <segment>
+          <source>Restore Power to the Tide Gate</source>
+          <target state="translated">恢复潮汐闸门的动力</target>
+        </segment>
+      </unit>
+      <unit id="objective-relight">
+        <segment>
+          <source>Relight the Ninth Light before the ebb</source>
+          <target state="translated">在退潮前重新点亮第九盏灯</target>
+        </segment>
+      </unit>
+      <unit id="objective-count-crates">
+        <segment>
+          <source>{secured, plural, one {# crate secured} other {# crates secured}}</source>
+          <target state="translated">{secured, plural, one {已保护 # 个货箱} other {已保护 # 个货箱}}</target>
+        </segment>
+      </unit>
+      <unit id="objective-check-lines">
+        <segment>
+          <source>Check the mooring lines on the east pier</source>
+          <target state="translated">检查东码头上的系泊缆绳</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.dialogue">
+      <unit id="hail-01a">
+        <segment>
+          <source>Hand me the lantern, friend.</source>
+          <target state="translated">把灯笼递给我，朋友。</target>
+        </segment>
+      </unit>
+      <unit id="hail-01b">
+        <segment>
+          <source>Hand me the lantern, friend.</source>
+          <target state="translated">把灯笼递给我，朋友。</target>
+        </segment>
+      </unit>
+      <unit id="hail-02a">
+        <segment>
+          <source>Marrow says the dock is open to you.</source>
+          <target state="translated">马罗说码头对你开放。</target>
+        </segment>
+      </unit>
+      <unit id="hail-02b">
+        <segment>
+          <source>Marrow says the dock is open to you.</source>
+          <target state="translated">马罗说码头对你开放。</target>
+        </segment>
+      </unit>
+      <unit id="dialogue-willow-keeps">
+        <segment>
+          <source>Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.</source>
+          <target state="translated">柳枝已经让第九盏灯燃烧了十一个冬天，她从未向公会要过一滴油。</target>
+        </segment>
+      </unit>
+      <unit id="dialogue-burn-it">
+        <segment>
+          <source>Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.</source>
+          <target state="translated">在马罗的船到达码头之前把它烧掉。冰冷的灰烬什么也不会告诉他。</target>
+        </segment>
+      </unit>
+      <unit id="success-echo">
+        <segment>
+          <source>The Ninth Light is yours to keep now. Do not make me regret the hand-over.</source>
+          <target state="translated">第九盏灯现在归你保管了。别让我后悔这次交接。</target>
+        </segment>
+      </unit>
+      <unit id="line-success-tide">
+        <segment>
+          <source>The gate holds. Whatever you did down there, the water is going where it should.</source>
+          <target state="translated">闸门撑住了。不管你在下面做了什么，水都流向了该去的地方。</target>
+        </segment>
+      </unit>
+      <unit id="line-failure-tide">
+        <segment>
+          <source>The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.</source>
+          <target state="translated">闸门卡住了，码头被水淹了。等退潮后再回来，我们再试一次。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="items.rewards">
+      <unit id="item-relay-grid-desc">
+        <segment>
+          <source>The relay grid is robust: one failed beacon does not break the chain.</source>
+          <target state="translated">中继网格很健壮：一个信标失效不会破坏整条链路。</target>
+        </segment>
+      </unit>
+      <unit id="item-lamp-oil-desc">
+        <segment>
+          <source>One flask feeds the lamp for 30 minutes at the default wick height.</source>
+          <target state="translated">在默认灯芯高度下，一瓶油可供灯燃烧30分钟。</target>
+        </segment>
+      </unit>
+      <unit id="item-fog-lamp-desc">
+        <segment>
+          <source>A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.</source>
+          <target state="translated">一盏矮胖的黄铜灯，带有划痕的蓝色遮光板。它发出的光很弱，但在雾中，弱光比强光散射得更少。</target>
+        </segment>
+      </unit>
+      <unit id="achv-marrow-debt">
+        <segment>
+          <source>Marrow's Debt</source>
+          <target state="translated">马罗的债务</target>
+        </segment>
+      </unit>
+      <unit id="achv-nine-nights">
+        <segment>
+          <source>Nine Nights, Nine Lights</source>
+          <target state="translated">九夜九灯</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="system.messages">
+      <unit id="system-welcome-runner">
+        <segment>
+          <source>Fair tide, {playerName}. Your last run ended 3 days ago.</source>
+          <target state="translated">顺潮而行，{playerName}。你上次行动结束于3天前。</target>
+        </segment>
+      </unit>
+      <unit id="system-keybind-lantern">
+        <segment>
+          <source>Hold [E] to raise the lantern; press [Q] to signal.</source>
+          <target state="translated">按住 [E] 举起灯笼；按 [Q] 发出信号。</target>
+        </segment>
+      </unit>
+      <unit id="system-signal-range">
+        <segment>
+          <source>Signal range: 120 m in fog, 400 m in clear air.</source>
+          <target state="translated">信号范围：雾中120米，晴朗空气中400米。</target>
+        </segment>
+      </unit>
+      <unit id="system-quest-state">
+        <segment>
+          <source>{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}</source>
+          <target state="translated">{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

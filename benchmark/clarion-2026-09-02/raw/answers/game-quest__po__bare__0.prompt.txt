@@ -1,0 +1,162 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "quest.brief.brief-tide-run"
+msgid "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+msgstr ""
+
+msgctxt "quest.brief.brief-ninth-light"
+msgid "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+msgstr ""
+
+msgctxt "quest.brief.quest-title-last-watch"
+msgid "Willow's Last Watch"
+msgstr ""
+
+msgctxt "quest.brief.journal-note-order"
+msgid "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+msgstr ""
+
+msgctxt "quest.brief.brief-warning-fog"
+msgid "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+msgstr ""
+
+msgctxt "quest.objectives.objective-03a"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr ""
+
+msgctxt "quest.objectives.objective-03b"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr ""
+
+msgctxt "quest.objectives.objective-04a"
+msgid "Restore Power to the Tide Gate"
+msgstr ""
+
+msgctxt "quest.objectives.objective-04b"
+msgid "Restore Power to the Tide Gate"
+msgstr ""
+
+msgctxt "quest.objectives.objective-relight"
+msgid "Relight the Ninth Light before the ebb"
+msgstr ""
+
+msgctxt "quest.objectives.objective-count-crates"
+msgid "{secured, plural, one {# crate secured} other {# crates secured}}"
+msgstr ""
+
+msgctxt "quest.objectives.objective-check-lines"
+msgid "Check the mooring lines on the east pier"
+msgstr ""
+
+msgctxt "quest.dialogue.hail-01a"
+msgid "Hand me the lantern, friend."
+msgstr ""
+
+msgctxt "quest.dialogue.hail-01b"
+msgid "Hand me the lantern, friend."
+msgstr ""
+
+msgctxt "quest.dialogue.hail-02a"
+msgid "Marrow says the dock is open to you."
+msgstr ""
+
+msgctxt "quest.dialogue.hail-02b"
+msgid "Marrow says the dock is open to you."
+msgstr ""
+
+msgctxt "quest.dialogue.dialogue-willow-keeps"
+msgid "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+msgstr ""
+
+msgctxt "quest.dialogue.dialogue-burn-it"
+msgid "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+msgstr ""
+
+msgctxt "quest.dialogue.success-echo"
+msgid "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+msgstr ""
+
+msgctxt "quest.dialogue.line-success-tide"
+msgid "The gate holds. Whatever you did down there, the water is going where it should."
+msgstr ""
+
+msgctxt "quest.dialogue.line-failure-tide"
+msgid "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+msgstr ""
+
+msgctxt "items.rewards.item-relay-grid-desc"
+msgid "The relay grid is robust: one failed beacon does not break the chain."
+msgstr ""
+
+msgctxt "items.rewards.item-lamp-oil-desc"
+msgid "One flask feeds the lamp for 30 minutes at the default wick height."
+msgstr ""
+
+msgctxt "items.rewards.item-fog-lamp-desc"
+msgid "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+msgstr ""
+
+msgctxt "items.rewards.achv-marrow-debt"
+msgid "Marrow's Debt"
+msgstr ""
+
+msgctxt "items.rewards.achv-nine-nights"
+msgid "Nine Nights, Nine Lights"
+msgstr ""
+
+msgctxt "system.messages.system-welcome-runner"
+msgid "Fair tide, {playerName}. Your last run ended 3 days ago."
+msgstr ""
+
+msgctxt "system.messages.system-keybind-lantern"
+msgid "Hold [E] to raise the lantern; press [Q] to signal."
+msgstr ""
+
+msgctxt "system.messages.system-signal-range"
+msgid "Signal range: 120 m in fog, 400 m in clear air."
+msgstr ""
+
+msgctxt "system.messages.system-quest-state"
+msgid "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+msgstr ""

@@ -1,0 +1,108 @@
+header:
+  namespace: clarion
+  clan: lit-classical
+  source-language: zh-CN
+  target-language: en-US
+  title: Classical literary stratum - aphorisms, parallel prose, a quatrain
+  info: Original classical Chinese composed for CLARION, to be rendered into an elevated,
+    archaic-leaning English that keeps the register, imagery and parallel structure
+    rather than explaining them.
+  standard: Render classical Chinese into archaic-leaning literary English. Preserve
+    parallelism and concrete imagery; do not modernise or gloss. Render coined proper
+    nouns consistently.
+groups:
+- path: aphorisms
+  context: Short philosophical aphorisms from a fictional anthology, each meant to
+    stand alone.
+  type: sentence
+  entries:
+  - id: water-holds
+    source: 水静则清，器满则倾。
+    emotion:
+    - calm
+    - serious
+    status: initial
+    target: Still water runs clear; a vessel full overturns.
+  - id: mountain-river
+    source: 山不增高，因登而高；川不返流，因逝而长。
+    emotion:
+    - serious
+    - calm
+    status: initial
+    target: The mountain adds no height, yet by climbing it is made high; the river
+      never flows back, yet by departing it is made long.
+  - id: mirror
+    source: 镜不自照，故能照人；泉不自饮，故能济渴。
+    emotion:
+    - calm
+    status: initial
+    target: The mirror does not gaze on itself, therefore it can mirror others; the
+      spring does not drink of itself, therefore it can quench thirst.
+  - id: scale
+    source: 尺短寸长，各有所宜。
+    emotion:
+    - serious
+    status: initial
+    target: The foot is short, the inch is long; each has its fitting use.
+  - id: lantern-heart
+    source: 灯焰高者，其膏易尽；其光微者，其夜乃长。
+    emotion:
+    - nostalgic
+    - calm
+    status: initial
+    target: The flame that burns high soon exhausts its oil; the light that burns
+      low makes the night long.
+- path: parallel-prose
+  context: A short passage in the parallel-prose manner of a philosophical anthology,
+    with balanced couplets and a recurring place name.
+  type: narration
+  entries:
+  - id: parallel-prose-1
+    source: 层峦千仞，藏云于顶；寒江万里，送舟于天。
+    emotion:
+    - nostalgic
+    - calm
+    status: initial
+    target: Ridges piled a thousand fathoms, clouds hidden on their peaks; the cold
+      river runs ten thousand leagues, bearing boats to the sky.
+  - id: parallel-prose-2
+    source: 谷静无应，苍梧闻钟；灯微自摇，苍梧照水。
+    emotion:
+    - nostalgic
+    - calm
+    status: initial
+    target: The valley is still and gives no echo; at Cangwu a bell is heard. The
+      lamp is faint and sways of itself; at Cangwu it shines upon the water.
+- path: quatrain
+  context: A five-character quatrain about a river crossing at autumn dusk; the reference
+    keeps quatrain form and rhyme.
+  type: narration
+  entries:
+  - id: quatrain-1
+    source: 渡口秋灯暗，
+    emotion:
+    - nostalgic
+    - sad
+    status: initial
+    target: The autumn lamp at the ford burns dim,
+  - id: quatrain-2
+    source: 江寒雨自斜。
+    emotion:
+    - nostalgic
+    - sad
+    status: initial
+    target: The river is cold, the rain falls aslant.
+  - id: quatrain-3
+    source: 潮回沙上字，
+    emotion:
+    - nostalgic
+    - calm
+    status: initial
+    target: The tide returns the words upon the sand,
+  - id: quatrain-4
+    source: 钟入隔岸家。
+    emotion:
+    - nostalgic
+    - calm
+    status: initial
+    target: The bell enters homes on the far shore.

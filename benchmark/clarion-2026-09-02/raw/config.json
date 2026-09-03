@@ -1,0 +1,118 @@
+{
+  "name": "clarion-deepseek-v4-flash",
+  "corpus": "clarion-core",
+  "strata": [],
+  "formats": [
+    "clif",
+    "xliff-2.1",
+    "po",
+    "fluent",
+    "json-clif",
+    "json-plain",
+    "yaml-clif",
+    "csv",
+    "android",
+    "ios"
+  ],
+  "arms": [
+    "bare",
+    "context"
+  ],
+  "spec_location": "split",
+  "spec_reference": true,
+  "repeats": 3,
+  "concurrency": 50,
+  "isolation": "per-task",
+  "tokenizer": "o200k_base",
+  "target_language": "zh-CN",
+  "include_policy": true,
+  "include_glossary": false,
+  "allow_glossary_output": true,
+  "workflow_style": "deliverable",
+  "surface_metrics": true,
+  "neural_metrics": false,
+  "seed": 20260101,
+  "provider": {
+    "kind": "openai",
+    "model": "deepseek-v4-flash",
+    "mode": "perfect",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_output_tokens": 131072,
+    "timeout_s": 1800,
+    "max_retries": 3,
+    "reasoning": "off",
+    "extra_body": {},
+    "price_input_per_mtok": 0.0,
+    "price_output_per_mtok": 0.0
+  },
+  "judge": {
+    "enabled": false,
+    "provider": {
+      "kind": "mock",
+      "model": "mock-1",
+      "mode": "perfect",
+      "base_url": null,
+      "api_key_env": "CLARION_API_KEY",
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_output_tokens": 8192,
+      "timeout_s": 180.0,
+      "max_retries": 3,
+      "reasoning": "off",
+      "extra_body": {},
+      "price_input_per_mtok": 0.0,
+      "price_output_per_mtok": 0.0
+    },
+    "use_reference": true,
+    "max_entries": 0
+  },
+  "pipeline": {
+    "fetch": [
+      {
+        "recipe": "godot-l10n",
+        "stratum": "ui",
+        "limit": 40,
+        "annotate": false,
+        "annotator_model": "",
+        "propose_width": false,
+        "revision": "main"
+      },
+      {
+        "recipe": "sanguo-brewitt-taylor",
+        "stratum": "lit",
+        "limit": 30,
+        "annotate": true,
+        "annotator_model": "deepseek-v4-pro",
+        "propose_width": false,
+        "revision": "PG23950+PG77416"
+      },
+      {
+        "recipe": "hongloumeng-joly",
+        "stratum": "lit",
+        "limit": 24,
+        "annotate": true,
+        "annotator_model": "deepseek-v4-pro",
+        "propose_width": false,
+        "revision": "PG24264+PG9603"
+      },
+      {
+        "recipe": "wmt24pp",
+        "stratum": "news",
+        "limit": 40,
+        "annotate": true,
+        "annotator_model": "deepseek-v4-pro",
+        "propose_width": false,
+        "revision": "main"
+      }
+    ],
+    "robustness_edits": 12,
+    "robustness_strata": [
+      "ui"
+    ],
+    "skip": []
+  },
+  "output_dir": "results"
+}

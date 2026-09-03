@@ -1,0 +1,75 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "nav": {
+    "billing": "Billing",
+    "streaming": "Streaming",
+    "workspaces": "Workspaces"
+  },
+  "billing": {
+    "billing-rate": "Billing rate",
+    "no-invoices": "No invoices yet",
+    "payment-failed": "Payment failed"
+  },
+  "streaming": {
+    "stream-key": "Stream key",
+    "frame-rate": "Frame rate",
+    "resolution": "Resolution",
+    "add-to-workspace": "Add to workspace",
+    "stream-failed": "Stream failed to start",
+    "stream-summary": "{count, plural, other {# streams}} across {regions, plural, other {# regions}}"
+  },
+  "settings": {
+    "restore-defaults": "Restore defaults",
+    "clear-cache": "Clear cache",
+    "latency": "Latency",
+    "api-token": "API token",
+    "request-rate-limit": "Request rate limit",
+    "status-line": "Region: %s",
+    "cache-description": "Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin."
+  },
+  "onboarding": {
+    "create-workspace": "Create new workspace",
+    "welcome-back": "Welcome back to Harborline, {name}",
+    "workspace-count": "{count, plural, one {# workspace} other {# workspaces}}",
+    "delete-confirm": "Delete this workspace? This cannot be undone.",
+    "close-dialog": "Close dialog"
+  }
+}

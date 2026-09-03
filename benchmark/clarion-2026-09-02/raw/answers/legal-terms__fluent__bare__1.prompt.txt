@@ -1,0 +1,101 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# clif:source = “Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.
+licensee = “Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.
+
+# clif:source = “Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.
+authorised-user = “Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.
+
+# clif:source = “Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.
+service-data = “Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.
+
+# clif:source = “Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.
+service = “Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.
+
+# clif:source = “Operator” means the company identified in the privacy notice as responsible for processing Service Data.
+operator = “Operator” means the company identified in the privacy notice as responsible for processing Service Data.
+
+# clif:source = Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.
+grant-license = Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.
+
+# clif:source = The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.
+licensee-shall = The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.
+
+# clif:source = The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.
+operator-must = The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.
+
+# clif:source = The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.
+licensee-may = The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.
+
+# clif:source = Either party may terminate this Agreement on thirty days' written notice to the other party.
+termination = Either party may terminate this Agreement on thirty days' written notice to the other party.
+
+# clif:source = The Licensee may not sublicense, rent or lease the Service to any third party.
+licensee-may-not = The Licensee may not sublicense, rent or lease the Service to any third party.
+
+# clif:source = The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.
+restricted-acts = The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.
+
+# clif:source = The Licensee may not create derivative works based on the Service or any part of it.
+no-derivative = The Licensee may not create derivative works based on the Service or any part of it.
+
+# clif:source = The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.
+confidentiality = The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.
+
+# clif:source = THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+warranty-disclaimer = THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+# clif:source = To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.
+limitation-liability = To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.
+
+# clif:source = If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.
+severability = If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.
+
+# clif:source = This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.
+privacy-operator = This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.
+
+# clif:source = The Operator processes Service Data only for the purposes of providing, securing and improving the Service.
+privacy-purpose = The Operator processes Service Data only for the purposes of providing, securing and improving the Service.
+
+# clif:source = Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.
+retention-period = Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.
+
+# clif:source = Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.
+abstract = Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.

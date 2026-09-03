@@ -1,0 +1,206 @@
+CLIF 1.0
+namespace: clarion
+clan: probe-ambiguity
+source-language: en-US
+target-language: zh-CN
+title: "Minimal-pair diagnostic set where the brief is decisive"
+info: "The probe stratum measures what a translation brief is worth: entries come in minimal pairs whose source text is identical or nearly so, and only one CLIF field (emotion, type, context or max-width) tells the two members apart. A translation that ignores that field must fail at least one member. Every item is original text written for CLARION, drawn from generic software, transit, stage, warehouse and support scenarios."
+standard: "Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Render the emotion tag in the wording, particles and punctuation, never as a neutral gloss. Honor the type field's register: a label stays a bare noun, a sentence is a full instruction, an idiom is an idiomatic wish, a proper noun is a place name. Choose the referent the context line names. Fit the declared max-width in display cells, where Latin letters and digits count one cell and Han or fullwidth characters count two. No textbook jargon."
+
+[emotion.reading]
+context: "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound."
+type: dialogue
+
+<probe-01a>
+source: "Oh, that's just wonderful."
+emotion: [joyful, grateful]
+status: translated
+target: "哦，这真是太棒了！"
+context: "The speaker has just opened an acceptance letter and means the compliment warmly."
+
+<probe-01b>
+source: "Oh, that's just wonderful."
+emotion: [angry, playful]
+status: translated
+target: "哦，那可真是太好了。"
+context: "The speaker has just watched the plan fall apart; the line is bitter irony."
+
+<probe-02a>
+source: "After you."
+emotion: [polite, calm]
+status: translated
+target: "您先请。"
+context: "A cafe customer holds the door open and genuinely lets the other person go first."
+
+<probe-02b>
+source: "After you."
+emotion: [polite, angry]
+status: translated
+target: "您先请。"
+context: "The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first."
+
+<probe-03a>
+source: "Well, here we go again."
+emotion: [joyful, playful]
+status: translated
+target: "好嘞，又开始了！"
+context: "Two friends line up for another round of the board game; said with a grin."
+
+<probe-03b>
+source: "Well, here we go again."
+emotion: [sad, calm]
+status: translated
+target: "唉，又来了。"
+context: "A repair worker returns to the same machine for the third time; said with a sigh."
+
+<probe-04a>
+source: "Just relax."
+emotion: [calm, hopeful]
+status: translated
+target: "放轻松就好。"
+context: "A nurse reassures a patient before a routine procedure."
+
+<probe-04b>
+source: "Just relax."
+emotion: [serious, angry]
+status: translated
+target: "别动。"
+context: "A guard tells a cornered intruder to stop moving; the tone is steady, not warm."
+
+[type.register]
+context: "Pairs where the same English string changes rendering with its type; honor the register the type implies."
+
+<probe-05a>
+source: "Save"
+type: label
+emotion: [objective]
+status: translated
+target: "保存"
+context: "Toolbar button that writes the open document to disk."
+
+<probe-05b>
+source: "Save"
+type: sentence
+emotion: [objective]
+status: translated
+target: "请保存。"
+context: "Step in the shutdown checklist telling the operator to write the session to disk before closing."
+
+<probe-06a>
+source: "Forge"
+type: proper-noun
+emotion: [objective]
+status: translated
+target: "锻造区"
+context: "Neighborhood name on the transit map, after the foundry that once stood there."
+
+<probe-06b>
+source: "Forge"
+type: verb
+emotion: [objective]
+status: translated
+target: "锻造"
+context: "Single-word task on the smith's workbench menu: begin shaping the heated metal."
+
+<probe-07a>
+source: "Break a leg!"
+type: idiom
+emotion: [objective]
+status: translated
+target: "祝演出成功！"
+context: "Wished to a performer just before they walk on stage."
+
+<probe-07b>
+source: "Break a leg!"
+type: sentence
+emotion: [objective]
+status: translated
+target: "小心别摔断腿！"
+context: "Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself."
+
+[context.referent]
+context: "Pairs where the context line names the referent; choose the word the scene requires."
+
+<probe-08a>
+source: "Rate"
+type: label
+emotion: [objective]
+status: translated
+target: "费率"
+context: "Column header on the invoice; the amount charged per hour of work."
+
+<probe-08b>
+source: "Rate"
+type: label
+emotion: [objective]
+status: translated
+target: "帧率"
+context: "Setting in the video editor's playback panel; how many frames are drawn each second."
+
+<probe-09a>
+source: "Seal"
+type: label
+emotion: [objective]
+status: translated
+target: "海豹"
+context: "Caption on the marine-animals picture card in the children's set."
+
+<probe-09b>
+source: "Seal"
+type: label
+emotion: [objective]
+status: translated
+target: "印章"
+context: "Label on the office-supplies drawer; the wax stamp used to close documents."
+
+<probe-10a>
+source: "It won't start."
+type: sentence
+emotion: [objective]
+status: translated
+target: "它发动不了。"
+context: "Roadside call: the driver means the car engine, which will not turn over."
+
+<probe-10b>
+source: "It won't start."
+type: sentence
+emotion: [objective]
+status: translated
+target: "它打不开。"
+context: "Support call: the user means the desktop application, which will not launch."
+
+[width.budget]
+context: "Pairs where the width budget forces a shorter wording; stay within the declared cells."
+type: label
+
+<probe-11a>
+source: "Restore Default Settings"
+emotion: [objective]
+status: translated
+target: "恢复默认设置"
+context: "Button on the settings screen, with room for the full wording."
+max-width: 14
+
+<probe-11b>
+source: "Restore Default Settings"
+emotion: [objective]
+status: translated
+target: "恢复默认"
+context: "Button on the narrow mobile settings bar, where space is tight."
+max-width: 8
+
+<probe-12a>
+source: "View Frequently Asked Questions"
+emotion: [objective]
+status: translated
+target: "查看常见问题"
+context: "Menu item on the desktop help screen, with room for the full wording."
+max-width: 16
+
+<probe-12b>
+source: "View Frequently Asked Questions"
+emotion: [objective]
+status: translated
+target: "常见问题"
+context: "Footer link on the narrow mobile page, where space is tight."
+max-width: 8

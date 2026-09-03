@@ -1,0 +1,125 @@
+header:
+  namespace: clarion
+  clan: ui-workbench
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: workbench.labels
+  entries:
+  - id: nav-scratch-tables
+    source: Scratch tables
+    target: 临时表
+  - id: mode-01a
+    source: Quarry
+    target: 采石场
+  - id: mode-01b
+    source: Quarry
+    target: 采石场
+  - id: term-02a
+    source: Volume
+    target: 音量
+  - id: term-02b
+    source: Volume
+    target: 音量
+  - id: term-03a
+    source: Scale
+    target: 缩放
+  - id: term-03b
+    source: Scale
+    target: 缩放
+- path: workbench.actions
+  entries:
+  - id: mode-04a
+    source: Refresh the sample
+    target: 刷新样本
+  - id: mode-04b
+    source: Refresh the sample
+    target: 刷新样本
+  - id: slot-05a
+    source: Save the current view as a preset
+    target: 将当前视图保存为预设
+  - id: slot-05b
+    source: Save the current view as a preset
+    target: 将当前视图保存为预设
+  - id: slot-06a
+    source: Compare with the previous run
+    target: 与上一次运行比较
+  - id: slot-06b
+    source: Compare with the previous run
+    target: 与上一次运行比较
+  - id: note-step-order
+    source: Step 3 sets the row limit, so do not raise it before you have run step
+      2 at least once.
+    target: 第 3 步设置行数限制，因此在至少运行一次第 2 步之前，请勿提高该限制。
+- path: workbench.messages
+  entries:
+  - id: msg-row-count
+    source: '{rows, plural, one {# row copied to the scratch table} other {# rows
+      copied to the scratch table}}'
+    target: '{rows, plural, one {已将 # 行复制到临时表} other {已将 # 行复制到临时表}}'
+  - id: msg-table-state
+    source: '{state, select, ready {Scratch table ready} building {Building the scratch
+      table} other {Scratch table failed}}'
+    target: '{state, select, ready {临时表已就绪} building {正在构建临时表} other {临时表构建失败}}'
+  - id: msg-welcome-back
+    source: Welcome back, {name}. Your last run took 12 minutes.
+    target: 欢迎回来，{name}。您上次运行耗时 12 分钟。
+  - id: msg-job-outcome
+    source: '{state, select, running {The job is still running} done {The job finished}
+      failed {The job failed} other {The job state is unknown}}'
+    target: '{state, select, running {作业仍在运行} done {作业已完成} failed {作业失败} other {作业状态未知}}'
+  - id: msg-sample-loading
+    source: The scratch table could not be created because the sample is still loading.
+    target: 无法创建临时表，因为样本仍在加载中。
+  - id: msg-board-empty
+    source: Nothing is pinned to this board yet. Open a chart and pin it here.
+    target: 此面板上尚未固定任何内容。打开图表并将其固定在此处。
+  - id: cue-chart-updated
+    source: Chart updated
+    target: 图表已更新
+- path: workbench.help
+  entries:
+  - id: help-scratch-table
+    source: A scratch table is your own copy of a result set. It lives in this browser
+      tab, it is never shared with the team, and it is thrown away when you sign out.
+    target: 临时表是您自己的结果集副本。它仅存在于此浏览器标签页中，不会与团队共享，并且在您退出登录时会被丢弃。
+  - id: help-empty-before-run
+    source: Empty it before you leave the page, or the next run starts from rows that
+      are already stale.
+    target: 在离开页面之前清空它，否则下一次运行将从已过时的行开始。
+  - id: help-board-pin
+    source: Once it is pinned, the chart stays on the board until someone takes it
+      down.
+    target: 一旦固定，图表将保留在面板上，直到有人将其取下。
+  - id: help-keyboard-rows
+    source: Press the up and down arrows to move through the rows without taking your
+      hands off the keyboard.
+    target: 按上箭头和下箭头可在行之间移动，无需将手从键盘上移开。
+  - id: help-archive
+    source: A chart you have not opened for a month moves to the archive page on its
+      own. Nothing is deleted, and opening it again brings it back.
+    target: 一个月未打开的图表会自动移至归档页面。不会删除任何内容，再次打开即可将其恢复。
+- path: workbench.settings
+  entries:
+  - id: set-time-window
+    source: New charts open with the default time window until you pin one of your
+      own.
+    target: 新图表默认使用默认时间窗口打开，直到您固定自己的时间窗口。
+  - id: set-export-resolution
+    source: Charts are exported at the screen resolution, or at 2x for print.
+    target: 图表按屏幕分辨率导出，打印时按 2 倍分辨率导出。
+  - id: set-cache-latency
+    source: Charts read from the cache first, which keeps latency under half a second
+      on a normal connection.
+    target: 图表首先从缓存读取，这使正常连接下的延迟保持在半秒以内。
+  - id: set-throughput
+    source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB
+      of them in memory.
+    target: 吞吐量约为每秒 1,200 行，集群在内存中保留 30 GB 的数据。
+  - id: set-retention
+    source: Scratch tables are kept for 7 days and are then removed without a warning.
+    target: 临时表保留 7 天，之后会在不发出警告的情况下删除。
+  - id: set-timezone
+    source: Times on this page follow the workspace time zone, not the time zone of
+      your browser.
+    target: 此页面上的时间遵循工作区时区，而非您浏览器的时区。

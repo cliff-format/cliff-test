@@ -1,0 +1,86 @@
+header:
+  namespace: clarion
+  clan: probe-ambiguity
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: emotion.reading
+  entries:
+  - id: probe-01a
+    source: Oh, that's just wonderful.
+    target: 哦，那真是太棒了。
+  - id: probe-01b
+    source: Oh, that's just wonderful.
+    target: 哦，那可真是太好了。
+  - id: probe-02a
+    source: After you.
+    target: 您先请。
+  - id: probe-02b
+    source: After you.
+    target: 你先请。
+  - id: probe-03a
+    source: Well, here we go again.
+    target: 好吧，又来了。
+  - id: probe-03b
+    source: Well, here we go again.
+    target: 唉，又开始了。
+  - id: probe-04a
+    source: Just relax.
+    target: 放松点。
+  - id: probe-04b
+    source: Just relax.
+    target: 别紧张。
+- path: type.register
+  entries:
+  - id: probe-05a
+    source: Save
+    target: 保存
+  - id: probe-05b
+    source: Save
+    target: 存档
+  - id: probe-06a
+    source: Forge
+    target: 锻造
+  - id: probe-06b
+    source: Forge
+    target: 伪造
+  - id: probe-07a
+    source: Break a leg!
+    target: 祝你好运！
+  - id: probe-07b
+    source: Break a leg!
+    target: 加油！
+- path: context.referent
+  entries:
+  - id: probe-08a
+    source: Rate
+    target: 费率
+  - id: probe-08b
+    source: Rate
+    target: 评分
+  - id: probe-09a
+    source: Seal
+    target: 印章
+  - id: probe-09b
+    source: Seal
+    target: 海豹
+  - id: probe-10a
+    source: It won't start.
+    target: 它启动不了。
+  - id: probe-10b
+    source: It won't start.
+    target: 它不肯开始。
+- path: width.budget
+  entries:
+  - id: probe-11a
+    source: Restore Default Settings
+    target: 恢复默认设置
+  - id: probe-11b
+    source: Restore Default Settings
+    target: 还原默认设置
+  - id: probe-12a
+    source: View Frequently Asked Questions
+    target: 查看常见问题
+  - id: probe-12b
+    source: View Frequently Asked Questions
+    target: 查看常见问题解答

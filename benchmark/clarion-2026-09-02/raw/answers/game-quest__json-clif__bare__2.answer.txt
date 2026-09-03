@@ -1,0 +1,185 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "game-quest",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "quest.brief",
+      "entries": [
+        {
+          "id": "brief-tide-run",
+          "source": "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.",
+          "target": "潮水每天涨落两次，港口也每天两次忘记谁欠谁。在水位上涨之前，将密封的货物清单交给军需官，账本就能再保持一夜清白。"
+        },
+        {
+          "id": "brief-ninth-light",
+          "source": "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.",
+          "target": "九盏灯环绕内港。八盏由港口公会照看；最后一盏立在公会假装看不见的礁石上，却从未熄灭过。"
+        },
+        {
+          "id": "quest-title-last-watch",
+          "source": "Willow's Last Watch",
+          "target": "柳树的最后一班岗"
+        },
+        {
+          "id": "journal-note-order",
+          "source": "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.",
+          "target": "马罗在开门前会先查看货物清单，因此目标2会一直锁定，直到目标1完成确认。"
+        },
+        {
+          "id": "brief-warning-fog",
+          "source": "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.",
+          "target": "雾气会毫无预兆地从西边袭来。如果你看不到下一盏灯，就停止划桨等待：这里的水流很有耐心，迟早会把你带回码头。"
+        }
+      ]
+    },
+    {
+      "path": "quest.objectives",
+      "entries": [
+        {
+          "id": "objective-03a",
+          "source": "Deliver the Sealed Manifest to Marrow",
+          "target": "将密封的货物清单交给马罗"
+        },
+        {
+          "id": "objective-03b",
+          "source": "Deliver the Sealed Manifest to Marrow",
+          "target": "将密封的货物清单交给马罗"
+        },
+        {
+          "id": "objective-04a",
+          "source": "Restore Power to the Tide Gate",
+          "target": "恢复潮汐闸门的电力"
+        },
+        {
+          "id": "objective-04b",
+          "source": "Restore Power to the Tide Gate",
+          "target": "恢复潮汐闸门的电力"
+        },
+        {
+          "id": "objective-relight",
+          "source": "Relight the Ninth Light before the ebb",
+          "target": "在退潮前重新点亮第九盏灯"
+        },
+        {
+          "id": "objective-count-crates",
+          "source": "{secured, plural, one {# crate secured} other {# crates secured}}",
+          "target": "{secured, plural, one {已保护#个箱子} other {已保护#个箱子}}"
+        },
+        {
+          "id": "objective-check-lines",
+          "source": "Check the mooring lines on the east pier",
+          "target": "检查东码头上的系泊缆绳"
+        }
+      ]
+    },
+    {
+      "path": "quest.dialogue",
+      "entries": [
+        {
+          "id": "hail-01a",
+          "source": "Hand me the lantern, friend.",
+          "target": "把灯笼递给我，朋友。"
+        },
+        {
+          "id": "hail-01b",
+          "source": "Hand me the lantern, friend.",
+          "target": "把灯笼递给我，朋友。"
+        },
+        {
+          "id": "hail-02a",
+          "source": "Marrow says the dock is open to you.",
+          "target": "马罗说码头对你开放。"
+        },
+        {
+          "id": "hail-02b",
+          "source": "Marrow says the dock is open to you.",
+          "target": "马罗说码头对你开放。"
+        },
+        {
+          "id": "dialogue-willow-keeps",
+          "source": "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.",
+          "target": "柳树让第九盏灯燃烧了十一个冬天，她从未向公会要过一滴油。"
+        },
+        {
+          "id": "dialogue-burn-it",
+          "source": "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.",
+          "target": "在马罗的船到达码头之前烧掉它。冰冷的灰烬不会告诉他任何事。"
+        },
+        {
+          "id": "success-echo",
+          "source": "The Ninth Light is yours to keep now. Do not make me regret the hand-over.",
+          "target": "第九盏灯现在归你保管了。别让我后悔交出它。"
+        },
+        {
+          "id": "line-success-tide",
+          "source": "The gate holds. Whatever you did down there, the water is going where it should.",
+          "target": "闸门撑住了。不管你在下面做了什么，水都流向了该去的地方。"
+        },
+        {
+          "id": "line-failure-tide",
+          "source": "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.",
+          "target": "闸门卡住了，码头被水淹了。等退潮时再来，我们再试一次。"
+        }
+      ]
+    },
+    {
+      "path": "items.rewards",
+      "entries": [
+        {
+          "id": "item-relay-grid-desc",
+          "source": "The relay grid is robust: one failed beacon does not break the chain.",
+          "target": "中继网格很健壮：一个信标失效不会破坏整个链条。"
+        },
+        {
+          "id": "item-lamp-oil-desc",
+          "source": "One flask feeds the lamp for 30 minutes at the default wick height.",
+          "target": "在默认灯芯高度下，一瓶油可供灯燃烧30分钟。"
+        },
+        {
+          "id": "item-fog-lamp-desc",
+          "source": "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.",
+          "target": "一盏矮胖的黄铜灯，带有划痕的蓝色灯罩。它发出的光很弱，但在雾中，弱光比强光散射得更少。"
+        },
+        {
+          "id": "achv-marrow-debt",
+          "source": "Marrow's Debt",
+          "target": "马罗的债务"
+        },
+        {
+          "id": "achv-nine-nights",
+          "source": "Nine Nights, Nine Lights",
+          "target": "九夜九灯"
+        }
+      ]
+    },
+    {
+      "path": "system.messages",
+      "entries": [
+        {
+          "id": "system-welcome-runner",
+          "source": "Fair tide, {playerName}. Your last run ended 3 days ago.",
+          "target": "顺潮而行，{playerName}。你上次运行结束于3天前。"
+        },
+        {
+          "id": "system-keybind-lantern",
+          "source": "Hold [E] to raise the lantern; press [Q] to signal.",
+          "target": "按住[E]举起灯笼；按[Q]发出信号。"
+        },
+        {
+          "id": "system-signal-range",
+          "source": "Signal range: 120 m in fog, 400 m in clear air.",
+          "target": "信号范围：雾中120米，晴朗空气中400米。"
+        },
+        {
+          "id": "system-quest-state",
+          "source": "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}",
+          "target": "{state, select, updated {任务已更新} complete {任务完成} other {任务失败}}"
+        }
+      ]
+    }
+  ]
+}

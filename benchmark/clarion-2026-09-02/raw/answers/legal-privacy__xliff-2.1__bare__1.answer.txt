@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.legal-privacy" original="clarion.legal-privacy">
+    <group id="policy.definitions">
+      <unit id="def-personal-data">
+        <segment>
+          <source>“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal.</source>
+          <target state="translated">“个人数据”指与已识别或可识别的自然人相关的任何信息，且该信息由运营方通过门户处理。</target>
+        </segment>
+      </unit>
+      <unit id="def-data-subject">
+        <segment>
+          <source>“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator.</source>
+          <target state="translated">“数据主体”指个人数据所涉及的自然人，无论该人是否在运营方处持有账户。</target>
+        </segment>
+      </unit>
+      <unit id="def-operator">
+        <segment>
+          <source>“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal.</source>
+          <target state="translated">“运营方”指Quillmark Data Services，即决定本通知所述处理目的和方式的公司，并委托Halberd Cloud GmbH托管门户。</target>
+        </segment>
+      </unit>
+      <unit id="def-processing">
+        <segment>
+          <source>“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure.</source>
+          <target state="translated">“处理”指对个人数据执行的任何操作，无论是否通过自动化方式，包括收集、存储、传输、披露和删除。</target>
+        </segment>
+      </unit>
+      <unit id="def-portal">
+        <segment>
+          <source>“Portal” means the web application through which a request is submitted, tracked and answered.</source>
+          <target state="translated">“门户”指用于提交、跟踪和答复请求的Web应用程序。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="policy.requests">
+      <unit id="policy-effective-date">
+        <segment>
+          <source>This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024.</source>
+          <target state="translated">本通知自2026年9月1日起生效，并取代2024年6月14日发布的通知。</target>
+        </segment>
+      </unit>
+      <unit id="policy-volume-figures">
+        <segment>
+          <source>In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period.</source>
+          <target state="translated">在2025报告年度，运营方通过门户收到1,250,000个请求，并在法定期限内答复了其中98.6%的请求。</target>
+        </segment>
+      </unit>
+      <unit id="policy-retention-clause">
+        <segment>
+          <source>4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law.</source>
+          <target state="translated">4.2 运营方在30天内删除已关闭账户的记录，除非法律要求更长的保留期限。</target>
+        </segment>
+      </unit>
+      <unit id="policy-request-right">
+        <segment>
+          <source>A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them.</source>
+          <target state="translated">数据主体可要求运营方更正或删除运营方持有的关于其的个人数据。</target>
+        </segment>
+      </unit>
+      <unit id="policy-erasure-crossref">
+        <segment>
+          <source>An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal.</source>
+          <target state="translated">删除请求根据第4.2节的保留规则予以答复，运营方通过门户确认结果。</target>
+        </segment>
+      </unit>
+      <unit id="portal-request-count">
+        <segment>
+          <source>{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}</source>
+          <target state="translated">{pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}</target>
+        </segment>
+      </unit>
+      <unit id="portal-answer-channel">
+        <segment>
+          <source>{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}</source>
+          <target state="translated">{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="dpa.authorised">
+      <unit id="dpa-scope-instructions">
+        <segment>
+          <source>The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law.</source>
+          <target state="translated">处理方仅应根据控制方的书面指示处理个人数据，若某项指示似乎违反适用法律，处理方应立即告知控制方。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-audit-right">
+        <segment>
+          <source>6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires.</source>
+          <target state="translated">6.1 控制方可在每个日历年内对处理方进行一次审计，处理方必须允许审计人员访问审计所需的记录。</target>
+        </segment>
+      </unit>
+      <unit id="clause-07a">
+        <segment>
+          <source>The Processor may use the Personal Data for the purposes set out in this Article.</source>
+          <target state="translated">处理方可将个人数据用于本条所述的目的。</target>
+        </segment>
+      </unit>
+      <unit id="clause-09a">
+        <segment>
+          <source>Execution of this Agreement is recorded in the Portal and is confirmed to both parties.</source>
+          <target state="translated">本协议的签署情况记录在门户中，并向双方确认。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-hosting-region">
+        <segment>
+          <source>All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night.</source>
+          <target state="translated">根据本协议创建的所有记录均存储在附件1中约定的区域，并每晚进行备份。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="dpa.restrictions">
+      <unit id="clause-07b">
+        <segment>
+          <source>The Processor may use the Personal Data for the purposes set out in this Article.</source>
+          <target state="translated">处理方可将个人数据用于本条所述的目的。</target>
+        </segment>
+      </unit>
+      <unit id="clause-09b">
+        <segment>
+          <source>Execution of this Agreement is recorded in the Portal and is confirmed to both parties.</source>
+          <target state="translated">本协议的签署情况记录在门户中，并向双方确认。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-enumerated-prohibition">
+        <segment>
+          <source>The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind.</source>
+          <target state="translated">处理方不得：(a) 未经控制方事先书面授权而委托新的子处理方；(b) 将记录复制到控制方未批准的设备上；或 (c) 使用记录训练任何类型的模型。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-caps-disclaimer">
+        <segment>
+          <source>THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
+          <target state="translated">运营方不保证门户将无中断或无错误地可用，并在适用法律允许的最大范围内，不承担所有默示保证，包括适销性和特定用途适用性的默示保证。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-audit-crossref">
+        <segment>
+          <source>Nothing in this Article limits the audit right granted in Section 6.1.</source>
+          <target state="translated">本条中的任何内容均不限制第6.1节授予的审计权。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="paper.abstract">
+      <unit id="paper-title">
+        <segment>
+          <source>Auditing Consent Records at Scale: A Field Study of Three Consent Portals</source>
+          <target state="translated">大规模审计同意记录：三个同意门户的实地研究</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-opening">
+        <segment>
+          <source>Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months.</source>
+          <target state="translated">同意记录是公司在监管机构询问为何使用个人数据时所依赖的证据，然而这些记录本身很少被审计。我们报告了一项对三家中型公司运营的同意门户进行的为期九个月的实地研究。</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-method">
+        <segment>
+          <source>Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log.</source>
+          <target state="translated">每个门户均使用固定的常规请求脚本进行测试，并将其返回的每份回执与门户写入自身日志的条目进行比较。</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-findings">
+        <segment>
+          <source>Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study.</source>
+          <target state="translated">三个门户中有两个丢失了至少一次撤回的时间戳，且没有一个门户能在无需人工操作的情况下显示个人同意的是哪个版本的通知。我们认为，同意记录的价值不超过其背后的审计追踪，我们公开测试脚本，以便其他团队可以重复该研究。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

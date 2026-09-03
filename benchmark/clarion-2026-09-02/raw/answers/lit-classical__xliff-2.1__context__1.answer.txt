@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="zh-CN" trgLang="en-US">
+  <file id="clarion.lit-classical" original="clarion.lit-classical">
+    <mda:metadata>
+      <mda:metaGroup category="clif">
+        <mda:meta type="title">Classical literary stratum - aphorisms, parallel prose, a quatrain</mda:meta>
+        <mda:meta type="info">Original classical Chinese composed for CLARION, to be rendered into an elevated, archaic-leaning English that keeps the register, imagery and parallel structure rather than explaining them.</mda:meta>
+        <mda:meta type="standard">Render classical Chinese into archaic-leaning literary English. Preserve parallelism and concrete imagery; do not modernise or gloss. Render coined proper nouns consistently.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="aphorisms">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">Short philosophical aphorisms from a fictional anthology, each meant to stand alone.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Short philosophical aphorisms from a fictional anthology, each meant to stand alone.</note>
+      </notes>
+      <unit id="water-holds">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">calm|serious</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>水静则清，器满则倾。</source>
+          <target>Water still, it clears; vessel full, it spills.</target>
+        </segment>
+      </unit>
+      <unit id="mountain-river">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">serious|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>山不增高，因登而高；川不返流，因逝而长。</source>
+          <target>The mountain adds no height, yet by climbing it is high; the river returns no flow, yet by departing it is long.</target>
+        </segment>
+      </unit>
+      <unit id="mirror">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>镜不自照，故能照人；泉不自饮，故能济渴。</source>
+          <target>The mirror does not see itself, so it can see others; the spring does not drink itself, so it can quench thirst.</target>
+        </segment>
+      </unit>
+      <unit id="scale">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">serious</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>尺短寸长，各有所宜。</source>
+          <target>The foot is short, the inch is long; each has its proper use.</target>
+        </segment>
+      </unit>
+      <unit id="lantern-heart">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>灯焰高者，其膏易尽；其光微者，其夜乃长。</source>
+          <target>The flame that rises high, its oil is soon spent; the light that is faint, its night is the longer.</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="parallel-prose">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.</mda:meta>
+          <mda:meta type="type">narration</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.</note>
+      </notes>
+      <unit id="parallel-prose-1">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>层峦千仞，藏云于顶；寒江万里，送舟于天。</source>
+          <target>Ridge upon ridge, a thousand fathoms, clouds hidden at the peak; the cold river, ten thousand leagues, sends the boat to the sky.</target>
+        </segment>
+      </unit>
+      <unit id="parallel-prose-2">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>谷静无应，苍梧闻钟；灯微自摇，苍梧照水。</source>
+          <target>The valley is still, no echo; at Cangwu the bell is heard. The lamp is faint, it sways alone; at Cangwu it lights the water.</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quatrain">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.</mda:meta>
+          <mda:meta type="type">narration</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.</note>
+      </notes>
+      <unit id="quatrain-1">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|sad</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>渡口秋灯暗，</source>
+          <target>The autumn lamp at the ford is dim,</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-2">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|sad</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>江寒雨自斜。</source>
+          <target>The river cold, the rain falls aslant.</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-3">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>潮回沙上字，</source>
+          <target>The tide returns the words on the sand,</target>
+        </segment>
+      </unit>
+      <unit id="quatrain-4">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>钟入隔岸家。</source>
+          <target>The bell enters the home across the shore.</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

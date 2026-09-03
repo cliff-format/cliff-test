@@ -1,0 +1,76 @@
+# Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+# clif:source = 水静则清，器满则倾。
+# clif:type = sentence
+# clif:emotion = calm|serious
+# clif:status = initial
+water-holds = Still water runs clear; a full vessel tips over.
+
+# Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+# clif:source = 山不增高，因登而高；川不返流，因逝而长。
+# clif:type = sentence
+# clif:emotion = serious|calm
+# clif:status = initial
+mountain-river = The mountain does not rise, yet climbing makes it high; the river does not return, yet flowing makes it long.
+
+# Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+# clif:source = 镜不自照，故能照人；泉不自饮，故能济渴。
+# clif:type = sentence
+# clif:emotion = calm
+# clif:status = initial
+mirror = The mirror does not see itself, so it can see others; the spring does not drink itself, so it can quench thirst.
+
+# Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+# clif:source = 尺短寸长，各有所宜。
+# clif:type = sentence
+# clif:emotion = serious
+# clif:status = initial
+scale = The foot is short, the inch is long; each has its proper use.
+
+# Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+# clif:source = 灯焰高者，其膏易尽；其光微者，其夜乃长。
+# clif:type = sentence
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+lantern-heart = The flame that burns high soon exhausts its oil; the light that glows faint makes the night last longer.
+
+# A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+# clif:source = 层峦千仞，藏云于顶；寒江万里，送舟于天。
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+parallel-prose-1 = Ridges rise a thousand fathoms, hiding clouds at their peaks; the cold river stretches ten thousand miles, sending boats to the horizon.
+
+# A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+# clif:source = 谷静无应，苍梧闻钟；灯微自摇，苍梧照水。
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+parallel-prose-2 = The valley is still and gives no echo, yet Cangwu hears the bell; the lamp flickers on its own, and Cangwu reflects in the water.
+
+# A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+# clif:source = 渡口秋灯暗，
+# clif:type = narration
+# clif:emotion = nostalgic|sad
+# clif:status = initial
+quatrain-1 = The autumn lamp at the ferry dims,
+
+# A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+# clif:source = 江寒雨自斜。
+# clif:type = narration
+# clif:emotion = nostalgic|sad
+# clif:status = initial
+quatrain-2 = The river chills as rain falls askew.
+
+# A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+# clif:source = 潮回沙上字，
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+quatrain-3 = The tide returns the words on the sand,
+
+# A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+# clif:source = 钟入隔岸家。
+# clif:type = narration
+# clif:emotion = nostalgic|calm
+# clif:status = initial
+quatrain-4 = The bell reaches a home across the shore.

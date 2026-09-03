@@ -1,0 +1,264 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Sidebar entry that opens the list of result-set copies the analyst has made in this session.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.nav-scratch-tables"
+msgid "Scratch tables"
+msgstr "临时表"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Sidebar entry that opens the module where data sets are browsed and opened.
+#. clif:type: proper-noun
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.mode-01a"
+msgid "Quarry"
+msgstr "采石场"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Value in the site-type column of the demo data set that ships with the product, where every row is a mining site of one kind or another.
+#. clif:type: noun
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.mode-01b"
+msgid "Quarry"
+msgstr "采石场"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Column header on the storage page; the column reports how much data each table holds.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.term-02a"
+msgid "Volume"
+msgstr "数据量"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the slider on the notification page that sets how loud the desktop alert sounds.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.term-02b"
+msgid "Volume"
+msgstr "音量"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the axis options in the chart editor, where the analyst chooses how an axis divides its values.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.term-03a"
+msgid "Scale"
+msgstr "刻度"
+
+#. Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the worker options on the compute cluster page, where the analyst chooses how many machines a job may use.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.labels.term-03b"
+msgid "Scale"
+msgstr "规模"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Button in the toolbar above the preview table on the Quarry page.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.actions.mode-04a"
+msgid "Refresh the sample"
+msgstr "刷新样本"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Second step of the getting-started checklist, which a new analyst reads before the first run.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.actions.mode-04b"
+msgid "Refresh the sample"
+msgstr "刷新样本"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Menu item in the view menu on the settings page, where the whole wording fits on one line.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+#. clif:max-width: 24
+msgctxt "workbench.actions.slot-05a"
+msgid "Save the current view as a preset"
+msgstr "将当前视图保存为预设"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. The same action in the inspector rail at the edge of the screen, where the slot is less than half as wide.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+#. clif:max-width: 10
+msgctxt "workbench.actions.slot-05b"
+msgid "Save the current view as a preset"
+msgstr "保存为预设"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Button inside a row of the run history table, where the cell gives the label its full width.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+#. clif:max-width: 22
+msgctxt "workbench.actions.slot-06a"
+msgid "Compare with the previous run"
+msgstr "与上次运行比较"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. The same action in the chart toolbar, where the button shares one row with four other buttons.
+#. clif:type: label
+#. clif:emotion: objective
+#. clif:status: initial
+#. clif:max-width: 10
+msgctxt "workbench.actions.slot-06b"
+msgid "Compare with the previous run"
+msgstr "比较上次运行"
+
+#. Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Note printed under the getting-started checklist. On that checklist refreshing the sample is step 2 and the row limit is step 3, and the numbers here must match that order.
+#. clif:type: sentence
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.actions.note-step-order"
+msgid "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once."
+msgstr "第 3 步设置行数上限，因此请至少运行一次第 2 步后再提高该上限。"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Counter under the preview table; the workbench substitutes the number of rows it has copied so far.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.msg-row-count"
+msgid "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}"
+msgstr "{rows, plural, one {已将 # 行复制到临时表} other {已将 # 行复制到临时表}}"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Banner at the top of the panel that holds the copied result set; the workbench passes the state name.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.msg-table-state"
+msgid "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}"
+msgstr "{state, select, ready {临时表已就绪} building {正在构建临时表} other {临时表构建失败}}"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Greeting on the workbench home page after sign-in; the placeholder carries the analyst's display name.
+#. clif:type: sentence
+#. clif:emotion: polite
+#. clif:status: initial
+msgctxt "workbench.messages.msg-welcome-back"
+msgid "Welcome back, {name}. Your last run took 12 minutes."
+msgstr "欢迎回来，{name}。您上次运行耗时 12 分钟。"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Toast shown on the cluster page when a job changes state. The workbench passes the state name and renders one of the four wordings; the selector keys are engine values, not words on screen.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.msg-job-outcome"
+msgid "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}"
+msgstr "{state, select, running {作业仍在运行} done {作业已完成} failed {作业失败} other {作业状态未知}}"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Error toast shown when the analyst copies a result set before the preview has finished loading.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.msg-sample-loading"
+msgid "The scratch table could not be created because the sample is still loading."
+msgstr "无法创建临时表，因为样本仍在加载中。"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Empty state on a shared board that no one has put a chart on.
+#. clif:type: sentence
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.msg-board-empty"
+msgid "Nothing is pinned to this board yet. Open a chart and pin it here."
+msgstr "此看板上还没有固定任何内容。打开一个图表并将其固定在此处。"
+
+#. Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Screen-reader cue announced when the chart redraws after new rows arrive.
+#. clif:type: accessibility-cue
+#. clif:emotion: mechanical
+#. clif:status: initial
+msgctxt "workbench.messages.cue-chart-updated"
+msgid "Chart updated"
+msgstr "图表已更新"
+
+#. Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. First paragraph of the help section about result sets; the paragraph that introduces the object to a new analyst.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.help.help-scratch-table"
+msgid "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out."
+msgstr "临时表是您自己的结果集副本。它只存在于当前浏览器标签页中，不会与团队共享，并在您退出登录时被丢弃。"
+
+#. Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Tip under the two buttons at the bottom of the Quarry page. What it tells the analyst to empty is the object the help paragraph above describes, not the cache option further down the same page.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.help.help-empty-before-run"
+msgid "Empty it before you leave the page, or the next run starts from rows that are already stale."
+msgstr "离开页面之前请将其清空，否则下次运行将从已过期的行开始。"
+
+#. Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Sentence in the help section about shared boards. It answers the empty-state line of this file and must reuse the verb that line uses for putting a chart on a board.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.help.help-board-pin"
+msgid "Once it is pinned, the chart stays on the board until someone takes it down."
+msgstr "一旦固定，图表就会保留在看板上，直到有人将其取下。"
+
+#. Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Paragraph in the accessibility section of the help panel.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.help.help-keyboard-rows"
+msgid "Press the up and down arrows to move through the rows without taking your hands off the keyboard."
+msgstr "按上箭头和下箭头可在行之间移动，无需将手从键盘上移开。"
+
+#. Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Paragraph in the help panel explaining what happens to charts nobody looks at.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.help.help-archive"
+msgid "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back."
+msgstr "一个月未打开的图表会自动移至归档页面。不会删除任何内容，重新打开即可将其恢复。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the time window option; the window a chart starts with when the analyst has never changed it.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-time-window"
+msgid "New charts open with the default time window until you pin one of your own."
+msgstr "新图表默认使用默认时间窗口，直到您固定自己的时间窗口。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the export option on the settings page.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-export-resolution"
+msgid "Charts are exported at the screen resolution, or at 2x for print."
+msgstr "图表按屏幕分辨率导出，打印时按 2 倍分辨率导出。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the cache option, explaining why the workbench keeps a copy of recent results.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-cache-latency"
+msgid "Charts read from the cache first, which keeps latency under half a second on a normal connection."
+msgstr "图表首先从缓存读取，这使正常连接下的延迟保持在半秒以内。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Read-out under the cluster option, shown while a job is running.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-throughput"
+msgid "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory."
+msgstr "吞吐量约为每秒 1,200 行，集群在内存中保留 30 GB 的数据。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the retention option on the settings page.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-retention"
+msgid "Scratch tables are kept for 7 days and are then removed without a warning."
+msgstr "临时表保留 7 天，之后会在不发出警告的情况下被删除。"
+
+#. The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the time zone option on the settings page.
+#. clif:type: description
+#. clif:emotion: objective
+#. clif:status: initial
+msgctxt "workbench.settings.set-timezone"
+msgid "Times on this page follow the workspace time zone, not the time zone of your browser."
+msgstr "此页面上的时间遵循工作区时区，而非浏览器时区。"

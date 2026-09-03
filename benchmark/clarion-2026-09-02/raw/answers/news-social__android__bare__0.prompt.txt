@@ -1,0 +1,98 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--clif:source: Great work today, everyone. Really.-->
+    <string name="news-01a">Great work today, everyone. Really.</string>
+    <!--clif:source: Great work today, everyone. Really.-->
+    <string name="news-01b">Great work today, everyone. Really.</string>
+    <!--clif:source: Six months of roadworks and here we are.-->
+    <string name="news-02a">Six months of roadworks and here we are.</string>
+    <!--clif:source: Six months of roadworks and here we are.-->
+    <string name="news-02b">Six months of roadworks and here we are.</string>
+    <!--clif:source: You are really going to ride that thing?-->
+    <string name="news-03a">You are really going to ride that thing?</string>
+    <!--clif:source: You are really going to ride that thing?-->
+    <string name="news-03b">You are really going to ride that thing?</string>
+    <!--clif:source: Nice shot.-->
+    <string name="news-04a">Nice shot.</string>
+    <!--clif:source: Nice shot.-->
+    <string name="news-04b">Nice shot.</string>
+    <!--clif:source: It is back.-->
+    <string name="news-05a">It is back.</string>
+    <!--clif:source: It is back.-->
+    <string name="news-05b">It is back.</string>
+    <!--clif:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay-->
+    <string name="news-06">Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay</string>
+    <!--clif:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets-->
+    <string name="news-07">Rode the whole loop this afternoon just because I could 🚋💚 no regrets</string>
+    <!--clif:source: The new depot mural absolutely ate. No crumbs left.-->
+    <string name="news-08">The new depot mural absolutely ate. No crumbs left.</string>
+    <!--clif:source: {count, plural, one {# person} other {# people}} reposted your photo.-->
+    <string name="news-09">{count, plural, one {# person} other {# people}} reposted your photo.</string>
+    <!--clif:source: {name} and {others, plural, one {# other} other {# others}} liked your post.-->
+    <string name="news-10">{name} and {others, plural, one {# other} other {# others}} liked your post.</string>
+    <!--clif:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.-->
+    <string name="news-11">Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.</string>
+    <!--clif:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?-->
+    <string name="news-12">@SablewickTransit Will the Riverside Loop run on the holiday Monday?</string>
+    <!--clif:source: Yes, on a Sunday timetable.-->
+    <string name="news-13">Yes, on a Sunday timetable.</string>
+    <!--clif:source: And the last one back?-->
+    <string name="news-14">And the last one back?</string>
+    <!--clif:source: Eleven forty, from the north end.-->
+    <string name="news-15">Eleven forty, from the north end.</string>
+    <!--clif:source: Perfect, thank you! Adding it to the group chat now.-->
+    <string name="news-16">Perfect, thank you! Adding it to the group chat now.</string>
+    <!--clif:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.-->
+    <string name="news-17">Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.</string>
+    <!--clif:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.-->
+    <string name="news-18">The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.</string>
+    <!--clif:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.-->
+    <string name="news-19">Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.</string>
+    <!--clif:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.-->
+    <string name="news-20">I take the first tram most mornings and the seats are comfortable enough for the whole ride.</string>
+    <!--clif:source: Does anyone know whether the ticket machine at the north end takes cards?-->
+    <string name="news-21">Does anyone know whether the ticket machine at the north end takes cards?</string>
+    <!--clif:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.-->
+    <string name="news-22">The rain held off for the ceremony, which was lucky for everyone standing on the platform.</string>
+    <!--clif:source: A single journey costs one euro fifty and a day pass costs four euros.-->
+    <string name="news-23">A single journey costs one euro fifty and a day pass costs four euros.</string>
+</resources>

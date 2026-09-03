@@ -1,0 +1,193 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.news-social" original="clarion.news-social">
+    <group id="posts.reactions">
+      <unit id="news-01a">
+        <segment>
+          <source>Great work today, everyone. Really.</source>
+        </segment>
+      </unit>
+      <unit id="news-01b">
+        <segment>
+          <source>Great work today, everyone. Really.</source>
+        </segment>
+      </unit>
+      <unit id="news-02a">
+        <segment>
+          <source>Six months of roadworks and here we are.</source>
+        </segment>
+      </unit>
+      <unit id="news-02b">
+        <segment>
+          <source>Six months of roadworks and here we are.</source>
+        </segment>
+      </unit>
+      <unit id="news-03a">
+        <segment>
+          <source>You are really going to ride that thing?</source>
+        </segment>
+      </unit>
+      <unit id="news-03b">
+        <segment>
+          <source>You are really going to ride that thing?</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="posts.referents">
+      <unit id="news-04a">
+        <segment>
+          <source>Nice shot.</source>
+        </segment>
+      </unit>
+      <unit id="news-04b">
+        <segment>
+          <source>Nice shot.</source>
+        </segment>
+      </unit>
+      <unit id="news-05a">
+        <segment>
+          <source>It is back.</source>
+        </segment>
+      </unit>
+      <unit id="news-05b">
+        <segment>
+          <source>It is back.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="platform.conventions">
+      <unit id="news-06">
+        <segment>
+          <source>Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay</source>
+        </segment>
+      </unit>
+      <unit id="news-07">
+        <segment>
+          <source>Rode the whole loop this afternoon just because I could 🚋💚 no regrets</source>
+        </segment>
+      </unit>
+      <unit id="news-08">
+        <segment>
+          <source>The new depot mural absolutely ate. No crumbs left.</source>
+        </segment>
+      </unit>
+      <unit id="news-09">
+        <segment>
+          <source>{count, plural, one {# person} other {# people}} reposted your photo.</source>
+        </segment>
+      </unit>
+      <unit id="news-10">
+        <segment>
+          <source>{name} and {others, plural, one {# other} other {# others}} liked your post.</source>
+        </segment>
+      </unit>
+      <unit id="news-11">
+        <segment>
+          <source>Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="thread.replies">
+      <unit id="news-12">
+        <segment>
+          <source>@SablewickTransit Will the Riverside Loop run on the holiday Monday?</source>
+        </segment>
+      </unit>
+      <unit id="news-13">
+        <segment>
+          <source>Yes, on a Sunday timetable.</source>
+        </segment>
+      </unit>
+      <unit id="news-14">
+        <segment>
+          <source>And the last one back?</source>
+        </segment>
+      </unit>
+      <unit id="news-15">
+        <segment>
+          <source>Eleven forty, from the north end.</source>
+        </segment>
+      </unit>
+      <unit id="news-16">
+        <segment>
+          <source>Perfect, thank you! Adding it to the group chat now.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="feed.updates">
+      <unit id="news-17">
+        <segment>
+          <source>Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.</source>
+        </segment>
+      </unit>
+      <unit id="news-18">
+        <segment>
+          <source>The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.</source>
+        </segment>
+      </unit>
+      <unit id="news-19">
+        <segment>
+          <source>Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.</source>
+        </segment>
+      </unit>
+      <unit id="news-20">
+        <segment>
+          <source>I take the first tram most mornings and the seats are comfortable enough for the whole ride.</source>
+        </segment>
+      </unit>
+      <unit id="news-21">
+        <segment>
+          <source>Does anyone know whether the ticket machine at the north end takes cards?</source>
+        </segment>
+      </unit>
+      <unit id="news-22">
+        <segment>
+          <source>The rain held off for the ceremony, which was lucky for everyone standing on the platform.</source>
+        </segment>
+      </unit>
+      <unit id="news-23">
+        <segment>
+          <source>A single journey costs one euro fifty and a day pass costs four euros.</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

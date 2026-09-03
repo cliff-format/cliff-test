@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.probe-ambiguity" original="clarion.probe-ambiguity">
+    <mda:metadata>
+      <mda:metaGroup category="clif">
+        <mda:meta type="title">最小对诊断集，其中翻译简报起决定性作用</mda:meta>
+        <mda:meta type="info">探针层衡量翻译简报的价值：条目以最小对形式出现，其源文本相同或几乎相同，只有 CLIF 字段（情感、类型、上下文或最大宽度）区分两个成员。忽略该字段的翻译必须至少在一个成员上失败。每个条目均为为 CLARION 编写的原创文本，取材于通用软件、交通、舞台、仓库和支持场景。</mda:meta>
+        <mda:meta type="standard">在汉字与拉丁字母或数字之间使用一个空格，在汉字句子中使用全角标点。在措辞、语气词和标点中体现情感标签，而不是中性释义。遵循类型字段的语域：标签保持为裸名词，句子为完整指令，习语为惯用祝愿，专有名词为地名。选择上下文行所指的指代对象。适配声明的最大显示宽度（以显示单元格计），其中拉丁字母和数字计为 1 格，汉字或全角字符计为 2 格。不使用教科书式行话。</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="emotion.reading">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">成对出现的口语台词；决定台词听感的是情感标签，而非词语本身。</mda:meta>
+          <mda:meta type="type">dialogue</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>成对出现的口语台词；决定台词听感的是情感标签，而非词语本身。</note>
+      </notes>
+      <unit id="probe-01a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">joyful|grateful</mda:meta>
+            <mda:meta type="context">说话者刚刚打开一封录取通知书，并真诚地接受这份赞美。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>说话者刚刚打开一封录取通知书，并真诚地接受这份赞美。</note>
+        </notes>
+        <segment state="translated">
+          <source>Oh, that's just wonderful.</source>
+          <target>哦，这真是太棒了！</target>
+        </segment>
+      </unit>
+      <unit id="probe-01b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">angry|playful</mda:meta>
+            <mda:meta type="context">说话者刚刚目睹计划失败；这句话是苦涩的反讽。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>说话者刚刚目睹计划失败；这句话是苦涩的反讽。</note>
+        </notes>
+        <segment state="translated">
+          <source>Oh, that's just wonderful.</source>
+          <target>哦，那可真是太好了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-02a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">polite|calm</mda:meta>
+            <mda:meta type="context">咖啡馆顾客扶着门，真心让对方先走。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>咖啡馆顾客扶着门，真心让对方先走。</note>
+        </notes>
+        <segment state="translated">
+          <source>After you.</source>
+          <target>您先请。</target>
+        </segment>
+      </unit>
+      <unit id="probe-02b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">polite|angry</mda:meta>
+            <mda:meta type="context">说话者指向未点灯的楼梯间；这礼貌其实是命令对方先走。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>说话者指向未点灯的楼梯间；这礼貌其实是命令对方先走。</note>
+        </notes>
+        <segment state="translated">
+          <source>After you.</source>
+          <target>你先请。</target>
+        </segment>
+      </unit>
+      <unit id="probe-03a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">joyful|playful</mda:meta>
+            <mda:meta type="context">两个朋友排队准备再玩一局桌游；笑着说。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>两个朋友排队准备再玩一局桌游；笑着说。</note>
+        </notes>
+        <segment state="translated">
+          <source>Well, here we go again.</source>
+          <target>好嘞，咱们再来一局！</target>
+        </segment>
+      </unit>
+      <unit id="probe-03b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">sad|calm</mda:meta>
+            <mda:meta type="context">维修工第三次回到同一台机器前；叹着气说。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>维修工第三次回到同一台机器前；叹着气说。</note>
+        </notes>
+        <segment state="translated">
+          <source>Well, here we go again.</source>
+          <target>唉，又来了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-04a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">calm|hopeful</mda:meta>
+            <mda:meta type="context">护士在常规手术前安抚病人。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>护士在常规手术前安抚病人。</note>
+        </notes>
+        <segment state="translated">
+          <source>Just relax.</source>
+          <target>放轻松就好。</target>
+        </segment>
+      </unit>
+      <unit id="probe-04b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">serious|angry</mda:meta>
+            <mda:meta type="context">警卫告诉被逼入绝境的闯入者不要动；语气平稳，并不温和。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>警卫告诉被逼入绝境的闯入者不要动；语气平稳，并不温和。</note>
+        </notes>
+        <segment state="translated">
+          <source>Just relax.</source>
+          <target>别动。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="type.register">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">同一英文串因类型不同而渲染不同的成对条目；遵循类型所暗示的语域。</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>同一英文串因类型不同而渲染不同的成对条目；遵循类型所暗示的语域。</note>
+      </notes>
+      <unit id="probe-05a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">工具栏按钮，将打开的文档写入磁盘。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>工具栏按钮，将打开的文档写入磁盘。</note>
+        </notes>
+        <segment state="translated">
+          <source>Save</source>
+          <target>保存</target>
+        </segment>
+      </unit>
+      <unit id="probe-05b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">关机检查清单中的步骤，指示操作员在关闭前将会话写入磁盘。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>关机检查清单中的步骤，指示操作员在关闭前将会话写入磁盘。</note>
+        </notes>
+        <segment state="translated">
+          <source>Save</source>
+          <target>请保存。</target>
+        </segment>
+      </unit>
+      <unit id="probe-06a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">proper-noun</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">交通图上的街区名称，以曾矗立于此的铸造厂命名。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>交通图上的街区名称，以曾矗立于此的铸造厂命名。</note>
+        </notes>
+        <segment state="translated">
+          <source>Forge</source>
+          <target>锻造区</target>
+        </segment>
+      </unit>
+      <unit id="probe-06b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">verb</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">铁匠工作台菜单上的单字任务：开始塑形加热的金属。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>铁匠工作台菜单上的单字任务：开始塑形加热的金属。</note>
+        </notes>
+        <segment state="translated">
+          <source>Forge</source>
+          <target>锻造</target>
+        </segment>
+      </unit>
+      <unit id="probe-07a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">idiom</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">表演者上台前对其表达的祝愿。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>表演者上台前对其表达的祝愿。</note>
+        </notes>
+        <segment state="translated">
+          <source>Break a leg!</source>
+          <target>祝演出成功！</target>
+        </segment>
+      </unit>
+      <unit id="probe-07b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">仓库安全告示：注意湿滑地面，不要滑倒受伤。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>仓库安全告示：注意湿滑地面，不要滑倒受伤。</note>
+        </notes>
+        <segment state="translated">
+          <source>Break a leg!</source>
+          <target>小心别摔断腿！</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="context.referent">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">上下文行指明指代对象的成对条目；选择场景所需的词语。</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>上下文行指明指代对象的成对条目；选择场景所需的词语。</note>
+      </notes>
+      <unit id="probe-08a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">发票上的列标题；每小时工作的收费金额。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>发票上的列标题；每小时工作的收费金额。</note>
+        </notes>
+        <segment state="translated">
+          <source>Rate</source>
+          <target>费率</target>
+        </segment>
+      </unit>
+      <unit id="probe-08b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">视频编辑器播放面板中的设置；每秒绘制的帧数。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>视频编辑器播放面板中的设置；每秒绘制的帧数。</note>
+        </notes>
+        <segment state="translated">
+          <source>Rate</source>
+          <target>帧率</target>
+        </segment>
+      </unit>
+      <unit id="probe-09a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">儿童套装中海洋动物图片卡上的说明文字。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>儿童套装中海洋动物图片卡上的说明文字。</note>
+        </notes>
+        <segment state="translated">
+          <source>Seal</source>
+          <target>海豹</target>
+        </segment>
+      </unit>
+      <unit id="probe-09b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">办公用品抽屉上的标签；用于封缄文件的蜡印。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>办公用品抽屉上的标签；用于封缄文件的蜡印。</note>
+        </notes>
+        <segment state="translated">
+          <source>Seal</source>
+          <target>印章</target>
+        </segment>
+      </unit>
+      <unit id="probe-10a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">路边求助电话：司机指的是汽车发动机，无法启动。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>路边求助电话：司机指的是汽车发动机，无法启动。</note>
+        </notes>
+        <segment state="translated">
+          <source>It won't start.</source>
+          <target>它发动不了。</target>
+        </segment>
+      </unit>
+      <unit id="probe-10b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">支持电话：用户指的是桌面应用程序，无法启动。</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>支持电话：用户指的是桌面应用程序，无法启动。</note>
+        </notes>
+        <segment state="translated">
+          <source>It won't start.</source>
+          <target>它打不开。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="width.budget">
+      <mda:metadata>
+        <mda:metaGroup category="clif">
+          <mda:meta type="context">宽度预算迫使采用更短措辞的成对条目；保持在声明的单元格数内。</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>宽度预算迫使采用更短措辞的成对条目；保持在声明的单元格数内。</note>
+      </notes>
+      <unit id="probe-11a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">设置屏幕上的按钮，有空间容纳完整措辞。</mda:meta>
+            <mda:meta type="max-width">14</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>设置屏幕上的按钮，有空间容纳完整措辞。</note>
+        </notes>
+        <segment state="translated">
+          <source>Restore Default Settings</source>
+          <target>恢复默认设置</target>
+        </segment>
+      </unit>
+      <unit id="probe-11b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">狭窄移动设置栏上的按钮，空间有限。</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>狭窄移动设置栏上的按钮，空间有限。</note>
+        </notes>
+        <segment state="translated">
+          <source>Restore Default Settings</source>
+          <target>恢复默认</target>
+        </segment>
+      </unit>
+      <unit id="probe-12a">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">桌面帮助屏幕上的菜单项，有空间容纳完整措辞。</mda:meta>
+            <mda:meta type="max-width">16</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>桌面帮助屏幕上的菜单项，有空间容纳完整措辞。</note>
+        </notes>
+        <segment state="translated">
+          <source>View Frequently Asked Questions</source>
+          <target>查看常见问题</target>
+        </segment>
+      </unit>
+      <unit id="probe-12b">
+        <mda:metadata>
+          <mda:metaGroup category="clif">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">狭窄移动页面上的页脚链接，空间有限。</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>狭窄移动页面上的页脚链接，空间有限。</note>
+        </notes>
+        <segment state="translated">
+          <source>View Frequently Asked Questions</source>
+          <target>查看常见问题</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

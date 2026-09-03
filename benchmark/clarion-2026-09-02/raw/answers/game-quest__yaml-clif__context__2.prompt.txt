@@ -1,0 +1,312 @@
+Translate the localization file below from en-US into zh-CN.
+
+Hard rules:
+1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
+   complete and in the format you received it. The answer begins with the first
+   character of that file and ends with its last. Reference material such as a
+   glossary is context you read and leave where it is.
+2. Every identifier, key, group path and structural element comes through
+   unchanged, in its original order and count.
+3. The source text comes through verbatim. Your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct survives character for
+   character - {count, plural, ...}, {name}, %s, %1$s, {{...}}, HTML-like tags -
+   and you translate the human-readable text inside them.
+5. Translate meaning: keep register, tone and wordplay natural in
+   zh-CN.
+6. The context, terminology, tone and width information in the file is the
+   translation brief; follow it as written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text. Leave the source field untouched.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+header:
+  namespace: clarion
+  clan: game-quest
+  source-language: en-US
+  target-language: zh-CN
+  title: 'Saltwake: the Ninth Light quest line'
+  info: 'Saltwake is a seafaring adventure game set in a drowned archipelago where
+    couriers called signal runners carry lantern messages between lighthouses. This
+    file is the quest line ''The Ninth Light'': journal briefs, objective lines, success
+    and failure lines, item descriptions and achievement names. Audience: players
+    on PC and handheld consoles. Objective lines are shown twice, once on the wide
+    journal page and once in the narrow on-screen tracker, and the system strings
+    are rendered by the game engine.'
+  standard: 'Translate the keeper''s name ''Willow'' semantically as 柳; never transliterate
+    it as 薇洛, 威洛 or 维洛, and never turn it into the tree 柳树. Transliterate the quartermaster''s
+    name ''Marrow'' as 马洛; never translate it as 骨髓 and never spell it 马罗. Render
+    ''Ninth Light'' identically in every entry that mentions it. Keep engine placeholders
+    such as {playerName}, ICU MessageFormat structure and key hints such as [E] exactly
+    as the source writes them. Use one space between Han text and Latin letters or
+    digits, and fullwidth punctuation inside Han sentences. Avoid textbook jargon:
+    write 稳健 rather than 鲁棒, 默认 rather than 缺省, 分辨率 rather than 解析度. Objective lines
+    carry a display-width budget in cells, where Latin letters and digits count one
+    cell and Han or fullwidth characters count two; the narrow version must be rewritten
+    shorter, not truncated.'
+groups:
+- path: quest.brief
+  context: Quest journal pages for the quest line 'The Ninth Light'. The player reads
+    them between runs, so the register is unhurried and the sentences are complete.
+  type: description
+  emotion:
+  - objective
+  entries:
+  - id: brief-tide-run
+    source: The tide turns twice a day, and twice a day the harbor forgets who owes
+      whom. Carry the sealed manifest to the quartermaster before the water rises,
+      and the ledger stays honest for one more night.
+    status: initial
+    context: Opening page of the quest journal, read after the quest is accepted.
+      Plain narration, no character voice.
+  - id: brief-ninth-light
+    source: Nine lights ring the inner water. Eight are tended by the harbor guild;
+      the last one stands on a rock the guild pretends not to see, and it has never
+      once gone dark.
+    status: initial
+    context: Second journal page, giving the player the background of the lights before
+      the first run.
+  - id: quest-title-last-watch
+    source: Willow's Last Watch
+    type: label
+    status: initial
+    context: Quest title shown at the top of the journal page and in the quest-accepted
+      banner. It names the keeper of the ninth light, who is taking her final shift.
+  - id: journal-note-order
+    source: Marrow reads the manifest before he opens the gate, so objective 2 stays
+      locked until objective 1 is signed off.
+    status: initial
+    context: Note printed under the objective list on the journal page. On that list
+      the manifest delivery is the first objective and the tide gate is the second,
+      and the numbers here must match that order.
+  - id: brief-warning-fog
+    source: 'Fog comes in from the west without warning. If you cannot see the next
+      light, stop rowing and wait: the current here is patient, and sooner or later
+      it will carry you back to the pier.'
+    status: initial
+    context: Safety paragraph on the journal page, written in the voice of the harbor
+      handbook.
+- path: quest.objectives
+  context: 'Objective lines for the same quest line. Every objective is written twice:
+    once for the wide journal page and once for the narrow tracker at the edge of
+    the screen, which is why several of them carry a width budget.'
+  type: label
+  emotion:
+  - objective
+  entries:
+  - id: objective-03a
+    source: Deliver the Sealed Manifest to Marrow
+    status: initial
+    context: Objective as it appears on the wide journal page, where the full wording
+      fits.
+    max-width: 24
+  - id: objective-03b
+    source: Deliver the Sealed Manifest to Marrow
+    status: initial
+    context: The same objective in the narrow on-screen tracker, where the slot is
+      less than half as wide.
+    max-width: 10
+  - id: objective-04a
+    source: Restore Power to the Tide Gate
+    status: initial
+    context: Objective as it appears on the wide journal page, where the full wording
+      fits.
+    max-width: 24
+  - id: objective-04b
+    source: Restore Power to the Tide Gate
+    status: initial
+    context: The same objective in the narrow on-screen tracker, where only a few
+      cells are left after the checkbox.
+    max-width: 10
+  - id: objective-relight
+    source: Relight the Ninth Light before the ebb
+    status: initial
+    context: Final objective of the quest line. The lamp it names is the one the keeper
+      and the dockhand talk about elsewhere in this file, and it must read the same
+      way in all of them.
+  - id: objective-count-crates
+    source: '{secured, plural, one {# crate secured} other {# crates secured}}'
+    type: sentence
+    emotion:
+    - mechanical
+    status: initial
+    context: Counter under the cargo objective; the engine substitutes the number
+      of crates already lashed down.
+  - id: objective-check-lines
+    source: Check the mooring lines on the east pier
+    status: initial
+    context: Side objective on the journal page; nothing is abbreviated here.
+- path: quest.dialogue
+  context: Voiced lines from the quest line. The keeper of the ninth light speaks
+    slowly and plainly; the harbor quartermaster speaks in short transactional sentences.
+    Every line is acted, so the emotion tag decides the delivery.
+  type: dialogue
+  entries:
+  - id: hail-01a
+    source: Hand me the lantern, friend.
+    emotion:
+    - polite
+    - calm
+    status: initial
+    context: The quartermaster reaches out to carry the lantern up the stair for the
+      player; he means the offer kindly.
+  - id: hail-01b
+    source: Hand me the lantern, friend.
+    emotion:
+    - rude
+    - angry
+    status: initial
+    context: The same words at the top of the stair, where two of his dockhands have
+      closed off the way back; the courtesy is a demand.
+  - id: hail-02a
+    source: Marrow says the dock is open to you.
+    emotion:
+    - calm
+    - hopeful
+    status: initial
+    context: A dockhand passes on the quartermaster's word once the manifest has been
+      signed; the message is a genuine welcome.
+  - id: hail-02b
+    source: Marrow says the dock is open to you.
+    emotion:
+    - rude
+    - serious
+    status: initial
+    context: The same sentence delivered after the player has cheated him, with two
+      dockhands waiting at the ramp; the welcome is a warning.
+  - id: dialogue-willow-keeps
+    source: Willow has kept the Ninth Light burning for eleven winters, and she has
+      never once asked the guild for oil.
+    emotion:
+    - calm
+    - nostalgic
+    status: initial
+    context: A dockhand tells the player about the keeper while they wait for the
+      tide. The lamp he names is the one the final objective sends the player back
+      to.
+  - id: dialogue-burn-it
+    source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.
+    emotion:
+    - urgent
+    - anxious
+    status: initial
+    context: Whispered by the keeper the moment the quartermaster's boat is sighted.
+      What must be burned is the object the delivery objective puts in the player's
+      hands, not the lamp she is standing next to.
+  - id: success-echo
+    source: The Ninth Light is yours to keep now. Do not make me regret the hand-over.
+    emotion:
+    - serious
+    - hopeful
+    status: initial
+    context: The keeper's last line, spoken when the quest line is completed. It answers
+      the sentence the dockhand used earlier about how long she kept the lamp, and
+      should reuse that verb.
+  - id: line-success-tide
+    source: The gate holds. Whatever you did down there, the water is going where
+      it should.
+    emotion:
+    - calm
+    - hopeful
+    status: initial
+    context: Spoken by the gate warden when the tide-gate objective succeeds.
+  - id: line-failure-tide
+    source: The gate is jammed and the pier is under water. Come back when the tide
+      drops and we will try again.
+    emotion:
+    - sad
+    - calm
+    status: initial
+    context: Spoken by the same warden when the tide-gate objective fails and the
+      player has to retry.
+- path: items.rewards
+  context: Item names, bag descriptions and achievement names earned along the quest
+    line. Descriptions are read in the bag panel; achievement names appear in a banner
+    and in the profile list.
+  type: description
+  emotion:
+  - objective
+  entries:
+  - id: item-relay-grid-desc
+    source: 'The relay grid is robust: one failed beacon does not break the chain.'
+    status: initial
+    context: Bag description of the relay chart, read by players who never open an
+      engineering manual.
+  - id: item-lamp-oil-desc
+    source: One flask feeds the lamp for 30 minutes at the default wick height.
+    status: initial
+    context: Bag description of the oil flask. The wick height is the setting the
+      lamp starts with when the player has never touched it.
+  - id: item-fog-lamp-desc
+    source: A squat brass lamp with a scratched blue shutter. The light it throws
+      is weak, but in fog a weak light scatters less than a bright one.
+    status: initial
+    context: Bag description of the fog lamp the player is given before the first
+      run.
+  - id: achv-marrow-debt
+    source: Marrow's Debt
+    type: label
+    status: initial
+    context: Achievement name shown in the banner when the player clears the quartermaster's
+      account. What he owes is a favour, not money.
+  - id: achv-nine-nights
+    source: Nine Nights, Nine Lights
+    type: label
+    status: initial
+    context: Achievement name for visiting every lighthouse on nine consecutive in-game
+      nights.
+- path: system.messages
+  context: 'System strings shown outside the story: the loading greeting, an input
+    hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat
+    structure and key hints must survive exactly as written.'
+  emotion:
+  - mechanical
+  entries:
+  - id: system-welcome-runner
+    source: Fair tide, {playerName}. Your last run ended 3 days ago.
+    type: sentence
+    emotion:
+    - calm
+    status: initial
+    context: Greeting on the loading screen after a save is opened; the placeholder
+      carries the player's profile name.
+  - id: system-keybind-lantern
+    source: Hold [E] to raise the lantern; press [Q] to signal.
+    type: prompt
+    status: initial
+    context: Input hint over the lantern hook. The bracketed keys are filled in from
+      the player's own bindings and must stay exactly as they are.
+  - id: system-signal-range
+    source: 'Signal range: 120 m in fog, 400 m in clear air.'
+    type: sentence
+    status: initial
+    context: Status readout on the lamp panel; both distances are shown to the player
+      as plain numbers.
+  - id: system-quest-state
+    source: '{state, select, updated {Quest updated} complete {Quest complete} other
+      {Quest failed}}'
+    type: sentence
+    status: initial
+    context: Banner shown at the top of the screen whenever the quest state changes;
+      the engine passes the state name.
