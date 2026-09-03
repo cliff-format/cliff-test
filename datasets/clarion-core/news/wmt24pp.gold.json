@@ -1,0 +1,1200 @@
+{
+  "file": "wmt24pp.zh-CN.clif",
+  "stratum": "news",
+  "notes": "Professional post-edited references with document ids and domain labels (news, social, speech, literary). The only established MT benchmark that is safely redistributable in an MIT repository. Released 2025, so contamination is lower than FLORES.",
+  "provenance": {
+    "source": "WMT24++ human post-edited references",
+    "url": "google/wmt24pp",
+    "license": "Apache-2.0",
+    "spdx": "Apache-2.0",
+    "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+    "redistributable": true,
+    "human_verified": true,
+    "verifier": "upstream project",
+    "retrieved": "2026-09-01T00:06:26+00:00",
+    "origin": "public",
+    "context_origin": "annotated",
+    "annotator": "deepseek-v4-pro",
+    "upstream_revision": "main",
+    "fingerprint": "7824e548f1473387",
+    "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor)."
+  },
+  "items": {
+    "test-en-news-beverly-press-3585-1": {
+      "reference": "西索描绘陆与水的画作成为新画廊展览的焦点",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "7a7f24b3cbc80f2f87b3140310bf24dd38cdc4212da9d96a76e7334f02fb68a3",
+        "reference_sha256": "3e33273a157c23e091c7c7b4f67b8a90dbe3f7575004b206dec0b698d6078ee9"
+      }
+    },
+    "test-en-news-beverly-press-3585-2": {
+      "reference": "2022 年创作的《泳池戏水》是维森特·西索的一幅作品，将于 1 月 13 日起在 Tierra del Sol 画廊展出。（图片由维森特·西索提供）",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "344e08533e3b7f693f9a9c10b4d7088cea80e7c21097b588d7dcd1a754c63a7a",
+        "reference_sha256": "470dc6c65feadea289d5c1c23a098fdca88184d0b156c9362df2028daf7e0395"
+      }
+    },
+    "test-en-news-beverly-press-3585-3": {
+      "reference": "Tierra del Sol 画廊荣幸地在西好莱坞的新址推出“维森特·西索：水与陆的记忆”展览。西索自 2012 年起成为“工作室艺术项目”的艺术家，本次展览是他的首次个展。西索 1962 年出生于马德里，童年在委内瑞拉、特立尼达和迈阿密之间辗转，20 岁出头时随家人移居南加州。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "9b96caa308800b3911a4b4133354b8823d194abbac11e1d0e04a1406bf2132a1",
+        "reference_sha256": "a8e6578b14af408d84b165dc0a4ae2c8ca6ef0f9920f3295558afb605f2770de"
+      }
+    },
+    "test-en-news-beverly-press-3585-4": {
+      "reference": "西索熟练掌握各种题材，创作了大量风景画、肖像画和静物画作品，并运用丙烯、蜡笔、铅笔或水彩等多种媒介进行创作。他的作品灵感来源于家庭肖像、参考照片和个人回忆，丰富多彩的构图展现了他广泛的兴趣和跨媒介的创作能力。西索的热带风景画和海景画反映了他过去生活地区的地理风貌，作品中的人物与丰富的图案相互交织，在文化、记忆和环境之间建立起了一种有意义的联系。西索的作品名称混杂了西班牙语和英语，体现了他丰富多彩而又错综复杂的洛杉矶生活。《维森特·西索：水与陆的记忆》将于 1 月 13 日（周六）开幕，开幕酒会时间为晚上 6 点至 8 点。展览将持续至 3 月 3 日（周日）。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "0b171efc3410037a23e4a986ac2b832da2bd001ee260f90b7173deb16525ffa0",
+        "reference_sha256": "c1f5c0eaceb442f4fada4166c460b04db606ed6c74001212744410d42753bc26"
+      }
+    },
+    "test-en-news-beverly-press-3585-5": {
+      "reference": "Tierra del Sol 画廊位于圣莫尼卡大道 7414 号。更多信息请访问 tierradelsolgallery.org。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "57641b4c7460c0d760e042a69c5295f77c7534f3419d24549965878da57a98eb",
+        "reference_sha256": "3536bfaa64e128011c9934546a1fc4b47851db02ee97e12fab33571b87ae4c9f"
+      }
+    },
+    "test-en-news-brisbanetimes-com-au-228963-6": {
+      "reference": "改造旧居所，容纳新移民，解决居住问题",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "9e6726d78a61646fdeb4a272504947c9f13e224c793f5221b03ceec3b7113a74",
+        "reference_sha256": "7488b6d81befb875e702d884b5c6992f886ed0d1d46289692dd5de43a0a898ba"
+      }
+    },
+    "test-en-news-brisbanetimes-com-au-228963-7": {
+      "reference": "在区域层面，我们只需要以悉尼中央商务区为例。这个地区一路走来，从原生地貌到两层民居，再从最高不过150英尺的建筑，到如今高耸入云的摩天楼。在更小的尺度上，交通枢纽周边的悉尼市区各中心也可能遵循同样的发展路径。近郊也必须发展起来，在关键地段建设低于树顶高度、更经济适用的公寓楼。当然，新开发的住房需要精心设计，综合考量树木、景观、公园以及其他必要的基础设施。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "2cfc7caedb246ec6e0f08a79036ea4e2a87262c3fffdbcf8a24b883d87009e62",
+        "reference_sha256": "427289431e7ce0bf92741477be5c55d0c6c69f9f32e9a50047a8ddc543a26d3c"
+      }
+    },
+    "test-en-news-brisbanetimes-com-au-228963-8": {
+      "reference": "我们的规划体系也需要调整，使郊区市政委员会的规划者（他们似乎不太支持变革）不再一手把持郊区未来形态的话语权。未来的方向可能是建立独立的决策机构来大力倡导优质设计：高度在树顶以下，融入家庭生活设施、大阳台、公共花园和友好外观。这也许是目前新南威尔士州政府的建筑专家在精心制定的合规规范中能够发挥的作用。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "bf907d6a1978762026c571aa0c5112c16e57f6c61bdc07c56282924caef58189",
+        "reference_sha256": "e20904020a5008af922abe887dcbbabf83c16a4ca112dca7bc157de67c067d99"
+      }
+    },
+    "test-en-news-brisbanetimes-com-au-228963-9": {
+      "reference": "在过去的十年里，科技改变了我们的生活，许多人开始在家工作，悉尼也建成了令人印象深刻的地铁和轻轨网络。网购改变了我们的购物方式，智能手机的普及也拉近了朋友和家人之间的距离。同样地，如果城市规划的重点放在建筑的活化再利用上，而不是一味优先考虑老建筑保护，我们业已成型的环境也可以实现这样的转变和适应，实现系统层面的变革。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "78176d6bc0600d793889ce0719ce7faafa2edaab031d2db966dcf0ef856fa443",
+        "reference_sha256": "4878e9399d5d32a651bd6cc3c33fd69b8e24b276d2d60eebe22a23353abd868f"
+      }
+    },
+    "test-en-news-brisbanetimes-com-au-228963-10": {
+      "reference": "克里斯·约翰逊曾任新南威尔士州政府建筑专家（1995-2005 年）和新南威尔士州规划部执行主任（2005-2009 年）。2011 年至 2019 年，他曾担任澳大利亚城市特别工作组的首席执行官。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "8758b4229e9128b52571ea82eaa904156bf80ecad94b70f3f179e52da5307efc",
+        "reference_sha256": "a81704bd21162d9bf61e3e76810202adffe4b7e53922a4d8def38a36ae317068"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-11": {
+      "reference": "为女性平等奋力一搏",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "9b2451d1ea9f8c32833caa4330ff5650b8876569a4313be9f3f924b266a477a3",
+        "reference_sha256": "9420d2e9521d201081d8f23fdc0f62da096dd5eaa4e84f12c418e8ba341af8b0"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-12": {
+      "reference": "去年，世界经济论坛预测，全球实现性别平等需要五代人的时间。现在，世界银行希望迅速加快这一进程。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "a149464a7e8b4008100e2b5dd773a40d4b441450178b0e12a003a369a2897d29",
+        "reference_sha256": "8cc0c911a8f7d1300dcba0821707533c2a94312c4499f305d92141cdcf5c9d10"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-13": {
+      "reference": "这家国际金融机构准备推出一项战略，旨在到 2030 年大幅提升女童和妇女的权利和经济机会。该计划的重点是通过资金支持、技术创新以及公共政策和法律变革，提高包容性和韧性。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "9ebc63c75e034adadd74040e0555ac1c0c79dc055a5e2f6f20d3c3b51fd7d890",
+        "reference_sha256": "cb0846f3906ef324f4711ef22ed60212434abec03be85eb1faeccb9bbf9d2fcf"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-14": {
+      "reference": "“最近的研究表明，社会规范和思维方式都可以改变，例如，让成年和未成年的男性参与进来，可以培养他们对性别平等的支持和认同，”该计划的一份咨询草案指出，“如果能更好地了解社会规范和思维方式如何塑造日常期望、优先事项和行为方式，就能加快实现和扩大积极的性别平等成果。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "4dd8dfa85da56126c19f7bb6a66063fdd4d751dbf7ce62e08413fd6dde54d7b0",
+        "reference_sha256": "7fd99bd2899cdcc11546fcb619cac437a3790f770315d8f9ca29fa66ed303823"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-15": {
+      "reference": "与向农村妇女提供银行贷款或提高女童入学率相比，思维方式的转变更难量化。但有大量证据表明，女性的力量可以移山倒海。例如，在伊朗，女性仅仅因为拒绝遵守强制她们佩戴头巾的法律，就对伊斯兰政府构成了 40 年来最大的威胁。在全球范围内，在印度等 130 个对女性在政府机构中的人数设定了下限的国家，男性对女性投票和参政的阻力有所减弱。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "e2f557372f4b9cbe98c8930e76bbfc002a866225855389b2db2cff37d9dcdf52",
+        "reference_sha256": "115806c72f036617eb5976b1cdb3b80be24571dc29ed0a33b66361dbd6ffbee8"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-16": {
+      "reference": "在一些非洲农村社区，民间社会组织正在用健康教育取代有害的成年礼。其中一个项目帮助肯尼亚马帕拉沙马赛村的村长卡曼达·蒂马约改变了对女性割礼的看法。他告诉《世界报》，他已经“摆脱了愚昧”，并将放弃这种做法。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "6a9b7f336fe33abfd306fff65c14bbcb1b5e006862a00a5fdcfae5acf097f1ff",
+        "reference_sha256": "9a412852b22ff24306f2c1ed76c5f8f3f69a83b5003c2446a4e56c60251fd6d3"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-17": {
+      "reference": "世界银行还列举了其他例子。从 1970 年到 2022 年，孟加拉国女性识字率翻了两番，女性劳动力参与率翻了一番。其国内生产总值增长了两倍多。这种变化积聚了动力。从社区内部招募女性担任有薪教师和卫生工作者的做法增强了信任，“并使女性的流动和工作在社会上更容易被接受。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "c3482af60ccb56ea45ce97ad31ba1c4b518dffc1d2107027b1092a58b25049f1",
+        "reference_sha256": "c9dd7ada3cbc0ef2eaa0e84a77f8c9dac0f7fb427d18bff0313f77842a60b914"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-18": {
+      "reference": "世界银行的计划将针对那些可能仍需几代人才能转变的规范和制度。卢旺达花了 20 多年时间推进增强女性经济权能的土地改革，最终成为典范。“如果女性受到阻碍，没有人会受益，”卢旺达总统保罗·卡加梅在 2015 年主张土地改革时表示，“我们必须改变观念，而不仅仅是法律。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "ddbbd27b0359ac81f0f7a42665b3c81a2d02bf17d7d46a8ceaf40cb1b30502c7",
+        "reference_sha256": "16e0efad587d77ab35228ddabc1a23ca5281d6135adbe62617f03822345fdafd"
+      }
+    },
+    "test-en-news-csmonitor-com-7750-19": {
+      "reference": "世界银行希望传播这一理念。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "a5f5af3cd190f7521a9dbbea673fda13a2fbb7f333fea9b0449a268b5f340526",
+        "reference_sha256": "8376673dc0bb731b6e8bbda667d978b510ed6275eda93dc36f27dea98cf6bbdf"
+      }
+    },
+    "test-en-news-economist-14223-20": {
+      "reference": "德国农民和火车司机让老板们心惊肉跳",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "aa03e92ce76b8a202ec00a2709a28073f41aca67d80f697f9228ceafadbf391c",
+        "reference_sha256": "3e516a3a0afad2e7d1c5f8abdf02312dbff3e2411a16edfc275d7756046c515f"
+      }
+    },
+    "test-en-news-economist-14223-21": {
+      "reference": "在德国，许多公司都由工人和老板共同经营，大规模罢工并不常见。多行业大规模罢工潮更是闻所未闻。现在，这个“共同决策”的国家正面临着愤怒农民长达八天的“行动周”，他们用拖拉机封锁了道路；铁路工人也举行了为期三天的罢工；更糟糕的是，医生们可能也要举行罢工，他们已经在圣诞节和元旦期间关闭了诊所。一些人称之为“干草叉暴民”（Mistgabelmop），这场风暴将在未来一年考验德国和谐的劳资关系。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "b014cc82e8b37d1dba61b098fe4d93185719bad11e5ad42dcd67863da187b938",
+        "reference_sha256": "467bf4ec052348fcde4c54b085ddb050c9e3811ad19b327b1b4bdce5a580785f"
+      }
+    },
+    "test-en-news-economist-14223-22": {
+      "reference": "表面上看，抗议活动的导火索是政府决定终止对农用柴油的补贴，并削减对农用车辆的汽车税豁免。这些措施让农民忍无可忍。这也带动了一些愤怒的工人，他们在通货膨胀、经济衰退和政府自我实施的紧缩政策的压力下苦苦挣扎。1 月 9 日，德国国家铁路公司的货运和客运列车司机就工作时间和工资问题举行罢工。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "84b542ccc78ac3582459c3092a791c0574773e3faae1d10fb2f8232c9fc8c14d",
+        "reference_sha256": "e40ffcdfd45f20cf099c878b3e0f333ac9cb0a46be347c440a05cae7be2a8aa6"
+      }
+    },
+    "test-en-news-economist-14223-23": {
+      "reference": "为了缓和与农民之间的紧张关系，政府同意在三年内逐步取消柴油补贴，并保留汽车税的豁免政策。农民们对这些让步嗤之以鼻，认为远远不够。1 月 4 日，经济部长罗伯特·哈贝克在结束家庭假期后，乘坐渡轮返回时，遭到一群激进分子的阻拦，无法下船。智库 IW Köln 认为，如果火车司机也对政府的方案不买账，那么对德国企业来说，代价可能十分高昂。如果铁路罢工迫使企业中断生产，每天可能造成 1 亿欧元（1.1 亿美元）的损失。作为德国的支柱产业，汽车、化工和钢铁行业尤其依赖铁路运输。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "b229662efebfa25bef4f23202ede4bfd1715032b7862a41392be176e60c4c306",
+        "reference_sha256": "19f06a51581cb33353a0a525e6eaa0c38ca82a66889c3464d7be8da9722e3ef4"
+      }
+    },
+    "test-en-news-economist-14223-24": {
+      "reference": "工人们的情绪越来越愤怒。“各种带有革命幻想的呼吁正在流传，”哈贝克先生警告说。极右翼政党德国选择党正在竭尽全力煽动不满情绪。在德累斯顿，另一个极右翼组织“自由撒克逊人”渗透到农民的抗议活动中，呼吁“熄灭交通灯”（由于其代表色，由社民党、自由民主党和绿党组成的执政联盟被称为“交通灯联盟”）。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "799afab19b0b6f64d37592da10c9680306c09ec75d56bff2f9f6ac6a4b13e6d2",
+        "reference_sha256": "d943de368e2fcdb2811ea1db92593e824b45442f3719878efe3ddc2faeb69966"
+      }
+    },
+    "test-en-news-economist-14223-25": {
+      "reference": "IW Köln 的托马斯·普尔斯担心，罢工将损害德国作为商业投资地的形象。当地老板们已经开始担心德国版“黄马甲”运动重演——2018 年的法国黄马甲运动最终演变成身穿黄马甲的示威者在香榭丽舍大街焚烧汽车，警察施放催泪瓦斯驱散人群。德国警察工会主席约亨·科佩尔克在接受《每日镜报》采访时警告说，农民的抗议活动可能“只是今年大规模抗议浪潮的开始”。2023 年，德国是唯一一个出现经济萎缩的主要经济体，年末经济形势尤其严峻，12 月商业信心指数意外下降。今年的经济形势预计将更加艰难。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "dcaac582dd60a4bee9c1cf4528fae127b775cd7c66ba0f8c17a989c7ed210484",
+        "reference_sha256": "b1d52afafafb179d0a4b684180b89dd9a3c3b9230c1ea961c1e8fa8c5803ff34"
+      }
+    },
+    "test-en-news-euronews-en-43091-26": {
+      "reference": "啤酒酿造商对葡萄酒酿造商免于遵守反浪费规则感到不满",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "a072d10ec390aa4d5a7b4bf8b52ed2972f73b650c728ce65f801f09436b5862e",
+        "reference_sha256": "f2b17bfc94bb642f3296fb137a582cf94ee091ee7a841ca535db0ce8947d6dac"
+      }
+    },
+    "test-en-news-euronews-en-43091-27": {
+      "reference": "欧盟正在讨论限制包装废弃物的相关法规，啤酒生产商认为他们受到了不公平的歧视，因为葡萄酒生产商可以免于再利用目标和押金返还计划。但欧洲葡萄酒行业协会的一位负责人表示，啤酒酿造商应该“管好自己的事”。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "bbd6eb783de98d21cc406cdedaa0f2da1831fe8986e0f572faaa4c2d4041cde0",
+        "reference_sha256": "9f97c4e09408a207180decab4cff61746e5b3ead895afdda7d998c279c497cee"
+      }
+    },
+    "test-en-news-euronews-en-43091-28": {
+      "reference": "欧洲啤酒酿造商警告称，将葡萄酒而不是啤酒排除在押金返还计划和再利用目标之外是不公平的，而且可能是非法的。目前，立法者正就一项旨在遏制欧盟包装废弃物激增的新法律进行最终谈判。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "233fb5b472967fd44600b1342aa888bc3a9e935117eb18e175d360f12b6ad78d",
+        "reference_sha256": "cac6e90696a3807e092788eee4882779b90516a443abdf37c57de376e312ba8d"
+      }
+    },
+    "test-en-news-euronews-en-43091-29": {
+      "reference": "在圣诞节前，各国环境部长就拟议的《包装和包装废弃物法规》（PPWR）达成了欧盟理事会的谈判授权，为即将与欧洲议会进行的政治谈判铺平了道路。目前，技术层面的谈判已在进行中。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "341b57fb8bf2b4baa435b5f4722359bfee26e50cc8fd8bae9d076205084b42c0",
+        "reference_sha256": "db517e8f673b27c116a3102624efd32172cf23d244af2f26cfe4fa58019eeae8"
+      }
+    },
+    "test-en-news-euronews-en-43091-30": {
+      "reference": "“我们的立场很明确，”欧洲啤酒酿造商贸易协会致函欧洲议会议员和政府谈判代表（1 月 10 日），“如果《包装和包装废弃物法规》中的目标和强制性要求适用于啤酒，那么就有法律义务确保其也适用于所有其他酒精饮料类别。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "899a71fd4c76701b351e4ce41edd1f88014734d110067f4258a937ac432a5aa3",
+        "reference_sha256": "df7e4c5e77a1c8b8c2129877f3ea97a0541b4e5fb5679ee97c3a1e94d6d387b2"
+      }
+    },
+    "test-en-news-euronews-en-43091-31": {
+      "reference": "12 月 18 日举行的部长级峰会决定，葡萄酒生产商可以免于遵守以下要求：到 2030 年底，10% 的产品必须使用可重复使用的容器，并在再利用或再灌装系统中供应，到 2040 年，这一比例将升至 40%。此外，根据这项同样得到欧洲议会支持的提案，葡萄酒还可以免于执行押金返还计划，根据提案规定，其他酒类生产商应在 2029 年之前实施押金返还计划。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "e82828aff43c403371ff0d946f3dd6764cb685f74ef7890295439269b7df2768",
+        "reference_sha256": "8309168c34d68c005cb7c84ac5c7b43a7cae1ca889bb0d8e836f3a8d7b7de865"
+      }
+    },
+    "test-en-news-euronews-en-43091-32": {
+      "reference": "在 12 月 18 日的峰会上，捷克和比利时的部长当场对啤酒酿造商遭受的不平等待遇表示了保留意见，但最终还是默许了。比利时目前担任欧盟理事会轮值主席国，因此原则上在政府间谈判中保持中立。比利时希望在 3 月初与议会达成协议。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "86492c9c2403dbe032072a5386b673133a1af3303af0991b49672a313689fa3c",
+        "reference_sha256": "a9e23a7e5210c970b45df77d26cb8b251c09c12d03f59ffe7591adacf19ac0c8"
+      }
+    },
+    "test-en-news-euronews-en-43091-33": {
+      "reference": "欧洲葡萄酒企业委员会秘书长伊格纳西奥·桑切斯·雷卡特对啤酒酿造商的担忧不屑一顾，该委员会代表了欧洲约 7000 家葡萄酒生产商。他告诉欧洲新闻台：由跨国啤酒集团主导的市场与几乎完全由小型国内生产商组成的市场根本没有可比性。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "309e84aae0b46985dd9286b1ea47fc5db2d19d91980db52302d75c61dd237019",
+        "reference_sha256": "796088271338d48a24c06e2dc73d9c05db75b42d0432e3de6a64e3f078529034"
+      }
+    },
+    "test-en-news-euronews-en-43091-34": {
+      "reference": "桑切斯·雷卡特表示，超过 99% 的国内葡萄酒行业由中小型企业组成。他质疑啤酒酿造商提出的法律论据的可靠性，并声称其组织专注于向政策制定者提供与其自身行业“相关且适当”的信息。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "da5b45979cb20457add3974724d560b5889030cbfddb5ead47e41ef5cef1720e",
+        "reference_sha256": "9b907895c3773684392e0bcc9fbb8e5633e2e6cca8e19696bfd5da924c4b4013"
+      }
+    },
+    "test-en-news-euronews-en-43091-35": {
+      "reference": "“我的职责不是评估啤酒行业是否应该有这样或那样的目标，因为这取决于他们自身行业的特点，”桑切斯·雷卡特说，“同样，啤酒酿造商应该管好自己的事，专注于他们自己的责任。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "c1ff48f9c9230ada2b72525d4748bbe661db4275456d667a8dc4badac0432f56",
+        "reference_sha256": "b5831a6523f457cb8cf5709fc904eaaeb5ebeef3617f25f416b986df85eb83b5"
+      }
+    },
+    "test-en-news-euronews-en-43091-36": {
+      "reference": "欧洲啤酒酿造商协会与欧洲新闻台分享了去年提交给欧盟委员会的一份简短法律分析报告，其中认为，葡萄酒和啤酒是“至少可以部分相互替代”的竞争产品，偏袒任何一方的规则都会扭曲市场。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "c065ed90ff7713965b869a8bd7e963093bfb00ca3ddbe18a74de61322d90f5a6",
+        "reference_sha256": "c5a1a704cfb1a7be8901466336288d0cc66e767dfc5505e5cc55890ea3210a5b"
+      }
+    },
+    "test-en-news-euronews-en-43091-37": {
+      "reference": "该游说团体的运营主管西蒙·斯皮兰表示，啤酒酿造商在包装可持续发展方面“已经处于领先地位”，他举例说，啤酒桶可以重复使用约 165 次，30 年后才会被压碎并回收利用。他说，他们支持许多国家/地区已经实施的再利用和回收系统。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "7c8ae1133d55d47dd29d4b645bfaa49b744a0a98ee7793df786e5025b9b2261c",
+        "reference_sha256": "a87a47d9af265b715ceee8e8cf096eed18bc50110e70de618bae9d7fadacffc7"
+      }
+    },
+    "test-en-news-euronews-en-43091-38": {
+      "reference": "“因此，我们支持制定一项雄心勃勃的《包装和包装废弃物法规》，但需要在包装立法方面建立公平的竞争环境，让啤酒和其他酒精饮料遵循同样的规则，每个行业都为实现目标和支持收集系统做出公平贡献，”斯皮兰说，“任何其他做法都会使啤酒酿造商处于竞争劣势。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "caf5d7cfa98bebb277ffbcab95de3d28a9e99580ec8dc1c22eaa96f71eb6c899",
+        "reference_sha256": "6f5c86d81098d79803f7f34d75a9e9b3f989e9d26ad544d16b22f7452134c9aa"
+      }
+    },
+    "test-en-news-newsrepublic-com-6817-39": {
+      "reference": "拜登政府让企业罪犯逍遥法外",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "f2ff5e3122b5036cb9d39b7d2e637e8cb9fe7b4f5aeb3d77c482369074b47c49",
+        "reference_sha256": "4adfa11845769bc6fd51d3c3b7d5565411b28f4a30338937b1c226a73f678fe7"
+      }
+    },
+    "test-en-news-newsrepublic-com-6817-40": {
+      "reference": "前美国国家环境保护局（EPA）执法律师兼“公共雇员环保责任”组织执行董事蒂姆·怀特豪斯称赞了拜登政府近期在执法方面取得的进步，但也承认此类工作面临重重阻力。“制定良好的执法计划需要持续多年的资金投入和政治支持，”他告诉我，“国会的不稳定不仅会打击 EPA 员工的士气，还会削弱他们进行长期战略思考的能力。”",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "636bdbeb37211ed7ba47b8b1ca01a509cb815c3468cc6dacf559edc6c88b5f78",
+        "reference_sha256": "6b5db2e204a61ca58d46782dd532d40ebe342c88c14c741455cff85bdfc03efe"
+      }
+    },
+    "test-en-news-newsrepublic-com-6817-41": {
+      "reference": "美国国家环境保护局（EPA）的问题与美国司法部的问题虽然性质不同，但也并非毫无关联。美国司法部通过其环境和自然资源司（ENRD）处理环境犯罪案件。EPA 执法部门的助理部长乌尔曼在加入 EPA 之前，曾长期担任 ENRD 环境犯罪科的负责人，任期为 1990 年至 2007 年。EPA 将其最严重的民事和刑事案件移交给 ENRD 处理，但 ENRD 作为一个资金相对不足的部门，在选择处理哪些案件时，往往需要依赖其他机构的帮助。2022 财年，EPA 移交给美国司法部的案件数量（88 起）少于 2000 年以来的任何一年，民事司法案件的结案数量也少于 2000 年以来的任何一年。正如“环境廉正项目”组织指出的那样，即使是特朗普执政期间的 EPA，平均每年也能审结 94 起民事案件，并向司法部移交 106 起案件。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "53fc18f708fa46faa1d17fd8822e881fae6a001d620a83596f2b64a0149afbc5",
+        "reference_sha256": "6c5b5b94f82be47bb307cdeb2a724bf2db7df9a0a30c5876794733e3ba2b779a"
+      }
+    },
+    "test-en-news-newsrepublic-com-6817-42": {
+      "reference": "美国司法部处理公司犯罪的总体方针受到了倡导者的密切关注。尽管监管机构对司法部在梅里克·加兰德担任总检察长期间采取的一些措施（例如最终建立了公司犯罪数据库）表示赞赏，但拜登政府的司法部也严重依赖宽大处理协议，允许公司推迟或避免起诉，并鼓励公司将个别员工作为替罪羊，以避免承担更广泛的指控。司法部刑事部门前助理总检察长小肯尼思·波利特修订了该部门的公司执法政策，目的是限制起诉。",
+      "difficulty": "normal",
+      "tags": [
+        "news",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "WMT24++ human post-edited references",
+        "url": "google/wmt24pp",
+        "license": "Apache-2.0",
+        "spdx": "Apache-2.0",
+        "license_url": "https://huggingface.co/datasets/google/wmt24pp",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:06:26+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "main",
+        "fingerprint": "7824e548f1473387",
+        "notes": "Fetched by CLARION recipe 'wmt24pp' (tier vendor).",
+        "source_sha256": "2696dc6f945fea13559478d0b319543d460848b8e705d1ad8fbc19e8b926932c",
+        "reference_sha256": "87e22e9e329c2420b19fae8155550dea84030900e5d439b396cf24fa21f76e11"
+      }
+    }
+  }
+}

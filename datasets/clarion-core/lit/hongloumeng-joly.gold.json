@@ -1,0 +1,416 @@
+{
+  "file": "hongloumeng-joly.en-US.clif",
+  "stratum": "lit",
+  "notes": "The opening chapter of the greatest Qing-dynasty novel with H. Bencraft Joly's 1892 translation. Long continuous narrative with a strong emotional register; both sides public domain. Same verified index alignment as the Three Kingdoms recipe.",
+  "provenance": {
+    "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+    "url": "https://www.gutenberg.org/ebooks/24264",
+    "license": "public domain (Project Gutenberg)",
+    "spdx": "CC0-1.0",
+    "license_url": "https://www.gutenberg.org/policy/permission.html",
+    "redistributable": true,
+    "human_verified": true,
+    "verifier": "upstream project",
+    "retrieved": "2026-09-01T00:04:53+00:00",
+    "origin": "public",
+    "context_origin": "annotated",
+    "annotator": "deepseek-v4-pro",
+    "upstream_revision": "PG24264+PG9603",
+    "fingerprint": "0c558bd48489d150",
+    "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor)."
+  },
+  "items": {
+    "chapter-1-001": {
+      "reference": "This is the opening section; this the first chapter. Subsequent to the visions of a dream which he had, on some previous occasion, experienced, the writer personally relates, he designedly concealed the true circumstances, and borrowed the attributes of perception and spirituality to relate this story of the Record of the Stone. With this purpose, he made use of such designations as Chen Shih-yin (truth under the garb of fiction) and the like. What are, however, the events recorded in this work? Who are the dramatis personae?",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "b216d23668e7035e8403fc193cd916f29df8fd4c838d2db0ce8a9b69b8c2fe6d",
+        "reference_sha256": "d58ff5c1f9aef02da306912ec70780992fe73b3acd9a32da24d269cc3d0d5c42"
+      }
+    },
+    "chapter-1-002": {
+      "reference": "More than any in these pages have been employed such words as dreams and visions; but these dreams constitute the main argument of this work, and combine, furthermore, the design of giving a word of warning to my readers.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "ec56504b64c84e3de7446d92f50577fdd507778c2d8bc8b6a362e492f610bc76",
+        "reference_sha256": "ae9b542c5e47b1a44c50c0e95b74d44d394032be900d0cca47d11a86be80eb85"
+      }
+    },
+    "chapter-1-003": {
+      "reference": "The Empress Nü Wo, (the goddess of works,) in fashioning blocks of stones, for the repair of the heavens, prepared, at the Ta Huang Hills and Wu Ch'i cave, 36,501 blocks of rough stone, each twelve chang in height, and twenty-four chang square. Of these stones, the Empress Wo only used 36,500; so that one single block remained over and above, without being turned to any account. This was cast down the Ch'ing Keng peak. This stone, strange to say, after having undergone a process of refinement, attained a nature of efficiency, and could, by its innate powers, set itself into motion and was able to expand and to contract.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "719bd46c9c37126e272547384b50b9d4aaab830b8e3e1ef27a3d4e5885cf1323",
+        "reference_sha256": "3046112f48709d005e90a55d09c910ae5b09c6a7a0f16cc482151ff448b473cf"
+      }
+    },
+    "chapter-1-004": {
+      "reference": "\"Brother stone,\" he forthwith said, addressing the stone, \"the concerns of past days recorded on you possess, according to your own account, a considerable amount of interest, and have been for this reason inscribed, with the intent of soliciting generations to hand them down as remarkable occurrences. But in my own opinion, they lack, in the first place, any data by means of which to establish the name of the Emperor and the year of his reign; and, in the second place, these constitute no record of any excellent policy, adopted by any high worthies or high loyal statesmen, in the government of the state, or in the rule of public morals. The contents simply treat of a certain number of maidens, of exceptional character; either of their love affairs or infatuations, or of their small deserts or insignificant talents; and were I to transcribe the whole collection of them, they would, nevertheless, not be estimated as a book of any exceptional worth.\"",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "fcd2b3acdf424946fd4043c2033325c0ac7c5514c881059eff91f50936865ff8",
+        "reference_sha256": "2f38d09301df2bf06dc18ccd4002f3fde6d2d4928833687818e1feb0f503813c"
+      }
+    },
+    "chapter-1-005": {
+      "reference": "K'ung K'ung having pondered for a while over the words, to which he had listened intently, re-perused, throughout, this record of the stone; and finding that the general purport consisted of nought else than a treatise on love, and likewise of an accurate transcription of facts, without the least taint of profligacy injurious to the times, he thereupon copied the contents, from beginning to end, to the intent of charging the world to hand them down as a strange story.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "cd4fe531b7d1d9e9d3532cfb73f128a081e4302f6a5e2ab6d5c26229fca7002a",
+        "reference_sha256": "3d8f2d0686edce3742d73ccc092cc8d88d900325908432e69a6981698c8c1446"
+      }
+    },
+    "chapter-1-006": {
+      "reference": "In old days, the land in the South East lay low. In this South-East part of the world, was situated a walled town, Ku Su by name. Within the walls a locality, called the Ch'ang Men, was more than all others throughout the mortal world, the centre, which held the second, if not the first place for fashion and life. Beyond this Ch'ang Men was a street called Shih-li-chieh (Ten _Li_ street); in this street a lane, the Jen Ch'ing lane (Humanity and Purity); and in this lane stood an old temple, which on account of its diminutive dimensions, was called, by general consent, the Gourd temple. Next door to this temple lived the family of a district official, Chen by surname, Fei by name, and Shih-yin by style. His wife, née Feng, possessed a worthy and virtuous disposition, and had a clear perception of moral propriety and good conduct. This family, though not in actual possession of excessive affluence and honours, was, nevertheless, in their district, conceded to be a clan of well-to-do standing. As this Chen Shih-yin was of a contented and unambitious frame of mind, and entertained no hankering after any official distinction, but day after day of his life took delight in gazing at flowers, planting bamboos, sipping his wine and conning poetical works, he was in fact, in the indulgence of these pursuits, as happy as a supernatural being.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "324265f8339e603b53172b1fba06974f020acf309b4c608ec21ad10f4a2638b9",
+        "reference_sha256": "fb76707015d0afa2a285f07cb5ccc7920e8fac17870b43318a75587a5cb64fb6"
+      }
+    },
+    "chapter-1-007": {
+      "reference": "Of a sudden, while in this state of unconsciousness, it seemed as if he had betaken himself on foot to some spot or other whither he could not discriminate. Unexpectedly he espied, in the opposite direction, two priests coming towards him: the one a Buddhist, the other a Taoist. As they advanced they kept up the conversation in which they were engaged. \"Whither do you purpose taking the object you have brought away?\" he heard the Taoist inquire. To this question the Buddhist replied with a smile: \"Set your mind at ease,\" he said; \"there's now in maturity a plot of a general character involving mundane pleasures, which will presently come to a denouement. The whole number of the votaries of voluptuousness have, as yet, not been quickened or entered the world, and I mean to avail myself of this occasion to introduce this object among their number, so as to give it a chance to go through the span of human existence.\" \"The votaries of voluptuousness of these days will naturally have again to endure the ills of life during their course through the mortal world,\" the Taoist remarked; \"but when, I wonder, will they spring into existence? and in what place will they descend?\"",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "500010566d5c00020ff50680a91a485e4dd589ea3156ee22bebbd12bc56d9072",
+        "reference_sha256": "e7df31c568a1ca09c1e1c229e66e16f5074d873249418c765f911e0578899211"
+      }
+    },
+    "chapter-1-008": {
+      "reference": "But to return to Chen Shih-yin. Having heard every one of these words distinctly, he could not refrain from forthwith stepping forward and paying homage. \"My spiritual lords,\" he said, as he smiled, \"accept my obeisance.\" The Buddhist and Taoist priests lost no time in responding to the compliment, and they exchanged the usual salutations. \"My spiritual lords,\" Shih-yin continued; \"I have just heard the conversation that passed between you, on causes and effects, a conversation the like of which few mortals have forsooth listened to; but your younger brother is sluggish of intellect, and cannot lucidly fathom the import! Yet could this dulness and simplicity be graciously dispelled, your younger brother may, by listening minutely, with undefiled ear and careful attention, to a certain degree be aroused to a sense of understanding; and what is more, possibly find the means of escaping the anguish of sinking down into Hades.\"",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "31e22d5ca201b27350461073939bc0c69176e9899f5c9f3138d9db1f9809ea2b",
+        "reference_sha256": "fd02ade0e981cb4658405d28bdf47241fd65c0df9d2bc53a5ebaff4c7230316d"
+      }
+    },
+    "chapter-1-009": {
+      "reference": "While Shih-yin gave way to these foolish reflections, he suddenly noticed the arrival of a penniless scholar, Chia by surname, Hua by name, Shih-fei by style and Yü-ts'un by nickname, who had taken up his quarters in the Gourd temple next door. This Chia Yü-ts'un was originally a denizen of Hu-Chow, and was also of literary and official parentage, but as he was born of the youngest stock, and the possessions of his paternal and maternal ancestors were completely exhausted, and his parents and relatives were dead, he remained the sole and only survivor; and, as he found his residence in his native place of no avail, he therefore entered the capital in search of that reputation, which would enable him to put the family estate on a proper standing. He had arrived at this place since the year before last, and had, what is more, lived all along in very straitened circumstances. He had made the temple his temporary quarters, and earned a living by daily occupying himself in composing documents and writing letters for customers. Thus it was that Shih-yin had been in constant relations with him.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "5188564ca3389ae9c732dd63b6925c343b3891d56d61f538b271bfa0a41d68dd",
+        "reference_sha256": "5e89e1fee7e49ef43f283e9a25acaac63d45de87c3adf158623f137e3e70f67e"
+      }
+    },
+    "chapter-1-010": {
+      "reference": "In time the mid-autumn festivities drew near; and Shih-yin, after the family banquet was over, had a separate table laid in the library, and crossed over, in the moonlight, as far as the temple and invited Yü-ts'un to come round.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "2bfd47a5da15b597e3e05dbb7eb06d6193a4c4ec9266bac5621d0032e95f794e",
+        "reference_sha256": "cc7a7e8aad84ca79665515dd45062cddf82ead03cc9c226182a28c62ed47fd90"
+      }
+    },
+    "chapter-1-011": {
+      "reference": "Yü-ts'un having, after this recitation, recalled again to mind how that throughout his lifetime his literary attainments had had an adverse fate and not met with an opportunity (of reaping distinction), went on to rub his brow, and as he raised his eyes to the skies, he heaved a deep sigh and once more intoned a couplet aloud:",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "fa887a9116371ab79a81c6da043ce6ce5e9baa54942d6332c7e5d046ae77870f",
+        "reference_sha256": "1698c6bede1bb8f7025461613d6d680c33aca29f4f11ea647723ce46c2dc2485"
+      }
+    },
+    "chapter-1-012": {
+      "reference": "Strange coincidence, as he, on this day, came leaning on his staff and with considerable strain, as far as the street for a little relaxation, he suddenly caught sight, approaching from the off side, of a Taoist priest with a crippled foot; his maniac appearance so repulsive, his shoes of straw, his dress all in tatters, muttering several sentiments to this effect:",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "e52afe9c293bae35d33e6964d40945ab7320a40de1207348744b04ff85e3b7d0",
+        "reference_sha256": "ba975643ae14240d45badc825cba5992127f43407ee65be2a241f168c2e674ae"
+      }
+    },
+    "chapter-1-013": {
+      "reference": "Shih-yin upon hearing these words, hastily came up to the priest, \"What were you so glibly holding forth?\" he inquired. \"All I could hear were a lot of hao liao (excellent, finality.\")",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "55e2f70d09948e349f83d8e9c73f10c188919919fa296fff88441ad779aef820",
+        "reference_sha256": "6f365739215e493b596ea72504e49f4a14372423d6fe9bec5a81a7586b253394"
+      }
+    },
+    "chapter-1-014": {
+      "reference": "Sordid rooms and vacant courts, Replete in years gone by with beds where statesmen lay; Parched grass and withered banian trees, Where once were halls for song and dance! Spiders' webs the carved pillars intertwine, The green gauze now is also pasted on the straw windows! What about the cosmetic fresh concocted or the powder just scented; Why has the hair too on each temple become white like hoarfrost! Yesterday the tumulus of yellow earth buried the bleached bones, To-night under the red silk curtain reclines the couple! Gold fills the coffers, silver fills the boxes, But in a twinkle, the beggars will all abuse you! While you deplore that the life of others is not long, You forget that you yourself are approaching death! You educate your sons with all propriety, But they may some day, 'tis hard to say become thieves; Though you choose (your fare and home) the fatted beam, You may, who can say, fall into some place of easy virtue! Through your dislike of the gauze hat as mean, You have come to be locked in a cangue; Yesterday, poor fellow, you felt cold in a tattered coat, To-day, you despise the purple embroidered dress as long! Confusion reigns far and wide! you have just sung your part, I come on the boards, Instead of yours, you recognise another as your native land; What utter perversion! In one word, it comes to this we make wedding clothes for others! (We sow for others to reap.)",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+        "url": "https://www.gutenberg.org/ebooks/24264",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:04:53+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG24264+PG9603",
+        "fingerprint": "0c558bd48489d150",
+        "notes": "Fetched by CLARION recipe 'hongloumeng-joly' (tier vendor).",
+        "source_sha256": "388061c22127c9e8db0e22d10ab3ba60b9d01b9d338e7e0d1dd643342d53fc48",
+        "reference_sha256": "a933c1abdf3be6053704c7c84e9f47788eaca2e2f477e9eacf2b68c2e5a1efb5"
+      }
+    }
+  }
+}

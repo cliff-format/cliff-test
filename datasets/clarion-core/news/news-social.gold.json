@@ -1,0 +1,798 @@
+{
+  "file": "news-social.zh-CN.clif",
+  "stratum": "news",
+  "notes": "Social media and comment sections for the news stratum, built to the v0.3 category quota. A items (10) are minimal pairs whose members share a source and diverge on one deciding field: three emotion pairs flip sincere thanks against irony, celebration against mockery and concern against a taunt, and two context pairs flip the referent of a bare compliment and of the pronoun in a two-word reply. B items (6) probe the systematic failures of a translation model on platform text: handles and hashtags that must survive untranslated, emoji that must stay where they are, slang that must be domesticated instead of read literally, two ICU payloads, and a post whose digits need house-style spacing. C items (5) form one comment thread in posting order, where every reply borrows its verb, its referent or its time from the message above it and the line name has to stay consistent with the rest of the file. D items (7) are ordinary service posts and plain reader comments that any competent translator should get right; they are the baseline that shows the format has not damaged normal translation.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "notes": "Original text about an invented city, therefore free of training-data contamination. Every account, hashtag, place and person in it is fictional."
+  },
+  "items": {
+    "news-01a": {
+      "reference": "今天大家都辛苦了，真心的。",
+      "alternatives": [
+        "今天辛苦各位了，真心感谢。"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "praise-vs-irony"
+      ],
+      "rules": [
+        {
+          "id": "news-01a-plain",
+          "kind": "require",
+          "params": {
+            "text": "真心"
+          }
+        },
+        {
+          "id": "news-01a-not-irony",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "“漂亮”",
+              "呵呵"
+            ]
+          }
+        }
+      ]
+    },
+    "news-01b": {
+      "reference": "各位今天干得可真“漂亮”。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "praise-vs-irony"
+      ],
+      "rules": [
+        {
+          "id": "news-01b-irony",
+          "kind": "require",
+          "params": {
+            "text": "“漂亮”"
+          }
+        },
+        {
+          "id": "news-01b-not-plain",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "真心"
+            ]
+          }
+        }
+      ]
+    },
+    "news-02a": {
+      "reference": "路修了半年，总算等到今天。",
+      "alternatives": [
+        "路修了半年，总算等到这一天。"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "celebration-vs-mockery"
+      ],
+      "rules": [
+        {
+          "id": "news-02a-glad",
+          "kind": "require",
+          "params": {
+            "text": "总算等到"
+          }
+        },
+        {
+          "id": "news-02a-not-mockery",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "就修成",
+              "就这么个"
+            ]
+          }
+        }
+      ]
+    },
+    "news-02b": {
+      "reference": "路修了半年，就修成这个样子。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "celebration-vs-mockery"
+      ],
+      "rules": [
+        {
+          "id": "news-02b-mockery",
+          "kind": "require",
+          "params": {
+            "text": "就修成"
+          }
+        },
+        {
+          "id": "news-02b-not-glad",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "总算等到"
+            ]
+          }
+        }
+      ]
+    },
+    "news-03a": {
+      "reference": "这种天气你真要坐回去吗？路上当心。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "concern-vs-taunt"
+      ],
+      "rules": [
+        {
+          "id": "news-03a-care",
+          "kind": "require",
+          "params": {
+            "text": "当心"
+          }
+        },
+        {
+          "id": "news-03a-not-taunt",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "那玩意儿",
+              "破车"
+            ]
+          }
+        }
+      ]
+    },
+    "news-03b": {
+      "reference": "就那玩意儿，你也真敢坐？",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion",
+        "concern-vs-taunt"
+      ],
+      "rules": [
+        {
+          "id": "news-03b-taunt",
+          "kind": "require",
+          "params": {
+            "text": "那玩意儿"
+          }
+        },
+        {
+          "id": "news-03b-not-care",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "当心",
+              "小心"
+            ]
+          }
+        }
+      ]
+    },
+    "news-04a": {
+      "reference": "这张拍得真好。",
+      "alternatives": [
+        "这张照片拍得真好。"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context",
+        "referent"
+      ],
+      "rules": [
+        {
+          "id": "news-04a-photo",
+          "kind": "require",
+          "params": {
+            "text": "拍"
+          }
+        },
+        {
+          "id": "news-04a-not-game",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "球",
+              "投篮"
+            ]
+          }
+        }
+      ]
+    },
+    "news-04b": {
+      "reference": "这球投得漂亮。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context",
+        "referent"
+      ],
+      "rules": [
+        {
+          "id": "news-04b-game",
+          "kind": "require",
+          "params": {
+            "text": "球"
+          }
+        },
+        {
+          "id": "news-04b-not-photo",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "拍"
+            ]
+          }
+        }
+      ]
+    },
+    "news-05a": {
+      "reference": "环线恢复运营了。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "news-05a-line",
+          "kind": "require",
+          "params": {
+            "text": "环线"
+          }
+        },
+        {
+          "id": "news-05a-not-barrier",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "围挡",
+              "围栏"
+            ]
+          }
+        }
+      ]
+    },
+    "news-05b": {
+      "reference": "围挡又立起来了。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "news-05b-barrier",
+          "kind": "require",
+          "params": {
+            "text": "围挡"
+          }
+        },
+        {
+          "id": "news-05b-not-line",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "环线"
+            ]
+          }
+        }
+      ]
+    },
+    "news-06": {
+      "reference": "太感谢 @HollowPineCafe 今天早上在车场门口发免费咖啡了！#TramDay",
+      "difficulty": "easy",
+      "tags": [
+        "B",
+        "handle",
+        "hashtag",
+        "keep-verbatim"
+      ],
+      "rules": [
+        {
+          "id": "news-06-handle",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "@HollowPineCafe",
+              "#TramDay"
+            ]
+          }
+        },
+        {
+          "id": "news-06-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-06-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-07": {
+      "reference": "今天下午纯粹因为可以，就把整条环线坐了一遍 🚋💚 一点也不后悔",
+      "difficulty": "easy",
+      "tags": [
+        "B",
+        "emoji",
+        "keep-verbatim"
+      ],
+      "rules": [
+        {
+          "id": "news-07-emoji",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "🚋💚"
+            ]
+          }
+        },
+        {
+          "id": "news-07-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-08": {
+      "reference": "车场新画的那面墙真的绝了，挑不出一点毛病。",
+      "alternatives": [
+        "车场新画的那面墙是真的绝，一点毛病都挑不出来。"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "B",
+        "slang",
+        "domestication"
+      ],
+      "rules": [
+        {
+          "id": "news-08-slang",
+          "kind": "require",
+          "params": {
+            "text": "绝了"
+          }
+        },
+        {
+          "id": "news-08-not-literal",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "吃",
+              "面包屑",
+              "碎屑",
+              "残渣"
+            ]
+          }
+        }
+      ]
+    },
+    "news-09": {
+      "reference": "{count, plural, one {# 人} other {# 人}}转发了你的照片。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "news-09-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "news-09-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-09-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-10": {
+      "reference": "{name} 和另外 {others, plural, one {# 人} other {# 人}}赞了你的帖子。",
+      "difficulty": "hard",
+      "tags": [
+        "B",
+        "icu",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "news-10-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "news-10-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-10-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-11": {
+      "reference": "坐滨河环线的第 3 天，单程省下 40 分钟。10 分满分，还想再坐。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "spacing",
+        "numerals",
+        "slang"
+      ],
+      "rules": [
+        {
+          "id": "news-11-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-11-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        },
+        {
+          "id": "news-11-numbers",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "news-12": {
+      "reference": "@SablewickTransit 请问滨河环线在周一假日会运营吗？",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "thread",
+        "terminology-consistency",
+        "handle"
+      ],
+      "rules": [
+        {
+          "id": "news-12-handle",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "@SablewickTransit"
+            ]
+          }
+        },
+        {
+          "id": "news-12-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Riverside Loop",
+            "target": [
+              "滨河环线",
+              "河滨环线",
+              "滨江环线",
+              "河畔环线"
+            ]
+          }
+        },
+        {
+          "id": "news-12-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "news-13": {
+      "reference": "会的，按周日时刻表运营。",
+      "alternatives": [
+        "会的，按周日的时刻表运行。"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "thread",
+        "ellipsis"
+      ],
+      "rules": [
+        {
+          "id": "news-13-verb",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "运营",
+              "运行",
+              "开行",
+              "照常"
+            ]
+          }
+        },
+        {
+          "id": "news-13-day",
+          "kind": "require",
+          "params": {
+            "text": "周日"
+          }
+        }
+      ]
+    },
+    "news-14": {
+      "reference": "那回程的末班车呢？",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "thread",
+        "ellipsis"
+      ],
+      "rules": [
+        {
+          "id": "news-14-referent",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "末班",
+              "最后一班"
+            ]
+          }
+        },
+        {
+          "id": "news-14-not-person",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "最后一个人",
+              "最后一位",
+              "最后一名"
+            ]
+          }
+        }
+      ]
+    },
+    "news-15": {
+      "reference": "晚上 11 点 40 分从北端终点站发出。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "thread",
+        "ellipsis",
+        "spacing"
+      ],
+      "rules": [
+        {
+          "id": "news-15-evening",
+          "kind": "require",
+          "params": {
+            "text": "晚上"
+          }
+        },
+        {
+          "id": "news-15-verb",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "发出",
+              "发车",
+              "开出"
+            ]
+          }
+        },
+        {
+          "id": "news-15-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "news-16": {
+      "reference": "太好了，谢谢！这就把这条消息发到群里。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "thread",
+        "anaphora"
+      ],
+      "rules": [
+        {
+          "id": "news-16-referent",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "消息",
+              "信息",
+              "时间"
+            ]
+          }
+        },
+        {
+          "id": "news-16-not-bare",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "把它"
+            ]
+          }
+        }
+      ]
+    },
+    "news-17": {
+      "reference": "运营通告：自周一起，滨河环线每 8 分钟一班，末班车于晚上 11 点 40 分发出。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline",
+        "service-notice"
+      ],
+      "rules": [
+        {
+          "id": "news-17-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-17-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        },
+        {
+          "id": "news-17-numbers",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "news-18": {
+      "reference": "车场开放日于周六上午十点开始，车间参观向所有人免费。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline"
+      ],
+      "rules": [
+        {
+          "id": "news-18-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-19": {
+      "reference": "运营方表示，滨河环线开通首周的客运量达到 2.1 万人次。",
+      "difficulty": "normal",
+      "tags": [
+        "D",
+        "baseline",
+        "figures"
+      ],
+      "rules": [
+        {
+          "id": "news-19-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-19-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-20": {
+      "reference": "我大多数早上都坐首班车，座椅这一路坐下来还算舒服。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline",
+        "comment"
+      ],
+      "rules": [
+        {
+          "id": "news-20-translated",
+          "kind": "translated",
+          "params": {}
+        }
+      ]
+    },
+    "news-21": {
+      "reference": "有人知道北端那台售票机能不能刷卡吗？",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline",
+        "comment"
+      ],
+      "rules": [
+        {
+          "id": "news-21-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "news-22": {
+      "reference": "典礼期间雨一直没下，对站在站台上的人来说算是走运。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline",
+        "comment"
+      ]
+    },
+    "news-23": {
+      "reference": "单程票价 1.5 欧元，日票 4 欧元。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "baseline",
+        "fares"
+      ],
+      "rules": [
+        {
+          "id": "news-23-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "news-23-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    }
+  }
+}

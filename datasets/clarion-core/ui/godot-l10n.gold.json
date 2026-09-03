@@ -1,0 +1,1144 @@
+{
+  "file": "godot-l10n.zh-CN.clif",
+  "stratum": "ui",
+  "notes": "Real product UI strings with #. translator comments and msgctxt disambiguation, under a permissive licence. Imported through pyclif.from_po, so the CLIF context fields come from the PO comments.",
+  "provenance": {
+    "source": "Godot editor localization (gettext PO with translator comments)",
+    "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+    "license": "MIT",
+    "spdx": "MIT",
+    "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+    "redistributable": true,
+    "human_verified": true,
+    "verifier": "upstream project",
+    "retrieved": "2026-09-01T00:05:22+00:00",
+    "origin": "public",
+    "context_origin": "native",
+    "annotator": "",
+    "upstream_revision": "main",
+    "fingerprint": "56ad28a5485c4843",
+    "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor)."
+  },
+  "items": {
+    "ok": {
+      "reference": "确定",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "565339bc4d33d72817b583024112eb7f5cdf3e5eef0252d6ec1b9c9a94e12bb3",
+        "reference_sha256": "fac2a67ad87807c4112af2b9201ef929d8c1c80214a6ad5198423398369371a4"
+      }
+    },
+    "failed": {
+      "reference": "失败",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "031a8f0f659df890dfd53c92e45295b0f14c997185bae46e168831e403b273f7",
+        "reference_sha256": "28384d7afd2e4fa66084f6803b9d3cb3b1c1ebb0a4ecc4cc97706745405e5df4"
+      }
+    },
+    "unavailable": {
+      "reference": "不可用",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "ca184496974204a0bd3fd4925e0540bc4b0df6fcc232994d29754272b7183812",
+        "reference_sha256": "460b3574e4bdb8ca1d4605109904168e010d6a9b81d9bb6960b28fc14b046c83"
+      }
+    },
+    "unconfigured": {
+      "reference": "未配置",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "4fc8ba68ea546ba57b83a12613b6d6bd24e74f6fd4a5acc021a4b76aaaf1960a",
+        "reference_sha256": "80a57e03f0717f9106a3154ec94c249dd1019831c8d8e3a354b619e55ba49753"
+      }
+    },
+    "unauthorized": {
+      "reference": "未授权",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+        "reference_sha256": "94bc3d40defef3e97130149915e6ad03c68aa7d56b089e55a957d9d0cc2478bc"
+      }
+    },
+    "parameter-out-of-range": {
+      "reference": "参数越界",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "2f18d9ed0e2aea3175cfc1eda83293208e19556fedcb57fdd5253a9d5f84a423",
+        "reference_sha256": "39c003a4c0e04d760e63c23a46bff0d5578e5015fdf8abab2cd21ad35a078688"
+      }
+    },
+    "out-of-memory": {
+      "reference": "内存不足",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "f1ceb3600e68d55ea2e4ceaeb5173931f8026d583b3c64119e39c4ca006e82e6",
+        "reference_sha256": "962923ed916c899db741431a27e5ecf882a483a41429f9cd13890c3fde549522"
+      }
+    },
+    "file-not-found": {
+      "reference": "未找到文件",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+        "reference_sha256": "3624e584f831f790f5c3a1c145870a27f03a19a7fc306f3676b460c1accfc930"
+      }
+    },
+    "file-bad-drive": {
+      "reference": "文件：驱动器错误",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "b8eac2b964f85f21ecc56eddfa198085b7dbab46ba2d9a83b74647849f9fd2f0",
+        "reference_sha256": "1b52c954c3703e3e056988b051075c0da09f801ed912a43914bda454c2120f40"
+      }
+    },
+    "file-bad-path": {
+      "reference": "文件：路径错误",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "67a3c1a84ff896a82540f6058a9d91d9750eabbf0db64e8de7656d547038ebe6",
+        "reference_sha256": "efccc3feb1518c4492c15ed210a4fc4bc469c068f9b6c920762dab269841a3c0"
+      }
+    },
+    "file-permission-denied": {
+      "reference": "文件：权限不足",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "3af74ac72b09a1f5d3b48456f1d9fff5d5f5e723aa619fc586d78338c08e0085",
+        "reference_sha256": "d05ddcc647b3c2f0a0362b5aff47322e8f0fe0a63ba0d1b9edab85d3dc1c565e"
+      }
+    },
+    "file-already-in-use": {
+      "reference": "文件被占用",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "a26b31c495d872e87e1add7ee47620b994e99a6f03846ed60b5a767779e71b08",
+        "reference_sha256": "7c7c3751c49e025c5b71871cd2b50947cf12229a8cadbf473a5980862cd047a2"
+      }
+    },
+    "can-t-open-file": {
+      "reference": "无法打开文件",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "a90fc22d4105317c73ef42da16edd102c2a7b07a473b935ba98bb8abb91e61c2",
+        "reference_sha256": "f29cbf1a8e10ea537b27c63b9f6745fbf41216d195460d37ee2ecb90ca4cbd0a"
+      }
+    },
+    "can-t-write-file": {
+      "reference": "无法写入文件",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "9fd522a143e1e629612bbb35e8b86dd59094f2385907e780a0580683109c6b81",
+        "reference_sha256": "bc86fe4ef5a1bae291c70cc03b1c503782fc86cc170104ddbdc01c3ee7519467"
+      }
+    },
+    "can-t-read-file": {
+      "reference": "无法读取文件",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "8519c7bf84debe93332f6c08a5f42a2668fcc0489fe9c00fbb56ba37579c3601",
+        "reference_sha256": "d9851374e355fb0e426769b58c353d944757f79de3124ddd9a4c310ecda0febd"
+      }
+    },
+    "file-unrecognized": {
+      "reference": "无法识别文件",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "8f2f544d5ac1509ae1b950e60b126ba468a8be2c885fd3ab0feb0cfa4e2825de",
+        "reference_sha256": "1c77f530f8e76a87fd4021528fc330c85de7090f695b054ea1782d87a6af3c31"
+      }
+    },
+    "file-corrupt": {
+      "reference": "文件已损坏",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "56dbb79dd9548e08b7a90862237bdedaed1266d4cb9d83c1fd605c20774a869b",
+        "reference_sha256": "b24ba3236f736e4bbd29ddc90de74fe8e9af297df9694fb733805ae28cdb3125"
+      }
+    },
+    "missing-dependencies-for-file": {
+      "reference": "文件缺少依赖",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "9c16e2d911d63876b11daefe65d5bcdd186d2bebfbbb45e02e8e4e62a7fbfc2d",
+        "reference_sha256": "7c8b9fde0ef3f19e2e450b26378e6ad243f77754152bb94f79b3d982c3a14907"
+      }
+    },
+    "end-of-file": {
+      "reference": "文件结束",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "03a4579b64d7e8de67f0c8312fcdbb64f02123511f9231d3e48ffc6f00a0c102",
+        "reference_sha256": "403f72e8b515a5a115ec8d7237b27d86355d88003451fd28d09914c08704f5c6"
+      }
+    },
+    "can-t-open": {
+      "reference": "无法打开",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "a53cb71ba603bd67cdd150d08ecd204c758ac35934922bf41bf89b4189a872b7",
+        "reference_sha256": "98034d30501159f13f743409ce5e6fda4d92a41616b66738ebabd414e831c82d"
+      }
+    },
+    "can-t-create": {
+      "reference": "无法创建",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "21916ee35c1636c9dba0910dcd90d1967ff81fa4ce84b845468154d303bad952",
+        "reference_sha256": "dfc731414359edd2b1f91a9d1cb133bcdfed8dd9018cc7fb083ae75c4e41e19a"
+      }
+    },
+    "query-failed": {
+      "reference": "查询失败",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "222d8657e6ce5036c2c4e9baf67ab52aeb5b35c12ff05d913296ea5cefad1f9c",
+        "reference_sha256": "bf4cedf76a4ed11664e6e9147d16e74530ba611b7da1eddd9d5cdb6d5cce4f5c"
+      }
+    },
+    "already-in-use": {
+      "reference": "已在使用中",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "de6ddf32ffb7228d8d897c248f76b409905859810380a384ccecc06054fb6746",
+        "reference_sha256": "7a1fb54a4c8ce96e5ccc4f6d909b847fb43096f4a1b1a5452cd59bbee2cff275"
+      }
+    },
+    "locked": {
+      "reference": "已锁定",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "a424e33d90931d1ed22f2af37a3f3491a5c9de0dfae079f6f3ff4edf0309e07f",
+        "reference_sha256": "56cee9095850d2fad2cf11fe8b0b3e4a3d000e5d7e215d3d9e3541dc6815d303"
+      }
+    },
+    "timeout": {
+      "reference": "超时",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "70594d932950a164e0d820060410af4ea1d127b7221f577d2dcfc22c2d8ff1df",
+        "reference_sha256": "e512cf016f9607285ce4778e4e7899497acafe63f6c7c119a38c25c4071ff407"
+      }
+    },
+    "can-t-connect": {
+      "reference": "无法连接",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "5946f15d581c8739b4b70c78235fcef744766bb62c7056a7bd883364cd448457",
+        "reference_sha256": "6340b951ecd304a3f301854e2985cb25a90e2731573b947adcdcee727807266b"
+      }
+    },
+    "can-t-resolve": {
+      "reference": "无法解析",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "dea65c7191beda8a9e3bf12a1cfd0eee04e903627054a26d7a57eae3b375c982",
+        "reference_sha256": "52279f0365a71f26b903d6077383ce494f9ee937681a0e0b16faf89b5ca8dc8b"
+      }
+    },
+    "connection-error": {
+      "reference": "连接错误",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "8d137af9c64fba09bbb003aba93f0b029898fe19e7927cd696f4c3e2b69f538d",
+        "reference_sha256": "2ab5ce865a69dde20b9d2bde5a2e36185c7c83973d3bccb573ff3b43f85a428a"
+      }
+    },
+    "can-t-acquire-resource": {
+      "reference": "无法获取资源",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "c30ec194404ea58b0ed90fda67dd7df5ddd9cf6a4da57c924200f7058d8c7a53",
+        "reference_sha256": "3d1df74c03a8b5ad5e9d44523ab5b2fba0e1ea90dfa754cfbe077ba9de6597a9"
+      }
+    },
+    "can-t-fork": {
+      "reference": "无法分支",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "7581e3d5f087bcc2b3cc71877d668ee42b3b774aee6f405c346f1321f236c8e9",
+        "reference_sha256": "fb3d8c92d8cf46952057f3c40b0d4309fed97d1494c7f5bd652fc9de4df8dc01"
+      }
+    },
+    "invalid-data": {
+      "reference": "数据无效",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "26130482ca65e533a15dd9d55362b10dcd3b674d980e3cedf1daa934489401cc",
+        "reference_sha256": "badf1b435ee434d5b412c437b3dc977b43fb3d406fab8df0b702f257afba6a87"
+      }
+    },
+    "invalid-parameter": {
+      "reference": "参数无效",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "2480e9750d6728b5ad1d9296bc9efa11812a4fa8d0e368fc41a01b534144faaf",
+        "reference_sha256": "e5bb90a8c6097537dd69b5c23228adaab44406905e33571524feb73cc07eecaf"
+      }
+    },
+    "already-exists": {
+      "reference": "已存在",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "2dbc546658ab711da8f214fdeaba7389cc7068a69b4b7324ecdd94ca5ede6ba2",
+        "reference_sha256": "e8b1268c1e3610f2f3734a50d1f7f5a5c1a7f9b83e46540ac9cdd573c6eac842"
+      }
+    },
+    "does-not-exist": {
+      "reference": "不存在",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "1662d4274a524b466c29a09959eb1889fdebabdddd735870c34ef7f45d71ae84",
+        "reference_sha256": "4e51b67dd32c7e2d8ec22b938de1db7b5b2fb6288bc87ffbef36431d3d75c86a"
+      }
+    },
+    "can-t-read-database": {
+      "reference": "无法读取数据库",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "04ce57c0b5e855c85991675cc105f93a31bd610193958554bfe3f9624def9f47",
+        "reference_sha256": "d3b455ebf00c75a526db68e60fbc25ad727610d753eb6b3cd1dbc23c85ba7155"
+      }
+    },
+    "can-t-write-database": {
+      "reference": "无法写入数据库",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "1ac5ec867da0c870d5e6bd291195438f5445e1c4673eb3e0295ee42db871577a",
+        "reference_sha256": "0f5aee4e780a5b496237a572ba4ed4fd2f9017e2ec5c7231c342ad1347bb0d1d"
+      }
+    },
+    "compilation-failed": {
+      "reference": "编译失败",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "c6383e4c0e27827a32bfbfb6f39041551e5677c870cdc49b7559b708b280b66e",
+        "reference_sha256": "3876b8872cb9050793616c3588ac201b10fd50eecd9a0b4fe32aa61c3b6e6cce"
+      }
+    },
+    "method-not-found": {
+      "reference": "方法未找到",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "a362d1ab7712da5f028ea69102bf8846c191ec6292c58675967675e9790ea10a",
+        "reference_sha256": "60ceabb9e25d3bd60509acc758e7aee7c2b9413866745cbe8a65bc3ea9fb99d3"
+      }
+    },
+    "link-failed": {
+      "reference": "链接失败",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "4c3615fb26eb1cecedb7c3a4aff306a2c32f83a590e9dc0e2258ce7b41522576",
+        "reference_sha256": "78fb94e6801f71e50c0a77fcf2d9657b604f27fbfb2d57ffb024e7e3cfc2bc67"
+      }
+    },
+    "script-failed": {
+      "reference": "脚本失败",
+      "difficulty": "normal",
+      "tags": [
+        "ui",
+        "context-native"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "Godot editor localization (gettext PO with translator comments)",
+        "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",
+        "license": "MIT",
+        "spdx": "MIT",
+        "license_url": "https://github.com/godotengine/godot-editor-l10n/blob/main/LICENSE.txt",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:05:22+00:00",
+        "origin": "public",
+        "context_origin": "native",
+        "annotator": "",
+        "upstream_revision": "main",
+        "fingerprint": "56ad28a5485c4843",
+        "notes": "Fetched by CLARION recipe 'godot-l10n' (tier vendor).",
+        "source_sha256": "005acf2166ced62f1b572bfcbf1164673c7c77c71f3b2ad1c64fea3a2b825166",
+        "reference_sha256": "fb210dd78e3824be899cfcad3725ccd687fd6a5c13a2a335b38b0435d5290d89"
+      }
+    }
+  }
+}

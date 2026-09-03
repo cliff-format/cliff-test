@@ -1,0 +1,231 @@
+{
+  "file": "lit-modern.zh-CN.clif",
+  "stratum": "lit",
+  "notes": "Modern literary stratum: original modern English (narration, dialogue with two distinct voices, interior monologue, scene-setting) whose Chinese reference preserves voice, rhythm and point of view, localizes the idiom 'ships that pass in the night' rather than translating it literally, and renders the recurring tin-bell motif consistently.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "narration-open": {
+      "reference": "这座镇子把旧日的规矩留得比钱更久。每个收工后的黄昏，玛伦都像钟走表盘一样沿着码头路走上一遍；而每个傍晚，天黑下来之前，她最后听见的，总是杂货铺门楣上那串锡风铃，向整条街报信：潮水已经转了向，世界暂时不再需要她。她不赶路。盐渗进了她所有的家当，她多年前就不再计较。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "narration",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "narration-open-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.22,
+            "max": 0.55
+          }
+        },
+        {
+          "id": "narration-open-motif",
+          "kind": "consistency",
+          "params": {
+            "source": "tin bell",
+            "target": [
+              "锡铃"
+            ]
+          }
+        }
+      ]
+    },
+    "narration-memory": {
+      "reference": "这座镇子把许多东西都放进了海里，唯独那铃的声音，它留在了岸上。有人忘记自己的生日，忘记自己当年跑过哪条船，可谁都说得清，上一次那铃清清亮亮响起时，风在往哪边吹。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "narration",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "narration-memory-motif",
+          "kind": "require",
+          "params": {
+            "text": "那铃清清亮亮响起时"
+          }
+        }
+      ]
+    },
+    "dialogue-wall": {
+      "reference": "「起风了。」索尔说，「没想到你还会出来。」「睡不着。」玛伦说。「又是那铃？」「是那铃。」索尔抱起双臂：「这一带的人都说，风铃不为风响，是为风忘了的事响。」「就是这么回事。」玛伦说。「知道了，就能睡得好些吗？」「我知道『好』这个字的写法，也就知道这么回事。」索尔说。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "dialogue",
+        "register"
+      ],
+      "rules": [
+        {
+          "id": "dialogue-wall-idiom",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "夜里擦肩而过的船"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-wall-register",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "什么",
+              "这啥"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-wall-voice",
+          "kind": "require",
+          "params": {
+            "text": "就是这么回事"
+          }
+        }
+      ]
+    },
+    "dialogue-breakfast": {
+      "reference": "「要是海把铃还回来，你会留着它。」有天清早索尔说，「会吧？」「我会把它挂回它现在挂的地方。」玛伦说。「那你听它，图的是什么？」「图个安心，知道它还在。」索尔摇摇头：「它会比咱们俩都活得久，也不会想咱们。」「我知道。」「那你比大多数人都明白。」「我至少明白听这件事。」「那不是一回事。」「也差不多。」玛伦说，「对我来说，差不多就够了。」",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "dialogue",
+        "voice"
+      ],
+      "rules": [
+        {
+          "id": "dialogue-breakfast-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.28,
+            "max": 0.6
+          }
+        }
+      ]
+    },
+    "monologue-tide": {
+      "reference": "我始终分不清，那铃声是安慰，还是责备。它响起的音，和母亲名字的音一样，就像潮水总在沙滩上写同一行字，再把它抹掉。我想留住那声音，像孩子收藏一块石头那样；可声音没有可以收纳它的口袋，于是我把它收进胸腔里，再假装它一点都不重。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "monologue",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "monologue-tide-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.28,
+            "max": 0.55
+          }
+        }
+      ]
+    },
+    "monologue-stone": {
+      "reference": "我小时候收藏的那块石头，还在我放它的那块地板下面；就算房子烧了，我也不会为石头难过。可那铃不放在任何地方，它只能被听见；而被听见的东西，得再被听见一次，否则它就从没存在过。所以我一次次回去，不是为了留住那铃，是为了留住听它的那一刻。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "monologue",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "monologue-stone-motif",
+          "kind": "require",
+          "params": {
+            "text": "得再被听见一次"
+          }
+        }
+      ]
+    },
+    "description-dusk": {
+      "reference": "港口的灯把水面照成一块锤打过的黄铜，一只迟归的海鸥停在桩上，像在等一封信的人。雨停在近海，垂成一道灰帘，始终没有落到码头。不知哪家烧着的水快要开了；而在这一切之上，那串锡风铃在暖风里荡着，敲出一声清亮的音，仿佛这黄昏一直在等着被敲响。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "description",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "description-dusk-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "description-lamplighter": {
+      "reference": "点灯人举着长竿，从码头这头走到那头；他碰过的每一盏灯都像只是等着被想起，就亮了起来。走到杂货铺门前时，那串锡风铃接住了灯光，把它抛到水面上去；有那么一瞬，整座港都像是悬在那一小声荡来荡去的清音上。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "description",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "description-lamplighter-imagery",
+          "kind": "require",
+          "params": {
+            "text": "悬在那一小声荡来荡去的清音上"
+          }
+        }
+      ]
+    },
+    "description-rain": {
+      "reference": "最后一盏灯点亮时，风已经转到了北边，近海那道灰帘开始动了。它缓缓越过沙洲，一整堵天气斜斜地朝镇子压来；头几滴雨一颗接一颗落在码头上，像一只只冰凉的小手按在石面上。那铃在黑暗里继续响，雨声应和着它。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "description",
+        "simile"
+      ],
+      "rules": [
+        {
+          "id": "description-rain-simile",
+          "kind": "require",
+          "params": {
+            "text": "像一只只冰凉的小手"
+          }
+        }
+      ]
+    },
+    "closing-line": {
+      "reference": "潮水什么都不留，也什么都不忘。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "closing",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "closing-line-tide",
+          "kind": "require",
+          "params": {
+            "text": "也什么都不忘"
+          }
+        }
+      ]
+    }
+  }
+}

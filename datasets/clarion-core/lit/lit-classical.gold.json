@@ -1,0 +1,235 @@
+{
+  "file": "lit-classical.en-US.clif",
+  "stratum": "lit",
+  "notes": "Classical-to-classical stratum: original classical Chinese (aphorisms, a parallel-prose passage, a five-character quatrain) whose English reference keeps an elevated, archaic-leaning register, preserves parallelism and imagery, and renders the coined place name Cangwu consistently.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "water-holds": {
+      "reference": "Water turns clear only when still; a vessel overfilled will tip.",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "aphorism",
+        "classical"
+      ],
+      "rules": [
+        {
+          "id": "water-holds-no-anachronism",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "okay",
+              "guys",
+              "email"
+            ]
+          }
+        }
+      ]
+    },
+    "mountain-river": {
+      "reference": "The mountain is not made taller by climbing; the river does not turn back for having flowed.",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "aphorism",
+        "parallel"
+      ],
+      "rules": [
+        {
+          "id": "mountain-river-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 2.5,
+            "max": 5.5
+          }
+        }
+      ]
+    },
+    "mirror": {
+      "reference": "The mirror cannot behold itself, therefore it beholds others; the spring cannot drink itself, therefore it quenches thirst.",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "aphorism",
+        "parallel"
+      ],
+      "rules": [
+        {
+          "id": "mirror-no-anachronism",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "okay",
+              "guys",
+              "email"
+            ]
+          }
+        },
+        {
+          "id": "mirror-parallelism",
+          "kind": "regex",
+          "params": {
+            "pattern": "therefore it .*; the .* therefore it ",
+            "mode": "match",
+            "ignore_case": true
+          }
+        }
+      ]
+    },
+    "scale": {
+      "reference": "A foot is short, an inch is long; each serves where it is fit.",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "aphorism"
+      ],
+      "rules": []
+    },
+    "lantern-heart": {
+      "reference": "The flame that burns high spends its oil quickly; the light that burns faint keeps the night long.",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "aphorism",
+        "parallel"
+      ],
+      "rules": [
+        {
+          "id": "lantern-heart-imagery",
+          "kind": "require",
+          "params": {
+            "text": "spends its oil"
+          }
+        },
+        {
+          "id": "lantern-heart-no-anachronism",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "okay",
+              "guys",
+              "email"
+            ]
+          }
+        }
+      ]
+    },
+    "parallel-prose-1": {
+      "reference": "As fold upon fold of crags keeps its cloud at the summit, so a cold river a thousand miles long sends the boat toward the sky.",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "parallel-prose"
+      ],
+      "rules": [
+        {
+          "id": "parallel-prose-1-structure",
+          "kind": "regex",
+          "params": {
+            "pattern": "As .* so ",
+            "mode": "match"
+          }
+        },
+        {
+          "id": "parallel-prose-1-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 4.0,
+            "max": 7.5
+          }
+        }
+      ]
+    },
+    "parallel-prose-2": {
+      "reference": "As the silent gorge returns no answer, Cangwu hears the bell; as the faint lamp trembles of itself, Cangwu casts its light upon the water.",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "parallel-prose",
+        "proper-noun"
+      ],
+      "rules": [
+        {
+          "id": "parallel-prose-2-cangwu",
+          "kind": "regex",
+          "params": {
+            "pattern": "Cangwu[\\s\\S]*Cangwu",
+            "mode": "match"
+          }
+        },
+        {
+          "id": "parallel-prose-2-structure",
+          "kind": "regex",
+          "params": {
+            "pattern": "As .*; as .*",
+            "mode": "match"
+          }
+        }
+      ]
+    },
+    "quatrain-1": {
+      "reference": "The ferry-lamp burns low;",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "quatrain"
+      ],
+      "rules": [
+        {
+          "id": "quatrain-1-line",
+          "kind": "require",
+          "params": {
+            "text": "ferry-lamp"
+          }
+        }
+      ]
+    },
+    "quatrain-2": {
+      "reference": "Rain slants on the cold stream.",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "quatrain"
+      ],
+      "rules": []
+    },
+    "quatrain-3": {
+      "reference": "The tide returns whatever the river bore;",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "quatrain"
+      ],
+      "rules": []
+    },
+    "quatrain-4": {
+      "reference": "One bell of bronze rings from the far shore.",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "quatrain"
+      ],
+      "rules": [
+        {
+          "id": "quatrain-4-rhyme",
+          "kind": "regex",
+          "params": {
+            "pattern": "rings from the far shore",
+            "mode": "match"
+          }
+        }
+      ]
+    }
+  }
+}

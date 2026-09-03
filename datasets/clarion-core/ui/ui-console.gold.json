@@ -1,0 +1,517 @@
+{
+  "file": "ui-console.zh-CN.clif",
+  "stratum": "ui",
+  "notes": "Developer-facing control-panel strings for the fictional Harborline Console. Probes short-label width budgets, de-jargon term choices (default/resolution/cache/latency), correct Chinese ICU plural handling, printf and brace placeholder survival, workspace terminology consistency, fullwidth punctuation, and destructive-confirmation register.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "billing": {
+      "reference": "计费",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "menu-item"
+      ],
+      "rules": []
+    },
+    "streaming": {
+      "reference": "流媒体",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "menu-item"
+      ],
+      "rules": []
+    },
+    "workspaces": {
+      "reference": "工作区",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "menu-item",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "workspace-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "workspace",
+            "target": [
+              "工作区",
+              "工作空间"
+            ]
+          }
+        }
+      ]
+    },
+    "billing-rate": {
+      "reference": "计费费率",
+      "alternatives": [
+        "计费单价"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "homograph"
+      ],
+      "rules": []
+    },
+    "no-invoices": {
+      "reference": "暂无账单",
+      "alternatives": [
+        "还没有账单"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "empty-state"
+      ],
+      "rules": []
+    },
+    "payment-failed": {
+      "reference": "付款失败",
+      "alternatives": [
+        "支付失败"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "ui-sentence",
+        "toast"
+      ],
+      "rules": []
+    },
+    "stream-key": {
+      "reference": "推流密钥",
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "homograph"
+      ],
+      "rules": []
+    },
+    "frame-rate": {
+      "reference": "帧率",
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "homograph"
+      ],
+      "rules": []
+    },
+    "resolution": {
+      "reference": "分辨率",
+      "alternatives": [
+        "输出分辨率"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "dropdown",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "resolution-term",
+          "kind": "term",
+          "params": {
+            "source": "Resolution",
+            "target": [
+              "分辨率"
+            ],
+            "forbidden": [
+              "解析度"
+            ]
+          }
+        }
+      ]
+    },
+    "add-to-workspace": {
+      "reference": "加入工作区",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "add-to-workspace-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "add-to-workspace-no-dot",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              ".",
+              "。"
+            ]
+          }
+        }
+      ]
+    },
+    "stream-failed": {
+      "reference": "推流启动失败",
+      "alternatives": [
+        "直播流启动失败"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "ui-sentence",
+        "toast"
+      ],
+      "rules": []
+    },
+    "stream-summary": {
+      "reference": "{count, plural, other {# 路直播流}}，分布于 {regions, plural, other {# 个区域}}",
+      "difficulty": "hard",
+      "tags": [
+        "ui-sentence",
+        "icu"
+      ],
+      "rules": [
+        {
+          "id": "stream-summary-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        }
+      ]
+    },
+    "restore-defaults": {
+      "reference": "恢复默认",
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "width-limited",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "restore-defaults-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 8
+          }
+        },
+        {
+          "id": "restore-defaults-term",
+          "kind": "term",
+          "params": {
+            "source": "default",
+            "target": [
+              "默认",
+              "默认值"
+            ],
+            "forbidden": [
+              "缺省"
+            ]
+          }
+        },
+        {
+          "id": "restore-defaults-no-dot",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              ".",
+              "。"
+            ]
+          }
+        }
+      ]
+    },
+    "clear-cache": {
+      "reference": "清除缓存",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "clear-cache-term",
+          "kind": "term",
+          "params": {
+            "source": "Cache",
+            "target": [
+              "缓存"
+            ],
+            "forbidden": [
+              "高速缓存"
+            ]
+          }
+        },
+        {
+          "id": "clear-cache-no-dot",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              ".",
+              "。"
+            ]
+          }
+        }
+      ]
+    },
+    "latency": {
+      "reference": "延迟",
+      "difficulty": "easy",
+      "tags": [
+        "ui-label",
+        "tooltip",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "latency-term",
+          "kind": "term",
+          "params": {
+            "source": "Latency",
+            "target": [
+              "延迟"
+            ],
+            "forbidden": [
+              "时延"
+            ]
+          }
+        }
+      ]
+    },
+    "api-token": {
+      "reference": "API Token",
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "keep-verbatim"
+      ],
+      "rules": [
+        {
+          "id": "api-verbatim",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "API"
+          }
+        },
+        {
+          "id": "token-verbatim",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "Token"
+          }
+        },
+        {
+          "id": "token-no-jargon",
+          "kind": "forbid",
+          "params": {
+            "text": "词元"
+          }
+        }
+      ]
+    },
+    "request-rate-limit": {
+      "reference": "请求限流",
+      "difficulty": "normal",
+      "tags": [
+        "ui-label",
+        "width-limited",
+        "homograph"
+      ],
+      "rules": [
+        {
+          "id": "request-rate-limit-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 8
+          }
+        },
+        {
+          "id": "request-rate-limit-no-dot",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              ".",
+              "。"
+            ]
+          }
+        }
+      ]
+    },
+    "status-line": {
+      "reference": "区域：%s",
+      "difficulty": "hard",
+      "tags": [
+        "ui-sentence",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "status-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "%s"
+            ]
+          }
+        },
+        {
+          "id": "status-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "cache-description": {
+      "reference": "缓存内容会保留 24 小时，到期前直接返回；清空缓存可让后续请求全部回源。",
+      "difficulty": "hard",
+      "tags": [
+        "ui-description",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "cache-description-term",
+          "kind": "term",
+          "params": {
+            "source": "cache",
+            "target": [
+              "缓存"
+            ],
+            "forbidden": [
+              "高速缓存"
+            ]
+          }
+        },
+        {
+          "id": "cache-description-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "cache-description-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        },
+        {
+          "id": "cache-description-full-stop",
+          "kind": "regex",
+          "params": {
+            "pattern": "。$",
+            "mode": "match"
+          }
+        }
+      ]
+    },
+    "create-workspace": {
+      "reference": "新建工作区",
+      "difficulty": "hard",
+      "tags": [
+        "ui-label",
+        "width-limited",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "create-workspace-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "create-workspace-no-dot",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              ".",
+              "。"
+            ]
+          }
+        }
+      ]
+    },
+    "welcome-back": {
+      "reference": "欢迎回到 Harborline，{name}",
+      "difficulty": "hard",
+      "tags": [
+        "ui-prompt",
+        "placeholder",
+        "keep-verbatim"
+      ],
+      "rules": [
+        {
+          "id": "welcome-brand",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "Harborline"
+          }
+        },
+        {
+          "id": "welcome-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "{name}"
+            ]
+          }
+        }
+      ]
+    },
+    "workspace-count": {
+      "reference": "{count, plural, other {# 个工作区}}",
+      "difficulty": "hard",
+      "tags": [
+        "ui-sentence",
+        "icu",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "workspace-count-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        }
+      ]
+    },
+    "delete-confirm": {
+      "reference": "删除此工作区？此操作无法撤销。",
+      "difficulty": "hard",
+      "tags": [
+        "ui-sentence",
+        "destructive"
+      ],
+      "rules": [
+        {
+          "id": "delete-confirm-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "close-dialog": {
+      "reference": "关闭对话框",
+      "difficulty": "hard",
+      "tags": [
+        "ui-accessibility"
+      ],
+      "rules": []
+    }
+  }
+}

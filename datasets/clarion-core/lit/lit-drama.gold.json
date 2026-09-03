@@ -1,0 +1,555 @@
+{
+  "file": "lit-drama.zh-CN.clif",
+  "stratum": "lit",
+  "notes": "One continuous original stage scene. Its purpose is the pairs: the same line under a different emotion, and the same sentence as a stage direction versus as dialogue. It also carries a motif that is quoted back later and a form of address that changes with the relationship, so cross-entry dependence is measurable.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "spdx": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "annotator": "",
+    "upstream_revision": "",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "open-house-lights": {
+      "reference": "观众席的灯已经熄了。台口留着一盏工作灯，尘埃在光柱里缓缓打转。",
+      "difficulty": "normal",
+      "tags": [
+        "D",
+        "stage-direction"
+      ],
+      "rules": [
+        {
+          "id": "open-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "enter-cassian": {
+      "reference": "这座舞台，我闭着眼也摸得到。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "dialogue"
+      ],
+      "rules": [
+        {
+          "id": "enter-translated",
+          "kind": "translated",
+          "params": {}
+        }
+      ]
+    },
+    "lit-01a": {
+      "reference": "你回来了。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "emotion-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-01a-warm",
+          "kind": "require",
+          "params": {
+            "text": "你回来了"
+          }
+        },
+        {
+          "id": "lit-01a-not-reproach",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "还知道",
+              "总算"
+            ]
+          }
+        }
+      ]
+    },
+    "lit-01b": {
+      "reference": "你还知道回来。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "emotion-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-01b-reproach",
+          "kind": "require",
+          "params": {
+            "text": "还知道"
+          }
+        },
+        {
+          "id": "lit-01b-not-warm",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "你回来了。"
+            ]
+          }
+        }
+      ]
+    },
+    "reply-cassian": {
+      "reference": "通告板上我的名字还是拼错的。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "dialogue"
+      ],
+      "rules": [
+        {
+          "id": "reply-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "motif-promise": {
+      "reference": "这座剧场守约，人不守约。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "motif"
+      ],
+      "rules": [
+        {
+          "id": "motif-word",
+          "kind": "require",
+          "params": {
+            "text": "守约"
+          }
+        },
+        {
+          "id": "motif-consistent",
+          "kind": "consistency",
+          "params": {
+            "source": "promises",
+            "target": [
+              "守约"
+            ]
+          }
+        }
+      ]
+    },
+    "lit-02a": {
+      "reference": "太好了，真是太好了。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "emotion-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-02a-sincere",
+          "kind": "require",
+          "params": {
+            "text": "真是太好了"
+          }
+        },
+        {
+          "id": "lit-02a-not-irony",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "「好」",
+              "可真是"
+            ]
+          }
+        }
+      ]
+    },
+    "lit-02b": {
+      "reference": "好啊，可真是「好」得很。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "emotion-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-02b-irony",
+          "kind": "require",
+          "params": {
+            "text": "「好」"
+          }
+        },
+        {
+          "id": "lit-02b-not-sincere",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "太好了"
+            ]
+          }
+        }
+      ]
+    },
+    "callback-promise": {
+      "reference": "你说过，这座剧场守约。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "callback"
+      ],
+      "rules": [
+        {
+          "id": "callback-reuse",
+          "kind": "require",
+          "params": {
+            "text": "守约"
+          }
+        },
+        {
+          "id": "callback-consistent",
+          "kind": "consistency",
+          "params": {
+            "source": "promises",
+            "target": [
+              "守约"
+            ]
+          }
+        }
+      ]
+    },
+    "address-early": {
+      "reference": "维尔先生，还有五分钟开演。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "address"
+      ],
+      "rules": [
+        {
+          "id": "address-surname",
+          "kind": "term",
+          "params": {
+            "source": "Vale",
+            "target": [
+              "维尔"
+            ],
+            "forbidden": [
+              "韦尔",
+              "瓦尔"
+            ]
+          }
+        },
+        {
+          "id": "address-formal",
+          "kind": "require",
+          "params": {
+            "text": "先生"
+          }
+        }
+      ]
+    },
+    "address-late": {
+      "reference": "卡西安，坐吧。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "address"
+      ],
+      "rules": [
+        {
+          "id": "address-given",
+          "kind": "require",
+          "params": {
+            "text": "卡西安"
+          }
+        },
+        {
+          "id": "address-drop-title",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "维尔先生"
+            ]
+          }
+        }
+      ]
+    },
+    "lit-03a": {
+      "reference": "她将工作灯转向他。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "type-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-03a-narrative",
+          "kind": "require",
+          "params": {
+            "text": "将"
+          }
+        },
+        {
+          "id": "lit-03a-not-spoken",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "把灯转过来"
+            ]
+          }
+        }
+      ]
+    },
+    "lit-03b": {
+      "reference": "她把灯转过来照着他。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "type-pair"
+      ],
+      "rules": [
+        {
+          "id": "lit-03b-spoken",
+          "kind": "require",
+          "params": {
+            "text": "把灯转过来"
+          }
+        },
+        {
+          "id": "lit-03b-not-narrative",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "将工作灯"
+            ]
+          }
+        }
+      ]
+    },
+    "roof-year": {
+      "reference": "屋顶自 1974 年以来就没修过。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "spacing"
+      ],
+      "rules": [
+        {
+          "id": "roof-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "roof-number",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "lamp-count": {
+      "reference": "两盏 500 瓦的灯，还有一个比我俩年纪都大的保险丝盒。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "spacing"
+      ],
+      "rules": [
+        {
+          "id": "lamp-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "lamp-number",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "venue-name": {
+      "reference": "Halloway 今晚不关门。等最后一个人走了，它才关门。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "keep-verbatim"
+      ],
+      "rules": [
+        {
+          "id": "venue-keep",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "Halloway"
+          }
+        },
+        {
+          "id": "venue-space",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "board-default": {
+      "reference": "用调音台上的默认设置，别的什么都别动。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon"
+      ],
+      "rules": [
+        {
+          "id": "board-plain",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "缺省"
+            ]
+          }
+        },
+        {
+          "id": "board-default-word",
+          "kind": "require",
+          "params": {
+            "text": "默认"
+          }
+        }
+      ]
+    },
+    "disbelief": {
+      "reference": "你是认真的吗？现在？在这一切之后？",
+      "difficulty": "easy",
+      "tags": [
+        "B",
+        "punctuation"
+      ],
+      "rules": [
+        {
+          "id": "disbelief-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "monologue-open": {
+      "reference": "这地板我扫过的次数，比我在自己床上睡过的还多。哪块板子被体重压着会响，哪块反倒是轻轻一踩就塌，我全知道。待得够久，房子就会记住你。",
+      "difficulty": "hard",
+      "tags": [
+        "D",
+        "long-form"
+      ],
+      "rules": [
+        {
+          "id": "monologue-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.25,
+            "max": 1.2
+          }
+        },
+        {
+          "id": "monologue-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "monologue-turn": {
+      "reference": "然后某个晚上，灯没有亮起来，才知道房子其实什么也没记住。",
+      "difficulty": "normal",
+      "tags": [
+        "D",
+        "long-form"
+      ],
+      "rules": [
+        {
+          "id": "turn-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "verse-01": {
+      "reference": "灯尽，板犹在。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "verse"
+      ],
+      "rules": [
+        {
+          "id": "verse-01-parallel",
+          "kind": "regex",
+          "params": {
+            "pattern": "犹"
+          }
+        },
+        {
+          "id": "verse-01-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.1,
+            "max": 0.6
+          }
+        }
+      ]
+    },
+    "verse-02": {
+      "reference": "人散，戏犹存。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "verse"
+      ],
+      "rules": [
+        {
+          "id": "verse-02-parallel",
+          "kind": "regex",
+          "params": {
+            "pattern": "犹"
+          }
+        },
+        {
+          "id": "verse-02-ratio",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.1,
+            "max": 0.6
+          }
+        }
+      ]
+    },
+    "final-direction": {
+      "reference": "她抬手关掉工作灯。一片黑暗，随后传来观众席大门关上的声音。",
+      "difficulty": "normal",
+      "tags": [
+        "D",
+        "stage-direction"
+      ],
+      "rules": [
+        {
+          "id": "final-punct",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    }
+  }
+}

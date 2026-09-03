@@ -1,0 +1,159 @@
+{
+  "locale": "zh-CN",
+  "version": "2026-01",
+  "note": "Textbook renderings that dominate training data but read badly to a normal reader. Every entry is editable project policy, not a law of the language: 'bad' is the discouraged rendering, 'good' lists accepted ones, and 'keep_english' terms should usually stay in Latin script. Confidence marks how safe the rule is to enforce automatically.",
+  "rules": [
+    {
+      "source": "default",
+      "bad": "缺省",
+      "good": ["默认", "默认值"],
+      "confidence": "high",
+      "note": "缺省 is a 1980s textbook calque; every modern product UI uses 默认."
+    },
+    {
+      "source": "robust / robustness",
+      "bad": "鲁棒",
+      "good": ["健壮", "稳健", "抗干扰"],
+      "confidence": "high",
+      "note": "鲁棒 is a pure transliteration of 'robust' and carries no meaning in Chinese."
+    },
+    {
+      "source": "token",
+      "bad": "词元",
+      "good": ["Token", "令牌"],
+      "confidence": "medium",
+      "note": "In LLM contexts keep Token; in security contexts 令牌 is the established word."
+    },
+    {
+      "source": "cache",
+      "bad": "高速缓存",
+      "good": ["缓存"],
+      "confidence": "high",
+      "note": "高速缓存 is the hardware-textbook form; product text says 缓存."
+    },
+    {
+      "source": "latency",
+      "bad": "时延",
+      "good": ["延迟"],
+      "confidence": "medium",
+      "note": "时延 is telecom jargon; user-facing text says 延迟."
+    },
+    {
+      "source": "throughput",
+      "bad": "吞吐率",
+      "good": ["吞吐量"],
+      "confidence": "medium",
+      "note": "吞吐量 is the common rendering in engineering documentation."
+    },
+    {
+      "source": "internet",
+      "bad": "因特网",
+      "good": ["互联网"],
+      "confidence": "high",
+      "note": "因特网 is a phonetic relic of 1990s standards documents."
+    },
+    {
+      "source": "web / world wide web",
+      "bad": "万维网",
+      "good": ["Web", "网页", "互联网"],
+      "confidence": "medium",
+      "note": "万维网 survives only in encyclopedias."
+    },
+    {
+      "source": "socket",
+      "bad": "套接字",
+      "good": ["Socket", "套接字(Socket)"],
+      "confidence": "low",
+      "note": "套接字 is standard in textbooks; developer-facing UI usually keeps Socket."
+    },
+    {
+      "source": "cursor",
+      "bad": "游标",
+      "good": ["光标"],
+      "confidence": "medium",
+      "note": "游标 belongs to database cursors, not to the text caret."
+    },
+    {
+      "source": "menu",
+      "bad": "菜单栏目",
+      "good": ["菜单"],
+      "confidence": "low",
+      "note": "Avoid padded compounds in UI labels; short labels fit the width budget."
+    },
+    {
+      "source": "resolution",
+      "bad": "解析度",
+      "good": ["分辨率"],
+      "confidence": "high",
+      "note": "解析度 is the zh-TW form; zh-CN uses 分辨率."
+    },
+    {
+      "source": "video",
+      "bad": "视讯",
+      "good": ["视频"],
+      "confidence": "high",
+      "note": "视讯 is zh-TW; zh-CN uses 视频."
+    },
+    {
+      "source": "software / program",
+      "bad": "软体",
+      "good": ["软件"],
+      "confidence": "high",
+      "note": "Locale drift from zh-TW into zh-CN output."
+    },
+    {
+      "source": "network",
+      "bad": "网路",
+      "good": ["网络"],
+      "confidence": "high",
+      "note": "Locale drift from zh-TW into zh-CN output."
+    },
+    {
+      "source": "information",
+      "bad": "资讯",
+      "good": ["信息"],
+      "confidence": "high",
+      "note": "Locale drift from zh-TW into zh-CN output."
+    },
+    {
+      "source": "settings",
+      "bad": "设定",
+      "good": ["设置"],
+      "confidence": "medium",
+      "note": "zh-CN product UI overwhelmingly uses 设置."
+    },
+    {
+      "source": "click",
+      "bad": "点选",
+      "good": ["点击", "单击"],
+      "confidence": "medium",
+      "note": "点选 is zh-TW usage."
+    },
+    {
+      "source": "save",
+      "bad": "储存",
+      "good": ["保存"],
+      "confidence": "medium",
+      "note": "储存 is zh-TW usage; zh-CN says 保存."
+    },
+    {
+      "source": "embedding",
+      "bad": "词嵌入",
+      "good": ["Embedding", "嵌入", "嵌入向量"],
+      "confidence": "low",
+      "note": "词嵌入 only fits word-level embeddings; keep Embedding for the general concept."
+    }
+  ],
+  "keep_english": [
+    { "term": "Token", "note": "LLM context; 词元 is discouraged." },
+    { "term": "Prompt", "note": "提示词 is acceptable, but keep Prompt in developer UI." },
+    { "term": "Embedding", "note": "Machine-learning contexts." },
+    { "term": "API", "note": "Never translate." },
+    { "term": "SDK", "note": "Never translate." },
+    { "term": "CLI", "note": "Never translate." },
+    { "term": "GPU", "note": "Never translate." },
+    { "term": "Cookie", "note": "Established loanword in zh-CN UI." },
+    { "term": "Wi-Fi", "note": "Keep the trademark spelling." },
+    { "term": "Bug", "note": "Common in developer-facing text; 缺陷 in formal documents." }
+  ]
+}

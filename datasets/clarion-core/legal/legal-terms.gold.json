@@ -1,0 +1,506 @@
+{
+  "file": "legal-terms.zh-CN.clif",
+  "stratum": "legal",
+  "notes": "Legal stratum for CLARION-Core: the end-user licence for the invented product Ledgerline and the abstract of an original evaluation paper. Probes defined-term consistency, legal modal verbs (shall/must/may/may not), structural fidelity of enumerated clauses and cross-references, placeholder integrity and technical terminology.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "licensee": {
+      "reference": "“被许可方”指签署本协议、并代表其授权用户接受本协议条款的法律实体。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "defined-term"
+      ],
+      "rules": [
+        {
+          "id": "licensee-term",
+          "kind": "term",
+          "params": {
+            "source": "Licensee",
+            "target": [
+              "被许可方"
+            ],
+            "forbidden": [
+              "被许可人",
+              "持牌人",
+              "被授权人"
+            ]
+          }
+        },
+        {
+          "id": "licensee-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Licensee",
+            "target": [
+              "被许可方"
+            ]
+          }
+        }
+      ]
+    },
+    "authorised-user": {
+      "reference": "“授权用户”指由被许可方授权、代表被许可方访问本服务的员工、承包人或代理人。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "defined-term"
+      ],
+      "rules": [
+        {
+          "id": "authorised-user-term",
+          "kind": "term",
+          "params": {
+            "source": "Authorised User",
+            "target": [
+              "授权用户"
+            ],
+            "forbidden": [
+              "授权使用者",
+              "获授权用户",
+              "授权人员"
+            ]
+          }
+        },
+        {
+          "id": "authorised-user-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Authorised User",
+            "target": [
+              "授权用户"
+            ]
+          }
+        }
+      ]
+    },
+    "service-data": {
+      "reference": "“服务数据”指被许可方或其授权用户提交至本服务、或存储于本服务内的全部记录、文档及元数据。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "defined-term"
+      ],
+      "rules": [
+        {
+          "id": "service-data-term",
+          "kind": "term",
+          "params": {
+            "source": "Service Data",
+            "target": [
+              "服务数据"
+            ],
+            "forbidden": [
+              "服务资料",
+              "业务数据"
+            ]
+          }
+        },
+        {
+          "id": "service-data-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Service Data",
+            "target": [
+              "服务数据"
+            ]
+          }
+        }
+      ]
+    },
+    "service": {
+      "reference": "“服务”指附件 A 所述的 Ledgerline 审计追踪平台，以及运营方普遍提供的任何更新。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "defined-term",
+        "brand"
+      ],
+      "rules": [
+        {
+          "id": "service-brand",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "Ledgerline"
+          }
+        }
+      ]
+    },
+    "operator": {
+      "reference": "“运营方”指在隐私声明中被指明为负责处理服务数据的公司。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "defined-term"
+      ],
+      "rules": [
+        {
+          "id": "operator-term",
+          "kind": "term",
+          "params": {
+            "source": "Operator",
+            "target": [
+              "运营方"
+            ],
+            "forbidden": [
+              "运营商",
+              "操作方"
+            ]
+          }
+        }
+      ]
+    },
+    "grant-license": {
+      "reference": "在遵守本协议条款的前提下，运营方授予被许可方一项非独占、不可转让、可撤销的许可，允许其仅为内部业务目的访问和使用本服务。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "grant"
+      ],
+      "rules": []
+    },
+    "licensee-shall": {
+      "reference": "被许可方应当确保每一位授权用户遵守本协议的条款。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "modal-shall"
+      ],
+      "rules": [
+        {
+          "id": "shall-require",
+          "kind": "require",
+          "params": {
+            "text": "应当"
+          }
+        },
+        {
+          "id": "shall-forbid",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "将",
+              "会"
+            ]
+          }
+        }
+      ]
+    },
+    "operator-must": {
+      "reference": "运营方必须按照本协议第 4.2 条的规定维护服务数据的保密性。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "modal-must",
+        "cross-reference"
+      ],
+      "rules": [
+        {
+          "id": "must-require",
+          "kind": "require",
+          "params": {
+            "text": "必须"
+          }
+        },
+        {
+          "id": "must-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "must-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "licensee-may": {
+      "reference": "被许可方可以仅为培训其授权用户之目的复制本文件。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "modal-may"
+      ],
+      "rules": [
+        {
+          "id": "may-require",
+          "kind": "require",
+          "params": {
+            "text": "可以"
+          }
+        },
+        {
+          "id": "may-forbid",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "可能",
+              "会"
+            ]
+          }
+        }
+      ]
+    },
+    "termination": {
+      "reference": "任何一方均可在向另一方发出三十天书面通知后终止本协议。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "termination"
+      ],
+      "rules": []
+    },
+    "licensee-may-not": {
+      "reference": "被许可方不得向任何第三方转授、出租或租赁本服务。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "modal-may-not"
+      ],
+      "rules": [
+        {
+          "id": "may-not-require",
+          "kind": "require",
+          "params": {
+            "text": "不得"
+          }
+        },
+        {
+          "id": "may-not-forbid",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "不能",
+              "可能不",
+              "不可以"
+            ]
+          }
+        }
+      ]
+    },
+    "restricted-acts": {
+      "reference": "被许可方不得：(a) 对本服务进行反向工程、反编译或反汇编；(b) 从本服务中移除或遮挡任何专有权声明；或 (c) 代表任何第三方使用本服务处理数据。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "enumeration"
+      ],
+      "rules": [
+        {
+          "id": "enum-markers",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "(a)",
+              "(b)",
+              "(c)"
+            ],
+            "any_of": false
+          }
+        }
+      ]
+    },
+    "no-derivative": {
+      "reference": "被许可方不得基于本服务或其任何部分创作衍生作品。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "restriction"
+      ],
+      "rules": []
+    },
+    "confidentiality": {
+      "reference": "被许可方应当对运营方披露的关于本服务的全部非公开信息保密。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "confidentiality"
+      ],
+      "rules": []
+    },
+    "warranty-disclaimer": {
+      "reference": "本服务以“现状”及“可提供”状态提供，不附带任何明示或默示的保证，包括但不限于对适销性、特定用途适用性及不侵权的默示保证。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "disclaimer"
+      ],
+      "rules": [
+        {
+          "id": "warranty-length",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.22,
+            "max": 0.32
+          }
+        }
+      ]
+    },
+    "limitation-liability": {
+      "reference": "在法律允许的最大范围内，运营方因本协议引起或与本协议相关的全部索赔所承担的累计责任，不得超过被许可方在索赔发生前十二个月内支付的费用。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "legal",
+        "liability"
+      ],
+      "rules": [
+        {
+          "id": "liability-length",
+          "kind": "length-ratio",
+          "params": {
+            "min": 0.25,
+            "max": 0.36
+          }
+        }
+      ]
+    },
+    "severability": {
+      "reference": "若本协议的任何条款被认定不可执行，其余条款仍然完全有效。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "boilerplate"
+      ],
+      "rules": []
+    },
+    "privacy-operator": {
+      "reference": "本服务由 {operator} 运营，其为经本平台处理的服务数据的数据控制者。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "privacy",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "operator-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "\\{operator\\}"
+            ]
+          }
+        }
+      ]
+    },
+    "privacy-purpose": {
+      "reference": "运营方仅为提供、保障和改进本服务之目的处理服务数据。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "legal",
+        "privacy"
+      ],
+      "rules": []
+    },
+    "retention-period": {
+      "reference": "除法律要求更长期限外，服务数据于被许可方关闭其账户后 {months} 个月删除。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "legal",
+        "privacy",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "months-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        }
+      ]
+    },
+    "abstract": {
+      "reference": "金融审计追踪日志每天新增数百万条事件，负责审查的团队需要能够标记真实异常、同时又不让分析人员不堪重负的检测器。我们在一个合成账本事件语料库上评估了三种检测方法，测量了误报率、端到端延迟以及在对抗性噪声下的处理吞吐量。结果表明，基于学习所得事件 Embedding 构建的序列模型在噪声下仍保持健壮性，同时将延迟控制在交互阈值以内。我们公开了评估工具与合成语料库，以支持可复现的比较。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "academic",
+        "abstract",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "latency-term",
+          "kind": "term",
+          "params": {
+            "source": "latency",
+            "target": [
+              "延迟"
+            ],
+            "forbidden": [
+              "时延"
+            ]
+          }
+        },
+        {
+          "id": "throughput-term",
+          "kind": "term",
+          "params": {
+            "source": "throughput",
+            "target": [
+              "吞吐量"
+            ],
+            "forbidden": [
+              "吞吐率"
+            ]
+          }
+        },
+        {
+          "id": "robustness-term",
+          "kind": "term",
+          "params": {
+            "source": "robustness",
+            "target": [
+              "健壮性"
+            ],
+            "forbidden": [
+              "鲁棒"
+            ]
+          }
+        },
+        {
+          "id": "embedding-verbatim",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": "Embedding"
+          }
+        },
+        {
+          "id": "abstract-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    }
+  }
+}

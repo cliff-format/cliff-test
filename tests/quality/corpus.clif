@@ -1,0 +1,122 @@
+CLIF 1.0
+namespace: quality-test
+clan: corpus
+source-language: en-US
+target-language: zh-CN
+title: "CLIF translation quality reference corpus"
+info: "Adult readers; office and game dialog, narration, and UI labels."
+standard: "Preserve proper nouns exactly as in the attached glossary. " "Localize idioms and puns for a Chinese audience; keep the effect, not the literal words. " "Preserve ICU MessageFormat syntax exactly. " "Match the declared emotion; word order must be natural Chinese."
+dependency: ["glossary.zh-CN.clif"]
+
+[office.meeting]
+context: "Weekly product meeting; the manager speaks to the team; the agenda is overloaded."
+type: dialogue
+emotion: [neutral]
+
+<table-this>
+source: "Let's table this for now and circle back after the demo."
+context: "Idiom 'table this' means postpone; 'circle back' means return to the topic."
+type: sentence
+status: initial
+
+<ears>
+source: "I'm all ears."
+context: "Idiom meaning 'I am listening attentively'."
+emotion: [informal]
+status: initial
+
+<sarcastic-meeting>
+source: "Oh, great. Another meeting."
+context: "Sarcastic; the speaker is annoyed, not happy. 'Oh, great' is ironic."
+emotion: [angry, playful]
+status: initial
+
+[office.polite]
+context: "Open-plan office; a colleague asks another for a small favor."
+type: dialogue
+emotion: [polite]
+
+<window-please>
+source: "Would you be so kind as to close the window?"
+status: initial
+
+[theater.backstage]
+context: "Backstage, before the opening night performance; a director speaks to the lead actor."
+type: dialogue
+emotion: [playful]
+
+<break-a-leg>
+source: "Break a leg out there!"
+context: "Theater idiom for 'good luck'; never translate literally."
+status: initial
+
+[story.obituary]
+context: "A quiet family conversation about an old neighbor."
+type: dialogue
+emotion: [sad]
+
+<kick-bucket>
+source: "He kicked the bucket last spring."
+context: "Euphemism for death; register must remain gentle, not crude."
+type: sentence
+status: initial
+
+[story.weather]
+context: "Two friends look out of a window during a storm."
+type: dialogue
+emotion: [playful]
+
+<cats-dogs>
+source: "It's raining cats and dogs out there!"
+context: "Idiom for very heavy rain."
+status: initial
+
+[story.pun]
+context: "A playful narrator comments on language itself."
+type: narration
+emotion: [playful]
+
+<time-flies>
+source: "Time flies like an arrow; fruit flies like a banana."
+context: "Classic English pun (verb 'flies' vs noun 'flies'). If the pun cannot survive, keep both readings in natural Chinese and preserve the wordplay signal."
+status: initial
+
+[sci-fi.arrival]
+context: "Opening narration of a science-fiction episode."
+type: narration
+emotion: [serious]
+max-width: 60
+
+<proper-nouns>
+source: "Captain Zephyr landed the Aurelia at Starbase 7."
+context: "Proper nouns are project-canonical and must match the attached glossary exactly."
+status: initial
+
+[sci-fi.weapon]
+context: "A narrator describes the forging of a legendary sword."
+type: narration
+emotion: [serious]
+
+<word-order>
+source: "The sword was forged for the king in the heart of the ancient volcano."
+context: "Long sentence; Chinese should use natural topic-comment order, not English order."
+status: initial
+
+[notifications]
+context: "Mobile notification system message with a count."
+type: sentence
+
+<icu-count>
+source: "{count, plural, =0 {No messages} one {# new message} other {# new messages}}"
+context: "Chinese plural rules: one category is not used the same way; keep ICU syntax identical and translate only the literal text."
+status: initial
+
+[ui.small]
+context: "Small button label."
+type: label
+max-width: 6
+
+<accept-short>
+source: "Accept"
+context: "Must fit in 6 display cells; Chinese characters are 2 cells each."
+status: initial

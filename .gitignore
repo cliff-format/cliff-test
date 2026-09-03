@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.pytest-tmp/
+.mypy_cache/
+.ruff_cache/
+tests/edit-robustness/edits/
+
+# CLARION run artefacts: evidence, reports and fetch caches are reproducible
+# outputs, not sources.
+results/
+.clarion-cache/
+tests/clarion/_fixture_corpus/
+tests/clarion/_import_sandbox/
+# Secrets: never commit. The loader also looks outside every repository, in
+# ../.clarion-secrets/, which is the recommended location.
+.secrets/
+*.key
+.env
+.env.local

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="zh-CN" trgLang="en-US">
+<file id="ironforge-rpg-game" original="IronForge RPG - Act 3 dialog">
+  <notes>
+    <note category="info">The mountain city of IronForge, one week after the siege.</note>
+    <note category="info">Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in public, warm to friends. The player returns to the blacksmith to reclaim a repaired sword.</note>
+    <note category="standard">Preserve proper nouns; localize idioms for humor.</note>
+    <note category="standard">Keep UI labels under the declared max-width.</note>
+    <note category="dependency">../terms/ironforge.terms.en-US.clif</note>
+    <note category="dependency">docs/act3-script.md</note>
+  </notes>
+  <glossary>
+    <glossaryEntry><term><source>铁剑</source><target>Iron Sword</target></term><note>Canonical game term.</note></glossaryEntry>
+    <glossaryEntry><term><source>旅行者</source><target>traveler</target></term><note>Canonical game term.</note></glossaryEntry>
+    <glossaryEntry><term><source>铁匠铺</source><target>forge</target></term><note>Canonical game term.</note></glossaryEntry>
+  </glossary>
+  <group id="items.shop">
+    <notes>
+      <note category="context">Blacksmith shop, purchase confirmation popup.</note>
+      <note category="emotion">playful</note>
+      <note category="maxWidth">20</note>
+    </notes>
+    <unit id="inv-sword-iron">
+      <notes>
+        <note category="reference">src/combat/items.cpp:142</note>
+      </notes>
+      <segment><source>铁剑</source><target>Iron Sword</target></segment>
+      <metadata>
+        <metaGroup category="type">noun</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="inv-potion-heal">
+      <segment><source>恢复药水</source><target>Healing Potion</target></segment>
+      <metadata>
+        <metaGroup category="type">noun-phrase</metaGroup>
+        <metaGroup category="state">translated</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="inv-armor-mithril">
+      <segment><source>秘银护甲</source><target>Mithril Armor</target></segment>
+      <metadata>
+        <metaGroup category="type">noun-phrase</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="inv-axe-rune">
+      <segment><source>符文战斧</source><target>Rune Battleaxe</target></segment>
+      <metadata>
+        <metaGroup category="type">noun</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+      </metadata>
+    </unit>
+  </group>
+  <group id="dialog.act3.first-meet">
+    <notes>
+      <note category="context">The player meets Captain Mei at the city gate after the siege.</note>
+    </notes>
+    <unit id="greeting">
+      <segment><source>你好，旅行者。</source><target>Hello, traveler.</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="emotion">polite calm</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="ask-origin">
+      <segment><source>你从哪里来？</source><target>Where do you come from?</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="emotion">polite curious</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="ask-companion">
+      <notes>
+        <note category="context">She points at the silent stranger next to the player.</note>
+        <note category="reference">src/dialog/act3.cpp:87</note>
+      </notes>
+      <segment><source>{name}，{gender, select, male {他} female {她} other {他们}} 是你的同伴吗？</source><target>{name}, is {gender, select, male {he} female {she} other {they}} your companion?</target></segment>
+      <metadata>
+        <metaGroup category="type">sentence</metaGroup>
+        <metaGroup category="emotion">surprised playful</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="ask-city">
+      <segment><source>城里还安全吗？</source><target>Is the city still safe?</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="emotion">neutral</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="ask-sword">
+      <segment><source>你的剑是新打的吗？</source><target>Was your sword newly forged?</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="emotion">neutral</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+  </group>
+  <group id="dialog.act3.farewell">
+    <notes>
+      <note category="context">The player leaves the forge with the repaired sword.</note>
+      <note category="emotion">playful joyful</note>
+    </notes>
+    <unit id="farewell">
+      <segment><source>一路顺风，旅行者！</source><target>Safe travels, traveler!</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="farewell-pun">
+      <notes>
+        <note category="context">Anvil winks; the pun is on 见/剑.</note>
+      </notes>
+      <segment><source>剑客无剑，如鱼无水——改天我请你“剑”面！</source><target>A swordsman without a sword is a fish out of water - let's have a re-&quot;blade&quot; meeting soon!</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="come-again">
+      <segment><source>下次再来！</source><target>Come back anytime!</target></segment>
+      <metadata>
+        <metaGroup category="type">dialogue</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+      </metadata>
+    </unit>
+  </group>
+  <group id="quests.reward">
+    <notes>
+      <note category="context">Quest reward screen after the sword is returned.</note>
+      <note category="emotion">grateful</note>
+    </notes>
+    <unit id="reward-title">
+      <segment><source>铁匠的谢礼</source><target>The Blacksmith's Gratitude</target></segment>
+      <metadata>
+        <metaGroup category="type">label</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="reward-body">
+      <segment><source>收下这枚护符吧。</source><target>Please take this charm.</target></segment>
+      <metadata>
+        <metaGroup category="type">narration</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="reward-count">
+      <segment><source>{count, plural, =0 {没有奖励} one {# 件奖励} other {# 件奖励}}</source><target>{count, plural, =0 {No rewards} one {# reward} other {# rewards}}</target></segment>
+      <metadata>
+        <metaGroup category="type">sentence</metaGroup>
+        <metaGroup category="state">reviewed</metaGroup>
+      </metadata>
+    </unit>
+    <unit id="reward-accept">
+      <segment><source>接受</source><target>Accept</target></segment>
+      <metadata>
+        <metaGroup category="type">label</metaGroup>
+        <metaGroup category="state">final</metaGroup>
+        <metaGroup category="maxWidth">8</metaGroup>
+      </metadata>
+    </unit>
+  </group>
+</file>
+</xliff>

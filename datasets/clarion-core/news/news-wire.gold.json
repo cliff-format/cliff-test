@@ -1,0 +1,490 @@
+{
+  "file": "news-wire.zh-CN.clif",
+  "stratum": "news",
+  "notes": "An invented news day around a harbor bridge closure. Probes long-form register, verbless headline compression, idiomatic social voice, sarcasm carried in entry context, named-entity policy, numeral and unit survival, and formal editor's-note register.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "headline": {
+      "reference": "海港大桥：连续第三夜封闭，数万车辆绕行",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "news-headline",
+        "register",
+        "verbless"
+      ],
+      "rules": [
+        {
+          "id": "headline-verbless",
+          "kind": "forbid",
+          "params": {
+            "text": [
+              "。",
+              "！",
+              "？"
+            ]
+          }
+        },
+        {
+          "id": "headline-fullwidth",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "subhead": {
+      "reference": "工程师抢在风雨前，检验 214 根悬索中的最后一批",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "news-headline",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "subhead-numerals",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "lede": {
+      "reference": "3 月 14 日，子午海港大桥连续第三个夜晚保持封闭。施工人员冒雨抢修上周风暴中崩断的三根悬索，数万名通勤者被迫改乘两艘临时接驳渡轮，而渡轮运力仅相当于平日的一小部分。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "news-lede",
+        "numerals",
+        "date"
+      ],
+      "rules": [
+        {
+          "id": "lede-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "lede-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "body-1": {
+      "reference": "子午港务局官员周二表示，能否重新开放取决于完整的安全评估：大桥 214 根悬索中已有 78% 通过检测，其余仍在张拉与测量之中。港务局已三次推迟重新开放的时间，局长科林·阿什维尔警告称，只要风速再超过每小时 40 公里，吊装作业就将暂停，工期会再度延后。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "long-form",
+        "named-entity",
+        "numerals",
+        "naming-policy"
+      ],
+      "rules": [
+        {
+          "id": "org-name-semantic",
+          "kind": "name-policy",
+          "params": {
+            "mode": "semantic",
+            "expected": [
+              "子午港务局"
+            ],
+            "rejected": [
+              "梅里迪安",
+              "马里迪恩"
+            ]
+          }
+        },
+        {
+          "id": "body1-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "body1-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "body-2": {
+      "reference": "封桥的影响已蔓延到整座城市的路网。绕行标志把车流引向一条早已超载的环线，早高峰的车队如今沿着北岸绵延超过 12 公里。渡轮人员在早上 6 点后加开了两个班次，但东码头的队伍到上午时分仍绕着街区排成了长龙，有通勤者反映，光是排队进售票厅就要等上一个多小时。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "long-form",
+        "terminology",
+        "numerals",
+        "unit"
+      ],
+      "rules": [
+        {
+          "id": "network-term",
+          "kind": "term",
+          "params": {
+            "source": "network",
+            "target": [
+              "路网",
+              "网络"
+            ],
+            "forbidden": [
+              "网路"
+            ]
+          }
+        },
+        {
+          "id": "body2-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "body2-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "quote": {
+      "reference": "子午港务局局长科林·阿什维尔向记者表示，大桥“只有在每一根悬索都通过检测后”才会重新开放，“一分钟都不会提前”。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "quote",
+        "attribution",
+        "named-entity",
+        "naming-policy"
+      ],
+      "rules": [
+        {
+          "id": "person-name-phonetic",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "科林·阿什维尔"
+            ],
+            "rejected": [
+              "灰井",
+              "灰泉"
+            ]
+          }
+        },
+        {
+          "id": "quote-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "photo-caption": {
+      "reference": "封桥后的第三个早晨，通勤者在海港东码头排队等候接驳渡轮。",
+      "alternatives": [
+        "封桥后的第三天早晨，通勤者在海港东码头排队等候接驳渡轮。"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "photo-caption"
+      ],
+      "rules": []
+    },
+    "news-alert": {
+      "reference": "大桥封闭：所有过港通道预计延误最长 90 分钟。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "news-alert",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "alert-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "alert-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "feature-headline": {
+      "reference": "海港悄然复兴的渡轮",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "feature-headline"
+      ],
+      "rules": []
+    },
+    "feature-lede": {
+      "reference": "几十年来，海港渡轮一直只是个新鲜玩意儿——一种缓慢而悠闲的过港方式，大多数通勤者都快忘了它的存在。封闭的这三个夜晚，却让它变得不可或缺。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "feature",
+        "long-form"
+      ],
+      "rules": [
+        {
+          "id": "feature-lede-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "feature-body-1": {
+      "reference": "东码头开出的早班船，如今成了许多人能在十点前赶到办公室的唯一理由。船上三名船员对常客早已能叫出名字、记得各自的习惯：那位推折叠自行车的女士、靠着栏杆批改作业的老师、带着一箱酸面包过港的厨师。这项本是应急的措施，已经悄然长成一个小小的社群，有它自己的段子，还有一位像导游一样全程解说的船长。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "feature",
+        "long-form",
+        "fluency"
+      ],
+      "rules": []
+    },
+    "feature-body-2": {
+      "reference": "并非所有人都念旧。对岸的店主说，绕行让他们工作日的营业额少了近五分之一，而渡轮单程 2 欧元的票价，对一天往返两次的人来说也是一笔不小的开销。港务局承诺会推出补贴方案，但细节仍在起草之中；一份呼吁搭建临时人行桥的请愿书，三天内已征集到一万一千个签名。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "feature",
+        "long-form",
+        "numerals",
+        "unit"
+      ],
+      "rules": [
+        {
+          "id": "feature-body2-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "feature-body2-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "feature-quote": {
+      "reference": "早班渡轮的船长迪娅·普劳斯说得很直白：“谁也没想到会这样。我们只是出现了，然后就开始载人。”",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "feature",
+        "quote",
+        "colloquial"
+      ],
+      "rules": [
+        {
+          "id": "feature-quote-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "post-sarcastic": {
+      "reference": "真是太好了。第三个晚上，又得像散步一样慢慢挪回家。这大桥管理，绝对一流啊，各位。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "social",
+        "sarcasm",
+        "irony"
+      ],
+      "rules": [
+        {
+          "id": "sarcastic-translated",
+          "kind": "translated",
+          "params": {}
+        },
+        {
+          "id": "sarcastic-script",
+          "kind": "script",
+          "params": {
+            "script": "Han",
+            "min_ratio": 0.3
+          }
+        }
+      ]
+    },
+    "post-enthusiastic": {
+      "reference": "免费接驳渡轮真是救命稻草——一路平稳，还能看风景！#MeridianFerry 🚢",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "social",
+        "hashtag",
+        "emoji"
+      ],
+      "rules": [
+        {
+          "id": "hashtag-emoji-verbatim",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "#MeridianFerry",
+              "🚢"
+            ]
+          }
+        }
+      ]
+    },
+    "comment-1": {
+      "reference": "被堵在水这头整整三天，我急得抓耳挠腮。市政厅，快想想办法吧。",
+      "alternatives": [],
+      "difficulty": "hard",
+      "tags": [
+        "comment",
+        "idiom",
+        "casual"
+      ],
+      "rules": [
+        {
+          "id": "comment1-idiom",
+          "kind": "require",
+          "params": {
+            "text": [
+              "抓耳挠腮"
+            ]
+          }
+        },
+        {
+          "id": "comment1-no-literal",
+          "kind": "forbid",
+          "params": {
+            "text": [
+              "扯头发",
+              "撕头发",
+              "拔头发"
+            ]
+          }
+        }
+      ]
+    },
+    "comment-2": {
+      "reference": "早上 6 点出门，8 点 50 分才到办公室。有人欠我两个小时。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "comment",
+        "casual",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "comment2-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "comment2-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "comment-3": {
+      "reference": "我邻居都已经在张罗卖车了，他说这大桥爱关多久关多久。",
+      "alternatives": [],
+      "difficulty": "easy",
+      "tags": [
+        "comment",
+        "casual"
+      ],
+      "rules": [
+        {
+          "id": "comment3-translated",
+          "kind": "translated",
+          "params": {}
+        }
+      ]
+    },
+    "editors-note": {
+      "reference": "本报道随附编辑部说明，是因为周二所引用的重新开放时间表已经两度变更。港务局发布新信息后，我们将更新文中数据，并毫不迟延地更正其中的任何错误。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "editors-note",
+        "formal",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "note-information-term",
+          "kind": "term",
+          "params": {
+            "source": "information",
+            "target": [
+              "信息"
+            ],
+            "forbidden": [
+              "资讯"
+            ]
+          }
+        },
+        {
+          "id": "note-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "editors-note-correction": {
+      "reference": "本文早前版本称东码头接驳渡轮每 30 分钟一班。实为高峰时段每 20 分钟一班。",
+      "alternatives": [],
+      "difficulty": "normal",
+      "tags": [
+        "editors-note",
+        "formal",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "correction-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "correction-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "editors-note-signoff": {
+      "reference": "——编辑部",
+      "alternatives": [
+        "——本报编辑部"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "editors-note",
+        "signoff"
+      ],
+      "rules": []
+    }
+  }
+}

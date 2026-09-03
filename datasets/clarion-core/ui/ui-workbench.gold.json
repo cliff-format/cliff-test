@@ -1,0 +1,1189 @@
+{
+  "file": "ui-workbench.zh-CN.clif",
+  "stratum": "ui",
+  "notes": "Slatepath data workbench strings, written for CLARION-Core v0.3. Every item is labelled A to D in the first position of its tags: A decisive (the source alone cannot be translated correctly - the type tag, the page the context names or the width budget decides), B high-risk (systematic model bias: textbook jargon for default, cache, latency, resolution and throughput, Han-Latin spacing, numerals, the {name} placeholder, an ICU plural and an ICU select whose selector keys are engine values), C cross-entry (a term, a pronoun, a step number or an echoed verb that only resolves against other entries in this file), D normal text (ordinary workbench prose and labels that any competent translator should get right, kept as the baseline). Six minimal pairs share a source and a neutral id and differ on exactly one field: mode-01a/b and mode-04a/b on type (proper noun against common noun, label against sentence), term-02a/b and term-03a/b on context (the same word on two different pages), slot-05a/b and slot-06a/b on max-width (a wide menu against the narrow inspector rail). The term 'scratch table' occurs in the source of six entries and must be rendered the same way in all of them; the header states that requirement without naming the rendering, so the consistency has to come from the file itself. The file holds 32 entries: 12 A, 7 B, 5 C and 8 D. The product, its modules and its demo data set are invented and share nothing with the Harborline Console file in the same stratum.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "notes": "Original text written for this benchmark, therefore free of training-data contamination. The workbench, its modules and its wording are invented and do not reproduce any shipping product interface."
+  },
+  "items": {
+    "nav-scratch-tables": {
+      "reference": "草稿表",
+      "alternatives": [
+        "草稿表列表"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "ui-label"
+      ],
+      "rules": [
+        {
+          "id": "nav-scratch-tables-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "mode-01a": {
+      "reference": "Quarry",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "type"
+      ],
+      "rules": [
+        {
+          "id": "mode-01a-verbatim",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "Quarry"
+            ]
+          }
+        },
+        {
+          "id": "mode-01a-not-common-word",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "采石场",
+              "矿场",
+              "石场"
+            ]
+          }
+        },
+        {
+          "id": "mode-01a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "mode-01b": {
+      "reference": "采石场",
+      "alternatives": [
+        "采石场址"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "type"
+      ],
+      "rules": [
+        {
+          "id": "mode-01b-common-word",
+          "kind": "require",
+          "params": {
+            "text": "采石场"
+          }
+        },
+        {
+          "id": "mode-01b-not-module-name",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "Quarry"
+            ]
+          }
+        },
+        {
+          "id": "mode-01b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "term-02a": {
+      "reference": "数据量",
+      "alternatives": [
+        "数据体量"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "term-02a-storage-sense",
+          "kind": "require",
+          "params": {
+            "text": "数据量"
+          }
+        },
+        {
+          "id": "term-02a-not-sound-sense",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "音量",
+              "声音"
+            ]
+          }
+        },
+        {
+          "id": "term-02a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "term-02b": {
+      "reference": "音量",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "term-02b-sound-sense",
+          "kind": "require",
+          "params": {
+            "text": "音量"
+          }
+        },
+        {
+          "id": "term-02b-not-storage-sense",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "数据量",
+              "存储量",
+              "容量"
+            ]
+          }
+        },
+        {
+          "id": "term-02b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "term-03a": {
+      "reference": "刻度",
+      "alternatives": [
+        "坐标轴刻度"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "term-03a-axis-sense",
+          "kind": "require",
+          "params": {
+            "text": "刻度"
+          }
+        },
+        {
+          "id": "term-03a-not-cluster-sense",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "规模",
+              "扩容"
+            ]
+          }
+        },
+        {
+          "id": "term-03a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "term-03b": {
+      "reference": "规模",
+      "alternatives": [
+        "集群规模"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "term-03b-cluster-sense",
+          "kind": "require",
+          "params": {
+            "text": "规模"
+          }
+        },
+        {
+          "id": "term-03b-not-axis-sense",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "刻度",
+              "缩放"
+            ]
+          }
+        },
+        {
+          "id": "term-03b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "mode-04a": {
+      "reference": "刷新样本",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "type"
+      ],
+      "rules": [
+        {
+          "id": "mode-04a-label-form",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "请",
+              "。"
+            ]
+          }
+        },
+        {
+          "id": "mode-04a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "mode-04b": {
+      "reference": "请刷新一次样本数据。",
+      "alternatives": [
+        "请把样本数据刷新一次。"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "type"
+      ],
+      "rules": [
+        {
+          "id": "mode-04b-sentence-form",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "请",
+              "。"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "mode-04b-not-label-form",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "刷新样本"
+            ]
+          }
+        },
+        {
+          "id": "mode-04b-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "slot-05a": {
+      "reference": "将当前视图保存为预设",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "slot-05a-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 24
+          }
+        },
+        {
+          "id": "slot-05a-full",
+          "kind": "require",
+          "params": {
+            "text": "当前视图"
+          }
+        },
+        {
+          "id": "slot-05a-not-short",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "另存预设"
+            ]
+          }
+        },
+        {
+          "id": "slot-05a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "slot-05b": {
+      "reference": "另存预设",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "slot-05b-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "slot-05b-short",
+          "kind": "require",
+          "params": {
+            "text": "另存预设"
+          }
+        },
+        {
+          "id": "slot-05b-not-full",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "当前视图",
+              "保存为"
+            ]
+          }
+        },
+        {
+          "id": "slot-05b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "slot-06a": {
+      "reference": "与上一次运行对比",
+      "alternatives": [
+        "与上一次运行结果对比"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "slot-06a-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 22
+          }
+        },
+        {
+          "id": "slot-06a-full",
+          "kind": "require",
+          "params": {
+            "text": "上一次运行"
+          }
+        },
+        {
+          "id": "slot-06a-not-short",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "与上次对比"
+            ]
+          }
+        },
+        {
+          "id": "slot-06a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "slot-06b": {
+      "reference": "与上次对比",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "slot-06b-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "slot-06b-short",
+          "kind": "require",
+          "params": {
+            "text": "与上次对比"
+          }
+        },
+        {
+          "id": "slot-06b-not-full",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "上一次运行"
+            ]
+          }
+        },
+        {
+          "id": "slot-06b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "note-step-order": {
+      "reference": "第 3 步用于设置行数上限，因此在至少运行过一次第 2 步之前，不要把它调高。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "numbered-reference"
+      ],
+      "rules": [
+        {
+          "id": "note-step-order-numbers",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "第 3 步",
+              "第 2 步"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "note-step-order-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "note-step-order-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "note-step-order-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "msg-row-count": {
+      "reference": "{rows, plural, other {已向草稿表复制 # 行}}",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "plural"
+      ],
+      "rules": [
+        {
+          "id": "msg-row-count-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "msg-row-count-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "msg-row-count-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "scratch table",
+            "target": [
+              "草稿表",
+              "临时表",
+              "暂存表"
+            ]
+          }
+        }
+      ]
+    },
+    "msg-table-state": {
+      "reference": "{state, select, ready {草稿表已就绪} building {正在生成草稿表} other {草稿表生成失败}}",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "cross-entry",
+        "terminology",
+        "icu"
+      ],
+      "rules": [
+        {
+          "id": "msg-table-state-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "msg-table-state-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "scratch table",
+            "target": [
+              "草稿表",
+              "临时表",
+              "暂存表"
+            ]
+          }
+        },
+        {
+          "id": "msg-table-state-term",
+          "kind": "require",
+          "params": {
+            "text": "草稿表"
+          }
+        },
+        {
+          "id": "msg-table-state-not-database-term",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "临时表"
+            ]
+          }
+        }
+      ]
+    },
+    "msg-welcome-back": {
+      "reference": "欢迎回来，{name}。你上一次运行用了 12 分钟。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "placeholder",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "msg-welcome-back-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "\\{name\\}"
+            ]
+          }
+        },
+        {
+          "id": "msg-welcome-back-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "msg-welcome-back-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "msg-welcome-back-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "msg-job-outcome": {
+      "reference": "{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "select"
+      ],
+      "rules": [
+        {
+          "id": "msg-job-outcome-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "msg-job-outcome-keys",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "running {",
+              "done {",
+              "failed {",
+              "other {"
+            ]
+          }
+        },
+        {
+          "id": "msg-job-outcome-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "msg-sample-loading": {
+      "reference": "样本仍在加载，暂时无法创建草稿表。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "error-message"
+      ],
+      "rules": [
+        {
+          "id": "msg-sample-loading-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "msg-board-empty": {
+      "reference": "这块看板上还没有固定任何内容。打开一张图表，把它固定到这里。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "empty-state"
+      ],
+      "rules": [
+        {
+          "id": "msg-board-empty-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "cue-chart-updated": {
+      "reference": "图表已更新",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "accessibility-cue"
+      ],
+      "rules": [
+        {
+          "id": "cue-chart-updated-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "help-scratch-table": {
+      "reference": "草稿表是你自己的一份结果集副本。它保存在当前浏览器标签页里，不会共享给团队，退出登录后就会被丢弃。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "cross-entry",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "help-scratch-table-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "scratch table",
+            "target": [
+              "草稿表",
+              "临时表",
+              "暂存表"
+            ]
+          }
+        },
+        {
+          "id": "help-scratch-table-term",
+          "kind": "require",
+          "params": {
+            "text": "草稿表"
+          }
+        },
+        {
+          "id": "help-scratch-table-not-database-term",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "临时表",
+              "暂存表"
+            ]
+          }
+        },
+        {
+          "id": "help-scratch-table-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "help-empty-before-run": {
+      "reference": "离开页面之前先把草稿表清空，否则下一次运行会从已经过期的行开始。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "help-empty-before-run-referent",
+          "kind": "require",
+          "params": {
+            "text": "草稿表"
+          }
+        },
+        {
+          "id": "help-empty-before-run-not-cache",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "缓存",
+              "预设"
+            ]
+          }
+        },
+        {
+          "id": "help-empty-before-run-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "scratch table",
+            "target": [
+              "草稿表",
+              "临时表",
+              "暂存表"
+            ]
+          }
+        },
+        {
+          "id": "help-empty-before-run-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "help-board-pin": {
+      "reference": "图表一旦被固定，就会一直留在看板上，直到有人把它取下。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "callback"
+      ],
+      "rules": [
+        {
+          "id": "help-board-pin-callback",
+          "kind": "require",
+          "params": {
+            "text": "固定"
+          }
+        },
+        {
+          "id": "help-board-pin-not-other-verb",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "置顶",
+              "钉在",
+              "收藏"
+            ]
+          }
+        },
+        {
+          "id": "help-board-pin-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "help-keyboard-rows": {
+      "reference": "按上下方向键即可在各行之间移动，无需把手从键盘上挪开。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "help-text"
+      ],
+      "rules": [
+        {
+          "id": "help-keyboard-rows-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "help-archive": {
+      "reference": "一个月未打开的图表会自动移到归档页面。系统不会删除任何内容，重新打开就能把它恢复回来。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "help-text"
+      ],
+      "rules": [
+        {
+          "id": "help-archive-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-time-window": {
+      "reference": "新建图表会先使用默认时间窗口，直到你固定一个属于自己的窗口。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "set-time-window-term",
+          "kind": "term",
+          "params": {
+            "source": "default",
+            "target": [
+              "默认"
+            ],
+            "forbidden": [
+              "缺省"
+            ]
+          }
+        },
+        {
+          "id": "set-time-window-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-export-resolution": {
+      "reference": "图表按屏幕分辨率导出，也可以按 2 倍分辨率导出以供打印。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "set-export-resolution-term",
+          "kind": "term",
+          "params": {
+            "source": "resolution",
+            "target": [
+              "分辨率"
+            ],
+            "forbidden": [
+              "解析度"
+            ]
+          }
+        },
+        {
+          "id": "set-export-resolution-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "set-export-resolution-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "set-export-resolution-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-cache-latency": {
+      "reference": "图表会先读取缓存，这样在正常网络下延迟可以保持在半秒以内。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "set-cache-latency-cache",
+          "kind": "term",
+          "params": {
+            "source": "cache",
+            "target": [
+              "缓存"
+            ],
+            "forbidden": [
+              "高速缓存",
+              "快取"
+            ]
+          }
+        },
+        {
+          "id": "set-cache-latency-latency",
+          "kind": "term",
+          "params": {
+            "source": "latency",
+            "target": [
+              "延迟"
+            ],
+            "forbidden": [
+              "时延"
+            ]
+          }
+        },
+        {
+          "id": "set-cache-latency-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-throughput": {
+      "reference": "吞吐量约为每秒 1,200 行，集群会在内存中保留其中的 30 GB。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "set-throughput-term",
+          "kind": "term",
+          "params": {
+            "source": "throughput",
+            "target": [
+              "吞吐量"
+            ],
+            "forbidden": [
+              "吞吐率"
+            ]
+          }
+        },
+        {
+          "id": "set-throughput-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "set-throughput-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "set-throughput-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-retention": {
+      "reference": "草稿表会保留 7 天，到期后不再提醒，直接删除。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "settings"
+      ],
+      "rules": [
+        {
+          "id": "set-retention-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "set-retention-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "set-retention-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "set-timezone": {
+      "reference": "本页显示的时间以工作区时区为准，而不是浏览器所在的时区。",
+      "alternatives": [
+        "本页时间按工作区所在时区显示，而不是按浏览器所在的时区显示。"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "settings"
+      ],
+      "rules": [
+        {
+          "id": "set-timezone-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        },
+        {
+          "id": "set-timezone-translated",
+          "kind": "translated",
+          "params": {}
+        }
+      ]
+    }
+  }
+}

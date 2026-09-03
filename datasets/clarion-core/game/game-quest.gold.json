@@ -1,0 +1,1088 @@
+{
+  "file": "game-quest.zh-CN.clif",
+  "stratum": "game",
+  "notes": "Saltwake quest line, written for CLARION-Core v0.3. Items are labelled A to D in their tags: A decisive (the source alone cannot be translated correctly - the naming policy in the header, the emotion tag or the width budget decides), B high-risk (systematic model bias: ICU plurals and select, the {playerName} placeholder, key hints, Han-Latin spacing, fullwidth punctuation, textbook jargon), C cross-entry (a term, a pronoun or an objective number that only resolves against other entries in this file), D normal text (ordinary quest prose that any competent translator should get right, kept as the baseline). Four minimal pairs share a source and a neutral id and differ on exactly one field: hail-01a/b and hail-02a/b on emotion, objective-03a/b and objective-04a/b on max-width.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "notes": "Original text written for this benchmark, therefore free of training-data contamination. The game, its characters and its quest line are invented and share nothing with the Emberveil file in the same stratum."
+  },
+  "items": {
+    "brief-tide-run": {
+      "reference": "潮水一天转向两次，港口也就一天两次忘记谁欠了谁。趁涨水之前把封缄货单送到码头总管手里，账目就能再干净一晚。",
+      "alternatives": [
+        "潮水一天转向两次，港口也就一天两次忘掉谁欠了谁。趁水位上涨之前把封缄货单送到码头总管手里，账目就还能再干净一晚。"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "D",
+        "normal-text",
+        "quest-brief"
+      ],
+      "rules": [
+        {
+          "id": "brief-tide-run-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "brief-ninth-light": {
+      "reference": "九盏灯环绕着内海。其中八盏由港口行会照看，最后一盏立在一块行会假装看不见的礁石上，却从未熄灭过。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "quest-brief"
+      ],
+      "rules": [
+        {
+          "id": "brief-ninth-light-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "quest-title-last-watch": {
+      "reference": "柳的最后一班岗",
+      "alternatives": [
+        "柳的最后一班守夜"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "name-policy"
+      ],
+      "rules": [
+        {
+          "id": "quest-title-last-watch-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "semantic",
+            "expected": [
+              "柳"
+            ],
+            "rejected": [
+              "薇洛",
+              "威洛",
+              "维洛",
+              "柳树"
+            ]
+          }
+        },
+        {
+          "id": "quest-title-last-watch-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "journal-note-order": {
+      "reference": "马洛要先看过货单才会开闸，所以在目标 1 签收之前，目标 2 一直是锁住的。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "numbered-reference"
+      ],
+      "rules": [
+        {
+          "id": "journal-note-order-numbers",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "目标 1",
+              "目标 2"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "journal-note-order-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "journal-note-order-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "journal-note-order-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "journal-note-order-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "brief-warning-fog": {
+      "reference": "雾会毫无预兆地从西边压过来。如果看不见下一盏灯，就停桨等着：这里的水流很有耐心，早晚会把你带回码头。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "quest-brief"
+      ],
+      "rules": [
+        {
+          "id": "brief-warning-fog-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "objective-03a": {
+      "reference": "把封缄货单交给马洛",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "objective-03a-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 24
+          }
+        },
+        {
+          "id": "objective-03a-full",
+          "kind": "require",
+          "params": {
+            "text": "封缄货单"
+          }
+        },
+        {
+          "id": "objective-03a-not-short",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "送单"
+            ]
+          }
+        },
+        {
+          "id": "objective-03a-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "objective-03a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "objective-03b": {
+      "reference": "送单给马洛",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "objective-03b-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "objective-03b-short",
+          "kind": "require",
+          "params": {
+            "text": "送单"
+          }
+        },
+        {
+          "id": "objective-03b-not-full",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "封缄货单"
+            ]
+          }
+        },
+        {
+          "id": "objective-03b-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "objective-03b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "objective-04a": {
+      "reference": "恢复潮闸的动力供应",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "objective-04a-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 24
+          }
+        },
+        {
+          "id": "objective-04a-full",
+          "kind": "require",
+          "params": {
+            "text": "供应"
+          }
+        },
+        {
+          "id": "objective-04a-not-short",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "通电"
+            ]
+          }
+        },
+        {
+          "id": "objective-04a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "objective-04b": {
+      "reference": "潮闸通电",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "max-width"
+      ],
+      "rules": [
+        {
+          "id": "objective-04b-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 10
+          }
+        },
+        {
+          "id": "objective-04b-short",
+          "kind": "require",
+          "params": {
+            "text": "通电"
+          }
+        },
+        {
+          "id": "objective-04b-not-full",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "恢复",
+              "供应"
+            ]
+          }
+        },
+        {
+          "id": "objective-04b-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "objective-relight": {
+      "reference": "在退潮之前重新点亮第九灯",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "cross-entry",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "objective-relight-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Ninth Light",
+            "target": [
+              "第九灯",
+              "九号灯",
+              "第九盏灯"
+            ]
+          }
+        },
+        {
+          "id": "objective-relight-term",
+          "kind": "require",
+          "params": {
+            "text": "第九灯"
+          }
+        },
+        {
+          "id": "objective-relight-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "objective-count-crates": {
+      "reference": "{secured, plural, other {已固定 # 个板条箱}}",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "plural"
+      ],
+      "rules": [
+        {
+          "id": "objective-count-crates-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "objective-count-crates-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "objective-check-lines": {
+      "reference": "检查东码头的系泊缆绳",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "objective"
+      ],
+      "rules": [
+        {
+          "id": "objective-check-lines-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "hail-01a": {
+      "reference": "把提灯递给我吧，朋友。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion"
+      ],
+      "rules": [
+        {
+          "id": "hail-01a-offer",
+          "kind": "require",
+          "params": {
+            "text": "递给我"
+          }
+        },
+        {
+          "id": "hail-01a-not-demand",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "交出来"
+            ]
+          }
+        },
+        {
+          "id": "hail-01a-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "hail-01b": {
+      "reference": "把提灯交出来，朋友。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion"
+      ],
+      "rules": [
+        {
+          "id": "hail-01b-demand",
+          "kind": "require",
+          "params": {
+            "text": "交出来"
+          }
+        },
+        {
+          "id": "hail-01b-not-offer",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "递给我",
+              "吧"
+            ]
+          }
+        },
+        {
+          "id": "hail-01b-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "hail-02a": {
+      "reference": "马洛说，码头随时欢迎你。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion"
+      ],
+      "rules": [
+        {
+          "id": "hail-02a-welcome",
+          "kind": "require",
+          "params": {
+            "text": "随时欢迎"
+          }
+        },
+        {
+          "id": "hail-02a-not-menace",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "「欢迎」",
+              "放话"
+            ]
+          }
+        },
+        {
+          "id": "hail-02a-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "hail-02a-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "hail-02b": {
+      "reference": "马洛放话了，码头「欢迎」你上门。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "emotion"
+      ],
+      "rules": [
+        {
+          "id": "hail-02b-menace",
+          "kind": "require",
+          "params": {
+            "text": "「欢迎」"
+          }
+        },
+        {
+          "id": "hail-02b-not-welcome",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "随时欢迎"
+            ]
+          }
+        },
+        {
+          "id": "hail-02b-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "hail-02b-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dialogue-willow-keeps": {
+      "reference": "柳守着第九灯，一守就是十一个冬天，从没向行会要过一次灯油。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "terminology",
+        "name-policy"
+      ],
+      "rules": [
+        {
+          "id": "dialogue-willow-keeps-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "semantic",
+            "expected": [
+              "柳"
+            ],
+            "rejected": [
+              "薇洛",
+              "威洛",
+              "维洛",
+              "柳树"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-willow-keeps-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Ninth Light",
+            "target": [
+              "第九灯",
+              "九号灯",
+              "第九盏灯"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-willow-keeps-term",
+          "kind": "require",
+          "params": {
+            "text": "第九灯"
+          }
+        },
+        {
+          "id": "dialogue-willow-keeps-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dialogue-burn-it": {
+      "reference": "在马洛的船靠上码头之前，把货单烧掉。冷掉的灰烬什么也不会告诉他。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "dialogue-burn-it-referent",
+          "kind": "require",
+          "params": {
+            "text": "货单"
+          }
+        },
+        {
+          "id": "dialogue-burn-it-not-lamp",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "提灯",
+              "灯笼"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-burn-it-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "dialogue-burn-it-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "success-echo": {
+      "reference": "从今往后，第九灯归你守。别让我后悔把它交出去。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "callback"
+      ],
+      "rules": [
+        {
+          "id": "success-echo-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Ninth Light",
+            "target": [
+              "第九灯",
+              "九号灯",
+              "第九盏灯"
+            ]
+          }
+        },
+        {
+          "id": "success-echo-callback",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "第九灯",
+              "守"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "success-echo-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "line-success-tide": {
+      "reference": "闸门稳住了。不管你在下面做了什么，水都流向了它该去的地方。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "success-line"
+      ],
+      "rules": [
+        {
+          "id": "line-success-tide-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "line-failure-tide": {
+      "reference": "闸门卡死了，码头已经进水。等潮水退下去再来，我们再试一次。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "failure-line"
+      ],
+      "rules": [
+        {
+          "id": "line-failure-tide-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "item-relay-grid-desc": {
+      "reference": "整张中继灯网很稳健：单个灯标失效也不会中断整条链路。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "item-relay-grid-desc-term",
+          "kind": "term",
+          "params": {
+            "source": "robust",
+            "target": [
+              "稳健",
+              "抗干扰",
+              "可靠"
+            ],
+            "forbidden": [
+              "鲁棒"
+            ]
+          }
+        },
+        {
+          "id": "item-relay-grid-desc-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "item-lamp-oil-desc": {
+      "reference": "一瓶油能让灯在默认灯芯高度下燃烧 30 分钟。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "jargon",
+        "cjk-latin-space",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "item-lamp-oil-desc-jargon",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "缺省",
+              "设定值"
+            ]
+          }
+        },
+        {
+          "id": "item-lamp-oil-desc-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "item-lamp-oil-desc-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "item-lamp-oil-desc-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "item-fog-lamp-desc": {
+      "reference": "一盏矮胖的黄铜灯，蓝色挡片上满是划痕。它的光并不亮，可在雾里，弱光比强光更不容易散开。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "item-description"
+      ],
+      "rules": [
+        {
+          "id": "item-fog-lamp-desc-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "achv-marrow-debt": {
+      "reference": "马洛的人情债",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "name-policy"
+      ],
+      "rules": [
+        {
+          "id": "achv-marrow-debt-name",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "马洛"
+            ],
+            "rejected": [
+              "骨髓",
+              "髓",
+              "马罗"
+            ]
+          }
+        },
+        {
+          "id": "achv-marrow-debt-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "achv-nine-nights": {
+      "reference": "九夜九灯",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "achievement"
+      ],
+      "rules": [
+        {
+          "id": "achv-nine-nights-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        }
+      ]
+    },
+    "system-welcome-runner": {
+      "reference": "一路顺潮，{playerName}。你上一趟送信是在 3 天前。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "placeholder",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "system-welcome-runner-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "\\{playerName\\}"
+            ]
+          }
+        },
+        {
+          "id": "system-welcome-runner-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "system-welcome-runner-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "system-welcome-runner-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "system-keybind-lantern": {
+      "reference": "按住 [E] 键升起提灯，按 [Q] 键发信号。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "keybind",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "system-keybind-lantern-keys",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "[E]",
+              "[Q]"
+            ]
+          }
+        },
+        {
+          "id": "system-keybind-lantern-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "system-keybind-lantern-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "system-signal-range": {
+      "reference": "信号距离：雾中 120 米，晴空 400 米。",
+      "difficulty": "easy",
+      "tags": [
+        "B",
+        "numerals",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "system-signal-range-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "system-signal-range-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "system-signal-range-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "system-quest-state": {
+      "reference": "{state, select, updated {任务已更新} complete {任务完成} other {任务失败}}",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "select"
+      ],
+      "rules": [
+        {
+          "id": "system-quest-state-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        }
+      ]
+    }
+  }
+}

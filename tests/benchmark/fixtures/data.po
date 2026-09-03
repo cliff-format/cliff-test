@@ -1,0 +1,155 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IronForge RPG - Act 3 dialog\n"
+"Language: en-US\n"
+"Language-Team: zh-CN to en-US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+""
+# namespace: ironforge-rpg
+# clan: game
+# info: The mountain city of IronForge, one week after the siege.
+# info: Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in public, warm to friends. The player returns to the blacksmith to reclaim a repaired sword.
+# standard: Preserve proper nouns; localize idioms for humor.
+# standard: Keep UI labels under the declared max-width.
+# dependency: ../terms/ironforge.terms.en-US.clif
+# dependency: docs/act3-script.md
+# glossary: 铁剑 => Iron Sword
+# glossary: 旅行者 => traveler
+# glossary: 铁匠铺 => forge
+
+msgctxt "items.shop.inv-sword-iron"
+msgid "铁剑"
+msgstr "Iron Sword"
+#: src/combat/items.cpp:142
+#. context: Blacksmith shop, purchase confirmation popup.
+#. type: noun
+#. emotion: playful
+#. status: final
+#. max-width: 20
+
+msgctxt "items.shop.inv-potion-heal"
+msgid "恢复药水"
+msgstr "Healing Potion"
+#. context: Blacksmith shop, purchase confirmation popup.
+#. type: noun-phrase
+#. emotion: playful
+#. status: translated
+#. max-width: 20
+
+msgctxt "items.shop.inv-armor-mithril"
+msgid "秘银护甲"
+msgstr "Mithril Armor"
+#. context: Blacksmith shop, purchase confirmation popup.
+#. type: noun-phrase
+#. emotion: playful
+#. status: reviewed
+#. max-width: 20
+
+msgctxt "items.shop.inv-axe-rune"
+msgid "符文战斧"
+msgstr "Rune Battleaxe"
+#. context: Blacksmith shop, purchase confirmation popup.
+#. type: noun
+#. emotion: playful
+#. status: final
+#. max-width: 20
+
+msgctxt "dialog.act3.first-meet.greeting"
+msgid "你好，旅行者。"
+msgstr "Hello, traveler."
+#. context: The player meets Captain Mei at the city gate after the siege.
+#. type: dialogue
+#. emotion: polite calm
+#. status: final
+
+msgctxt "dialog.act3.first-meet.ask-origin"
+msgid "你从哪里来？"
+msgstr "Where do you come from?"
+#. context: The player meets Captain Mei at the city gate after the siege.
+#. type: dialogue
+#. emotion: polite curious
+#. status: reviewed
+
+msgctxt "dialog.act3.first-meet.ask-companion"
+msgid "{name}，{gender, select, male {他} female {她} other {他们}} 是你的同伴吗？"
+msgstr "{name}, is {gender, select, male {he} female {she} other {they}} your companion?"
+#: src/dialog/act3.cpp:87
+#. context: The player meets Captain Mei at the city gate after the siege. She points at the silent stranger next to the player.
+#. type: sentence
+#. emotion: surprised playful
+#. status: reviewed
+
+msgctxt "dialog.act3.first-meet.ask-city"
+msgid "城里还安全吗？"
+msgstr "Is the city still safe?"
+#. context: The player meets Captain Mei at the city gate after the siege.
+#. type: dialogue
+#. emotion: neutral
+#. status: reviewed
+
+msgctxt "dialog.act3.first-meet.ask-sword"
+msgid "你的剑是新打的吗？"
+msgstr "Was your sword newly forged?"
+#. context: The player meets Captain Mei at the city gate after the siege.
+#. type: dialogue
+#. emotion: neutral
+#. status: reviewed
+
+msgctxt "dialog.act3.farewell.farewell"
+msgid "一路顺风，旅行者！"
+msgstr "Safe travels, traveler!"
+#. context: The player leaves the forge with the repaired sword.
+#. type: dialogue
+#. emotion: playful joyful
+#. status: reviewed
+
+msgctxt "dialog.act3.farewell.farewell-pun"
+msgid "剑客无剑，如鱼无水——改天我请你“剑”面！"
+msgstr "A swordsman without a sword is a fish out of water - let's have a re-\"blade\" meeting soon!"
+#. context: The player leaves the forge with the repaired sword. Anvil winks; the pun is on 见/剑.
+#. type: dialogue
+#. emotion: playful joyful
+#. status: reviewed
+
+msgctxt "dialog.act3.farewell.come-again"
+msgid "下次再来！"
+msgstr "Come back anytime!"
+#. context: The player leaves the forge with the repaired sword.
+#. type: dialogue
+#. emotion: playful joyful
+#. status: final
+
+msgctxt "quests.reward.reward-title"
+msgid "铁匠的谢礼"
+msgstr "The Blacksmith's Gratitude"
+#. context: Quest reward screen after the sword is returned.
+#. type: label
+#. emotion: grateful
+#. status: final
+
+msgctxt "quests.reward.reward-body"
+msgid "收下这枚护符吧。"
+msgstr "Please take this charm."
+#. context: Quest reward screen after the sword is returned.
+#. type: narration
+#. emotion: grateful
+#. status: reviewed
+
+msgctxt "quests.reward.reward-count"
+msgid "{count, plural, =0 {没有奖励} one {# 件奖励} other {# 件奖励}}"
+msgstr "{count, plural, =0 {No rewards} one {# reward} other {# rewards}}"
+#. context: Quest reward screen after the sword is returned.
+#. type: sentence
+#. emotion: grateful
+#. status: reviewed
+
+msgctxt "quests.reward.reward-accept"
+msgid "接受"
+msgstr "Accept"
+#. context: Quest reward screen after the sword is returned.
+#. type: label
+#. emotion: grateful
+#. status: final
+#. max-width: 8

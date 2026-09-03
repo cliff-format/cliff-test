@@ -1,0 +1,22 @@
+{
+  "file": "game-shard-terms.zh-CN.clif",
+  "stratum": "game",
+  "notes": "Canonical renderings for Emberveil: character names, factions, skills and items.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "spdx": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "annotator": "",
+    "upstream_revision": "",
+    "notes": "Glossary of the game stratum. Terms are canonical project decisions, so this file carries provenance but no per-item gold: the terms themselves are the gold."
+  },
+  "items": {}
+}

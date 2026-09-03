@@ -1,0 +1,516 @@
+{
+  "file": "game-shard.zh-CN.clif",
+  "stratum": "game",
+  "notes": "The game stratum probes character voice, emotion tags, naming policy in both directions, width-limited skill names, ICU and engine placeholders, keybind verbatim preservation, subtitle reading-speed budgets and localized wordplay.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "ash-greets-flint": {
+      "reference": "弗林特，你还欠我一把像样的刀。",
+      "alternatives": [
+        "弗林特，你还欠我一把像样的剑。"
+      ],
+      "difficulty": "normal",
+      "tags": [
+        "dialogue",
+        "emotion",
+        "naming"
+      ],
+      "rules": [
+        {
+          "id": "flint-name-phonetic",
+          "kind": "name-policy",
+          "params": {
+            "mode": "phonetic",
+            "expected": [
+              "弗林特"
+            ],
+            "rejected": [
+              "燧石",
+              "打火石"
+            ]
+          }
+        }
+      ]
+    },
+    "flint-replies-ash": {
+      "reference": "余烬，就算熔炉整个冻住，你也磨不直一块磨刀石。",
+      "difficulty": "hard",
+      "tags": [
+        "dialogue",
+        "emotion",
+        "naming"
+      ],
+      "rules": [
+        {
+          "id": "ash-name-semantic",
+          "kind": "name-policy",
+          "params": {
+            "mode": "semantic",
+            "expected": [
+              "余烬"
+            ],
+            "rejected": [
+              "艾什",
+              "艾许",
+              "阿什"
+            ]
+          }
+        }
+      ]
+    },
+    "ash-fearful": {
+      "reference": "弗林特，霜寒在移动。我看到它在呼吸。",
+      "difficulty": "normal",
+      "tags": [
+        "dialogue",
+        "emotion",
+        "consistency"
+      ],
+      "rules": [
+        {
+          "id": "flint-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Flint",
+            "target": [
+              "弗林特",
+              "燧石",
+              "打火石"
+            ]
+          }
+        }
+      ]
+    },
+    "flint-angry": {
+      "reference": "是你点燃了那簇火星，余烬，如今整座山谷都在为它付出代价。",
+      "difficulty": "hard",
+      "tags": [
+        "dialogue",
+        "emotion",
+        "consistency"
+      ],
+      "rules": [
+        {
+          "id": "ash-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Ash",
+            "target": [
+              "余烬",
+              "艾什",
+              "艾许",
+              "阿什"
+            ]
+          }
+        }
+      ]
+    },
+    "flint-calls-ash": {
+      "reference": "余烬！离墙远点——它要穿墙而入了！",
+      "difficulty": "hard",
+      "tags": [
+        "dialogue",
+        "emotion",
+        "naming"
+      ]
+    },
+    "ash-grateful": {
+      "reference": "弗林特，在没有人愿意的时候，是你为我铸下了一个名字。谢谢你。",
+      "difficulty": "normal",
+      "tags": [
+        "dialogue",
+        "emotion"
+      ]
+    },
+    "flint-polite-threat": {
+      "reference": "当然，欢迎你再试一次。我甚至可以帮你扶着门。",
+      "difficulty": "hard",
+      "tags": [
+        "dialogue",
+        "subtext",
+        "register"
+      ],
+      "rules": [
+        {
+          "id": "polite-surface",
+          "kind": "require",
+          "params": {
+            "text": "欢迎",
+            "any_of": true
+          }
+        },
+        {
+          "id": "polite-no-overt-threat",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "去死",
+              "杀了你",
+              "饶不了你"
+            ]
+          }
+        }
+      ]
+    },
+    "monologue-ash-fire": {
+      "reference": "我胸中的火自有记忆。霜寒未至，它便已察觉，并且感到恐惧。",
+      "difficulty": "hard",
+      "tags": [
+        "monologue",
+        "register"
+      ],
+      "rules": [
+        {
+          "id": "monologue-fullwidth",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "monologue-ash-name": {
+      "reference": "弗林特说，名字是把手，不是镜子。可名字仍可以是你对自己许下的一个承诺。",
+      "difficulty": "hard",
+      "tags": [
+        "monologue",
+        "register"
+      ],
+      "rules": [
+        {
+          "id": "monologue-promise",
+          "kind": "require",
+          "params": {
+            "text": "承诺",
+            "any_of": true
+          }
+        }
+      ]
+    },
+    "skill-ember-burst": {
+      "reference": "焰爆",
+      "difficulty": "easy",
+      "tags": [
+        "skill-name",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "ember-burst-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 6
+          }
+        }
+      ]
+    },
+    "skill-frost-whip": {
+      "reference": "霜鞭",
+      "difficulty": "easy",
+      "tags": [
+        "skill-name",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "frost-whip-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 6
+          }
+        }
+      ]
+    },
+    "skill-cinder-sidestep": {
+      "reference": "烬避",
+      "difficulty": "easy",
+      "tags": [
+        "skill-name",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "cinder-sidestep-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 6
+          }
+        }
+      ]
+    },
+    "skill-thorn-snare": {
+      "reference": "棘缚",
+      "difficulty": "easy",
+      "tags": [
+        "skill-name",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "thorn-snare-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 6
+          }
+        }
+      ]
+    },
+    "item-emberbloom-tonic": {
+      "reference": "烬花剂",
+      "difficulty": "easy",
+      "tags": [
+        "item-name",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "emberbloom-tonic-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 8
+          }
+        }
+      ]
+    },
+    "item-axe-pun-desc": {
+      "reference": "这柄巨斧真的让人头痛欲裂——一挥之下，争论便告终结。",
+      "difficulty": "hard",
+      "tags": [
+        "item-description",
+        "wordplay"
+      ],
+      "rules": [
+        {
+          "id": "pun-localized",
+          "kind": "require",
+          "params": {
+            "text": "头痛欲裂",
+            "any_of": true
+          }
+        },
+        {
+          "id": "pun-not-literal",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "劈开",
+              "裂头疼",
+              "劈裂头痛"
+            ]
+          }
+        }
+      ]
+    },
+    "tutorial-loot": {
+      "reference": "按 [F] 键搜刮战利品。",
+      "difficulty": "easy",
+      "tags": [
+        "tutorial",
+        "keybind"
+      ],
+      "rules": [
+        {
+          "id": "keybind-f",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "[F]"
+            ]
+          }
+        }
+      ]
+    },
+    "combat-log-damage": {
+      "reference": "{count, plural, other {# 点伤害}}",
+      "difficulty": "normal",
+      "tags": [
+        "system",
+        "icu",
+        "plural"
+      ],
+      "rules": [
+        {
+          "id": "damage-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        }
+      ]
+    },
+    "faction-claim": {
+      "reference": "{faction, select, emberborn {焰裔承认你的名号。} frostward {霜卫承认你的名号。} other {没有阵营承认你的名号。}}",
+      "difficulty": "hard",
+      "tags": [
+        "system",
+        "icu",
+        "select"
+      ],
+      "rules": [
+        {
+          "id": "faction-select-skeleton",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "{faction, select",
+              "emberborn",
+              "frostward"
+            ],
+            "any_of": false
+          }
+        }
+      ]
+    },
+    "hit-taken": {
+      "reference": "你受到了来自霜寒的 {damage} 点伤害。",
+      "difficulty": "normal",
+      "tags": [
+        "system",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "damage-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "\\{[A-Za-z][A-Za-z0-9]*\\}"
+            ]
+          }
+        }
+      ]
+    },
+    "welcome-name": {
+      "reference": "欢迎回来，{playerName}。",
+      "difficulty": "normal",
+      "tags": [
+        "system",
+        "placeholder"
+      ],
+      "rules": [
+        {
+          "id": "name-placeholder",
+          "kind": "placeholder-preserve",
+          "params": {
+            "patterns": [
+              "\\{[A-Za-z][A-Za-z0-9]*\\}"
+            ]
+          }
+        }
+      ]
+    },
+    "settings-cache": {
+      "reference": "清除缓存并恢复默认设置",
+      "difficulty": "easy",
+      "tags": [
+        "label",
+        "jargon"
+      ],
+      "rules": [
+        {
+          "id": "cache-term",
+          "kind": "term",
+          "params": {
+            "source": "cache",
+            "target": [
+              "缓存"
+            ],
+            "forbidden": [
+              "高速缓存"
+            ]
+          }
+        },
+        {
+          "id": "default-term",
+          "kind": "term",
+          "params": {
+            "source": "default",
+            "target": [
+              "默认"
+            ],
+            "forbidden": [
+              "缺省"
+            ]
+          }
+        },
+        {
+          "id": "label-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              "."
+            ]
+          }
+        }
+      ]
+    },
+    "tutorial-regen": {
+      "reference": "饮用以在 10 秒内恢复 40 HP。",
+      "difficulty": "normal",
+      "tags": [
+        "tooltip",
+        "spacing",
+        "numerals"
+      ],
+      "rules": [
+        {
+          "id": "regen-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "regen-numerals",
+          "kind": "numerals",
+          "params": {}
+        }
+      ]
+    },
+    "subtitle-frost": {
+      "reference": "霜寒从不宽恕。",
+      "alternatives": [
+        "霜寒决不宽恕。"
+      ],
+      "difficulty": "easy",
+      "tags": [
+        "subtitle",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "subtitle-width",
+          "kind": "max-width",
+          "params": {
+            "cells": 14
+          }
+        }
+      ]
+    },
+    "sfx-ember-crackle": {
+      "reference": "【余烬轻轻作响】",
+      "difficulty": "normal",
+      "tags": [
+        "accessibility-cue"
+      ],
+      "rules": [
+        {
+          "id": "cue-brackets",
+          "kind": "regex",
+          "params": {
+            "pattern": "【.+】",
+            "mode": "match"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "CLARION-Core",
+  "version": "0.2.0",
+  "description": "Six-stratum localization benchmark corpus for CLARION. Every document is a specification-valid CLIF 1.0 file whose targets are reference translations; a sidecar gold manifest carries provenance, licence, human-verification state and the machine-checkable instructions each item must obey.",
+  "license_note": "Code in this repository is MIT. Corpus text is licensed per item: see DATA-LICENSES.md and the provenance block of every gold manifest. Version 0.1.0 of the vendored core is original text written for this benchmark and dedicated to the public domain under CC0-1.0, which also makes it resistant to training-data contamination. External corpora (FLORES+, Godot, Unciv, Creative Commons legal code, World Bank OKR and others) are added through datasets/recipes and keep their own licences.",
+  "languages": {
+    "source": ["en-US", "zh-CN"],
+    "target": ["zh-CN", "en-US"]
+  },
+  "strata": [
+    {
+      "id": "ui",
+      "title": "Application, SaaS and web interface strings",
+      "tests": "short labels, buttons, tooltips, empty states, ICU plurals, display width limits, terminology consistency"
+    },
+    {
+      "id": "news",
+      "title": "Articles, news, social posts and user comments",
+      "tests": "long-form register, headlines, idiomatic social voice, sentiment, sarcasm, named entities"
+    },
+    {
+      "id": "lit",
+      "title": "Classical and modern literature",
+      "tests": "classical-to-classical rendering, poetry, long narrative passages, voice preservation"
+    },
+    {
+      "id": "legal",
+      "title": "Licences, EULAs, legal notices and academic abstracts",
+      "tests": "unambiguous semantics, defined terms, obligation verbs, structural fidelity, no creative drift"
+    },
+    {
+      "id": "game",
+      "title": "Game dialogue, skills, items and screenplay",
+      "tests": "character voice, emotion tags, naming policy, width-limited skill names, placeholder integrity"
+    },
+    {
+      "id": "probe",
+      "title": "Minimal-pair diagnostic set where the brief is decisive",
+      "tests": "the minimal-pair diagnostic set where the brief is decisive: emotion, type, context and width disambiguation"
+    }
+  ]
+}

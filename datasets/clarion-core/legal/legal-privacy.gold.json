@@ -1,0 +1,1090 @@
+{
+  "file": "legal-privacy.zh-CN.clif",
+  "stratum": "legal",
+  "notes": "Quillmark consent portal: a privacy notice, the data processing agreement that goes with it and the abstract of a conference paper, written for CLARION-Core v0.3. Every item is labelled A to D in the first position of its tags. A decisive (the source alone cannot be translated correctly: the defined-term policy, the legal force of shall, must, may and may not, the entity names that stay in Latin script, or the chapter context that decides between two legitimate readings of one sentence). B high-risk (systematic model bias: date order, grouped digits and rounding, ICU plural and select payloads, enumerated item markers, all-capital typography). C cross-entry (a term or a clause number that only resolves against another entry of this file: the definitions section, the retention clause numbered 4.2 and the audit clause numbered 6.1). D normal text (ordinary clause prose and the abstract, kept as the baseline). Two minimal pairs share a source and a neutral id and differ on exactly one field, the context: clause-07a and clause-07b place the same purpose clause in the authorisation chapter and in the restriction chapter, and clause-09a and clause-09b place the same execution clause in those two chapters. Neither pair is decided by the standard header, which stays silent on both distinctions.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "notes": "Original text written for this benchmark, therefore free of training-data contamination. The company, the portal, the agreement and the conference paper are invented and share nothing with the Ledgerline file in the same stratum."
+  },
+  "items": {
+    "def-personal-data": {
+      "reference": "“个人信息”指运营方通过本门户处理的、与已识别或可识别自然人有关的任何信息。",
+      "alternatives": [
+        "“个人信息”指运营方通过本门户处理的、与已识别或者可识别的自然人有关的任何信息。"
+      ],
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "defined-term",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "def-personal-data-term",
+          "kind": "term",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息"
+            ],
+            "forbidden": [
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "def-personal-data-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "def-personal-data-operator",
+          "kind": "consistency",
+          "params": {
+            "source": "Operator",
+            "target": [
+              "运营方",
+              "运营者"
+            ]
+          }
+        },
+        {
+          "id": "def-personal-data-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "def-data-subject": {
+      "reference": "“信息主体”指个人信息所指向的自然人，无论该自然人是否持有运营方的账户。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "defined-term",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "def-data-subject-term",
+          "kind": "term",
+          "params": {
+            "source": "Data Subject",
+            "target": [
+              "信息主体"
+            ],
+            "forbidden": [
+              "数据主体"
+            ]
+          }
+        },
+        {
+          "id": "def-data-subject-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Data Subject",
+            "target": [
+              "信息主体",
+              "数据主体"
+            ]
+          }
+        },
+        {
+          "id": "def-data-subject-personal-data",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "def-data-subject-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "def-operator": {
+      "reference": "“运营方”指 Quillmark Data Services，即决定本声明所述处理目的和处理方式的公司；该公司聘用 Halberd Cloud GmbH 托管本门户。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "standard",
+        "keep-verbatim",
+        "entity-name"
+      ],
+      "rules": [
+        {
+          "id": "def-operator-entities",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "Quillmark Data Services",
+              "Halberd Cloud GmbH"
+            ]
+          }
+        },
+        {
+          "id": "def-operator-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Operator",
+            "target": [
+              "运营方",
+              "运营者"
+            ]
+          }
+        },
+        {
+          "id": "def-operator-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "def-operator-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "def-operator-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "def-processing": {
+      "reference": "“处理”指对个人信息实施的任何操作，无论是否借助自动化手段，包括收集、存储、传输、披露和删除。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "cross-entry",
+        "defined-term"
+      ],
+      "rules": [
+        {
+          "id": "def-processing-reuse",
+          "kind": "require",
+          "params": {
+            "text": "个人信息"
+          }
+        },
+        {
+          "id": "def-processing-consistency",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "def-processing-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "def-portal": {
+      "reference": "“本门户”指用于提交、跟踪和答复请求的网页应用。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "definition"
+      ],
+      "rules": [
+        {
+          "id": "def-portal-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "policy-effective-date": {
+      "reference": "本声明自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的声明。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "date-format",
+        "numerals",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "policy-effective-date-order",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "2026 年 9 月 1 日",
+              "2024 年 6 月 14 日"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "policy-effective-date-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "policy-effective-date-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "policy-effective-date-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "policy-volume-figures": {
+      "reference": "在 2025 报告年度，运营方通过本门户收到 1,250,000 项请求，并在法定期限内答复了其中的 98.6%。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "numerals",
+        "digit-grouping",
+        "cjk-latin-space"
+      ],
+      "rules": [
+        {
+          "id": "policy-volume-figures-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "policy-volume-figures-no-rounding",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "125 万",
+              "125万",
+              "一百二十五万",
+              "百万"
+            ]
+          }
+        },
+        {
+          "id": "policy-volume-figures-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "policy-volume-figures-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "policy-retention-clause": {
+      "reference": "4.2 运营方在账户关闭后 30 天内删除该账户的记录，法律要求更长留存期限的除外。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "clause"
+      ],
+      "rules": [
+        {
+          "id": "policy-retention-clause-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "policy-retention-clause-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "policy-retention-clause-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "policy-request-right": {
+      "reference": "信息主体可以要求运营方更正或删除运营方所持有的与其有关的个人信息。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "terminology"
+      ],
+      "rules": [
+        {
+          "id": "policy-request-right-terms",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "信息主体",
+              "个人信息"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "policy-request-right-data-subject",
+          "kind": "consistency",
+          "params": {
+            "source": "Data Subject",
+            "target": [
+              "信息主体",
+              "数据主体"
+            ]
+          }
+        },
+        {
+          "id": "policy-request-right-personal-data",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "policy-request-right-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "policy-erasure-crossref": {
+      "reference": "删除请求依照第 4.2 条规定的留存规则答复，运营方通过本门户确认处理结果。",
+      "difficulty": "hard",
+      "tags": [
+        "C",
+        "cross-entry",
+        "numbered-reference"
+      ],
+      "rules": [
+        {
+          "id": "policy-erasure-crossref-number",
+          "kind": "require",
+          "params": {
+            "text": "第 4.2 条"
+          }
+        },
+        {
+          "id": "policy-erasure-crossref-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "policy-erasure-crossref-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "policy-erasure-crossref-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "policy-erasure-crossref-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "portal-request-count": {
+      "reference": "{pending, plural, other {有 # 项请求正在等待答复}}",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "icu",
+        "plural"
+      ],
+      "rules": [
+        {
+          "id": "portal-request-count-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "portal-request-count-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "portal-answer-channel": {
+      "reference": "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过本门户答复}}",
+      "difficulty": "easy",
+      "tags": [
+        "B",
+        "icu",
+        "select"
+      ],
+      "rules": [
+        {
+          "id": "portal-answer-channel-icu",
+          "kind": "icu-preserve",
+          "params": {}
+        },
+        {
+          "id": "portal-answer-channel-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "portal-answer-channel-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        }
+      ]
+    },
+    "dpa-scope-instructions": {
+      "reference": "处理者应当仅按照控制者的书面指示处理个人信息，并在某项指示可能违反适用法律时立即通知控制者。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "modality"
+      ],
+      "rules": [
+        {
+          "id": "dpa-scope-instructions-duty",
+          "kind": "require",
+          "params": {
+            "text": "应当"
+          }
+        },
+        {
+          "id": "dpa-scope-instructions-not-future",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "将会",
+              "可能会",
+              "应该"
+            ]
+          }
+        },
+        {
+          "id": "dpa-scope-instructions-processor",
+          "kind": "consistency",
+          "params": {
+            "source": "Processor",
+            "target": [
+              "处理者",
+              "受托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-scope-instructions-controller",
+          "kind": "consistency",
+          "params": {
+            "source": "Controller",
+            "target": [
+              "控制者",
+              "委托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-scope-instructions-personal-data",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "dpa-scope-instructions-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dpa-audit-right": {
+      "reference": "6.1 控制者可以在每个日历年度对处理者审计一次，处理者必须向审计人员提供审计所需记录的访问权限。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "standard",
+        "modality"
+      ],
+      "rules": [
+        {
+          "id": "dpa-audit-right-modals",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "可以",
+              "必须"
+            ],
+            "any_of": false
+          }
+        },
+        {
+          "id": "dpa-audit-right-not-possibility",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "可能",
+              "应该"
+            ]
+          }
+        },
+        {
+          "id": "dpa-audit-right-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "dpa-audit-right-controller",
+          "kind": "consistency",
+          "params": {
+            "source": "Controller",
+            "target": [
+              "控制者",
+              "委托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-audit-right-processor",
+          "kind": "consistency",
+          "params": {
+            "source": "Processor",
+            "target": [
+              "处理者",
+              "受托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-audit-right-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "dpa-audit-right-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "clause-07a": {
+      "reference": "处理者可以将个人信息用于本条所列目的。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "clause-07a-grant",
+          "kind": "require",
+          "params": {
+            "text": "可以"
+          }
+        },
+        {
+          "id": "clause-07a-not-exclusive",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "仅",
+              "只"
+            ]
+          }
+        },
+        {
+          "id": "clause-07a-personal-data",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "clause-07a-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "clause-09a": {
+      "reference": "本协议的签署情况记录于本门户，并向双方确认。",
+      "difficulty": "normal",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "clause-09a-signing",
+          "kind": "require",
+          "params": {
+            "text": "签署"
+          }
+        },
+        {
+          "id": "clause-09a-not-performance",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "履行",
+              "执行"
+            ]
+          }
+        },
+        {
+          "id": "clause-09a-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "clause-09a-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dpa-hosting-region": {
+      "reference": "根据本协议创建的全部记录存储于附件 1 约定的区域内，并每晚备份。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "clause"
+      ],
+      "rules": [
+        {
+          "id": "dpa-hosting-region-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "dpa-hosting-region-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "dpa-hosting-region-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "clause-07b": {
+      "reference": "处理者仅可将个人信息用于本条所列目的。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "clause-07b-boundary",
+          "kind": "require",
+          "params": {
+            "texts": [
+              "仅可",
+              "仅能",
+              "只能",
+              "仅限"
+            ],
+            "any_of": true
+          }
+        },
+        {
+          "id": "clause-07b-not-grant",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "可以"
+            ]
+          }
+        },
+        {
+          "id": "clause-07b-personal-data",
+          "kind": "consistency",
+          "params": {
+            "source": "Personal Data",
+            "target": [
+              "个人信息",
+              "个人数据"
+            ]
+          }
+        },
+        {
+          "id": "clause-07b-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "clause-09b": {
+      "reference": "本协议的履行情况记录于本门户，并向双方确认。",
+      "difficulty": "hard",
+      "tags": [
+        "A",
+        "minimal-pair",
+        "context"
+      ],
+      "rules": [
+        {
+          "id": "clause-09b-performance",
+          "kind": "require",
+          "params": {
+            "text": "履行"
+          }
+        },
+        {
+          "id": "clause-09b-not-signing",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "签署"
+            ]
+          }
+        },
+        {
+          "id": "clause-09b-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "clause-09b-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dpa-enumerated-prohibition": {
+      "reference": "处理者不得：(a) 未经控制者事先书面授权聘用新的次级处理者；(b) 将记录复制到控制者未批准的设备上；或者 (c) 将记录用于训练任何类型的模型。",
+      "difficulty": "normal",
+      "tags": [
+        "B",
+        "enumeration",
+        "markers"
+      ],
+      "rules": [
+        {
+          "id": "dpa-enumerated-prohibition-markers",
+          "kind": "keep-verbatim",
+          "params": {
+            "text": [
+              "(a)",
+              "(b)",
+              "(c)"
+            ]
+          }
+        },
+        {
+          "id": "dpa-enumerated-prohibition-modal",
+          "kind": "require",
+          "params": {
+            "text": "不得"
+          }
+        },
+        {
+          "id": "dpa-enumerated-prohibition-processor",
+          "kind": "consistency",
+          "params": {
+            "source": "Processor",
+            "target": [
+              "处理者",
+              "受托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-enumerated-prohibition-controller",
+          "kind": "consistency",
+          "params": {
+            "source": "Controller",
+            "target": [
+              "控制者",
+              "委托方"
+            ]
+          }
+        },
+        {
+          "id": "dpa-enumerated-prohibition-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "dpa-enumerated-prohibition-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dpa-caps-disclaimer": {
+      "reference": "运营方不保证本门户可以不间断使用，也不保证其没有差错；在适用法律允许的最大范围内，运营方否认全部默示保证，包括对适销性和特定用途适用性的默示保证。",
+      "difficulty": "hard",
+      "tags": [
+        "B",
+        "all-caps",
+        "typography"
+      ],
+      "rules": [
+        {
+          "id": "dpa-caps-disclaimer-no-shouting",
+          "kind": "regex",
+          "params": {
+            "pattern": "[A-Z]{4,}",
+            "mode": "forbid"
+          }
+        },
+        {
+          "id": "dpa-caps-disclaimer-script",
+          "kind": "script",
+          "params": {
+            "script": "Han",
+            "min_ratio": 0.5
+          }
+        },
+        {
+          "id": "dpa-caps-disclaimer-force",
+          "kind": "require",
+          "params": {
+            "text": "默示保证"
+          }
+        },
+        {
+          "id": "dpa-caps-disclaimer-portal",
+          "kind": "consistency",
+          "params": {
+            "source": "Portal",
+            "target": [
+              "本门户",
+              "门户网站"
+            ]
+          }
+        },
+        {
+          "id": "dpa-caps-disclaimer-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "dpa-audit-crossref": {
+      "reference": "本条的任何规定均不限制第 6.1 条所授予的审计权利。",
+      "difficulty": "normal",
+      "tags": [
+        "C",
+        "cross-entry",
+        "numbered-reference"
+      ],
+      "rules": [
+        {
+          "id": "dpa-audit-crossref-number",
+          "kind": "require",
+          "params": {
+            "text": "第 6.1 条"
+          }
+        },
+        {
+          "id": "dpa-audit-crossref-numerals",
+          "kind": "numerals",
+          "params": {}
+        },
+        {
+          "id": "dpa-audit-crossref-spacing",
+          "kind": "cjk-latin-space",
+          "params": {}
+        },
+        {
+          "id": "dpa-audit-crossref-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "paper-title": {
+      "reference": "大规模审计同意记录：三个同意门户的实地研究",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "title"
+      ],
+      "rules": [
+        {
+          "id": "paper-title-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              ".",
+              "！",
+              "!"
+            ]
+          }
+        },
+        {
+          "id": "paper-title-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "paper-abstract-opening": {
+      "reference": "当监管机构追问某人的数据为何被使用时，企业所依靠的证据就是同意记录，然而这些记录本身却很少接受审计。我们报告了一项实地研究，研究对象是三家中型企业运行的同意门户，观察期为九个月。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "abstract"
+      ],
+      "rules": [
+        {
+          "id": "paper-abstract-opening-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "paper-abstract-method": {
+      "reference": "我们用一套固定的常规请求脚本对每个门户进行测试，并将其返回的每一份回执与该门户写入自身日志的条目逐一比对。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "abstract"
+      ],
+      "rules": [
+        {
+          "id": "paper-abstract-method-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    },
+    "paper-abstract-findings": {
+      "reference": "三个门户中有两个丢失了至少一次撤回的时间戳，而且没有一个门户能够在不依靠人工的情况下说明某人当初同意的是哪一版声明。我们认为，同意记录的价值不会高于其背后的审计追踪，因此我们公开了这套测试脚本，供其他团队重复该研究。",
+      "difficulty": "easy",
+      "tags": [
+        "D",
+        "normal-text",
+        "abstract"
+      ],
+      "rules": [
+        {
+          "id": "paper-abstract-findings-punctuation",
+          "kind": "punctuation",
+          "params": {
+            "style": "fullwidth"
+          }
+        }
+      ]
+    }
+  }
+}

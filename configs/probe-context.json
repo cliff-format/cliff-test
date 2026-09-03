@@ -1,0 +1,29 @@
+{
+  "name": "clarion-context-value",
+  "corpus": "clarion-core",
+  "strata": ["probe"],
+  "formats": ["clif", "po", "android"],
+  "arms": ["bare", "context"],
+  "repeats": 2,
+  "concurrency": 200,
+  "isolation": "per-task",
+  "tokenizer": "o200k_base",
+  "target_language": "zh-CN",
+  "include_policy": true,
+  "include_glossary": false,
+  "allow_glossary_output": true,
+  "workflow_style": "deliverable",
+  "provider": {
+    "kind": "openai",
+    "model": "deepseek-v4-flash",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "temperature": 0.0,
+    "max_output_tokens": 131072,
+    "timeout_s": 1800,
+    "max_retries": 3,
+    "reasoning": "off"
+  },
+  "judge": { "enabled": false },
+  "pipeline": { "fetch": [], "skip": ["fetch", "robustness"] }
+}

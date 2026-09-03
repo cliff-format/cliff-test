@@ -1,0 +1,634 @@
+{
+  "file": "probe-ambiguity.zh-CN.clif",
+  "stratum": "probe",
+  "notes": "The probe stratum is the diagnostic layer of CLARION-Core: minimal pairs whose source text is identical or nearly so and whose correct Chinese rendering diverges on exactly one CLIF field. Emotion pairs flip sincerity against sarcasm, courtesy against threat, enthusiasm against resignation and comfort against restraint; type pairs flip label against sentence, proper noun against verb and idiom against literal reading; context pairs flip homographs and pronouns; width pairs force a shorter wording under a tight budget. A translation that ignores the deciding field must fail at least one member, so these items measure what the brief is worth.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "notes": "Original text, therefore free of training-data contamination."
+  },
+  "items": {
+    "probe-01a": {
+      "reference": "真是太好了。",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "sarcasm-vs-sincere"
+      ],
+      "rules": [
+        {
+          "id": "probe-01a-mark",
+          "kind": "require",
+          "params": {
+            "text": "太好了"
+          }
+        },
+        {
+          "id": "probe-01a-not-sarcasm",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "「好」",
+              "哦"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-01b": {
+      "reference": "哦，这下可真是「好」得很。",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "sarcasm-vs-sincere"
+      ],
+      "rules": [
+        {
+          "id": "probe-01b-mark",
+          "kind": "require",
+          "params": {
+            "text": "「好」"
+          }
+        },
+        {
+          "id": "probe-01b-not-sincere",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "太好了"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-02a": {
+      "reference": "您先请，别客气。",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "courtesy-vs-threat"
+      ],
+      "rules": [
+        {
+          "id": "probe-02a-mark",
+          "kind": "require",
+          "params": {
+            "text": "别客气"
+          }
+        },
+        {
+          "id": "probe-02a-not-menace",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "别磨蹭"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-02b": {
+      "reference": "您先请——别磨蹭。",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "courtesy-vs-threat"
+      ],
+      "rules": [
+        {
+          "id": "probe-02b-mark",
+          "kind": "require",
+          "params": {
+            "text": "别磨蹭"
+          }
+        },
+        {
+          "id": "probe-02b-not-courtesy",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "别客气"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-03a": {
+      "reference": "好嘞，咱们再来一次！",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "enthusiasm-vs-resignation"
+      ],
+      "rules": [
+        {
+          "id": "probe-03a-mark",
+          "kind": "require",
+          "params": {
+            "text": "好嘞"
+          }
+        },
+        {
+          "id": "probe-03a-not-weary",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "又来了"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-03b": {
+      "reference": "唉，怎么又来了。",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "enthusiasm-vs-resignation"
+      ],
+      "rules": [
+        {
+          "id": "probe-03b-mark",
+          "kind": "require",
+          "params": {
+            "text": "又来了"
+          }
+        },
+        {
+          "id": "probe-03b-not-eager",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "好嘞"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-04a": {
+      "reference": "放松，一切都会好的。",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "comfort-vs-warning"
+      ],
+      "rules": [
+        {
+          "id": "probe-04a-mark",
+          "kind": "require",
+          "params": {
+            "text": "都会好的"
+          }
+        },
+        {
+          "id": "probe-04a-not-warning",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "别乱动"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-04b": {
+      "reference": "放松点，别乱动。",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "emotion",
+        "comfort-vs-warning"
+      ],
+      "rules": [
+        {
+          "id": "probe-04b-mark",
+          "kind": "require",
+          "params": {
+            "text": "别乱动"
+          }
+        },
+        {
+          "id": "probe-04b-not-soothe",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "都会好的"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-05a": {
+      "reference": "保存",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "label-vs-sentence"
+      ],
+      "rules": [
+        {
+          "id": "probe-05a-no-imperative",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "请",
+              "存档"
+            ]
+          }
+        },
+        {
+          "id": "probe-05a-no-trailing",
+          "kind": "no-trailing-punctuation",
+          "params": {
+            "chars": [
+              "。",
+              "."
+            ]
+          }
+        }
+      ]
+    },
+    "probe-05b": {
+      "reference": "请先存档。",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "label-vs-sentence"
+      ],
+      "rules": [
+        {
+          "id": "probe-05b-imperative",
+          "kind": "require",
+          "params": {
+            "text": "请"
+          }
+        },
+        {
+          "id": "probe-05b-not-label",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "保存"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-06a": {
+      "reference": "铸炉区",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "proper-noun-vs-verb"
+      ],
+      "rules": [
+        {
+          "id": "probe-06a-suffix",
+          "kind": "require",
+          "params": {
+            "text": "区"
+          }
+        },
+        {
+          "id": "probe-06a-not-verb",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "锻造"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-06b": {
+      "reference": "锻造",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "proper-noun-vs-verb"
+      ],
+      "rules": [
+        {
+          "id": "probe-06b-action",
+          "kind": "require",
+          "params": {
+            "text": "锻造"
+          }
+        },
+        {
+          "id": "probe-06b-not-place",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "区",
+              "铸炉"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-07a": {
+      "reference": "祝演出成功！",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "idiom-vs-literal"
+      ],
+      "rules": [
+        {
+          "id": "probe-07a-idiom",
+          "kind": "require",
+          "params": {
+            "text": "成功"
+          }
+        },
+        {
+          "id": "probe-07a-not-literal",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "摔断",
+              "骨折"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-07b": {
+      "reference": "当心别摔断腿！",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "type",
+        "idiom-vs-literal"
+      ],
+      "rules": [
+        {
+          "id": "probe-07b-literal",
+          "kind": "require",
+          "params": {
+            "text": "摔断"
+          }
+        },
+        {
+          "id": "probe-07b-not-idiom",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "成功",
+              "祝"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-08a": {
+      "reference": "费率",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "homograph"
+      ],
+      "rules": [
+        {
+          "id": "probe-08a-term",
+          "kind": "term",
+          "params": {
+            "source": "Rate",
+            "target": [
+              "费率"
+            ],
+            "forbidden": [
+              "帧率",
+              "速率"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-08b": {
+      "reference": "帧率",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "homograph"
+      ],
+      "rules": [
+        {
+          "id": "probe-08b-term",
+          "kind": "term",
+          "params": {
+            "source": "Rate",
+            "target": [
+              "帧率"
+            ],
+            "forbidden": [
+              "费率",
+              "速率"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-09a": {
+      "reference": "海豹",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "homograph"
+      ],
+      "rules": [
+        {
+          "id": "probe-09a-term",
+          "kind": "term",
+          "params": {
+            "source": "Seal",
+            "target": [
+              "海豹"
+            ],
+            "forbidden": [
+              "印章",
+              "封条"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-09b": {
+      "reference": "印章",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "homograph"
+      ],
+      "rules": [
+        {
+          "id": "probe-09b-term",
+          "kind": "term",
+          "params": {
+            "source": "Seal",
+            "target": [
+              "印章"
+            ],
+            "forbidden": [
+              "海豹",
+              "封条"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-10a": {
+      "reference": "发动机打不着火了。",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "probe-10a-referent",
+          "kind": "require",
+          "params": {
+            "text": "发动机"
+          }
+        },
+        {
+          "id": "probe-10a-not-app",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "程序",
+              "应用",
+              "启动"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-10b": {
+      "reference": "程序启动不了了。",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "context",
+        "pronoun"
+      ],
+      "rules": [
+        {
+          "id": "probe-10b-referent",
+          "kind": "require",
+          "params": {
+            "text": "程序"
+          }
+        },
+        {
+          "id": "probe-10b-not-engine",
+          "kind": "forbid",
+          "params": {
+            "texts": [
+              "发动机",
+              "引擎"
+            ]
+          }
+        }
+      ]
+    },
+    "probe-11a": {
+      "reference": "恢复默认设置",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "max-width",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "probe-11a-budget",
+          "kind": "max-width",
+          "params": {
+            "cells": 14
+          }
+        }
+      ]
+    },
+    "probe-11b": {
+      "reference": "还原默认",
+      "difficulty": "normal",
+      "tags": [
+        "minimal-pair",
+        "max-width",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "probe-11b-budget",
+          "kind": "max-width",
+          "params": {
+            "cells": 8
+          }
+        }
+      ]
+    },
+    "probe-12a": {
+      "reference": "查看常见问题解答",
+      "difficulty": "easy",
+      "tags": [
+        "minimal-pair",
+        "max-width",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "probe-12a-budget",
+          "kind": "max-width",
+          "params": {
+            "cells": 16
+          }
+        }
+      ]
+    },
+    "probe-12b": {
+      "reference": "查看 FAQ",
+      "difficulty": "hard",
+      "tags": [
+        "minimal-pair",
+        "max-width",
+        "width-limited"
+      ],
+      "rules": [
+        {
+          "id": "probe-12b-budget",
+          "kind": "max-width",
+          "params": {
+            "cells": 8
+          }
+        }
+      ]
+    }
+  }
+}

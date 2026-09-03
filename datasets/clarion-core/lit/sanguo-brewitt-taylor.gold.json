@@ -1,0 +1,640 @@
+{
+  "file": "sanguo-brewitt-taylor.en-US.clif",
+  "stratum": "lit",
+  "notes": "Classical Chinese chapter-novel prose with a professional 1925 English translation. Both sides are public domain and both are archaic in their own language, which is what the classical-to-classical requirement means for localization. Only the opening chapters are imported. Paragraph alignment is proposed by a model as index pairs and then verified: indices must exist, the mapping must be strictly increasing on both sides, and the length ratio must be plausible. Brewitt-Taylor translates freely, so unverifiable pairs are dropped rather than repaired.",
+  "provenance": {
+    "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+    "url": "https://www.gutenberg.org/ebooks/23950",
+    "license": "public domain (Project Gutenberg)",
+    "spdx": "CC0-1.0",
+    "license_url": "https://www.gutenberg.org/policy/permission.html",
+    "redistributable": true,
+    "human_verified": true,
+    "verifier": "upstream project",
+    "retrieved": "2026-09-01T00:01:31+00:00",
+    "origin": "public",
+    "context_origin": "annotated",
+    "annotator": "deepseek-v4-pro",
+    "upstream_revision": "PG23950+PG77416",
+    "fingerprint": "a51726259804a67b",
+    "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor)."
+  },
+  "items": {
+    "chapter-1-001": {
+      "reference": "It fell upon the day of full moon of the fourth month, second year of the period Chien-Ning, that the Emperor went in state to the Wên-tê Hall. As he drew near the Throne a rushing whirlwind arose in the corner of the hall and, lo! from the roof beams floated down a monstrous black serpent that coiled itself up on the very seat of majesty. The Emperor fell in a swoon. Those nearest him hastily raised and bore him to his palace while the courtiers scattered and fled. The serpent disappeared.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "4321df97339d0ec40a4ec8c8bcc263e065d0c20d5a92487f215121554ae63cc6",
+        "reference_sha256": "5d980a798a568ec6fd740f18899bb63825c5028eff7cc97381488c322aeb3b58"
+      }
+    },
+    "chapter-1-002": {
+      "reference": "Such were some of various omens. The Emperor, greatly moved by these signs of the displeasure of Heaven, issued an edict asking his ministers for an explanation of the calamities and marvels. A certain Tsʻai Yung replied bluntly that showers of insects and changes of fowls’ sexes were brought about by feminine interference in State affairs.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "12f11ff4b550bb2eed6a0a568e825ddd8c522e7fba37aeef72838b6264fd2530",
+        "reference_sha256": "fd1e79cacf6dc7acfa05e19030e1da6516f844990c41365a3c2b3886876ebd98"
+      }
+    },
+    "chapter-1-003": {
+      "reference": "At this time in Chülu was a certain Chang family, of whom three brothers bore the name of Chio, Pao and Liang respectively. The eldest was an unclassed graduate, who devoted himself to medicine. One day, while culling simples in the woods, he met a venerable old gentleman with very bright eyes and fresh complexion, who walked leaning on a staff. The old man beckoned Chio into a cave and there gave him three volumes of the “Book of Heaven.” “This book” said he, “is the Way of Peace. With the aid of these volumes you can convert the world and rescue mankind. But you must be single-minded, or, rest assured, you will greatly suffer.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "3662a56e113aaa633d6f952efd05293bcf51c737b35952d4f0973753cb87751d",
+        "reference_sha256": "65145c4fa79811e756ce19dc15c83198b1cc57aa69fbbe40faac9454d51a32d4"
+      }
+    },
+    "chapter-1-004": {
+      "reference": "The plot having thus become known the Changs were forced at once to take the field. They assumed grandiose titles, Tʻien Kung, or Celestial Duke, Ti Kung, or Terrestrial Duke, Jên Kung, or Duke of Humanity, and in these names they put forth this manifesto:—“The good fortune of the Hans is exhausted and the Wise Man has appeared. Discern the will of Heaven, O ye people, and walk in the way of righteousness, whereby alone ye may attain to peace.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "5560b7176937482f3c269b99303291a71568497cff4603d5aa36bc0a60aeceb6",
+        "reference_sha256": "1af3ac7a5473d158b429d8312e7e2787aba5b6df6cf82c43569e99393d07b6ff"
+      }
+    },
+    "chapter-1-005": {
+      "reference": "It is now time to turn to Chang Chio. He led his army into Yuchow, the northern of the eight divisions of the country. The Prefect was one Liu Yen, a scion of the Imperial House through a certain Lu, Prince Kung of Chingling. Learning of the approach of the rebels, the Prefect called in the Hsiao-yü Tsou Ching to consult over the position. Said Tsou, “They are many and we few; you must enlist more men to oppose them.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "ac2c3487d6c6b36f668e2a2d7dfc9615f296d2979bfb7ca4280e76161c5e0f64",
+        "reference_sha256": "24b18b93ef0180a814409076593be64838515ade836eecbfa80702884aae84d1"
+      }
+    },
+    "chapter-1-006": {
+      "reference": "This man was no mere bookish scholar nor found he any pleasure in study. But he was liberal and amiable, albeit a man of few words, hiding all feeling under a calm exterior. He had always cherished a yearning for high emprise and had cultivated the friendship of men of mark. He was tall of stature. His ears were long, the lobes touching his shoulders, and his hands hung down below his knees. His eyes were very prominent, so that he could see backward past his ears. His complexion was clear as jade and he had rich red lips. He was a descendant of a Prince whose father was the grandson of the Emperor Ching, (the occupant of the dragon throne a century and a half B.C.) His name was Liu Pei, or more commonly Liu Yüan-tê. Many years before one of his forbears had been Marquis of that very district, but had lost his rank for remissness in ceremonial offerings. However, that branch of the family had remained on in the place, gradually becoming poorer and poorer as the years rolled on. His father Liu Hung had been a scholar and an official but died young. The widow and orphan were left alone and Pei as a lad won a reputation for filial piety.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "0c25529a87ca629f2fbdf836603c0a38b8030dc84d8b3d1bcb431a0405846d97",
+        "reference_sha256": "8d1b2506af5e7355112f72e043ba6cf1c2b81f26d5aef7b80b8b1e649bbbcfbd"
+      }
+    },
+    "chapter-1-007": {
+      "reference": "Said Fei, “The peach trees in the orchard behind the house are just in full flower. To-morrow we will institute a sacrifice there and solemnly declare our intention before Heaven and Earth. And we three will swear brotherhood and unity of aims and sentiments; thus will we enter upon our great task.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "4691e150bd25ac32828fa6e91d87cc4ad9530371a000309a69843d29b654eb7f",
+        "reference_sha256": "96017413a8cc07f8c317f51df6d4c25689dbc2989a894b648553a90ec83b8a30"
+      }
+    },
+    "chapter-1-008": {
+      "reference": "Two heroes new to war’s alarms, Ride boldly forth to try their arms. Their doughty deeds three kingdoms tell And poets sing how these befell.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "9f188e209deb7cfdef21de7a72cd4bfbe986a2da66bf649ed1e246d2e33782a7",
+        "reference_sha256": "83812224f46d2a7d24a890e7c391d850062050a077e4def05dd6b12f554ecbb8"
+      }
+    },
+    "chapter-1-009": {
+      "reference": "So they prepared an ambush. The two younger brothers, each with a goodly party, went behind the hills right and left and there hid. When the gongs beat they were to move out to support the main army.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "d1485cad4a1bb39b8d8df759aef09d3e541812d6f4420eef70a7b8e1a6701504",
+        "reference_sha256": "a5d87e2a164444d15e27a58ef594236e03b8a9bfd071ef30b75aac14bdd9956e"
+      }
+    },
+    "chapter-1-010": {
+      "reference": "Tho’ fierce as tigers soldiers be, Battles are won by strategy. A hero comes; he gains renown, Already destined for a crown.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "ca9b9a713d8a98690b1d98711930c84d1339cc7d5ca12a123651a64f8871c0d5",
+        "reference_sha256": "e75727c04a85c17abe4b720748dd146f15bdaa4f303c006fdeafaa984c0c45a5"
+      }
+    },
+    "chapter-1-011": {
+      "reference": "After the celebrations in honour of victory were over Tsou Ching proposed to return home, but Yüan-tê preferred to go to the aid of his old master Lu Chih, then struggling with a horde of rebels led by Chang Chio. So they separated and the three brothers with their troop made their way of Kuangtsung.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "c8d95942b89bd93f6eea013c3ef0c24a72b727727d27cf966c8c2e74b5b4b071",
+        "reference_sha256": "099771dd46cf1a112ab98ef116860ab4ae58bab146791e89781a3f407d26db91"
+      }
+    },
+    "chapter-1-012": {
+      "reference": "At that time the rebels there were three to one and the two armies were facing each other. Neither had had any success. The Prefect said to Liu Pei, “I am surrounding these rebels here but the other two brothers Chang Liang and Chang Pao are strongly intrenched opposite Huangfu Sung and Chu Chien at Yingchʻuan. I will give you a thousand more men and with these you can go to find out what is happening and we can then settle the moment to attack.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "98f5e5cd89fd401261345425cb509d86e846dc45710646aa5eee62b43ee148e6",
+        "reference_sha256": "afe88aed033f84cdfe74a06f8d8fca7c450d396b5d1761b55889bbad9fea90ca"
+      }
+    },
+    "chapter-1-013": {
+      "reference": "As a young man Tsʻao Tsʻao had been fond of hunting and delighted in songs and dancing. He was resourceful and full of guile. An uncle, seeing the young fellow so unsteady, used to get angry with him and told his father Tsʻao Sung of his misdeeds. His father remonstrated with him.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "4fb46e3b06ee969b9d9f0f4918048f0550289d0d9f5e50bebd5f7fa1fb9c4ec5",
+        "reference_sha256": "b4985f4301a83d87692b80884c75a2392a2ef8a88f933d7a9173060b7e0a1e35"
+      }
+    },
+    "chapter-1-014": {
+      "reference": "We return now to Yüan-tê. He and his brothers were hastening toward the point of danger when they heard the din of battle and saw flames rising high toward the sky. However they arrived too late for the fighting. They saw Huangfu and Chu to whom they told the intentions of Lu Chih.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "972f9518c3994f07ad8fde43599cbfe37996253725408b1837aafca0a42b5936",
+        "reference_sha256": "ed236580f88a256421fb35230913a78e9d5b5e7a5e7a1cd4ebb8e2dbac0043e8"
+      }
+    },
+    "chapter-1-015": {
+      "reference": "The three brothers retraced their steps. Half way along the road they met a party of soldiers escorting a prisoner in a cage-cart. When they drew near the prisoner was no other than the man they were going to help. Hastily dismounting Liu Pei asked what had happened. Lu Chih explained, “I had surrounded the rebels and was on the point of smashing them, when Chang Chio employed some of his supernatural powers and prevented my victory. The Court sent down a eunuch to enquire into my failure and that official demanded a bribe. I told him how hard pressed we were and asked him where, in the circumstances, I could find a gift for him. He went away in wrath and reported that I was hiding behind my ramparts and would not give battle and I disheartened my men. So I was superseded by one Tung Cho and I have to go to the capital to answer the charge.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "d809248009768a847c562361009827815fc8d5c5a60bac573c296790b93b1495",
+        "reference_sha256": "684878b2adaa5394e5b99619b6db8898daa97251c07d4b40f49ae273dbb5e250"
+      }
+    },
+    "chapter-1-016": {
+      "reference": "Chang Chio had worsted Tung Cho and was following up his advantage. He was in hot pursuit when the three brothers dashed into his army, threw his ranks into confusion and drove him back. Then they returned with the rescued general to his camp.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "2812a7f3a569bb0605cb5002c889d8db23af92991a508d4a45bf2059f73bb8dd",
+        "reference_sha256": "53ca1de407fd3e4d3e310af8417d12051c9727bf0318484b9f2e81b41350e6ba"
+      }
+    },
+    "chapter-2-001": {
+      "reference": "In the summer of the year A.D. 189 the Emperor became seriously ill and summoned Ho Chin into the palace to arrange for the future. This man Ho had sprung from a humble family of butchers, but a sister had become a concubine of rank and borne a son to the Emperor, named Pien. After this she became Huang-hou or Empress and Ho Chin became powerful. The Emperor had also greatly loved a beautiful girl named Wang who had borne him a son named Hsieh. The Empress Ho had poisoned the girl from jealousy, and the babe had been given into the care of the Empress Dowager Tung, who was the mother of the Emperor Ling. She was the wife of Liu Chang, the Marquis of Tu-ting. As time went on and the Emperor Huan had no son of his own he adopted the son of the marquis, who succeeded as the Emperor Ling. After his accession he had taken his own mother into the palace to live and had conferred upon her the title of Tʻai-hou, or Empress Dowager.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "5c36fcb18b8da1d9ccbef99b232be06defcba195d241d4d075a90b5c7a39735c",
+        "reference_sha256": "f1dc8eca59c7ab50ed60a66565a5bef062621a52bde888f89b86160de61dc53b"
+      }
+    },
+    "chapter-2-002": {
+      "reference": "And Ho Chin obeyed her wish. He explained to his party that the real offender having met his fate they need not exterminate the whole party nor injure his colleagues.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "d22be2008e5fdc1553c8bf577d8fd1f7d82932a9ca27d96e8e67cd873756fd67",
+        "reference_sha256": "160244543d0f8ba2fb4b57880efbb78c2bc62495956c3612e5ef99b545aab911"
+      }
+    },
+    "chapter-2-003": {
+      "reference": "Tung Tʻai-hou summoned the eunuch Chang Jang and his party to a council. Said she, “It was I who first brought forward the sister of Ho Chin. To-day her son is on the throne and all the officials are her friends and her influence is enormous. What can we do?”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "ce96e1185b355f981b47ea974943e9e77222ecb74ad2fba88131d59700f92e5d",
+        "reference_sha256": "578204307112841467261b7f84cd8bb5acd09c8398fd8739f3a0dbfa6f97311c"
+      }
+    },
+    "chapter-2-004": {
+      "reference": "Tung Tʻai-hou approved. Next day she held a court and issued an edict in the sense proposed. When Ho Tʻai-hou saw this she prepared a banquet to which she invited her rival. In the middle of the feast, when all were well warmed with wine, she rose and offered a cup to her guest saying, “It is not fitting that we two women should meddle in state affairs. Of old when Lü Tʻai-hou laid hands upon the government all her clan were put to death. We ought to remain content, immured in our palaces, and leave state affairs to the statesmen. That would be well for the country and I trust you will act thus.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "ec4efaa539cad048ee02fd2cf3ff66d21a8f242a6c20f370bef7f0b7f8341ab9",
+        "reference_sha256": "81021d3447a84e6bfc884e7c639bdcbc24e9a50e5af92db482a578eaf378db68"
+      }
+    },
+    "chapter-2-005": {
+      "reference": "Soon after her brother entered and told her of his design to put the eunuchs to death. She argued with him. She said that they looked after palace affairs and were old servants. To kill the old servants just after the death of their master would appear disrespectful to the Dynasty. And as Ho was of a vacillating mind he murmured assent and left her.",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "f2e7b70bd09643bbbfe886b3f137b1a8533dea18447bdcea176cd1614e0c8746",
+        "reference_sha256": "9a955b57581c4ea68dfc2aec7df72d5bbc39c7cf49cb41e9d583cd9d34fb1362"
+      }
+    },
+    "chapter-2-006": {
+      "reference": "But the Recorder, Chʻên Lin, said, “Nay; do not act blindly. The proverb says ‘To cover the eyes and snatch at swallows is to fool one’s self.’ If in so small a matter you cannot attain your wish, what of great affairs? Now by virtue of the imperial prestige and with the army under your hand you may do as you please. To use such enormous powers against the eunuchs would resemble lighting up a furnace to burn a hair. But act promptly; use your powers and smite at once and all the Empire will be with you. But to summon forces to the capital, to gather many bold men into one spot, each with his own schemes, is to turn one’s weapons against one’s own person, to place one’s self in the power of another. Nothing but failure can come of it, nothing but confusion.”",
+      "difficulty": "normal",
+      "tags": [
+        "lit",
+        "context-annotated"
+      ],
+      "rules": [],
+      "provenance": {
+        "source": "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation",
+        "url": "https://www.gutenberg.org/ebooks/23950",
+        "license": "public domain (Project Gutenberg)",
+        "spdx": "CC0-1.0",
+        "license_url": "https://www.gutenberg.org/policy/permission.html",
+        "redistributable": true,
+        "human_verified": true,
+        "verifier": "upstream project",
+        "retrieved": "2026-09-01T00:01:31+00:00",
+        "origin": "public",
+        "context_origin": "annotated",
+        "annotator": "deepseek-v4-pro",
+        "upstream_revision": "PG23950+PG77416",
+        "fingerprint": "a51726259804a67b",
+        "notes": "Fetched by CLARION recipe 'sanguo-brewitt-taylor' (tier vendor).",
+        "source_sha256": "11e1afb5d6714fcaff731b0cc2c8999c43202d4ef3450bee6121c077d1a5cfb4",
+        "reference_sha256": "f6c11b2db7a9f68f33bfeb372f834c050c5a0e2c68ef01b6068feab7980df525"
+      }
+    }
+  }
+}

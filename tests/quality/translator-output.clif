@@ -1,0 +1,137 @@
+CLIF 1.0
+namespace: quality-test
+clan: corpus
+source-language: en-US
+target-language: zh-CN
+title: "CLIF translation quality reference corpus"
+info: "Adult readers; office and game dialog, narration, and UI labels."
+standard: "Preserve proper nouns exactly as in the attached glossary. "
+          "Localize idioms and puns for a Chinese audience; keep the effect, not the literal words. "
+          "Preserve ICU MessageFormat syntax exactly. "
+          "Match the declared emotion; word order must be natural Chinese."
+dependency: ["glossary.zh-CN.clif"]
+
+[office.meeting]
+context: "Weekly product meeting; the manager speaks to the team; the agenda is overloaded."
+type: dialogue
+emotion: [neutral]
+
+<table-this>
+source: "Let's table this for now and circle back after the demo."
+target: "我们先暂缓此事，等演示结束后再回头讨论。"
+context: "Idiom 'table this' means postpone; 'circle back' means return to the topic."
+type: sentence
+status: translated
+
+<ears>
+source: "I'm all ears."
+target: "我洗耳恭听。"
+context: "Idiom meaning 'I am listening attentively'."
+emotion: [informal]
+status: translated
+
+<sarcastic-meeting>
+source: "Oh, great. Another meeting."
+target: "哦，可真行啊，又开会。"
+context: "Sarcastic; the speaker is annoyed, not happy. 'Oh, great' is ironic."
+emotion: [angry, playful]
+status: translated
+
+[office.polite]
+context: "Open-plan office; a colleague asks another for a small favor."
+type: dialogue
+emotion: [polite]
+
+<window-please>
+source: "Would you be so kind as to close the window?"
+target: "麻烦您把窗户关上，好吗？"
+status: translated
+
+[theater.backstage]
+context: "Backstage, before the opening night performance; a director speaks to the lead actor."
+type: dialogue
+emotion: [playful]
+
+<break-a-leg>
+source: "Break a leg out there!"
+target: "在台上好好发挥，祝你演出成功！"
+context: "Theater idiom for 'good luck'; never translate literally."
+status: translated
+
+[story.obituary]
+context: "A quiet family conversation about an old neighbor."
+type: dialogue
+emotion: [sad]
+
+<kick-bucket>
+source: "He kicked the bucket last spring."
+target: "他去年春天去世了。"
+context: "Euphemism for death; register must remain gentle, not crude."
+type: sentence
+status: translated
+
+[story.weather]
+context: "Two friends look out of a window during a storm."
+type: dialogue
+emotion: [playful]
+
+<cats-dogs>
+source: "It's raining cats and dogs out there!"
+target: "外面正下着倾盆大雨！"
+context: "Idiom for very heavy rain."
+status: translated
+
+[story.pun]
+context: "A playful narrator comments on language itself."
+type: narration
+emotion: [playful]
+
+<time-flies>
+source: "Time flies like an arrow; fruit flies like a banana."
+target: "时光飞逝如箭；果蝇喜欢香蕉。"
+context: "Classic English pun (verb 'flies' vs noun 'flies'). If the pun cannot survive, keep both readings in natural Chinese and preserve the wordplay signal."
+status: translated
+
+[sci-fi.arrival]
+context: "Opening narration of a science-fiction episode."
+type: narration
+emotion: [serious]
+max-width: 60
+
+<proper-nouns>
+source: "Captain Zephyr landed the Aurelia at Starbase 7."
+target: "泽费尔舰长将奥蕾莉亚号降落在七号星港。"
+context: "Proper nouns are project-canonical and must match the attached glossary exactly."
+status: translated
+
+[sci-fi.weapon]
+context: "A narrator describes the forging of a legendary sword."
+type: narration
+emotion: [serious]
+
+<word-order>
+source: "The sword was forged for the king in the heart of the ancient volcano."
+target: "这把剑是在古老火山的中心为国王锻造的。"
+context: "Long sentence; Chinese should use natural topic-comment order, not English order."
+status: translated
+
+[notifications]
+context: "Mobile notification system message with a count."
+type: sentence
+
+<icu-count>
+source: "{count, plural, =0 {No messages} one {# new message} other {# new messages}}"
+target: "{count, plural, =0 {没有消息} one {# 条新消息} other {# 条新消息}}"
+context: "Chinese plural rules: one category is not used the same way; keep ICU syntax identical and translate only the literal text."
+status: translated
+
+[ui.small]
+context: "Small button label."
+type: label
+max-width: 6
+
+<accept-short>
+source: "Accept"
+target: "接受"
+context: "Must fit in 6 display cells; Chinese characters are 2 cells each."
+status: translated

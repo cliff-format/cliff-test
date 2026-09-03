@@ -1,0 +1,22 @@
+{
+  "file": "ui-console-terms.zh-CN.clif",
+  "stratum": "ui",
+  "notes": "Canonical renderings for the Harborline Console interface strings.",
+  "provenance": {
+    "source": "original text written for CLARION",
+    "url": "",
+    "license": "CC0-1.0",
+    "spdx": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "redistributable": true,
+    "human_verified": false,
+    "verifier": "",
+    "retrieved": "2026-01-01",
+    "origin": "original",
+    "context_origin": "original",
+    "annotator": "",
+    "upstream_revision": "",
+    "notes": "Glossary of the ui stratum. Terms are canonical project decisions, so this file carries provenance but no per-item gold: the terms themselves are the gold."
+  },
+  "items": {}
+}

@@ -1,0 +1,17 @@
+{
+  "name": "clarion-mock",
+  "corpus": "clarion-core",
+  "formats": ["clif", "xliff-2.1", "po", "fluent", "json-clif", "json-plain", "yaml-clif", "csv", "android", "ios"],
+  "arms": ["bare", "context"],
+  "repeats": 1,
+  "isolation": "per-file",
+  "tokenizer": "o200k_base",
+  "target_language": "zh-CN",
+  "include_policy": true,
+  "include_glossary": true,
+  "provider": {
+    "kind": "mock",
+    "model": "mock-1",
+    "mode": "perfect"
+  }
+}
