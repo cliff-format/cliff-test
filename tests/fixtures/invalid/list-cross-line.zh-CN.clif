@@ -1,0 +1,14 @@
+CLIF 1.0
+namespace: demo
+clan: list-cross-line
+source-language: en-US
+target-language: zh-CN
+
+[main]
+<ok>
+source: "OK"
+target: "确定"
+type: label
+emotion: [joyful,
+  playful]
+status: final

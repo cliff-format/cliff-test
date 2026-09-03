@@ -1,0 +1,13 @@
+CLIF 1.0
+namespace: demo
+clan: minimal
+source-language: en-US
+target-language: zh-CN
+
+[display]
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+type: noun
+status: final

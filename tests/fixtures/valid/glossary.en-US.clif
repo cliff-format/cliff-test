@@ -1,0 +1,25 @@
+CLIF 1.0
+namespace: studio
+clan: glossary
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+title: "Studio terminology"
+standard: "Canonical translations; dialect-specific files may override."
+dependency: []
+
+[items]
+type: noun-phrase
+
+<block-of-grass>
+source: "草方块"
+target: "The Block of Grass"
+type: fixed-phrase
+status: final
+context: "Minecraft-style building block; the article must be preserved."
+
+<iron-sword>
+source: "铁剑"
+target: "Iron Sword"
+type: noun
+status: final

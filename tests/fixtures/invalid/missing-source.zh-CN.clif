@@ -1,0 +1,11 @@
+CLIF 1.0
+namespace: demo
+clan: missing-source
+source-language: en-US
+target-language: zh-CN
+
+[main]
+<ok>
+target: "确定"
+type: label
+status: final

@@ -1,0 +1,13 @@
+CLIF 1.0
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: ja-JP
+
+[main]
+type: label
+
+<ok>
+source: "OK"
+target: "OK"
+status: translated
