@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from ..metrics.instruction import Rule
-from ..paths import CORE_CORPUS_ROOT, DATASETS_ROOT, ensure_pyclif
+from ..paths import CORE_CORPUS_ROOT, DATASETS_ROOT, ensure_clif_format
 from ..util import load_json, read_text
 from .model import Corpus, CorpusFile, ItemGold, Provenance
 
@@ -62,10 +62,10 @@ def load_corpus_file(
     glossary_path: Path | None = None,
 ) -> CorpusFile:
     """Load one corpus document and its gold manifest."""
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
-    document = pyclif.load(clif_path)
+    document = clif_format.load(clif_path)
     gold_path = _gold_path(clif_path)
     gold: dict[str, ItemGold] = {}
     provenance: Provenance | None = None
@@ -79,7 +79,7 @@ def load_corpus_file(
 
     glossary_document = None
     if glossary_path is not None and glossary_path.exists():
-        glossary_document = pyclif.load(glossary_path)
+        glossary_document = clif_format.load(glossary_path)
 
     return CorpusFile(
         id=clif_path.name.split(".")[0],

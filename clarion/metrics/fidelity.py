@@ -2,7 +2,7 @@
 
 CLIF claims to be a lossless working format. The honest way to test that claim
 is to convert a document into every other format and back, then count how many
-context facts survived. Because pyclif resolves group inheritance when it
+context facts survived. Because clif-python resolves group inheritance when it
 writes flat formats, the comparison uses EFFECTIVE values (what a translator
 would actually see for an entry), not the raw group/entry split.
 """
@@ -15,10 +15,10 @@ from typing import TYPE_CHECKING, Any
 from ..formats.arms import Arm
 from ..formats.parse import parse_back
 from ..formats.render import render
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 HEADER_FIELDS = ("title", "info", "standard", "dependency", "version")
 ENTRY_FIELDS = ("source", "target", "type", "emotion", "status", "context", "max-width",
@@ -26,8 +26,8 @@ ENTRY_FIELDS = ("source", "target", "type", "emotion", "status", "context", "max
 
 
 def _effective(document: ClifDocument) -> dict[str, dict[str, str]]:
-    ensure_pyclif()
-    from pyclif import effective_context, effective_emotion, effective_max_width, effective_type
+    ensure_clif_format()
+    from clif_format import effective_context, effective_emotion, effective_max_width, effective_type
 
     table: dict[str, dict[str, str]] = {}
     for group in document.groups:

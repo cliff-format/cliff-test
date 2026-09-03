@@ -41,10 +41,10 @@ import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 _ICU_RE = re.compile(r"\{[^{}]*,\s*(?:plural|select|selectordinal)\s*,")
 _PLACEHOLDER_RE = re.compile(r"%\d*\$?[sdf@]|\{[A-Za-z0-9_]+\}")
@@ -145,7 +145,7 @@ def enrich_document(
     a derived sentence, which is why a native corpus keeps its native context
     and only the gaps are filled.
     """
-    ensure_pyclif()
+    ensure_clif_format()
     policy = policy or EnrichmentPolicy()
     labels = domain_labels or {}
     enriched = copy.deepcopy(document)

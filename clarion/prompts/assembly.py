@@ -20,7 +20,7 @@ from . import templates
 from .spec_digest import build_grammar_plus
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 TRANSLATION_COMPONENTS = (
     "system.role",

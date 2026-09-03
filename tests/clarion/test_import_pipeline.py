@@ -16,9 +16,9 @@ import pytest
 from clarion.corpus.enrich import EnrichmentPolicy, enrich_document, has_native_context
 from clarion.corpus.fetchers import Pair, Recipe, build_corpus_file, pairs_to_document
 from clarion.corpus.licensing import license_check, spdx_header, tier_root
-from clarion.paths import ensure_pyclif
+from clarion.paths import ensure_clif_format
 
-ensure_pyclif()
+ensure_clif_format()
 
 FLAT_RECIPE = Recipe(
     id="test-flat",
@@ -67,9 +67,9 @@ def test_enrichment_creates_context_deterministically() -> None:
     assert "placeholder" in (icu_entry.context or "").lower()
 
     # Deterministic: the same input must produce byte-identical context.
-    import pyclif
+    import clif_format
 
-    assert pyclif.serialize(first) == pyclif.serialize(second)
+    assert clif_format.serialize(first) == clif_format.serialize(second)
 
 
 def test_enrichment_never_overwrites_upstream_context() -> None:
@@ -175,7 +175,7 @@ def test_spdx_header_is_a_clif_comment_block() -> None:
 
 
 def test_imported_file_is_publishable(tmp_path_factory: pytest.TempPathFactory) -> None:
-    import pyclif
+    import clif_format
 
     from clarion.corpus import licensing
 
@@ -193,7 +193,7 @@ def test_imported_file_is_publishable(tmp_path_factory: pytest.TempPathFactory) 
 
         issues = [
             issue
-            for issue in pyclif.validate(text)
+            for issue in clif_format.validate(text)
             if issue.category not in {"warning", "extension"}
         ]
         assert not issues, issues

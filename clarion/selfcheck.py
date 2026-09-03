@@ -28,7 +28,7 @@ from .formats.validity import check_validity
 from .metrics.fidelity import roundtrip_fidelity
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
-from .paths import ensure_pyclif, pyclif_version
+from .paths import ensure_clif_format, pyclif_version
 from .runner import token_matrix
 
 
@@ -85,8 +85,8 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
     from .providers.mock import MockProvider
 
     report = SelfCheckReport()
-    ensure_pyclif()
-    report.add("pyclif available", True, f"version {pyclif_version()}")
+    ensure_clif_format()
+    report.add("clif-python available", True, f"version {pyclif_version()}")
 
     try:
         corpus = load_corpus(corpus_name)
@@ -103,13 +103,13 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
         _print(report, verbose)
         return 1
 
-    import pyclif
+    import clif_format
 
     invalid: list[str] = []
     for corpus_file in corpus.files:
         issues = [
             issue
-            for issue in pyclif.validate(corpus_file.path.read_text(encoding="utf-8"))
+            for issue in clif_format.validate(corpus_file.path.read_text(encoding="utf-8"))
             if issue.category not in {"warning", "extension"}
         ]
         if issues:

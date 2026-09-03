@@ -15,13 +15,13 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]          # clif-test/
-PYCLIF_SRC = ROOT.parent / "clif-python" / "src"
+CLIF_SRC = ROOT.parent / "clif-python" / "src"
 QEDEPS1 = ROOT.parent / ".qe-deps"
 QEDEPS2 = ROOT.parent / ".qe-deps2"
 QEDEPS = QEDEPS2
 
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(PYCLIF_SRC))
+sys.path.insert(0, str(CLIF_SRC))
 sys.path.insert(0, str(QEDEPS1))
 sys.path.insert(0, str(QEDEPS2))
 
@@ -40,8 +40,8 @@ def corpus_sources(core: Path) -> dict[str, dict[str, str]]:
     for p in sorted(core.rglob("*.clif")):
         if "glossary" in p.stem:
             continue
-        import pyclif
-        doc = pyclif.parse(p.read_text(encoding="utf-8"))
+        import clif_format
+        doc = clif_format.parse(p.read_text(encoding="utf-8"))
         sources = {}
         for g in doc.groups:
             for e in g.entries:

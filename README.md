@@ -84,7 +84,7 @@ python -m clarion corpus review             # export the human sign-off sheet
 
 An external machine-translation corpus is a list of sentence pairs with no
 translator brief, so it cannot be used for the context arm as it stands. The
-import pipeline converts it through pyclif, keeps any upstream translator
+import pipeline converts it through clif-python, keeps any upstream translator
 comments, has a second model write the brief where the corpus is silent,
 derives document and neighbour context deterministically, and writes the
 licence header, attribution file and checksums that make the result
@@ -110,7 +110,7 @@ The scan also runs as the first stage of `clarion pipeline`, which refuses to
 start when it finds anything that looks like a credential.
 
 Every fixture in every format is generated from the same CLIF corpus document
-through pyclif, so no format has a hand-tuned advantage. See
+through clif-python, so no format has a hand-tuned advantage. See
 [docs/clarion-methodology.md](docs/clarion-methodology.md).
 
 ## Quick start

@@ -89,7 +89,7 @@ brief. Never split an entry across batches.
 
 CLIF errors are line-numbered and categorized, so repair is local:
 
-    python -m pyclif validate translated.clif
+    python -m clif-python validate translated.clif
 
 Feed only the failing lines back:
 

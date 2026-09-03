@@ -31,7 +31,7 @@ Two supporting measurements are always reported with them:
 ## 2. The fairness rules
 
 1. **One source of truth.** Every fixture in every format and arm is generated
-   from the same CLIF corpus document through pyclif (or, for the two plain
+   from the same CLIF corpus document through clif-python (or, for the two plain
    key/value dialects, through code written against the same data model). No
    format has a hand-tuned fixture.
 2. **Identical instructions.** All formats receive the same system role, the
@@ -42,7 +42,7 @@ Two supporting measurements are always reported with them:
    thousands of times and has never seen CLIF, so CLIF must pay for a
    specification block. That block is a separately measured prompt component,
    and D1/D2 report the totals with and without it.
-4. **The context arm favours the competitor.** pyclif writes the complete CLIF
+4. **The context arm favours the competitor.** clif-python writes the complete CLIF
    context payload into each format's documented channel: PO extracted
    comments and msgctxt, XLIFF metadata and notes, Fluent comments, Android
    and iOS comments, CSV columns, JSON and YAML fields. If CLIF still wins the
@@ -380,7 +380,7 @@ Two settings matter for cost and honesty:
 
 Every run writes a directory containing the resolved configuration, a JSONL
 record per task (including the prompt component costs, the raw metrics and the
-provider usage), a JSON summary with the pyclif version, and the Markdown
+provider usage), a JSON summary with the clif-python version, and the Markdown
 report. A number in a report can always be traced back to the exact request
 that produced it.
 
@@ -390,7 +390,7 @@ that produced it.
    specification digest reduces the gap but does not erase it; a result should
    be read as "CLIF plus a one-screen digest" versus "a format the model
    already knows".
-2. **Converter quality.** All non-CLIF fixtures are produced by pyclif. A bug
+2. **Converter quality.** All non-CLIF fixtures are produced by clif-python. A bug
    there is a bug in the benchmark; the round-trip fidelity check is the guard.
 3. **Reference bias.** The reference translations were written by the same
    kind of system that is being evaluated. Human sign-off is tracked per item

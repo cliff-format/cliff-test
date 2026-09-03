@@ -341,7 +341,7 @@ w("");
 w("| format | arm | chains | applicable edits | still valid % (95% CI) | intent applied % | checker |");
 w("| --- | --- | ---: | ---: | --- | ---: | --- |");
 const checkers = {
-  clif: "strict CLIF validator (pyclif)", xliff: "XML well-formedness + structural", po: "msgid/msgstr grammar",
+  clif: "strict CLIF validator (clif-python)", xliff: "XML well-formedness + structural", po: "msgid/msgstr grammar",
   fluent: "identifier grammar", "json-clif": "strict JSON parse", "json-plain": "strict JSON parse",
   "yaml-clif": "strict YAML parse", csv: "strict CSV parse", android: "XML well-formedness",
   ios: "quoted-assignment grammar",

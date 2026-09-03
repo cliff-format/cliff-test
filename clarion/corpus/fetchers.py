@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from ..paths import CLIF_TEST_ROOT, DATASETS_ROOT, ensure_pyclif
+from ..paths import CLIF_TEST_ROOT, DATASETS_ROOT, ensure_clif_format
 from ..providers.base import Provider
 from ..util import dump_json, load_json, sha256_text, short_hash, slug, utc_now, write_text
 from .annotate import AnnotationConfig, AnnotationReport, annotate_document
@@ -287,8 +287,8 @@ def _catalogue_group(path: str, references: list[str]) -> str:
 
 def _properties_to_document(text: str) -> Any:
     """Read a key = value properties catalogue (Unciv and similar)."""
-    ensure_pyclif()
-    from pyclif import ClifDocument, Entry, Group, Header
+    ensure_clif_format()
+    from clif_format import ClifDocument, Entry, Group, Header
 
     document = ClifDocument(header=Header(namespace="properties", clan="imported"))
     group = Group(path="strings")
@@ -318,13 +318,13 @@ def _rows_from_http(recipe: Recipe, limit: int) -> list[Pair]:
     response = httpx.get(recipe.source, timeout=60.0, follow_redirects=True)
     response.raise_for_status()
     text = response.text
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
     if recipe.format == "po":
-        document = pyclif.from_po(text)
+        document = clif_format.from_po(text)
     elif recipe.format == "fluent":
-        document = pyclif.from_fluent(text)
+        document = clif_format.from_fluent(text)
     elif recipe.format == "properties":
         document = _properties_to_document(text)
     else:
@@ -353,7 +353,7 @@ def _rows_from_http(recipe: Recipe, limit: int) -> list[Pair]:
                     document=_catalogue_group(group.path, entry.reference) if catalogue
                     else group.path,
                     reference=list(entry.reference),
-                    # pyclif stamps an imported PO entry with a default type of
+                    # clif-python stamps an imported PO entry with a default type of
                     # 'sentence'; for a UI catalogue that is wrong, and the
                     # enrichment step assigns a better one from the structure.
                     entry_type=None if catalogue else (entry.type or group.type),
@@ -370,8 +370,8 @@ def pairs_to_document(
     entry_type: str | None = None,
 ) -> Any:
     """Build a CLIF document from fetched pairs."""
-    ensure_pyclif()
-    from pyclif import ClifDocument, Entry, Group, Header
+    ensure_clif_format()
+    from clif_format import ClifDocument, Entry, Group, Header
 
     header = Header(
         namespace="clarion",
@@ -521,8 +521,8 @@ def build_corpus_file(
     pass, then the licence header, the gold manifest with checksums and the
     attribution file that make the result publishable.
     """
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
     if not pairs:
         raise RuntimeError(
@@ -578,7 +578,7 @@ def build_corpus_file(
         revision=revision,
         context_origin=context_origin,
     )
-    write_text(clif_path, header + pyclif.serialize(enriched))
+    write_text(clif_path, header + clif_format.serialize(enriched))
     dump_json(
         gold_path,
         gold_for(

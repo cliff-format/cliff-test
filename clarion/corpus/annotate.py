@@ -48,12 +48,12 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
 from ..metrics.width import display_cells
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 from ..prompts.spec_digest import emotion_tags, type_tags
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 _JSON_RE = re.compile(r"\{.*\}", re.DOTALL)
 _HAN_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]")
@@ -218,7 +218,7 @@ def summarize_document(
     max_output_tokens: int = 2048,
 ) -> tuple[ClifDocument, AnnotationReport]:
     """Pass one: write the family brief and one context line per group."""
-    ensure_pyclif()
+    ensure_clif_format()
     import copy
 
     summarized = copy.deepcopy(document)
@@ -287,7 +287,7 @@ def annotate_document(
     only to reject leaky context and impossible width budgets - it is never
     shown to the annotator.
     """
-    ensure_pyclif()
+    ensure_clif_format()
     import copy
 
     settings = config or AnnotationConfig(

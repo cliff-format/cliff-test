@@ -1,6 +1,6 @@
 """Plain key/value localization dialects (i18n JSON and YAML).
 
-pyclif converts CLIF to JSON and YAML shaped like the CLIF data model, which
+clif-python converts CLIF to JSON and YAML shaped like the CLIF data model, which
 is the right interchange target but is not what a web or mobile project
 actually ships. The plain dialects here are the realistic competitors:
 
@@ -8,7 +8,7 @@ actually ships. The plain dialects here are the realistic competitors:
   i18next, Rails locale files and Minecraft-style resource bundles;
 * context arm - the Chrome extension messages.json convention, where every key
   maps to an object with a message and a description. The description carries
-  the same CLIF metadata payload that pyclif writes into PO and Fluent
+  the same CLIF metadata payload that clif-python writes into PO and Fluent
   comments, so the arms stay comparable across formats.
 
 Both dialects round-trip through parse_json_plain / parse_yaml_plain.
@@ -20,10 +20,10 @@ import json
 import re
 from typing import TYPE_CHECKING, Any
 
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument, Entry, Group
+    from clif_format import ClifDocument, Entry, Group
 
 META_PREFIX = "clif:"
 _COMMENT_RE = re.compile(r"^\s*#\s?(.*)$")
@@ -31,13 +31,13 @@ _YAML_KEY_RE = re.compile(r"^([A-Za-z0-9_.\-]+):\s*(.*)$")
 
 
 def entry_metadata(group: Group, entry: Entry, *, include_source: bool) -> dict[str, str]:
-    """CLIF metadata for one entry, in the same shape pyclif writes.
+    """CLIF metadata for one entry, in the same shape clif-python writes.
 
     Uses the public effective_* helpers so inheritance is resolved exactly as
     the specification requires (group value first, entry value overrides).
     """
-    ensure_pyclif()
-    from pyclif import effective_context, effective_max_width
+    ensure_clif_format()
+    from clif_format import effective_context, effective_max_width
 
     meta: dict[str, str] = {}
     if include_source and entry.source:
@@ -97,7 +97,7 @@ def _flat_key(group: Group, entry: Entry) -> str:
 
 def render_json_plain(document: ClifDocument, *, with_context: bool) -> str:
     """Serialize to a plain i18n JSON resource."""
-    ensure_pyclif()
+    ensure_clif_format()
     if with_context:
         flat: dict[str, Any] = {}
         for group in document.groups:
@@ -122,7 +122,7 @@ def render_json_plain(document: ClifDocument, *, with_context: bool) -> str:
 
 def render_yaml_plain(document: ClifDocument, *, with_context: bool) -> str:
     """Serialize to a plain YAML resource, with metadata in comments."""
-    ensure_pyclif()
+    ensure_clif_format()
     lines: list[str] = []
     for group in document.groups:
         for entry in group.entries:
@@ -146,8 +146,8 @@ def _document_from_items(
     clan: str,
 ) -> ClifDocument:
     """Build a CLIF document from (flat key, value, metadata) triples."""
-    ensure_pyclif()
-    from pyclif import ClifDocument, Entry, Group, Header
+    ensure_clif_format()
+    from clif_format import ClifDocument, Entry, Group, Header
 
     document = ClifDocument(header=Header(namespace=namespace, clan=clan))
     groups: dict[str, Group] = {}

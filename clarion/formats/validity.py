@@ -5,7 +5,7 @@ file, is the file still a valid file of that format? Answering it fairly means
 every format needs a check of comparable strictness - not 'does some tolerant
 library survive it', but 'would the project's own toolchain accept it'.
 
-CLIF is checked with the official validator in pyclif. Every other format is
+CLIF is checked with the official validator in clif_format. Every other format is
 checked against its own syntax rules here: XML well-formedness plus the
 structural requirements for XLIFF and Android, the msgid/msgstr grammar for
 PO, the identifier grammar for Fluent, strict JSON/YAML/CSV parsing, and the
@@ -21,7 +21,7 @@ import re
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 from .parse import unwrap
 from .registry import get_format
 
@@ -79,8 +79,8 @@ def _check_clif(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
     counting that as a format failure would punish the format for using its own
     feature.
     """
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
     from .parse import split_clif_documents
 
@@ -89,7 +89,7 @@ def _check_clif(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
     parts = split_clif_documents(text)
     offset = 0
     for part in parts:
-        for issue in pyclif.validate(part):
+        for issue in clif_format.validate(part):
             diagnostic = Diagnostic(
                 line=issue.line + offset, category=issue.category, message=issue.message
             )

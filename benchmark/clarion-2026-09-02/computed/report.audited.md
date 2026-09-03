@@ -180,8 +180,8 @@ Paired design (file, repeat); audited scores; paired bootstrap (10,000) + paired
 | --- | --- | ---: | ---: | --- | ---: | --- |
 | android | bare | 3 | 36 | 100.0 (90.4-100.0) | 100.0 | XML well-formedness |
 | android | context | 3 | 36 | 100.0 (90.4-100.0) | 91.2 | XML well-formedness |
-| clif | bare | 3 | 36 | 100.0 (90.4-100.0) | 95.2 | strict CLIF validator (pyclif) |
-| clif | context | 3 | 36 | 91.7 (78.2-97.1) | 86.1 | strict CLIF validator (pyclif) |
+| clif | bare | 3 | 36 | 100.0 (90.4-100.0) | 95.2 | strict CLIF validator (clif-python) |
+| clif | context | 3 | 36 | 91.7 (78.2-97.1) | 86.1 | strict CLIF validator (clif-python) |
 | csv | bare | 3 | 36 | 75.0 (58.9-86.2) | 76.2 | strict CSV parse |
 | csv | context | 3 | 36 | 61.1 (44.9-75.2) | 55.6 | strict CSV parse |
 | fluent | bare | 3 | 36 | 100.0 (90.4-100.0) | 100.0 | identifier grammar |

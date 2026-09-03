@@ -10,17 +10,17 @@ MIT-licensed, with:
   context, 26 closed content types, 23 closed emotion tags, max display width, glossary variant and
   dependency references, four-state status workflow (XLIFF-compatible).
 - **ICU MessageFormat** MF1/MF2 verbatim inside strings, auto-detected, brace-validated.
-- **Reference implementation**: pyclif — MIT, zero runtime dependencies, 3 319 lines (validator 543 /
+- **Reference implementation**: clif-python — MIT, zero runtime dependencies, 3 319 lines (validator 543 /
   parser 615 / converter 1 625), bidirectional converters for XLIFF/PO/Fluent/JSON/YAML/CSV/Android/iOS;
   116-line normative ABNF.
 
 ## 1. What was measured
 
 - **Same content, one source of truth**: every fixture in every format is generated from the same
-  CLIF corpus documents through the pyclif converter — no format has a hand-tuned fixture.
+  CLIF corpus documents through the clif-python converter — no format has a hand-tuned fixture.
 - **Model**: deepseek-v4-flash, temperature 0, reasoning off, 3 repeats per cell, one endpoint,
   2026-09-02. **Formats**: CLIF, XLIFF 2.1, PO, Fluent, JSON-CLIF, plain JSON, YAML-CLIF, CSV,
-  Android, iOS — exactly the formats pyclif converts.
+  Android, iOS — exactly the formats clif-python converts.
 - **Corpus**: CLARION-Core 0.3.0, 16 documents, 392 entries (UI, news, literature, legal, game,
   probe strata), mixed context origins (original / native / annotated), licensed CC0/MIT/Apache-2.0
   with per-file SPDX headers.

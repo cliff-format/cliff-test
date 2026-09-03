@@ -1,7 +1,7 @@
 """The format registry: which localization formats CLARION compares.
 
 Every format in this registry can be produced from, and read back into, a CLIF
-document with pyclif (the two plain key/value dialects are produced by
+document with clif-python (the two plain key/value dialects are produced by
 clarion.formats.plain, which is written against the same data model). This is
 the fairness rule of the whole benchmark: no format is ever hand-written, so a
 format never wins or loses because of how a human phrased its fixture.

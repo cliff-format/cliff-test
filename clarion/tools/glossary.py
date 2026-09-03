@@ -26,12 +26,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from ..metrics.terminology import JargonPolicy
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 from ..providers.base import CompletionRequest, Message, Provider
 from ..util import slug
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 TERM_TYPES = {"proper-noun", "fixed-phrase", "idiom", "noun-phrase"}
 LOCKED_STATUSES = {"reviewed", "final"}
@@ -68,7 +68,7 @@ def extract_candidates(
     max_terms: int = 60,
 ) -> list[Candidate]:
     """Mine glossary candidates from a CLIF document."""
-    ensure_pyclif()
+    ensure_clif_format()
     typed: dict[str, Candidate] = {}
     phrases: Counter[str] = Counter()
     phrase_entries: dict[str, list[str]] = {}
@@ -127,8 +127,8 @@ def build_glossary_document(
     targets: dict[str, str] | None = None,
 ) -> ClifDocument:
     """Create a CLIF glossary document for the mined candidates."""
-    ensure_pyclif()
-    from pyclif import ClifDocument, Entry, Group, Header
+    ensure_clif_format()
+    from clif_format import ClifDocument, Entry, Group, Header
 
     header = Header(
         namespace=source_document.header.namespace or "project",
@@ -233,7 +233,7 @@ class MergeReport:
 
 def merge_glossary(existing: ClifDocument, mined: ClifDocument) -> tuple[ClifDocument, MergeReport]:
     """Merge mined terms into an existing glossary without overwriting decisions."""
-    ensure_pyclif()
+    ensure_clif_format()
     import copy
 
     merged = copy.deepcopy(existing)
@@ -246,7 +246,7 @@ def merge_glossary(existing: ClifDocument, mined: ClifDocument) -> tuple[ClifDoc
     }
     target_group = merged.groups[0] if merged.groups else None
     if target_group is None:
-        from pyclif import Group
+        from clif_format import Group
 
         target_group = Group(path="terms")
         merged.groups.append(target_group)
@@ -297,10 +297,10 @@ def bootstrap(
     max_terms: int = 60,
 ) -> tuple[ClifDocument, MergeReport, list[Candidate]]:
     """Mine, propose, merge and return the glossary for one CLIF file."""
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
-    document = pyclif.load(source_path)
+    document = clif_format.load(source_path)
     candidates = extract_candidates(document, min_count=min_count, max_terms=max_terms)
     targets: dict[str, str] = {}
     if provider is not None:
@@ -313,7 +313,7 @@ def bootstrap(
         )
     mined = build_glossary_document(document, candidates, targets=targets)
     if glossary_path and Path(glossary_path).exists():
-        existing = pyclif.load(glossary_path)
+        existing = clif_format.load(glossary_path)
         merged, report = merge_glossary(existing, mined)
         return merged, report, candidates
     added = [entry.id for group in mined.groups for entry in group.entries]

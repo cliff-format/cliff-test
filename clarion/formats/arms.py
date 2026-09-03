@@ -9,9 +9,9 @@ bare
 
 context
     The same content plus the complete CLIF context payload, expressed in each
-    format's own documented metadata channel by pyclif.
+    format's own documented metadata channel by clif_format.
 
-The projections below operate on the pyclif data model, never on text, so the
+The projections below operate on the clif-python data model, never on text, so the
 bare and context arms of every format are provably the same content.
 """
 
@@ -21,10 +21,10 @@ import copy
 from enum import StrEnum
 from typing import TYPE_CHECKING
 
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 # A neutral type used only where a format requires one but the bare arm
 # carries no typing information. CLIF requires 'type' on every entry, so the
@@ -42,7 +42,7 @@ class Arm(StrEnum):
 
 def strip_context(document: ClifDocument) -> ClifDocument:
     """Return a copy with every context-carrying field removed."""
-    ensure_pyclif()
+    ensure_clif_format()
     stripped = copy.deepcopy(document)
     header = stripped.header
     header.title = None
@@ -74,7 +74,7 @@ def strip_context(document: ClifDocument) -> ClifDocument:
 
 def blank_targets(document: ClifDocument, *, status: str | None = "initial") -> ClifDocument:
     """Return a copy with no target text, ready to be handed to a translator."""
-    ensure_pyclif()
+    ensure_clif_format()
     task = copy.deepcopy(document)
     for group in task.groups:
         for entry in group.entries:
@@ -90,7 +90,7 @@ def ensure_required_fields(document: ClifDocument) -> ClifDocument:
     CLIF requires 'type' and 'status' on every entry, so a stripped document
     is completed with an information-free neutral type before serialization.
     """
-    ensure_pyclif()
+    ensure_clif_format()
     filled = copy.deepcopy(document)
     for group in filled.groups:
         for entry in group.entries:

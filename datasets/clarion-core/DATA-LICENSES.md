@@ -68,7 +68,7 @@ Fetch-only, or excluded entirely:
 
 `clarion corpus fetch <recipe>` does four things beyond downloading:
 
-1. **Converts** the upstream file into CLIF through pyclif (PO, Fluent and the
+1. **Converts** the upstream file into CLIF through clif-python (PO, Fluent and the
    HuggingFace loaders), keeping any translator comments, source references and
    msgctxt disambiguation the project wrote.
 2. **Enriches** the result deterministically where the upstream is flat: the

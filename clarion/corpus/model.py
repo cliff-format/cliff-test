@@ -138,10 +138,10 @@ class CorpusFile:
 
     def widths(self) -> dict[str, int]:
         """Entry id to effective max-width, where one is declared."""
-        from ..paths import ensure_pyclif
+        from ..paths import ensure_clif_format
 
-        ensure_pyclif()
-        from pyclif import effective_max_width
+        ensure_clif_format()
+        from clif_format import effective_max_width
 
         table: dict[str, int] = {}
         for group in self.document.groups:

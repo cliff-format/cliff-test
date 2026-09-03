@@ -95,8 +95,8 @@ Note: strict reading is applied - an answer the official parser reads back witho
 | --- | --- | ---: | ---: | --- |
 | android | bare | 100.0 | 100.0 | XML well-formedness |
 | android | context | 100.0 | 91.2 | XML well-formedness |
-| clif | bare | 100.0 | 95.2 | strict CLIF validator (pyclif) |
-| clif | context | 91.7 | 86.1 | strict CLIF validator (pyclif) |
+| clif | bare | 100.0 | 95.2 | strict CLIF validator (clif-python) |
+| clif | context | 91.7 | 86.1 | strict CLIF validator (clif-python) |
 | csv | bare | 76.2 | 76.2 | strict CSV parse |
 | csv | context | 61.1 | 55.6 | strict CSV parse |
 | fluent | bare | 100.0 | 100.0 | identifier grammar |

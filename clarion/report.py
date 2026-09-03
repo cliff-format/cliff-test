@@ -360,7 +360,7 @@ def build_report(
         f"- Repeats per cell: {config.get('repeats')}",
         "",
         "Every arm of every format is generated from the same CLIF corpus documents through "
-        "pyclif, so a difference between two rows is a property of the format, not of the "
+        "clif-python, so a difference between two rows is a property of the format, not of the "
         "fixture.",
         "",
     ]

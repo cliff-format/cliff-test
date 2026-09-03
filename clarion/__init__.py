@@ -13,7 +13,7 @@ format - not a model - along seven dimensions:
     D7  format validity after LLM edits (cross-format edit robustness)
 
 Every arm of every dimension is generated from ONE canonical CLIF document
-through pyclif, so no format ever receives a hand-tuned advantage.
+through clif-python, so no format ever receives a hand-tuned advantage.
 """
 
 from __future__ import annotations

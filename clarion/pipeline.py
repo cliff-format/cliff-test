@@ -6,7 +6,7 @@ Eight stages, each of which fails loudly instead of silently degrading:
 
 1. secrets      load the API key from outside the repository and prove the
                 working tree contains no credential
-2. fetch        import every configured corpus: convert through pyclif, derive
+2. fetch        import every configured corpus: convert through clif-python, derive
                 context deterministically, optionally have a second model write
                 the brief, route by licence tier and write attribution
 3. validate     the official CLIF validator over every corpus document
@@ -33,7 +33,7 @@ from .corpus.licensing import license_check
 from .corpus.store import load_corpus
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
-from .paths import ensure_pyclif, pyclif_version
+from .paths import ensure_clif_format, pyclif_version
 from .providers import build_provider
 from .report import build_report
 from .runner import (
@@ -158,15 +158,15 @@ class Pipeline:
 
     def run_validate(self) -> bool:
         started = time.perf_counter()
-        ensure_pyclif()
-        import pyclif
+        ensure_clif_format()
+        import clif_format
 
         corpus = load_corpus(self.config.corpus, strata=self.config.strata or None)
         problems: list[str] = []
         for corpus_file in corpus.files:
             issues = [
                 issue
-                for issue in pyclif.validate(corpus_file.path.read_text(encoding="utf-8"))
+                for issue in clif_format.validate(corpus_file.path.read_text(encoding="utf-8"))
                 if issue.category not in {"warning", "extension"}
             ]
             problems.extend(
@@ -292,7 +292,7 @@ class Pipeline:
             {
                 "run": self.config.name,
                 "finished": utc_now(),
-                "pyclif": pyclif_version(),
+                "clif-python": pyclif_version(),
                 "model": f"{self.config.provider.kind}:{self.config.provider.model}",
                 "reasoning": self.config.provider.reasoning,
                 "records": len(self.records),

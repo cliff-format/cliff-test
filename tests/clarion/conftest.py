@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 
-from clarion.paths import ensure_pyclif
+from clarion.paths import ensure_clif_format
 
-ensure_pyclif()
+ensure_clif_format()
 
 SAMPLE_CLIF = """CLIF 1.0
 namespace: clarion
@@ -131,18 +131,18 @@ GOLD = {
 
 @pytest.fixture(scope="session")
 def sample_document():
-    """The fixture document, parsed with pyclif."""
-    import pyclif
+    """The fixture document, parsed with clif_format."""
+    import clif_format
 
-    return pyclif.parse(SAMPLE_CLIF)
+    return clif_format.parse(SAMPLE_CLIF)
 
 
 @pytest.fixture(scope="session")
 def sample_glossary():
     """The fixture glossary document."""
-    import pyclif
+    import clif_format
 
-    return pyclif.parse(SAMPLE_GLOSSARY)
+    return clif_format.parse(SAMPLE_GLOSSARY)
 
 
 @pytest.fixture(scope="session")

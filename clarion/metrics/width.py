@@ -1,6 +1,6 @@
 """Display width in cells, following CLIF specification section 15 / UAX 11.
 
-Implemented independently of pyclif on purpose: the harness must be able to
+Implemented independently of clif-python on purpose: the harness must be able to
 disagree with the implementation it is testing. The unit tests assert that both
 agree on the specification's own examples.
 """

@@ -1,6 +1,6 @@
-"""Filesystem layout of the CLARION harness and the pyclif bootstrap.
+"""Filesystem layout of the CLARION harness and the clif-python bootstrap.
 
-CLARION depends on the official CLIF implementation (pyclif) for every CLIF
+CLARION depends on the official CLIF implementation (clif-python) for every CLIF
 parse, serialize, validate and convert operation. The sibling clif-python
 checkout is used automatically when the package is not installed, so a fresh
 clone of the three repositories works with no installation step.
@@ -31,20 +31,20 @@ DOCS_ROOT = CLIF_TEST_ROOT / "docs"
 POLICY_ROOT = CLIF_TEST_ROOT / "clarion" / "policy"
 
 _PYCLIF_HINT = (
-    "pyclif is required by CLARION. Either install it "
+    "clif-python is required by CLARION. Either install it "
     "(pip install -e git+https://github.com/clif-format/clif-python.git) or keep the clif-python checkout next to "
     "clif-test so that {src} exists."
 )
 
 
-def ensure_pyclif() -> None:
-    """Make 'import pyclif' work, preferring an installed distribution.
+def ensure_clif_format() -> None:
+    """Make 'import clif_format' work, preferring an installed distribution.
 
     Falls back to the sibling clif-python/src checkout. Raises RuntimeError
     with an actionable message when neither is available.
     """
     try:
-        import pyclif  # noqa: F401
+        import clif_format  # noqa: F401
     except ModuleNotFoundError:
         pass
     else:
@@ -55,14 +55,14 @@ def ensure_pyclif() -> None:
         sys.path.insert(0, src)
 
     try:
-        import pyclif  # noqa: F401
+        import clif_format  # noqa: F401
     except ModuleNotFoundError as exc:  # pragma: no cover - environment error
         raise RuntimeError(_PYCLIF_HINT.format(src=CLIF_PYTHON_SRC)) from exc
 
 
 def pyclif_version() -> str:
-    """Return the version of the pyclif implementation in use."""
-    ensure_pyclif()
-    import pyclif
+    """Return the version of the clif-python implementation in use."""
+    ensure_clif_format()
+    import clif_format
 
-    return str(pyclif.__version__)
+    return str(clif_format.__version__)

@@ -15,7 +15,7 @@ from ..formats.parse import parse_back
 from ..formats.validity import check_validity
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 
 def _normalize(text: str | None) -> str:

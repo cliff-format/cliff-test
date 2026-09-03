@@ -22,11 +22,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from ..paths import POLICY_ROOT, ensure_pyclif
+from ..paths import POLICY_ROOT, ensure_clif_format
 from ..util import read_text
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 
 @dataclass(frozen=True)
@@ -61,11 +61,11 @@ def glossary_from_document(document: ClifDocument) -> list[GlossaryTerm]:
 
 
 def load_glossary(path: Path) -> list[GlossaryTerm]:
-    """Load a CLIF glossary file through pyclif."""
-    ensure_pyclif()
-    import pyclif
+    """Load a CLIF glossary file through clif_format."""
+    ensure_clif_format()
+    import clif_format
 
-    return glossary_from_document(pyclif.load(path))
+    return glossary_from_document(clif_format.load(path))
 
 
 @dataclass

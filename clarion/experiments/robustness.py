@@ -10,7 +10,7 @@ format, so the intents here are declarative operations on the data model:
     set-header-field, add-comment
 
 Each intent is rendered as a natural-language instruction for the model, and
-also applied deterministically to the pyclif data model so the harness can
+also applied deterministically to the clif-python data model so the harness can
 verify the intent offline and produce a reference answer without a model.
 
 Two numbers come out of a run:
@@ -35,11 +35,11 @@ from ..formats.parse import parse_back
 from ..formats.registry import get_format
 from ..formats.render import render_document
 from ..formats.validity import check_validity
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 METADATA_OPS = {
     "set-context",
@@ -214,8 +214,8 @@ def default_tasks(document: ClifDocument, count: int = 30) -> list[EditTask]:
 
 def apply_edit(document: ClifDocument, task: EditTask) -> ClifDocument:
     """Apply an edit deterministically to the data model (reference answer)."""
-    ensure_pyclif()
-    from pyclif import Entry, Group
+    ensure_clif_format()
+    from clif_format import Entry, Group
 
     edited = copy.deepcopy(document)
     entry_id = str(task.params.get("entry", ""))

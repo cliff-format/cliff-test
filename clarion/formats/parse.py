@@ -13,12 +13,12 @@ import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-from ..paths import ensure_pyclif
+from ..paths import ensure_clif_format
 from .plain import parse_json_plain, parse_yaml_plain
 from .registry import get_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from pyclif import ClifDocument
+    from clif_format import ClifDocument
 
 _FENCE_RE = re.compile(
     r"```[A-Za-z0-9_.+-]*[ \t]*\r?\n(?P<body>.*?)\r?\n```",
@@ -86,8 +86,8 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
     out and reported separately, never scored as the translation and never
     counted as a failure.
     """
-    ensure_pyclif()
-    import pyclif
+    ensure_clif_format()
+    import clif_format
 
     spec = get_format(format_id)
     body, unwrapped = unwrap(text)
@@ -96,7 +96,7 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
     try:
         if spec.id == "clif":
             parts = split_clif_documents(body)
-            documents = [pyclif.parse(part) for part in parts]
+            documents = [clif_format.parse(part) for part in parts]
             translations = [
                 item for item in documents if (item.header.variant or "standard") != "glossary"
             ]
@@ -109,25 +109,25 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
                 raise ValueError("the answer contains only a glossary, not a translated file")
             document = translations[0]
         elif spec.id.startswith("xliff"):
-            document = pyclif.from_xliff(body)
+            document = clif_format.from_xliff(body)
         elif spec.id == "po":
-            document = pyclif.from_po(body)
+            document = clif_format.from_po(body)
         elif spec.id == "fluent":
-            document = pyclif.from_fluent(body)
+            document = clif_format.from_fluent(body)
         elif spec.id == "json-clif":
-            document = pyclif.from_json(body)
+            document = clif_format.from_json(body)
         elif spec.id == "yaml-clif":
-            document = pyclif.from_yaml(body)
+            document = clif_format.from_yaml(body)
         elif spec.id == "json-plain":
             document = parse_json_plain(body)
         elif spec.id == "yaml-plain":
             document = parse_yaml_plain(body)
         elif spec.id == "csv":
-            document = pyclif.from_csv(body)
+            document = clif_format.from_csv(body)
         elif spec.id == "android":
-            document = pyclif.from_android_strings(body)
+            document = clif_format.from_android_strings(body)
         elif spec.id == "ios":
-            document = pyclif.from_ios_strings(body)
+            document = clif_format.from_ios_strings(body)
         else:  # pragma: no cover - registry guards this
             raise KeyError(f"no reader for format '{format_id}'")
     except Exception as exc:  # noqa: BLE001 - any parser failure is a data point
@@ -159,7 +159,7 @@ def extract_targets(document: ClifDocument) -> dict[str, str]:
     """Map entry id to translated text.
 
     Monolingual formats (Android, iOS, Fluent, plain JSON/YAML) keep the only
-    text they have in the value slot, which pyclif reads back as the target;
+    text they have in the value slot, which clif-python reads back as the target;
     bilingual formats keep source and target apart. Reading target first and
     falling back to source therefore works for both without special cases.
     """
