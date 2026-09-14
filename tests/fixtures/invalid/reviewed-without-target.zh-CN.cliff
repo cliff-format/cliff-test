@@ -1,0 +1,11 @@
+CLIFF 1.0
+namespace: demo
+clan: reviewed-without-target
+source-language: en-US
+target-language: zh-CN
+
+[main]
+<ok>
+source: "OK"
+type: label
+status: reviewed

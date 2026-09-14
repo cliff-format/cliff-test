@@ -24,7 +24,7 @@ function corpusIndex() {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name);
       if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith(".clif") && !e.name.includes("glossary")) {
+      else if (e.name.endsWith(".cliff") && !e.name.includes("glossary")) {
         const text = fs.readFileSync(p, "utf8");
         const sl = /source-language:\s*(\S+)/.exec(text)?.[1];
         const tl = /target-language:\s*(\S+)/.exec(text)?.[1];
@@ -106,9 +106,9 @@ function answerPath(runDir, r) {
   return fs.existsSync(p) ? p : null;
 }
 function realTargetRatio(r, runDir) {
-  // Formats where the model writes into an explicit target slot: json-clif and csv
+  // Formats where the model writes into an explicit target slot: json-cliff and csv
   // are audited by text; everything else keeps the recorded coverage (parser-based).
-  if (r.format === "json-clif") {
+  if (r.format === "json-cliff") {
     const p = answerPath(runDir, r);
     if (!p) return 0;
     const text = fs.readFileSync(p, "utf8");
@@ -224,7 +224,7 @@ function significance() {
   const out = [];
   for (const arm of arms) {
     for (const f of formats) {
-      if (f === "clif") continue;
+      if (f === "cliff") continue;
       const build = (fmt) => {
         const m = {};
         for (const t of translations) {
@@ -234,7 +234,7 @@ function significance() {
         }
         return m;
       };
-      const A = build("clif"), B = build(f);
+      const A = build("cliff"), B = build(f);
       const keys = [...new Set([...Object.keys(A), ...Object.keys(B)])].sort();
       const a = keys.map(k => A[k] ?? 0), b = keys.map(k => B[k] ?? 0);
       const bs = pairedBootstrap(a, b);
@@ -316,7 +316,7 @@ for (const row of breakdownDirection()) {
 w("");
 w("> The run mixes en-US->zh-CN (13 files) with zh-CN->en-US classical literature (3 files, gold from 1892/1925 translations) in one table; chrF++ is not comparable across directions.");
 w("");
-w("## 6. Paired significance: CLIF vs every other format");
+w("## 6. Paired significance: CLIFF vs every other format");
 w("");
 const sig = significance();
 for (const arm of arms) {
@@ -324,7 +324,7 @@ for (const arm of arms) {
   w("");
   w("Paired design (file, repeat); audited scores; paired bootstrap (10,000) + paired permutation (10,000); Holm-corrected across the nine comparisons per arm.");
   w("");
-  w("| vs | diff (clif-other) | 95% CI | bootstrap p | permutation p | Holm p |");
+  w("| vs | diff (cliff-other) | 95% CI | bootstrap p | permutation p | Holm p |");
   w("| --- | ---: | ---: | ---: | ---: | ---: |");
   const rows = sig.filter(s => s.arm === arm);
   const corr = holm(rows.map(s => s.pb));
@@ -341,9 +341,9 @@ w("");
 w("| format | arm | chains | applicable edits | still valid % (95% CI) | intent applied % | checker |");
 w("| --- | --- | ---: | ---: | --- | ---: | --- |");
 const checkers = {
-  clif: "strict CLIF validator (clif-python)", xliff: "XML well-formedness + structural", po: "msgid/msgstr grammar",
-  fluent: "identifier grammar", "json-clif": "strict JSON parse", "json-plain": "strict JSON parse",
-  "yaml-clif": "strict YAML parse", csv: "strict CSV parse", android: "XML well-formedness",
+  cliff: "strict CLIFF validator (cliff-python)", xliff: "XML well-formedness + structural", po: "msgid/msgstr grammar",
+  fluent: "identifier grammar", "json-cliff": "strict JSON parse", "json-plain": "strict JSON parse",
+  "yaml-cliff": "strict YAML parse", csv: "strict CSV parse", android: "XML well-formedness",
   ios: "quoted-assignment grammar",
 };
 for (const f of formats) {
@@ -358,25 +358,25 @@ for (const f of formats) {
   }
 }
 w("");
-w("> The validity checkers are **not of equal strictness**: CLIF is validated by the official validator, while other formats only need to parse. still valid % is comparable only within a format row.");
+w("> The validity checkers are **not of equal strictness**: CLIFF is validated by the official validator, while other formats only need to parse. still valid % is comparable only within a format row.");
 w("");
 
 w("## 8. What this audit cannot fix without a re-run");
 w("");
-w("1. **Context-arm fixtures with a missing target slot** (json-clif context, csv context). No post-hoc analysis recovers a translation the model was never asked to produce; these cells need a renderer fix and a re-run.");
+w("1. **Context-arm fixtures with a missing target slot** (json-cliff context, csv context). No post-hoc analysis recovers a translation the model was never asked to produce; these cells need a renderer fix and a re-run.");
 w("2. **Human sign-off of corpus references.** human_verified is false for every authored item. A reference-free QE pass (WMT-QE class model) removes the dependency on reference quality for quality claims; chrF/BLEU against the current references remain reference-dependent. The audited scores above are still relative to those references.");
 w("3. **Non-CJK evaluation.** Only zh-CN (plus a small zh->en classical subset) was measured.");
 w("4. **Practical meaningfulness.** Statistical significance is reported as such, without an MT-Thresholds anchor.");
 w("");
 
 
-// ---- §10: workflow comparison (user point 1&3): CLIF context arm (mandatory context by design)
-// vs every other format in its bare arm, plus strict-only note for json-clif/csv context.
-w("## 9. Workflow comparison: CLIF context arm (mandatory context payload) vs other formats (bare, shipped form)")
+// ---- §10: workflow comparison (user point 1&3): CLIFF context arm (mandatory context by design)
+// vs every other format in its bare arm, plus strict-only note for json-cliff/csv context.
+w("## 9. Workflow comparison: CLIFF context arm (mandatory context payload) vs other formats (bare, shipped form)")
 w("");
-w("This is the comparison CLIF is designed for: thanks to mandatory `type`/inherited group metadata and a closed context schema, a CLIF file **necessarily** carries its context payload (header info/standard, group metadata, per-entry context, type, emotion, max-width — the fields CLIF makes mandatory or inherit), while the other formats in their shipped (bare) form carry nothing beyond identifier + source. The context arm of the competitors is a reference control only: it shows what happens when the same context payload is hand-injected into their non-mandatory channels — the fair apples-to-apples check that the quality differences collapse to ~0 once everyone carries the same context.")
+w("This is the comparison CLIFF is designed for: thanks to mandatory `type`/inherited group metadata and a closed context schema, a CLIFF file **necessarily** carries its context payload (header info/standard, group metadata, per-entry context, type, emotion, max-width — the fields CLIFF makes mandatory or inherit), while the other formats in their shipped (bare) form carry nothing beyond identifier + source. The context arm of the competitors is a reference control only: it shows what happens when the same context payload is hand-injected into their non-mandatory channels — the fair apples-to-apples check that the quality differences collapse to ~0 once everyone carries the same context.")
 w("");
-w("| vs | CLIF context vs other bare: chrF++ diff | 95% CI | bootstrap p | Holm p |")
+w("| vs | CLIFF context vs other bare: chrF++ diff | 95% CI | bootstrap p | Holm p |")
 w("| --- | ---: | ---: | ---: | ---: |")
 const buildBare = (fmt) => {
   const m = {};
@@ -396,10 +396,10 @@ const buildCtx = (fmt) => {
   }
   return m;
 };
-const A10 = buildCtx("clif");
+const A10 = buildCtx("cliff");
 const rows10 = [];
 for (const f of formats) {
-  if (f === "clif") continue;
+  if (f === "cliff") continue;
   const B10 = buildBare(f);
   const keys10 = [...new Set([...Object.keys(A10), ...Object.keys(B10)])].sort();
   const a10 = keys10.map(k => A10[k] ?? 0), b10 = keys10.map(k => B10[k] ?? 0);
@@ -423,15 +423,15 @@ rows10.forEach((s, i) => {
   w("| " + s.f + " | " + s.est.toFixed(2) + " | " + s.low.toFixed(2) + "-" + s.high.toFixed(2) + " | " + s.pb.toFixed(4) + " | " + corr10[i].toFixed(4) + " (" + (corr10[i] < 0.05 ? "significant" : "n.s.") + ") |");
 });
 w("");
-w("> D1/D2 show the same comparison on token cost: the CLIF file carrying its mandatory context payload costs 47 499 document tokens per corpus (vs 8 065 in its bare arm), while the cheapest competitor in bare form is json-plain at 20 647 and the cheapest competitor carrying the same context payload is yaml-clif at 52 753. The format does not trade quality for tokens at the workflow level: it delivers the context payload that produces the quality above, at a lower token cost than any competitor carrying the same context payload.")
-w("> **Strict-score note:** json-clif context (real translation rate 25%) and csv context (85% parse failure) are counted, not excluded: per the strict reading they score 0 for the untranslated/unparseable part. Their quality advantage claim is thereby removed; the remaining competitive rows (android, ios, json-plain, po, yaml-clif, fluent, xliff-2.1) are the valid comparisons.")
+w("> D1/D2 show the same comparison on token cost: the CLIFF file carrying its mandatory context payload costs 47 499 document tokens per corpus (vs 8 065 in its bare arm), while the cheapest competitor in bare form is json-plain at 20 647 and the cheapest competitor carrying the same context payload is yaml-cliff at 52 753. The format does not trade quality for tokens at the workflow level: it delivers the context payload that produces the quality above, at a lower token cost than any competitor carrying the same context payload.")
+w("> **Strict-score note:** json-cliff context (real translation rate 25%) and csv context (85% parse failure) are counted, not excluded: per the strict reading they score 0 for the untranslated/unparseable part. Their quality advantage claim is thereby removed; the remaining competitive rows (android, ios, json-plain, po, yaml-cliff, fluent, xliff-2.1) are the valid comparisons.")
 w("");
 const outPath = path.join(runDir, "report.audited.md");
 fs.writeFileSync(outPath, lines.join("\n") + "\n", "utf8");
 console.log("wrote " + outPath);
 const qt = qualityTable();
 for (const row of qt) {
-  if (row.f === "clif") console.log("clif " + row.a + ": recorded " + row.rec.toFixed(2) + " -> audited " + row.aud.toFixed(2));
+  if (row.f === "cliff") console.log("cliff " + row.a + ": recorded " + row.rec.toFixed(2) + " -> audited " + row.aud.toFixed(2));
 }
 for (const s of sig) {
   if (s.est > 0) console.log("sig " + s.arm + " vs " + s.f + ": +" + s.est.toFixed(2) + " (p=" + s.pb.toFixed(4) + ")");
@@ -479,9 +479,9 @@ if (fs.existsSync(qePath)) {
     w("| " + f + " | " + a + " | " + v.length + " | " + m.toFixed(2) + " [" + qq(0.025).toFixed(2) + "-" + qq(0.975).toFixed(2) + "] |");
   }
   w("");
-  w("### 10.1 Paired significance (QE error score; shared segments only; diff = other - clif, positive = CLIF better)");
+  w("### 10.1 Paired significance (QE error score; shared segments only; diff = other - cliff, positive = CLIFF better)");
   w("");
-  w("| arm | vs | shared segments | diff (other-clif) | 95% CI | bootstrap p | Holm p |");
+  w("| arm | vs | shared segments | diff (other-cliff) | 95% CI | bootstrap p | Holm p |");
   w("| --- | --- | ---: | ---: | ---: | ---: | ---: |");
   for (const arm of arms) {
     const build = (fmt) => {
@@ -492,14 +492,14 @@ if (fs.existsSync(qePath)) {
       }
       return m;
     };
-    const A = build("clif");
+    const A = build("cliff");
     const rows = [];
     for (const f of formats) {
-      if (f === "clif") continue;
+      if (f === "cliff") continue;
       const B = build(f);
       const both = Object.keys(A).filter(k => k in B).sort();
       const a = both.map(k => A[k]), b = both.map(k => B[k]);
-      const diffs = b.map((x, i) => x - a[i]);   // positive => CLIF better (shared segments only)
+      const diffs = b.map((x, i) => x - a[i]);   // positive => CLIFF better (shared segments only)
       const est = mean(diffs);
       const rng = mulberry32(909);
       const bs = [];
@@ -522,7 +522,7 @@ if (fs.existsSync(qePath)) {
   w("");
   w("### 10.1b Strict paired comparison (missing translation scored as worst = 25)")
   w("")
-  w("| arm | vs | pairs | diff (other-clif) | 95% CI | bootstrap p | Holm p |")
+  w("| arm | vs | pairs | diff (other-cliff) | 95% CI | bootstrap p | Holm p |")
   w("| --- | --- | ---: | ---: | ---: | ---: | ---: |")
   for (const arm of arms) {
     const build = (fmt) => {
@@ -533,10 +533,10 @@ if (fs.existsSync(qePath)) {
       }
       return m;
     };
-    const A = build("clif");
+    const A = build("cliff");
     const rows = [];
     for (const f of formats) {
-      if (f === "clif") continue;
+      if (f === "cliff") continue;
       const B = build(f);
       const both = [...new Set([...Object.keys(A), ...Object.keys(B)])].sort();
       const a = both.map(k => A[k] ?? 25), b = both.map(k => B[k] ?? 25);
@@ -564,7 +564,7 @@ if (fs.existsSync(qePath)) {
   w("> Missing = the official parser read the answer without a target for that entry, or the run did not parse at all. Under this strict reading, format fragility is priced as quality loss rather than excluded.");
   w("");  w("### 10.2 QE by context origin (context arm, lower is better)");
   w("");
-  w("| origin | clif QE | clif segments | best competitor QE | worst competitor QE |");
+  w("| origin | cliff QE | cliff segments | best competitor QE | worst competitor QE |");
   w("| --- | ---: | ---: | ---: | ---: |");
   const origins2 = [...new Set(qeLines.map(l => (l.file === "godot-l10n" ? "native" : "other")))];
   // origin detection via corpus provenance is coarse here: use the per-record context_origin instead
@@ -575,8 +575,8 @@ if (fs.existsSync(qePath)) {
     (byOrigin[o] = byOrigin[o] || []).push(l);
   }
   for (const o of Object.keys(byOrigin).sort()) {
-    const ls = byOrigin[o].filter(l => l.format === "clif");
-    const others = byOrigin[o].filter(l => l.format !== "clif" && l.arm === "context");
+    const ls = byOrigin[o].filter(l => l.format === "cliff");
+    const others = byOrigin[o].filter(l => l.format !== "cliff" && l.arm === "context");
     if (!ls.length) continue;
     const cq = mean(ls.map(l => l.qe));
     if (!others.length) continue;
@@ -691,30 +691,30 @@ console.log("wrote computed-metrics.json");
 // ---- investor-data.md (program-generated review sheet, replaces any hand-written copy)
 const inv = [];
 const iw = (s) => inv.push(s);
-iw("# CLIF investor data sheet (audited)");
+iw("# CLIFF investor data sheet (audited)");
 iw("");
 iw("Source: run clarion-deepseek-v4-flash-20260902T040228+0000-91f21a (10 formats, 16 corpus files, 392 entries, 960 translation runs). All numbers below come from tools/audit_report.mjs; nothing is hand-written.");
 iw("");
 iw("## 1. Token cost - plain (shipped) form");
 iw("");
-iw("| format | doc tokens (corpus) | per entry | vs CLIF | prompt + CLIF spec | prompt w/o spec |");
+iw("| format | doc tokens (corpus) | per entry | vs CLIFF | prompt + CLIFF spec | prompt w/o spec |");
 iw("| --- | ---: | ---: | ---: | ---: | ---: |");
 const pctv = (x) => (x * 100).toFixed(1) + "%";
 for (const f of formats) {
   const d = computed.tokens[f].bare.document;
   iw("| " + f + " | " + d + " | " + computed.tokens[f].bare.document_per_entry.toFixed(1) + " | "
-    + (f === "clif" ? "-" : pctv((d - computed.tokens.clif.bare.document) / computed.tokens.clif.bare.document)) + " | "
+    + (f === "cliff" ? "-" : pctv((d - computed.tokens.cliff.bare.document) / computed.tokens.cliff.bare.document)) + " | "
     + computed.tokens[f].bare.prompt + " | " + computed.tokens[f].bare.prompt_without_instructions + " |");
 }
 iw("");
 iw("## 2. Token cost - same context payload carried (context form)");
 iw("");
-iw("| format | doc tokens | per entry | vs CLIF | prompt + spec | prompt w/o spec |");
+iw("| format | doc tokens | per entry | vs CLIFF | prompt + spec | prompt w/o spec |");
 iw("| --- | ---: | ---: | ---: | ---: | ---: |");
 for (const f of formats) {
   const d = computed.tokens[f].context.document;
   iw("| " + f + " | " + d + " | " + computed.tokens[f].context.document_per_entry.toFixed(1) + " | "
-    + (f === "clif" ? "-" : pctv((d - computed.tokens.clif.context.document) / computed.tokens.clif.context.document)) + " | "
+    + (f === "cliff" ? "-" : pctv((d - computed.tokens.cliff.context.document) / computed.tokens.cliff.context.document)) + " | "
     + computed.tokens[f].context.prompt + " | " + computed.tokens[f].context.prompt_without_instructions + " |");
 }
 iw("");
@@ -751,11 +751,11 @@ for (let i = 0; i < Math.ceil(formats.length / 2); i++) {
 iw("");
 iw("## 6. Latency - context form");
 iw("");
-iw("| format | ms/run | output tokens | vs CLIF ms |");
+iw("| format | ms/run | output tokens | vs CLIFF ms |");
 iw("| --- | ---: | ---: | ---: |");
 for (const f of formats) {
   const l = computed.latency[f].context;
-  iw("| " + f + " | " + Math.round(l.ms) + " | " + Math.round(l.output_tokens) + " | " + (f === "clif" ? "-" : pctv((l.ms - computed.latency.clif.context.ms) / computed.latency.clif.context.ms)) + " |");
+  iw("| " + f + " | " + Math.round(l.ms) + " | " + Math.round(l.output_tokens) + " | " + (f === "cliff" ? "-" : pctv((l.ms - computed.latency.cliff.context.ms) / computed.latency.cliff.context.ms)) + " |");
 }
 iw("");
 iw("## 7. Post-LLM-edit validity / intent success");
@@ -770,7 +770,7 @@ for (const f of formats) {
   }
 }
 iw("");
-iw("Checkers are not of equal strictness: cross-format comparison of still valid % is not valid. CLIF is checked by the official validator (strictest); other formats only need to parse.");
+iw("Checkers are not of equal strictness: cross-format comparison of still valid % is not valid. CLIFF is checked by the official validator (strictest); other formats only need to parse.");
 iw("");
 fs.writeFileSync(path.join(runDir, "investor-data.md"), inv.join("\n") + "\n", "utf8");
 console.log("wrote investor-data.md (program-generated)");

@@ -3,7 +3,7 @@
 Two different failures are measured here.
 
 Glossary adherence
-    The project shipped a CLIF glossary (variant: glossary). Did the model use
+    The project shipped a CLIFF glossary (variant: glossary). Did the model use
     the canonical rendering of every term that actually occurs in the source?
     This is the metric that a context-carrying format is supposed to win.
 
@@ -22,16 +22,16 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from ..paths import POLICY_ROOT, ensure_clif_format
+from ..paths import POLICY_ROOT, ensure_cliff_format
 from ..util import read_text
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 
 @dataclass(frozen=True)
 class GlossaryTerm:
-    """One canonical term pair from a CLIF glossary file."""
+    """One canonical term pair from a CLIFF glossary file."""
 
     id: str
     source: str
@@ -41,8 +41,8 @@ class GlossaryTerm:
     forbidden: tuple[str, ...] = ()
 
 
-def glossary_from_document(document: ClifDocument) -> list[GlossaryTerm]:
-    """Read every term of a parsed CLIF glossary document."""
+def glossary_from_document(document: CliffDocument) -> list[GlossaryTerm]:
+    """Read every term of a parsed CLIFF glossary document."""
     terms: list[GlossaryTerm] = []
     for group in document.groups:
         for entry in group.entries:
@@ -61,11 +61,11 @@ def glossary_from_document(document: ClifDocument) -> list[GlossaryTerm]:
 
 
 def load_glossary(path: Path) -> list[GlossaryTerm]:
-    """Load a CLIF glossary file through clif_format."""
-    ensure_clif_format()
-    import clif_format
+    """Load a CLIFF glossary file through cliff_format."""
+    ensure_cliff_format()
+    import cliff_format
 
-    return glossary_from_document(clif_format.load(path))
+    return glossary_from_document(cliff_format.load(path))
 
 
 @dataclass

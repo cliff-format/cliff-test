@@ -1,6 +1,6 @@
-"""Automatic glossary bootstrap and maintenance for CLIF projects.
+"""Automatic glossary bootstrap and maintenance for CLIFF projects.
 
-CLIF has a glossary variant, but a project only benefits from it if the
+CLIFF has a glossary variant, but a project only benefits from it if the
 glossary exists. When a translator - human or model - receives a file with no
 attached terminology, the right first move is to build one: pull the terms that
 actually repeat or that carry naming decisions, propose canonical renderings
@@ -8,9 +8,9 @@ once, and reuse them everywhere.
 
 This module does that deterministically:
 
-1. mine term candidates from a CLIF document (typed terms, proper nouns,
+1. mine term candidates from a CLIFF document (typed terms, proper nouns,
    repeated phrases, brand-like tokens, short repeated UI labels);
-2. write them into a CLIF glossary document (variant: glossary);
+2. write them into a CLIFF glossary document (variant: glossary);
 3. optionally ask a model for the canonical rendering of each new term, under
    the project de-jargon policy;
 4. merge into an existing glossary without ever overwriting a reviewed or final
@@ -26,12 +26,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from ..metrics.terminology import JargonPolicy
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from ..providers.base import CompletionRequest, Message, Provider
 from ..util import slug
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 TERM_TYPES = {"proper-noun", "fixed-phrase", "idiom", "noun-phrase"}
 LOCKED_STATUSES = {"reviewed", "final"}
@@ -57,18 +57,18 @@ class Candidate:
 
     @property
     def id(self) -> str:
-        """CLIF entry id for this term."""
+        """CLIFF entry id for this term."""
         return slug(self.text, fallback="term")
 
 
 def extract_candidates(
-    document: ClifDocument,
+    document: CliffDocument,
     *,
     min_count: int = 2,
     max_terms: int = 60,
 ) -> list[Candidate]:
-    """Mine glossary candidates from a CLIF document."""
-    ensure_clif_format()
+    """Mine glossary candidates from a CLIFF document."""
+    ensure_cliff_format()
     typed: dict[str, Candidate] = {}
     phrases: Counter[str] = Counter()
     phrase_entries: dict[str, list[str]] = {}
@@ -120,15 +120,15 @@ def extract_candidates(
 
 
 def build_glossary_document(
-    source_document: ClifDocument,
+    source_document: CliffDocument,
     candidates: list[Candidate],
     *,
     clan: str | None = None,
     targets: dict[str, str] | None = None,
-) -> ClifDocument:
-    """Create a CLIF glossary document for the mined candidates."""
-    ensure_clif_format()
-    from clif_format import ClifDocument, Entry, Group, Header
+) -> CliffDocument:
+    """Create a CLIFF glossary document for the mined candidates."""
+    ensure_cliff_format()
+    from cliff_format import CliffDocument, Entry, Group, Header
 
     header = Header(
         namespace=source_document.header.namespace or "project",
@@ -142,7 +142,7 @@ def build_glossary_document(
             "are locked and must be used exactly."
         ),
     )
-    document = ClifDocument(header=header)
+    document = CliffDocument(header=header)
     group = Group(path="terms")
     document.groups.append(group)
     seen: set[str] = set()
@@ -231,9 +231,11 @@ class MergeReport:
         return {"added": self.added, "kept": self.kept, "conflicts": self.conflicts}
 
 
-def merge_glossary(existing: ClifDocument, mined: ClifDocument) -> tuple[ClifDocument, MergeReport]:
+def merge_glossary(
+    existing: CliffDocument, mined: CliffDocument
+) -> tuple[CliffDocument, MergeReport]:
     """Merge mined terms into an existing glossary without overwriting decisions."""
-    ensure_clif_format()
+    ensure_cliff_format()
     import copy
 
     merged = copy.deepcopy(existing)
@@ -246,7 +248,7 @@ def merge_glossary(existing: ClifDocument, mined: ClifDocument) -> tuple[ClifDoc
     }
     target_group = merged.groups[0] if merged.groups else None
     if target_group is None:
-        from clif_format import Group
+        from cliff_format import Group
 
         target_group = Group(path="terms")
         merged.groups.append(target_group)
@@ -277,7 +279,7 @@ def merge_glossary(existing: ClifDocument, mined: ClifDocument) -> tuple[ClifDoc
     return merged, report
 
 
-def attach_dependency(document: ClifDocument, glossary_path: str) -> ClifDocument:
+def attach_dependency(document: CliffDocument, glossary_path: str) -> CliffDocument:
     """Add the glossary to a document's dependency list, once."""
     import copy
 
@@ -295,12 +297,12 @@ def bootstrap(
     policy: JargonPolicy | None = None,
     min_count: int = 2,
     max_terms: int = 60,
-) -> tuple[ClifDocument, MergeReport, list[Candidate]]:
-    """Mine, propose, merge and return the glossary for one CLIF file."""
-    ensure_clif_format()
-    import clif_format
+) -> tuple[CliffDocument, MergeReport, list[Candidate]]:
+    """Mine, propose, merge and return the glossary for one CLIFF file."""
+    ensure_cliff_format()
+    import cliff_format
 
-    document = clif_format.load(source_path)
+    document = cliff_format.load(source_path)
     candidates = extract_candidates(document, min_count=min_count, max_terms=max_terms)
     targets: dict[str, str] = {}
     if provider is not None:
@@ -313,7 +315,7 @@ def bootstrap(
         )
     mined = build_glossary_document(document, candidates, targets=targets)
     if glossary_path and Path(glossary_path).exists():
-        existing = clif_format.load(glossary_path)
+        existing = cliff_format.load(glossary_path)
         merged, report = merge_glossary(existing, mined)
         return merged, report, candidates
     added = [entry.id for group in mined.groups for entry in group.entries]

@@ -35,4 +35,4 @@ program output of tools/audit_report.mjs (regenerated, never hand-written).
 The harness is MIT. Corpus documents carry their own SPDX headers (CC0 for authored text, MIT
 for Godot, Apache-2.0 for WMT24++, public domain for the classical translations); model answers
 are derived from those licensed sources and inherit their terms. See
-`datasets/clarion-core/DATA-LICENSES.md` in clif-test.
+`datasets/clarion-core/DATA-LICENSES.md` in cliff-test.

@@ -1,6 +1,6 @@
 """The CLARION-Core data model.
 
-A corpus file is a normal, specification-valid CLIF document whose targets are
+A corpus file is a normal, specification-valid CLIFF document whose targets are
 the human reference translations. The task document handed to a model is that
 file with the targets blanked, so the corpus and the gold can never drift
 apart.
@@ -8,7 +8,7 @@ apart.
 Everything a benchmark must be able to answer about an item - where the text
 came from, under which licence, whether a human verified the reference, which
 instructions must be obeyed, and whether the text predates the model's training
-data - lives in a sidecar gold manifest next to the CLIF file.
+data - lives in a sidecar gold manifest next to the CLIFF file.
 """
 
 from __future__ import annotations
@@ -138,10 +138,10 @@ class CorpusFile:
 
     def widths(self) -> dict[str, int]:
         """Entry id to effective max-width, where one is declared."""
-        from ..paths import ensure_clif_format
+        from ..paths import ensure_cliff_format
 
-        ensure_clif_format()
-        from clif_format import effective_max_width
+        ensure_cliff_format()
+        from cliff_format import effective_max_width
 
         table: dict[str, int] = {}
         for group in self.document.groups:

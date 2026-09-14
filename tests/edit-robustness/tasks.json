@@ -425,7 +425,7 @@
     "op": "entry-spacing",
     "entry": "ask-name",
     "spaces": "   ",
-    "instruction": "把 ask-name 的条目标记行改为 `  <ask-name>  `（行首尾加空白，宽容语法下仍有效）。"
+    "instruction": "把 ask-name 的条目标记行改为 `   <ask-name>   `（行首尾加空白，宽容语法下仍有效）。"
   },
   {
     "id": 53,
@@ -433,24 +433,24 @@
     "op": "entry-spacing",
     "entry": "ask-name",
     "spaces": " ",
-    "instruction": "把 entry ask-name 的 entry 行恢复为 `entry: ask-name`（冒号后一个空格）。"
+    "instruction": "把 ask-name 的条目标记行恢复为 ` <ask-name> `（保留一个前导空格，仍有效）。"
   },
   {
     "id": 54,
     "category": "dependency",
     "op": "set-dependency",
     "value": [
-      "../common/settings-common.clif"
+      "../common/settings-common.cliff"
     ],
-    "instruction": "把 header 的 dependency 列表改为 [\"../common/settings-common.clif\"]。"
+    "instruction": "把 header 的 dependency 列表改为 [\"../common/settings-common.cliff\"]。"
   },
   {
     "id": 55,
     "category": "dependency",
     "op": "set-dependency",
     "value": [
-      "../common/settings-common.clif",
-      "../common/ui-common.clif"
+      "../common/settings-common.cliff",
+      "../common/ui-common.cliff"
     ],
     "instruction": "把 dependency 列表改为两个路径。"
   },

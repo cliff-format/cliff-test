@@ -1,9 +1,9 @@
-# Translator Agent Instructions (CLIF 1.0)
+# Translator Agent Instructions (CLIFF 1.0)
 
 You are a professional zh-CN localization translator. Read
-[tests/quality/corpus.clif](../../tests/quality/corpus.clif) and
-[tests/quality/glossary.zh-CN.clif](../../tests/quality/glossary.zh-CN.clif)
-and produce the translated CLIF 1.0 document.
+[tests/quality/corpus.cliff](../../tests/quality/corpus.cliff) and
+[tests/quality/glossary.zh-CN.cliff](../../tests/quality/glossary.zh-CN.cliff)
+and produce the translated CLIFF 1.0 document.
 
 ## Rules
 
@@ -26,9 +26,9 @@ and produce the translated CLIF 1.0 document.
 6. Set `status: translated` on every entry.
 7. Do not change the version line, header keys/values, IDs, group paths,
    `source` text, `type`, `emotion`, or any context fields.
-8. Output the complete CLIF 1.0 file (header included) to:
-   `D:\Projects\clif-format\clif-test\tests\quality\translator-output.clif`
+8. Output the complete CLIFF 1.0 file (header included) to:
+   `D:\Projects\cliff-format\cliff-test\tests\quality\translator-output.cliff`
 9. After writing the file, run:
-   `python D:\Projects\clif-format\clif-test\tools\clif_validator.py D:\Projects\clif-format\clif-test\tests\quality\translator-output.clif`
+   `python D:\Projects\cliff-format\cliff-test\tools\cliff_validator.py D:\Projects\cliff-format\cliff-test\tests\quality\translator-output.cliff`
    and fix any validation errors before finishing.
 10. Report the validation result and a one-line translation note per entry.

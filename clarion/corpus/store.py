@@ -1,7 +1,7 @@
 """Loading CLARION-Core from disk.
 
-A stratum directory holds CLIF documents whose targets are human reference
-translations, an optional CLIF glossary, and one gold manifest per document.
+A stratum directory holds CLIFF documents whose targets are human reference
+translations, an optional CLIFF glossary, and one gold manifest per document.
 Loading validates nothing on purpose - validation is a test, not a side effect
 of reading - but the corpus self-check command runs the official validator over
 every file.
@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from ..metrics.instruction import Rule
-from ..paths import CORE_CORPUS_ROOT, DATASETS_ROOT, ensure_clif_format
+from ..paths import CORE_CORPUS_ROOT, DATASETS_ROOT, ensure_cliff_format
 from ..util import load_json, read_text
 from .model import Corpus, CorpusFile, ItemGold, Provenance
 
@@ -21,9 +21,9 @@ GOLD_SUFFIX = ".gold.json"
 MANIFEST_NAME = "manifest.json"
 
 
-def _gold_path(clif_path: Path) -> Path:
-    """Gold manifest beside a corpus file: ui-news.zh-CN.clif -> ui-news.gold.json."""
-    return clif_path.parent / (clif_path.name.split(".")[0] + GOLD_SUFFIX)
+def _gold_path(cliff_path: Path) -> Path:
+    """Gold manifest beside a corpus file: ui-news.zh-CN.cliff -> ui-news.gold.json."""
+    return cliff_path.parent / (cliff_path.name.split(".")[0] + GOLD_SUFFIX)
 
 
 def parse_gold(data: dict[str, Any]) -> dict[str, ItemGold]:
@@ -56,17 +56,17 @@ def parse_gold(data: dict[str, Any]) -> dict[str, ItemGold]:
 
 
 def load_corpus_file(
-    clif_path: Path,
+    cliff_path: Path,
     *,
     stratum: str,
     glossary_path: Path | None = None,
 ) -> CorpusFile:
     """Load one corpus document and its gold manifest."""
-    ensure_clif_format()
-    import clif_format
+    ensure_cliff_format()
+    import cliff_format
 
-    document = clif_format.load(clif_path)
-    gold_path = _gold_path(clif_path)
+    document = cliff_format.load(cliff_path)
+    gold_path = _gold_path(cliff_path)
     gold: dict[str, ItemGold] = {}
     provenance: Provenance | None = None
     notes = ""
@@ -79,12 +79,12 @@ def load_corpus_file(
 
     glossary_document = None
     if glossary_path is not None and glossary_path.exists():
-        glossary_document = clif_format.load(glossary_path)
+        glossary_document = cliff_format.load(glossary_path)
 
     return CorpusFile(
-        id=clif_path.name.split(".")[0],
+        id=cliff_path.name.split(".")[0],
         stratum=stratum,
-        path=clif_path,
+        path=cliff_path,
         source_language=document.header.source_language,
         target_language=document.header.target_language,
         document=document,
@@ -113,7 +113,7 @@ def _is_glossary(path: Path) -> bool:
 def _stratum_files(directory: Path) -> tuple[list[Path], Path | None]:
     documents: list[Path] = []
     glossary: Path | None = None
-    for path in sorted(directory.glob("*.clif")):
+    for path in sorted(directory.glob("*.cliff")):
         if _is_glossary(path):
             glossary = path
         else:

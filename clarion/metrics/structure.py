@@ -15,7 +15,7 @@ from ..formats.parse import parse_back
 from ..formats.validity import check_validity
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 
 def _normalize(text: str | None) -> str:
@@ -83,12 +83,12 @@ class StructureReport:
 
 
 def evaluate_structure(
-    reference: ClifDocument,
+    reference: CliffDocument,
     answer_text: str,
     format_id: str,
     *,
     bilingual: bool = True,
-) -> tuple[StructureReport, dict[str, str], ClifDocument | None]:
+) -> tuple[StructureReport, dict[str, str], CliffDocument | None]:
     """Score an answer structurally and return the targets it produced.
 
     The second element maps entry id to translated text and is what the

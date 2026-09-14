@@ -1,8 +1,8 @@
-# Benchmark Survey for the CLIF Localization-Format Benchmark
+# Benchmark Survey for the CLIFF Localization-Format Benchmark
 
 > **Status:** research notes, compiled by the benchmark-research agent.
 > **Scope:** which established MT / localization datasets we can sample a few hundred segments from,
-> for a benchmark that feeds *localization files* (CLIF vs XLIFF 2.x / PO / Fluent / JSON / YAML / CSV /
+> for a benchmark that feeds *localization files* (CLIFF vs XLIFF 2.x / PO / Fluent / JSON / YAML / CSV /
 > Android strings.xml / iOS .strings) to an LLM and measures token cost, translation quality, latency,
 > instruction-following, and round-trip parse/validate success.
 > **Primary language pair:** en<->zh-CN. Secondary: ja-JP, es-ES.
@@ -41,7 +41,7 @@ Three tiers matter for us:
 3. **Research-only / non-commercial / "no redistribution" (Meta Dataset Research License, many shared-task
    test sets, OpenSubtitles, most webnovel corpora)** -> **download script + ID manifest only**. Never vendored.
 
-A practical consequence: our repo should have `clif-test/data/` split into `vendored/` (tiers 1-2, with
+A practical consequence: our repo should have `cliff-test/data/` split into `vendored/` (tiers 1-2, with
 per-source LICENSE files) and `fetched/` (tier 3, gitignored, populated by `scripts/fetch_corpora.py` from a
 manifest of stable IDs + SHA-256 checksums). Ship the manifest, not the text.
 
@@ -80,7 +80,7 @@ Paper: [arXiv:2502.04314](https://arxiv.org/abs/2502.04314) / [EMNLP 2025 main](
 - **Access:** HuggingFace `facebook/bouquet`; also mirrored on
   [Mozilla Data Collective](https://mozilladatacollective.com/datasets/cmr4tclcu01anmm075pvvntbz).
 - **Flat vs context:** **context-carrying** - domain labels, linguistic-phenomenon metadata, and
-  sentence-group (paragraph) structure. Good fit for CLIF's "context travels with the string" thesis.
+  sentence-group (paragraph) structure. Good fit for CLIFF's "context travels with the string" thesis.
 - **Verdict for us:** excellent *content*, bad *license* for vendoring. Use as an optional fetched corpus, or
   use it only for a small "hard prose" slice via download script.
 
@@ -234,7 +234,7 @@ Artifact record: [Zenodo 6625312](https://zenodo.org/records/6625312).
 
 - **Good for:** a *hard, adversarial semantic* slice. Because scoring is lemma-set based, it works even when
   the model's output is embedded in a localization file - and it directly tests whether **context carried by
-  the file** (a `comment`/`description` field!) fixes a sense error. That is a killer experiment for CLIF:
+  the file** (a `comment`/`description` field!) fixes a sense error. That is a killer experiment for CLIFF:
   same ambiguous string, with vs without the context field, measured on a gold WSD benchmark.
 - **Languages / zh-CN:** **English -> {Chinese, German, Italian, Russian, Spanish}** **[reported]** -
   so en->zh yes, ja no, es yes. One direction only (English source).
@@ -363,7 +363,7 @@ strong MT baseline.
   Notable participant systems include NCSOFT's [VARCO-MT](http://www2.statmt.org/wmt23/pdf/2023.wmt-1.84.pdf) -
   a *game-localization* company doing terminology-constrained MT, relevant to our game-dialogue domain.
 - **Why it matters to us:** terminology constraints are precisely the kind of metadata a localization format
-  can carry. A WMT-terminology-derived slice lets us claim "CLIF carries the glossary inline; here is the
+  can carry. A WMT-terminology-derived slice lets us claim "CLIFF carries the glossary inline; here is the
   measured term-hit-rate delta versus JSON+system-prompt glossary", against an *established* benchmark
   definition of term accuracy.
 
@@ -372,7 +372,7 @@ strong MT baseline.
 ## 10. Document-level / context-carrying candidates (including ones we did not name)
 
 Our format's selling point is that context travels with the string, so a benchmark that is *only* flat
-sentences cannot show CLIF's advantage. These carry structure:
+sentences cannot show CLIFF's advantage. These carry structure:
 
 | Candidate | What context it carries | zh-en? | Notes |
 |---|---|---|---|
@@ -395,7 +395,7 @@ sentences cannot show CLIF's advantage. These carry structure:
 - [file-format-token-accuracy-benchmark](https://github.com/thoeltig/file-format-token-accuracy-benchmark):
   token efficiency *and* accuracy across CSV/JSON/TOON/XML/YAML for LLM consumption.
 These are the closest existing precedents for the "token cost per format" axis, and they are engineering
-benchmarks rather than peer-reviewed work - precisely the gap CLIF's benchmark can fill by adding
+benchmarks rather than peer-reviewed work - precisely the gap CLIFF's benchmark can fill by adding
 *translation quality* and *round-trip validity* to the token-cost story.
 
 ### 10.2 Sourcing the app/SaaS/UI-string domain (no established MT benchmark exists)
@@ -457,7 +457,7 @@ vocabulary so our numbers are comparable.
 | **WMT24++ literary slice** | en->zh (+54) | segments with doc ids | **Apache-2.0 [confirmed]** | `google/wmt24pp` - the only literary-ish slice we can legally vendor |
 | **Wukong localization study** | zh->en | game/culture text | **[unverified]** | [GitHub](https://github.com/zcocozz/wukong-localization), [LM4DH 2025](https://aclanthology.org/2025.lm4dh-1.16/) |
 
-For *vendorable* literature, the companion document `clif-test/docs/research/corpus-sources.md` already did the
+For *vendorable* literature, the companion document `cliff-test/docs/research/corpus-sources.md` already did the
 copyright work: use public-domain source + public-domain translation pairs (Brewitt-Taylor's *Three Kingdoms*,
 Legge, Giles, Joly, Shakespeare <-> 朱生豪, 和合本 1919 <-> WEB/ASV). That is a better answer for our repo than any
 research-licensed literary benchmark.
@@ -498,7 +498,7 @@ The WMT Metrics/Evaluation shared task is the authority. Recent findings to cite
 | **BERTScore** | neural, ref | encoder-dependent | MIT **[reported]** | Tiiiger/bert_score | yes | Weak correlation vs COMET/MetricX; keep only as a cheap sanity metric. |
 | **GEMBA / GEMBA-MQM** | **LLM-as-judge** | GPT-3.5+ / GPT-4 | **code AND prompts are CC-BY-SA-4.0, not MIT** **[confirmed via the repo commit "Code and data licensed under CC BY-SA 4.0"](https://github.com/MicrosoftTranslator/GEMBA/commit/18671baee617b70d852dd7f2984172b23b49f8db)** - commercially usable but **ShareAlike attaches to vendored prompt files** | [MicrosoftTranslator/GEMBA](https://github.com/MicrosoftTranslator/GEMBA) (**not** `microsoft/GEMBA`) | no (API only) | Strong at **system level**, coarse at segment level. The paper has a section literally titled **"Caution with 'Black Box' LLMs"** [confirmed] warning against using it to rank systems. Our study is *about* LLM behaviour, so an LLM judge shares failure modes - secondary signal only. [GEMBA](https://aclanthology.org/2023.eamt-1.19/), [GEMBA-MQM](https://aclanthology.org/2023.wmt-1.64/), [V2](https://aclanthology.org/2025.wmt-1.67/) |
 
-### 12.3 Recommended stack for CLIF (offline, CPU, permissive)
+### 12.3 Recommended stack for CLIFF (offline, CPU, permissive)
 1. **COMET-22** (`Unbabel/wmt22-comet-da`, apache-2.0, ungated) - headline quality number; report **mean segment score + bootstrap CI**.
 2. **chrF++** (sacreBLEU, with the signature pasted verbatim) - surface baseline; for zh use `--tokenize zh`, for ja `ja-mecab`, for es `13a`. **There is no auto-detection - scoring en->zh with the default `13a` measures whitespace, not translation.**
 3. **MetricX-24-hybrid-large** (apache-2.0, ungated) - an independently-trained second reference-based number *and* a QE number from one checkpoint. **State the direction: 0-25, lower is better.**
@@ -586,7 +586,7 @@ its weights/licence are **[unverified]**. **MQM-APE** ([COLING 2025](https://acl
 is a useful design: predict MQM errors, try to post-edit each one, and **discard errors whose repair does not
 improve quality** - an elegant filter for false-positive error spans.
 
-**g) Full detail** lives in `clif-test/docs/research/_notes_metrics.md` (474 lines), including a per-model
+**g) Full detail** lives in `cliff-test/docs/research/_notes_metrics.md` (474 lines), including a per-model
 gated/licence/CPU table, offline `comet-score` invocation notes (COMET downloads `xlm-roberta-large`
 separately - pre-warm the cache before going air-gapped), and an explicit list of what remains unverified.
 
@@ -645,7 +645,7 @@ Every format sees **identical source segments** and the **same model**, so:
   correlates better with human judgement ([AAAI 2025](http://arxiv.org/pdf/2407.12832)), and it is also what
   makes the paired test possible.
 - With 9 formats you are making up to 36 pairwise comparisons -> **correct for multiplicity (Holm or
-  Benjamini-Hochberg)**, or designate CLIF-vs-each-baseline as the pre-registered family and correct within it.
+  Benjamini-Hochberg)**, or designate CLIFF-vs-each-baseline as the pre-registered family and correct within it.
   General guidance: [Dror et al., *The Hitchhiker's Guide to Testing Statistical Significance in NLP* (ACL 2018)](https://aclanthology.org/P18-1128/).
 - Prefer a **mixed-effects model** (quality ~ format + (1|segment) + (1|domain)) if you want one clean
   inferential statement across strata; report per-stratum paired deltas as the descriptive layer.
@@ -741,7 +741,7 @@ own verification checklist still applies.)*
    WMT terminology mirrors, MMTE/ORDA, GlotEval, Par3, GuoFeng) and archive each LICENSE page.
 2. Pull **WMT24++** for en->zh_CN / ja_JP / es_ES, keep `domain` + `document_id`, and build the news/social/
    literary strata from it.
-3. Build the UI stratum from Godot + Mozilla Fluent, preserving comments/`msgctxt` - these become CLIF's
+3. Build the UI stratum from Godot + Mozilla Fluent, preserving comments/`msgctxt` - these become CLIFF's
    context fields and the baseline formats' "lost context".
 4. Stand up the metric stack: **COMET-22** (`Unbabel/wmt22-comet-da`, apache-2.0, ungated) + **sacreBLEU
    chrF++** (with signature, `--tokenize zh`/`ja-mecab`) + **MetricX-24-hybrid-large** (apache-2.0; remember
@@ -833,7 +833,7 @@ roles and full conversation context** - the closest public analogue to in-game d
   source of WMT23-Terminology zh-en. Repo [EleanorJiang/BlonDe](https://github.com/EleanorJiang/BlonDe),
   papers [arXiv:2210.14667](https://arxiv.org/abs/2210.14667), [BlonDe arXiv:2103.11878](https://arxiv.org/abs/2103.11878).
   Licence **[unverified]**, web-novel copyright -> fetch-only. **This is the single richest "context + glossary +
-  characters" zh-en resource in existence** and the best model for what CLIF should be able to express.
+  characters" zh-en resource in existence** and the best model for what CLIFF should be able to express.
 - **LitEval-Corpus** ([NAACL 2025](https://aclanthology.org/2025.naacl-long.548/),
   [code](https://github.com/zhangr2021/LitMT_eval)) - literary corpus with **professional, student and LLM
   translations annotated with MQM**. Primarily de-en; zh coverage **[unverified]**.

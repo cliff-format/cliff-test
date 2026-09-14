@@ -7,4 +7,4 @@ the machine-readable record is in the matching gold manifest.
 
 | File | Upstream | Licence | Revision | Retrieved |
 | --- | --- | --- | --- | --- |
-| wmt24pp.zh-CN.clif | [WMT24++ human post-edited references](google/wmt24pp) | Apache-2.0 | main | 2026-09-01T00:06:26+00:00 |
+| wmt24pp.zh-CN.cliff | [WMT24++ human post-edited references](google/wmt24pp) | Apache-2.0 | main | 2026-09-01T00:06:26+00:00 |

@@ -1,7 +1,7 @@
 {
-  "file": "godot-l10n.zh-CN.clif",
+  "file": "godot-l10n.zh-CN.cliff",
   "stratum": "ui",
-  "notes": "Real product UI strings with #. translator comments and msgctxt disambiguation, under a permissive licence. Imported through pyclif.from_po, so the CLIF context fields come from the PO comments.",
+  "notes": "Real product UI strings with #. translator comments and msgctxt disambiguation, under a permissive licence. Imported through pycliff.from_po, so the CLIFF context fields come from the PO comments.",
   "provenance": {
     "source": "Godot editor localization (gettext PO with translator comments)",
     "url": "https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po",

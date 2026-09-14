@@ -7,4 +7,4 @@ the machine-readable record is in the matching gold manifest.
 
 | File | Upstream | Licence | Revision | Retrieved |
 | --- | --- | --- | --- | --- |
-| godot-l10n.zh-CN.clif | [Godot editor localization (gettext PO with translator comments)](https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po) | MIT | main | 2026-09-01T00:05:22+00:00 |
+| godot-l10n.zh-CN.cliff | [Godot editor localization (gettext PO with translator comments)](https://raw.githubusercontent.com/godotengine/godot-editor-l10n/main/editor/zh_Hans.po) | MIT | main | 2026-09-01T00:05:22+00:00 |

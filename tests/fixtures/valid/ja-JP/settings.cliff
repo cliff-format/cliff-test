@@ -1,0 +1,15 @@
+CLIFF 1.0
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: ja-JP
+title: "Folder layout settings"
+info: "clan and target-language are declared in the header and must agree with the ja-JP folder and the settings file name."
+
+[main]
+type: label
+
+<ok>
+source: "OK"
+target: "OK"
+status: translated

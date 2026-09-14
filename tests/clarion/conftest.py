@@ -7,11 +7,11 @@ from pathlib import Path
 
 import pytest
 
-from clarion.paths import ensure_clif_format
+from clarion.paths import ensure_cliff_format
 
-ensure_clif_format()
+ensure_cliff_format()
 
-SAMPLE_CLIF = """CLIF 1.0
+SAMPLE_CLIFF = """CLIFF 1.0
 namespace: clarion
 clan: fixture
 source-language: en-US
@@ -19,7 +19,7 @@ target-language: zh-CN
 title: "Harness fixture"
 info: "Two screens of an invented console product."
 standard: "Use 默认 for default; keep Token in Latin script; no trailing period on labels."
-dependency: ["fixture-terms.zh-CN.clif"]
+dependency: ["fixture-terms.zh-CN.cliff"]
 
 [settings.video]
 context: "Video settings screen of the console."
@@ -54,7 +54,7 @@ status: final
 context: "Token must stay in Latin script."
 """
 
-SAMPLE_GLOSSARY = """CLIF 1.0
+SAMPLE_GLOSSARY = """CLIFF 1.0
 namespace: clarion
 clan: fixture-terms
 source-language: en-US
@@ -77,7 +77,7 @@ status: final
 """
 
 GOLD = {
-    "file": "fixture.zh-CN.clif",
+    "file": "fixture.zh-CN.cliff",
     "stratum": "fixture",
     "provenance": {
         "source": "original text written for CLARION",
@@ -131,18 +131,18 @@ GOLD = {
 
 @pytest.fixture(scope="session")
 def sample_document():
-    """The fixture document, parsed with clif_format."""
-    import clif_format
+    """The fixture document, parsed with cliff_format."""
+    import cliff_format
 
-    return clif_format.parse(SAMPLE_CLIF)
+    return cliff_format.parse(SAMPLE_CLIFF)
 
 
 @pytest.fixture(scope="session")
 def sample_glossary():
     """The fixture glossary document."""
-    import clif_format
+    import cliff_format
 
-    return clif_format.parse(SAMPLE_GLOSSARY)
+    return cliff_format.parse(SAMPLE_GLOSSARY)
 
 
 @pytest.fixture(scope="session")
@@ -166,8 +166,8 @@ def corpus_root() -> Path:
         ),
         encoding="utf-8",
     )
-    (stratum / "fixture.zh-CN.clif").write_text(SAMPLE_CLIF, encoding="utf-8")
-    (stratum / "fixture-terms.zh-CN.clif").write_text(SAMPLE_GLOSSARY, encoding="utf-8")
+    (stratum / "fixture.zh-CN.cliff").write_text(SAMPLE_CLIFF, encoding="utf-8")
+    (stratum / "fixture-terms.zh-CN.cliff").write_text(SAMPLE_GLOSSARY, encoding="utf-8")
     (stratum / "fixture.gold.json").write_text(
         json.dumps(GOLD, ensure_ascii=False), encoding="utf-8"
     )

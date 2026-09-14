@@ -13,7 +13,7 @@
     "Keep UI labels under the declared max-width."
   ],
   "dependencies": [
-    "../terms/ironforge.terms.en-US.clif",
+    "../terms/ironforge.terms.en-US.cliff",
     "docs/act3-script.md"
   ],
   "glossary": [

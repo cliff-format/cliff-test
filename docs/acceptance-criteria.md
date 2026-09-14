@@ -1,6 +1,6 @@
-# CLIF Acceptance Criteria
+# CLIFF Acceptance Criteria
 
-This repository implements the requested acceptance criteria for CLIF 1.0
+This repository implements the requested acceptance criteria for CLIFF 1.0
 plus additional ones proposed below. Where a criterion depends on a specific
 LLM class (e.g. a Flash-class model), the repository contains a replayable
 protocol; numbers recorded in this session come from the available subagent
@@ -9,33 +9,33 @@ model and are labeled as such. All recorded numbers below are updated by
 
 ## C1 — Standard format specification
 
-- Normative spec: [clif-1.0.0.md](https://github.com/clif-format/clif/blob/main/spec/clif-1.0.0.md)
+- Normative spec: [cliff-1.0.0.md](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.0.0.md)
 
-- Normative grammar: [clif-1.0.abnf](https://github.com/clif-format/clif/blob/main/spec/abnf/clif-1.0.abnf)
-- Valid examples: [clif-1.0.0 examples](https://github.com/clif-format/clif/tree/main/spec/examples/clif-1.0.0); conformance fixtures:
+- Normative grammar: [cliff-1.0.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.0.abnf)
+- Valid examples: [cliff-1.0.0 examples](https://github.com/cliff-format/cliff/tree/main/spec/examples/cliff-1.0.0); conformance fixtures:
   `tests/fixtures/`
-- Reference validator: `tools/clif_validator.py`
-- Tag references: [content-types.md](https://github.com/clif-format/clif/blob/main/references/content-types.md),
-  [emotion-tags.md](https://github.com/clif-format/clif/blob/main/references/emotion-tags.md), [status-tags.md](https://github.com/clif-format/clif/blob/main/references/status-tags.md)
+- Reference validator: `tools/cliff_validator.py`
+- Tag references: [content-types.md](https://github.com/cliff-format/cliff/blob/main/references/content-types.md),
+  [emotion-tags.md](https://github.com/cliff-format/cliff/blob/main/references/emotion-tags.md), [status-tags.md](https://github.com/cliff-format/cliff/blob/main/references/status-tags.md)
 
 ## C2 — Token savings ≥ 30% vs common formats (average)
 
 - Benchmark: `tools/token_benchmark.py`
-- Corpus: 16 translation units with equivalent semantics across CLIF 1.0,
+- Corpus: 16 translation units with equivalent semantics across CLIFF 1.0,
   XLIFF 2.1, JSON, CSV, gettext PO, Fluent, YAML, and TOML. Each
   representation carries the same family info, standards, dependencies,
-  glossary terms (CLIF counts its `variant: glossary` file), group/entry
+  glossary terms (CLIFF counts its `variant: glossary` file), group/entry
   context, `type`, `emotion`, `status`, `max-width`, and ICU payloads.
 - Tokenizer: `tiktoken` `cl100k_base` (deterministic fallback if unavailable).
-- Recorded in this session: **CLIF 1.0 1250 tokens (main + glossary
+- Recorded in this session: **CLIFF 1.0 1250 tokens (main + glossary
   dependency file) vs 1785.9 average of XLIFF 2.1 / JSON / CSV / PO / Fluent /
   YAML / TOML → 30.0% saving**. PASS (threshold ≥ 30%).
 
 ## C3 — AI translation reference accuracy ≥ 90%
 
-- Corpus: `tests/quality/corpus.clif` (12 entries: idioms, sarcasm, pun,
+- Corpus: `tests/quality/corpus.cliff` (12 entries: idioms, sarcasm, pun,
   proper nouns, ICU, word order, width); glossary dependency:
-  `tests/quality/glossary.zh-CN.clif` (`variant: glossary`).
+  `tests/quality/glossary.zh-CN.cliff` (`variant: glossary`).
 - Gold references and rubric: `tests/quality/gold-reference.md`
   (信 4 / 达 3 / 雅 2 / constraints 1 per entry).
 - Objective constraint checks: `tests/quality/check_constraints.py`.
@@ -48,36 +48,36 @@ model and are labeled as such. All recorded numbers below are updated by
 
 - Protocol and task list: `tests/edit-robustness/README.md`,
   `tests/edit-robustness/tasks.json`.
-- Baseline: `tests/edit-robustness/base.clif`.
+- Baseline: `tests/edit-robustness/base.cliff`.
 - Each of the 100 sequential valid-intent edits is applied by a SubAgent
   without access to the validator, then every file is checked with
-  `tools/clif_validator.py`; score = valid files / 100.
+  `tools/cliff_validator.py`; score = valid files / 100.
 - Deliberately invalid edits are covered separately by the invalid fixtures
   (C5.1), not by this score.
 - Recorded this session (deterministic replay from `tasks.json` via
   `apply_edits.py`): **100/100 valid (100.0%)**. PASS.
 
-## C5 — Additional criteria proposed for CLIF 1.0
+## C5 — Additional criteria proposed for CLIFF 1.0
 
 | # | Criterion | Test |
 | --- | --- | --- |
 | C5.1 | Every invalid document yields a **line-numbered, classed error** | `tests/fixtures/invalid/` + validator output |
-| C5.2 | Closed vocabularies (`type` 26, `emotion` 23, `status` 4: `initial`/`translated`/`reviewed`/`final`) reject near-miss tags | `tests/fixtures/invalid/invalid-status.zh-CN.clif`, `tests/fixtures/invalid/invalid-emotion.zh-CN.clif`, `tests/fixtures/invalid/invalid-type.zh-CN.clif` |
-| C5.3 | ICU MF1/MF2 survives as payload; broken braces are detected | `tests/fixtures/valid/icu.zh-CN.clif`, `tests/fixtures/invalid/unbalanced-icu.zh-CN.clif` |
+| C5.2 | Closed vocabularies (`type` 26, `emotion` 23, `status` 4: `initial`/`translated`/`reviewed`/`final`) reject near-miss tags | `tests/fixtures/invalid/invalid-status.zh-CN.cliff`, `tests/fixtures/invalid/invalid-emotion.zh-CN.cliff`, `tests/fixtures/invalid/invalid-type.zh-CN.cliff` |
+| C5.3 | ICU MF1/MF2 survives as payload; broken braces are detected | `tests/fixtures/valid/icu.zh-CN.cliff`, `tests/fixtures/invalid/unbalanced-icu.zh-CN.cliff` |
 | C5.4 | Display width follows UAX #11 (Latin=1, CJK=2, combining=0) | `accept-short` entry in quality corpus; `--check-width` |
-| C5.5 | Comments are discardable without losing translation context | `tests/fixtures/valid/comments-blanks.zh-CN.clif`; design rationale §15 |
-| C5.6 | Canonical IDs are lowercase `namespace.clan.group.entry` and unique | `tests/fixtures/invalid/duplicate-entry-id.zh-CN.clif`, `--ids` |
+| C5.5 | Comments are discardable without losing translation context | `tests/fixtures/valid/comments-blanks.zh-CN.cliff`; design rationale §15 |
+| C5.6 | Canonical IDs are lowercase `namespace.clan.group.entry` and unique | `tests/fixtures/invalid/duplicate-entry-id.zh-CN.cliff`, `--ids` |
 | C5.7 | Token benchmark is deterministic and reproducible | two-run verification of `tools/token_benchmark.py` |
-| C5.8 | No multi-line structural construct exists in the grammar | [clif-1.0.abnf](https://github.com/clif-format/clif/blob/main/spec/abnf/clif-1.0.abnf), design rationale |
-| C5.9 | Four header fields are required; flat file name `<clan>.<target-language>.clif` is checked for consistency only | `filename-mismatch.zh-CN.clif`; `missing-*` fixtures |
+| C5.8 | No multi-line structural construct exists in the grammar | [cliff-1.0.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.0.abnf), design rationale |
+| C5.9 | Four header fields are required; flat file name `<clan>.<target-language>.cliff` is checked for consistency only | `filename-mismatch.zh-CN.cliff`; `missing-*` fixtures |
 | C5.10 | Glossary variant is restricted to term-level types (warning) | `variant: glossary` fixtures |
 | C5.11 | `=` and `:` are equivalent; tolerant whitespace never changes meaning | tolerant-syntax fixtures |
-| C5.12 | Status workflow prevents `translated`/`reviewed`/`final` without target; `initial` allows no target | `tests/fixtures/invalid/reviewed-without-target.zh-CN.clif` |
-| C5.13 | Folder layout `<target-language>/<clan>.clif` is checked for consistency only; folder/file-name/header conflicts are rejected | `tests/fixtures/valid/ja-JP/settings.clif`; `tests/fixtures/invalid/ja-JP/settings.zh-CN.clif`; `tests/fixtures/invalid/ja-JP/settings.clif`; `tests/fixtures/invalid/ja-JP/settings_bad.clif` |
+| C5.12 | Status workflow prevents `translated`/`reviewed`/`final` without target; `initial` allows no target | `tests/fixtures/invalid/reviewed-without-target.zh-CN.cliff` |
+| C5.13 | Folder layout `<target-language>/<clan>.cliff` is checked for consistency only; folder/file-name/header conflicts are rejected | `tests/fixtures/valid/ja-JP/settings.cliff`; `tests/fixtures/invalid/ja-JP/settings.zh-CN.cliff`; `tests/fixtures/invalid/ja-JP/settings.cliff`; `tests/fixtures/invalid/ja-JP/settings_bad.cliff` |
 
 ## C6 — CLARION: format-versus-format measurement
 
-CLARION generalizes C2–C4 from "CLIF alone" to "CLIF against every format a
+CLARION generalizes C2–C4 from "CLIFF alone" to "CLIFF against every format a
 project might ship", using one corpus and one generation path. Protocol:
 [clarion-methodology.md](clarion-methodology.md).
 
@@ -85,7 +85,7 @@ project might ship", using one corpus and one generation path. Protocol:
 | --- | --- | --- | --- |
 | C6.1 | Token cost of every format, plain arm | `python -m clarion tokens` | no |
 | C6.2 | Token cost of every format carrying the same context | same command, context arm | no |
-| C6.3 | Token cost with and without the CLIF specification block | component subtraction inside the same run | no |
+| C6.3 | Token cost with and without the CLIFF specification block | component subtraction inside the same run | no |
 | C6.4 | Translation quality per format and arm (chrF++/BLEU/TER, coverage, validity) | `python -m clarion translate` | yes |
 | C6.5 | Instruction-following per format and arm (rule engine over the gold manifests) | same run | yes |
 | C6.6 | Terminology adherence and de-jargon cleanliness | same run | yes |
@@ -97,11 +97,11 @@ project might ship", using one corpus and one generation path. Protocol:
 Recorded in this session (no model calls yet, by design):
 
 - `python -m clarion selfcheck` — **SELF-CHECK PASS** (12 checks, including
-  CLIF round-trip retention 1.000 and 12 deterministic edits valid in all ten
+  CLIFF round-trip retention 1.000 and 12 deterministic edits valid in all ten
   formats).
 - `python -m clarion corpus validate` — **6 files, 111 entries, 0 problems**.
 - `python -m clarion tokens` — CLARION-Core document payload, `o200k_base`:
-  CLIF 4 907 tokens in the plain arm and 8 065 in the context arm, against
+  CLIFF 4 907 tokens in the plain arm and 8 065 in the context arm, against
   3 873–7 815 (plain) and 9 223–23 331 (context) for the other nine formats.
 - `python -m pytest tests/clarion` — **146 passed**.
 

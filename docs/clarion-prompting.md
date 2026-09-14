@@ -1,12 +1,12 @@
-# Translating CLIF with an LLM: the CLARION playbook
+# Translating CLIFF with an LLM: the CLARION playbook
 
 This is the practical companion to the benchmark: how to get good translations
-out of a model when the working file is CLIF. Everything here is implemented in
+out of a model when the working file is CLIFF. Everything here is implemented in
 the harness, so the recommendations are executable rather than advisory.
 
 ## 1. Attach the format rules once
 
-A model has never seen CLIF. Inject the rules at one of three levels:
+A model has never seen CLIFF. Inject the rules at one of three levels:
 
 | Level | What is sent | Roughly |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ A model has never seen CLIF. Inject the rules at one of three levels:
     python -m clarion tokens --spec-mode cheatsheet
 
 The digest is **generated from the specification repository**, not copied: the
-closed vocabularies are read out of the reference tables in `clif/references`,
+closed vocabularies are read out of the reference tables in `cliff/references`,
 so it can never drift from the normative text. The cost is a separately
 measured prompt component, which is why the with/without comparison needs no
 extra model run.
@@ -27,11 +27,11 @@ must also restructure a document.
 
 ## 2. Build the glossary before translating, not after
 
-CLIF has a glossary variant; a project only benefits from it if the file
+CLIFF has a glossary variant; a project only benefits from it if the file
 exists. When a document arrives without terminology, mine one:
 
-    python -m clarion glossary bootstrap datasets/clarion-core/game/game-shard.zh-CN.clif \
-        --out datasets/clarion-core/game/glossary.zh-CN.clif --propose --attach
+    python -m clarion glossary bootstrap datasets/clarion-core/game/game-shard.zh-CN.cliff \
+        --out datasets/clarion-core/game/glossary.zh-CN.cliff --propose --attach
 
 What it does:
 
@@ -46,7 +46,7 @@ What it does:
 4. **Attaches** the glossary to the source file's `dependency` list with
    `--attach`, so every later prompt carries it automatically.
 
-The glossary is a CLIF file with `variant: glossary`, so it is validated,
+The glossary is a CLIFF file with `variant: glossary`, so it is validated,
 diffed and reviewed like any other translation asset.
 
 ## 3. Say what the project means, not what the textbook says
@@ -87,9 +87,9 @@ brief. Never split an entry across batches.
 
 ## 6. Close the loop with the validator
 
-CLIF errors are line-numbered and categorized, so repair is local:
+CLIFF errors are line-numbered and categorized, so repair is local:
 
-    python -m clif-python validate translated.clif
+    python -m cliff-python validate translated.cliff
 
 Feed only the failing lines back:
 
@@ -105,7 +105,7 @@ model the format was designed for.
     user:   task rules (return the whole file, keep identifiers, preserve
             placeholders, translate meaning not words)
             format notes (where the translation goes in this format)
-            CLIF cheat sheet            <- CLIF only
+            CLIFF cheat sheet            <- CLIFF only
             terminology policy          <- from the de-jargon file
             context hint                <- context arm only
             glossary                    <- rendered in the same format

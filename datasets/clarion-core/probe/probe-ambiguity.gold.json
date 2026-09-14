@@ -1,7 +1,7 @@
 {
-  "file": "probe-ambiguity.zh-CN.clif",
+  "file": "probe-ambiguity.zh-CN.cliff",
   "stratum": "probe",
-  "notes": "The probe stratum is the diagnostic layer of CLARION-Core: minimal pairs whose source text is identical or nearly so and whose correct Chinese rendering diverges on exactly one CLIF field. Emotion pairs flip sincerity against sarcasm, courtesy against threat, enthusiasm against resignation and comfort against restraint; type pairs flip label against sentence, proper noun against verb and idiom against literal reading; context pairs flip homographs and pronouns; width pairs force a shorter wording under a tight budget. A translation that ignores the deciding field must fail at least one member, so these items measure what the brief is worth.",
+  "notes": "The probe stratum is the diagnostic layer of CLARION-Core: minimal pairs whose source text is identical or nearly so and whose correct Chinese rendering diverges on exactly one CLIFF field. Emotion pairs flip sincerity against sarcasm, courtesy against threat, enthusiasm against resignation and comfort against restraint; type pairs flip label against sentence, proper noun against verb and idiom against literal reading; context pairs flip homographs and pronouns; width pairs force a shorter wording under a tight budget. A translation that ignores the deciding field must fail at least one member, so these items measure what the brief is worth.",
   "provenance": {
     "source": "original text written for CLARION",
     "url": "",

@@ -20,7 +20,7 @@ from . import templates
 from .spec_digest import build_grammar_plus
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 TRANSLATION_COMPONENTS = (
     "system.role",
@@ -32,7 +32,7 @@ TRANSLATION_COMPONENTS = (
     "glossary.workflow",
     "context.hint",
     "glossary",
-    "clif.edit_safety",
+    "cliff.edit_safety",
     "document",
 )
 INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes")
@@ -57,7 +57,7 @@ class PromptBundle:
         return self.budget.total
 
     def tokens_without_format_instructions(self) -> int:
-        """Prompt tokens if the CLIF digest and format notes were removed."""
+        """Prompt tokens if the CLIFF digest and format notes were removed."""
         return self.budget.without(*INSTRUCTION_COMPONENTS)
 
 
@@ -75,18 +75,18 @@ def build_translation_prompt(
     policy_fragment: str = "",
     allow_glossary_output: bool = False,
     workflow_style: str = "appendix",
-    document: ClifDocument | None = None,
+    document: CliffDocument | None = None,
     references: dict[str, str] | None = None,
 ) -> PromptBundle:
     """Assemble the translation prompt for one file in one format and arm."""
     spec = get_format(format_id)
     budget = PromptBudget(tokenizer=tokenizer.name)
 
-    # The CLIF digest is split: core rules stay in system, the writer
+    # The CLIFF digest is split: core rules stay in system, the writer
     # supplement and edit-safety reminder are in the user message near the
     # file to edit.
     notes = templates.FORMAT_NOTES.get(format_id, "")
-    digest = build_grammar_plus() if format_id == "clif" else ""
+    digest = build_grammar_plus() if format_id == "cliff" else ""
     system_digest = ""
     user_digest = ""
     if digest:
@@ -133,7 +133,7 @@ def build_translation_prompt(
     # the numbered task rules, and 'front' additionally places it before the
     # specification block. The ablation behind the default is recorded in
     # docs/clarion-prompting.md.
-    workflow_enabled = format_id == "clif" and allow_glossary_output
+    workflow_enabled = format_id == "cliff" and allow_glossary_output
     workflow_block = ""
     if workflow_enabled:
         workflow_block = templates.GLOSSARY_WORKFLOW
@@ -143,7 +143,7 @@ def build_translation_prompt(
     rules_block = f"{rules}\n\n{output_rules}"
     if workflow_block and workflow_style in {"deliverable", "front"}:
         rules_block = f"{rules_block}\n\n{templates.GLOSSARY_DELIVERABLE}"
-    if format_id == "clif" and document is not None:
+    if format_id == "cliff" and document is not None:
         entry_count = sum(len(group.entries) for group in document.groups)
         group_count = len(document.groups)
         rules_block = (
@@ -179,10 +179,10 @@ def build_translation_prompt(
         blocks.append(glossary_block)
     budget.add("glossary", "user", glossary_block, tokenizer)
 
-    if spec_reference and format_id == "clif" and SPEC_FILE.exists():
+    if spec_reference and format_id == "cliff" and SPEC_FILE.exists():
         full_spec = read_text(SPEC_FILE)
         spec_ref = (
-            "===== REFERENCE: FULL CLIF SPECIFICATION =====\n"
+            "===== REFERENCE: FULL CLIFF SPECIFICATION =====\n"
             "Before writing the answer, consult the relevant sections of this "
             "full specification. For long files or dense context this is "
             "required.\n\n"
@@ -191,9 +191,9 @@ def build_translation_prompt(
         blocks.append(spec_ref)
         budget.add("spec.reference", "user", spec_ref, tokenizer)
 
-    if format_id == "clif":
-        blocks.append(templates.CLIF_EDIT_SAFETY)
-        budget.add("clif.edit_safety", "user", templates.CLIF_EDIT_SAFETY, tokenizer)
+    if format_id == "cliff":
+        blocks.append(templates.CLIFF_EDIT_SAFETY)
+        budget.add("cliff.edit_safety", "user", templates.CLIFF_EDIT_SAFETY, tokenizer)
 
     document_block = f"{templates.DOCUMENT_HEADER}\n\n{document_text}"
     blocks.append(document_block)

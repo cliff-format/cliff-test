@@ -1,0 +1,81 @@
+CLIFF 1.0
+namespace: clarion
+clan: game-shard-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Emberveil RPG terminology"
+standard: "Canonical renderings for the game stratum. Character names, factions and recurring terms must use these renderings verbatim."
+
+[names]
+type: proper-noun
+context: "Character names."
+
+<ash>
+source: "Ash"
+target: "余烬"
+status: final
+context: "Protagonist's name; translate semantically as embers, never transliterate."
+
+<flint>
+source: "Flint"
+target: "弗林特"
+status: final
+context: "Companion's name; transliterate, never translate as flintstone."
+
+[factions]
+type: proper-noun
+context: "The two warring factions."
+
+<emberborn>
+source: "Emberborn"
+target: "焰裔"
+status: final
+
+<frostward>
+source: "Frostward"
+target: "霜卫"
+status: final
+
+[skills]
+type: noun-phrase
+context: "Hotbar skill names; compact renderings to fit narrow slots."
+
+<ember-burst>
+source: "Ember Burst"
+target: "焰爆"
+status: final
+
+<frost-whip>
+source: "Frost Whip"
+target: "霜鞭"
+status: final
+
+<cinder-sidestep>
+source: "Cinder Sidestep"
+target: "烬避"
+status: final
+
+<thorn-snare>
+source: "Thorn Snare"
+target: "棘缚"
+status: final
+
+[items]
+type: noun-phrase
+context: "Recurring item and world terms."
+
+<emberbloom-tonic>
+source: "Emberbloom Tonic"
+target: "烬花剂"
+status: final
+
+[fixed]
+type: fixed-phrase
+context: "Localized wordplay and set phrases."
+
+<splitting-headache>
+source: "Splitting Headache"
+target: "头痛欲裂"
+status: final
+context: "Greataxe name; a pun localized as the idiom for a severe headache."

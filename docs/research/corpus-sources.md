@@ -1,7 +1,7 @@
-# CLIF Benchmark — License-Clean Corpus Sourcing Notes
+# CLIFF Benchmark — License-Clean Corpus Sourcing Notes
 
 **Status:** research draft · **Author:** research subagent · **Date:** 2026-09-01
-**Target repo:** `clif-format` (MIT), public on GitHub
+**Target repo:** `cliff-format` (MIT), public on GitHub
 **Deliverable scope:** ~a few hundred short segments per stratum, each = SOURCE text + an existing HUMAN reference translation. Primary pair EN<->zh-Hans; secondary ja, es, fr.
 
 ---
@@ -238,7 +238,7 @@ Our stratum specifically needs context, so pick formats accordingly:
 
 These are the established practices; adopt all five.
 
-1. **Fetch script + pinned manifest ("recipe, not the food").** Ship `sources/<corpus>.yaml` containing: upstream URL, **immutable revision** (git SHA / release tag / dataset version), file path within the archive, license SPDX id, and per-segment locators. A `clif corpus fetch` command reconstructs the corpus locally at first run. **Canonical precedent: sacrebleu downloads WMT test sets on demand rather than vendoring them** ([sacrebleu](https://pypi.org/project/sacrebleu/2.4.3/), [README](https://raw.githubusercontent.com/mjpost/sacrebleu/refs/tags/v1.2.9/README.md)); `lm-evaluation-harness` and `mteb` do the same.
+1. **Fetch script + pinned manifest ("recipe, not the food").** Ship `sources/<corpus>.yaml` containing: upstream URL, **immutable revision** (git SHA / release tag / dataset version), file path within the archive, license SPDX id, and per-segment locators. A `cliff corpus fetch` command reconstructs the corpus locally at first run. **Canonical precedent: sacrebleu downloads WMT test sets on demand rather than vendoring them** ([sacrebleu](https://pypi.org/project/sacrebleu/2.4.3/), [README](https://raw.githubusercontent.com/mjpost/sacrebleu/refs/tags/v1.2.9/README.md)); `lm-evaluation-harness` and `mteb` do the same.
 2. **Segment IDs + checksums instead of text.** Store `{corpus, file, key/msgid, sha256(source), sha256(reference), n_chars}`, optionally with an 8-char prefix/suffix of each string for debugging. This lets anyone *verify* they reconstructed the identical corpus without us republishing a single sentence. HF's own dataset infrastructure records `download_checksums` for exactly this integrity purpose ([example](https://huggingface.co/datasets/aps/super_glue/discussions/9/files)).
 3. **Dataset card ("datasheet") practice.** Every stratum gets a card: provenance, upstream licence + link, collection date, revision pin, transformations applied (segmentation, normalization), languages, known biases, personal-data statement, and an explicit *"what you may do with this"* section. Mirror it as a HF dataset card + Croissant metadata so the licence travels with the data.
 4. **Gated distribution for the grey tier.** Hugging Face supports **gated datasets** requiring users to accept terms / be manually approved before download ([Gated datasets — Hub docs](https://huggingface.co/docs/hub/en/datasets-gated), [source](https://github.com/huggingface/hub-docs/blob/8577fc77/docs/hub/datasets-gated.md)). Use this only for material we *do* have the right to distribute under conditions — gating does **not** legalize distributing something we have no licence for.

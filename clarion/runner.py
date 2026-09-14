@@ -325,7 +325,7 @@ def token_matrix(
 
     Builds the exact prompt every translation task would send and reports its
     component-level token cost. Because the components are labelled, the report
-    can state the cost with and without the CLIF specification block by
+    can state the cost with and without the CLIFF specification block by
     subtraction instead of by a second experiment.
     """
     from .formats.render import render_document

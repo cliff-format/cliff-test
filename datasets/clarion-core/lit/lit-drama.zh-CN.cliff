@@ -1,0 +1,198 @@
+CLIFF 1.0
+namespace: clarion
+clan: lit-drama
+source-language: en-US
+target-language: zh-CN
+title: "The Last Call at the Halloway - one scene"
+info: "An original one-act scene. A closing repertory theatre on its final night. "
+      "Odette Rill has run the stage for thirty years; Cassian Vale left the company "
+      "a decade ago and has come back for the last performance. The entries are one "
+      "continuous scene and must read in order: a line's rendering may depend on a "
+      "line before it."
+standard: "Stage directions use a terse present-tense narrative register and never the "
+          "spoken register of dialogue. Keep the venue name Halloway in Latin script. "
+          "Render the surname Vale as 维尔 wherever it appears. House style: one space "
+          "between Han text and Latin letters or digits, fullwidth punctuation inside "
+          "Han sentences, and no textbook jargon."
+
+[scene.arrival]
+context: "The empty auditorium an hour before the final performance. A single work lamp is lit."
+type: description
+emotion: [calm]
+
+<open-house-lights>
+source: "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+target: "观众席的灯已经熄了。台口留着一盏工作灯，尘埃在光柱里缓缓打转。"
+status: final
+context: "Opening stage direction of the scene; sets the empty theatre before anyone speaks."
+
+<enter-cassian>
+source: "I could find this stage in my sleep."
+target: "这座舞台，我闭着眼也摸得到。"
+type: dialogue
+emotion: [nostalgic, calm]
+status: final
+context: "Cassian speaks his first line as he walks in from the wings after ten years away."
+
+<lit-01a>
+source: "You came back."
+target: "你回来了。"
+type: dialogue
+emotion: [joyful, grateful]
+status: final
+context: "Odette says this when she is genuinely glad to see him; she has hoped for this for years."
+
+<lit-01b>
+source: "You came back."
+target: "你还知道回来。"
+type: dialogue
+emotion: [angry, sad]
+status: final
+context: "The same words later in the scene, said as a reproach after he admits why he left."
+
+<reply-cassian>
+source: "The call board still has my name spelled wrong."
+target: "通告板上我的名字还是拼错的。"
+type: dialogue
+emotion: [playful]
+status: final
+context: "Cassian deflects with a small joke about the backstage notice board."
+
+[scene.confrontation]
+context: "They circle the argument they have avoided for ten years."
+type: dialogue
+
+<motif-promise>
+source: "This theatre kept its promises. People did not."
+target: "这座剧场守约，人不守约。"
+emotion: [serious, sad]
+status: final
+context: "Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry."
+
+<lit-02a>
+source: "Wonderful. Just wonderful."
+target: "太好了，真是太好了。"
+emotion: [joyful]
+status: final
+context: "Said when the missing lighting board key is finally found; she means it."
+
+<lit-02b>
+source: "Wonderful. Just wonderful."
+emotion: [angry, playful]
+target: "好啊，可真是「好」得很。"
+status: final
+context: "The same words after the fuse blows for the second time; bitter irony, not praise."
+
+<callback-promise>
+source: "You said the theatre kept its promises."
+target: "你说过，这座剧场守约。"
+emotion: [serious]
+status: final
+context: "Cassian quotes Odette's earlier line back at her; it must read as the same line returning."
+
+<address-early>
+source: "Mr. Vale, the call is in five minutes."
+target: "维尔先生，还有五分钟开演。"
+emotion: [formal, polite]
+status: final
+context: "Early in the scene Odette keeps him at the distance of a surname and a title."
+
+<address-late>
+source: "Cassian. Please. Sit down."
+target: "卡西安，坐吧。"
+emotion: [calm, sad]
+status: final
+context: "Late in the scene the distance drops and she uses his given name for the first time."
+
+<lit-03a>
+source: "She turns the lamp toward him."
+target: "她将工作灯转向他。"
+type: description
+emotion: [objective]
+status: final
+context: "A stage direction: terse narrative register, describing the action for the crew."
+
+<lit-03b>
+source: "She turns the lamp toward him."
+target: "她把灯转过来照着他。"
+emotion: [playful]
+status: final
+context: "A line of dialogue: an actor describing the blocking aloud during a run-through, in speech."
+
+[scene.house]
+context: "Practical talk about the building itself while they avoid each other's eyes."
+type: dialogue
+emotion: [neutral]
+
+<roof-year>
+source: "The roof has not been touched since 1974."
+target: "屋顶自 1974 年以来就没修过。"
+status: final
+context: "Odette lists what the building needs; the year is a fact and must survive."
+
+<lamp-count>
+source: "Two 500-watt lamps, and a fuse box older than both of us."
+target: "两盏 500 瓦的灯，还有一个比我俩年纪都大的保险丝盒。"
+status: final
+context: "Cassian counts what is still working in the grid."
+
+<venue-name>
+source: "The Halloway does not close tonight. It closes when the last person leaves."
+target: "Halloway 今晚不关门。等最后一个人走了，它才关门。"
+status: final
+context: "The venue name is the company's mark and is used untranslated in all materials."
+
+<board-default>
+source: "Use the default setting on the board and do not touch anything else."
+target: "用调音台上的默认设置，别的什么都别动。"
+status: final
+context: "A technical instruction to the operator about the lighting board."
+
+<disbelief>
+source: "Are you serious? Now? After everything?"
+target: "你是认真的吗？现在？在这一切之后？"
+emotion: [surprised, angry]
+status: final
+context: "Cassian reacts to her telling him the building is already sold."
+
+[scene.monologue]
+context: "Odette alone in the work light after Cassian goes to change."
+type: monologue
+emotion: [nostalgic]
+
+<monologue-open>
+source: "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+target: "这地板我扫过的次数，比我在自己床上睡过的还多。哪块板子被体重压着会响，哪块反倒是轻轻一踩就塌，我全知道。待得够久，房子就会记住你。"
+status: final
+context: "The first half of her monologue, alone on stage; long-form literary prose, not conversational."
+
+<monologue-turn>
+source: "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+target: "然后某个晚上，灯没有亮起来，才知道房子其实什么也没记住。"
+status: final
+context: "The turn in the monologue where the comfort collapses."
+
+[scene.verse]
+context: "The company's traditional closing couplet, spoken to the empty house at the end of a run."
+type: narration
+emotion: [serious, nostalgic]
+
+<verse-01>
+source: "The lamps go dark, the boards remain."
+target: "灯尽，板犹在。"
+status: final
+context: "First line of the closing couplet; the two lines are parallel in structure and must stay parallel."
+
+<verse-02>
+source: "The players go, the play remains."
+target: "人散，戏犹存。"
+status: final
+context: "Second line of the couplet, mirroring the first line word for word in structure."
+
+<final-direction>
+source: "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+target: "她抬手关掉工作灯。一片黑暗，随后传来观众席大门关上的声音。"
+type: description
+emotion: [calm]
+status: final
+context: "The closing stage direction of the scene."

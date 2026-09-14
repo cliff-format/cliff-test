@@ -2,7 +2,7 @@
 
 Nothing is downloaded implicitly. A recipe records where a corpus lives, what
 its licence is, whether it may be committed to this repository, and how to map
-it onto the CLIF data model. The fetcher then produces a normal CLARION corpus
+it onto the CLIFF data model. The fetcher then produces a normal CLARION corpus
 file plus a gold manifest carrying that provenance, so a licence fact is never
 separated from the text it governs.
 
@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from ..paths import CLIF_TEST_ROOT, DATASETS_ROOT, ensure_clif_format
+from ..paths import CLIFF_TEST_ROOT, DATASETS_ROOT, ensure_cliff_format
 from ..providers.base import Provider
 from ..util import dump_json, load_json, sha256_text, short_hash, slug, utc_now, write_text
 from .annotate import AnnotationConfig, AnnotationReport, annotate_document
@@ -27,7 +27,7 @@ from .licensing import spdx_header, tier_root, write_attribution, write_license_
 
 RECIPES_FILE = DATASETS_ROOT / "recipes" / "recipes.json"
 SHAREALIKE_ROOT = DATASETS_ROOT / "cc-by-sa"
-FETCH_CACHE = CLIF_TEST_ROOT / ".clarion-cache" / "fetch"
+FETCH_CACHE = CLIFF_TEST_ROOT / ".clarion-cache" / "fetch"
 
 
 @dataclass
@@ -287,10 +287,10 @@ def _catalogue_group(path: str, references: list[str]) -> str:
 
 def _properties_to_document(text: str) -> Any:
     """Read a key = value properties catalogue (Unciv and similar)."""
-    ensure_clif_format()
-    from clif_format import ClifDocument, Entry, Group, Header
+    ensure_cliff_format()
+    from cliff_format import CliffDocument, Entry, Group, Header
 
-    document = ClifDocument(header=Header(namespace="properties", clan="imported"))
+    document = CliffDocument(header=Header(namespace="properties", clan="imported"))
     group = Group(path="strings")
     document.groups.append(group)
     seen: set[str] = set()
@@ -318,13 +318,13 @@ def _rows_from_http(recipe: Recipe, limit: int) -> list[Pair]:
     response = httpx.get(recipe.source, timeout=60.0, follow_redirects=True)
     response.raise_for_status()
     text = response.text
-    ensure_clif_format()
-    import clif_format
+    ensure_cliff_format()
+    import cliff_format
 
     if recipe.format == "po":
-        document = clif_format.from_po(text)
+        document = cliff_format.from_po(text)
     elif recipe.format == "fluent":
-        document = clif_format.from_fluent(text)
+        document = cliff_format.from_fluent(text)
     elif recipe.format == "properties":
         document = _properties_to_document(text)
     else:
@@ -353,7 +353,7 @@ def _rows_from_http(recipe: Recipe, limit: int) -> list[Pair]:
                     document=_catalogue_group(group.path, entry.reference) if catalogue
                     else group.path,
                     reference=list(entry.reference),
-                    # clif-python stamps an imported PO entry with a default type of
+                    # cliff-python stamps an imported PO entry with a default type of
                     # 'sentence'; for a UI catalogue that is wrong, and the
                     # enrichment step assigns a better one from the structure.
                     entry_type=None if catalogue else (entry.type or group.type),
@@ -369,9 +369,9 @@ def pairs_to_document(
     clan: str,
     entry_type: str | None = None,
 ) -> Any:
-    """Build a CLIF document from fetched pairs."""
-    ensure_clif_format()
-    from clif_format import ClifDocument, Entry, Group, Header
+    """Build a CLIFF document from fetched pairs."""
+    ensure_cliff_format()
+    from cliff_format import CliffDocument, Entry, Group, Header
 
     header = Header(
         namespace="clarion",
@@ -380,7 +380,7 @@ def pairs_to_document(
         target_language=recipe.languages.get("target", "zh-CN"),
         title=recipe.title,
     )
-    document = ClifDocument(header=header)
+    document = CliffDocument(header=header)
     groups: dict[str, Group] = {}
     seen: set[str] = set()
     for pair in pairs:
@@ -417,7 +417,7 @@ def pairs_to_document(
 def gold_for(
     document: Any,
     recipe: Recipe,
-    clif_name: str,
+    cliff_name: str,
     stratum: str,
     *,
     context_origin: str,
@@ -464,7 +464,7 @@ def gold_for(
                 },
             }
     return {
-        "file": clif_name,
+        "file": cliff_name,
         "stratum": stratum,
         "notes": recipe.notes,
         "provenance": provenance,
@@ -477,7 +477,7 @@ class FetchResult:
     """What a fetch produced."""
 
     recipe_id: str
-    clif_path: Path
+    cliff_path: Path
     gold_path: Path
     entries: int
     tier: str
@@ -491,7 +491,7 @@ class FetchResult:
         """JSON-friendly record."""
         return {
             "recipe": self.recipe_id,
-            "clif": str(self.clif_path),
+            "cliff": str(self.cliff_path),
             "gold": str(self.gold_path),
             "entries": self.entries,
             "tier": self.tier,
@@ -517,12 +517,12 @@ def build_corpus_file(
     """Turn imported pairs into a context-carrying, publishable corpus file.
 
     This is where an ordinary machine-translation corpus becomes a CLARION
-    corpus: pairs to CLIF, deterministic enrichment, an optional annotation
+    corpus: pairs to CLIFF, deterministic enrichment, an optional annotation
     pass, then the licence header, the gold manifest with checksums and the
     attribution file that make the result publishable.
     """
-    ensure_clif_format()
-    import clif_format
+    ensure_cliff_format()
+    import cliff_format
 
     if not pairs:
         raise RuntimeError(
@@ -567,7 +567,7 @@ def build_corpus_file(
 
     directory = destination_for(recipe, stratum)
     directory.mkdir(parents=True, exist_ok=True)
-    clif_path = directory / f"{clan}.{enriched.header.target_language}.clif"
+    cliff_path = directory / f"{clan}.{enriched.header.target_language}.cliff"
     gold_path = directory / f"{clan}.gold.json"
 
     header = spdx_header(
@@ -578,13 +578,13 @@ def build_corpus_file(
         revision=revision,
         context_origin=context_origin,
     )
-    write_text(clif_path, header + clif_format.serialize(enriched))
+    write_text(cliff_path, header + cliff_format.serialize(enriched))
     dump_json(
         gold_path,
         gold_for(
             enriched,
             recipe,
-            clif_path.name,
+            cliff_path.name,
             stratum,
             context_origin=context_origin,
             annotator=annotator_name,
@@ -598,7 +598,7 @@ def build_corpus_file(
             directory,
             [
                 {
-                    "file": clif_path.name,
+                    "file": cliff_path.name,
                     "title": recipe.title,
                     "url": recipe.source,
                     "license": recipe.license,
@@ -618,7 +618,7 @@ def build_corpus_file(
 
     return FetchResult(
         recipe_id=recipe.id,
-        clif_path=clif_path,
+        cliff_path=cliff_path,
         gold_path=gold_path,
         entries=sum(len(group.entries) for group in enriched.groups),
         tier=recipe.tier,
@@ -649,9 +649,9 @@ def fingerprint(recipe: Recipe, *, limit: int, annotate: bool, revision: str) ->
 def cached_result(recipe: Recipe, stratum: str, expected: str) -> FetchResult | None:
     """Return the already-processed import when its fingerprint still matches."""
     directory = destination_for(recipe, stratum)
-    clif_path = directory / f"{recipe.id}.{recipe.languages.get('target', 'zh-CN')}.clif"
+    cliff_path = directory / f"{recipe.id}.{recipe.languages.get('target', 'zh-CN')}.cliff"
     gold_path = directory / f"{recipe.id}.gold.json"
-    if not clif_path.exists() or not gold_path.exists():
+    if not cliff_path.exists() or not gold_path.exists():
         return None
     data = load_json(gold_path)
     provenance = data.get("provenance") or {}
@@ -659,7 +659,7 @@ def cached_result(recipe: Recipe, stratum: str, expected: str) -> FetchResult | 
         return None
     return FetchResult(
         recipe_id=recipe.id,
-        clif_path=clif_path,
+        cliff_path=cliff_path,
         gold_path=gold_path,
         entries=len(data.get("items") or {}),
         tier=recipe.tier,

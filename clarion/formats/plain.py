@@ -1,6 +1,6 @@
 """Plain key/value localization dialects (i18n JSON and YAML).
 
-clif-python converts CLIF to JSON and YAML shaped like the CLIF data model, which
+cliff-python converts CLIFF to JSON and YAML shaped like the CLIFF data model, which
 is the right interchange target but is not what a web or mobile project
 actually ships. The plain dialects here are the realistic competitors:
 
@@ -8,7 +8,7 @@ actually ships. The plain dialects here are the realistic competitors:
   i18next, Rails locale files and Minecraft-style resource bundles;
 * context arm - the Chrome extension messages.json convention, where every key
   maps to an object with a message and a description. The description carries
-  the same CLIF metadata payload that clif-python writes into PO and Fluent
+  the same CLIFF metadata payload that cliff-python writes into PO and Fluent
   comments, so the arms stay comparable across formats.
 
 Both dialects round-trip through parse_json_plain / parse_yaml_plain.
@@ -20,24 +20,24 @@ import json
 import re
 from typing import TYPE_CHECKING, Any
 
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument, Entry, Group
+    from cliff_format import CliffDocument, Entry, Group
 
-META_PREFIX = "clif:"
+META_PREFIX = "cliff:"
 _COMMENT_RE = re.compile(r"^\s*#\s?(.*)$")
 _YAML_KEY_RE = re.compile(r"^([A-Za-z0-9_.\-]+):\s*(.*)$")
 
 
 def entry_metadata(group: Group, entry: Entry, *, include_source: bool) -> dict[str, str]:
-    """CLIF metadata for one entry, in the same shape clif-python writes.
+    """CLIFF metadata for one entry, in the same shape cliff-python writes.
 
     Uses the public effective_* helpers so inheritance is resolved exactly as
     the specification requires (group value first, entry value overrides).
     """
-    ensure_clif_format()
-    from clif_format import effective_context, effective_max_width
+    ensure_cliff_format()
+    from cliff_format import effective_context, effective_max_width
 
     meta: dict[str, str] = {}
     if include_source and entry.source:
@@ -95,9 +95,9 @@ def _flat_key(group: Group, entry: Entry) -> str:
     return f"{group.path}.{entry.id}" if group.path else entry.id
 
 
-def render_json_plain(document: ClifDocument, *, with_context: bool) -> str:
+def render_json_plain(document: CliffDocument, *, with_context: bool) -> str:
     """Serialize to a plain i18n JSON resource."""
-    ensure_clif_format()
+    ensure_cliff_format()
     if with_context:
         flat: dict[str, Any] = {}
         for group in document.groups:
@@ -120,9 +120,9 @@ def render_json_plain(document: ClifDocument, *, with_context: bool) -> str:
     return json.dumps(nested, ensure_ascii=False, indent=2) + "\n"
 
 
-def render_yaml_plain(document: ClifDocument, *, with_context: bool) -> str:
+def render_yaml_plain(document: CliffDocument, *, with_context: bool) -> str:
     """Serialize to a plain YAML resource, with metadata in comments."""
-    ensure_clif_format()
+    ensure_cliff_format()
     lines: list[str] = []
     for group in document.groups:
         for entry in group.entries:
@@ -144,12 +144,12 @@ def _document_from_items(
     *,
     namespace: str,
     clan: str,
-) -> ClifDocument:
-    """Build a CLIF document from (flat key, value, metadata) triples."""
-    ensure_clif_format()
-    from clif_format import ClifDocument, Entry, Group, Header
+) -> CliffDocument:
+    """Build a CLIFF document from (flat key, value, metadata) triples."""
+    ensure_cliff_format()
+    from cliff_format import CliffDocument, Entry, Group, Header
 
-    document = ClifDocument(header=Header(namespace=namespace, clan=clan))
+    document = CliffDocument(header=Header(namespace=namespace, clan=clan))
     groups: dict[str, Group] = {}
     for flat_key, value, meta in items:
         path, _, entry_id = flat_key.rpartition(".")
@@ -179,7 +179,9 @@ def _document_from_items(
     return document
 
 
-def parse_json_plain(text: str, *, namespace: str = "json", clan: str = "imported") -> ClifDocument:
+def parse_json_plain(
+    text: str, *, namespace: str = "json", clan: str = "imported"
+) -> CliffDocument:
     """Read either plain dialect (nested strings or message/description objects)."""
     data = json.loads(text)
     if not isinstance(data, dict):
@@ -208,7 +210,9 @@ def parse_json_plain(text: str, *, namespace: str = "json", clan: str = "importe
     return _document_from_items(items, namespace=namespace, clan=clan)
 
 
-def parse_yaml_plain(text: str, *, namespace: str = "yaml", clan: str = "imported") -> ClifDocument:
+def parse_yaml_plain(
+    text: str, *, namespace: str = "yaml", clan: str = "imported"
+) -> CliffDocument:
     """Read the plain YAML dialect, recovering metadata from comments."""
     items: list[tuple[str, str, dict[str, str]]] = []
     pending_context: list[str] = []

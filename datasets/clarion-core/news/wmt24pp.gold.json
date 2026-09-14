@@ -1,5 +1,5 @@
 {
-  "file": "wmt24pp.zh-CN.clif",
+  "file": "wmt24pp.zh-CN.cliff",
   "stratum": "news",
   "notes": "Professional post-edited references with document ids and domain labels (news, social, speech, literary). The only established MT benchmark that is safely redistributable in an MIT repository. Released 2025, so contamination is lower than FLORES.",
   "provenance": {

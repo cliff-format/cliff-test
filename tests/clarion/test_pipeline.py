@@ -47,7 +47,7 @@ def test_perfect_answer_scores_perfectly(corpus_root: Path) -> None:
     corpus = load_corpus("fixture", root=corpus_root)
     result = run_translation_task(
         corpus.files[0],
-        format_id="clif",
+        format_id="cliff",
         arm=Arm.CONTEXT,
         provider=MockProvider(mode="perfect"),
         tokenizer=get_tokenizer("o200k_base"),
@@ -70,7 +70,7 @@ def test_damaged_answer_is_detected(corpus_root: Path) -> None:
     corpus = load_corpus("fixture", root=corpus_root)
     result = run_translation_task(
         corpus.files[0],
-        format_id="clif",
+        format_id="cliff",
         arm=Arm.CONTEXT,
         provider=MockProvider(mode="noisy"),
         tokenizer=get_tokenizer("o200k_base"),
@@ -103,13 +103,15 @@ def test_token_matrix_covers_every_cell(corpus_root: Path) -> None:
     corpus = load_corpus("fixture", root=corpus_root)
     rows = token_matrix(_config(), corpus, tokenizer=get_tokenizer("o200k_base"))
     assert rows
-    clif_bare = next(r for r in rows if r["format"] == "clif" and r["arm"] == "bare")
-    clif_context = next(r for r in rows if r["format"] == "clif" and r["arm"] == "context")
-    assert clif_context["document_tokens"] > clif_bare["document_tokens"]
-    assert clif_bare["spec_tokens"] > 0
+    cliff_bare = next(r for r in rows if r["format"] == "cliff" and r["arm"] == "bare")
+    cliff_context = next(r for r in rows if r["format"] == "cliff" and r["arm"] == "context")
+    assert cliff_context["document_tokens"] > cliff_bare["document_tokens"]
+    assert cliff_bare["spec_tokens"] > 0
     assert (
-        clif_bare["prompt_tokens_without_format_instructions"]
-        == clif_bare["prompt_tokens"] - clif_bare["spec_tokens"] - clif_bare["format_notes_tokens"]
+        cliff_bare["prompt_tokens_without_format_instructions"]
+        == cliff_bare["prompt_tokens"]
+        - cliff_bare["spec_tokens"]
+        - cliff_bare["format_notes_tokens"]
     )
     po_row = next(r for r in rows if r["format"] == "po" and r["arm"] == "bare")
     assert po_row["spec_tokens"] == 0
@@ -153,7 +155,7 @@ def test_report_renders_from_records(corpus_root: Path) -> None:
     tokenizer = get_tokenizer("o200k_base")
     rows = token_matrix(config, corpus, tokenizer=tokenizer)
     records = []
-    for format_id in ("clif", "po"):
+    for format_id in ("cliff", "po"):
         result = run_translation_task(
             corpus.files[0],
             format_id=format_id,
@@ -171,4 +173,4 @@ def test_report_renders_from_records(corpus_root: Path) -> None:
     )
     assert "D1 - token cost" in report
     assert "D4 - quality" in report
-    assert "clif" in report
+    assert "cliff" in report

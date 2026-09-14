@@ -1,0 +1,226 @@
+CLIFF 1.0
+namespace: clarion
+clan: news-social
+source-language: en-US
+target-language: zh-CN
+title: "A city social feed the day a tram line opens: posts, replies, notifications and comments"
+info: "One day of social media from the invented city of Sablewick, where a new tram line called the Riverside Loop has just opened. Audience: ordinary users of a public social platform and readers commenting under a local news site. The material is posts, replies to posts, in-app notifications and reader comments, written in a casual present-day voice; handles, hashtags, emoji and message arguments are part of the text and belong to the platform, not to the sentence."
+standard: "zh-CN house style: one space between Han text and Latin letters or digits, fullwidth punctuation inside Han sentences, no textbook jargon. Keep @ handles, hashtags and emoji exactly as the source writes them, in the same position. Render current internet slang with an equally current Chinese expression instead of word for word. Keep the offhand voice of a post and do not lift it into news register. Render the emotion tag in the wording, the particles and the punctuation, never as a neutral gloss. Preserve ICU arguments, their names and their structure. A line name, place or account that appears more than once must read the same way in every entry of this file, and a reply must be completed from the message it answers."
+
+[posts.reactions]
+context: "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened."
+type: sentence
+
+<news-01a>
+source: "Great work today, everyone. Really."
+target: "今天大家都辛苦了，真心的。"
+status: final
+emotion: [grateful, joyful]
+context: "Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly."
+
+<news-01b>
+source: "Great work today, everyone. Really."
+target: "各位今天干得可真“漂亮”。"
+status: final
+emotion: [angry, playful]
+context: "Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite."
+
+<news-02a>
+source: "Six months of roadworks and here we are."
+target: "路修了半年，总算等到今天。"
+status: final
+emotion: [joyful, hopeful]
+context: "Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last."
+
+<news-02b>
+source: "Six months of roadworks and here we are."
+target: "路修了半年，就修成这个样子。"
+status: final
+emotion: [angry, playful]
+context: "Posted a week later by a resident standing in front of a fresh set of barriers on the same street."
+
+<news-03a>
+source: "You are really going to ride that thing?"
+target: "这种天气你真要坐回去吗？路上当心。"
+status: final
+emotion: [anxious, polite]
+context: "A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her."
+
+<news-03b>
+source: "You are really going to ride that thing?"
+target: "就那玩意儿，你也真敢坐？"
+status: final
+emotion: [rude, playful]
+context: "A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user."
+
+[posts.referents]
+context: "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted."
+type: sentence
+
+<news-04a>
+source: "Nice shot."
+target: "这张拍得真好。"
+status: final
+emotion: [joyful, informal]
+context: "Comment under a follower's photograph of the first tram crossing the river at sunrise."
+
+<news-04b>
+source: "Nice shot."
+target: "这球投得漂亮。"
+status: final
+emotion: [joyful, informal]
+context: "Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line."
+
+<news-05a>
+source: "It is back."
+target: "环线恢复运营了。"
+status: final
+emotion: [joyful, informal]
+context: "Comment under the notice that service resumed after the storm; the writer means the tram line itself."
+
+<news-05b>
+source: "It is back."
+target: "围挡又立起来了。"
+status: final
+emotion: [sad, informal]
+context: "Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier."
+
+[platform.conventions]
+context: "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees."
+type: sentence
+
+<news-06>
+source: "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+target: "太感谢 @HollowPineCafe 今天早上在车场门口发免费咖啡了！#TramDay"
+status: final
+emotion: [grateful, informal]
+context: "Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts."
+
+<news-07>
+source: "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+target: "今天下午纯粹因为可以，就把整条环线坐了一遍 🚋💚 一点也不后悔"
+status: final
+emotion: [joyful, playful]
+context: "Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood."
+
+<news-08>
+source: "The new depot mural absolutely ate. No crumbs left."
+target: "车场新画的那面墙真的绝了，挑不出一点毛病。"
+status: final
+emotion: [joyful, informal]
+context: "Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene."
+
+<news-09>
+source: "{count, plural, one {# person} other {# people}} reposted your photo."
+target: "{count, plural, one {# 人} other {# 人}}转发了你的照片。"
+type: prompt
+status: final
+emotion: [mechanical, objective]
+context: "In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands."
+
+<news-10>
+source: "{name} and {others, plural, one {# other} other {# others}} liked your post."
+target: "{name} 和另外 {others, plural, one {# 人} other {# 人}}赞了你的帖子。"
+type: prompt
+status: final
+emotion: [mechanical, objective]
+context: "In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted."
+
+<news-11>
+source: "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+target: "坐滨河环线的第 3 天，单程省下 40 分钟。10 分满分，还想再坐。"
+status: final
+emotion: [joyful, informal]
+context: "Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction."
+
+[thread.replies]
+context: "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said."
+type: sentence
+
+<news-12>
+source: "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+target: "@SablewickTransit 请问滨河环线在周一假日会运营吗？"
+status: final
+emotion: [curious, polite]
+context: "First message in the thread: a rider puts a question to the transit account."
+
+<news-13>
+source: "Yes, on a Sunday timetable."
+target: "会的，按周日时刻表运营。"
+status: final
+emotion: [polite, objective]
+context: "Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question."
+
+<news-14>
+source: "And the last one back?"
+target: "那回程的末班车呢？"
+status: final
+emotion: [curious, informal]
+context: "The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction."
+
+<news-15>
+source: "Eleven forty, from the north end."
+target: "晚上 11 点 40 分从北端终点站发出。"
+status: final
+emotion: [polite, objective]
+context: "The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above."
+
+<news-16>
+source: "Perfect, thank you! Adding it to the group chat now."
+target: "太好了，谢谢！这就把这条消息发到群里。"
+status: final
+emotion: [grateful, informal]
+context: "The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account."
+
+[feed.updates]
+context: "Routine posts from the transit account and matter-of-fact reader comments from the same day."
+type: sentence
+
+<news-17>
+source: "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+target: "运营通告：自周一起，滨河环线每 8 分钟一班，末班车于晚上 11 点 40 分发出。"
+status: final
+emotion: [objective, formal]
+context: "Scheduled post from the transit account announcing the new frequency on the line."
+
+<news-18>
+source: "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+target: "车场开放日于周六上午十点开始，车间参观向所有人免费。"
+status: final
+emotion: [objective]
+context: "Post announcing the open day at the tram depot."
+
+<news-19>
+source: "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+target: "运营方表示，滨河环线开通首周的客运量达到 2.1 万人次。"
+status: final
+emotion: [objective]
+context: "Post summarizing the first week's ridership figure released by the operator."
+
+<news-20>
+source: "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+target: "我大多数早上都坐首班车，座椅这一路坐下来还算舒服。"
+status: final
+emotion: [neutral, informal]
+context: "Reader comment describing an ordinary commute on the line."
+
+<news-21>
+source: "Does anyone know whether the ticket machine at the north end takes cards?"
+target: "有人知道北端那台售票机能不能刷卡吗？"
+status: final
+emotion: [curious, informal]
+context: "Reader comment asking a practical question about the ticket machine at the northern terminus."
+
+<news-22>
+source: "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+target: "典礼期间雨一直没下，对站在站台上的人来说算是走运。"
+status: final
+emotion: [neutral]
+context: "Reader comment on the weather during the opening ceremony."
+
+<news-23>
+source: "A single journey costs one euro fifty and a day pass costs four euros."
+target: "单程票价 1.5 欧元，日票 4 欧元。"
+status: final
+emotion: [objective]
+context: "Post from the transit account listing the fares on the new line."

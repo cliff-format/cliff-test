@@ -1,7 +1,7 @@
 # Gold Reference Translations
 
 These are the human-curated reference translations for
-[corpus.clif](corpus.clif). They are the scoring target for the translation
+[corpus.cliff](corpus.cliff). They are the scoring target for the translation
 accuracy test. Equivalent natural phrasings are accepted; the *Key points*
 column is what evaluators must verify.
 

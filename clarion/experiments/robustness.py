@@ -1,8 +1,8 @@
 """Dimension 7: does a file survive being edited by a model?
 
-The original CLIF robustness protocol applied 100 realistic edits to a CLIF
+The original CLIFF robustness protocol applied 100 realistic edits to a CLIFF
 file and validated the result after every one. That answers the question for
-CLIF alone. To compare formats, the same edit INTENT has to be applied to every
+CLIFF alone. To compare formats, the same edit INTENT has to be applied to every
 format, so the intents here are declarative operations on the data model:
 
     set-target, set-context, set-status, set-type, set-emotion, set-max-width,
@@ -10,7 +10,7 @@ format, so the intents here are declarative operations on the data model:
     set-header-field, add-comment
 
 Each intent is rendered as a natural-language instruction for the model, and
-also applied deterministically to the clif-python data model so the harness can
+also applied deterministically to the cliff-python data model so the harness can
 verify the intent offline and produce a reference answer without a model.
 
 Two numbers come out of a run:
@@ -35,11 +35,11 @@ from ..formats.parse import parse_back
 from ..formats.registry import get_format
 from ..formats.render import render_document
 from ..formats.validity import check_validity
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 METADATA_OPS = {
     "set-context",
@@ -50,19 +50,19 @@ METADATA_OPS = {
     "add-reference",
 }
 HEADER_OPS = {"set-header-field"}
-STATUS_FORMATS = {"clif", "xliff-2.1", "xliff-2.2", "csv", "json-clif", "yaml-clif"}
+STATUS_FORMATS = {"cliff", "xliff-2.1", "xliff-2.2", "csv", "json-cliff", "yaml-cliff"}
 # Formats whose keys keep the group path, so "move this entry to another group"
 # is a change the file can actually express. Android, iOS and Fluent resources
 # are flat: their keys carry no group, so the intent is not applicable and is
 # excluded from their denominator instead of counted as a failure.
 GROUP_FORMATS = {
-    "clif",
+    "cliff",
     "xliff-2.1",
     "xliff-2.2",
     "po",
     "csv",
-    "json-clif",
-    "yaml-clif",
+    "json-cliff",
+    "yaml-cliff",
     "json-plain",
     "yaml-plain",
 }
@@ -123,26 +123,26 @@ class EditTask:
             return arm_value is Arm.CONTEXT and spec.context_capable
         if self.op in HEADER_OPS:
             return arm_value is Arm.CONTEXT and format_id in {
-                "clif",
+                "cliff",
                 "xliff-2.1",
                 "xliff-2.2",
                 "po",
                 "csv",
-                "json-clif",
-                "yaml-clif",
+                "json-cliff",
+                "yaml-cliff",
             }
         if self.op == "add-comment":
-            return format_id not in {"json-clif", "json-plain", "csv"}
+            return format_id not in {"json-cliff", "json-plain", "csv"}
         if self.op == "move-entry":
             return format_id in GROUP_FORMATS
         return True
 
 
-def _entries(document: ClifDocument) -> list[tuple[Any, Any]]:
+def _entries(document: CliffDocument) -> list[tuple[Any, Any]]:
     return [(group, entry) for group in document.groups for entry in group.entries]
 
 
-def default_tasks(document: ClifDocument, count: int = 30) -> list[EditTask]:
+def default_tasks(document: CliffDocument, count: int = 30) -> list[EditTask]:
     """Generate a deterministic edit sequence for a document."""
     pairs = _entries(document)
     if not pairs:
@@ -212,10 +212,10 @@ def default_tasks(document: ClifDocument, count: int = 30) -> list[EditTask]:
     return tasks
 
 
-def apply_edit(document: ClifDocument, task: EditTask) -> ClifDocument:
+def apply_edit(document: CliffDocument, task: EditTask) -> CliffDocument:
     """Apply an edit deterministically to the data model (reference answer)."""
-    ensure_clif_format()
-    from clif_format import Entry, Group
+    ensure_cliff_format()
+    from cliff_format import Entry, Group
 
     edited = copy.deepcopy(document)
     entry_id = str(task.params.get("entry", ""))
@@ -284,7 +284,7 @@ def apply_edit(document: ClifDocument, task: EditTask) -> ClifDocument:
     return edited
 
 
-def verify_edit(document: ClifDocument, task: EditTask) -> bool:
+def verify_edit(document: CliffDocument, task: EditTask) -> bool:
     """Check whether an edited document actually carries the intent."""
     entry_id = str(task.params.get("entry", ""))
     value = task.params.get("value")
@@ -408,7 +408,7 @@ EDIT_SYSTEM = (
 
 
 def run_robustness(
-    document: ClifDocument,
+    document: CliffDocument,
     *,
     format_id: str,
     arm: Arm | str,

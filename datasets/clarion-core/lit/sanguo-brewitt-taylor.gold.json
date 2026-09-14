@@ -1,5 +1,5 @@
 {
-  "file": "sanguo-brewitt-taylor.en-US.clif",
+  "file": "sanguo-brewitt-taylor.en-US.cliff",
   "stratum": "lit",
   "notes": "Classical Chinese chapter-novel prose with a professional 1925 English translation. Both sides are public domain and both are archaic in their own language, which is what the classical-to-classical requirement means for localization. Only the opening chapters are imported. Paragraph alignment is proposed by a model as index pairs and then verified: indices must exist, the mapping must be strictly increasing on both sides, and the length ratio must be plausible. Brewitt-Taylor translates freely, so unverifiable pairs are dropped rather than repaired.",
   "provenance": {

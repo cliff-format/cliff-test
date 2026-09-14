@@ -1,0 +1,11 @@
+CLIFF 1.0
+namespace: demo
+source-language: en-US
+target-language: zh-CN
+
+[main]
+<ok>
+source: "OK"
+target: "确定"
+type: label
+status: final

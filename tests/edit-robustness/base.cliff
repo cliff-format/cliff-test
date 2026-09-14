@@ -1,0 +1,71 @@
+CLIFF 1.0
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: zh-CN
+title: "Demo application"
+info: "Settings UI and a short in-game dialog."
+standard: "Keep UI labels short."
+dependency: []
+
+[video]
+context: "Video settings screen."
+type: label
+max-width: 12
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+type: noun
+status: final
+
+<fullscreen>
+source: "Fullscreen"
+target: "全屏"
+status: reviewed
+
+<vsync>
+source: "Vertical sync"
+target: "垂直同步"
+status: translated
+
+[audio]
+context: "Audio settings screen."
+type: label
+max-width: 14
+
+<master-volume>
+source: "Master volume"
+target: "主音量"
+status: translated
+
+<mute>
+source: "Mute"
+target: "静音"
+status: final
+
+[game.dialog]
+context: "First conversation with the guide, who is polite and calm."
+type: dialogue
+emotion: [polite, calm]
+
+<greeting>
+source: "Hello, traveler."
+target: "你好，旅行者。"
+status: reviewed
+
+<ask-name>
+source: "What is your name?"
+target: "你叫什么名字？"
+status: translated
+
+<icu-count>
+source: "{count, plural, =0 {No items} one {# item} other {# items}}"
+target: "{count, plural, =0 {没有物品} other {# 件物品}}"
+status: reviewed
+reference: ["src/dialog/guide.cpp:12"]
+
+<farewell>
+source: "Farewell, and good luck!"
+target: "再见，祝你好运！"
+status: reviewed

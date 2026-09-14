@@ -1,5 +1,5 @@
 {
-  "file": "legal-terms.zh-CN.clif",
+  "file": "legal-terms.zh-CN.cliff",
   "stratum": "legal",
   "notes": "Legal stratum for CLARION-Core: the end-user licence for the invented product Ledgerline and the abstract of an original evaluation paper. Probes defined-term consistency, legal modal verbs (shall/must/may/may not), structural fidelity of enumerated clauses and cross-references, placeholder integrity and technical terminology.",
   "provenance": {

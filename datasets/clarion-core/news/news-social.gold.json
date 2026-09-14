@@ -1,5 +1,5 @@
 {
-  "file": "news-social.zh-CN.clif",
+  "file": "news-social.zh-CN.cliff",
   "stratum": "news",
   "notes": "Social media and comment sections for the news stratum, built to the v0.3 category quota. A items (10) are minimal pairs whose members share a source and diverge on one deciding field: three emotion pairs flip sincere thanks against irony, celebration against mockery and concern against a taunt, and two context pairs flip the referent of a bare compliment and of the pronoun in a two-word reply. B items (6) probe the systematic failures of a translation model on platform text: handles and hashtags that must survive untranslated, emoji that must stay where they are, slang that must be domesticated instead of read literally, two ICU payloads, and a post whose digits need house-style spacing. C items (5) form one comment thread in posting order, where every reply borrows its verb, its referent or its time from the message above it and the line name has to stay consistent with the rest of the file. D items (7) are ordinary service posts and plain reader comments that any competent translator should get right; they are the baseline that shows the format has not damaged normal translation.",
   "provenance": {

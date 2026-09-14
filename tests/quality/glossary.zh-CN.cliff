@@ -1,0 +1,26 @@
+CLIFF 1.0
+namespace: quality-test
+clan: glossary
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Quality corpus terminology"
+standard: "Canonical translations for the quality corpus; must be used verbatim."
+
+[names]
+type: proper-noun
+
+<captain-zephyr>
+source: "Captain Zephyr"
+target: "泽费尔舰长"
+status: final
+
+<starbase-7>
+source: "Starbase 7"
+target: "七号星港"
+status: final
+
+<the-aurelia>
+source: "the Aurelia"
+target: "奥蕾莉亚号"
+status: final

@@ -1,7 +1,7 @@
 # CLARION translation phenomena, v0.3
 
 This table defines the **translation phenomena** CLARION-Core must cover, and
-which CLIF field is responsible for carrying each one. It replaces the older
+which CLIFF field is responsible for carrying each one. It replaces the older
 "collect text per domain" approach: the domain decides what the text looks
 like, **the phenomenon decides what the benchmark can measure**.
 
@@ -11,7 +11,7 @@ An item is worth collecting only if it satisfies one of these:
 
 | Class | Test | Example |
 | --- | --- | --- |
-| **A decisive** | the source **cannot** be translated correctly on its own; the answer depends on a CLIF field | irony, homograph, width budget, naming policy |
+| **A decisive** | the source **cannot** be translated correctly on its own; the answer depends on a CLIFF field | irony, homograph, width budget, naming policy |
 | **B high risk** | inferable from the source, but models get it systematically wrong | textbook jargon, CJK/Latin spacing, ICU placeholders |
 | **C cross-entry** | the correct rendering depends on **another entry in the same file** | pronoun antecedent, callback, terminology consistency |
 | **D normal text** | ordinary prose any competent translator renders correctly | plain statements, description paragraphs |

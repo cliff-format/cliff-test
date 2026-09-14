@@ -25,7 +25,7 @@ prophecy. They are the reason this module is worth its complexity:
    reference translation; if it reproduces a span of the reference it is
    rejected, because a brief that contains the answer would make the context
    arm win for the wrong reason.
-3. **Closed-vocabulary validation.** type and emotion must be CLIF tags;
+3. **Closed-vocabulary validation.** type and emotion must be CLIFF tags;
    anything else is rejected and counted, never coerced.
 4. **Reference-consistency of constraints.** A proposed max-width that the
    human reference itself violates is rejected: a brief may not demand what the
@@ -48,12 +48,12 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
 from ..metrics.width import display_cells
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from ..prompts.spec_digest import emotion_tags, type_tags
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 _JSON_RE = re.compile(r"\{.*\}", re.DOTALL)
 _HAN_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7af]")
@@ -210,15 +210,15 @@ def leaks_reference(context: str, reference: str, *, span: int = 6, words: int =
 
 
 def summarize_document(
-    document: ClifDocument,
+    document: CliffDocument,
     provider: Provider,
     *,
     target_language: str = "zh-CN",
     max_segments: int = 40,
     max_output_tokens: int = 2048,
-) -> tuple[ClifDocument, AnnotationReport]:
+) -> tuple[CliffDocument, AnnotationReport]:
     """Pass one: write the family brief and one context line per group."""
-    ensure_clif_format()
+    ensure_cliff_format()
     import copy
 
     summarized = copy.deepcopy(document)
@@ -271,7 +271,7 @@ def summarize_document(
 
 
 def annotate_document(
-    document: ClifDocument,
+    document: CliffDocument,
     provider: Provider,
     *,
     target_language: str = "zh-CN",
@@ -280,14 +280,14 @@ def annotate_document(
     batch_size: int | None = None,
     overwrite: bool = False,
     max_output_tokens: int = 4096,
-) -> tuple[ClifDocument, AnnotationReport]:
+) -> tuple[CliffDocument, AnnotationReport]:
     """Write a model-authored brief onto entries that have none.
 
     references maps entry id to the human reference translation and is used
     only to reject leaky context and impossible width budgets - it is never
     shown to the annotator.
     """
-    ensure_clif_format()
+    ensure_cliff_format()
     import copy
 
     settings = config or AnnotationConfig(
@@ -429,7 +429,7 @@ def annotate_document(
     return annotated, report
 
 
-def review_rows(document: ClifDocument) -> list[dict[str, str]]:
+def review_rows(document: CliffDocument) -> list[dict[str, str]]:
     """Flat rows for a human review sheet of an annotated document."""
     rows: list[dict[str, str]] = []
     for group in document.groups:

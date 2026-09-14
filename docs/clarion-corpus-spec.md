@@ -13,13 +13,13 @@ Two files carry it:
 
 | File | Role |
 | --- | --- |
-| `<file-id>.<target-language>.clif` | A specification-valid CLIF 1.0 document. Its `target` fields are the reference translations. |
+| `<file-id>.<target-language>.cliff` | A specification-valid CLIFF 1.0 document. Its `target` fields are the reference translations. |
 | `<file-id>.gold.json` | Provenance, licence, verification state, alternative references, difficulty, tags and instruction rules. |
 
 The harness blanks every `target` before it builds a prompt, so the corpus and
 the gold can never drift apart.
 
-Optional per stratum: `glossary.<target-language>.clif`, a CLIF file with
+Optional per stratum: `glossary.<target-language>.cliff`, a CLIFF file with
 `variant: glossary`. Any file whose name contains `glossary` is loaded as the
 stratum glossary and is attached to prompts in the context arm.
 
@@ -29,21 +29,21 @@ stratum glossary and is attached to prompts in the context arm.
 datasets/clarion-core/
   manifest.json              already exists, do not rewrite it
   DATA-LICENSES.md           already exists
-  ui/    ui-console.zh-CN.clif    ui-console.gold.json    glossary.zh-CN.clif
-  news/  news-wire.zh-CN.clif     news-wire.gold.json
-  lit/   lit-classical.en-US.clif lit-classical.gold.json
-  legal/ legal-terms.zh-CN.clif   legal-terms.gold.json
-  game/  game-shard.zh-CN.clif    game-shard.gold.json    glossary.zh-CN.clif
+  ui/    ui-console.zh-CN.cliff    ui-console.gold.json    glossary.zh-CN.cliff
+  news/  news-wire.zh-CN.cliff     news-wire.gold.json
+  lit/   lit-classical.en-US.cliff lit-classical.gold.json
+  legal/ legal-terms.zh-CN.cliff   legal-terms.gold.json
+  game/  game-shard.zh-CN.cliff    game-shard.gold.json    glossary.zh-CN.cliff
 ```
 
-The gold manifest name is the CLIF file name up to the first dot, plus
-`.gold.json`. `ui-console.zh-CN.clif` therefore pairs with
+The gold manifest name is the CLIFF file name up to the first dot, plus
+`.gold.json`. `ui-console.zh-CN.cliff` therefore pairs with
 `ui-console.gold.json`.
 
-## 3. CLIF rules you must follow
+## 3. CLIFF rules you must follow
 
-```clif
-CLIF 1.0
+```cliff
+CLIFF 1.0
 namespace: clarion
 clan: ui-console
 source-language: en-US
@@ -51,7 +51,7 @@ target-language: zh-CN
 title: "Short description of the family"
 info: "Who the audience is, what the product is, anything the whole file needs."
 standard: "Translation policy lines: naming, register, punctuation, spacing."
-dependency: ["glossary.zh-CN.clif"]
+dependency: ["glossary.zh-CN.cliff"]
 
 [settings.video]
 context: "Where these strings appear and what the user is doing."
@@ -68,10 +68,10 @@ context: "Dropdown label above the resolution list."
 
 Hard requirements:
 
-1. First line is exactly `CLIF 1.0`.
+1. First line is exactly `CLIFF 1.0`.
 2. `namespace`, `clan`, `source-language`, `target-language` are required.
    `namespace` is `clarion`; `clan` is the file id (`ui-console`).
-3. The file name must agree with the header: `<clan>.<target-language>.clif`.
+3. The file name must agree with the header: `<clan>.<target-language>.cliff`.
 4. An entry starts with `<entry-id>` on its own line. Entry ids are lowercase
    kebab-case and unique in the file. There is no closing tag.
 5. Every entry needs `source`, a `type` (directly or inherited from its
@@ -106,7 +106,7 @@ python -m clarion corpus validate --strata <stratum>
 
 ```json
 {
-  "file": "ui-console.zh-CN.clif",
+  "file": "ui-console.zh-CN.cliff",
   "stratum": "ui",
   "notes": "What this file is for and which failure modes it probes.",
   "provenance": {
@@ -137,7 +137,7 @@ python -m clarion corpus validate --strata <stratum>
 }
 ```
 
-`reference` may be omitted when it is identical to the `target` in the CLIF
+`reference` may be omitted when it is identical to the `target` in the CLIFF
 file; state it anyway when you want the manifest to be self-contained.
 `alternatives` are additional acceptable renderings and are used by the surface
 metrics as extra references.

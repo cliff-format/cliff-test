@@ -1,3 +1,3 @@
-# clif-test Changelog
+# cliff-test Changelog
 
-clif-test is versioned with CLIF 1.0.0. See the Git history for the complete record of changes.
+cliff-test is versioned with CLIFF 1.0.0. See the Git history for the complete record of changes.

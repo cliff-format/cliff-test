@@ -5,7 +5,7 @@ file, is the file still a valid file of that format? Answering it fairly means
 every format needs a check of comparable strictness - not 'does some tolerant
 library survive it', but 'would the project's own toolchain accept it'.
 
-CLIF is checked with the official validator in clif_format. Every other format is
+CLIFF is checked with the official validator in cliff_format. Every other format is
 checked against its own syntax rules here: XML well-formedness plus the
 structural requirements for XLIFF and Android, the msgid/msgstr grammar for
 PO, the identifier grammar for Fluent, strict JSON/YAML/CSV parsing, and the
@@ -21,7 +21,7 @@ import re
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from .parse import unwrap
 from .registry import get_format
 
@@ -70,26 +70,26 @@ def _fail(
     )
 
 
-def _check_clif(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
-    """Validate a CLIF answer, which may carry a glossary as a second document.
+def _check_cliff(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
+    """Validate a CLIFF answer, which may carry a glossary as a second document.
 
-    CLIF's terminology workflow lets a translator return the translated file
+    CLIFF's terminology workflow lets a translator return the translated file
     plus a 'variant: glossary' file. Each document is validated on its own,
     because concatenating two valid documents is not one valid document - and
     counting that as a format failure would punish the format for using its own
     feature.
     """
-    ensure_clif_format()
-    import clif_format
+    ensure_cliff_format()
+    import cliff_format
 
-    from .parse import split_clif_documents
+    from .parse import split_cliff_documents
 
     errors: list[Diagnostic] = []
     warnings: list[Diagnostic] = []
-    parts = split_clif_documents(text)
+    parts = split_cliff_documents(text)
     offset = 0
     for part in parts:
-        for issue in clif_format.validate(part):
+        for issue in cliff_format.validate(part):
             diagnostic = Diagnostic(
                 line=issue.line + offset, category=issue.category, message=issue.message
             )
@@ -297,14 +297,14 @@ def _check_ios(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
 
 
 _CHECKERS = {
-    "clif": _check_clif,
+    "cliff": _check_cliff,
     "xliff-2.1": _check_xliff,
     "xliff-2.2": _check_xliff,
     "po": _check_po,
     "fluent": _check_fluent,
-    "json-clif": _check_json,
+    "json-cliff": _check_json,
     "json-plain": _check_json,
-    "yaml-clif": _check_yaml,
+    "yaml-cliff": _check_yaml,
     "yaml-plain": _check_yaml,
     "csv": _check_csv,
     "android": _check_android,

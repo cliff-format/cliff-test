@@ -11,7 +11,7 @@ formats, what changes?*
 
 | # | Dimension | Arm | Needs a model |
 | --- | --- | --- | --- |
-| D1 | Token cost of CLIF against other formats in their plain form | bare | no |
+| D1 | Token cost of CLIFF against other formats in their plain form | bare | no |
 | D2 | Token cost when the other formats carry the same context in their own metadata channels | context | no |
 | D3 | Translation quality, plain formats | bare | yes |
 | D4 | Translation quality, context-carrying formats | context | yes |
@@ -21,9 +21,9 @@ formats, what changes?*
 
 Two supporting measurements are always reported with them:
 
-- **Round-trip context fidelity** - convert a CLIF document into a format and
+- **Round-trip context fidelity** - convert a CLIFF document into a format and
   back, then count how many context facts survived. This is the objective
-  version of the claim "CLIF carries context losslessly".
+  version of the claim "CLIFF carries context losslessly".
 - **Parse and validity rate** - reported separately from quality, because a
   reference metric will happily score the fragment of a file that survived a
   broken parse.
@@ -31,21 +31,21 @@ Two supporting measurements are always reported with them:
 ## 2. The fairness rules
 
 1. **One source of truth.** Every fixture in every format and arm is generated
-   from the same CLIF corpus document through clif-python (or, for the two plain
+   from the same CLIFF corpus document through cliff-python (or, for the two plain
    key/value dialects, through code written against the same data model). No
    format has a hand-tuned fixture.
 2. **Identical instructions.** All formats receive the same system role, the
    same task rules and the same terminology policy. Only two blocks differ:
    the per-format notes (where the translation goes in this format) and, for
-   CLIF alone, the specification digest.
+   CLIFF alone, the specification digest.
 3. **The asymmetry is priced, not hidden.** A model has seen XLIFF and PO
-   thousands of times and has never seen CLIF, so CLIF must pay for a
+   thousands of times and has never seen CLIFF, so CLIFF must pay for a
    specification block. That block is a separately measured prompt component,
    and D1/D2 report the totals with and without it.
-4. **The context arm favours the competitor.** clif-python writes the complete CLIF
+4. **The context arm favours the competitor.** cliff-python writes the complete CLIFF
    context payload into each format's documented channel: PO extracted
    comments and msgctxt, XLIFF metadata and notes, Fluent comments, Android
-   and iOS comments, CSV columns, JSON and YAML fields. If CLIF still wins the
+   and iOS comments, CSV columns, JSON and YAML fields. If CLIFF still wins the
    context arm, it is not winning because the other formats were starved.
 5. **Nothing is scored that was not asked for.** An edit a format cannot
    express is excluded from that format's denominator in D7 and reported as
@@ -56,11 +56,11 @@ Two supporting measurements are always reported with them:
 
 **bare** is what a project normally ships: identifiers and source text.
 Family information, translation standards, group metadata, per-entry context,
-emotion, width limits, references and workflow status are all removed. CLIF
+emotion, width limits, references and workflow status are all removed. CLIFF
 cannot go below its own required minimum (every entry keeps a type and a
 status), and that floor is reported rather than hidden.
 
-**context** adds the full brief. For CLIF this is the file itself; for the
+**context** adds the full brief. For CLIFF this is the file itself; for the
 others it is their native metadata channel.
 
 The difference between the two arms is the honest measurement of what context
@@ -75,7 +75,7 @@ separately:
     policy.terminology, context.hint, glossary, document
 
 Because the components are additive, any subset can be priced arithmetically.
-The "with and without the CLIF specification" comparison therefore costs
+The "with and without the CLIFF specification" comparison therefore costs
 nothing: subtract `spec.digest` and `format.notes` from the measured total.
 The tokenizer is named in every table (tiktoken `o200k_base` by default, with
 a documented heuristic fallback that is labelled as such and never mixed into
@@ -83,7 +83,7 @@ the same table).
 
 Reported per format: document tokens, tokens per entry, glossary tokens,
 format-instruction tokens, prompt total, prompt total without format
-instructions, and the percentage difference against CLIF.
+instructions, and the percentage difference against CLIFF.
 
 ## 5. Quality (D3, D4)
 
@@ -194,8 +194,8 @@ The same edit intents are applied to every format:
 
 Each intent is rendered as one natural-language instruction, applied
 sequentially (each edit lands on the previous answer), and after every step the
-file is validated with a checker of comparable strictness: the official CLIF
-validator for CLIF, XML well-formedness plus structural requirements for XLIFF
+file is validated with a checker of comparable strictness: the official CLIFF
+validator for CLIFF, XML well-formedness plus structural requirements for XLIFF
 and Android, the msgid/msgstr grammar for PO, the identifier grammar for
 Fluent, strict JSON, YAML and CSV parsing, and the quoted-assignment grammar
 for iOS.
@@ -292,7 +292,7 @@ prophecy, and each of them is enforced in code and pinned by a test:
 | --- | --- |
 | No target exposure | The annotator receives source text and upstream metadata only. A test asserts that no reference translation ever appears in an annotation prompt. |
 | Leak detection | Every produced context is compared against the reference translation; reproducing a six-character Han span or a four-word Latin sequence rejects the context. A brief that contains the answer would win the context arm without the format doing anything. |
-| Closed vocabularies | `type` and `emotion` must be CLIF tags. Invalid tags are rejected and counted, never coerced into something valid. |
+| Closed vocabularies | `type` and `emotion` must be CLIFF tags. Invalid tags are rejected and counted, never coerced into something valid. |
 | Reference-consistent constraints | A proposed `max-width` that the human reference itself violates is rejected. A brief may not demand what the gold translation does not do. |
 | Different annotator | The annotator should not be the model under test; using one model for both phrases the brief the way that model likes to read it. The model id is recorded, the CLI warns when they match, and every report prints it. |
 
@@ -300,9 +300,9 @@ Three rules keep this from contaminating the measurement:
 
 1. **The annotator never sees or writes a target.** It reads source text and
    upstream metadata only, and it may only write context, type, emotion and
-   max-width; tags are validated against the closed CLIF vocabularies before
+   max-width; tags are validated against the closed CLIFF vocabularies before
    they are accepted.
-2. **Context is generated once, into the CLIF document.** Every other format is
+2. **Context is generated once, into the CLIFF document.** Every other format is
    converted from that same document, so the quality of the context can never
    favour one format over another - it moves all formats together.
 3. **Results are broken down by `context_origin`.** A context-arm gain measured
@@ -315,15 +315,15 @@ translation difficulty and the plain arm.
 
 ### Two comparisons, and the difference between them
 
-"CLIF carrying a full brief" against "a JSON file carrying nothing" is a
+"CLIFF carrying a full brief" against "a JSON file carrying nothing" is a
 legitimate and important comparison - it is the real choice a project makes -
 but it is a **workflow** claim, not a **format** claim, and CLARION never
 reports it alone:
 
 | Comparison | What it shows | Where it appears |
 | --- | --- | --- |
-| CLIF context arm vs other formats' **context** arm | a format property: the same brief costs fewer tokens and survives editing better in CLIF | D2, D4, D6, D7 - the apples-to-apples result |
-| CLIF context arm vs other formats' **plain** arm | a workflow property: what a project gains by moving from a bare resource file to a context-carrying working file | reported separately and always labelled as a workflow comparison |
+| CLIFF context arm vs other formats' **context** arm | a format property: the same brief costs fewer tokens and survives editing better in CLIFF | D2, D4, D6, D7 - the apples-to-apples result |
+| CLIFF context arm vs other formats' **plain** arm | a workflow property: what a project gains by moving from a bare resource file to a context-carrying working file | reported separately and always labelled as a workflow comparison |
 
 Publishing only the second would be a rigged headline; publishing only the
 first would hide the reason the format exists. Both are produced by the same
@@ -339,9 +339,9 @@ all machine-checked by `clarion corpus license-check`:
    ShareAlike output goes to `datasets/cc-by-sa/` with its own LICENSE, because
    our segmentation is an adaptation; anything that may not be redistributed is
    written to a gitignored cache and never committed.
-2. **In-file attribution.** Every generated file starts with CLIF comment lines
+2. **In-file attribution.** Every generated file starts with CLIFF comment lines
    naming the upstream project, its licence, its SPDX identifier and the exact
-   revision. CLIF comments are inert developer notes, so this can never leak
+   revision. CLIFF comments are inert developer notes, so this can never leak
    into a prompt or a translation.
 3. **Per-item checksums.** The gold manifest stores a SHA-256 of the source and
    of the reference, so an imported corpus can be verified against upstream
@@ -359,7 +359,7 @@ Eight stages, each recorded in the run summary with its duration and outcome:
 | --- | --- | --- |
 | secrets | loads the key from outside the repository and scans the tree for credentials | yes |
 | fetch | imports every configured corpus: convert, annotate, enrich, route by licence, attribute | no (records the failure) |
-| validate | the official CLIF validator over every corpus document | yes |
+| validate | the official CLIFF validator over every corpus document | yes |
 | licence | attribution, SPDX headers and tier routing | yes |
 | tokens | dimensions 1 and 2 | no |
 | fidelity | round-trip context retention | no |
@@ -380,17 +380,17 @@ Two settings matter for cost and honesty:
 
 Every run writes a directory containing the resolved configuration, a JSONL
 record per task (including the prompt component costs, the raw metrics and the
-provider usage), a JSON summary with the clif-python version, and the Markdown
+provider usage), a JSON summary with the cliff-python version, and the Markdown
 report. A number in a report can always be traced back to the exact request
 that produced it.
 
 ## 14. Threats to validity
 
-1. **Model familiarity.** Models know XLIFF and PO and do not know CLIF. The
+1. **Model familiarity.** Models know XLIFF and PO and do not know CLIFF. The
    specification digest reduces the gap but does not erase it; a result should
-   be read as "CLIF plus a one-screen digest" versus "a format the model
+   be read as "CLIFF plus a one-screen digest" versus "a format the model
    already knows".
-2. **Converter quality.** All non-CLIF fixtures are produced by clif-python. A bug
+2. **Converter quality.** All non-CLIFF fixtures are produced by cliff-python. A bug
    there is a bug in the benchmark; the round-trip fidelity check is the guard.
 3. **Reference bias.** The reference translations were written by the same
    kind of system that is being evaluated. Human sign-off is tracked per item

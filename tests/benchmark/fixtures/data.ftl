@@ -8,7 +8,7 @@
 # info: Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in public, warm to friends. The player returns to the blacksmith to reclaim a repaired sword.
 # standard: Preserve proper nouns; localize idioms for humor.
 # standard: Keep UI labels under the declared max-width.
-# dependency: ../terms/ironforge.terms.en-US.clif
+# dependency: ../terms/ironforge.terms.en-US.cliff
 # dependency: docs/act3-script.md
 
 -term-iron-sword = Iron Sword

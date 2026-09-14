@@ -8,8 +8,8 @@ to relicense. Three mechanisms keep that straight:
    into its own directory with its own LICENSE, because our segmentation is a
    derivative work; anything that may not be redistributed is written to a
    gitignored cache and never committed.
-2. **In-file attribution.** Every generated CLIF file starts with comment lines
-   naming the upstream project, its licence and the exact revision. CLIF
+2. **In-file attribution.** Every generated CLIFF file starts with comment lines
+   naming the upstream project, its licence and the exact revision. CLIFF
    comments are inert developer notes, so this cannot leak into a prompt or a
    translation, and a file that travels alone still carries its own licence.
 3. **Machine-checkable compliance.** 'clarion corpus license-check' verifies
@@ -60,7 +60,7 @@ def spdx_header(
     retrieved: str = "",
     context_origin: str = "derived",
 ) -> str:
-    """CLIF comment block that travels with a generated corpus file."""
+    """CLIFF comment block that travels with a generated corpus file."""
     lines = [
         "# CLARION imported corpus file.",
         f"# Upstream: {title}",
@@ -153,8 +153,8 @@ class ComplianceProblem:
         return {"path": self.path, "problem": self.problem}
 
 
-def _gold_for(clif_path: Path) -> Path:
-    return clif_path.parent / (clif_path.name.split(".")[0] + ".gold.json")
+def _gold_for(cliff_path: Path) -> Path:
+    return cliff_path.parent / (cliff_path.name.split(".")[0] + ".gold.json")
 
 
 def license_check(root: Path | None = None) -> list[ComplianceProblem]:
@@ -164,9 +164,9 @@ def license_check(root: Path | None = None) -> list[ComplianceProblem]:
     if not base.exists():
         return problems
 
-    for clif_path in sorted(base.rglob("*.clif")):
-        relative = clif_path.relative_to(base.parent)
-        gold_path = _gold_for(clif_path)
+    for cliff_path in sorted(base.rglob("*.cliff")):
+        relative = cliff_path.relative_to(base.parent)
+        gold_path = _gold_for(cliff_path)
         if not gold_path.exists():
             problems.append(ComplianceProblem(str(relative), "no gold manifest with provenance"))
             continue
@@ -183,14 +183,14 @@ def license_check(root: Path | None = None) -> list[ComplianceProblem]:
                     "marked not redistributable but committed under datasets/",
                 )
             )
-        if spdx in SHAREALIKE_SPDX and SHAREALIKE_ROOT not in clif_path.parents:
+        if spdx in SHAREALIKE_SPDX and SHAREALIKE_ROOT not in cliff_path.parents:
             problems.append(
                 ComplianceProblem(
                     str(relative),
                     f"ShareAlike licence {spdx} outside datasets/cc-by-sa/",
                 )
             )
-        if spdx in WEAK_COPYLEFT_SPDX and WEAK_COPYLEFT_ROOT not in clif_path.parents:
+        if spdx in WEAK_COPYLEFT_SPDX and WEAK_COPYLEFT_ROOT not in cliff_path.parents:
             problems.append(
                 ComplianceProblem(
                     str(relative),
@@ -198,12 +198,12 @@ def license_check(root: Path | None = None) -> list[ComplianceProblem]:
                 )
             )
         if str(provenance.get("origin", "")) != "original":
-            attribution = clif_path.parent / ATTRIBUTION_NAME
+            attribution = cliff_path.parent / ATTRIBUTION_NAME
             if not attribution.exists():
                 problems.append(
                     ComplianceProblem(str(relative), f"imported file without {ATTRIBUTION_NAME}")
                 )
-            header = clif_path.read_text(encoding="utf-8")[:600]
+            header = cliff_path.read_text(encoding="utf-8")[:600]
             if "SPDX-License-Identifier" not in header:
                 problems.append(
                     ComplianceProblem(str(relative), "imported file without an SPDX header comment")

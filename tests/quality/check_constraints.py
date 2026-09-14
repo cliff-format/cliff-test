@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Objective constraint checks for the CLIF translation-quality test.
+"""Objective constraint checks for the CLIFF translation-quality test.
 
 Does NOT score translation elegance; an evaluator agent scores that with
 gold-reference.md. This script verifies the mechanical constraints that any
@@ -15,10 +15,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
-import clif_validator as cv  # noqa: E402
+import cliff_validator as cv  # noqa: E402
 
-CORPUS = ROOT / "tests" / "quality" / "corpus.clif"
-OUTPUT = ROOT / "tests" / "quality" / "translator-output.clif"
+CORPUS = ROOT / "tests" / "quality" / "corpus.cliff"
+OUTPUT = ROOT / "tests" / "quality" / "translator-output.cliff"
 
 TERMS = {
     "Captain Zephyr": "泽费尔舰长",
@@ -55,7 +55,7 @@ def fields(doc: cv.Document):
 
 def main() -> int:
     if not OUTPUT.exists():
-        print("FAIL: translator-output.clif does not exist")
+        print("FAIL: translator-output.cliff does not exist")
         return 1
 
     checks: list[tuple[bool, str]] = []

@@ -24,7 +24,7 @@ import time
 from typing import Any
 
 from ..formats.render import render_document
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from .base import Completion, CompletionRequest
 
 
@@ -54,7 +54,7 @@ class MockProvider:
                 error="mock provider needs 'document' and 'format' in the request hint",
             )
 
-        ensure_clif_format()
+        ensure_cliff_format()
         answer = copy.deepcopy(document)
         entries = [(group, entry) for group in answer.groups for entry in group.entries]
         for index, (_group, entry) in enumerate(entries):

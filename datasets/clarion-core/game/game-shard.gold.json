@@ -1,5 +1,5 @@
 {
-  "file": "game-shard.zh-CN.clif",
+  "file": "game-shard.zh-CN.cliff",
   "stratum": "game",
   "notes": "The game stratum probes character voice, emotion tags, naming policy in both directions, width-limited skill names, ICU and engine placeholders, keybind verbatim preservation, subtitle reading-speed budgets and localized wordplay.",
   "provenance": {

@@ -3,14 +3,14 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "clif-clarion"
+name = "cliff-clarion"
 version = "0.1.0"
-description = "CLARION - Contextual Localization Accuracy, Robustness, Instruction-following and Overhead beNchmark for the CLIF format"
+description = "CLARION - Contextual Localization Accuracy, Robustness, Instruction-following and Overhead beNchmark for the CLIFF format"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "CLIF contributors" }]
-keywords = ["localization", "benchmark", "clif", "translation", "evaluation", "llm"]
+authors = [{ name = "CLIFF contributors" }]
+keywords = ["localization", "benchmark", "cliff", "translation", "evaluation", "llm"]
 dependencies = []
 
 [project.optional-dependencies]
@@ -62,5 +62,5 @@ warn_redundant_casts = true
 no_implicit_optional = true
 
 [project.urls]
-Repository = "https://github.com/clif-format/clif-test"
-Issues = "https://github.com/clif-format/clif-test/issues"
+Repository = "https://github.com/cliff-format/cliff-test"
+Issues = "https://github.com/cliff-format/cliff-test/issues"

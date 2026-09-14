@@ -1,16 +1,16 @@
-# Evaluator Agent Instructions (CLIF 1.0)
+# Evaluator Agent Instructions (CLIFF 1.0)
 
 You are an independent localization quality evaluator. Score the candidate
 translation file against the human gold reference.
 
 ## Inputs (read all)
 
-- Candidate: `tests/quality/translator-output.clif`
-- Source corpus: `tests/quality/corpus.clif`
-- Glossary: `tests/quality/glossary.zh-CN.clif`
+- Candidate: `tests/quality/translator-output.cliff`
+- Source corpus: `tests/quality/corpus.cliff`
+- Glossary: `tests/quality/glossary.zh-CN.cliff`
 - Gold reference and rubric: `tests/quality/gold-reference.md`
-- Type and emotion definitions: [content-types.md](https://github.com/clif-format/clif/blob/main/references/content-types.md),
-  [emotion-tags.md](https://github.com/clif-format/clif/blob/main/references/emotion-tags.md)
+- Type and emotion definitions: [content-types.md](https://github.com/cliff-format/cliff/blob/main/references/content-types.md),
+  [emotion-tags.md](https://github.com/cliff-format/cliff/blob/main/references/emotion-tags.md)
 
 ## Rubric (per entry, 10 points)
 

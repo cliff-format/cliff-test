@@ -23,8 +23,8 @@ def test_display_cells(text: str, cells: int) -> None:
     assert display_cells(text) == cells
 
 
-def test_display_cells_matches_pyclif(sample_document) -> None:
-    from clif_format.validator import _display_cells
+def test_display_cells_matches_pycliff(sample_document) -> None:
+    from cliff_format.validator import _display_cells
 
     for text in ["分辨率", "OK 分辨率", "Hello", "全屏模式"]:
         assert display_cells(text) == _display_cells(text)

@@ -1,7 +1,7 @@
 {
   "name": "clarion-deepseek-v4-flash",
   "corpus": "clarion-core",
-  "formats": ["clif", "xliff-2.1", "po", "fluent", "json-clif", "json-plain", "yaml-clif", "csv", "android", "ios"],
+  "formats": ["cliff", "xliff-2.1", "po", "fluent", "json-cliff", "json-plain", "yaml-cliff", "csv", "android", "ios"],
   "arms": ["bare", "context"],
   "repeats": 3,
   "concurrency": 50,

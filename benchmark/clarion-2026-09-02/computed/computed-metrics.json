@@ -8,15 +8,15 @@
  "robustness_chains": 60,
  "format_order": [
   "android",
-  "clif",
+  "cliff",
   "csv",
   "fluent",
   "ios",
-  "json-clif",
+  "json-cliff",
   "json-plain",
   "po",
   "xliff-2.1",
-  "yaml-clif"
+  "yaml-cliff"
  ],
  "arms": [
   "bare",
@@ -41,7 +41,7 @@
     "document_per_entry": 198.48214285714286
    }
   },
-  "clif": {
+  "cliff": {
    "bare": {
     "document": 24322,
     "document_48runs": 72966,
@@ -113,7 +113,7 @@
     "document_per_entry": 193.28061224489795
    }
   },
-  "json-clif": {
+  "json-cliff": {
    "bare": {
     "document": 26388,
     "document_48runs": 79164,
@@ -185,7 +185,7 @@
     "document_per_entry": 270.8061224489796
    }
   },
-  "yaml-clif": {
+  "yaml-cliff": {
    "bare": {
     "document": 23492,
     "document_48runs": 70476,
@@ -227,7 +227,7 @@
     }
    }
   },
-  "clif": {
+  "cliff": {
    "bare": {
     "chrf_recorded": 49.15134999999999,
     "failed": 0,
@@ -315,7 +315,7 @@
     }
    }
   },
-  "json-clif": {
+  "json-cliff": {
    "bare": {
     "chrf_recorded": 48.52656458333333,
     "failed": 0,
@@ -403,7 +403,7 @@
     }
    }
   },
-  "yaml-clif": {
+  "yaml-cliff": {
    "bare": {
     "chrf_recorded": 45.92873958333334,
     "failed": 6,
@@ -437,7 +437,7 @@
     "output_tokens": 4834.854166666667
    }
   },
-  "clif": {
+  "cliff": {
    "bare": {
     "ms": 29329.98679166668,
     "output_tokens": 2671.125
@@ -477,7 +477,7 @@
     "output_tokens": 3383.0416666666665
    }
   },
-  "json-clif": {
+  "json-cliff": {
    "bare": {
     "ms": 29684.751479166658,
     "output_tokens": 2758.2708333333335
@@ -517,7 +517,7 @@
     "output_tokens": 7745.979166666667
    }
   },
-  "yaml-clif": {
+  "yaml-cliff": {
    "bare": {
     "ms": 31752.936145833333,
     "output_tokens": 2543.0625
@@ -541,7 +541,7 @@
     "intent_pct": 91.16163333333334
    }
   },
-  "clif": {
+  "cliff": {
    "bare": {
     "chains": 3,
     "still_valid_pct": 100,
@@ -589,7 +589,7 @@
     "intent_pct": 41.41413333333333
    }
   },
-  "json-clif": {
+  "json-cliff": {
    "bare": {
     "chains": 3,
     "still_valid_pct": 100,
@@ -637,7 +637,7 @@
     "intent_pct": 88.88889999999999
    }
   },
-  "yaml-clif": {
+  "yaml-cliff": {
    "bare": {
     "chains": 3,
     "still_valid_pct": 100,
@@ -688,7 +688,7 @@
     "p_permutation": 0.0006,
     "p_holm": 0.0017998200179982003
    },
-   "json-clif": {
+   "json-cliff": {
     "n": 48,
     "diff": 0.6247854166666675,
     "ci_low": -0.27434583333333323,
@@ -724,7 +724,7 @@
     "p_permutation": 0.1799,
     "p_holm": 0.46015398460153983
    },
-   "yaml-clif": {
+   "yaml-cliff": {
     "n": 48,
     "diff": 3.2226104166666674,
     "ci_low": 0.37414791666666747,
@@ -771,7 +771,7 @@
     "p_permutation": 0,
     "p_holm": 0.0017998200179982003
    },
-   "json-clif": {
+   "json-cliff": {
     "n": 48,
     "diff": 37.78553958333334,
     "ci_low": 30.693091666666675,
@@ -807,7 +807,7 @@
     "p_permutation": 0.5081,
     "p_holm": 0.5305469453054694
    },
-   "yaml-clif": {
+   "yaml-cliff": {
     "n": 48,
     "diff": 19.83432708333333,
     "ci_low": 12.602731250000003,
@@ -820,7 +820,7 @@
  },
  "workflow_chrf": {},
  "fidelity": {
-  "clif": {
+  "cliff": {
    "facts": 2464,
    "kept": 2464,
    "retention": 1
@@ -840,7 +840,7 @@
    "kept": 2414,
    "retention": 0.9797077922077922
   },
-  "json-clif": {
+  "json-cliff": {
    "facts": 2464,
    "kept": 2464,
    "retention": 1
@@ -850,7 +850,7 @@
    "kept": 1709,
    "retention": 0.6935876623376623
   },
-  "yaml-clif": {
+  "yaml-cliff": {
    "facts": 2464,
    "kept": 2464,
    "retention": 1
@@ -873,11 +873,11 @@
  },
  "qe": {
   "byFormatArm": {
-   "clif::bare": {
+   "cliff::bare": {
     "n": 561,
     "mean": 1.462179239341282
    },
-   "clif::context": {
+   "cliff::context": {
     "n": 561,
     "mean": 1.4836168212952248
    },
@@ -905,11 +905,11 @@
     "n": 508,
     "mean": 1.5252911747968572
    },
-   "json-clif::bare": {
+   "json-cliff::bare": {
     "n": 435,
     "mean": 1.4698031844421364
    },
-   "json-clif::context": {
+   "json-cliff::context": {
     "n": 120,
     "mean": 0.5891388571510713
    },
@@ -921,11 +921,11 @@
     "n": 435,
     "mean": 1.542588577154039
    },
-   "yaml-clif::bare": {
+   "yaml-cliff::bare": {
     "n": 435,
     "mean": 1.50106270097453
    },
-   "yaml-clif::context": {
+   "yaml-cliff::context": {
     "n": 236,
     "mean": 1.3581583498014231
    },
@@ -955,7 +955,7 @@
    }
   },
   "byOrigin": {
-   "native::clif": {
+   "native::cliff": {
     "n": 240,
     "mean": 0.5898400336503983
    },
@@ -971,7 +971,7 @@
     "n": 240,
     "mean": 0.5987370422730843
    },
-   "native::json-clif": {
+   "native::json-cliff": {
     "n": 240,
     "mean": 0.6064358697583278
    },
@@ -979,7 +979,7 @@
     "n": 240,
     "mean": 0.6339736881355444
    },
-   "native::yaml-clif": {
+   "native::yaml-cliff": {
     "n": 240,
     "mean": 0.5993900634348392
    },
@@ -995,7 +995,7 @@
     "n": 240,
     "mean": 0.5902182143181562
    },
-   "original::clif": {
+   "original::cliff": {
     "n": 630,
     "mean": 1.8503968490967675
    },
@@ -1011,7 +1011,7 @@
     "n": 630,
     "mean": 1.8034360200166701
    },
-   "original::json-clif": {
+   "original::json-cliff": {
     "n": 315,
     "mean": 1.7921156804712992
    },
@@ -1019,7 +1019,7 @@
     "n": 630,
     "mean": 1.879458325722861
    },
-   "original::yaml-clif": {
+   "original::yaml-cliff": {
     "n": 431,
     "mean": 1.9249049425816591
    },
@@ -1035,7 +1035,7 @@
     "n": 64,
     "mean": 2.0555352065712214
    },
-   "annotated::clif": {
+   "annotated::cliff": {
     "n": 252,
     "mean": 1.3701585992461158
    },
@@ -1054,13 +1054,13 @@
   }
  },
  "checkers": {
-  "clif": "strict CLIF validator (pyclif)",
+  "cliff": "strict CLIFF validator (pycliff)",
   "xliff": "XML well-formedness + structural",
   "po": "msgid/msgstr grammar",
   "fluent": "identifier grammar",
-  "json-clif": "strict JSON parse",
+  "json-cliff": "strict JSON parse",
   "json-plain": "strict JSON parse",
-  "yaml-clif": "strict YAML parse",
+  "yaml-cliff": "strict YAML parse",
   "csv": "strict CSV parse",
   "android": "XML well-formedness",
   "ios": "quoted-assignment grammar"

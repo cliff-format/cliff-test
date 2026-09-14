@@ -3,9 +3,9 @@
 Two rules make the numbers defensible:
 
 1. Every prompt is measured as a list of labelled components (system rules,
-   format notes, the CLIF specification digest, the document itself, the
+   format notes, the CLIFF specification digest, the document itself, the
    glossary). A report can therefore add or remove any component
-   arithmetically - the 'with and without the CLIF specification' comparison
+   arithmetically - the 'with and without the CLIFF specification' comparison
    never needs a second run against a model.
 2. The tokenizer is named in every record. tiktoken is used when available;
    otherwise a documented deterministic heuristic is used and every report
@@ -140,7 +140,7 @@ class PromptBudget:
     def without(self, *component_ids: str) -> int:
         """Total tokens if the named components were not sent.
 
-        This is what makes the 'with and without the CLIF specification'
+        This is what makes the 'with and without the CLIFF specification'
         comparison free: the specification digest is a constant component, so
         its cost can be subtracted instead of re-running the experiment.
         """

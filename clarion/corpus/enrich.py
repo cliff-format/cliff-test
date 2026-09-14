@@ -14,7 +14,7 @@ native
     The upstream project already wrote it. gettext extracted comments (#.),
     source references (#:), msgctxt disambiguation, Fluent comment levels and
     MASSIVE intent labels are real, human-written translator context. Nothing
-    is invented; the importer only maps it onto CLIF fields. This is the best
+    is invented; the importer only maps it onto CLIFF fields. This is the best
     material for the context arm and is preferred wherever it exists.
 
 derived
@@ -29,7 +29,7 @@ annotated
     opt-in, recorded per item, and never mixed silently into a native or
     derived corpus.
 
-Whatever the origin, the context is generated ONCE into the CLIF document and
+Whatever the origin, the context is generated ONCE into the CLIFF document and
 every other format is converted from that same document, so the choice can
 never favour one format over another.
 """
@@ -41,10 +41,10 @@ import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 _ICU_RE = re.compile(r"\{[^{}]*,\s*(?:plural|select|selectordinal)\s*,")
 _PLACEHOLDER_RE = re.compile(r"%\d*\$?[sdf@]|\{[A-Za-z0-9_]+\}")
@@ -121,7 +121,7 @@ def _shorten(text: str, limit: int) -> str:
     return flat if len(flat) <= limit else flat[: limit - 1] + "\u2026"
 
 
-def has_native_context(document: ClifDocument) -> bool:
+def has_native_context(document: CliffDocument) -> bool:
     """True when the imported document already carries upstream context."""
     for group in document.groups:
         if group.context:
@@ -133,19 +133,19 @@ def has_native_context(document: ClifDocument) -> bool:
 
 
 def enrich_document(
-    document: ClifDocument,
+    document: CliffDocument,
     *,
     policy: EnrichmentPolicy | None = None,
     domain_labels: dict[str, str] | None = None,
     source_title: str = "",
-) -> tuple[ClifDocument, EnrichmentReport]:
+) -> tuple[CliffDocument, EnrichmentReport]:
     """Add deterministic context to an imported document.
 
     Existing values are never overwritten: an upstream comment always wins over
     a derived sentence, which is why a native corpus keeps its native context
     and only the gaps are filled.
     """
-    ensure_clif_format()
+    ensure_cliff_format()
     policy = policy or EnrichmentPolicy()
     labels = domain_labels or {}
     enriched = copy.deepcopy(document)

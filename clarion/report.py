@@ -14,7 +14,7 @@ from typing import Any
 from .metrics.stats import bootstrap_mean
 from .util import mean
 
-BASELINE = "clif"
+BASELINE = "cliff"
 
 
 def _fmt(value: float, digits: int = 1) -> str:
@@ -117,15 +117,15 @@ def token_report(rows: list[dict[str, Any]], *, arm: str, title: str) -> str:
         "format",
         "document tokens",
         "per entry",
-        "vs CLIF (doc)",
+        "vs CLIFF (doc)",
         "glossary tokens",
         "format instructions",
         "prompt total",
         "prompt without format instructions",
-        "vs CLIF (prompt)",
+        "vs CLIFF (prompt)",
     ]
     note = (
-        f"\nTokenizer: {tokenizer_name}. 'format instructions' is the CLIF specification "
+        f"\nTokenizer: {tokenizer_name}. 'format instructions' is the CLIFF specification "
         "digest plus the per-format notes; subtracting it gives the 'without' column, so the "
         "with/without comparison needs no extra model run.\n"
     )
@@ -216,7 +216,7 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "experience; 'chrF++ (ok)' averages only the runs that produced a usable file, "
         "which is translation quality with format survival factored out. Read them "
         "together: the gap between the two columns IS the cost of format fragility.\n"
-        "\n'glossaries' counts answers that also produced a CLIF glossary through the "
+        "\n'glossaries' counts answers that also produced a CLIFF glossary through the "
         "terminology workflow. Those answers are longer by design, so their cost shows "
         "up in the latency and output-token tables; the surface metrics do not credit "
         "them, and a comparison that ignores this understates the format.\n"
@@ -276,7 +276,7 @@ def latency_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "ms per entry",
         "output tokens",
         "entries",
-        "vs CLIF",
+        "vs CLIFF",
     ]
     note = (
         "\nLatency is dominated by output tokens and by provider load; it is only comparable "
@@ -355,12 +355,12 @@ def build_report(
         f"- Tokenizer: {config.get('tokenizer')}",
         f"- Model: {provider.get('kind')}:{provider.get('model')} "
         f"(reasoning {provider.get('reasoning')}, temperature {provider.get('temperature')})",
-        f"- CLIF specification injection: production digest, "
+        f"- CLIFF specification injection: production digest, "
           f"{config.get('spec_location', 'split')}",
         f"- Repeats per cell: {config.get('repeats')}",
         "",
-        "Every arm of every format is generated from the same CLIF corpus documents through "
-        "clif-python, so a difference between two rows is a property of the format, not of the "
+        "Every arm of every format is generated from the same CLIFF corpus documents through "
+        "cliff-python, so a difference between two rows is a property of the format, not of the "
         "fixture.",
         "",
     ]

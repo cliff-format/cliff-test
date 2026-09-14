@@ -1,8 +1,8 @@
 """Round-trip fidelity: how much context a format loses on the way home.
 
-CLIF claims to be a lossless working format. The honest way to test that claim
+CLIFF claims to be a lossless working format. The honest way to test that claim
 is to convert a document into every other format and back, then count how many
-context facts survived. Because clif-python resolves group inheritance when it
+context facts survived. Because cliff-python resolves group inheritance when it
 writes flat formats, the comparison uses EFFECTIVE values (what a translator
 would actually see for an entry), not the raw group/entry split.
 """
@@ -15,19 +15,19 @@ from typing import TYPE_CHECKING, Any
 from ..formats.arms import Arm
 from ..formats.parse import parse_back
 from ..formats.render import render
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 HEADER_FIELDS = ("title", "info", "standard", "dependency", "version")
 ENTRY_FIELDS = ("source", "target", "type", "emotion", "status", "context", "max-width",
                 "reference", "reviewer")
 
 
-def _effective(document: ClifDocument) -> dict[str, dict[str, str]]:
-    ensure_clif_format()
-    from clif_format import effective_context, effective_emotion, effective_max_width, effective_type
+def _effective(document: CliffDocument) -> dict[str, dict[str, str]]:
+    ensure_cliff_format()
+    from cliff_format import effective_context, effective_emotion, effective_max_width, effective_type
 
     table: dict[str, dict[str, str]] = {}
     for group in document.groups:
@@ -47,7 +47,7 @@ def _effective(document: ClifDocument) -> dict[str, dict[str, str]]:
     return table
 
 
-def _header(document: ClifDocument) -> dict[str, str]:
+def _header(document: CliffDocument) -> dict[str, str]:
     header = document.header
     return {
         "title": header.title or "",
@@ -94,7 +94,7 @@ class FidelityReport:
 
 
 def roundtrip_fidelity(
-    document: ClifDocument,
+    document: CliffDocument,
     format_id: str,
     *,
     arm: Arm | str = Arm.CONTEXT,

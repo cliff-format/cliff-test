@@ -1,5 +1,5 @@
 {
-  "note": "Recipes describe how to add an external corpus to CLARION. 'context_origin' says what translator context the source can actually supply: 'native' means the upstream project wrote real translator comments, msgctxt, intents or references and the importer only maps them onto CLIF fields; 'derived' means the corpus is flat sentence pairs and context is computed deterministically from document ids, domain labels and neighbouring segments; 'none' means it carries no context and may only be used in the plain arm or as a metric calibration set. A model annotation pass ('clarion corpus fetch --annotate') can add a brief to a derived source, and every item it touches is marked context_origin=annotated until a human signs it off. Track A (tier 'vendor') may be committed to this repository after fetching, with attribution and the licence file the recipe names. Track B (tier 'fetch-only' and 'sharealike') is written outside the repository or into a segregated directory and is never committed. Nothing here is downloaded automatically: run 'python -m clarion corpus fetch <id>'.",
+  "note": "Recipes describe how to add an external corpus to CLARION. 'context_origin' says what translator context the source can actually supply: 'native' means the upstream project wrote real translator comments, msgctxt, intents or references and the importer only maps them onto CLIFF fields; 'derived' means the corpus is flat sentence pairs and context is computed deterministically from document ids, domain labels and neighbouring segments; 'none' means it carries no context and may only be used in the plain arm or as a metric calibration set. A model annotation pass ('clarion corpus fetch --annotate') can add a brief to a derived source, and every item it touches is marked context_origin=annotated until a human signs it off. Track A (tier 'vendor') may be committed to this repository after fetching, with attribution and the licence file the recipe names. Track B (tier 'fetch-only' and 'sharealike') is written outside the repository or into a segregated directory and is never committed. Nothing here is downloaded automatically: run 'python -m clarion corpus fetch <id>'.",
   "recipes": [
     {
       "id": "wmt24pp",
@@ -97,7 +97,7 @@
       "human_verified": true,
       "origin": "public",
       "strata": ["ui"],
-      "notes": "Real product UI strings with #. translator comments and msgctxt disambiguation, under a permissive licence. Imported through pyclif.from_po, so the CLIF context fields come from the PO comments."
+      "notes": "Real product UI strings with #. translator comments and msgctxt disambiguation, under a permissive licence. Imported through pycliff.from_po, so the CLIFF context fields come from the PO comments."
     },
     {
       "id": "firefox-l10n",

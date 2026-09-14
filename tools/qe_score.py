@@ -14,14 +14,14 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]          # clif-test/
-CLIF_SRC = ROOT.parent / "clif-python" / "src"
+ROOT = Path(__file__).resolve().parents[1]          # cliff-test/
+CLIFF_SRC = ROOT.parent / "cliff-python" / "src"
 QEDEPS1 = ROOT.parent / ".qe-deps"
 QEDEPS2 = ROOT.parent / ".qe-deps2"
 QEDEPS = QEDEPS2
 
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(CLIF_SRC))
+sys.path.insert(0, str(CLIFF_SRC))
 sys.path.insert(0, str(QEDEPS1))
 sys.path.insert(0, str(QEDEPS2))
 
@@ -37,11 +37,11 @@ MAX_LEN = int(__import__("os").environ.get("QE_MAX_LEN", "512"))
 
 def corpus_sources(core: Path) -> dict[str, dict[str, str]]:
     out = {}
-    for p in sorted(core.rglob("*.clif")):
+    for p in sorted(core.rglob("*.cliff")):
         if "glossary" in p.stem:
             continue
-        import clif_format
-        doc = clif_format.parse(p.read_text(encoding="utf-8"))
+        import cliff_format
+        doc = cliff_format.parse(p.read_text(encoding="utf-8"))
         sources = {}
         for g in doc.groups:
             for e in g.entries:

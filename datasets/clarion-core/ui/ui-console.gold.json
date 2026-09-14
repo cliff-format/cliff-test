@@ -1,5 +1,5 @@
 {
-  "file": "ui-console.zh-CN.clif",
+  "file": "ui-console.zh-CN.cliff",
   "stratum": "ui",
   "notes": "Developer-facing control-panel strings for the fictional Harborline Console. Probes short-label width budgets, de-jargon term choices (default/resolution/cache/latency), correct Chinese ICU plural handling, printf and brace placeholder survival, workspace terminology consistency, fullwidth punctuation, and destructive-confirmation register.",
   "provenance": {

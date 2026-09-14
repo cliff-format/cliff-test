@@ -1,9 +1,9 @@
-# CLIF Translation Quality Report
+# CLIFF Translation Quality Report
 
 
-**Candidate:** `tests/quality/translator-output.clif`  
-**Source corpus:** `tests/quality/corpus.clif`  
-**Glossary:** `tests/quality/glossary.zh-CN.clif`  
+**Candidate:** `tests/quality/translator-output.cliff`  
+**Source corpus:** `tests/quality/corpus.cliff`  
+**Glossary:** `tests/quality/glossary.zh-CN.cliff`  
 
 **Rubric:** Meaning (信) 4 + Naturalness (达) 3 + Emotion/register/style (雅) 2 + Constraints 1 = 10 points per entry.
 

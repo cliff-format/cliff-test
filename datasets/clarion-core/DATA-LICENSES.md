@@ -68,7 +68,7 @@ Fetch-only, or excluded entirely:
 
 `clarion corpus fetch <recipe>` does four things beyond downloading:
 
-1. **Converts** the upstream file into CLIF through clif-python (PO, Fluent and the
+1. **Converts** the upstream file into CLIFF through cliff-python (PO, Fluent and the
    HuggingFace loaders), keeping any translator comments, source references and
    msgctxt disambiguation the project wrote.
 2. **Enriches** the result deterministically where the upstream is flat: the
@@ -88,7 +88,7 @@ Fetch-only, or excluded entirely:
    | CC-BY-SA | `datasets/cc-by-sa/<stratum>/` | LICENSE + ATTRIBUTION.md |
    | no redistribution right | `.clarion-cache/fetch/` (gitignored) | none |
 
-4. **Attributes in-file**: the generated CLIF starts with comment lines naming
+4. **Attributes in-file**: the generated CLIFF starts with comment lines naming
    the upstream project, its licence, its SPDX identifier and the revision, and
    the gold manifest stores a SHA-256 of every source and reference string.
 

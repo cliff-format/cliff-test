@@ -1,4 +1,4 @@
-"""Read a model's answer back into the CLIF data model.
+"""Read a model's answer back into the CLIFF data model.
 
 Models wrap files in Markdown fences, add a sentence of prose, or return the
 file with a stray heading. None of that is a format failure, so the reader
@@ -13,12 +13,12 @@ import re
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-from ..paths import ensure_clif_format
+from ..paths import ensure_cliff_format
 from .plain import parse_json_plain, parse_yaml_plain
 from .registry import get_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
-    from clif_format import ClifDocument
+    from cliff_format import CliffDocument
 
 _FENCE_RE = re.compile(
     r"```[A-Za-z0-9_.+-]*[ \t]*\r?\n(?P<body>.*?)\r?\n```",
@@ -31,11 +31,11 @@ class ParseOutcome:
     """Result of reading a model answer in one format."""
 
     format_id: str
-    document: ClifDocument | None
+    document: CliffDocument | None
     error: str | None = None
     unwrapped: bool = False
     notes: list[str] = field(default_factory=list)
-    glossary: ClifDocument | None = None
+    glossary: CliffDocument | None = None
     extra_documents: int = 0
 
     @property
@@ -61,17 +61,17 @@ def unwrap(text: str) -> tuple[str, bool]:
     return stripped, False
 
 
-_CLIF_HEADER_RE = re.compile(r"^CLIF 1\.0\s*$", re.MULTILINE)
+_CLIFF_HEADER_RE = re.compile(r"^CLIFF 1\.0\s*$", re.MULTILINE)
 
 
-def split_clif_documents(text: str) -> list[str]:
-    """Split an answer that contains more than one CLIF document.
+def split_cliff_documents(text: str) -> list[str]:
+    """Split an answer that contains more than one CLIFF document.
 
     The terminology workflow lets a model answer with the translated file plus
-    a glossary file. Splitting on the version line is exact, because CLIF
+    a glossary file. Splitting on the version line is exact, because CLIFF
     requires it to be the first non-blank line of every document.
     """
-    starts = [match.start() for match in _CLIF_HEADER_RE.finditer(text)]
+    starts = [match.start() for match in _CLIFF_HEADER_RE.finditer(text)]
     if len(starts) <= 1:
         return [text]
     bounds = [*starts, len(text)]
@@ -79,24 +79,24 @@ def split_clif_documents(text: str) -> list[str]:
 
 
 def parse_back(text: str, format_id: str) -> ParseOutcome:
-    """Parse a model answer in the given format into a CLIF document.
+    """Parse a model answer in the given format into a CLIFF document.
 
-    For CLIF the answer may legitimately contain a second document: a
+    For CLIFF the answer may legitimately contain a second document: a
     'variant: glossary' file produced by the terminology workflow. It is parsed
     out and reported separately, never scored as the translation and never
     counted as a failure.
     """
-    ensure_clif_format()
-    import clif_format
+    ensure_cliff_format()
+    import cliff_format
 
     spec = get_format(format_id)
     body, unwrapped = unwrap(text)
-    glossary: ClifDocument | None = None
+    glossary: CliffDocument | None = None
     extra = 0
     try:
-        if spec.id == "clif":
-            parts = split_clif_documents(body)
-            documents = [clif_format.parse(part) for part in parts]
+        if spec.id == "cliff":
+            parts = split_cliff_documents(body)
+            documents = [cliff_format.parse(part) for part in parts]
             translations = [
                 item for item in documents if (item.header.variant or "standard") != "glossary"
             ]
@@ -109,25 +109,25 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
                 raise ValueError("the answer contains only a glossary, not a translated file")
             document = translations[0]
         elif spec.id.startswith("xliff"):
-            document = clif_format.from_xliff(body)
+            document = cliff_format.from_xliff(body)
         elif spec.id == "po":
-            document = clif_format.from_po(body)
+            document = cliff_format.from_po(body)
         elif spec.id == "fluent":
-            document = clif_format.from_fluent(body)
-        elif spec.id == "json-clif":
-            document = clif_format.from_json(body)
-        elif spec.id == "yaml-clif":
-            document = clif_format.from_yaml(body)
+            document = cliff_format.from_fluent(body)
+        elif spec.id == "json-cliff":
+            document = cliff_format.from_json(body)
+        elif spec.id == "yaml-cliff":
+            document = cliff_format.from_yaml(body)
         elif spec.id == "json-plain":
             document = parse_json_plain(body)
         elif spec.id == "yaml-plain":
             document = parse_yaml_plain(body)
         elif spec.id == "csv":
-            document = clif_format.from_csv(body)
+            document = cliff_format.from_csv(body)
         elif spec.id == "android":
-            document = clif_format.from_android_strings(body)
+            document = cliff_format.from_android_strings(body)
         elif spec.id == "ios":
-            document = clif_format.from_ios_strings(body)
+            document = cliff_format.from_ios_strings(body)
         else:  # pragma: no cover - registry guards this
             raise KeyError(f"no reader for format '{format_id}'")
     except Exception as exc:  # noqa: BLE001 - any parser failure is a data point
@@ -146,7 +146,7 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
     )
 
 
-def entry_index(document: ClifDocument) -> dict[str, tuple[str, object]]:
+def entry_index(document: CliffDocument) -> dict[str, tuple[str, object]]:
     """Map entry id to (group path, entry) for every entry in a document."""
     index: dict[str, tuple[str, object]] = {}
     for group in document.groups:
@@ -155,11 +155,11 @@ def entry_index(document: ClifDocument) -> dict[str, tuple[str, object]]:
     return index
 
 
-def extract_targets(document: ClifDocument) -> dict[str, str]:
+def extract_targets(document: CliffDocument) -> dict[str, str]:
     """Map entry id to translated text.
 
     Monolingual formats (Android, iOS, Fluent, plain JSON/YAML) keep the only
-    text they have in the value slot, which clif-python reads back as the target;
+    text they have in the value slot, which cliff-python reads back as the target;
     bilingual formats keep source and target apart. Reading target first and
     falling back to source therefore works for both without special cases.
     """

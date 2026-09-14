@@ -28,7 +28,7 @@ from .formats.validity import check_validity
 from .metrics.fidelity import roundtrip_fidelity
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
-from .paths import ensure_clif_format, pyclif_version
+from .paths import ensure_cliff_format, pycliff_version
 from .runner import token_matrix
 
 
@@ -85,8 +85,8 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
     from .providers.mock import MockProvider
 
     report = SelfCheckReport()
-    ensure_clif_format()
-    report.add("clif-python available", True, f"version {pyclif_version()}")
+    ensure_cliff_format()
+    report.add("cliff-python available", True, f"version {pycliff_version()}")
 
     try:
         corpus = load_corpus(corpus_name)
@@ -103,18 +103,18 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
         _print(report, verbose)
         return 1
 
-    import clif_format
+    import cliff_format
 
     invalid: list[str] = []
     for corpus_file in corpus.files:
         issues = [
             issue
-            for issue in clif_format.validate(corpus_file.path.read_text(encoding="utf-8"))
+            for issue in cliff_format.validate(corpus_file.path.read_text(encoding="utf-8"))
             if issue.category not in {"warning", "extension"}
         ]
         if issues:
             invalid.append(f"{corpus_file.path.name}:{issues[0].line} {issues[0].message}")
-    report.add("corpus documents are valid CLIF", not invalid, "; ".join(invalid[:3]))
+    report.add("corpus documents are valid CLIFF", not invalid, "; ".join(invalid[:3]))
 
     missing_reference = [
         f"{corpus_file.id}/{entry_id}"
@@ -152,13 +152,13 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
         format_id: roundtrip_fidelity(sample.document, format_id, arm=Arm.CONTEXT)
         for format_id in DEFAULT_FORMATS
     }
-    clif_retention = retention["clif"].retention
+    cliff_retention = retention["cliff"].retention
     report.add(
-        "CLIF round-trips losslessly",
-        clif_retention >= 0.999,
-        f"retention {clif_retention:.3f}",
+        "CLIFF round-trips losslessly",
+        cliff_retention >= 0.999,
+        f"retention {cliff_retention:.3f}",
     )
-    others = {key: value.retention for key, value in retention.items() if key != "clif"}
+    others = {key: value.retention for key, value in retention.items() if key != "cliff"}
     report.add(
         "round-trip fidelity measured for every format",
         all(report_item.ok for report_item in retention.values()),
@@ -169,17 +169,17 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
     policy = load_policy("zh-CN")
     config = _mock_config("perfect", corpus_name)
     token_rows = token_matrix(config, corpus, tokenizer=tokenizer, policy=policy)
-    clif_bare = [row for row in token_rows if row["format"] == "clif" and row["arm"] == "bare"]
+    cliff_bare = [row for row in token_rows if row["format"] == "cliff" and row["arm"] == "bare"]
     report.add(
         "token matrix produced",
-        bool(token_rows) and bool(clif_bare),
+        bool(token_rows) and bool(cliff_bare),
         f"{len(token_rows)} cells, tokenizer {tokenizer.name}",
     )
 
     perfect_provider = MockProvider(mode="perfect")
     perfect = run_translation_task(
         sample,
-        format_id="clif",
+        format_id="cliff",
         arm=Arm.CONTEXT,
         provider=perfect_provider,
         tokenizer=tokenizer,
@@ -198,7 +198,7 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
     noisy_config = _mock_config("noisy", corpus_name)
     noisy = run_translation_task(
         sample,
-        format_id="clif",
+        format_id="cliff",
         arm=Arm.CONTEXT,
         provider=MockProvider(mode="noisy"),
         tokenizer=tokenizer,

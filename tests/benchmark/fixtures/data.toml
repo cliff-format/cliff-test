@@ -5,7 +5,7 @@ target_language = "en-US"
 title = "IronForge RPG - Act 3 dialog"
 info = ["The mountain city of IronForge, one week after the siege.", "Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in public, warm to friends. The player returns to the blacksmith to reclaim a repaired sword."]
 standards = ["Preserve proper nouns; localize idioms for humor.", "Keep UI labels under the declared max-width."]
-dependencies = ["../terms/ironforge.terms.en-US.clif", "docs/act3-script.md"]
+dependencies = ["../terms/ironforge.terms.en-US.cliff", "docs/act3-script.md"]
 
 [[glossary]]
 source = "铁剑"

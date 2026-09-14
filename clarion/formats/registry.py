@@ -1,7 +1,7 @@
 """The format registry: which localization formats CLARION compares.
 
-Every format in this registry can be produced from, and read back into, a CLIF
-document with clif-python (the two plain key/value dialects are produced by
+Every format in this registry can be produced from, and read back into, a CLIFF
+document with cliff-python (the two plain key/value dialects are produced by
 clarion.formats.plain, which is written against the same data model). This is
 the fairness rule of the whole benchmark: no format is ever hand-written, so a
 format never wins or loses because of how a human phrased its fixture.
@@ -9,12 +9,12 @@ format never wins or loses because of how a human phrased its fixture.
 Two properties decide how a format is used in an experiment:
 
 bilingual
-    The format has a place for source and target in the same file (CLIF,
-    XLIFF, PO, CSV and the CLIF-shaped JSON/YAML). A bilingual translation
+    The format has a place for source and target in the same file (CLIFF,
+    XLIFF, PO, CSV and the CLIFF-shaped JSON/YAML). A bilingual translation
     task ships the source and asks the model to fill the target.
 
 context_capable
-    The format has a documented channel that can carry the CLIF context
+    The format has a documented channel that can carry the CLIFF context
     payload (comments, notes or metadata elements). Formats that are not
     context capable can only ever run the bare arm.
 """
@@ -39,10 +39,10 @@ class FormatSpec:
 
 
 FORMATS: dict[str, FormatSpec] = {
-    "clif": FormatSpec(
-        id="clif",
-        label="CLIF 1.0",
-        extension=".clif",
+    "cliff": FormatSpec(
+        id="cliff",
+        label="CLIFF 1.0",
+        extension=".cliff",
         bilingual=True,
         context_capable=True,
         context_channel="native fields (info, standard, group metadata, entry context)",
@@ -81,13 +81,13 @@ FORMATS: dict[str, FormatSpec] = {
         context_capable=True,
         context_channel="message comments (#)",
     ),
-    "json-clif": FormatSpec(
-        id="json-clif",
-        label="JSON (CLIF data model)",
+    "json-cliff": FormatSpec(
+        id="json-cliff",
+        label="JSON (CLIFF data model)",
         extension=".json",
         bilingual=True,
         context_capable=True,
-        context_channel="native JSON fields of the CLIF data model",
+        context_channel="native JSON fields of the CLIFF data model",
     ),
     "json-plain": FormatSpec(
         id="json-plain",
@@ -97,13 +97,13 @@ FORMATS: dict[str, FormatSpec] = {
         context_capable=True,
         context_channel="Chrome-extension style message/description objects",
     ),
-    "yaml-clif": FormatSpec(
-        id="yaml-clif",
-        label="YAML (CLIF data model)",
+    "yaml-cliff": FormatSpec(
+        id="yaml-cliff",
+        label="YAML (CLIFF data model)",
         extension=".yaml",
         bilingual=True,
         context_capable=True,
-        context_channel="native YAML fields of the CLIF data model",
+        context_channel="native YAML fields of the CLIFF data model",
         requires=("yaml",),
     ),
     "yaml-plain": FormatSpec(
@@ -142,13 +142,13 @@ FORMATS: dict[str, FormatSpec] = {
 }
 
 DEFAULT_FORMATS: tuple[str, ...] = (
-    "clif",
+    "cliff",
     "xliff-2.1",
     "po",
     "fluent",
-    "json-clif",
+    "json-cliff",
     "json-plain",
-    "yaml-clif",
+    "yaml-cliff",
     "csv",
     "android",
     "ios",

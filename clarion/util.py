@@ -30,7 +30,7 @@ def short_hash(text: str, length: int = 12) -> str:
 
 
 def slug(text: str, fallback: str = "item") -> str:
-    """Lowercase kebab-case slug that is also a valid CLIF name."""
+    """Lowercase kebab-case slug that is also a valid CLIFF name."""
     normalized = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
     cleaned = _SLUG_RE.sub("-", normalized.lower()).strip("-")
     cleaned = re.sub(r"-{2,}", "-", cleaned)

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Run the reproducible CLIF test batteries.
+"""Run the reproducible CLIFF test batteries.
 
    python tests/run_all.py               # validation suites + benchmark
-   python tests/run_all.py --quality     # after translator-output.clif exists
+   python tests/run_all.py --quality     # after translator-output.cliff exists
    python tests/run_all.py --robustness  # after edits/ exists
 """
 
@@ -13,8 +13,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VALIDATOR = ROOT / "tools" / "clif_validator.py"
-SPEC_EXAMPLES = ROOT.parent / "clif" / "spec" / "examples" / "clif-1.0.0"
+VALIDATOR = ROOT / "tools" / "cliff_validator.py"
+SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples" / "cliff-1.0.0"
 
 
 def run(cmd: list[str]) -> tuple[int, str]:
@@ -25,7 +25,7 @@ def run(cmd: list[str]) -> tuple[int, str]:
 def main() -> int:
     ok = True
 
-    print("== spec examples (sibling clif repository) ==")
+    print("== spec examples (sibling cliff repository) ==")
     if SPEC_EXAMPLES.exists():
         rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(SPEC_EXAMPLES)])
         print(out)
@@ -58,7 +58,7 @@ def main() -> int:
         print("== edit robustness ==")
         edits = ROOT / "tests/edit-robustness/edits"
         if edits.exists():
-            files = sorted(edits.rglob("*.clif"))
+            files = sorted(edits.rglob("*.cliff"))
             rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(edits)])
             print(out)
             valid = out.count(": VALID")

@@ -17,7 +17,7 @@ def test_spec_digest_lists_the_closed_vocabularies() -> None:
     assert len(type_tags()) == 26
     assert len(emotion_tags()) == 23
     sheet = build_grammar_plus()
-    assert "CLIF 1.0" in sheet
+    assert "CLIFF 1.0" in sheet
     assert "accessibility-cue" in sheet
     assert "nostalgic" in sheet
     assert "initial, translated, reviewed, final" in sheet
@@ -25,10 +25,10 @@ def test_spec_digest_lists_the_closed_vocabularies() -> None:
 
 def test_prompt_components_are_measured_separately(sample_document) -> None:
     tokenizer = get_tokenizer("o200k_base")
-    document_text = render(sample_document, "clif", arm=Arm.CONTEXT, blank=True)
+    document_text = render(sample_document, "cliff", arm=Arm.CONTEXT, blank=True)
     bundle = build_translation_prompt(
         document_text=document_text,
-        format_id="clif",
+        format_id="cliff",
         tokenizer=tokenizer,
         source_language="en-US",
         target_language="zh-CN",
@@ -41,7 +41,7 @@ def test_prompt_components_are_measured_separately(sample_document) -> None:
     assert document_text in bundle.user
 
 
-def test_non_clif_formats_get_no_specification_block(sample_document) -> None:
+def test_non_cliff_formats_get_no_specification_block(sample_document) -> None:
     tokenizer = get_tokenizer("o200k_base")
     document_text = render(sample_document, "po", arm=Arm.BARE, blank=True)
     bundle = build_translation_prompt(
@@ -84,6 +84,6 @@ def test_merge_never_overwrites_locked_terms(sample_glossary) -> None:
 
 
 def test_attach_dependency_is_idempotent(sample_document) -> None:
-    once = attach_dependency(sample_document, "glossary.zh-CN.clif")
-    twice = attach_dependency(once, "glossary.zh-CN.clif")
-    assert twice.header.dependency.count("glossary.zh-CN.clif") == 1
+    once = attach_dependency(sample_document, "glossary.zh-CN.cliff")
+    twice = attach_dependency(once, "glossary.zh-CN.cliff")
+    assert twice.header.dependency.count("glossary.zh-CN.cliff") == 1

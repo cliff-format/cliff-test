@@ -16,9 +16,9 @@ import pytest
 from clarion.corpus.enrich import EnrichmentPolicy, enrich_document, has_native_context
 from clarion.corpus.fetchers import Pair, Recipe, build_corpus_file, pairs_to_document
 from clarion.corpus.licensing import license_check, spdx_header, tier_root
-from clarion.paths import ensure_clif_format
+from clarion.paths import ensure_cliff_format
 
-ensure_clif_format()
+ensure_cliff_format()
 
 FLAT_RECIPE = Recipe(
     id="test-flat",
@@ -67,9 +67,9 @@ def test_enrichment_creates_context_deterministically() -> None:
     assert "placeholder" in (icu_entry.context or "").lower()
 
     # Deterministic: the same input must produce byte-identical context.
-    import clif_format
+    import cliff_format
 
-    assert clif_format.serialize(first) == clif_format.serialize(second)
+    assert cliff_format.serialize(first) == cliff_format.serialize(second)
 
 
 def test_enrichment_never_overwrites_upstream_context() -> None:
@@ -160,7 +160,7 @@ def test_tier_routing_keeps_licences_apart() -> None:
     assert "clarion-core" not in str(tier_root("fetch-only", "NOASSERTION"))
 
 
-def test_spdx_header_is_a_clif_comment_block() -> None:
+def test_spdx_header_is_a_cliff_comment_block() -> None:
     header = spdx_header(
         title="Test flat corpus",
         url="https://example.org",
@@ -175,7 +175,7 @@ def test_spdx_header_is_a_clif_comment_block() -> None:
 
 
 def test_imported_file_is_publishable(tmp_path_factory: pytest.TempPathFactory) -> None:
-    import clif_format
+    import cliff_format
 
     from clarion.corpus import licensing
 
@@ -184,16 +184,16 @@ def test_imported_file_is_publishable(tmp_path_factory: pytest.TempPathFactory) 
     licensing.CORE_ROOT = sandbox
     try:
         result = build_corpus_file(PAIRS, FLAT_RECIPE, stratum="news", revision="v1.2.3")
-        text = result.clif_path.read_text(encoding="utf-8")
+        text = result.cliff_path.read_text(encoding="utf-8")
         assert text.startswith("# CLARION imported corpus file.")
         assert "SPDX-License-Identifier: Apache-2.0" in text
-        assert (result.clif_path.parent / "ATTRIBUTION.md").exists()
+        assert (result.cliff_path.parent / "ATTRIBUTION.md").exists()
         assert result.context_origin == "derived"
         assert result.entries == 3
 
         issues = [
             issue
-            for issue in clif_format.validate(text)
+            for issue in cliff_format.validate(text)
             if issue.category not in {"warning", "extension"}
         ]
         assert not issues, issues

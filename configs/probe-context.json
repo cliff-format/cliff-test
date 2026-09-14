@@ -2,7 +2,7 @@
   "name": "clarion-context-value",
   "corpus": "clarion-core",
   "strata": ["probe"],
-  "formats": ["clif", "po", "android"],
+  "formats": ["cliff", "po", "android"],
   "arms": ["bare", "context"],
   "repeats": 2,
   "concurrency": 200,

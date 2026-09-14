@@ -38,7 +38,7 @@ its source text. Return the same file with every value replaced by its
 {target_language} translation, keeping every key unchanged."""
 
 FORMAT_NOTES = {
-    "clif": """This file is CLIF 1.0, a line-oriented localization format.
+    "cliff": """This file is CLIFF 1.0, a line-oriented localization format.
 Each entry starts with a line of the form <entry-id>. Fields are flat
 key: value lines that belong to the entry above them. Write the translation as
 the target field of each entry and set status: translated.
@@ -56,12 +56,12 @@ segment and set state to translated.""",
 Keep msgctxt and every comment line unchanged.""",
     "fluent": """This file is a Fluent (FTL) resource. Each line is identifier = value.
 Replace the value with the translation and keep the identifier and comments.""",
-    "json-clif": """This file is JSON holding the CLIF data model: groups contain entries with
+    "json-cliff": """This file is JSON holding the CLIFF data model: groups contain entries with
 source, target and metadata. Fill the target field of every entry.""",
     "json-plain": """This file is a plain i18n JSON resource. Replace every string value with its
 translation and keep every key. Where a key maps to an object with message and
 description, translate message and leave description unchanged.""",
-    "yaml-clif": """This file is YAML holding the CLIF data model: groups contain entries with
+    "yaml-cliff": """This file is YAML holding the CLIFF data model: groups contain entries with
 source, target and metadata. Fill the target field of every entry.""",
     "yaml-plain": """This file is a plain YAML resource of key: value pairs. Replace every value
 with its translation, keep every key, and keep the comment lines unchanged.""",
@@ -83,7 +83,7 @@ GLOSSARY_FOOTER = """===== END OF REFERENCE GLOSSARY ====="""
 
 DOCUMENT_HEADER = """===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE ====="""
 
-CLIF_EDIT_SAFETY = """CLIF EDIT SAFETY
+CLIFF_EDIT_SAFETY = """CLIFF EDIT SAFETY
 Before writing, verify every entry and glossary id is lowercase kebab-case and
 contains only lowercase letters, digits, and hyphens. Glossary ids are unique;
 one entry per term. Sanitize source terms as editor's note -> editors-note.
@@ -91,12 +91,12 @@ Every text value is one quoted string; escape inner double quotes as \\" and
 newlines as \\n."""
 
 
-# CLIF is the only format in the comparison with a glossary variant, so it is
+# CLIFF is the only format in the comparison with a glossary variant, so it is
 # the only one that may answer with a second document. That is not a violation
 # of the one-file rule: it is the format's terminology workflow, and the
 # benchmark measures whether a model actually uses it.
 GLOSSARY_DELIVERABLE = """This task has one required deliverable, the translated file, and one
-optional deliverable: a concise CLIF glossary when the file's terminology is
+optional deliverable: a concise CLIFF glossary when the file's terminology is
 widespread or highly repeated."""
 
 GLOSSARY_WORKFLOW = """Terminology workflow.
@@ -109,9 +109,9 @@ Keep the glossary concise: one entry per distinct term that needs a locked
 rendering, only the renderings that matter, and stop after the last needed
 term.
 
-When appended, add a CLIF document after the translated file:
+When appended, add a CLIFF document after the translated file:
 
-CLIF 1.0
+CLIFF 1.0
 namespace: <same namespace>
 clan: <clan>-terms
 source-language: <same>
@@ -125,12 +125,12 @@ type: noun
 <term-id>
 source: "<source term>"
 target: "<the rendering you used>"
-type: <a CLIF type tag>
+type: <a CLIFF type tag>
 status: translated
 context: "<why this rendering, in one line>"
 
 Each entry holds a term that made the glossary useful, carries the rendering
-you used, and satisfies CLIF."""
+you used, and satisfies CLIFF."""
 
 CONTEXT_HINT = """The file carries a translation brief: family information, translation
 standards, group context and per-entry context, content type, emotion, and

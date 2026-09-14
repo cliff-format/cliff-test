@@ -1,5 +1,5 @@
 {
-  "file": "game-quest.zh-CN.clif",
+  "file": "game-quest.zh-CN.cliff",
   "stratum": "game",
   "notes": "Saltwake quest line, written for CLARION-Core v0.3. Items are labelled A to D in their tags: A decisive (the source alone cannot be translated correctly - the naming policy in the header, the emotion tag or the width budget decides), B high-risk (systematic model bias: ICU plurals and select, the {playerName} placeholder, key hints, Han-Latin spacing, fullwidth punctuation, textbook jargon), C cross-entry (a term, a pronoun or an objective number that only resolves against other entries in this file), D normal text (ordinary quest prose that any competent translator should get right, kept as the baseline). Four minimal pairs share a source and a neutral id and differ on exactly one field: hail-01a/b and hail-02a/b on emotion, objective-03a/b and objective-04a/b on max-width.",
   "provenance": {

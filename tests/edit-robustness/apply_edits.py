@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply 100 sequential CLIF 1.0 edits to base.clif."""
+"""Apply 100 sequential CLIFF 1.0 edits to base.cliff."""
 from __future__ import annotations
 
 import json
@@ -8,7 +8,7 @@ import shutil
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-BASE = HERE / "base.clif"
+BASE = HERE / "base.cliff"
 TASKS = HERE / "tasks.json"
 OUT = HERE / "edits"
 INDENT = ""
@@ -432,8 +432,8 @@ TASKS_DATA = [
     {"id": 51, "category": "whitespace", "op": "extra-space", "entry": "mute", "field": "target", "instruction": "在 entry mute 的 target 冒号后多加一个空格（保持合法）。"},
     {"id": 52, "category": "whitespace", "op": "entry-spacing", "entry": "ask-name", "spaces": "   ", "instruction": "把 ask-name 的条目标记行改为 `   <ask-name>   `（行首尾加空白，宽容语法下仍有效）。"},
     {"id": 53, "category": "whitespace", "op": "entry-spacing", "entry": "ask-name", "spaces": " ", "instruction": "把 ask-name 的条目标记行恢复为 ` <ask-name> `（保留一个前导空格，仍有效）。"},
-    {"id": 54, "category": "dependency", "op": "set-dependency", "value": ["../common/settings-common.clif"], "instruction": "把 header 的 dependency 列表改为 [\"../common/settings-common.clif\"]。"},
-    {"id": 55, "category": "dependency", "op": "set-dependency", "value": ["../common/settings-common.clif", "../common/ui-common.clif"], "instruction": "把 dependency 列表改为两个路径。"},
+    {"id": 54, "category": "dependency", "op": "set-dependency", "value": ["../common/settings-common.cliff"], "instruction": "把 header 的 dependency 列表改为 [\"../common/settings-common.cliff\"]。"},
+    {"id": 55, "category": "dependency", "op": "set-dependency", "value": ["../common/settings-common.cliff", "../common/ui-common.cliff"], "instruction": "把 dependency 列表改为两个路径。"},
     {"id": 56, "category": "rename", "op": "rename-entry", "entry": "vsync", "new": "v-sync", "instruction": "把 entry vsync 重命名为 v-sync。"},
     {"id": 57, "category": "rename", "op": "rename-entry", "entry": "master-volume", "new": "volume-master", "instruction": "把 entry master-volume 重命名为 volume-master。"},
     {"id": 58, "category": "rename", "op": "rename-entry", "entry": "ask-name", "new": "ask-player-name", "instruction": "把 entry ask-name 重命名为 ask-player-name。"},
@@ -551,8 +551,9 @@ def main() -> None:
         n = int(task["id"])
         out_dir = OUT / f"{n:03d}"
         out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / "settings.zh-CN.clif").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Wrote {len(TASKS_DATA)} sequential edit files to {OUT / 'NNN' / 'settings.zh-CN.clif'}")
+        (out_dir / "settings.zh-CN.cliff").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    target = OUT / "NNN" / "settings.zh-CN.cliff"
+    print(f"Wrote {len(TASKS_DATA)} sequential edit files to {target}")
 
 
 if __name__ == "__main__":

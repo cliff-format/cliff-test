@@ -8,7 +8,7 @@
 | Version | 0.3.0 |
 | Size | 16 documents, 392 entries, 6 strata |
 | Languages | en-US to zh-CN, plus zh-CN to en-US for the classical literature |
-| Format | CLIF 1.0, validated by clif-python |
+| Format | CLIFF 1.0, validated by cliff-python |
 | Licence | per item: CC0-1.0 for authored text, public domain for the classical literature, MIT and Apache-2.0 for the imported corpora |
 | Human verified | not yet: authored items are marked `human_verified: false` |
 | Contamination control | 232 entries are original text written for this benchmark and were never published before |
@@ -46,7 +46,7 @@ and earlier authored files, which serve as additional ordinary text:
 | C cross-entry | 23 | 16.5% | 15-20% |
 | D normal text | 36 | 25.9% | 25-30% |
 
-**32 minimal pairs** share a source string and differ only in one CLIF field:
+**32 minimal pairs** share a source string and differ only in one CLIFF field:
 10 decided by emotion, 9 by context, 6 by max-width, 5 by type, 2 by other
 means. Every pair was checked by applying one member's rules to the other
 member's reference; all of them fail, so ignoring the deciding field
@@ -91,6 +91,6 @@ this corpus must say so.
 
 ## Citation
 
-    CLARION-Core 0.3.0, part of the CLIF format project.
+    CLARION-Core 0.3.0, part of the CLIFF format project.
     Authored corpus text: CC0-1.0. Imported corpora: see DATA-LICENSES.md.
     Harness code: MIT.

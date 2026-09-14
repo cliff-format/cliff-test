@@ -38,20 +38,20 @@ def test_bare_arm_drops_context(sample_document, format_id: str) -> None:
     assert "Use 默认 for default" not in bare
 
 
-@pytest.mark.parametrize("format_id", [f for f in DEFAULT_FORMATS if f != "clif"])
+@pytest.mark.parametrize("format_id", [f for f in DEFAULT_FORMATS if f != "cliff"])
 def test_context_arm_carries_context(sample_document, format_id: str) -> None:
     text = render(sample_document, format_id, arm=Arm.CONTEXT, blank=True)
     assert "Video settings screen of the console." in text
 
 
 def test_blank_task_document_has_no_targets(sample_document) -> None:
-    text = render(sample_document, "clif", arm=Arm.CONTEXT, blank=True)
+    text = render(sample_document, "cliff", arm=Arm.CONTEXT, blank=True)
     assert "分辨率" not in text
     assert "Resolution" in text
 
 
-def test_clif_roundtrips_losslessly(sample_document) -> None:
-    report = roundtrip_fidelity(sample_document, "clif", arm=Arm.CONTEXT)
+def test_cliff_roundtrips_losslessly(sample_document) -> None:
+    report = roundtrip_fidelity(sample_document, "cliff", arm=Arm.CONTEXT)
     assert report.ok
     assert report.retention == pytest.approx(1.0)
 
@@ -64,25 +64,25 @@ def test_fidelity_is_measurable_for_every_format(sample_document, format_id: str
 
 
 def test_unwrap_strips_markdown_fence() -> None:
-    body, unwrapped = unwrap("Here you go:\n\n```clif\nCLIF 1.0\n```\n")
+    body, unwrapped = unwrap("Here you go:\n\n```cliff\nCLIFF 1.0\n```\n")
     assert unwrapped is True
-    assert body == "CLIF 1.0"
+    assert body == "CLIFF 1.0"
 
 
 def test_unwrap_leaves_plain_text_alone() -> None:
-    body, unwrapped = unwrap("CLIF 1.0\nnamespace: demo\n")
+    body, unwrapped = unwrap("CLIFF 1.0\nnamespace: demo\n")
     assert unwrapped is False
-    assert body.startswith("CLIF 1.0")
+    assert body.startswith("CLIFF 1.0")
 
 
 @pytest.mark.parametrize(
     ("format_id", "broken"),
     [
-        ("clif", "CLIF 1.0\nnamespace: demo\n\n[a]\n<x>\nsource: \"unterminated\n"),
+        ("cliff", "CLIFF 1.0\nnamespace: demo\n\n[a]\n<x>\nsource: \"unterminated\n"),
         ("xliff-2.1", "<xliff version='2.1' srcLang='en'><file></xliff>"),
         ("po", 'msgid "hello"\nmsgstr broken\n'),
         ("fluent", "this line has no equals sign\n"),
-        ("json-clif", '{"header": {'),
+        ("json-cliff", '{"header": {'),
         ("csv", "id,source\n"),
         ("android", "<resources><string>no name</string>"),
         ("ios", '"key" = "value"\n'),

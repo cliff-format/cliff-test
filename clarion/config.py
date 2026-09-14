@@ -96,7 +96,7 @@ class RunConfig:
     target_language: str = "zh-CN"
     include_policy: bool = True
     # The standard protocol hands every format the same thing: a source file
-    # with no glossary, because a real project rarely ships one. CLIF may then
+    # with no glossary, because a real project rarely ships one. CLIFF may then
     # PRODUCE one through its terminology workflow, which is measured
     # separately - that is what allow_glossary_output enables.
     include_glossary: bool = False

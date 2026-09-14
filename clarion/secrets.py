@@ -5,7 +5,7 @@ A key is looked up in this order:
 1. the environment variable named by the provider configuration;
 2. a file next to the workspace, outside every git repository:
    <workspace>/.clarion-secrets/<name>.key  - the recommended location;
-3. a gitignored file inside this repository: clif-test/.secrets/<name>.key.
+3. a gitignored file inside this repository: cliff-test/.secrets/<name>.key.
 
 Nothing here ever writes a key, prints a key, or puts a key into a run record.
 'clarion secret-scan' proves the working tree is clean before a push.
@@ -17,10 +17,10 @@ import os
 import re
 from pathlib import Path
 
-from .paths import CLIF_TEST_ROOT, WORKSPACE_ROOT
+from .paths import CLIFF_TEST_ROOT, WORKSPACE_ROOT
 
 EXTERNAL_SECRETS = WORKSPACE_ROOT / ".clarion-secrets"
-INTERNAL_SECRETS = CLIF_TEST_ROOT / ".secrets"
+INTERNAL_SECRETS = CLIFF_TEST_ROOT / ".secrets"
 SECRET_PATTERNS = (
     re.compile(r"sk-[A-Za-z0-9]{24,}"),
     re.compile(r"hf_[A-Za-z0-9]{20,}"),
@@ -54,7 +54,7 @@ def install_key(env_var: str, *, name: str = "deepseek") -> bool:
 
 def scan_tree(root: Path | None = None) -> list[tuple[str, int]]:
     """Find anything that looks like a credential in the working tree."""
-    base = root or CLIF_TEST_ROOT
+    base = root or CLIFF_TEST_ROOT
     findings: list[tuple[str, int]] = []
     for path in base.rglob("*"):
         if not path.is_file():

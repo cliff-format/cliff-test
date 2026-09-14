@@ -1,6 +1,6 @@
-"""CLIF specification injection for prompts.
+"""CLIFF specification injection for prompts.
 
-The only supported injection is the production CLIF digest: ABNF plus the
+The only supported injection is the production CLIFF digest: ABNF plus the
 writer-facing supplement. Helper functions here read the closed vocabularies
 and the ABNF from the specification repository.
 """
@@ -14,7 +14,7 @@ from pathlib import Path
 from ..paths import ABNF_FILE, REFERENCES_DIR
 from ..util import read_text
 
-_SUPPLEMENT_FILE = Path(__file__).resolve().parent / "clif-spec-supplement.md"
+_SUPPLEMENT_FILE = Path(__file__).resolve().parent / "cliff-spec-supplement.md"
 
 _TABLE_TAG_RE = re.compile(r"^\|\s*`([a-z][a-z0-9-]*)`\s*\|")
 
@@ -48,13 +48,13 @@ def _tags_from_reference(filename: str, fallback: tuple[str, ...] | list[str]) -
 
 @lru_cache(maxsize=1)
 def type_tags() -> tuple[str, ...]:
-    """The closed set of CLIF content types, read from the specification."""
+    """The closed set of CLIFF content types, read from the specification."""
     return tuple(_tags_from_reference("content-types.md", FALLBACK_TYPES))
 
 
 @lru_cache(maxsize=1)
 def emotion_tags() -> tuple[str, ...]:
-    """The closed set of CLIF emotion tags, read from the specification."""
+    """The closed set of CLIFF emotion tags, read from the specification."""
     return tuple(_tags_from_reference("emotion-tags.md", FALLBACK_EMOTIONS))
 
 
@@ -100,7 +100,7 @@ def spec_supplement() -> str:
     """A concise writer-side digest of the normative specification.
 
     ABNF states what is legal; this markdown states the generation choices
-    models need when producing or editing CLIF (safe ids, field cardinality,
+    models need when producing or editing CLIFF (safe ids, field cardinality,
     quoting, glossary shape).
     """
     if not _SUPPLEMENT_FILE.exists():
@@ -112,14 +112,14 @@ def spec_supplement() -> str:
 def build_grammar_plus() -> str:
     """The grammar-plus rules: ABNF plus answer shape and counted triggers.
 
-    This is the production CLIF injection. The ABNF stays the backbone; the
+    This is the production CLIFF injection. The ABNF stays the backbone; the
     extra prose is limited to what ABNF cannot state: how to stop the answer
     and how to decide a countable glossary.
     """
     types = ", ".join(type_tags())
     emotions = ", ".join(emotion_tags())
     status = ", ".join(STATUS_TAGS)
-    return f"""You are editing CLIF 1.0. Its normative grammar follows, in ABNF (RFC 5234).
+    return f"""You are editing CLIFF 1.0. Its normative grammar follows, in ABNF (RFC 5234).
 The grammar is the definition of the format; the notes after it state the
 things a grammar leaves open.
 
@@ -146,14 +146,14 @@ stays one quoted string.
 
 A CONFORMING FILE, FOR SHAPE
 
-CLIF 1.0
+CLIFF 1.0
 namespace: demo
 clan: settings
 source-language: en-US
 target-language: zh-CN
 title: "Demo application settings"
 standard: "Keep UI terms short."
-dependency: ["settings-terms.zh-CN.clif"]
+dependency: ["settings-terms.zh-CN.cliff"]
 
 [video]
 context: "Video settings screen."
@@ -184,7 +184,7 @@ context and every other field come through exactly as received.
 max-width counts display cells: Latin and digits 1, Han and fullwidth 2.
 
 THE SHAPE OF YOUR ANSWER
-Your answer is one CLIF document with the same structure as the file you
+Your answer is one CLIFF document with the same structure as the file you
 received: the same version line, the same header keys, the same section paths
 in the same order, and the same entry markers in the same order. Each entry
 marker appears once. Each field of an entry appears once. The answer ends

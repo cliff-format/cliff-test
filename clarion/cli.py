@@ -6,7 +6,7 @@
     python -m clarion fidelity
     python -m clarion translate --config configs/deepseek-flash.json
     python -m clarion robustness --deterministic
-    python -m clarion glossary bootstrap path/to/file.clif
+    python -m clarion glossary bootstrap path/to/file.cliff
     python -m clarion selfcheck
 """
 
@@ -25,7 +25,7 @@ from .corpus.store import load_corpus
 from .formats.registry import FORMATS
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
-from .paths import RESULTS_ROOT, ensure_clif_format, pyclif_version
+from .paths import RESULTS_ROOT, ensure_cliff_format, pycliff_version
 from .report import build_report, fidelity_report, token_report
 from .runner import (
     RunPaths,
@@ -56,14 +56,14 @@ def _config_from_args(args: argparse.Namespace) -> RunConfig:
 
 
 def cmd_corpus_validate(args: argparse.Namespace) -> int:
-    """Validate every corpus document with the official CLIF validator."""
-    ensure_clif_format()
-    import clif_format
+    """Validate every corpus document with the official CLIFF validator."""
+    ensure_cliff_format()
+    import cliff_format
 
     corpus = load_corpus(args.corpus, strata=args.strata or None)
     failures = 0
     for corpus_file in corpus.files:
-        issues = clif_format.validate(corpus_file.path.read_text(encoding="utf-8"))
+        issues = cliff_format.validate(corpus_file.path.read_text(encoding="utf-8"))
         errors = [issue for issue in issues if issue.category not in {"warning", "extension"}]
         missing_gold = [
             entry_id
@@ -145,7 +145,7 @@ def cmd_corpus_recipes(args: argparse.Namespace) -> int:
 def cmd_corpus_fetch(args: argparse.Namespace) -> int:
     """Import an external corpus through its recipe.
 
-    A sentence-pair corpus becomes a CLARION corpus here: pairs to CLIF,
+    A sentence-pair corpus becomes a CLARION corpus here: pairs to CLIFF,
     deterministic enrichment, an optional annotation pass, then the licence
     header, checksums and attribution that make it publishable.
     """
@@ -188,7 +188,7 @@ def cmd_corpus_fetch(args: argparse.Namespace) -> int:
     except Exception as exc:  # noqa: BLE001 - report the reason, do not traceback
         print(f"fetch failed: {type(exc).__name__}: {exc}")
         return 1
-    print(f"{result.recipe_id}: {result.entries} entries -> {result.clif_path}")
+    print(f"{result.recipe_id}: {result.entries} entries -> {result.cliff_path}")
     print(f"tier {result.tier}; committed to the repository: {result.committed}")
     print(f"context origin: {result.context_origin}{' (cached)' if result.cached else ''}")
     if result.cached:
@@ -314,7 +314,7 @@ def cmd_translate(args: argparse.Namespace) -> int:
             "files": len(corpus.files),
             "entries": corpus.entry_count(),
             "records": output.count(),
-            "clif-python": pyclif_version(),
+            "cliff-python": pycliff_version(),
         },
     )
     print(report)
@@ -337,9 +337,9 @@ def cmd_robustness(args: argparse.Namespace) -> int:
 
 
 def cmd_glossary(args: argparse.Namespace) -> int:
-    """Mine, propose and merge a CLIF glossary for a file."""
-    ensure_clif_format()
-    import clif_format
+    """Mine, propose and merge a CLIFF glossary for a file."""
+    ensure_cliff_format()
+    import cliff_format
 
     from .providers import build_provider
     from .tools.glossary import attach_dependency, bootstrap
@@ -349,7 +349,7 @@ def cmd_glossary(args: argparse.Namespace) -> int:
     policy = load_policy(config.target_language)
     source_path = Path(args.file)
     glossary_path = Path(args.out) if args.out else source_path.with_name(
-        source_path.name.split(".")[0] + "-terms." + config.target_language + ".clif"
+        source_path.name.split(".")[0] + "-terms." + config.target_language + ".cliff"
     )
     document, report, candidates = bootstrap(
         source_path,
@@ -358,14 +358,14 @@ def cmd_glossary(args: argparse.Namespace) -> int:
         policy=policy,
         min_count=args.min_count,
     )
-    write_text(glossary_path, clif_format.serialize(document))
+    write_text(glossary_path, cliff_format.serialize(document))
     print(f"terms mined: {len(candidates)}; added: {len(report.added)}; kept: {len(report.kept)}")
     for conflict in report.conflicts:
         print(f"  conflict: {conflict['term']} locked as {conflict['locked']}")
     print(f"glossary written: {glossary_path}")
     if args.attach:
-        source_document = attach_dependency(clif_format.load(source_path), glossary_path.name)
-        write_text(source_path, clif_format.serialize(source_document))
+        source_document = attach_dependency(cliff_format.load(source_path), glossary_path.name)
+        write_text(source_path, cliff_format.serialize(source_document))
         print(f"dependency attached to {source_path.name}")
     return 0
 
@@ -531,9 +531,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     glossary_parser = subparsers.add_parser("glossary", help="glossary tooling")
     glossary_sub = glossary_parser.add_subparsers(dest="glossary_command", required=True)
-    bootstrap_parser = glossary_sub.add_parser("bootstrap", help="mine a glossary from a CLIF file")
+    bootstrap_parser = glossary_sub.add_parser(
+        "bootstrap", help="mine a glossary from a CLIFF file"
+    )
     add_common(bootstrap_parser)
-    bootstrap_parser.add_argument("file", help="CLIF document to mine")
+    bootstrap_parser.add_argument("file", help="CLIFF document to mine")
     bootstrap_parser.add_argument("--out", help="glossary path to write or merge into")
     bootstrap_parser.add_argument("--min-count", type=int, default=2, dest="min_count")
     bootstrap_parser.add_argument("--propose", action="store_true", help="ask for renderings")
