@@ -70,7 +70,9 @@ def _fail(
     )
 
 
-def _check_cliff(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
+def _check_cliff(
+    text: str, *, tolerant: bool = False
+) -> tuple[list[Diagnostic], list[Diagnostic]]:
     """Validate a CLIFF answer, which may carry a glossary as a second document.
 
     CLIFF's terminology workflow lets a translator return the translated file
@@ -78,6 +80,13 @@ def _check_cliff(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
     because concatenating two valid documents is not one valid document - and
     counting that as a format failure would punish the format for using its own
     feature.
+
+    The default mode is **strict**, because dimension 7 asks whether the
+    project's own toolchain would accept the answer. ``tolerant=True`` measures
+    the other, documented question - how much of a model's output can be
+    salvaged - and reports each repair as a warning, so a run can state which of
+    the two readings its numbers come from. A tolerant parse that still fails is
+    an error in both readings (specification Appendix C.5).
     """
     ensure_cliff_format()
     import cliff_format
@@ -89,14 +98,32 @@ def _check_cliff(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
     parts = split_cliff_documents(text)
     offset = 0
     for part in parts:
-        for issue in cliff_format.validate(part):
+        corrections = 0
+        try:
+            document = cliff_format.parse(part, tolerant=tolerant)
+        except cliff_format.CliffParseError as exc:
+            errors.append(
+                Diagnostic(getattr(exc, "line", 0) + offset, exc.category, exc.message)
+            )
+            offset += part.count("\n") + 1
+            continue
+        for issue in cliff_format.validate_document(document):
             diagnostic = Diagnostic(
                 line=issue.line + offset, category=issue.category, message=issue.message
             )
-            if issue.category in {"warning", "extension"}:
+            if issue.category in {"warning", "extension", "correction", "style"}:
                 warnings.append(diagnostic)
             else:
                 errors.append(diagnostic)
+        for correction in document.corrections:
+            corrections += 1
+            warnings.append(
+                Diagnostic(
+                    line=correction.line + offset,
+                    category="correction",
+                    message=correction.describe(),
+                )
+            )
         offset += part.count("\n") + 1
     return errors, warnings
 
@@ -312,15 +339,28 @@ _CHECKERS = {
 }
 
 
-def check_validity(text: str, format_id: str, *, allow_unwrap: bool = True) -> ValidityReport:
-    """Validate a document in one format and report line-numbered findings."""
+def check_validity(
+    text: str,
+    format_id: str,
+    *,
+    allow_unwrap: bool = True,
+    tolerant: bool = False,
+) -> ValidityReport:
+    """Validate a document in one format and report line-numbered findings.
+
+    ``tolerant`` applies to CLIFF only and selects the Appendix C reading; the
+    other formats have one reading and ignore the flag.
+    """
     get_format(format_id)
     body, unwrapped = unwrap(text) if allow_unwrap else (text, False)
     if not body.strip():
         return _fail(format_id, 1, "syntax", "document is empty", unwrapped)
     checker = _CHECKERS[format_id]
     try:
-        errors, warnings = checker(body)
+        if format_id == "cliff" and tolerant:
+            errors, warnings = _check_cliff(body, tolerant=True)
+        else:
+            errors, warnings = checker(body)
     except Exception as exc:  # noqa: BLE001 - a crashing checker is still a failure
         return _fail(format_id, 1, "syntax", f"{type(exc).__name__}: {exc}", unwrapped)
     return ValidityReport(

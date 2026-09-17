@@ -30,7 +30,15 @@ def short_hash(text: str, length: int = 12) -> str:
 
 
 def slug(text: str, fallback: str = "item") -> str:
-    """Lowercase kebab-case slug that is also a valid CLIFF name."""
+    """Lowercase kebab-case slug that is also a valid CLIFF name.
+
+    CLIFF 1.1 accepts a much wider identifier than this, and a real project may
+    legitimately use PascalCase or snake_case. This helper keeps its narrow
+    kebab-case output deliberately: it *generates* identifiers where the source
+    format had none, and a generated corpus is the one place a tool gets to pick
+    a style (style/README.md). Preserving the source spelling is the job of an
+    importer, not of a slug used for cache keys.
+    """
     normalized = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
     cleaned = _SLUG_RE.sub("-", normalized.lower()).strip("-")
     cleaned = re.sub(r"-{2,}", "-", cleaned)

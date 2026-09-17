@@ -2,9 +2,20 @@
 
 ## Ids
 
-- Every id is a lowercase kebab-case name: `editors-note`, `the-block-of-grass`.
-- Build an id from a source term by keeping lowercase letters and joining the
-  remaining parts with hyphens: `editor's note` -> `editors-note`.
+- An id is a name: one or more of `A-Z`, `a-z`, `0-9`, `_`, `-`. It never
+  contains `.`, and it is case-sensitive.
+- **Copy every id you receive byte for byte.** Do not recapitalize it, do not
+  add or remove underscores, and do not "tidy" it: the id is the translation
+  match key, and a renamed id is a lost translation.
+- When you must invent an id (a new entry, a glossary term), the recommended
+  shapes are lowercase kebab-case (`editors-note`, `the-block-of-grass`) or
+  PascalCase (`EditorsNote`, `TheBlockOfGrass`). Use one shape per file.
+
+## Tags (not ids)
+
+- `type`, `emotion`, `status`, and `variant` are tags, and their spelling is
+  fixed: lowercase kebab-case words from the closed vocabularies, written bare.
+- `status: Final` and `type: Noun` are errors, not aliases.
 
 ## Fields
 
@@ -12,6 +23,8 @@
 - Each entry has one `source`, one `target`, one `type`, and one `status`.
 - Text values are quoted strings; tags are bare names; list fields keep their
   brackets.
+- A field appears at most once per entry, group, or header. Two `reference:`
+  lines are an error; one list holds both paths.
 
 ## Strings
 
@@ -21,10 +34,15 @@
 - Apostrophes are ordinary characters inside double-quoted strings.
 - Raw newline and raw tab are invalid inside strings.
 
+## Terminators
+
+- A line may end with at most one `,` or `;`. It means nothing and the
+  canonical form omits it; write `key: value`, not `key: value,`.
+
 ## Glossary
 
 - Use `variant: glossary` and clan `<clan>-terms`.
-- One entry per term; glossary ids follow the same kebab-case rule and are
+- One entry per term; glossary ids follow the same identifier rule and are
   unique.
 - Keep the glossary concise.
 

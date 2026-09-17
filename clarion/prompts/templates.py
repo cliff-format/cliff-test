@@ -38,7 +38,7 @@ its source text. Return the same file with every value replaced by its
 {target_language} translation, keeping every key unchanged."""
 
 FORMAT_NOTES = {
-    "cliff": """This file is CLIFF 1.0, a line-oriented localization format.
+    "cliff": """This file is CLIFF 1.1, a line-oriented localization format.
 Each entry starts with a line of the form <entry-id>. Fields are flat
 key: value lines that belong to the entry above them. Write the translation as
 the target field of each entry and set status: translated.
@@ -84,11 +84,13 @@ GLOSSARY_FOOTER = """===== END OF REFERENCE GLOSSARY ====="""
 DOCUMENT_HEADER = """===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE ====="""
 
 CLIFF_EDIT_SAFETY = """CLIFF EDIT SAFETY
-Before writing, verify every entry and glossary id is lowercase kebab-case and
-contains only lowercase letters, digits, and hyphens. Glossary ids are unique;
-one entry per term. Sanitize source terms as editor's note -> editors-note.
-Every text value is one quoted string; escape inner double quotes as \\" and
-newlines as \\n."""
+Copy every entry id and group path exactly as written: identifiers may use
+upper- and lowercase letters, digits, "_" and "-", they are case-sensitive, and
+recapitalizing one or adding an underscore renames the translation key.
+Glossary ids are unique; one entry per term. Fixed tags (type, emotion, status)
+are the exception: they stay lowercase kebab-case words from the closed
+vocabulary, written bare. Every text value is one quoted string; escape inner
+double quotes as \\" and newlines as \\n."""
 
 
 # CLIFF is the only format in the comparison with a glossary variant, so it is
@@ -111,7 +113,7 @@ term.
 
 When appended, add a CLIFF document after the translated file:
 
-CLIFF 1.0
+CLIFF 1.1
 namespace: <same namespace>
 clan: <clan>-terms
 source-language: <same>

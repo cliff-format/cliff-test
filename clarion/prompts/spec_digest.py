@@ -119,7 +119,7 @@ def build_grammar_plus() -> str:
     types = ", ".join(type_tags())
     emotions = ", ".join(emotion_tags())
     status = ", ".join(STATUS_TAGS)
-    return f"""You are editing CLIFF 1.0. Its normative grammar follows, in ABNF (RFC 5234).
+    return f"""You are editing CLIFF 1.1. Its normative grammar follows, in ABNF (RFC 5234).
 The grammar is the definition of the format; the notes after it state the
 things a grammar leaves open.
 
@@ -136,17 +136,21 @@ emotion: {emotions}
 status:  {status}
 
 WRITER SAFETY RULES
-Before writing, verify every entry and glossary id is lowercase kebab-case and
-contains only lowercase letters, digits, and hyphens. When an id comes from a
-source term, keep only lowercase letters and join the remaining parts with
-hyphens: editor's note -> editors-note. Glossary ids follow the same rule and
-are unique; one entry per term. Text values are quoted strings; escape
+Identifiers may use uppercase letters, lowercase letters, digits, "_" and "-",
+and never ".". They are case-sensitive and must be copied exactly as written:
+do not recapitalize an entry id and do not add or remove underscores, because
+the id is the translation match key. The recommended shapes are lowercase
+kebab-case (editors-note) or PascalCase (EditorsNote), one shape per file.
+Fixed tags (type, emotion, status, variant) are the exception and are not
+flexible: they are lowercase kebab-case words from the closed vocabularies
+above, written bare — never quoted. Glossary ids follow the same identifier
+rule and are unique; one entry per term. Text values are quoted strings; escape
 inner double quotes as \", newlines as \n, and tabs as \t, so the whole value
 stays one quoted string.
 
 A CONFORMING FILE, FOR SHAPE
 
-CLIFF 1.0
+CLIFF 1.1
 namespace: demo
 clan: settings
 source-language: en-US

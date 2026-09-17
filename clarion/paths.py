@@ -15,10 +15,13 @@ CLIFF_TEST_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = CLIFF_TEST_ROOT.parent
 
 CLIFF_SPEC_ROOT = WORKSPACE_ROOT / "cliff"
-SPEC_FILE = CLIFF_SPEC_ROOT / "spec" / "cliff-1.0.0.md"
-ABNF_FILE = CLIFF_SPEC_ROOT / "spec" / "abnf" / "cliff-1.0.abnf"
+# The current specification. CLIFF 1.1 is a pure relaxation of 1.0, so a prompt
+# built from the 1.1 grammar also describes a 1.0 document correctly; the 1.0
+# files remain in the repository as the frozen definition.
+SPEC_FILE = CLIFF_SPEC_ROOT / "spec" / "cliff-1.1.0.md"
+ABNF_FILE = CLIFF_SPEC_ROOT / "spec" / "abnf" / "cliff-1.1.abnf"
 REFERENCES_DIR = CLIFF_SPEC_ROOT / "references"
-SPEC_EXAMPLES_DIR = CLIFF_SPEC_ROOT / "spec" / "examples" / "cliff-1.0.0"
+SPEC_EXAMPLES_DIR = CLIFF_SPEC_ROOT / "spec" / "examples" / "cliff-1.1.0"
 
 CLIFF_PYTHON_ROOT = WORKSPACE_ROOT / "cliff-python"
 CLIFF_PYTHON_SRC = CLIFF_PYTHON_ROOT / "src"

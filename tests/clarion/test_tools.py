@@ -17,10 +17,15 @@ def test_spec_digest_lists_the_closed_vocabularies() -> None:
     assert len(type_tags()) == 26
     assert len(emotion_tags()) == 23
     sheet = build_grammar_plus()
-    assert "CLIFF 1.0" in sheet
+    # The digest injects the *current* specification; the 1.0 files stay as the
+    # frozen definition but are not what a prompt should teach.
+    assert "CLIFF 1.1" in sheet
     assert "accessibility-cue" in sheet
     assert "nostalgic" in sheet
     assert "initial, translated, reviewed, final" in sheet
+    # 1.1's relaxed identifier rule reaches the model, not the 1.0 one.
+    assert "lowercase kebab-case and" not in sheet
+    assert "case-sensitive" in sheet
 
 
 def test_prompt_components_are_measured_separately(sample_document) -> None:
