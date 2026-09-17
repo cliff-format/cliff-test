@@ -122,8 +122,18 @@ python tools/cliff_validator.py --suite tests/fixtures/valid
 # Invalid fixtures (must exit non-zero)
 python tools/cliff_validator.py --suite tests/fixtures/invalid
 
+# Layout fixtures: warnings by default, errors when the convention is enforced
+python tools/cliff_validator.py --suite tests/fixtures/layout
+python tools/cliff_validator.py --check-layout --suite tests/fixtures/layout
+
+# Style fixtures: warnings, never errors
+python tools/cliff_validator.py --style --suite tests/fixtures/style
+
+# Tolerant fixtures: repaired, with a report for every repair
+python tools/cliff_validator.py --tolerant tests/fixtures/tolerant/*.zh-CN.cliff
+
 # Spec examples from the sibling cliff repository (local checkouts)
-python tools/cliff_validator.py --suite ../cliff/spec/examples/cliff-1.0.0
+python tools/cliff_validator.py --suite ../cliff/spec/examples/cliff-1.1.0
 
 # Token benchmark
 python tools/token_benchmark.py
@@ -166,12 +176,22 @@ the command.
 
 ## Relation to the specification
 
-- Normative spec: [cliff-1.0.0.md](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.0.0.md)
-- Grammar: [cliff-1.0.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.0.abnf)
-- Layout: both the canonical folder layout `<target-language>/<clan>.cliff`
+- Normative spec: [cliff-1.1.0.md](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.1.0.md)
+  ([1.0](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.0.0.md) is the frozen, superseded definition; every 1.0 document is a valid 1.1 document)
+- Grammar: [cliff-1.1.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.1.abnf)
+- Style guide (informative, never enforced): [style/README.md](https://github.com/cliff-format/cliff/blob/main/style/README.md)
+- Identifiers: `A-Z a-z 0-9 _ -`, never `.`, case-sensitive, and never
+  rewritten by a parser. A project's spelling habit is style, not validity.
+- Terminators: one optional trailing `,` / `;` per line is standard CLIFF 1.1
+  and never re-emitted; a second one is a syntax error.
+- Layout: both the recommended folder layout `<target-language>/<clan>.cliff`
   and the flat layout `<clan>.<target-language>.cliff` are accepted. The four
   header fields (`namespace`, `clan`, `source-language`, `target-language`)
-  are required; layouts are checked for consistency with the header only.
+  are required; the layout is checked for consistency with the header and a
+  mismatch is a **warning** unless `--check-layout` is passed.
+- Tolerant parsing: `--tolerant` delegates to `cliff_format`, the single
+  implementation of specification Appendix C, so this repository does not carry
+  a second contract that could diverge from the reference one.
 - Emotion/status tag definitions:
   [content/emotion/status tag references](https://github.com/cliff-format/cliff/tree/main/references)
 - Spec changes that affect parsing MUST be accompanied by validator and

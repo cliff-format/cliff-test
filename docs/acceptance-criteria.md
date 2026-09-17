@@ -1,6 +1,6 @@
 # CLIFF Acceptance Criteria
 
-This repository implements the requested acceptance criteria for CLIFF 1.0
+This repository implements the requested acceptance criteria for CLIFF 1.1
 plus additional ones proposed below. Where a criterion depends on a specific
 LLM class (e.g. a Flash-class model), the repository contains a replayable
 protocol; numbers recorded in this session come from the available subagent
@@ -9,10 +9,12 @@ model and are labeled as such. All recorded numbers below are updated by
 
 ## C1 — Standard format specification
 
-- Normative spec: [cliff-1.0.0.md](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.0.0.md)
+- Normative spec: [cliff-1.1.0.md](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.1.0.md)
+  ([1.0](https://github.com/cliff-format/cliff/blob/main/spec/cliff-1.0.0.md) remains the frozen, superseded definition)
 
-- Normative grammar: [cliff-1.0.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.0.abnf)
-- Valid examples: [cliff-1.0.0 examples](https://github.com/cliff-format/cliff/tree/main/spec/examples/cliff-1.0.0); conformance fixtures:
+- Normative grammar: [cliff-1.1.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.1.abnf)
+- Style guide (informative, not enforced): [style/README.md](https://github.com/cliff-format/cliff/blob/main/style/README.md)
+- Valid examples: [cliff-1.1.0 examples](https://github.com/cliff-format/cliff/tree/main/spec/examples/cliff-1.1.0); conformance fixtures:
   `tests/fixtures/`
 - Reference validator: `tools/cliff_validator.py`
 - Tag references: [content-types.md](https://github.com/cliff-format/cliff/blob/main/references/content-types.md),
@@ -57,23 +59,28 @@ model and are labeled as such. All recorded numbers below are updated by
 - Recorded this session (deterministic replay from `tasks.json` via
   `apply_edits.py`): **100/100 valid (100.0%)**. PASS.
 
-## C5 — Additional criteria proposed for CLIFF 1.0
+## C5 — Additional criteria proposed for CLIFF 1.0 / 1.1
 
 | # | Criterion | Test |
 | --- | --- | --- |
 | C5.1 | Every invalid document yields a **line-numbered, classed error** | `tests/fixtures/invalid/` + validator output |
-| C5.2 | Closed vocabularies (`type` 26, `emotion` 23, `status` 4: `initial`/`translated`/`reviewed`/`final`) reject near-miss tags | `tests/fixtures/invalid/invalid-status.zh-CN.cliff`, `tests/fixtures/invalid/invalid-emotion.zh-CN.cliff`, `tests/fixtures/invalid/invalid-type.zh-CN.cliff` |
+| C5.2 | Closed vocabularies (`type` 26, `emotion` 23, `status` 4: `initial`/`translated`/`reviewed`/`final`) reject near-miss tags, including differently cased spellings | `tests/fixtures/invalid/invalid-status.zh-CN.cliff`, `invalid-emotion.zh-CN.cliff`, `invalid-type.zh-CN.cliff` |
 | C5.3 | ICU MF1/MF2 survives as payload; broken braces are detected | `tests/fixtures/valid/icu.zh-CN.cliff`, `tests/fixtures/invalid/unbalanced-icu.zh-CN.cliff` |
 | C5.4 | Display width follows UAX #11 (Latin=1, CJK=2, combining=0) | `accept-short` entry in quality corpus; `--check-width` |
 | C5.5 | Comments are discardable without losing translation context | `tests/fixtures/valid/comments-blanks.zh-CN.cliff`; design rationale §15 |
-| C5.6 | Canonical IDs are lowercase `namespace.clan.group.entry` and unique | `tests/fixtures/invalid/duplicate-entry-id.zh-CN.cliff`, `--ids` |
+| C5.6 | Canonical IDs are `namespace.clan.group.entry`, case-sensitive, and unique | `tests/fixtures/invalid/duplicate-entry-id.zh-CN.cliff`, `tests/fixtures/valid/mixed-shape-ids.zh-CN.cliff`, `--ids` |
 | C5.7 | Token benchmark is deterministic and reproducible | two-run verification of `tools/token_benchmark.py` |
-| C5.8 | No multi-line structural construct exists in the grammar | [cliff-1.0.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.0.abnf), design rationale |
-| C5.9 | Four header fields are required; flat file name `<clan>.<target-language>.cliff` is checked for consistency only | `filename-mismatch.zh-CN.cliff`; `missing-*` fixtures |
+| C5.8 | No multi-line structural construct exists in the grammar | [cliff-1.1.abnf](https://github.com/cliff-format/cliff/blob/main/spec/abnf/cliff-1.1.abnf), design rationale |
+| C5.9 | Four header fields are required; a flat or folder file name is a **recommendation** in 1.1, checked for consistency only | `tests/fixtures/layout/`; `missing-*` fixtures |
 | C5.10 | Glossary variant is restricted to term-level types (warning) | `variant: glossary` fixtures |
 | C5.11 | `=` and `:` are equivalent; tolerant whitespace never changes meaning | tolerant-syntax fixtures |
 | C5.12 | Status workflow prevents `translated`/`reviewed`/`final` without target; `initial` allows no target | `tests/fixtures/invalid/reviewed-without-target.zh-CN.cliff` |
-| C5.13 | Folder layout `<target-language>/<clan>.cliff` is checked for consistency only; folder/file-name/header conflicts are rejected | `tests/fixtures/valid/ja-JP/settings.cliff`; `tests/fixtures/invalid/ja-JP/settings.zh-CN.cliff`; `tests/fixtures/invalid/ja-JP/settings.cliff`; `tests/fixtures/invalid/ja-JP/settings_bad.cliff` |
+| C5.13 | **1.1** — identifiers accept `A-Z a-z 0-9 _ -` (no `.`), are case-sensitive, and are never rewritten by a parser | `tests/fixtures/valid/uppercase-entry-id.zh-CN.cliff`, `underscore-entry-id.zh-CN.cliff`, `mixed-shape-ids.zh-CN.cliff` |
+| C5.14 | **1.1** — one optional trailing `,` / `;` per line is standard, meaningless, never re-emitted, and a second one is a syntax error | `tests/fixtures/valid/valid-terminators.zh-CN.cliff`, `tests/fixtures/invalid/double-terminator.zh-CN.cliff` |
+| C5.15 | **1.1** — a layout/header mismatch is a warning by default and an error under `--check-layout`, so the mode is explicit | `tests/fixtures/layout/` (both modes) |
+| C5.16 | **1.1** — style deviations are warnings, never errors, and `--style` reports them | `tests/fixtures/style/` |
+| C5.17 | **1.1** — tolerant parsing repairs the six documented deviations, reports every repair, and refuses the forbidden ones in Appendix C.5 | `tests/fixtures/tolerant/` (both the repairable files and `unrepairable.zh-CN.cliff`) |
+| C5.18 | **1.1** — a tolerant parse serializes back into a strictly valid document, and serialization is a fixed point | `cliff-python/tests/test_tolerant_parser.py`, `tests/run_all.py --tolerant` |
 
 ## C6 — CLARION: format-versus-format measurement
 
