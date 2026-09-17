@@ -1,0 +1,20 @@
+# Counter-example for tolerant parsing (CLIFF 1.1 Appendix C.5).
+#
+# This file is for the tolerant suite the way `invalid/` is for the strict suite:
+# tolerant parsing must still reject it. A tolerant parser repairs *shape* — a
+# missing bracket, a stray quote, a repeated key — and must never guess content.
+# The `type` below is a near-miss of `noun`, and guessing which word was meant is
+# exactly the silent corruption the mode exists to prevent.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-unrepairable
+source-language: en-US
+target-language: zh-CN
+
+[main]
+type: Nown
+
+<save>
+source: "Save"
+target: "保存"
+status: final

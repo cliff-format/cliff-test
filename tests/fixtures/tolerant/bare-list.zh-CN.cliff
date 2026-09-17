@@ -1,0 +1,21 @@
+# Tolerant fixture: a bare scalar in a list-typed field (CLIFF 1.1 Appendix C.2.1).
+#
+# The strict grammar rejects `emotion: objective` and `dependency: "..."` because
+# a list-typed field is always a list (specification 6.1). Tolerant parsing
+# treats the bare value as a one-item list and reports a `list-shape` repair.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-bare-list
+source-language: en-US
+target-language: zh-CN
+dependency: "../shared/terms.zh-CN.cliff"
+
+[main]
+type: label
+emotion: objective
+
+<save>
+source: "Save"
+target: "保存"
+status: final
+reference: "src/main.cpp:42"

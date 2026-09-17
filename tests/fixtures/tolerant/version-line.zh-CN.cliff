@@ -1,0 +1,19 @@
+# Tolerant fixture: a version line that differs in spelling only
+# (CLIFF 1.1 Appendix C.2.6).
+#
+# The strict grammar accepts `CLIFF 1.0` and `CLIFF 1.1`. A patch-qualified or
+# differently cased line is a spelling difference, which tolerant parsing
+# accepts and reports; the version number itself is never guessed from content.
+cliff 1.1.0
+namespace: demo
+clan: tolerant-version
+source-language: en-US
+target-language: zh-CN
+
+[main]
+type: label
+
+<save>
+source: "Save"
+target: "保存"
+status: final

@@ -1,0 +1,18 @@
+CLIFF 1.1
+namespace: Demo
+clan: Style_Check
+source-language: en-US
+target-language: zh-CN
+
+[Main];
+type: label
+
+<bad_id>
+source: "Save"
+target: "保存"
+status: final
+
+<Cancel->
+source: "Cancel"
+target: "取消"
+status: final

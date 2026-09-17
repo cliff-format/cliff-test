@@ -1,0 +1,24 @@
+# Tolerant fixture: an identifier collision after normalization
+# (CLIFF 1.1 Appendix C.4).
+#
+# Two different spellings normalize to the same id. Tolerant parsing must not
+# drop or overwrite either entry — that is how translation data gets lost — so it
+# disambiguates the later one and reports an `id-collision` repair.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-collision
+source-language: en-US
+target-language: zh-CN
+
+[main]
+type: label
+
+<Save & Load>
+source: "Save & Load"
+target: "保存并加载"
+status: translated
+
+<Save/Load>
+source: "Save / Load"
+target: "保存 / 加载"
+status: translated

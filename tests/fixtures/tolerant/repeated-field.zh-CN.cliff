@@ -1,0 +1,24 @@
+# Tolerant fixture: a repeated field (CLIFF 1.1 Appendix C.2.2).
+#
+# Strict CLIFF rejects a key that appears twice in one scope (specification 6.1).
+# Tolerant parsing appends a repeated list field and concatenates a repeated
+# string field in source order, reporting a `field-repeat` repair, so the result
+# equals what the equivalent continuation lines would have produced.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-repeat
+source-language: en-US
+target-language: zh-CN
+info: "One "
+info: "Two"
+
+[main]
+type: label
+
+<save>
+source: "Save"
+target: "Save"
+target: " 保存"
+status: final
+reference: ["src/main.cpp:42"]
+reference: ["docs/ui.md"]

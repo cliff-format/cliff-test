@@ -1,0 +1,18 @@
+# Style fixture: trailing terminators (CLIFF 1.1 section 5.6).
+#
+# Every line below ends with an accepted `,` or `;`. The document is valid CLIFF
+# 1.1 with zero errors; `style/README.md` recommends not writing the terminator,
+# so `--style` reports each line and a canonical serializer drops them all.
+CLIFF 1.1
+namespace: demo;
+clan: style-terminators,
+source-language: en-US
+target-language: zh-CN,
+
+[main],
+type: label;
+
+<save>,
+source: "Save",
+target: "保存",
+status: final;

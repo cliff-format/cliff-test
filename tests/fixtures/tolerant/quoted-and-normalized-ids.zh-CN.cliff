@@ -1,0 +1,24 @@
+# Tolerant fixture: quoted and normalized identifiers (CLIFF 1.1 Appendix C.2.4,
+# C.2.5).
+#
+# `cliff-python` reads a quoted entry id as the bare id, and normalizes an
+# identifier that contains a character outside the name set. Both are repairs:
+# the strict grammar accepts neither a quoted id nor `Save & Load` as an id.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-ids
+source-language: en-US
+target-language: zh-CN
+
+[Video Setup & Audio]
+type: label
+
+<"Save">
+source: "Save"
+target: "保存"
+status: final
+
+<Save & Load>
+source: "Save & Load"
+target: "保存并加载"
+status: translated

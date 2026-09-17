@@ -1,0 +1,29 @@
+# Tolerant fixture: quoted tags (CLIFF 1.1 Appendix C.2.3).
+#
+# Tags are written as bare lowercase words, so `status: "final"` is rejected by
+# the strict grammar (specification 6.1). Tolerant parsing removes the quotes and
+# then validates the word against the closed vocabulary exactly as a bare tag
+# would be, reporting a `tag-quote` repair.
+#
+# The vocabulary stays closed: a word outside it is still an error, which is why
+# every tag below is spelled correctly inside its quotes.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-quoted-tags
+source-language: en-US
+target-language: zh-CN
+
+[main]
+type: "label"
+emotion: ["objective"]
+
+<save>
+source: "Save"
+target: "保存"
+type: "verb"
+status: "final"
+
+<cancel>
+source: "Cancel"
+target: "取消"
+status: 'translated'
