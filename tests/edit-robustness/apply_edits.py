@@ -12,7 +12,11 @@ BASE = HERE / "base.cliff"
 TASKS = HERE / "tasks.json"
 OUT = HERE / "edits"
 INDENT = ""
-NAME_RE = re.compile(r"^[a-z][a-z0-9-]*$")
+# CLIFF 1.1 relaxed identifier: one or more of A-Z a-z 0-9 _ -, never "."
+# (specification 5.5). This fixture driver only ever *emits* kebab-case names,
+# because it models model-style edits, but it must recognize every name the
+# grammar accepts or it would treat a valid id as unrecognizable.
+NAME_RE = re.compile(r"^[A-Za-z0-9_-]+$")
 
 
 def quote(value: object) -> str:
@@ -61,13 +65,30 @@ def is_section_line(line: str) -> bool:
     return bool(re.match(r"^[ \t]*\[[^\]]+\][ \t]*$", line))
 
 
-def is_entry_line(line: str) -> bool:
-    return bool(re.match(r"^[ \t]*entry[ \t]*[:=][ \t]*\S", line))
-
-
 def entry_id_from_line(line: str) -> str | None:
-    m = re.match(r"^[ \t]*<([a-z][a-z0-9-]*)>[ \t]*$", line)
-    return m.group(1) if m else None
+    """The id of a ``<id>`` entry marker, or ``None`` for any other line."""
+    m = re.match(r"^[ \t]*<([^<>]+)>[ \t]*[;,]?[ \t]*$", line)
+    if not m:
+        return None
+    entry_id = m.group(1).strip()
+    return entry_id if NAME_RE.match(entry_id) else None
+
+
+def is_entry_line(line: str) -> bool:
+    """Whether ``line`` is a ``<id>`` entry marker.
+
+    This is the single boundary predicate every other helper depends on:
+    ``next_structural_line`` uses it to end an entry, ``entry_block_end`` uses
+    that to scope field lookups, and ``find_entry`` uses the id to locate an
+    entry. When it failed to recognize ``<id>`` markers, an "entry block" ran
+    from one entry all the way to the next *section* — so "the first ``target``
+    in this block" was the first ``target`` in several entries, and each edit
+    landed on the wrong entry while the intended one lost its fields. The
+    legacy ``entry: id`` form is deliberately NOT accepted here: it is the
+    syntax CLIFF rejects (see ``invalid/old-entry-marker.zh-CN.cliff``), so
+    accepting it would hide a broken document instead of failing loudly.
+    """
+    return entry_id_from_line(line) is not None
 
 
 def find_separator_index(text: str) -> int | None:
@@ -198,6 +219,38 @@ def add_entry_field(lines: list[str], entry_id: str, field: str, value: object) 
     rendered = INDENT + field + ": " + render_value(field, value)
     pos = last_field_index(lines, idx, end)
     lines.insert(pos + 1 if pos is not None else idx + 1, rendered)
+
+
+def add_reference(lines: list[str], entry_id: str, paths: object) -> None:
+    """Add reference paths to an entry, merging into its existing list.
+
+    `reference` is a list-typed field and CLIFF has no repeatable fields
+    (specification 6.1), so a second `reference:` line is a validity error
+    rather than a longer list. "Add two reference paths" therefore means "the
+    entry's reference list now holds these paths as well" — the same thing the
+    list-continuation presentation would produce.
+    """
+    incoming = [str(p) for p in (paths if isinstance(paths, list) else [paths])]
+    idx = find_entry(lines, entry_id)
+    end = entry_block_end(lines, idx)
+    inds = entry_field_indices(lines, idx, end, "reference")
+    if not inds:
+        add_entry_field(lines, entry_id, "reference", incoming)
+        return
+    existing = lines[inds[0]]
+    sep = find_separator_index(existing)
+    body = existing[sep + 1 :].strip()
+    prefix = existing[: sep + 1]
+    current: list[str] = []
+    if body.startswith("[") and body.endswith("]"):
+        inner = body[1:-1].strip()
+        if inner:
+            current = [part.strip() for part in inner.split(",") if part.strip()]
+    merged = current + [quote(p) for p in incoming]
+    lines[inds[0]] = prefix + " [" + ", ".join(merged) + "]"
+    # Any further reference lines in this entry would be a duplicate key.
+    for extra in reversed(inds[1:]):
+        del lines[extra]
 
 
 def remove_entry_field(lines: list[str], entry_id: str, field: str) -> None:
@@ -501,7 +554,7 @@ def process_task(lines: list[str], task: dict) -> None:
     elif op == "set-reviewer":
         set_entry_field(lines, str(task["entry"]), "reviewer", task["value"])
     elif op == "add-reference":
-        add_entry_field(lines, str(task["entry"]), "reference", task["value"])
+        add_reference(lines, str(task["entry"]), task["value"])
     elif op == "remove-field":
         remove_entry_field(lines, str(task["entry"]), str(task["field"]))
     elif op == "insert-comment":
