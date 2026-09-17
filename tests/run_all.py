@@ -4,17 +4,35 @@
    python tests/run_all.py               # validation suites + benchmark
    python tests/run_all.py --quality     # after translator-output.cliff exists
    python tests/run_all.py --robustness  # after edits/ exists
+
+Each suite below states the mode it is checked in, because a suite that passes
+under the wrong mode is not evidence of anything:
+
+  * valid/    — strict grammar, zero errors
+  * invalid/  — strict grammar, at least one hard error
+  * layout/   — zero errors by default (CLIFF 1.1 recommends a layout), and at
+                least one error once layout consistency is enforced
+  * tolerant/ — rejected strictly, repaired tolerantly; the fixtures that must
+                still be refused live in the same directory as the ones that
+                must be repaired, and are named accordingly
+  * style/    — valid CLIFF with zero errors, reported by --style
 """
 
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "tools" / "cliff_validator.py"
-SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples" / "cliff-1.0.0"
+FIXTURES = ROOT / "tests" / "fixtures"
+SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples"
+
+#: Tolerant fixtures that must still be *refused* (specification Appendix C.5):
+#: tolerant parsing repairs shape, never content.
+UNREPAIRABLE = {"unrepairable.zh-CN.cliff"}
 
 
 def run(cmd: list[str]) -> tuple[int, str]:
@@ -22,26 +40,74 @@ def run(cmd: list[str]) -> tuple[int, str]:
     return proc.returncode, (proc.stdout + proc.stderr)
 
 
+def run_suite(title: str, args: list[str], *, expect_success: bool, ok: bool) -> bool:
+    rc, out = run([sys.executable, str(VALIDATOR), *args])
+    print(out)
+    passed = (rc == 0) if expect_success else (rc != 0)
+    state = "as expected" if passed else "UNEXPECTED"
+    print(f"{title}: exit {rc} ({'0' if expect_success else 'non-zero'} expected) — {state}")
+    return ok and passed
+
+
 def main() -> int:
+    argparse.ArgumentParser(description=__doc__).parse_known_args()
     ok = True
 
     print("== spec examples (sibling cliff repository) ==")
     if SPEC_EXAMPLES.exists():
-        rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(SPEC_EXAMPLES)])
-        print(out)
-        ok &= rc == 0
+        for version in sorted(p.name for p in SPEC_EXAMPLES.iterdir() if p.is_dir()):
+            ok = run_suite(
+                f"spec examples {version}",
+                ["--suite", str(SPEC_EXAMPLES / version)],
+                expect_success=True,
+                ok=ok,
+            )
     else:
         print(f"skipped: {SPEC_EXAMPLES} not found")
 
     print("== valid fixtures ==")
-    rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(ROOT / "tests/fixtures/valid")])
-    print(out)
-    ok &= rc == 0
+    ok = run_suite("valid", ["--suite", str(FIXTURES / "valid")], expect_success=True, ok=ok)
 
     print("== invalid fixtures (must fail) ==")
-    rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(ROOT / "tests/fixtures/invalid")])
-    ok &= rc != 0
-    print(out)
+    ok = run_suite("invalid", ["--suite", str(FIXTURES / "invalid")], expect_success=False, ok=ok)
+
+    print("== layout fixtures (warnings by default) ==")
+    ok = run_suite("layout", ["--suite", str(FIXTURES / "layout")], expect_success=True, ok=ok)
+
+    print("== layout fixtures with --check-layout (must fail) ==")
+    ok = run_suite(
+        "layout enforced",
+        ["--check-layout", "--suite", str(FIXTURES / "layout")],
+        expect_success=False,
+        ok=ok,
+    )
+
+    print("== style fixtures (warnings, never errors) ==")
+    ok = run_suite(
+        "style",
+        ["--style", "--suite", str(FIXTURES / "style")],
+        expect_success=True,
+        ok=ok,
+    )
+
+    print("== tolerant fixtures ==")
+    tolerant_dir = FIXTURES / "tolerant"
+    repairable = sorted(p for p in tolerant_dir.rglob("*.cliff") if p.name not in UNREPAIRABLE)
+    unrepairable = sorted(p for p in tolerant_dir.rglob("*.cliff") if p.name in UNREPAIRABLE)
+    ok = run_suite(
+        "tolerant repairable",
+        ["--tolerant", *(str(p) for p in repairable)],
+        expect_success=True,
+        ok=ok,
+    )
+    ok = run_suite(
+        "tolerant refusals",
+        ["--tolerant", *(str(p) for p in unrepairable)],
+        expect_success=False,
+        ok=ok,
+    )
+    if not unrepairable:
+        print("WARNING: no tolerant counter-example found; Appendix C.5 is untested")
 
     print("== token benchmark ==")
     rc, out = run([sys.executable, str(ROOT / "tools/token_benchmark.py")])
