@@ -1,12 +1,27 @@
 #!/usr/bin/env python3
-"""Reference validator for CLIFF 1.0.
+"""Reference validator for CLIFF 1.1.
 
 Usage:
   python cliff_validator.py FILE...
   python cliff_validator.py --check-width FILE...
+  python cliff_validator.py --check-layout FILE...
+  python cliff_validator.py --style FILE...
+  python cliff_validator.py --tolerant FILE...
   python cliff_validator.py --suite DIR
   python cliff_validator.py --json FILE
   python cliff_validator.py --ids FILE
+
+Modes:
+  * strict (default) — reject everything the normative grammar rejects.
+  * --check-layout — report a file-layout/header mismatch as an error. By
+    default it is a warning, because CLIFF 1.1 recommends a layout rather than
+    requiring it (specification 11.3).
+  * --style — report deviations from style/README.md as warnings. A style
+    deviation is never an error.
+  * --tolerant — apply the documented relaxations of specification Appendix C
+    and report every repair. This mode delegates to ``cliff_format`` so that
+    there is exactly one implementation of the tolerant contract; without the
+    library installed the flag fails rather than checking something weaker.
 
 Exit status: 0 when every file is valid, 1 otherwise.
 Requires Python 3.11+.
@@ -22,20 +37,32 @@ import sys
 import unicodedata
 from pathlib import Path
 
-VERSION = "1.0"
+VERSION = "1.1"
 MAX_ERRORS = 200
 
-NAME_RE = re.compile(r"^[a-z][a-z0-9-]*$")
+# Names: the relaxed CLIFF 1.1 identifier (specification 5.5). A name is one or
+# more of A-Z a-z 0-9 _ - and never contains "." because the dot separates group
+# path segments and canonical ID components.
+NAME_RE = re.compile(r"^[A-Za-z0-9_-]+$")
+# Tags: unchanged from 1.0, and deliberately narrow. A closed vocabulary that
+# tolerates spellings is not closed.
+TAG_NAME_RE = re.compile(r"^[a-z][a-z0-9-]*$")
 LANG_RE = re.compile(r"^[A-Za-z]{1,8}(?:-[A-Za-z0-9]{1,8})*$")
 # Stricter folder-detection subset of the BCP 47 envelope.  Directory names
 # such as ``valid``, ``quality``, or ``001`` must not be mistaken for a
 # language folder, while real language folders such as ``ja-JP``, ``zh-CN``,
 # ``en``, or ``zh-Hant-TW`` are recognized.
 FOLDER_LANG_RE = re.compile(r"^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{1,8})*$")
-VERSION_RE = re.compile(r"^[ \t]*CLIFF 1\.0[ \t]*$")
-SECTION_RE = re.compile(r"^[ \t]*\[([^\]]+)\][ \t]*$")
-ENTRY_RE = re.compile(r"^[ \t]*<([a-z][a-z0-9-]*)>[ \t]*$")
+VERSION_RE = re.compile(r"^[ \t]*CLIFF (1\.0|1\.1)[ \t]*$")
+UNSUPPORTED_VERSION_RE = re.compile(r"^[ \t]*CLIFF[ \t]+(\S+)[ \t]*$", re.IGNORECASE)
+SECTION_RE = re.compile(r"^[ \t]*\[([^\]]*)\][ \t]*$")
+ENTRY_RE = re.compile(r"^[ \t]*<([^<>]*)>[ \t]*$")
 OLD_ENTRY_RE = re.compile(r"^[ \t]*entry\b")
+
+# Style predicates (informative; style/README.md). Used by --style only.
+STYLE_KEBAB_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+STYLE_PASCAL_RE = re.compile(r"^[A-Z][A-Za-z0-9]*$")
+POSITIONAL_RE = re.compile(r"^[0-9]+[^A-Za-z]*")
 
 TYPE_TAGS = {
     "noun", "verb", "adjective", "adverb", "pronoun", "numeral",
@@ -69,7 +96,6 @@ HEADER_SINGLE_KEYS = {
     "variant", "title", "dependency",
 }
 HEADER_REPEATABLE_KEYS = {"info", "standard"}
-
 GROUP_KEYS = {"context", "type", "emotion", "max-width"}
 ENTRY_KEYS = {
     "source", "target", "type", "emotion", "status", "context",
@@ -96,9 +122,62 @@ ESCAPES = {'"': '"', "'": "'", "\\": "\\", "n": "\n", "r": "\r", "t": "\t"}
 @dataclasses.dataclass
 class Issue:
     line: int
-    cls: str  # syntax | semantic | vocabulary | icu | id | extension | warning
+    cls: str  # syntax | semantic | vocabulary | icu | id | extension | warning | style | correction
     message: str
     text: str = ""
+
+
+#: Categories that are reported without making a document invalid. ``layout`` is
+#: advisory because CLIFF 1.1 recommends a layout rather than requiring it;
+#: ``--check-layout`` re-tags those findings as ``semantic``, which is an error.
+ADVISORY_CLASSES = frozenset({"warning", "extension", "style", "correction", "layout"})
+
+
+#: The vocabulary each tag-typed field validates against.
+TAG_VOCABULARIES: dict[str, set[str]] = {
+    "variant": {"standard", "glossary"},
+    "type": set(TYPE_TAGS),
+    "status": set(STATUS_TAGS),
+    "emotion": set(EMOTION_TAGS),
+}
+
+
+def is_name(text: str) -> bool:
+    """Whether ``text`` is a conforming CLIFF 1.1 identifier."""
+    return bool(text) and NAME_RE.match(text) is not None
+
+
+def is_style_identifier(text: str) -> bool:
+    """Whether ``text`` follows a recommended shape of style/README.md."""
+    return bool(text) and bool(
+        STYLE_KEBAB_RE.match(text) or STYLE_PASCAL_RE.match(text)
+    )
+
+
+def strip_line_terminator(line: str) -> tuple[str, str, int]:
+    """Split the trailing ``,`` / ``;`` terminators off a raw line.
+
+    Returns ``(body, terminators, extra)``. Mirrors the reference
+    implementation: at most one terminator is legal (specification 5.6), the
+    scan is right-to-left over trailing whitespace and terminators only, and a
+    ``,`` or ``;`` inside a quoted string (or the optional trailing comma inside
+    a ``[a, b,]`` list) is never touched.
+    """
+    index = len(line)
+    while index > 0 and line[index - 1] in " \t":
+        index -= 1
+    if index == 0 or line[index - 1] not in ",;":
+        return line[:index], "", 0
+    terminators = [line[index - 1]]
+    index -= 1
+    probe = index
+    while probe > 0 and line[probe - 1] in " \t":
+        probe -= 1
+    if probe > 0 and line[probe - 1] in ",;":
+        terminators.append(line[probe - 1])
+        index = probe - 1
+    terminators.reverse()
+    return line[:index], "".join(terminators), max(len(terminators) - 1, 0)
 
 
 @dataclasses.dataclass
@@ -215,8 +294,10 @@ def parse_field_line(line: str) -> tuple[str | None, str | None, str | None]:
         return None, None, "expected 'key: value' or 'key = value' field"
     key = line[:idx].strip()
     value = line[idx + 1:].strip()
-    if not NAME_RE.match(key):
-        return None, None, f"invalid field name '{key}' (lowercase kebab-case required)"
+    if not is_name(key):
+        return None, None, (
+            f"invalid field name '{key}' (a name is one or more of A-Z a-z 0-9 _ -)"
+        )
     return key, value, None
 
 
@@ -258,17 +339,26 @@ def parse_language_tag(text: str) -> tuple[str | None, str | None]:
     return text, None
 
 
-def parse_tag(text: str) -> tuple[str | None, str | None]:
+def parse_tag(text: str, key: str = "type") -> tuple[str | None, str | None]:
+    """Read a tag value: a bare lowercase word drawn from a closed vocabulary.
+
+    Quotes around a tag are a shape error (specification 6.1, "tags are never
+    quoted"): the tolerant mode of Appendix C.2.3 is what removes them, and this
+    validator never applies a relaxation implicitly. A word outside the
+    vocabulary is reported as a vocabulary error by the caller, listing the
+    allowed values, rather than as a generic syntax error.
+    """
     text = text.strip()
     if not text:
         return None, "empty tag"
     if text.startswith('"') or text.startswith("'"):
-        value, rest, err = parse_string(text)
-        if err:
-            return None, err
-        if rest.strip():
-            return None, "unexpected content after closing quote"
-        return value, None
+        return None, (
+            "tag values are unquoted lowercase words; write "
+            f"{text.strip(chr(34) + chr(39))} without quotes"
+        )
+    allowed = TAG_VOCABULARIES.get(key, set())
+    if not TAG_NAME_RE.match(text) and text.lower() not in allowed:
+        return None, f"{text!r} is not a valid tag (lowercase kebab-case required)"
     return text, None
 
 
@@ -301,24 +391,32 @@ def parse_scalar(text: str, key: str) -> tuple[object | None, str | None]:
 
 
 def parse_value(text: str, key: str, line: int) -> tuple[object | None, str | None]:
+    """Read a field value under the strict grammar of specification 6.1.
+
+    The three shapes are not interchangeable: brackets mean a list, quotes mean
+    text, and a bare word means a tag or an identifier. In particular the
+    list-typed fields (`emotion`, `dependency`, `reference`) are always lists,
+    even for one item — a bare scalar there is an error, and it is Appendix C.2.1
+    that makes a tolerant reader accept it.
+    """
     text = text.strip()
-    if key == "dependency" and not text.startswith("["):
-        return None, "dependency must be a single-line list of quoted path strings"
-    if key == "reference" and not text.startswith("["):
-        if not is_quote_start(text):
-            return None, "reference must be a quoted string or a list of quoted strings"
-        val, err = parse_scalar(text, key)
-        if err:
-            return None, err
-        return [val], None
+    if not text:
+        return None, "empty value"
+    if key in LIST_KEYS and not text.startswith("["):
+        hint = {
+            "emotion": "emotion: [neutral]",
+            "dependency": 'dependency: ["../terms/terms.zh-CN.cliff"]',
+            "reference": 'reference: ["src/ui.cpp:12"]',
+        }.get(key, f"{key}: [value]")
+        if key == "emotion":
+            _, err = parse_tag(text, "emotion")
+            if err:
+                return None, err
+        return None, (
+            f"{key} is a list-typed field and must be written as a list, even for a "
+            f"single item (for example: {hint})"
+        )
     if not text.startswith("["):
-        if key in LIST_KEYS:
-            # emotion may be written as a single tag; wrap it.
-            if key == "emotion":
-                val, err = parse_tag(text)
-                if err:
-                    return None, err
-                return [val], None
         return parse_scalar(text, key)
 
     if not text.endswith("]"):
@@ -342,7 +440,7 @@ def parse_value(text: str, key: str, line: int) -> tuple[object | None, str | No
                 if err:
                     return None, err
             elif key == "emotion":
-                item, err = parse_tag(part)
+                item, err = parse_tag(part, "emotion")
                 if err:
                     return None, err
             else:
@@ -442,6 +540,8 @@ class Document:
         self.target_language: str | None = None
         self.variant: str = "standard"
         self.check_width = False
+        self.check_layout = False
+        self.style = False
 
     def issue(self, line: int, cls: str, message: str, text: str = "") -> None:
         if len(self.issues) < MAX_ERRORS:
@@ -482,7 +582,17 @@ class Document:
         last_key: str | None = None
 
         for idx, raw in enumerate(self.lines, start=1):
-            line = raw
+            line, _terminators, extra = strip_line_terminator(raw)
+            if extra:
+                self.issue(
+                    idx,
+                    "syntax",
+                    "at most one trailing ',' or ';' is allowed on a line",
+                    raw,
+                )
+                last_container = None
+                last_key = None
+                continue
             if is_ignorable(line):
                 last_container = None
                 last_key = None
@@ -492,10 +602,21 @@ class Document:
                 if VERSION_RE.match(line):
                     seen_version = True
                     continue
+                unsupported = UNSUPPORTED_VERSION_RE.match(line)
+                if unsupported:
+                    self.issue(
+                        idx,
+                        "semantic",
+                        f"unsupported CLIFF version '{unsupported.group(1)}'; "
+                        "this implementation implements 1.0, 1.1",
+                        raw,
+                    )
+                    seen_version = True
+                    continue
                 # The version line is invalid or missing: report the first
                 # non-blank non-comment line and keep parsing as tolerant input.
                 self.issue(idx, "syntax",
-                           "version line 'CLIFF 1.0' must be the first non-blank, non-comment line",
+                           "version line 'CLIFF 1.1' must be the first non-blank, non-comment line",
                            raw)
                 seen_version = True
                 if re.match(r"^[ \t]*CLIFF\b", line, re.IGNORECASE):
@@ -617,7 +738,7 @@ class Document:
     def _store_header(self, idx: int, key: str, value: str, raw: str) -> None:
         if key in self.header:
             self.issue(idx, "semantic",
-                       f"header field '{key}' may appear at most once (CLIFF 1.0 has no repeatable fields)",
+                       f"header field '{key}' may appear at most once (CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -648,7 +769,7 @@ class Document:
             return
 
         if key == "variant":
-            parsed, err = parse_tag(value)
+            parsed, err = parse_tag(value, "variant")
             if err:
                 self.issue(idx, "syntax", f"variant: {err}", raw)
                 return
@@ -656,7 +777,7 @@ class Document:
             return
 
         if key in TAG_KEYS:
-            parsed, err = parse_tag(value)
+            parsed, err = parse_tag(value, key)
             if err:
                 self.issue(idx, "syntax", f"{key}: {err}", raw)
                 return
@@ -672,7 +793,7 @@ class Document:
     def _store_group(self, section: Section, idx: int, key: str, value: str, raw: str) -> None:
         if key in section.group_fields:
             self.issue(idx, "semantic",
-                       f"group field '{key}' may appear at most once (CLIFF 1.0 has no repeatable fields)",
+                       f"group field '{key}' may appear at most once (CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -698,7 +819,7 @@ class Document:
             section.group_fields.setdefault(key, []).append((idx, parsed, raw))
             return
         if key == "type":
-            parsed, err = parse_tag(value)
+            parsed, err = parse_tag(value, "type")
             if err:
                 self.issue(idx, "syntax", f"type: {err}", raw)
                 return
@@ -724,7 +845,7 @@ class Document:
     def _store_entry(self, entry: Entry, idx: int, key: str, value: str, raw: str) -> None:
         if key in entry.fields:
             self.issue(idx, "semantic",
-                       f"entry field '{key}' may appear at most once (CLIFF 1.0 has no repeatable fields)",
+                       f"entry field '{key}' may appear at most once (CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -739,7 +860,7 @@ class Document:
             return
 
         if key in ("type", "status"):
-            parsed, err = parse_tag(value)
+            parsed, err = parse_tag(value, key)
             if err:
                 self.issue(idx, "syntax", f"{key}: {err}", raw)
                 return
@@ -845,13 +966,18 @@ class Document:
         self._resolve_filename_languages()
 
     def _resolve_filename_languages(self) -> None:
-        """Check CLIFF 1.0 §11.3 layout consistency.
+        """Check CLIFF 1.1 §11.3 layout consistency.
 
         The header is authoritative: namespace, clan, source-language, and
-        target-language are required header fields.  The layout is a delivery
-        convention that MUST agree with the header; it never supplies missing
-        header values.
+        target-language are required header fields. The layout is a delivery
+        convention that SHOULD agree with the header; it never supplies missing
+        header values. In 1.1 a mismatch is a **warning**, because the header
+        identifies the file whether or not its name agrees; ``--check-layout``
+        promotes it to an error for a project that keeps the convention
+        mandatory in its own CI.
         """
+        cls = "semantic" if self.check_layout else "layout"
+        suffix = "" if self.check_layout else " (layout is a recommendation in CLIFF 1.1)"
         filename = self.path.name if self.path is not None else None
         parent_name = ""
         if self.path is not None:
@@ -879,11 +1005,11 @@ class Document:
             if folder_clan != file_clan or folder_lang.lower() != file_lang.lower():
                 self.issue(
                     0,
-                    "semantic",
+                    cls,
                     "layout conflict: folder candidate resolves "
                     f"clan '{folder_clan}' and target-language '{folder_lang}', "
                     "but file-name candidate resolves "
-                    f"clan '{file_clan}' and target-language '{file_lang}'",
+                    f"clan '{file_clan}' and target-language '{file_lang}'{suffix}",
                 )
 
         # Rule 5: header values must agree with every value supplied by the layout.
@@ -894,8 +1020,9 @@ class Document:
                 if str(header_clan) != layout_clan:
                     self.issue(
                         self.header["clan"][0][0],
-                        "semantic",
-                        f"header clan '{header_clan}' does not match layout clan '{layout_clan}'",
+                        cls,
+                        f"header clan '{header_clan}' does not match layout clan "
+                        f"'{layout_clan}'{suffix}",
                         self.header["clan"][0][2],
                     )
         if header_lang is not None:
@@ -903,9 +1030,9 @@ class Document:
                 if str(header_lang).lower() != layout_lang.lower():
                     self.issue(
                         self.header["target-language"][0][0],
-                        "semantic",
+                        cls,
                         f"header target-language '{header_lang}' does not match "
-                        f"layout language '{layout_lang}'",
+                        f"layout language '{layout_lang}'{suffix}",
                         self.header["target-language"][0][2],
                     )
 
@@ -935,9 +1062,10 @@ class Document:
 
         for section in self.sections:
             path = section.path
-            if not NAME_RE.match(path.replace(".", "")) or not all(NAME_RE.match(seg) for seg in path.split(".")):
+            if not all(is_name(seg) for seg in path.split(".")):
                 self.issue(section.line, "id",
-                           f"invalid group path '[{path}]'; segments must be lowercase kebab-case names",
+                           f"invalid group path '[{path}]'; segments must be names "
+                           "(one or more of A-Z a-z 0-9 _ -)",
                            "[{}]".format(path))
             if path in seen_paths:
                 self.issue(section.line, "id", f"duplicate section path '[{path}]'")
@@ -955,9 +1083,10 @@ class Document:
                             self.issue(section.line, "syntax", "context must be a string", raw)
 
         for entry in self.entries:
-            if not NAME_RE.match(entry.entry_id):
+            if not is_name(entry.entry_id):
                 self.issue(entry.line, "id",
-                           f"invalid entry id '{entry.entry_id}'; use lowercase kebab-case names")
+                           f"invalid entry id '{entry.entry_id}'; a name is one or more "
+                           "of A-Z a-z 0-9 _ -")
             if entry.entry_id in seen_entry_ids:
                 first_entry = seen_entry_ids[entry.entry_id]
                 first_canonical = self._canonical_id(first_entry)
@@ -1085,7 +1214,88 @@ class Document:
         return out
 
 
-def validate_file(path: Path, check_width: bool) -> tuple[Document, bool]:
+def tolerant_issues(text: str) -> list[Issue]:
+    """Repair a document with the reference implementation and report the repairs.
+
+    The tolerant contract of specification Appendix C is implemented exactly once
+    — in ``cliff_format`` — so this repository does not carry a second copy that
+    could diverge from it. Without the library the mode fails loudly instead of
+    quietly checking something weaker.
+    """
+    try:
+        import cliff_format  # noqa: PLC0415 - optional, resolved at call time
+    except ModuleNotFoundError as exc:  # pragma: no cover - environment dependent
+        raise SystemExit(
+            "error: --tolerant requires cliff_format (install cliff-python, or run with\n"
+            "       PYTHONPATH pointing at cliff-python/src). Tolerant parsing is not\n"
+            "       reimplemented here, so that both tools share one contract."
+        ) from exc
+
+    issues: list[Issue] = []
+    try:
+        document = cliff_format.parse(text, tolerant=True)
+    except cliff_format.CliffParseError as exc:
+        cls = exc.category if exc.category else "syntax"
+        # A tolerant parser is allowed to refuse (Appendix C.5); a refusal is an
+        # error, not a repair.
+        return [Issue(exc.line, "semantic" if cls == "vocabulary" else cls, exc.message, exc.text)]
+    for issue in cliff_format.validate_document(document):
+        issues.append(Issue(issue.line, issue.category, issue.message, issue.text))
+    return issues
+
+
+def style_issues(doc: Document, text: str) -> list[Issue]:
+    """Report deviations from style/README.md. Never an error.
+
+    Style is informative (specification 10.1): a document that spells its ids
+    ``snake_case`` is valid CLIFF, and a validator that rejected it would be
+    enforcing one project's convention on every other project.
+    """
+    issues: list[Issue] = []
+
+    def note(line: int, kind: str, value: str, raw: str = "") -> None:
+        if not value or is_style_identifier(value) or POSITIONAL_RE.match(value):
+            return
+        issues.append(
+            Issue(
+                line,
+                "style",
+                f"{kind} '{value}' is valid CLIFF but does not follow style/README.md "
+                "(recommended: kebab-case or PascalCase, not mixed)",
+                raw or value,
+            )
+        )
+
+    note(0, "namespace", str(doc._header_value("namespace") or ""))
+    note(0, "clan", str(doc._header_value("clan") or ""))
+    for section in doc.sections:
+        for segment in section.path.split("."):
+            note(section.line, "group segment", segment, f"[{section.path}]")
+    for entry in doc.entries:
+        note(entry.line, "entry id", entry.entry_id, f"<{entry.entry_id}>")
+    for index, raw in enumerate(text.split("\n"), start=1):
+        _, terminators, _ = strip_line_terminator(raw)
+        if terminators:
+            issues.append(
+                Issue(
+                    index,
+                    "style",
+                    f"line ends with a '{terminators[-1]}' terminator; CLIFF 1.1 accepts "
+                    "it but style/README.md recommends not writing it",
+                    raw.strip(),
+                )
+            )
+    return issues
+
+
+def validate_file(
+    path: Path,
+    check_width: bool,
+    *,
+    check_layout: bool = False,
+    style: bool = False,
+    tolerant: bool = False,
+) -> tuple[Document, bool]:
     doc = Document(path)
     try:
         raw = path.read_bytes()
@@ -1099,10 +1309,19 @@ def validate_file(path: Path, check_width: bool) -> tuple[Document, bool]:
         return doc, False
     doc.load(text)
     doc.check_width = check_width
+    doc.check_layout = check_layout
     doc.validate()
+    if style:
+        doc.issues.extend(style_issues(doc, text))
+    if tolerant:
+        # Tolerant mode replaces the strict reading rather than adding to it:
+        # the two answer the same question with different strictness, and
+        # merging them would report every repaired line twice.
+        doc.issues = [i for i in doc.issues if i.cls in ADVISORY_CLASSES]
+        doc.issues.extend(tolerant_issues(text))
     if not check_width:
         doc.issues = [i for i in doc.issues if not (i.cls == "warning" and "display width" in i.message)]
-    errors = [i for i in doc.issues if i.cls not in ("warning", "extension")]
+    errors = [i for i in doc.issues if i.cls not in ADVISORY_CLASSES]
     return doc, len(errors) == 0
 
 
@@ -1118,10 +1337,33 @@ def format_issues(doc: Document) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="CLIFF 1.0 reference validator")
+    ap = argparse.ArgumentParser(
+        description="CLIFF 1.1 reference validator",
+        epilog=(
+            "Layout mismatches are warnings by default: CLIFF 1.1 recommends a "
+            "layout rather than requiring it (specification 11.3). Style "
+            "deviations are always warnings. Tolerant mode delegates to "
+            "cliff_format, the single implementation of Appendix C."
+        ),
+    )
     ap.add_argument("paths", nargs="*", help=".cliff files or directories (with --suite)")
     ap.add_argument("--suite", action="store_true", help="treat paths as directories of .cliff files")
     ap.add_argument("--check-width", action="store_true", help="report max-width overflow warnings")
+    ap.add_argument(
+        "--check-layout",
+        action="store_true",
+        help="report a file-layout/header mismatch as an error instead of a warning",
+    )
+    ap.add_argument(
+        "--style",
+        action="store_true",
+        help="report style/README.md deviations as warnings",
+    )
+    ap.add_argument(
+        "--tolerant",
+        action="store_true",
+        help="repair the Appendix C deviations with cliff_format and report each repair",
+    )
     ap.add_argument("--json", action="store_true", help="emit JSON results")
     ap.add_argument("--ids", action="store_true", help="print canonical ids")
     args = ap.parse_args(argv)
@@ -1139,7 +1381,13 @@ def main(argv: list[str] | None = None) -> int:
     results = []
     exit_code = 0
     for path in files:
-        doc, ok = validate_file(path, args.check_width)
+        doc, ok = validate_file(
+            path,
+            args.check_width,
+            check_layout=args.check_layout,
+            style=args.style,
+            tolerant=args.tolerant,
+        )
         results.append({"path": str(path), "valid": ok, "issues": [dataclasses.asdict(i) for i in doc.issues]})
         if not ok:
             exit_code = 1
@@ -1152,10 +1400,11 @@ def main(argv: list[str] | None = None) -> int:
             for cid in doc.canonical_ids():
                 emotion = ",".join(cid["emotion"]) if isinstance(cid["emotion"], list) else str(cid["emotion"])
                 print(f"{path}: {cid['canonical_id']} [{emotion}]")
+        errors = sum(1 for i in doc.issues if i.cls not in ADVISORY_CLASSES)
+        advisories = sum(1 for i in doc.issues if i.cls in ADVISORY_CLASSES)
         print(f"{path}: {'VALID' if ok else 'INVALID'} "
               f"({len(doc.sections)} sections, {len(doc.entries)} entries, "
-              f"{sum(1 for i in doc.issues if i.cls == 'warning')} warnings, "
-              f"{sum(1 for i in doc.issues if i.cls in ('syntax', 'semantic', 'vocabulary', 'icu', 'id'))} errors)")
+              f"{advisories} warnings, {errors} errors)")
         if not ok:
             print()
 
