@@ -73,7 +73,8 @@ def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
     reference specification is appended only to the CLIFF prompt, and the
     terminology workflow block only to CLIFF's. Omitting them made the CLIFF row
     of the token tables about half of what the run actually pays, while every
-    other format's row was correct.
+    other format's row was correct. This test exists so the two prompt builders
+    cannot drift apart again.
     """
     from clarion.corpus.store import load_corpus
     from clarion.formats.render import render_document

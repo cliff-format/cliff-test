@@ -366,12 +366,12 @@ def token_matrix(
                     glossary_text=glossary_text,
                     policy_fragment=policy.prompt_fragment() if config.include_policy else "",
                     document=task_document,
-                    # D1/D2 must price the prompt the translation arms actually
-                    # send. Omitting these two made the CLIFF row cheaper than
-                    # the run it claims to measure, because the terminology
-                    # workflow block (and its placement, which the ablation in
-                    # docs/clarion-prompting.md shows matters for obedience) is
-                    # part of CLIFF's prompt and of no other format's.
+                    # D1/D2 price the prompt the translation arms actually send.
+                    # These two arguments are part of that prompt and of no other
+                    # format's: the terminology-workflow block, and its placement
+                    # (the ablation in docs/clarion-prompting.md shows placement
+                    # changes whether the workflow is obeyed). Leaving them out
+                    # understated the CLIFF row of the token tables by about half.
                     allow_glossary_output=config.allow_glossary_output,
                     workflow_style=config.workflow_style,
                 )
