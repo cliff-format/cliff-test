@@ -7,7 +7,7 @@
 # Retrieved: 2026-09-01T00:05:22+00:00
 # Translator context in this file is native.
 # These comment lines are attribution metadata, not translator context; a translator may delete them without losing anything.
-CLIFF 1.0
+CLIFF 1.1
 namespace: clarion
 clan: godot-l10n
 source-language: en-US

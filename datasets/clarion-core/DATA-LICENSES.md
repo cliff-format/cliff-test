@@ -6,9 +6,11 @@ per-item truth is the `provenance` block of each gold manifest.
 
 ## Tier 0 - vendored, original, CC0-1.0
 
-Version 0.1.0 of CLARION-Core is **original text written for this benchmark**
-and dedicated to the public domain under
-[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+The authored part of CLARION-Core is **original text written for this
+benchmark** and dedicated to the public domain under
+[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/). 274 of the 392
+entries are in this tier; the rest are imported and carry their own licence in
+their provenance block.
 
 Why original text rather than an existing benchmark:
 
