@@ -37,6 +37,8 @@ from ..formats.registry import get_format
 from ..formats.render import render_document
 from ..formats.validity import check_validity
 from ..paths import ensure_cliff_format
+from ..prompts import cliff_prompt_v2
+from ..prompts.assembly import DEFAULT_PROMPT_STYLE, PROMPT_STYLES
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
@@ -413,6 +415,16 @@ EDIT_SYSTEM = (
     "file, unchanged everywhere else, with no commentary and no code fence."
 )
 
+#: The field-name facts an edit needs, and that no edit prompt carried before.
+#:
+#: D7 asks the model to *create* fields ("set the context of this entry", "add a
+#: source reference"), so unlike translation it cannot simply copy a key that is
+#: already on the page - and the recorded run's failures were exactly invented
+#: names (`translator-context`, `ref`, `source-ref`) plus `status` written into a
+#: group section. Appendix C.5 forbids a tolerant parser from repairing any of
+#: those, so this prompt is the only place they can be prevented.
+CLIFF_EDIT_FACTS = cliff_prompt_v2.CLIFF_FACTS + "\n" + cliff_prompt_v2.CLIFF_TASK_RULES
+
 
 def run_robustness(
     document: CliffDocument,
@@ -424,6 +436,7 @@ def run_robustness(
     file_id: str = "base",
     max_output_tokens: int = 8192,
     read_mode: str = DEFAULT_READ_MODE,
+    prompt_style: str = DEFAULT_PROMPT_STYLE,
 ) -> RobustnessResult:
     """Apply an edit sequence to one format, validating after every step.
 
@@ -431,8 +444,20 @@ def run_robustness(
     is how the harness self-tests without a model. ``read_mode`` selects the
     CLIFF reading; the deterministic path renders canonical CLIFF, so its two
     readings agree by construction (specification Appendix C.6).
+
+    ``prompt_style`` selects whether a CLIFF edit is told the legal field names
+    and their scopes. Under ``examples`` it is, which is the only defence against
+    the invented keys of Appendix C.5; under ``digest`` the edit prompt carries no
+    specification content at all, which is what every run before this one did.
     """
+    if prompt_style not in PROMPT_STYLES:
+        raise ValueError(f"prompt_style must be one of {', '.join(PROMPT_STYLES)}")
     tolerant = is_tolerant(read_mode)
+    system_prompt = (
+        f"{EDIT_SYSTEM}\n\n{CLIFF_EDIT_FACTS}"
+        if (prompt_style == "examples" and format_id == "cliff")
+        else EDIT_SYSTEM
+    )
     arm_value = Arm(arm)
     result = RobustnessResult(format_id=format_id, arm=arm_value.value, file_id=file_id)
     current_document = copy.deepcopy(document)
@@ -454,7 +479,7 @@ def run_robustness(
             outcome.latency_ms = 0.0
         else:
             messages = [
-                Message("system", EDIT_SYSTEM),
+                Message("system", system_prompt),
                 Message(
                     "user",
                     f"{task.instruction()}\n\nFile:\n{current_text}",

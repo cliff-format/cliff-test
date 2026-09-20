@@ -102,6 +102,44 @@ not ask a model for a 41 KB document — the UE5 plugin sends a compact JSON lis
 and receives `{id, translation}` pairs, then serializes CLIFF itself — so the
 whole-file arm is a harder task than the one it stands in for.
 
+## The failure the prompt *can* prevent, and where it lives
+
+The translation task never asks the model to name a field: every key it writes is
+already on the page. So a translation pilot cannot test the reason this fact set
+exists. The recorded run's invented keys came from **D7**, whose instruction is
+"set the context of this entry" — the model has to produce the key itself, and
+D7's prompt carried **no CLIFF content at all**: just a role sentence, the
+instruction and the file.
+
+Re-running the same edit sequence with the field table and the task verbs
+prepended to the edit prompt (`python .tools/d7_pilot.py`, 48 edits per condition,
+temperature 1.3):
+
+| edit prompt | invented-key failures | edit not valid | repairs per edit |
+| --- | ---: | ---: | ---: |
+| historical (no CLIFF content) | **9 / 48 = 18.8 %** (95 % CI 10.2–31.9) | 18.8 % | 0.17 |
+| with the field table | **0 / 48 = 0 %** (95 % CI 0–7.4) | 0 % | 0.42 |
+
+Fisher exact **p = 0.0129**; the `examples` condition was 100 % valid and 100 %
+intent-applied in all six cells. The historical condition's 18.8 % reproduces the
+18.8 % measured on the full recorded run, so the pilot is exercising the real
+mechanism rather than a contrived one. The invented names were
+`translator-context` (in both entry and group scope), `status` inside a group,
+`ref` and `source-ref`.
+
+Two things follow that are worth more than the token saving:
+
+1. **The objective's premise is confirmed with evidence.** Told the exact key
+   names and scopes, the model uses them; not told, it invents plausible ones. An
+   example-driven prompt is sufficient for this, so the full specification text
+   was not what prevented the error — naming the fields is.
+2. **Repairs went *up* while failures went to zero** (0.17 → 0.42 per edit). That
+   is not a regression: with the keys right, the file no longer fails before the
+   shape deviations can be reached, so the tolerant reader finally gets to absorb
+   them and they are priced in the `repairs` column instead of the failure column.
+   A lower repair count under a prompt that breaks earlier was never a cleaner
+   model, only a truncated measurement.
+
 ## A metric error worth recording
 
 The first pilot summary reported **35 "lexical failures"** for one `digest` cell

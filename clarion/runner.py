@@ -301,6 +301,7 @@ def run_robustness_matrix(
             tasks=tasks,
             file_id=corpus_file.id,
             read_mode=config.read_mode,
+            prompt_style=config.prompt_style,
             max_output_tokens=config.provider.max_output_tokens,
         )
         record = result.as_dict()

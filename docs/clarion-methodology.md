@@ -276,6 +276,23 @@ not a parser problem:
 > teaches CLIFF only by example can leave the model free to invent a plausible
 > field name, and no amount of tolerant parsing will rescue that answer.
 
+That claim is now measured, and the measurement is worth recording because the
+number is large enough to change a default. D7's edit prompt carried **no CLIFF
+content at all**, so an instruction like "set the context of this entry" left the
+model to name the field itself. Running the same 48 edits with the field table and
+task verbs prepended (`python .tools/d7_pilot.py`):
+
+| edit prompt | invented-key failures | edit not valid |
+| --- | ---: | ---: |
+| historical (no CLIFF content) | **18.8 %** (95 % CI 10.2–31.9) | 18.8 % |
+| with the field names and scopes stated | **0 %** (95 % CI 0–7.4) | 0 % |
+
+Fisher exact p = 0.0129, and the historical figure reproduces the 18.8 % of the
+full recorded run. The invented names were `translator-context` (in entry *and*
+group scope), `status` inside a group section, `ref` and `source-ref`. See
+[clarion-prompt-design.md](clarion-prompt-design.md) for the prompt that fixes it
+and for the token cost it replaces.
+
 The measured cost of the current prompt makes the trade explicit: CLIFF's
 `format instructions` component is ~46 400 tokens per arm (16 cells), of which
 **16 316 per cell is the full specification text**. The full text is what a
