@@ -7,6 +7,40 @@ cliff-test is versioned with CLIFF 1.1.0. See the Git history for the complete r
 The suite follows CLIFF 1.1, which is a pure relaxation of 1.0: every 1.0
 fixture still passes, and the checks below answer the 1.1 questions.
 
+### Recorded
+
+- **The first benchmark run on the 1.1 corpus and the current model name**:
+  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
+  model `deepseek-flash`, `read_mode: tolerant`, 3 repeats per cell over
+  CLARION-Core 0.3.0 (16 documents, 392 entries). Run
+  `results/clarion-deepseek-flash-20260920T114819+0000-6a5259`: 1 180 records,
+  exit 0, 960 translation runs + 60 robustness chains + 160 fidelity
+  conversions, 5 598 954 prompt + 4 172 463 output tokens, 53 minutes, no
+  truncated run.
+  - CLIFF **chrF++ 51.2 plain / 53.9 context**, instruction-following
+    79.5% / 83.0%, round-trip context retention **100%**, still valid after
+    edits **100.0% bare / 83.3% context**.
+  - `--skip fetch` is deliberate and recorded in
+    [docs/acceptance-criteria.md](docs/acceptance-criteria.md): the fetch cache
+    was empty, so importing again would have rewritten the committed corpus —
+    the 118 `human_verified` items, their checksums and their attribution — and
+    spent several hundred extra annotation calls on the same model as the system
+    under test, which `clarion/corpus/annotate.py` warns against.
+  - **The two readings measured on the same answers**: re-scoring the 96 stored
+    CLIFF answers with no model call gives strict valid 89.6% / 83.3% against
+    tolerant valid 93.8% / 89.6%, at 0.06 / 0.12 repairs per answer. All six
+    repairs were shape repairs; one `wmt24pp` answer claimed
+    `status: translated` on an entry with no `target`, which both readings
+    refuse (Appendix C.5). This is the number that makes the tolerant mode worth
+    having, and it could not be produced before this revision.
+  - 61 of 960 runs failed to parse, all in the two formats that cannot carry
+    multi-line context cleanly (`csv` context writes a newline into one row and
+    shifts every later column; `xliff-2.1` context emits malformed XML). Each
+    was inspected in the stored answer text rather than read off the summary.
+  - Correction: the D1/D2 prompt columns of [BENCHMARK.md](BENCHMARK.md) are
+    restated from the regenerated tables, because `token_matrix` had been
+    pricing a CLIFF prompt no arm sends.
+
 ### Changed
 
 - **`tools/cliff_validator.py` follows the relaxed `name` production**
@@ -86,9 +120,12 @@ fixture still passes, and the checks below answer the 1.1 questions.
   `tests/test_validator_tool.py` (the validation modes, including the
   multi-document contract), and a prompt-parity test in
   `tests/clarion/test_tools.py`.
-- Appendix C.4 behaviour decided and documented: a collision is rejected, not
-  renamed, because §10.2 makes a duplicate canonical ID a validity error in both
-  readings.
+- Appendix C.4 behaviour documented from what the implementation actually does,
+  after the recorded run contradicted the first draft of the note: a collision
+  that normalization *creates* is disambiguated (`-2`, `-3`, …) and reported as
+  an `id-collision` repair, while a duplicate id the author wrote twice is still
+  rejected in both readings (10.2). The two cases are distinguished by whether
+  the ids became equal through normalization.
 - `docs/clarion-methodology.md` §9.1 states what each reading answers, which
   repairs exist, what a terminator is not, and which C.5 refusals hold.
 

@@ -107,8 +107,7 @@ project might ship", using one corpus and one generation path. Protocol:
 | C6.10 | Harness self-verification: a perfect answer scores perfectly, a damaged answer is detected, degenerate controls stay below a real answer, deterministic edits keep every format valid | `python -m clarion selfcheck` | no |
 | C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python -m clarion translate --read-mode tolerant` vs `--read-mode strict`; `read_mode` and `repairs` columns in the D3/D4/D7 tables | yes |
 
-Recorded in this revision (no model calls; the model-dependent rows C6.4–C6.8 are
-produced by the run described below, not by these commands):
+Recorded in this revision:
 
 - `python -m clarion corpus validate` — **16 files, 392 entries, 0 problems**.
 - `python -m clarion corpus stats` — CLARION-Core **0.3.0**, six strata, 18
@@ -123,7 +122,55 @@ produced by the run described below, not by these commands):
   in this revision: the strict and tolerant readings differ exactly as
   Appendix C documents, and a repaired document serializes into one the strict
   grammar accepts.
-- `python -m pytest tests/clarion` and `python tests/run_all.py` — pass.
+- `python -m pytest tests/clarion` and `python tests/run_all.py --quality --robustness` — pass
+  (100/100 edit-robustness edits valid; all validator suites exit as expected).
+
+### C6.4–C6.8 recorded run
+
+`python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
+model `deepseek-flash`, `read_mode: tolerant`, 3 repeats per cell, corpus
+**CLARION-Core 0.3.0** (16 documents, 392 entries).
+
+Run directory:
+`results/clarion-deepseek-flash-20260920T114819+0000-6a5259` — 1 180 records,
+exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
+**5 598 954 prompt + 4 172 463 output tokens** billed, 53 minutes wall clock
+(concurrency 50, one endpoint, temperature 0).
+
+| # | Criterion | CLIFF recorded | Best other format | Note |
+| --- | --- | --- | --- | --- |
+| C6.4 | quality, plain arm, chrF++ (failures scored 0) | **51.2** | android 51.8 | measured on the same segments, same model, one variable |
+| C6.4 | quality, context arm, chrF++ | **53.9** | android 54.9 | |
+| C6.5 | instruction-following, plain / context | **79.5% / 83.0%** | json-cliff 76.8% / json-cliff 83.4% | rule engine over the gold manifests |
+| C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
+| C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
+| C6.8 | still valid after edits, bare / context | **100.0% / 83.3%** | android 100% / 100% | see the reading note below |
+| C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
+
+**No `truncated` runs** (0.0% in every cell), so the rows measure the format,
+not the output budget.
+
+**The two readings, on the same answers.** Re-scoring the 96 stored CLIFF
+answers of this run under both readings, with no model call
+(`python .tools/compare_readings.py <run-dir>`):
+
+| Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance |
+| --- | ---: | ---: | ---: | --- |
+| bare | 89.6% | 93.8% | 3 | 2 answers |
+| context | 83.3% | 89.6% | 6 | 3 answers |
+
+Every repair was a shape repair — one quoted tag, four identifiers containing a
+reserved character, two normalization-induced id collisions. None was salvaged by
+inventing content, which is what Appendix C.5 forbids: one `wmt24pp` context
+answer claimed `status: translated` on an entry with no `target` at all, and the
+tolerant reading refused it exactly as the strict one did.
+
+**Failure composition (a format property, not a harness fault).** 61 of 960 runs
+did not parse, all of them in the two formats that cannot carry multi-line
+context cleanly: `csv` (context arm) writes a context field containing a newline
+into one row, which shifts every later column, and `xliff-2.1` (context arm)
+emits malformed XML at a specific line. Each failure was inspected in the stored
+answer text, not read off the summary.
 
 **Correction carried into this revision.** The token tables previously priced a
 CLIFF prompt that no arm sends: `token_matrix` omitted `allow_glossary_output`
@@ -140,13 +187,19 @@ the configuration shipped in `configs/deepseek-flash.json`, which sets
 translation pipeline (Appendix C). Every row carries that mode and its repair
 count, so the same answers can also be scored under `--read-mode strict`;
 `docs/clarion-methodology.md` §9.1 states which question each reading answers.
+CLIFF's D7 context row (83.3% still valid) is measured under that reading and is
+the only row in the table whose validity is affected by which reading is in
+force; the other nine formats have one reading each.
 
 **Known limitation of the recorded run.** The annotator that wrote the
 `context_origin: annotated` briefs is the same model as the system under test
 (`deepseek-flash`), which `clarion/corpus/annotate.py` warns against because it
 flatters the context arm. A context-arm gain measured on annotated context is a
 weaker claim than one measured on native context; the rows' `context source`
-column says which items are which.
+column says which items are which. This run therefore supports the
+format-to-format comparison (every format sees the same brief, so the pairing
+moves all formats together) but not a claim that CLIFF's context arm would gain
+as much against a human-written brief.
 
 ## How to re-run with a different model class
 

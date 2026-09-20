@@ -250,19 +250,50 @@ Three consequences worth stating plainly:
    kinds, a document over a resource limit, or an unimplemented version. The
    mode preserves information; it never guesses it.
 
-Two behaviours are decided here rather than left open:
+Two behaviours are decided here rather than left open, and both are the
+implementation's, not a preference stated after the fact:
 
-- **Collisions are rejected, not renamed.** Appendix C.4 lets an implementation
-  either rename a colliding identifier (`-2`, `-3`, …) or reject the document.
-  CLARION takes the rejection path, because §10.2 makes a duplicate canonical ID
-  a validity error in both readings and a silent rename would hide exactly the
-  data loss this mode exists to prevent.
+- **A collision produced by normalization is disambiguated, not rejected.**
+  Appendix C.4 lets an implementation either rename a colliding identifier
+  (`-2`, `-3`, …) or reject the document, and requires it to offer both and
+  document the default. Tolerant parsing normalizes first and then disambiguates
+  the later entry, reporting an `id-collision` repair that names both final ids
+  (fixture `tests/fixtures/tolerant/collision.zh-CN.cliff`). This is the choice
+  that keeps the data: the entries arrived with different spellings and different
+  text, so dropping one would lose a translation.
+- **A *textually identical* duplicate entry id is still rejected**, in both
+  readings, because §10.2 makes a duplicate canonical ID a validity error and a
+  tolerant parser must surface it rather than silently let one entry win
+  (fixture `tests/fixtures/invalid/duplicate-entry-id.zh-CN.cliff`). The
+  distinction is exact: disambiguation applies to ids that only *became* equal
+  through normalization, not to ids the author wrote twice.
+
+One more reading decision, because it changes what an answer may look like:
+
 - **An answer may hold two documents.** The terminology workflow lets a
-  translator return the translated file plus a glossary, so the harness splits
-  an answer on the version line (either 1.0 or 1.1) and validates each document
-  on its own: concatenating two valid documents is not one valid document.
-  `tools/cliff_validator.py --multi-document` exposes the same reading
+  translator return the translated file plus a glossary (13.2.2), so the harness
+  splits an answer on the version line (either 1.0 or 1.1) and validates each
+  document on its own: concatenating two valid documents is not one valid
+  document. `tools/cliff_validator.py --multi-document` exposes the same reading
   standalone.
+
+### What the two readings measured
+
+Re-scoring the stored CLIFF answers of a run under both readings, with no model
+call, is the comparison this section exists to make possible. On the recorded
+`deepseek-flash` run (96 CLIFF answers, three repeats per cell):
+
+| Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance |
+| --- | ---: | ---: | ---: | --- |
+| bare | 89.6% | 93.8% | 3 | 2 answers |
+| context | 83.3% | 89.6% | 6 | 3 answers |
+
+The repairs were one quoted tag (C.2.3), four identifiers containing a reserved
+character (C.2.5) and — in the context arm — two entry ids that normalization
+made colliding (C.4). Every one of them is a shape repair: no answer was salvaged
+by inventing content, which is what Appendix C.5 forbids. The gap is the honest
+size of the claim "a translation pipeline should not lose a translation because a
+model punctuated a line differently".
 
 When a report quotes "valid answer %", it is quoting one of the two readings,
 and the table says which.
