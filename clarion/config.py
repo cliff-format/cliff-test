@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from .formats.registry import DEFAULT_FORMATS
+from .prompts.assembly import DEFAULT_PROMPT_STYLE, PROMPT_STYLES
 from .util import read_text
 
 #: The readings of a model answer the harness can score. ``strict`` is the
@@ -94,6 +95,12 @@ class RunConfig:
     arms: list[str] = field(default_factory=lambda: ["bare", "context"])
     spec_location: str = "split"
     spec_reference: bool = True
+    #: How much CLIFF specification the prompt carries. ``digest`` is the
+    #: behaviour of every run recorded before the prompt redesign; ``examples``
+    #: states only what a tolerant read cannot repair and teaches the rest by
+    #: example. Only CLIFF is affected, so the two styles must be compared in
+    #: separate runs, never mixed inside one.
+    prompt_style: str = DEFAULT_PROMPT_STYLE
     repeats: int = 1
     concurrency: int = 4
     isolation: str = "per-file"
@@ -149,6 +156,11 @@ def from_dict(data: dict[str, Any]) -> RunConfig:
     if read_mode not in READ_MODES:
         raise ValueError(
             f"read_mode must be one of {', '.join(READ_MODES)}, got '{read_mode}'"
+        )
+    prompt_style = str(payload.get("prompt_style", DEFAULT_PROMPT_STYLE))
+    if prompt_style not in PROMPT_STYLES:
+        raise ValueError(
+            f"prompt_style must be one of {', '.join(PROMPT_STYLES)}, got '{prompt_style}'"
         )
     provider = ProviderConfig(**payload.pop("provider", {}))
     judge_data = dict(payload.pop("judge", {}))

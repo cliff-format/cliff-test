@@ -250,6 +250,39 @@ Three consequences worth stating plainly:
    kinds, a document over a resource limit, or an unimplemented version. The
    mode preserves information; it never guesses it.
 
+### What the tolerant read cannot save, and why that matters for prompting
+
+A reader who assumes "tolerant" means "forgiving" will misread the D7 table. The
+recorded run shows both halves of the behaviour in one cell: `cliff/context`
+took **7 repairs** — quoted tags, a bare list value, a normalized id — and still
+failed 2 of 12 edits. The failures are not shapes a repair could fix. They are
+keys the model invented:
+
+| Edit asked for | What the model wrote | Why it cannot be repaired |
+| --- | --- | --- |
+| set the context of an entry | `translator-context:` | an unknown non-`x-` key (C.5) |
+| set the context of a group | `translator-context:` | same, in group scope |
+| set a status | `status:` inside a **group** | `status` is not group metadata; only `context`, `type`, `emotion`, `max-width` are |
+| add a reference (twice) | `ref:` / `source-ref:` | unknown entry keys; the field is `reference` |
+
+Appendix C.5 forbids a tolerant parser from repairing an unknown key, and the
+reason is sound: `translator-context` is *semantically* obviously `context`, but
+"repair what I can infer you meant" is exactly the guessing the appendix exists
+to prevent. The consequence for this project is direct and it is a prompt problem,
+not a parser problem:
+
+> **Because a tolerant parser will not repair a wrong key name, a wrong scope or a
+> wrong value shape, the prompt must state those facts exactly.** A prompt that
+> teaches CLIFF only by example can leave the model free to invent a plausible
+> field name, and no amount of tolerant parsing will rescue that answer.
+
+The measured cost of the current prompt makes the trade explicit: CLIFF's
+`format instructions` component is ~46 400 tokens per arm (16 cells), of which
+**16 316 per cell is the full specification text**. The full text is what a
+prompt-design experiment should try to earn or drop; the lexical facts — exact
+key names, their legal scopes, the closed vocabularies and the shape of each
+value — are what it must keep.
+
 Two behaviours are decided here rather than left open, and both are the
 implementation's, not a preference stated after the fact:
 
@@ -307,8 +340,25 @@ and the table says which.
   **McNemar's exact test**.
 - With ten formats there are dozens of pairwise comparisons, so p-values are
   corrected (Holm or Benjamini-Hochberg) before any claim is made.
-- Temperature 0 is not determinism: at least three repeats per cell, reported
-  as mean with a confidence interval.
+- **Sampling temperature: 0.0 in the first recorded run, 1.3 from the prompt
+  redesign onward.** DeepSeek documents 1.3 as the recommended temperature for
+  translation, and the UE5 plugin that consumes CLIFF in production uses it, so
+  the benchmark now measures the model as it is actually deployed. The two
+  regimes are **not comparable**, and a report must say which one produced its
+  numbers:
+  - at 0.0 the three repeats of a cell were observed to be **byte-identical**
+    (for example the three `wmt24pp` context answers failed on the same line with
+    the same message), so "3 repeats" measured internal consistency, not
+    sampling variance, and the effective sample size was smaller than the run
+    count suggests;
+  - at 1.3 the repeats are genuine independent samples, which is what the
+    paired tests in this section assume. It gives up bit-for-bit reproducibility
+    of a run in exchange for measuring a distribution, which is the honest
+    object for a stochastic decoder.
+- Temperature 0 is not determinism either: at least three repeats per cell,
+  reported as mean with a confidence interval. At 1.3 report the **spread across
+  repeats** as well as the mean, because at that temperature the spread is part
+  of the result.
 - A metric difference is only called meaningful when it exceeds the accepted
   threshold for that metric and language pair, not because it is positive.
   There is no published "magic N" of segments; MT-Thresholds is the right

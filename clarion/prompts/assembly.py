@@ -16,7 +16,7 @@ from ..metrics.tokens import PromptBudget, Tokenizer
 from ..paths import SPEC_FILE
 from ..providers.base import Message
 from ..util import read_text
-from . import templates
+from . import cliff_prompt_v2, templates
 from .spec_digest import build_grammar_plus
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
@@ -33,9 +33,23 @@ TRANSLATION_COMPONENTS = (
     "context.hint",
     "glossary",
     "cliff.edit_safety",
+    "cliff.examples",
     "document",
 )
-INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes")
+INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes", "cliff.examples")
+
+#: How much CLIFF specification reaches the prompt.
+#:
+#: ``digest``    the writer-facing digest plus the full text of the specification
+#:               (the behaviour of every run recorded before the prompt redesign)
+#: ``examples``  the example-driven prompt: the legal key names per scope, the
+#:               closed vocabularies, task verbs and two conforming documents,
+#:               with the specification text dropped. The fact set is bounded by
+#:               ``.tools/probe_repairs.py``: it states only what a tolerant read
+#:               cannot repair, because a repaired deviation is a recorded cost
+#:               rather than a failure.
+PROMPT_STYLES = ("digest", "examples")
+DEFAULT_PROMPT_STYLE = "digest"
 
 
 @dataclass
@@ -75,10 +89,19 @@ def build_translation_prompt(
     policy_fragment: str = "",
     allow_glossary_output: bool = False,
     workflow_style: str = "appendix",
+    prompt_style: str = DEFAULT_PROMPT_STYLE,
     document: CliffDocument | None = None,
     references: dict[str, str] | None = None,
 ) -> PromptBundle:
-    """Assemble the translation prompt for one file in one format and arm."""
+    """Assemble the translation prompt for one file in one format and arm.
+
+    ``prompt_style`` selects how much CLIFF specification the prompt carries; see
+    ``PROMPT_STYLES``. It affects CLIFF only - the other formats never had a
+    specification block - so only an experiment that runs both styles can say what
+    the specification text was buying.
+    """
+    if prompt_style not in PROMPT_STYLES:
+        raise ValueError(f"prompt_style must be one of {', '.join(PROMPT_STYLES)}")
     spec = get_format(format_id)
     budget = PromptBudget(tokenizer=tokenizer.name)
 
@@ -86,7 +109,8 @@ def build_translation_prompt(
     # supplement and edit-safety reminder are in the user message near the
     # file to edit.
     notes = templates.FORMAT_NOTES.get(format_id, "")
-    digest = build_grammar_plus() if format_id == "cliff" else ""
+    example_driven = prompt_style == "examples" and format_id == "cliff"
+    digest = build_grammar_plus() if (format_id == "cliff" and not example_driven) else ""
     system_digest = ""
     user_digest = ""
     if digest:
@@ -102,6 +126,12 @@ def build_translation_prompt(
                 system_digest = digest
         else:
             system_digest = digest
+    # In the example-driven style the stated facts take the digest's place in the
+    # system message and the task verbs become CLIFF-specific. Everything else
+    # (system role, format notes, terminology policy, glossary workflow, context
+    # hint, document) is unchanged, so a comparison isolates what was removed.
+    if example_driven:
+        system_digest = cliff_prompt_v2.CLIFF_FACTS
 
     system_parts = [templates.SYSTEM_ROLE]
     if system_digest:
@@ -141,6 +171,10 @@ def build_translation_prompt(
             workflow_block = templates.GLOSSARY_DELIVERABLE + "\n\n" + workflow_block
 
     rules_block = f"{rules}\n\n{output_rules}"
+    if example_driven:
+        # The generic task rules still apply (output shape, placeholders, register);
+        # these verbs are added because CLIFF's `target`/`status` work is specific.
+        rules_block = f"{rules_block}\n\n{cliff_prompt_v2.CLIFF_TASK_RULES}"
     if workflow_block and workflow_style in {"deliverable", "front"}:
         rules_block = f"{rules_block}\n\n{templates.GLOSSARY_DELIVERABLE}"
     if format_id == "cliff" and document is not None:
@@ -179,7 +213,13 @@ def build_translation_prompt(
         blocks.append(glossary_block)
     budget.add("glossary", "user", glossary_block, tokenizer)
 
-    if spec_reference and format_id == "cliff" and SPEC_FILE.exists():
+    if example_driven:
+        # The examples replace both the specification text and the edit-safety
+        # reminder: `CLIFF_TASK_RULES` already carries the identifier and layout
+        # verbs, and `CLIFF_SHAPE_EXAMPLES` shows the constructs they describe.
+        blocks.append(cliff_prompt_v2.EXAMPLES)
+        budget.add("cliff.examples", "user", cliff_prompt_v2.EXAMPLES, tokenizer)
+    elif spec_reference and format_id == "cliff" and SPEC_FILE.exists():
         full_spec = read_text(SPEC_FILE)
         spec_ref = (
             "===== REFERENCE: FULL CLIFF SPECIFICATION =====\n"
@@ -191,7 +231,7 @@ def build_translation_prompt(
         blocks.append(spec_ref)
         budget.add("spec.reference", "user", spec_ref, tokenizer)
 
-    if format_id == "cliff":
+    if format_id == "cliff" and not example_driven:
         blocks.append(templates.CLIFF_EDIT_SAFETY)
         budget.add("cliff.edit_safety", "user", templates.CLIFF_EDIT_SAFETY, tokenizer)
 
