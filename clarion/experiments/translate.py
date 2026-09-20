@@ -21,6 +21,7 @@ from typing import Any
 from ..config import RunConfig
 from ..corpus.model import CorpusFile
 from ..formats.arms import Arm, project
+from ..formats.read_mode import DEFAULT_READ_MODE
 from ..formats.registry import get_format
 from ..formats.render import render_document
 from ..metrics.instruction import check_rules, instruction_score
@@ -107,6 +108,11 @@ class TaskResult:
             },
             "finish_reason": self.finish_reason,
             "truncated": self.truncated,
+            # Which reading of the answer produced ``structure``, and how many
+            # Appendix C repairs it needed. Recorded on every row so a report can
+            # never mix two readings without saying so (specification C.1/C.6).
+            "read_mode": self.structure.get("read_mode", DEFAULT_READ_MODE),
+            "repairs": int(self.structure.get("repairs", 0) or 0),
             "latency_ms": round(self.latency_ms, 3),
             "cost_usd": round(self.cost_usd, 6),
             "entries": self.entries,
@@ -260,6 +266,7 @@ def run_translation_task(
         completion.text,
         format_id,
         bilingual=spec.bilingual,
+        read_mode=config.read_mode,
     )
     result.structure = structure.as_dict()
 

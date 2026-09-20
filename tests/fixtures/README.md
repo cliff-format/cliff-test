@@ -70,6 +70,8 @@ python tools/cliff_validator.py --tolerant tests/fixtures/tolerant/*.zh-CN.cliff
 | `quoted-and-normalized-ids.zh-CN.cliff` | C.2.4 / C.2.5 — quoted entry id and a group path containing spaces and `&` |
 | `collision.zh-CN.cliff` | C.2.5 / C.4 — two spellings that normalize to the same id |
 | `version-line.zh-CN.cliff` | C.2.6 — `cliff 1.1.0` |
+| `terminators-and-quoted-tags.zh-CN.cliff` | C.2.3 + C.2.1 — a quoted tag, and the same tag inside a list-typed field; every line also ends with `,` / `;`, which is 1.1 syntax (5.6) and MUST NOT be counted as a repair |
+| `quoted-id-and-bare-list.zh-CN.cliff` | C.2.4 + C.2.1 — a quoted entry id and bare values in `emotion` / `reference`; the ids must come back verbatim |
 | `unrepairable.zh-CN.cliff` | **must be refused**: C.5 forbids guessing `type: Nown` |
 
 ## Invalid fixture catalog

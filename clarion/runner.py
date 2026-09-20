@@ -251,7 +251,10 @@ def run_fidelity_matrix(
     for corpus_file in corpus.files:
         for format_id in config.formats:
             report: FidelityReport = roundtrip_fidelity(
-                corpus_file.document, format_id, arm=Arm.CONTEXT
+                corpus_file.document,
+                format_id,
+                arm=Arm.CONTEXT,
+                read_mode=config.read_mode,
             )
             record = report.as_dict()
             record["kind"] = "fidelity"
@@ -297,6 +300,7 @@ def run_robustness_matrix(
             provider=provider,
             tasks=tasks,
             file_id=corpus_file.id,
+            read_mode=config.read_mode,
             max_output_tokens=config.provider.max_output_tokens,
         )
         record = result.as_dict()
@@ -362,6 +366,14 @@ def token_matrix(
                     glossary_text=glossary_text,
                     policy_fragment=policy.prompt_fragment() if config.include_policy else "",
                     document=task_document,
+                    # D1/D2 must price the prompt the translation arms actually
+                    # send. Omitting these two made the CLIFF row cheaper than
+                    # the run it claims to measure, because the terminology
+                    # workflow block (and its placement, which the ablation in
+                    # docs/clarion-prompting.md shows matters for obedience) is
+                    # part of CLIFF's prompt and of no other format's.
+                    allow_glossary_output=config.allow_glossary_output,
+                    workflow_style=config.workflow_style,
                 )
                 budget = bundle.budget
                 rows.append(

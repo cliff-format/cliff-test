@@ -32,6 +32,7 @@ from typing import TYPE_CHECKING, Any
 
 from ..formats.arms import Arm
 from ..formats.parse import parse_back
+from ..formats.read_mode import DEFAULT_READ_MODE, is_tolerant
 from ..formats.registry import get_format
 from ..formats.render import render_document
 from ..formats.validity import check_validity
@@ -337,6 +338,10 @@ class EditOutcome:
     intent_ok: bool = False
     parsed: bool = False
     unwrapped: bool = False
+    #: Which reading of the edited answer produced ``valid``/``parsed``, and how
+    #: many Appendix C repairs it took (always 0 under strict).
+    read_mode: str = DEFAULT_READ_MODE
+    repairs: int = 0
     error: str | None = None
     latency_ms: float = 0.0
     output_tokens: int | None = None
@@ -352,6 +357,8 @@ class EditOutcome:
             "intent_ok": self.intent_ok,
             "parsed": self.parsed,
             "unwrapped": self.unwrapped,
+            "read_mode": self.read_mode,
+            "repairs": self.repairs,
             "error": self.error,
             "latency_ms": round(self.latency_ms, 3),
         }
@@ -416,12 +423,16 @@ def run_robustness(
     tasks: list[EditTask],
     file_id: str = "base",
     max_output_tokens: int = 8192,
+    read_mode: str = DEFAULT_READ_MODE,
 ) -> RobustnessResult:
     """Apply an edit sequence to one format, validating after every step.
 
     With provider=None the deterministic reference application is used, which
-    is how the harness self-tests without a model.
+    is how the harness self-tests without a model. ``read_mode`` selects the
+    CLIFF reading; the deterministic path renders canonical CLIFF, so its two
+    readings agree by construction (specification Appendix C.6).
     """
+    tolerant = is_tolerant(read_mode)
     arm_value = Arm(arm)
     result = RobustnessResult(format_id=format_id, arm=arm_value.value, file_id=file_id)
     current_document = copy.deepcopy(document)
@@ -469,11 +480,14 @@ def run_robustness(
                 continue
             answer_text = completion.text
 
-        report = check_validity(answer_text, format_id)
+        report = check_validity(answer_text, format_id, tolerant=tolerant)
         outcome.valid = report.ok
         outcome.unwrapped = report.unwrapped
-        parsed = parse_back(answer_text, format_id)
+        outcome.read_mode = read_mode
+        outcome.repairs = report.repairs
+        parsed = parse_back(answer_text, format_id, read_mode=read_mode)
         outcome.parsed = parsed.ok
+        outcome.repairs = max(outcome.repairs, parsed.repairs)
         if parsed.document is not None:
             outcome.intent_ok = verify_edit(parsed.document, task)
             current_document = parsed.document

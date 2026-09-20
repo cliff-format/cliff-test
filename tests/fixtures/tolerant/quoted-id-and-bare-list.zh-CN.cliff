@@ -1,0 +1,38 @@
+# Tolerant fixture: a quoted entry id (Appendix C.2.4) and a list-typed field
+# written as a bare scalar (Appendix C.2.1), the two relaxations that change the
+# *shape* of a line rather than a tag.
+#
+# `emotion` and `reference` are list-typed fields; the specification has no
+# single-item shorthand for them (6.1), so `emotion: objective` is a validity
+# error under the strict grammar and a reported `list-shape` repair under the
+# tolerant one. The quotes around the id are removed and the id is kept exactly
+# as written - an identifier is never case-folded or re-spelled (5.5).
+#
+# Expected under `--tolerant`: FOUR repairs - one `name-quote` (the quoted id,
+# line 23) and three `list-shape` (lines 27, 28, 35, one per bare list value) -
+# and the ids `resolution` and `Fullscreen` present verbatim, because a parser
+# MUST NOT rewrite an identifier (5.5).
+# `cliff-test/tests/clarion/test_read_modes.py` asserts exactly this.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-shape
+source-language: en-US
+target-language: zh-CN
+
+[video]
+type: label
+context: "Video settings screen."
+
+<"resolution">
+source: "Resolution"
+target: "分辨率"
+status: final
+emotion: objective
+reference: "src/ui/video.cpp:42"
+
+<Fullscreen>
+source: "Fullscreen"
+target: "全屏"
+status: translated
+context: "Toggle on the video settings screen."
+emotion: calm

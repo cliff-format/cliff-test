@@ -41,7 +41,7 @@ class FormatSpec:
 FORMATS: dict[str, FormatSpec] = {
     "cliff": FormatSpec(
         id="cliff",
-        label="CLIFF 1.0",
+        label="CLIFF 1.1",
         extension=".cliff",
         bilingual=True,
         context_capable=True,

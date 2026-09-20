@@ -23,6 +23,7 @@ from dataclasses import dataclass, field
 
 from ..paths import ensure_cliff_format
 from .parse import unwrap
+from .read_mode import DEFAULT_READ_MODE, STRICT, TOLERANT
 from .registry import get_format
 
 _XLIFF_NS = "urn:oasis:names:tc:xliff:document:2.0"
@@ -49,6 +50,10 @@ class ValidityReport:
     errors: list[Diagnostic] = field(default_factory=list)
     warnings: list[Diagnostic] = field(default_factory=list)
     unwrapped: bool = False
+    #: Reading that produced this report, and how many Appendix C repairs it
+    #: took. A strict report never repairs, so it reports zero.
+    read_mode: str = DEFAULT_READ_MODE
+    repairs: int = 0
 
     def summary(self) -> str:
         """One-line human summary."""
@@ -72,7 +77,7 @@ def _fail(
 
 def _check_cliff(
     text: str, *, tolerant: bool = False
-) -> tuple[list[Diagnostic], list[Diagnostic]]:
+) -> tuple[list[Diagnostic], list[Diagnostic], int]:
     """Validate a CLIFF answer, which may carry a glossary as a second document.
 
     CLIFF's terminology workflow lets a translator return the translated file
@@ -84,9 +89,9 @@ def _check_cliff(
     The default mode is **strict**, because dimension 7 asks whether the
     project's own toolchain would accept the answer. ``tolerant=True`` measures
     the other, documented question - how much of a model's output can be
-    salvaged - and reports each repair as a warning, so a run can state which of
-    the two readings its numbers come from. A tolerant parse that still fails is
-    an error in both readings (specification Appendix C.5).
+    salvaged - and reports each repair as a warning (once: see below), so a run
+    can state which of the two readings its numbers come from. A tolerant parse
+    that still fails is an error in both readings (specification Appendix C.5).
     """
     ensure_cliff_format()
     import cliff_format
@@ -98,7 +103,6 @@ def _check_cliff(
     parts = split_cliff_documents(text)
     offset = 0
     for part in parts:
-        corrections = 0
         try:
             document = cliff_format.parse(part, tolerant=tolerant)
         except cliff_format.CliffParseError as exc:
@@ -107,6 +111,9 @@ def _check_cliff(
             )
             offset += part.count("\n") + 1
             continue
+        # ``validate_document`` already turns every entry of
+        # ``document.corrections`` into a ``correction`` warning, so reporting
+        # them again here would print each repair twice.
         for issue in cliff_format.validate_document(document):
             diagnostic = Diagnostic(
                 line=issue.line + offset, category=issue.category, message=issue.message
@@ -115,17 +122,8 @@ def _check_cliff(
                 warnings.append(diagnostic)
             else:
                 errors.append(diagnostic)
-        for correction in document.corrections:
-            corrections += 1
-            warnings.append(
-                Diagnostic(
-                    line=correction.line + offset,
-                    category="correction",
-                    message=correction.describe(),
-                )
-            )
         offset += part.count("\n") + 1
-    return errors, warnings
+    return errors, warnings, len([w for w in warnings if w.category == "correction"])
 
 
 def _check_xliff(text: str) -> tuple[list[Diagnostic], list[Diagnostic]]:
@@ -349,24 +347,35 @@ def check_validity(
     """Validate a document in one format and report line-numbered findings.
 
     ``tolerant`` applies to CLIFF only and selects the Appendix C reading; the
-    other formats have one reading and ignore the flag.
+    other formats have one reading and ignore the flag. The report records which
+    reading ran and, for CLIFF, how many repairs it took, so a table of "valid
+    answer %" can always name the reading behind it.
     """
+    read_mode = TOLERANT if tolerant else STRICT
     get_format(format_id)
     body, unwrapped = unwrap(text) if allow_unwrap else (text, False)
     if not body.strip():
-        return _fail(format_id, 1, "syntax", "document is empty", unwrapped)
+        report = _fail(format_id, 1, "syntax", "document is empty", unwrapped)
+        report.read_mode = read_mode
+        return report
     checker = _CHECKERS[format_id]
+    repairs = 0
     try:
-        if format_id == "cliff" and tolerant:
-            errors, warnings = _check_cliff(body, tolerant=True)
+        if format_id == "cliff":
+            errors, warnings, repairs = _check_cliff(body, tolerant=tolerant)
         else:
+            # Every other format has exactly one reading, so nothing to repair.
             errors, warnings = checker(body)
     except Exception as exc:  # noqa: BLE001 - a crashing checker is still a failure
-        return _fail(format_id, 1, "syntax", f"{type(exc).__name__}: {exc}", unwrapped)
+        report = _fail(format_id, 1, "syntax", f"{type(exc).__name__}: {exc}", unwrapped)
+        report.read_mode = read_mode
+        return report
     return ValidityReport(
         format_id=format_id,
         ok=not errors,
         errors=errors,
         warnings=warnings,
         unwrapped=unwrapped,
+        read_mode=read_mode,
+        repairs=repairs,
     )

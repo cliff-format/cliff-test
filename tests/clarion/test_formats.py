@@ -64,20 +64,22 @@ def test_fidelity_is_measurable_for_every_format(sample_document, format_id: str
 
 
 def test_unwrap_strips_markdown_fence() -> None:
-    body, unwrapped = unwrap("Here you go:\n\n```cliff\nCLIFF 1.0\n```\n")
+    body, unwrapped = unwrap("Here you go:\n\n```cliff\nCLIFF 1.1\n```\n")
     assert unwrapped is True
-    assert body == "CLIFF 1.0"
+    assert body == "CLIFF 1.1"
 
 
 def test_unwrap_leaves_plain_text_alone() -> None:
-    body, unwrapped = unwrap("CLIFF 1.0\nnamespace: demo\n")
+    body, unwrapped = unwrap("CLIFF 1.1\nnamespace: demo\n")
     assert unwrapped is False
-    assert body.startswith("CLIFF 1.0")
+    assert body.startswith("CLIFF 1.1")
 
 
 @pytest.mark.parametrize(
     ("format_id", "broken"),
     [
+        # A 1.0 version line is valid input, so what makes this document broken
+        # is the unterminated string - the assertion below is about the string.
         ("cliff", "CLIFF 1.0\nnamespace: demo\n\n[a]\n<x>\nsource: \"unterminated\n"),
         ("xliff-2.1", "<xliff version='2.1' srcLang='en'><file></xliff>"),
         ("po", 'msgid "hello"\nmsgstr broken\n'),

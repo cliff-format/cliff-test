@@ -17,6 +17,11 @@ from typing import Any
 from .formats.registry import DEFAULT_FORMATS
 from .util import read_text
 
+#: The readings of a model answer the harness can score. ``strict`` is the
+#: reference-toolchain reading; ``tolerant`` is the Appendix C reading of
+#: CLIFF 1.1 and the default for a translation pipeline.
+READ_MODES: tuple[str, ...] = ("strict", "tolerant")
+
 
 @dataclass
 class ProviderConfig:
@@ -107,6 +112,15 @@ class RunConfig:
     workflow_style: str = "deliverable"
     surface_metrics: bool = True
     neural_metrics: bool = False
+    # Which reading of a model answer the harness scores. CLIFF 1.1 defines a
+    # tolerant mode for exactly one consumer - an automated translation pipeline
+    # that must not lose a translation because a model punctuated a line
+    # differently (specification Appendix C) - and that consumer is this
+    # benchmark, so tolerant is the default. "strict" keeps the other, equally
+    # legitimate question ("would the project's own toolchain accept this?") one
+    # config key away, and every record states which reading produced it
+    # (Appendix C.1: the mode in effect MUST be observable by the caller).
+    read_mode: str = "tolerant"
     seed: int = 20260101
     provider: ProviderConfig = field(default_factory=ProviderConfig)
     judge: JudgeConfig = field(default_factory=JudgeConfig)
@@ -131,6 +145,11 @@ def _merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
 def from_dict(data: dict[str, Any]) -> RunConfig:
     """Build a RunConfig from a plain dictionary."""
     payload = dict(data)
+    read_mode = str(payload.get("read_mode", "tolerant"))
+    if read_mode not in READ_MODES:
+        raise ValueError(
+            f"read_mode must be one of {', '.join(READ_MODES)}, got '{read_mode}'"
+        )
     provider = ProviderConfig(**payload.pop("provider", {}))
     judge_data = dict(payload.pop("judge", {}))
     judge_provider = ProviderConfig(**judge_data.pop("provider", {})) if judge_data else provider

@@ -148,6 +148,55 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
     report.add("every format renders, validates and reads back", not render_failures,
                "; ".join(render_failures[:3]))
 
+    # The two CLIFF readings, against an answer that carries the kind of
+    # deviation a model actually makes: a quoted `status` (Appendix C.2.3, one
+    # repair) and a quoted `emotion`, which is both a quoted tag and a bare value
+    # in a list-typed field (C.2.3 + C.2.1, two more). Trailing commas are
+    # standard 1.1 syntax (5.6) and must NOT be reported as repairs. A harness
+    # that scored only one reading could not state which question a number
+    # answers (Appendix C.1).
+    deviant = (
+        'CLIFF 1.1\nnamespace: demo\nclan: selfcheck\n'
+        'source-language: en-US\ntarget-language: zh-CN,\n\n'
+        '[video]\ntype: label\n\n<resolution>\nsource: "Resolution"\n'
+        'target: "分辨率"\nstatus: "final"\nemotion: "calm",\n'
+    )
+    expected_repairs = 3
+    strict_report = check_validity(deviant, "cliff", tolerant=False)
+    tolerant_report = check_validity(deviant, "cliff", tolerant=True)
+    tolerant_outcome = parse_back(deviant, "cliff", read_mode="tolerant")
+    readings_ok = (
+        not strict_report.ok
+        and tolerant_report.ok
+        and tolerant_report.repairs == expected_repairs
+        and tolerant_outcome.ok
+        and tolerant_outcome.repairs == expected_repairs
+    )
+    report.add(
+        "strict and tolerant readings differ as documented",
+        readings_ok,
+        f"strict ok={strict_report.ok}, tolerant ok={tolerant_report.ok}, "
+        f"repairs={tolerant_report.repairs}, read-back repairs={tolerant_outcome.repairs}",
+    )
+
+    # Appendix C.6: a repaired document must serialize into a strictly valid one.
+    repaired_ok = False
+    repaired_detail = "no document produced"
+    if tolerant_outcome.document is not None:
+        repaired_text = cliff_format.serialize(tolerant_outcome.document)
+        repaired_issues = [
+            issue
+            for issue in cliff_format.validate(repaired_text, tolerant=False)
+            if issue.category not in {"warning", "extension", "correction", "style"}
+        ]
+        repaired_ok = not repaired_issues
+        repaired_detail = (
+            "serialized repair validates strictly"
+            if repaired_ok
+            else f"{len(repaired_issues)} error(s): {repaired_issues[0].message}"
+        )
+    report.add("a tolerant repair serializes into valid CLIFF", repaired_ok, repaired_detail)
+
     retention = {
         format_id: roundtrip_fidelity(sample.document, format_id, arm=Arm.CONTEXT)
         for format_id in DEFAULT_FORMATS

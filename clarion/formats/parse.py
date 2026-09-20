@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING
 
 from ..paths import ensure_cliff_format
 from .plain import parse_json_plain, parse_yaml_plain
+from .read_mode import DEFAULT_READ_MODE, READ_MODES, is_tolerant
 from .registry import get_format
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
@@ -37,6 +38,10 @@ class ParseOutcome:
     notes: list[str] = field(default_factory=list)
     glossary: CliffDocument | None = None
     extra_documents: int = 0
+    #: Reading that produced this outcome, and the number of Appendix C repairs
+    #: it took. A strict read never repairs, so it reports zero.
+    read_mode: str = DEFAULT_READ_MODE
+    repairs: int = 0
 
     @property
     def ok(self) -> bool:
@@ -61,7 +66,7 @@ def unwrap(text: str) -> tuple[str, bool]:
     return stripped, False
 
 
-_CLIFF_HEADER_RE = re.compile(r"^CLIFF 1\.0\s*$", re.MULTILINE)
+_CLIFF_HEADER_RE = re.compile(r"^[ \t]*CLIFF[ \t]+1\.[0-9]+[ \t]*$", re.MULTILINE)
 
 
 def split_cliff_documents(text: str) -> list[str]:
@@ -69,7 +74,12 @@ def split_cliff_documents(text: str) -> list[str]:
 
     The terminology workflow lets a model answer with the translated file plus
     a glossary file. Splitting on the version line is exact, because CLIFF
-    requires it to be the first non-blank line of every document.
+    requires it to be the first non-blank, non-comment line of every document
+    section: the pattern matches the whole line and only a version line, so the
+    licence comment block an imported corpus carries ("... CLIFF 1.1 ..." in
+    prose) can never be mistaken for a document start. Both 1.0 and 1.1 are
+    recognised, because a 1.1 implementation accepts either version line
+    (specification 6).
     """
     starts = [match.start() for match in _CLIFF_HEADER_RE.finditer(text)]
     if len(starts) <= 1:
@@ -78,14 +88,25 @@ def split_cliff_documents(text: str) -> list[str]:
     return [text[bounds[i] : bounds[i + 1]].strip() for i in range(len(starts))]
 
 
-def parse_back(text: str, format_id: str) -> ParseOutcome:
+def parse_back(text: str, format_id: str, *, read_mode: str = DEFAULT_READ_MODE) -> ParseOutcome:
     """Parse a model answer in the given format into a CLIFF document.
 
     For CLIFF the answer may legitimately contain a second document: a
     'variant: glossary' file produced by the terminology workflow. It is parsed
     out and reported separately, never scored as the translation and never
     counted as a failure.
+
+    ``read_mode`` selects the CLIFF reading. ``"tolerant"`` (the default) applies
+    the documented relaxations of specification Appendix C and counts every
+    repair it made, which is the question this harness asks: how much of a
+    model's answer is usable. ``"strict"`` asks the other question - would the
+    reference toolchain accept the bytes - and is what a source-of-truth check
+    needs. The mode is recorded on the outcome so two readings can never be
+    confused in a report (Appendix C.1, Appendix C.6).
     """
+    if read_mode not in READ_MODES:
+        raise ValueError(f"read_mode must be one of {', '.join(READ_MODES)}, got '{read_mode}'")
+    tolerant = is_tolerant(read_mode)
     ensure_cliff_format()
     import cliff_format
 
@@ -93,10 +114,15 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
     body, unwrapped = unwrap(text)
     glossary: CliffDocument | None = None
     extra = 0
+    repairs = 0
     try:
         if spec.id == "cliff":
             parts = split_cliff_documents(body)
-            documents = [cliff_format.parse(part) for part in parts]
+            documents = []
+            for part in parts:
+                document = cliff_format.parse(part, tolerant=tolerant)
+                repairs += len(document.corrections)
+                documents.append(document)
             translations = [
                 item for item in documents if (item.header.variant or "standard") != "glossary"
             ]
@@ -136,6 +162,8 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
             document=None,
             error=f"{type(exc).__name__}: {exc}",
             unwrapped=unwrapped,
+            read_mode=read_mode,
+            repairs=repairs,
         )
     return ParseOutcome(
         format_id=format_id,
@@ -143,6 +171,8 @@ def parse_back(text: str, format_id: str) -> ParseOutcome:
         unwrapped=unwrapped,
         glossary=glossary,
         extra_documents=extra,
+        read_mode=read_mode,
+        repairs=repairs,
     )
 
 

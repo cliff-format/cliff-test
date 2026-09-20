@@ -170,6 +170,8 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
             float(r["structure"].get("coverage", 0.0)) * 100 for r in items if r.get("structure")
         ]
         valid = [1.0 if r.get("structure", {}).get("valid") else 0.0 for r in items]
+        repairs = [float(r.get("repairs", 0) or 0) for r in items]
+        read_modes = sorted({str(r.get("read_mode", "tolerant")) for r in items})
         truncated = [1.0 if r.get("truncated") else 0.0 for r in items]
         failed = [1.0 if r.get("failed") else 0.0 for r in items]
         origins = sorted({str(record.get("context_origin", "original")) for record in items})
@@ -179,6 +181,7 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
             [
                 key[0],
                 "/".join(origins),
+                "/".join(read_modes),
                 str(len(items)),
                 _fmt(mean(chrf)) + ci,
                 _fmt(mean(chrf_ok)) if chrf_ok else "n/a",
@@ -189,6 +192,7 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
                 _fmt(mean(jargon)),
                 _fmt(mean(coverage)),
                 _fmt(100.0 * mean(valid)),
+                _fmt(mean(repairs), 2),
                 _fmt(100.0 * mean(failed)),
                 _fmt(100.0 * mean(truncated)),
                 str(glossaries),
@@ -197,6 +201,7 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
     headers = [
         "format",
         "context source",
+        "read mode",
         "runs",
         "chrF++ (all)",
         "chrF++ (ok)",
@@ -207,6 +212,7 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "de-jargon %",
         "coverage %",
         "valid answer %",
+        "repairs/run",
         "failed %",
         "truncated %",
         "glossaries",
@@ -216,6 +222,11 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "experience; 'chrF++ (ok)' averages only the runs that produced a usable file, "
         "which is translation quality with format survival factored out. Read them "
         "together: the gap between the two columns IS the cost of format fragility.\n"
+        "\n'read mode' is how the answer was read back: 'tolerant' applies the documented "
+        "relaxations of CLIFF 1.1 Appendix C, 'strict' is the reference-toolchain reading. "
+        "'repairs/run' is the mean number of Appendix C repairs a CLIFF answer needed under "
+        "the tolerant reading, so the two readings can be compared instead of confused: the "
+        "same answers score 'valid answer %' 100 with repairs and 100 without.\n"
         "\n'glossaries' counts answers that also produced a CLIFF glossary through the "
         "terminology workflow. Those answers are longer by design, so their cost shows "
         "up in the latency and output-token tables; the surface metrics do not credit "
@@ -299,12 +310,26 @@ def robustness_report(records: list[dict[str, Any]]) -> str:
         applicable = sum(int(r["edits_applicable"]) for r in items)
         validity = mean([float(r["validity_rate"]) for r in items])
         intent = mean([float(r["intent_rate"]) for r in items])
-        rows_out.append([key[0], key[1], str(applicable), _fmt(validity), _fmt(intent)])
-    headers = ["format", "arm", "applicable edits", "still valid %", "intent applied %"]
+        outcomes = [outcome for r in items for outcome in (r.get("outcomes") or [])]
+        applicable_outcomes = [o for o in outcomes if o.get("applicable")]
+        repairs = mean([float(o.get("repairs", 0) or 0) for o in applicable_outcomes])
+        read_modes = sorted({str(outcome.get("read_mode", "tolerant")) for outcome in outcomes})
+        rows_out.append([
+            key[0], key[1], "/".join(read_modes) if read_modes else "-",
+            str(applicable), _fmt(validity), _fmt(intent), _fmt(repairs, 2),
+        ])
+    headers = [
+        "format", "arm", "read mode", "applicable edits",
+        "still valid %", "intent applied %", "repairs/edit",
+    ]
     note = (
         "\nAn edit that a format cannot express is excluded from its denominator and counted "
         "in 'applicable edits', so a format is never penalised for lacking a field, only for "
         "breaking when it has one.\n"
+        "\n'read mode' is how the edited file was read back: 'tolerant' applies the documented "
+        "relaxations of CLIFF 1.1 Appendix C and 'repairs/edit' is the mean number of repairs "
+        "that took. Under 'strict' the same edits are rejected instead of repaired, so the two "
+        "readings bracket what a project's own toolchain would do.\n"
     )
     heading = "### D7 - format validity after model edits\n\n"
     return heading + _table(headers, rows_out, "right") + note
@@ -332,7 +357,14 @@ def fidelity_report(records: list[dict[str, Any]]) -> str:
         worst = ", ".join(f"{name} ({count})" for name, count in ordered)
         rows_out.append([format_id, str(present), str(kept), _fmt(retention), worst or "-"])
     headers = ["format", "context facts", "kept", "retention %", "most lost fields"]
-    return "### Round-trip context fidelity\n\n" + _table(headers, rows_out, "right")
+    read_modes = sorted({str(r.get("read_mode", "tolerant")) for r in rows})
+    repairs = mean([float(r.get("repairs", 0) or 0) for r in rows])
+    note = (
+        f"\nRead back in '{'/'.join(read_modes)}' mode; repairs per round trip: {repairs:.2f}. "
+        "This direction renders canonical CLIFF with cliff-python itself and reads it back, so "
+        "a tolerant read of a format that claims to be lossless must find nothing to repair.\n"
+    )
+    return "### Round-trip context fidelity\n\n" + _table(headers, rows_out, "right") + note
 
 
 def build_report(
@@ -357,6 +389,7 @@ def build_report(
         f"(reasoning {provider.get('reasoning')}, temperature {provider.get('temperature')})",
         f"- CLIFF specification injection: production digest, "
           f"{config.get('spec_location', 'split')}",
+        f"- Answer read mode: {config.get('read_mode', 'tolerant')}",
         f"- Repeats per cell: {config.get('repeats')}",
         "",
         "Every arm of every format is generated from the same CLIFF corpus documents through "

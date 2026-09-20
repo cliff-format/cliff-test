@@ -1,5 +1,5 @@
 {
-  "name": "clarion-deepseek-v4-flash",
+  "name": "clarion-deepseek-flash",
   "corpus": "clarion-core",
   "formats": ["cliff", "xliff-2.1", "po", "fluent", "json-cliff", "json-plain", "yaml-cliff", "csv", "android", "ios"],
   "arms": ["bare", "context"],
@@ -12,10 +12,11 @@
   "include_glossary": false,
   "allow_glossary_output": true,
   "workflow_style": "deliverable",
+  "read_mode": "tolerant",
   "seed": 20260101,
   "provider": {
     "kind": "openai",
-    "model": "deepseek-v4-flash",
+    "model": "deepseek-flash",
     "base_url": "https://api.deepseek.com",
     "api_key_env": "DEEPSEEK_API_KEY",
     "temperature": 0.0,
@@ -40,7 +41,7 @@
         "stratum": "lit",
         "limit": 30,
         "annotate": true,
-        "annotator_model": "deepseek-v4-pro",
+        "annotator_model": "deepseek-flash",
         "revision": "PG23950+PG77416"
       },
       {
@@ -48,7 +49,7 @@
         "stratum": "lit",
         "limit": 24,
         "annotate": true,
-        "annotator_model": "deepseek-v4-pro",
+        "annotator_model": "deepseek-flash",
         "revision": "PG24264+PG9603"
       },
       {
@@ -56,7 +57,7 @@
         "stratum": "news",
         "limit": 40,
         "annotate": true,
-        "annotator_model": "deepseek-v4-pro",
+        "annotator_model": "deepseek-flash",
         "propose_width": false,
         "revision": "main"
       }
@@ -66,6 +67,3 @@
     "skip": []
   }
 }
-
-
-

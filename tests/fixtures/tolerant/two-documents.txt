@@ -1,0 +1,30 @@
+CLIFF 1.0
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: zh-CN
+title: "One answer, two documents"
+
+[video]
+type: label
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final
+
+CLIFF 1.1
+namespace: demo
+clan: settings-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Terminology produced alongside the translation"
+
+[terms]
+type: noun
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final

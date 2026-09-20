@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from clarion.config import RunConfig
 from clarion.formats import Arm, render
 from clarion.metrics.tokens import get_tokenizer
 from clarion.prompts import build_grammar_plus, build_translation_prompt, emotion_tags, type_tags
@@ -59,6 +60,72 @@ def test_non_cliff_formats_get_no_specification_block(sample_document) -> None:
     )
     assert bundle.budget.tokens_of("spec.digest") == 0
     assert bundle.budget.tokens_of("format.notes") > 0
+
+
+def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
+    corpus_root, sample_document
+) -> None:
+    """D1/D2 claim to cost the prompt a translation run sends, so the two
+    builders must agree **argument for argument**.
+
+    Until this test existed, ``token_matrix`` omitted ``allow_glossary_output``
+    and ``workflow_style``. That is not a detail: with ``spec_reference`` on, the
+    reference specification is appended only to the CLIFF prompt, and the
+    terminology workflow block only to CLIFF's. Omitting them made the CLIFF row
+    of the token tables about half of what the run actually pays, while every
+    other format's row was correct.
+    """
+    from clarion.corpus.store import load_corpus
+    from clarion.formats.render import render_document
+    from clarion.metrics.terminology import load_policy
+    from clarion.runner import _blank, token_matrix
+
+    config = RunConfig(
+        name="token-parity",
+        formats=["cliff"],
+        arms=["bare", "context"],
+        spec_location="split",
+        spec_reference=True,
+        include_policy=True,
+        allow_glossary_output=True,
+        workflow_style="deliverable",
+    )
+    corpus = load_corpus("fixture", root=corpus_root)
+    tokenizer = get_tokenizer(config.tokenizer)
+    policy = load_policy(config.target_language)
+
+    rows = token_matrix(config, corpus, tokenizer=tokenizer, policy=policy)
+    assert rows, "the token matrix produced no rows"
+
+    corpus_file = corpus.files[0]
+    for row in rows:
+        arm = Arm(row["arm"])
+        # The same projection the matrix applies: the task document has every
+        # target blanked, which is what changes the prompt's token count.
+        task_document = _blank(corpus_file, arm)
+        document_text = render_document(task_document, row["format"], arm=arm)
+        bundle = build_translation_prompt(
+            document_text=document_text,
+            format_id=row["format"],
+            tokenizer=tokenizer,
+            source_language=corpus_file.source_language,
+            target_language=corpus_file.target_language,
+            arm=arm.value,
+            spec_location=config.spec_location,
+            spec_reference=config.spec_reference,
+            glossary_text="",
+            policy_fragment=policy.prompt_fragment(),
+            document=task_document,
+            allow_glossary_output=config.allow_glossary_output,
+            workflow_style=config.workflow_style,
+        )
+        assert row["prompt_tokens"] == bundle.budget.total, (
+            f"{row['format']}/{row['arm']}: the token matrix and the translation "
+            f"prompt disagree ({row['prompt_tokens']} vs {bundle.budget.total})"
+        )
+        # The reference specification is what makes the CLIFF row look expensive,
+        # and it is exactly what the old argument list lost.
+        assert bundle.budget.tokens_of("spec.reference") > 0
 
 
 def test_glossary_candidates_and_merge(sample_document, sample_glossary) -> None:

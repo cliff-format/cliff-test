@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
 from ..formats.parse import parse_back
+from ..formats.read_mode import DEFAULT_READ_MODE, is_tolerant
 from ..formats.validity import check_validity
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
@@ -30,6 +31,10 @@ class StructureReport:
     parsed: bool
     valid: bool
     unwrapped: bool = False
+    #: Which reading of the answer produced ``parsed``/``valid``, and how many
+    #: Appendix C repairs the tolerant reading needed (always 0 under strict).
+    read_mode: str = DEFAULT_READ_MODE
+    repairs: int = 0
     expected_entries: int = 0
     returned_entries: int = 0
     matched_ids: list[str] = field(default_factory=list)
@@ -69,6 +74,8 @@ class StructureReport:
             "parsed": self.parsed,
             "valid": self.valid,
             "unwrapped": self.unwrapped,
+            "read_mode": self.read_mode,
+            "repairs": self.repairs,
             "expected_entries": self.expected_entries,
             "returned_entries": self.returned_entries,
             "id_preservation": round(self.id_preservation, 6),
@@ -88,14 +95,19 @@ def evaluate_structure(
     format_id: str,
     *,
     bilingual: bool = True,
+    read_mode: str = DEFAULT_READ_MODE,
 ) -> tuple[StructureReport, dict[str, str], CliffDocument | None]:
     """Score an answer structurally and return the targets it produced.
 
     The second element maps entry id to translated text and is what the
     quality, terminology and instruction-following metrics consume.
+
+    ``read_mode`` selects the CLIFF reading used for both the validity check and
+    the read-back, so the two can never disagree about the same answer.
     """
-    validity = check_validity(answer_text, format_id)
-    outcome = parse_back(answer_text, format_id)
+    tolerant = is_tolerant(read_mode)
+    validity = check_validity(answer_text, format_id, tolerant=tolerant)
+    outcome = parse_back(answer_text, format_id, read_mode=read_mode)
     glossary_document = outcome.glossary
 
     expected: dict[str, str] = {}
@@ -108,6 +120,8 @@ def evaluate_structure(
         parsed=outcome.ok,
         valid=validity.ok,
         unwrapped=validity.unwrapped or outcome.unwrapped,
+        read_mode=read_mode,
+        repairs=max(outcome.repairs, validity.repairs),
         expected_entries=len(expected),
         errors=[f"{d.line}: {d.message}" for d in validity.errors],
     )

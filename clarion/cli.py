@@ -22,6 +22,7 @@ from . import FULL_NAME, NAME, __version__
 from .config import RunConfig, load_config
 from .corpus.lint import lint_file
 from .corpus.store import load_corpus
+from .formats.read_mode import READ_MODES
 from .formats.registry import FORMATS
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
@@ -52,6 +53,8 @@ def _config_from_args(args: argparse.Namespace) -> RunConfig:
         overrides["tokenizer"] = args.tokenizer
     if getattr(args, "repeats", None):
         overrides["repeats"] = args.repeats
+    if getattr(args, "read_mode", None):
+        overrides["read_mode"] = args.read_mode
     return load_config(getattr(args, "config", None), **overrides)
 
 
@@ -459,6 +462,17 @@ def build_parser() -> argparse.ArgumentParser:
         target.add_argument("--arms", nargs="*", choices=["bare", "context"], default=None)
         target.add_argument("--tokenizer", default=None)
         target.add_argument("--repeats", type=int, default=None)
+        target.add_argument(
+            "--read-mode",
+            dest="read_mode",
+            choices=list(READ_MODES),
+            default=None,
+            help=(
+                "how a CLIFF answer is read back: 'tolerant' applies the documented "
+                "relaxations of specification Appendix C and counts each repair "
+                "(default); 'strict' is the reference-toolchain reading"
+            ),
+        )
 
     corpus_parser = subparsers.add_parser("corpus", help="corpus inspection")
     corpus_sub = corpus_parser.add_subparsers(dest="corpus_command", required=True)

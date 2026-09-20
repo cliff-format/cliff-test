@@ -34,6 +34,12 @@ SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples"
 #: tolerant parsing repairs shape, never content.
 UNREPAIRABLE = {"unrepairable.zh-CN.cliff"}
 
+#: Answers that hold more than one CLIFF document - a translated file plus the
+#: glossary the terminology workflow produced. Splitting them is part of reading
+#: an answer back, and the splitter must accept either version line, so the
+#: sample deliberately pairs a 1.0 translation with a 1.1 glossary.
+MULTI_DOCUMENT = FIXTURES / "tolerant" / "two-documents.txt"
+
 
 def run(cmd: list[str]) -> tuple[int, str]:
     proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace")
@@ -108,6 +114,18 @@ def main() -> int:
     )
     if not unrepairable:
         print("WARNING: no tolerant counter-example found; Appendix C.5 is untested")
+
+    print("== an answer holding two documents (translation + glossary) ==")
+    if MULTI_DOCUMENT.exists():
+        ok = run_suite(
+            "multi-document answer",
+            ["--multi-document", str(MULTI_DOCUMENT)],
+            expect_success=True,
+            ok=ok,
+        )
+    else:
+        print(f"WARNING: {MULTI_DOCUMENT} not found; document splitting is untested")
+        ok = False
 
     print("== token benchmark ==")
     rc, out = run([sys.executable, str(ROOT / "tools/token_benchmark.py")])

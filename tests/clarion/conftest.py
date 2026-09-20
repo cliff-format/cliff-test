@@ -11,7 +11,7 @@ from clarion.paths import ensure_cliff_format
 
 ensure_cliff_format()
 
-SAMPLE_CLIFF = """CLIFF 1.0
+SAMPLE_CLIFF = """CLIFF 1.1
 namespace: clarion
 clan: fixture
 source-language: en-US
@@ -54,7 +54,7 @@ status: final
 context: "Token must stay in Latin script."
 """
 
-SAMPLE_GLOSSARY = """CLIFF 1.0
+SAMPLE_GLOSSARY = """CLIFF 1.1
 namespace: clarion
 clan: fixture-terms
 source-language: en-US

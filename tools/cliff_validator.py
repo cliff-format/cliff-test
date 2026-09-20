@@ -608,7 +608,7 @@ class Document:
                         idx,
                         "semantic",
                         f"unsupported CLIFF version '{unsupported.group(1)}'; "
-                        "this implementation implements 1.0, 1.1",
+                        "this implementation implements CLIFF 1.0 and CLIFF 1.1",
                         raw,
                     )
                     seen_version = True
@@ -616,7 +616,8 @@ class Document:
                 # The version line is invalid or missing: report the first
                 # non-blank non-comment line and keep parsing as tolerant input.
                 self.issue(idx, "syntax",
-                           "version line 'CLIFF 1.1' must be the first non-blank, non-comment line",
+                           "version line 'CLIFF 1.0' or 'CLIFF 1.1' must be the first "
+                           "non-blank, non-comment line",
                            raw)
                 seen_version = True
                 if re.match(r"^[ \t]*CLIFF\b", line, re.IGNORECASE):
@@ -1288,6 +1289,75 @@ def style_issues(doc: Document, text: str) -> list[Issue]:
     return issues
 
 
+def multi_document_issues(text: str) -> list[Issue]:
+    """Validate an answer that legitimately holds more than one CLIFF document.
+
+    A translator following the terminology workflow returns the translated file
+    *plus* a 'variant: glossary' file in one answer (specification 13.2.2), and
+    the harness splits such an answer on the version line. Concatenating two
+    valid documents is not one valid document, so this mode validates each part
+    on its own and reports the others as valid rather than as failures. The
+    splitter is the same one the harness uses, so a document the splitter cannot
+    find is reported as the syntax error it is.
+    """
+    try:
+        import cliff_format  # noqa: PLC0415 - optional, resolved at call time
+    except ModuleNotFoundError as exc:  # pragma: no cover - environment dependent
+        raise SystemExit(
+            "error: --multi-document requires cliff_format (install cliff-python, or\n"
+            "       run with PYTHONPATH pointing at cliff-python/src)."
+        ) from exc
+
+    # The splitter lives in the harness, and there must be exactly one of it: a
+    # second copy here could drift from the one that actually reads answers.
+    root = str(Path(__file__).resolve().parents[1])
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    from clarion.formats.parse import split_cliff_documents
+
+    issues: list[Issue] = []
+    parts = split_cliff_documents(text)
+    if len(parts) < 2:
+        return [Issue(1, "semantic", "the answer holds fewer than two CLIFF documents", "")]
+    offset = 0
+    for index, part in enumerate(parts, start=1):
+        try:
+            document = cliff_format.parse(part)
+        except cliff_format.CliffParseError as exc:
+            issues.append(
+                Issue(
+                    getattr(exc, "line", 0) + offset,
+                    exc.category if exc.category else "syntax",
+                    f"document {index} of {len(parts)}: {exc.message}",
+                    exc.text,
+                )
+            )
+            offset += part.count("\n") + 1
+            continue
+        for issue in cliff_format.validate_document(document):
+            issues.append(
+                Issue(
+                    issue.line + offset,
+                    issue.category,
+                    f"document {index} of {len(parts)}: {issue.message}",
+                    issue.text,
+                )
+            )
+        offset += part.count("\n") + 1
+    return issues
+
+
+def split_count(text: str) -> list[str]:
+    """The documents a multi-document answer holds, for the summary line."""
+    try:
+        import cliff_format  # noqa: F401, PLC0415
+
+        from clarion.formats.parse import split_cliff_documents
+    except ModuleNotFoundError:  # pragma: no cover - reported by the checker
+        return []
+    return split_cliff_documents(text)
+
+
 def validate_file(
     path: Path,
     check_width: bool,
@@ -1295,6 +1365,7 @@ def validate_file(
     check_layout: bool = False,
     style: bool = False,
     tolerant: bool = False,
+    multi_document: bool = False,
 ) -> tuple[Document, bool]:
     doc = Document(path)
     try:
@@ -1307,6 +1378,13 @@ def validate_file(
     except UnicodeDecodeError as exc:
         doc.issue(0, "syntax", f"file is not valid UTF-8: {exc}")
         return doc, False
+    if multi_document:
+        # Replaces every other reading: the question here is "is each document
+        # in this answer valid on its own", not "is the concatenation valid".
+        doc.load(text)
+        doc.issues = multi_document_issues(text)
+        errors = [i for i in doc.issues if i.cls not in ADVISORY_CLASSES]
+        return doc, len(errors) == 0
     doc.load(text)
     doc.check_width = check_width
     doc.check_layout = check_layout
@@ -1364,6 +1442,15 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="repair the Appendix C deviations with cliff_format and report each repair",
     )
+    ap.add_argument(
+        "--multi-document",
+        action="store_true",
+        help=(
+            "validate an answer that holds more than one CLIFF document (a "
+            "translation plus the glossary the terminology workflow produced), "
+            "splitting it on the version line and checking each part on its own"
+        ),
+    )
     ap.add_argument("--json", action="store_true", help="emit JSON results")
     ap.add_argument("--ids", action="store_true", help="print canonical ids")
     args = ap.parse_args(argv)
@@ -1387,6 +1474,7 @@ def main(argv: list[str] | None = None) -> int:
             check_layout=args.check_layout,
             style=args.style,
             tolerant=args.tolerant,
+            multi_document=args.multi_document,
         )
         results.append({"path": str(path), "valid": ok, "issues": [dataclasses.asdict(i) for i in doc.issues]})
         if not ok:
@@ -1402,9 +1490,12 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"{path}: {cid['canonical_id']} [{emotion}]")
         errors = sum(1 for i in doc.issues if i.cls not in ADVISORY_CLASSES)
         advisories = sum(1 for i in doc.issues if i.cls in ADVISORY_CLASSES)
+        if args.multi_document:
+            scope = f"{len(split_count(text))} documents" if (text := path.read_text(encoding="utf-8", errors="replace")) else "0 documents"
+        else:
+            scope = f"{len(doc.sections)} sections, {len(doc.entries)} entries"
         print(f"{path}: {'VALID' if ok else 'INVALID'} "
-              f"({len(doc.sections)} sections, {len(doc.entries)} entries, "
-              f"{advisories} warnings, {errors} errors)")
+              f"({scope}, {advisories} warnings, {errors} errors)")
         if not ok:
             print()
 
