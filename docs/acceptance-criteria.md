@@ -144,8 +144,44 @@ exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
 | C6.5 | instruction-following, plain / context | **79.5% / 83.0%** | json-cliff 76.8% / json-cliff 83.4% | rule engine over the gold manifests |
 | C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
 | C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
-| C6.8 | still valid after edits, bare / context | **100.0% / 83.3%** | android 100% / 100% | see the reading note below |
+| C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run at the shipped settings (see below); was 100.0% / 83.3% |
 | C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
+
+### C6.8 re-run: the prompt redesign, and what it fixed
+
+After the two prompt pilots the shipped configuration moved to
+`temperature: 1.3` (DeepSeek's recommended translation temperature, and what the
+production plugin uses) and `prompt_style: examples` (the specification text
+replaced by the key/scope facts plus two conforming documents; 20 739 → 2 510
+prompt tokens per cell). Dimension 7 was then re-run through
+`run_robustness_matrix` over the `ui` stratum, 2 passes × 12 edits, 240 calls:
+
+| format | arm | still valid % | invented-key failures | repairs |
+| --- | --- | ---: | ---: | ---: |
+| **cliff** | bare | **100.0** | 0 | 0 |
+| **cliff** | context | **100.0** (was 83.3) | **0** (was 2) | 44 |
+| xliff-2.1 | bare | 59.5 | 0 | 0 |
+| xliff-2.1 | context | 62.5 | 0 | 0 |
+| other eight formats | both | 100.0 | 0 | 0 |
+
+The `cliff/context` failures were the invented keys of the previous run
+(`translator-context`, `ref`, `source-ref`, `status` in a group section); D7's
+edit prompt had carried no CLIFF content at all, so the model named the fields
+itself. With the field names and scopes stated, **no edit in the run invented a
+key**, and the 44 remaining repairs — all on `set-target`, `add-reference`,
+`rename-entry`, `set-context`, `move-entry`, `set-emotion`, `set-status` — were
+absorbed by the tolerant reader rather than failing. The isolated effect is
+measured separately: 18.8 % → 0 % invented-key failures over 48 edits per
+condition, Fisher exact p = 0.0129
+([clarion-prompt-design.md](clarion-prompt-design.md)).
+
+**The XLIFF rows are not comparable across the two runs and must not be read as a
+CLIFF improvement.** The prompt change touches CLIFF only, and every XLIFF failure
+is an XML parse error in a document the model rewrote wholesale — at temperature
+1.3 the sampling variance breaks it, while at 0.0 the single deterministic answer
+happened to be well-formed. With one run at each temperature, this dataset cannot
+separate the format from the decoder; a repeat-spread measurement is required
+before any XLIFF claim.
 
 **No `truncated` runs** (0.0% in every cell), so the rows measure the format,
 not the output budget.

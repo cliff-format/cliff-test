@@ -164,3 +164,44 @@ is a prompt problem, a lost escape is output degradation.
    document** (fewer entries per call), since that is what the observed failure
    mode responds to. That is a change to the task, so it belongs in its own arm
    and must not be mixed into the format comparison.
+
+## The D7 re-run at the shipped settings
+
+Both defaults were changed after the pilots — `temperature: 1.3` and
+`prompt_style: examples` — and dimension 7 was re-run through the real matrix
+(`run_robustness_matrix`, not a stand-in) over the configured `ui` stratum,
+2 passes × 12 edits, 240 model calls.
+
+| format | arm | still valid % | intent applied % | invented-key failures | repairs |
+| --- | --- | ---: | ---: | ---: | ---: |
+| **cliff** | bare | **100.0** | 100.0 | **0** | 0 |
+| **cliff** | context | **100.0** (was 83.3) | 98.6 | **0** (was 2) | 44 |
+| xliff-2.1 | bare | 59.5 (was 100.0) | 59.5 | 0 | 0 |
+| xliff-2.1 | context | 62.5 (was 55.6) | 48.6 | 0 | 0 |
+| the other eight formats | both arms | 100.0 | 70.8–100.0 | 0 | 0 |
+
+CLIFF's context arm moved from 83.3 % to **100.0 % still valid with no invented
+key anywhere in the run**. All 44 repairs were absorbed by the tolerant reader
+and none became a failure, on exactly the operations that require the model to
+*create* a field: `set-target` 18, `add-reference` 6, `rename-entry` 6,
+`set-context` 6, `move-entry` 4, `set-emotion` 2, `set-status` 2. That is the
+division of labour the design intends — the prompt gets the key names right, and
+the tolerant reader absorbs the shapes.
+
+**The XLIFF change is not attributable to the prompt.** The prompt change touches
+CLIFF only, and every XLIFF failure is an XML parse error
+(`not well-formed (invalid token)`, clustered at a few fixed columns of a
+reformatted document). XLIFF asks the model to rewrite a whole XML document per
+edit, so at temperature 1.3 the sampling variance breaks it; at 0.0 the single
+deterministic answer happened to be well-formed, which is why the earlier
+100 % was recorded. The honest reading is that **the earlier XLIFF row was one
+lucky sample of a fragile process**, and that D7's cross-format comparison is far
+more temperature-sensitive than the recorded 0.0 numbers made it look. A
+re-run-to-re-run spread should be reported before any XLIFF claim is made.
+
+Also visible once the failures stop dominating: **valid-but-ignored edits**, where
+the file stayed valid but the instruction did not take (the mock's failure mode in
+reverse). These are concentrated in the context arm and differ sharply by format —
+json-plain 21/72, json-cliff 9/72, csv 6/72 against CLIFF 1/72 and the Android /
+iOS / Fluent bare arms at 0. It is the reason both numbers are always reported
+together.
