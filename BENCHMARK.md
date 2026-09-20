@@ -21,15 +21,19 @@ MIT-licensed, with:
 - **Model**: deepseek-v4-flash, temperature 0, reasoning off, 3 repeats per cell, one endpoint,
   2026-09-02. **Formats**: CLIFF, XLIFF 2.1, PO, Fluent, JSON-CLIFF, plain JSON, YAML-CLIFF, CSV,
   Android, iOS — exactly the formats cliff-python converts.
-- **Corpus**: CLARION-Core 0.3.0, 16 documents, 392 entries (UI, news, literature, legal, game,
-  probe strata), mixed context origins (original / native / annotated), licensed CC0/MIT/Apache-2.0
-  with per-file SPDX headers.
+- **Corpus**: CLARION-Core 0.3.0, 16 standard documents plus 2 `variant: glossary` term files
+  (18 `.cliff` files), 392 entries (UI, news, literature, legal, game, probe strata), mixed context
+  origins (original / native / annotated), licensed CC0/MIT/Apache-2.0 with per-file SPDX headers.
 - **Two arms**: `bare` (what a project ships today — identifier + source) vs `context` (the same
   content carrying the full context payload — info/standard/context/type/emotion/max-width — expressed
   in each format own native channel: PO comments and msgctxt, XLIFF metadata/notes, Fluent comments,
   CSV columns, JSON/YAML fields; never hand-waved).
 - **Strict reading**: an answer the official parser reads back without a translation scores 0; a run
   that does not parse scores 0. No repair loop is assumed; permissive parsing is granted to no format.
+  CLIFF 1.1 Appendix C also defines the other, documented reading — what an automated pipeline would
+  salvage — and the harness can produce both (`read_mode` in the run configuration, reported per row
+  as `repairs`). This bundle reports the strict reading, which is the harsher and the more comparable
+  one.
 - **Independent metric**: MetricX-23-QE-Large (WMT-23 QE family, Apache-2.0) scores every segment
   from source + hypothesis only — no reference translation, no human sign-off involved. This is the
   WMT-QE style measurement that is authoritative without human annotation.
@@ -39,10 +43,10 @@ MIT-licensed, with:
 | format | doc tokens | per entry | vs CLIFF | prompt (incl. CLIFF spec block) | prompt w/o spec block |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | android | 41 228 | 105.2 | +69.5% | 50 630 | 49 974 |
-| cliff | 24 322 | 62.0 | — | 263 743 | 228 559 |
+| cliff | 24 322 | 62.0 | — | 347 007 | 300 575 |
 | csv | 28 908 | 73.7 | +18.9% | 37 913 | 37 417 |
-| fluent | 37 491 | 95.6 | +54.1% | 46 733 | 46 237 |
-| ios | 39 186 | 100.0 | +61.1% | 48 476 | 47 932 |
+| fluent | 37 099 | 94.6 | +52.5% | 46 341 | 45 845 |
+| ios | 38 794 | 99.0 | +59.5% | 48 084 | 47 540 |
 | json-cliff | 26 388 | 67.3 | +8.5% | 35 377 | 34 897 |
 | json-plain | 20 647 | 52.7 | **-15.1%** | 30 097 | 29 393 |
 | po | 24 218 | 61.8 | -0.4% | 33 143 | 32 727 |
@@ -54,17 +58,26 @@ component and subtracted in the last column — the asymmetry is considered, nev
 form a bare key/value JSON is cheaper than CLIFF by 15%: that is the cost of the mandatory type/status
 fields, i.e. the minimum context CLIFF cannot go below — by design.
 
+**Correction (this revision).** The CLIFF prompt totals above were previously 263 743 / 287 864.
+`token_matrix` built its prompt without `allow_glossary_output` and `workflow_style`, so it priced a
+CLIFF prompt that no arm actually sends: the terminology-workflow block was dropped, and with
+`spec_reference` on, the reference specification appended only to the CLIFF prompt (16 316 tokens per
+cell) was charged to no row at all. Every non-CLIFF row was correct. The document-token columns are
+unaffected (they count the rendered file, not the prompt). `tests/clarion/test_tools.py` now asserts
+that the token matrix and the translation arms build the same prompt, argument for argument, so the two
+cannot drift again.
+
 ## 3. Token cost — same context payload carried (context form)
 
 | format | doc tokens | per entry | vs CLIFF | prompt (incl. CLIFF spec) | prompt w/o spec |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| cliff | 47 499 | 121.2 | — | 287 864 | 252 680 |
+| cliff | 47 499 | 121.2 | — | 371 128 | 324 696 |
 | yaml-cliff | 52 753 | 134.6 | +11.1% | 62 686 | 62 206 |
 | json-cliff | 57 696 | 147.2 | +21.5% | 67 629 | 67 149 |
-| po | 62 450 | 159.3 | +31.5% | 72 319 | 71 903 |
-| json-plain | 62 986 | 160.7 | +32.6% | 73 380 | 72 676 |
+| po | 61 309 | 156.4 | +29.1% | 71 178 | 70 762 |
+| json-plain | 61 805 | 157.7 | +30.1% | 72 199 | 71 495 |
 | ios | 75 766 | 193.3 | +59.5% | 86 000 | 85 456 |
-| fluent | 75 914 | 193.7 | +59.8% | 86 100 | 85 604 |
+| fluent | 74 341 | 189.6 | +56.5% | 84 527 | 84 031 |
 | android | 77 805 | 198.5 | +63.8% | 88 151 | 87 495 |
 | xliff-2.1 | 106 156 | 270.8 | +123.5% | 116 297 | 115 609 |
 | csv | 140 693 | 358.9 | +196.2% | 150 642 | 150 146 |

@@ -210,6 +210,63 @@ replay (the reference edit applied to the data model) runs the same protocol
 with no model, which is how the harness proves its own validators agree with
 its own renderers.
 
+## 9.1 Reading a model answer back: strict or tolerant
+
+CLIFF 1.1 defines a tolerant parsing mode for exactly one consumer: an
+automated translation pipeline that must not lose a translation because a model
+punctuated a line differently (specification Appendix C). CLARION is that
+consumer, so `read_mode: tolerant` is the shipped default, and `strict` is one
+configuration key away.
+
+The two readings answer different questions, and neither replaces the other:
+
+| Reading | The question it answers | What a failure means |
+| --- | --- | --- |
+| `strict` | would the project's own toolchain accept these bytes? | the answer is not valid CLIFF as written |
+| `tolerant` | how much of this answer is usable? | Appendix C.5 was hit — content the parser must not invent |
+
+The mode is not a footnote. It is recorded on every row — `read_mode` plus
+`repairs`, the number of documented repairs the tolerant read made — in the
+translation records, the robustness outcomes and the fidelity records, and the
+D3/D4/D7 tables carry both as columns (Appendix C.1 requires the mode in effect
+to be observable by the caller; C.6 requires every repair to be reported).
+
+Three consequences worth stating plainly:
+
+1. **A repair is not free and not hidden.** The repairs are exactly the six of
+   Appendix C.2 — a bare scalar in a list-typed field, a repeated field, a quoted
+   tag, a quoted entry id, an identifier containing a reserved character, a
+   version line spelled differently. The `repairs` column prices the answer's
+   untidiness; a format whose answers need many repairs is doing less well than
+   one whose answers need none, even when both finally parse.
+2. **A trailing `,` / `;` is not a repair.** It is standard CLIFF 1.1 syntax
+   (5.6), discarded before the line is classified, and reporting it as a repair
+   would inflate the count for a habit the specification deliberately tolerates.
+   A test asserts this.
+3. **The tolerant read still refuses what Appendix C.5 forbids**: a missing
+   `source`, `status` or effective `type`, a `status` that contradicts the
+   presence of `target`, an unbalanced ICU brace, a tag outside its closed
+   vocabulary, an unknown non-`x-` key, a line that is none of the six line
+   kinds, a document over a resource limit, or an unimplemented version. The
+   mode preserves information; it never guesses it.
+
+Two behaviours are decided here rather than left open:
+
+- **Collisions are rejected, not renamed.** Appendix C.4 lets an implementation
+  either rename a colliding identifier (`-2`, `-3`, …) or reject the document.
+  CLARION takes the rejection path, because §10.2 makes a duplicate canonical ID
+  a validity error in both readings and a silent rename would hide exactly the
+  data loss this mode exists to prevent.
+- **An answer may hold two documents.** The terminology workflow lets a
+  translator return the translated file plus a glossary, so the harness splits
+  an answer on the version line (either 1.0 or 1.1) and validates each document
+  on its own: concatenating two valid documents is not one valid document.
+  `tools/cliff_validator.py --multi-document` exposes the same reading
+  standalone.
+
+When a report quotes "valid answer %", it is quoting one of the two readings,
+and the table says which.
+
 ## 10. Statistics
 
 - The design is paired: identical segments, identical model, one variable.
@@ -227,8 +284,8 @@ its own renderers.
   instrument, and its anchor is sobering: an improvement of about 1 BLEU buys
   only roughly 65 percent agreement with human preference. Report the interval
   and the converted accuracy, never a self-invented threshold.
-- CLARION-Core is deliberately small (about 111 entries in version 0.1.0),
-  which is the small end of the studied regime. Treat a single-run difference
+- CLARION-Core is small on purpose - 392 entries across 16 documents in 0.3.0
+  - which is the small end of the studied regime. Treat a single-run difference
   as a hypothesis, and widen the corpus through the recipes before publishing
   a claim.
 
@@ -246,12 +303,14 @@ much less harmful to the *ranking of formats*, which is what CLARION claims.
 
 ## 12. Corpus
 
-[CLARION-Core](../datasets/clarion-core/) covers five strata - UI strings,
-news and social text, classical and modern literature, legal and academic
-text, and game dialogue and screenplay. Version 0.1.0 is entirely original
-CC0 text, which makes it redistributable and contamination-free; external
-corpora are added through [recipes](../datasets/recipes/recipes.json) with
-their licences and vendoring tier attached. See
+[CLARION-Core](../datasets/clarion-core/) covers six strata - UI strings, news
+and social text, classical and modern literature, legal and academic text, game
+dialogue and screenplay, and a minimal-pair probe set. Version 0.3.0 holds 16
+standard documents (392 entries) and two `variant: glossary` term files; the
+authored text is original CC0, which makes it redistributable and
+contamination-free, and external corpora are added through
+[recipes](../datasets/recipes/recipes.json) with their licences and vendoring
+tier attached. See
 [DATA-LICENSES.md](../datasets/clarion-core/DATA-LICENSES.md).
 
 ## 12.1 Importing an external corpus
@@ -271,7 +330,7 @@ every item records where its context came from:
 | `native` | the upstream project wrote it: gettext `#.` comments, `#:` references, `msgctxt`, Fluent comment levels, MASSIVE intents | the strongest material for the context arm |
 | `derived` | computed deterministically from metadata the corpus already ships: document ids become groups, domain labels become group context, neighbouring segments become document context, placeholder detection adds an integrity note | safe, reproducible, publishable |
 | `annotated` | written by a model in a separate annotation pass | opt-in, marked, and a hypothesis until a human signs it off |
-| `original` | written by hand together with the text, as in CLARION-Core 0.1.0 | the reference standard |
+| `original` | written by hand together with the text, as in the authored part of CLARION-Core | the reference standard |
 
 ### The annotation pass
 
@@ -373,8 +432,11 @@ Two settings matter for cost and honesty:
   the failure looked like an empty response with `finish_reason: length`.
   Unparsable batches are halved and retried before being given up.
 - **The annotator should be a different model** from the system under test.
-  The shipped configuration annotates with `deepseek-v4-pro` and measures
-  `deepseek-v4-flash`.
+  The shipped configuration annotates and measures with the same model
+  (`deepseek-flash`), because the run is budgeted for one endpoint; every
+  report therefore prints the pairing, and the `context source` column says
+  which rows carry annotated briefs. A context-arm gain measured on annotated
+  context is the weaker claim.
 
 ## 13. Reproducibility
 

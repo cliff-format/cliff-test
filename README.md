@@ -159,13 +159,13 @@ any model class, including a Flash-class model.
 
 ### CLARION corpus-scale token cost
 
-Measured over CLARION-Core (6 documents, 111 entries, `tiktoken o200k_base`,
-`python -m clarion tokens`), counting the document payload only:
+Measured over CLARION-Core 0.3.0 (16 standard documents, 392 entries, `tiktoken
+o200k_base`, `python -m clarion tokens`), counting the document payload only:
 
 | Arm | CLIFF | cheapest competitor | most expensive competitor |
 | --- | ---: | --- | --- |
-| plain (D1) | 4 907 | json-plain 3 873 (-21%) | android 7 815 (+59%) |
-| context (D2) | 8 065 | yaml-cliff 9 223 (+14%) | csv 23 331 (+189%) |
+| plain (D1) | 24 322 | json-plain 20 647 (-15%) | android 41 228 (+70%) |
+| context (D2) | 47 499 | yaml-cliff 52 753 (+11%) | csv 140 693 (+196%) |
 
 In the plain arm a bare key/value JSON file is cheaper than CLIFF, because it
 carries nothing else. As soon as the same translation brief has to travel with
@@ -173,6 +173,14 @@ the strings, CLIFF is the cheapest format in the comparison, and the gap widens
 with the amount of context. Full tables:
 [results/clarion-core-tokens.md](results/clarion-core-tokens.md) after running
 the command.
+
+The same command also prices the *prompt* each arm sends, component by
+component. Read that column with care: CLIFF's prompt carries the specification
+digest and the full reference specification, which no other format needs, so
+CLIFF's prompt is the most expensive in both arms while its document is among
+the cheapest. That asymmetry is measured and subtracted rather than hidden — and
+it was under-measured until this revision (see the correction note in
+[BENCHMARK.md](BENCHMARK.md)).
 
 ## Relation to the specification
 

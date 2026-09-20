@@ -13,15 +13,19 @@ Two files carry it:
 
 | File | Role |
 | --- | --- |
-| `<file-id>.<target-language>.cliff` | A specification-valid CLIFF 1.0 document. Its `target` fields are the reference translations. |
+| `<file-id>.<target-language>.cliff` | A specification-valid CLIFF 1.1 document. Its `target` fields are the reference translations. |
 | `<file-id>.gold.json` | Provenance, licence, verification state, alternative references, difficulty, tags and instruction rules. |
 
 The harness blanks every `target` before it builds a prompt, so the corpus and
 the gold can never drift apart.
 
-Optional per stratum: `glossary.<target-language>.cliff`, a CLIFF file with
-`variant: glossary`. Any file whose name contains `glossary` is loaded as the
-stratum glossary and is attached to prompts in the context arm.
+Optional per stratum: a CLIFF file with `variant: glossary` holding that
+stratum's canonical terminology. **The loader keys on the header, not the file
+name** — any file declaring `variant: glossary` is loaded as the stratum
+glossary and is attached to prompts in the context arm. Name it after the clan
+it serves, as the specification recommends (13.2.1): `ui-console-terms.zh-CN.cliff`
+for the clan `ui-console`. The names below are the recommendation, not a
+requirement.
 
 ## 2. Directory layout
 
@@ -29,12 +33,16 @@ stratum glossary and is attached to prompts in the context arm.
 datasets/clarion-core/
   manifest.json              already exists, do not rewrite it
   DATA-LICENSES.md           already exists
-  ui/    ui-console.zh-CN.cliff    ui-console.gold.json    glossary.zh-CN.cliff
+  ui/    ui-console.zh-CN.cliff    ui-console.gold.json    ui-console-terms.zh-CN.cliff
   news/  news-wire.zh-CN.cliff     news-wire.gold.json
   lit/   lit-classical.en-US.cliff lit-classical.gold.json
   legal/ legal-terms.zh-CN.cliff   legal-terms.gold.json
-  game/  game-shard.zh-CN.cliff    game-shard.gold.json    glossary.zh-CN.cliff
+  game/  game-shard.zh-CN.cliff    game-shard.gold.json    game-shard-terms.zh-CN.cliff
 ```
+
+`legal/` and `probe/` carry no `ATTRIBUTION.md`: their text was written for the
+corpus and is CC0-1.0, so there is no upstream to attribute. A stratum needs one
+only when it imports text from somewhere else.
 
 The gold manifest name is the CLIFF file name up to the first dot, plus
 `.gold.json`. `ui-console.zh-CN.cliff` therefore pairs with
@@ -43,7 +51,7 @@ The gold manifest name is the CLIFF file name up to the first dot, plus
 ## 3. CLIFF rules you must follow
 
 ```cliff
-CLIFF 1.0
+CLIFF 1.1
 namespace: clarion
 clan: ui-console
 source-language: en-US
@@ -51,7 +59,7 @@ target-language: zh-CN
 title: "Short description of the family"
 info: "Who the audience is, what the product is, anything the whole file needs."
 standard: "Translation policy lines: naming, register, punctuation, spacing."
-dependency: ["glossary.zh-CN.cliff"]
+dependency: ["ui-console-terms.zh-CN.cliff"]
 
 [settings.video]
 context: "Where these strings appear and what the user is doing."
@@ -68,12 +76,16 @@ context: "Dropdown label above the resolution list."
 
 Hard requirements:
 
-1. First line is exactly `CLIFF 1.0`.
+1. The version line is `CLIFF 1.1`, and it is the first non-comment, non-blank
+   line. An imported file may keep its licence comment block above it.
 2. `namespace`, `clan`, `source-language`, `target-language` are required.
    `namespace` is `clarion`; `clan` is the file id (`ui-console`).
 3. The file name must agree with the header: `<clan>.<target-language>.cliff`.
-4. An entry starts with `<entry-id>` on its own line. Entry ids are lowercase
-   kebab-case and unique in the file. There is no closing tag.
+4. An entry starts with `<entry-id>` on its own line. There is no closing tag.
+   An entry id is a *name* (5.5): `A`–`Z a–z 0–9 _ -`, never `.`, at least one
+   character, unique in the file. CLIFF 1.1 does not require kebab-case — that
+   is a style recommendation — but the corpus keeps one shape per file so ids
+   read uniformly.
 5. Every entry needs `source`, a `type` (directly or inherited from its
    section) and `status`. Corpus entries carry a reference translation, so
    `status: final`.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply 100 sequential CLIFF 1.0 edits to base.cliff."""
+"""Apply 100 sequential CLIFF 1.1 edits to base.cliff."""
 from __future__ import annotations
 
 import json

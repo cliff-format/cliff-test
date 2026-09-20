@@ -1,20 +1,20 @@
-# CLIFF 1.0 100-Edit Robustness Test
+# CLIFF 1.1 100-Edit Robustness Test
 
 Acceptance criterion: **an AI performing 100 sequential modifications to a
-CLIFF 1.0 translation file produces a structurally valid file after **all 100**
+CLIFF 1.1 translation file produces a structurally valid file after **all 100**
 edits. Any invalid intermediate file fails the robustness run.**
 
 ## Artifacts
 
 | File | Purpose |
 | --- | --- |
-| `base.cliff` | Valid CLIFF 1.0 starting document (10 entries, 3 groups) |
+| `base.cliff` | Valid CLIFF 1.1 starting document (10 entries, 3 groups) |
 | `tasks.json` | 100 sequential, realistic model-style edit tasks (one sentence instruction each) |
 | `apply_edits.py` | Deterministic agent-authored driver for the recorded 100-edit run |
 | `edits/NNN/settings.zh-CN.cliff` | One full document after each edit (NNN = 001..100) |
 | `report.md` | Validator results per edit |
 
-## Task mix (CLIFF 1.0)
+## Task mix (CLIFF 1.1)
 
 | Kind | Count | Exercises |
 | --- | --- | --- |

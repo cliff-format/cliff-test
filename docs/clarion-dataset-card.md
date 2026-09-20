@@ -6,12 +6,12 @@
 | --- | --- |
 | Name | CLARION-Core |
 | Version | 0.3.0 |
-| Size | 16 documents, 392 entries, 6 strata |
+| Size | 16 standard documents plus 2 `variant: glossary` term files (18 `.cliff` files), 392 entries, 6 strata |
 | Languages | en-US to zh-CN, plus zh-CN to en-US for the classical literature |
-| Format | CLIFF 1.0, validated by cliff-python |
+| Format | CLIFF 1.1, validated by cliff-python. The documents are deliberately not cliff-python's canonical output: the authors order fields the way a translator reads them, keep long header values as adjacent-string continuation lines, and keep the licence attribution block at the top of imported files. Every file is strictly valid and needs zero tolerant repairs. |
 | Licence | per item: CC0-1.0 for authored text, public domain for the classical literature, MIT and Apache-2.0 for the imported corpora |
-| Human verified | not yet: authored items are marked `human_verified: false` |
-| Contamination control | 232 entries are original text written for this benchmark and were never published before |
+| Human verified | partially: the 118 imported items carry `human_verified: true`; the authored items are marked `human_verified: false` until a reviewer signs them off |
+| Contamination control | 274 entries are original text written for this benchmark and were never published before |
 
 ## Composition
 
@@ -67,10 +67,11 @@ see [DATA-LICENSES.md](../datasets/clarion-core/DATA-LICENSES.md) and the
 
 ## Verification status
 
-`human_verified` is `false` for authored items. References were written to the
-house style and every attached rule passes against its own reference, but no
-qualified human reviewer has signed them off. Quality claims published from
-this corpus must say so.
+`human_verified` is `true` for the 118 imported items (Godot, WMT24++, and the
+two classical novels, whose paragraph alignment was checked) and `false` for the
+274 authored items. References were written to the house style and every attached
+rule passes against its own reference, but no qualified human reviewer has signed
+the authored ones off. Quality claims published from this corpus must say so.
 
     python -m clarion corpus stats
     python -m clarion corpus validate

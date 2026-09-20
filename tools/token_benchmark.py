@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Token-cost benchmark: CLIFF 1.0 vs XLIFF 2.1, JSON, CSV, gettext PO,
+"""Token-cost benchmark: CLIFF 1.1 vs XLIFF 2.1, JSON, CSV, gettext PO,
 Fluent, YAML, and TOML.
 
 Counts tokens with OpenAI-compatible tokenizer cl100k_base (tiktoken 0.13.0)
@@ -18,6 +18,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "tests" / "benchmark"
 FIXTURES = OUT_DIR / "fixtures"
+
+#: The row label CLIFF is measured and reported under. 1.1 is a pure relaxation
+#: of 1.0, so the corpus below is valid under either, but the row must name the
+#: specification the emitter actually writes on the version line.
+CLIFF_LABEL = "CLIFF 1.1"
 
 SAMPLE = {
     "namespace": "ironforge-rpg",
@@ -262,12 +267,12 @@ def glossary_pairs(s: dict):
 
 
 # ---------------------------------------------------------------------------
-# CLIFF 1.0 emitters (main standard file + separate glossary variant file)
+# CLIFF 1.1 emitters (main standard file + separate glossary variant file)
 # ---------------------------------------------------------------------------
 
 def emit_cliff_main(s: dict) -> str:
     lines = [
-        "CLIFF 1.0",
+        "CLIFF 1.1",
         f'namespace: {s["namespace"]}',
         f'clan: {s["clan"]}',
         f'source-language: {s["source_language"]}',
@@ -306,7 +311,7 @@ def emit_cliff_main(s: dict) -> str:
 
 def emit_cliff_glossary(s: dict) -> str:
     lines = [
-        "CLIFF 1.0",
+        "CLIFF 1.1",
         f'namespace: {s["namespace"]}',
         "clan: terms",
         f'source-language: {s["source_language"]}',
@@ -715,7 +720,7 @@ def emit_toml(s: dict) -> str:
 
 def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
                   fixtures_paths: list) -> None:
-    others = [name for name in order if name != "CLIFF 1.0"]
+    others = [name for name in order if name != CLIFF_LABEL]
     avg = sum(results[name]["tokens"] for name in others) / len(others)
     savings = (1 - cliff_tokens / avg) * 100
     verdict = "PASS" if savings >= 30 else "FAIL"
@@ -727,13 +732,13 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
         rows.append(f"| {name} | {r['tokens']} | {r['chars']} | {r['bytes']} | {pct:+.1f}% |")
 
     en_lines = [
-        "# CLIFF 1.0 Token Benchmark",
+        f"# {CLIFF_LABEL} Token Benchmark",
         "",
         f"- Corpus: {sum(len(g['entries']) for g in SAMPLE['groups'])} translation units across "
         f"{len(SAMPLE['groups'])} groups, with family info, standards, dependencies, glossary, "
         "per-entry type/emotion/status/max-width/context/reference, and ICU payloads.",
         f"- Tokenizer: {engine}.",
-        "- CLIFF token count = CLIFF 1.0 standard main file + the separate `variant: glossary` "
+        f"- CLIFF token count = {CLIFF_LABEL} standard main file + the separate `variant: glossary` "
         "dependency file. The glossary is semantically part of the CLIFF corpus and is counted "
         "as CLIFF's true single-workflow cost; every other format inlines the same three terms "
         "in its native syntax.",
@@ -746,7 +751,7 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
     en_lines.extend(rows)
     en_lines += [
         "",
-        f"CLIFF 1.0 uses **{cliff_tokens}** tokens (main + glossary). The average of the "
+        f"{CLIFF_LABEL} uses **{cliff_tokens}** tokens (main + glossary). The average of the "
         f"other seven formats is **{avg:.1f}** tokens. CLIFF saves **{savings:.1f}%** "
         "against that average.",
         "",
@@ -759,13 +764,13 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
     en_lines.append("")
 
     zh_lines = [
-        "# CLIFF 1.0 Token 基准",
+        f"# {CLIFF_LABEL} Token 基准",
         "",
         f"- 语料：{sum(len(g['entries']) for g in SAMPLE['groups'])} 个翻译单元，分布在 "
         f"{len(SAMPLE['groups'])} 个组中，包含家庭信息、规范、依赖、术语表、逐条 "
         "type/emotion/status/max-width/context/reference 和 ICU 载荷。",
         f"- 分词器：{engine}。",
-        "- CLIFF token 数 = CLIFF 1.0 标准主文件 + 单独的 `variant: glossary` 依赖术语表文件。"
+        f"- CLIFF token 数 = {CLIFF_LABEL} 标准主文件 + 单独的 `variant: glossary` 依赖术语表文件。"
         "术语表在语义上是 CLIFF 语料的一部分，按 CLIFF 的实际单工作流成本计入；其他每种格式"
         "都在其原生语法中内联同样的三条术语。",
         "- 可复现性：连续两次运行 `python tools/token_benchmark.py` 得到完全一致的 token 数"
@@ -780,7 +785,7 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
         zh_lines.append(f"| {name} | {r['tokens']} | {r['chars']} | {r['bytes']} | {pct:+.1f}% |")
     zh_lines += [
         "",
-        f"CLIFF 1.0 使用 **{cliff_tokens}** token（主文件 + 术语表）。其他 7 种格式平均为 "
+        f"{CLIFF_LABEL} 使用 **{cliff_tokens}** token（主文件 + 术语表）。其他 7 种格式平均为 "
         f"**{avg:.1f}** token。CLIFF 相对该平均值节省 **{savings:.1f}%**。",
         "",
         f"**结果：{verdict}**（门槛为相对其他 7 种格式平均值至少节省 30%）。",
@@ -802,7 +807,7 @@ def main() -> int:
     cliff_main_text = emit_cliff_main(SAMPLE)
     cliff_glossary_text = emit_cliff_glossary(SAMPLE)
     emitters = {
-        "CLIFF 1.0": lambda s: emit_cliff_main(s) + "\n" + emit_cliff_glossary(s),
+        CLIFF_LABEL: lambda s: emit_cliff_main(s) + "\n" + emit_cliff_glossary(s),
         "XLIFF 2.1": emit_xliff,
         "JSON": emit_json,
         "CSV": emit_csv,
@@ -837,7 +842,7 @@ def main() -> int:
     for filename, text in fixture_texts.items():
         (FIXTURES / filename).write_text(text, encoding="utf-8")
 
-    cliff_tokens = results["CLIFF 1.0"]["tokens"]
+    cliff_tokens = results[CLIFF_LABEL]["tokens"]
     order = list(emitters.keys())
     write_reports(results, engine, cliff_tokens, order, list(fixture_texts.keys()))
     return 0

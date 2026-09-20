@@ -1,7 +1,10 @@
-# CLIFF 1.0 100-Edit Robustness Report
+# CLIFF 1.1 100-Edit Robustness Report
 
 - Run: sequential edits from `tests/edit-robustness/tasks.json`
 - Files: `tests/edit-robustness/edits/NNN/settings.zh-CN.cliff` (NNN = 001..100)
+- Base document: `CLIFF 1.1` (was recorded against `CLIFF 1.0`, which the same
+  100 edits still validate under: replayed and re-validated after the corpus and
+  fixture version lines moved to 1.1)
 - Validator: `python tools/cliff_validator.py --suite tests/edit-robustness/edits`
 - **Score: 100 / 100 (100.0%)**
 - **Threshold: 100%**

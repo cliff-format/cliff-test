@@ -1,4 +1,4 @@
-# Evaluator Agent Instructions (CLIFF 1.0)
+# Evaluator Agent Instructions (CLIFF 1.1)
 
 You are an independent localization quality evaluator. Score the candidate
 translation file against the human gold reference.

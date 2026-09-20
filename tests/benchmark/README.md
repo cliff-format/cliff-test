@@ -1,13 +1,13 @@
 # Token Benchmark
 
-`python tools/token_benchmark.py` serializes one identical 16-unit CLIFF 1.0
-corpus in CLIFF 1.0, XLIFF 2.1, JSON, CSV, gettext PO, Fluent, YAML, and TOML,
+`python tools/token_benchmark.py` serializes one identical 16-unit CLIFF 1.1
+corpus in CLIFF 1.1, XLIFF 2.1, JSON, CSV, gettext PO, Fluent, YAML, and TOML,
 then counts tokens with `tiktoken` (`cl100k_base`, the OpenAI-compatible
 tokenizer).
 
 Counting convention:
 
-- CLIFF 1.0 tokens = `cliff-main.cliff` + `cliff-glossary.cliff` (the dependency
+- CLIFF tokens = `cliff-main.cliff` + `cliff-glossary.cliff` (the dependency
   glossary file is counted as part of CLIFF's single-workflow cost).
 - Every other format inlines the same glossary, family info, standards,
   dependencies, group/entry context, type, emotion, status, max-width,
