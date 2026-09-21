@@ -241,6 +241,35 @@ they are the corpus's own content rules (`instruction %` 70 — `require` 61, `f
 `keep-verbatim` 2, `length-ratio` 1 across fourteen files), which no parser can see
 and which the model does not check.
 
+**Confirmed at three repeats, and this is the number to quote.** The same cell with
+`--repeats 3` (48 answers, run `clarion-deepseek-flash-20260921T173854`):
+
+| cell — CLIFF, bare, sixteen files | valid | 95 % Wilson | 2nd document | chrF++ all | instruction % | output tokens/call |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| `examples`, thinking off (3 repeats) | 23/48 = 47.9 % | 34–62 % | 23/48 | 30.8 | 48.4 | 2 963 |
+| the recorded deployment run (3 repeats) | 28/48 = 58.3 % | 44–71 % | 18/48 | 36.5 | 56.4 | 2 648 |
+| **`spec` + `reasoning: low` (3 repeats)** | **44/48 = 91.7 %** | **80–97 %** | 26/48 | **46.7** | 65.4 | 13 310 |
+
+Fisher exact against the shipped settings before this work: **p < 0.0001**. The
+isolated comparison — same prompt, same cell, only the decoder regime — is
+`spec` with thinking off 11/16 against `spec` with `reasoning: low` 16/16,
+**p = 0.043**.
+
+The four failures are one shape plus one, and neither is a misunderstanding of the
+format: three are an ASCII double quote written without its backslash (two in
+`hongloumeng-joly`, whose classical-Chinese values mix CJK curly quotes with ASCII
+ones; one in `ui-console`, `context: "…连接词 "across" 译为…"`), and one is a
+reviewer note appended after the last entry (`lit-drama`: *"Notes for the reviewer:
+every entry's new text is in `target:`…"*). Both were the failure modes the escape
+paragraph and the answer-boundary sentence were for. The glossary trigger holds at
+scale (26/48, against 41/96 in the recorded run) and **no answer wrote a separator
+line**.
+
+What is left is no longer a format problem: `instruction %` 65.4 means about a third
+of the corpus's own content rules are still violated — `require`, `forbid`,
+`max-width`, `name-policy`, `cjk-latin-space`, `regex`, `term`, `keep-verbatim`,
+`length-ratio` — in answers that parse, validate and carry every identifier.
+
 ## What the prompt may constrain: the specification and the deliverable
 
 A prompt block may say two things: what the format's own specification requires of

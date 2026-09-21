@@ -9,6 +9,39 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
+- **The confirmation cell: 44/48 = 91.7 % valid for CLIFF single-pass translation,
+  the best number this suite has measured, and the first at a sample worth quoting.**
+  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
+  robustness --formats cliff --arms bare --repeats 3 --prompt-style spec
+  --reasoning low`, run `clarion-deepseek-flash-20260921T173854+0000-1381fd`:
+  48 answers, 0 provider errors, 226 341 prompt + 638 884 output tokens, 186 s.
+  - **44/48 = 91.7 % valid** (95 % Wilson 80–97 %), against 23/48 = 47.9 % for the
+    shipped settings before this work (`examples`, thinking off) — Fisher exact
+    **p < 0.0001** — and 28/48 = 58.3 % for the recorded deployment run. chrF++ over
+    all answers **46.7** (was 30.8 / 36.5) and 51.0 on the answers that survive;
+    `instruction %` 65.4 (was 48.4 / 56.4).
+  - **The isolated comparison, same prompt and same cell, only the decoder regime
+    different**: `spec` with thinking off 11/16 against `spec` with `reasoning: low`
+    16/16, Fisher exact **p = 0.043**.
+  - **All four failures are the same two shapes, and neither is a misunderstanding
+    of the format**: three are an ASCII double quote inside a value written without
+    its backslash — two in `hongloumeng-joly` (classical Chinese whose values mix
+    CJK curly quotes, which take no backslash, with ASCII ones, which do; the corpus
+    escapes them and the model wrote them raw) and one in `ui-console`
+    (`context: "…连接词 "across" 译为…"`, where the model wrote its own quotes raw) —
+    and one is a reviewer note appended after the last entry (`lit-drama`:
+    *"Notes for the reviewer: every entry's new text is in `target:`…"*). Both were
+    the failure modes the escape paragraph and the answer-boundary sentence were
+    added for; the paragraph removed them from fourteen of sixteen files and these
+    are what is left.
+  - **The glossary trigger holds at scale and the banners are gone**: 26/48 answers
+    (54 %) carry a second document, against 41/96 (43 %) in the recorded run, and
+    **0/48** wrote a separator line, against 9/16 in the trigger-only ablation.
+  - **Cost**: 13 310 output tokens per call against 2 963 (4.5x; thinking tokens are
+    billed as output — median 9 682, max 27 801 here) and 186 s for the cell.
+  - **Still file-clustered**: the four failures sit in three files
+    (`hongloumeng-joly` 1/3, `lit-drama` 2/3, `ui-console` 2/3); the other thirteen
+    files are 3/3.
 - **The decoder regime is the lever that moves the single-pass number: `reasoning:
   low` takes the same cell from 68.8 % to 87.5 %.** Same prompt (`spec`), same
   sixteen files, same arm (bare), same temperature, one repeat — run
