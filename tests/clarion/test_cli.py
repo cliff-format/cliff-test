@@ -15,6 +15,8 @@ running the tool by hand. Two things are asserted here:
 from __future__ import annotations
 
 import re
+import shutil
+from pathlib import Path
 
 import pytest
 
@@ -115,3 +117,90 @@ def test_selfcheck_runs_the_whole_chain_offline() -> None:
     here as well means a developer who runs `pytest` finds out before pushing.
     """
     assert main(["selfcheck", "--quiet"]) == 0
+
+
+def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
+    """`translate --formats cliff` is the command the final measurement uses.
+
+    It is run here against a recording provider, so the paid run cannot fail on
+    plumbing - the argument override, the matrix, the report - and so the two
+    settings that decide what the number *means* are asserted rather than assumed:
+    the temperature that reaches the wire, and the prompt style in the system
+    message. Both have been wrong before: the edit path sent 0.0 for its whole
+    history while the configuration said 1.3, and the run directory could not show
+    it.
+    """
+    import clarion.cli as cli_module
+    import clarion.runner as runner_module
+    from clarion.config import ProviderConfig, RunConfig
+    from clarion.providers.base import Completion, CompletionRequest
+    from clarion.providers.mock import MockProvider
+    from clarion.runner import RunPaths
+
+    sandbox = Path(__file__).resolve().parent / "_cli_run_sandbox"
+    if sandbox.exists():
+        shutil.rmtree(sandbox)
+    sandbox.mkdir(parents=True, exist_ok=True)
+    original_create = RunPaths.create
+    monkeypatch.setattr(
+        cli_module.RunPaths,
+        "create",
+        staticmethod(lambda name, base=None: original_create(name, base=sandbox)),
+    )
+
+    class Recording:
+        name = "recording"
+        model = "mock-1"
+
+        def __init__(self) -> None:
+            self.inner = MockProvider(mode="perfect", model="mock-1")
+            self.requests: list[CompletionRequest] = []
+
+        def complete(self, request: CompletionRequest) -> Completion:
+            self.requests.append(request)
+            return self.inner.complete(request)
+
+    provider = Recording()
+    config = RunConfig(
+        name="final-dry-run",
+        corpus="clarion-core",
+        formats=["cliff"],
+        arms=["bare", "context"],
+        repeats=1,
+        isolation="per-task",
+        concurrency=1,
+        prompt_style="examples",
+        provider=ProviderConfig(
+            kind="openai",
+            model="deepseek-flash",
+            temperature=1.3,
+            api_key_env="TEST_API_KEY",
+        ),
+    )
+    monkeypatch.setattr(cli_module, "load_config", lambda *_a, **_k: config)
+    monkeypatch.setattr(runner_module, "build_provider", lambda _config: provider)
+
+    try:
+        assert main(["translate", "--formats", "cliff"]) == 0
+
+        # The override took effect: one format, both arms, one repeat.
+        assert len(provider.requests) == 32, f"{len(provider.requests)} calls, expected 16 x 2"
+        assert {request.temperature for request in provider.requests} == {1.3}, (
+            "the temperature the configuration names must be the one on the wire"
+        )
+        assert all(
+            "FIELD NAMES AND THEIR SCOPE" in request.messages[0].content
+            for request in provider.requests
+        ), "prompt_style=examples must put the CLIFF field facts in every system message"
+
+        run_dir = next(path for path in sandbox.iterdir() if path.is_dir())
+        report = (run_dir / "report.md").read_text(encoding="utf-8")
+        assert "- Formats: cliff" in report, "the report must name the formats that ran"
+        assert "xliff" not in report, "a format that was not run must not appear"
+        assert "structural integrity" in report, (
+            "the modification-correctness table is the point of this run"
+        )
+        assert (run_dir / "records.jsonl").is_file()
+    finally:
+        if sandbox.exists():
+            shutil.rmtree(sandbox)

@@ -102,6 +102,22 @@ def test_every_stated_tag_reaches_the_rendered_prompt() -> None:
             assert value in RENDERED, f"{label} value '{value}' is not in the prompt text"
 
 
+def test_the_prompt_states_every_unrepairable_fact() -> None:
+    """The other half of the boundary: what a repair cannot save must be said.
+
+    The module's own table lists the deviations a tolerant read refuses, and the
+    prompt is the only place they can be prevented. This asserts the one that was
+    missing: an unquoted text value cost two of the four invalid answers in the 1.3
+    edit run, and nothing downstream can repair it.
+    """
+    assert "quoted string" in RENDERED, (
+        "the prompt no longer tells the model that a text value is quoted"
+    )
+    assert "unquoted text value" in RENDERED, (
+        "the reason the rule exists has to be stated with it, or it reads as style"
+    )
+
+
 def test_the_prompt_does_not_state_what_a_tolerant_read_repairs() -> None:
     """Shape deviations cost a repair, not a failure, so they cost no tokens.
 

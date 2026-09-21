@@ -193,6 +193,13 @@ def run_translation_task(
         policy_fragment=policy_fragment,
         allow_glossary_output=config.allow_glossary_output,
         workflow_style=config.workflow_style,
+        # Without this the dimension silently used DEFAULT_PROMPT_STYLE whatever the
+        # configuration said, so a run whose config, run directory and report header
+        # all named `examples` actually sent the digest - the same shape of gap the
+        # edit path had with its temperature. Prompted by the dry-run test in
+        # tests/clarion/test_cli.py, which asserts the style reaches the system
+        # message rather than trusting the configuration.
+        prompt_style=config.prompt_style,
         document=task_document,
         references=corpus_file.references(),
     )

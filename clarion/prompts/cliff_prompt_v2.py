@@ -22,6 +22,12 @@ uses:
   C.2.6 version-line spelling            an unquoted string
   C.2.5 identifier with reserved chars
 
+Rule 5 of `CLIFF_TASK_RULES` states the last of those, and only that one: the
+quoting of a *tag* is repairable (C.2.3) and the brackets around a list are
+repairable (C.2.1), but an unquoted text value has no determinate end and is
+refused, in a scalar and inside a list alike. The 1.3 edit run is what put it
+there: two of its four invalid answers were a text value written without quotes.
+
 C.2.7 is the case that shows why the boundary is drawn where it is: the repair
 removes the quotes and then checks the word against the legal keys of its scope,
 so a quoted *unknown* key is still refused. It cannot legalize anything, which is
@@ -175,7 +181,13 @@ CLIFF_TASK_RULES = """WHAT TO CHANGE
    field that is not in the table above, it does not: use the field that exists.
    (`reference` is spelled `reference`; context is spelled `context`.)
 4. Keep the file's own layout and conventions. The examples below show the shape;
-   follow the file you were given wherever it differs."""
+   follow the file you were given wherever it differs.
+5. A text value is one quoted string, and the whole value is inside the quotes -
+   final punctuation included. `context: "Reviewed in the 2026 audit."` is right;
+   `context: Reviewed in the 2026 audit.` and `context: "Reviewed.".;` are not, and
+   neither is text left after the closing quote. The same holds inside a list:
+   `reference: ["src/ui/panel.cpp:42"]`. An unquoted text value is the one shape
+   error nothing downstream can repair, so it is worth checking."""
 
 #: Two conforming documents. The first shows every construct; the second shows the
 #: only other document shape CLIFF has (a terminology glossary).

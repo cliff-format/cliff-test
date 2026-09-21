@@ -381,6 +381,11 @@ def token_matrix(
                     # understated the CLIFF row of the token tables by about half.
                     allow_glossary_output=config.allow_glossary_output,
                     workflow_style=config.workflow_style,
+                    # Part of the prompt the arms send, so part of its price. This
+                    # was omitted along with `prompt_style` in the translation path,
+                    # which is why both were silently priced and sent as the default
+                    # style while the configuration named `examples`.
+                    prompt_style=config.prompt_style,
                 )
                 budget = bundle.budget
                 rows.append(

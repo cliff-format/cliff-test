@@ -65,21 +65,22 @@ def test_non_cliff_formats_get_no_specification_block(sample_document) -> None:
 def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
     corpus_root, sample_document
 ) -> None:
-    """D1/D2 claim to cost the prompt a translation run sends, so the two
-    builders must agree **argument for argument**.
+    """D1/D2 claim to cost the prompt a translation run sends - so compare with a run.
 
-    Until this test existed, ``token_matrix`` omitted ``allow_glossary_output``
-    and ``workflow_style``. That is not a detail: with ``spec_reference`` on, the
-    reference specification is appended only to the CLIFF prompt, and the
-    terminology workflow block only to CLIFF's. Omitting them made the CLIFF row
-    of the token tables about half of what the run actually pays, while every
-    other format's row was correct. This test exists so the two prompt builders
-    cannot drift apart again.
+    Twice now an argument was in the run's prompt and not in the matrix's:
+    ``allow_glossary_output``/``workflow_style`` (the terminology block, worth about
+    half the CLIFF row), and later ``prompt_style``. The second one is the reason
+    this test no longer rebuilds the prompt itself: a hand-written argument list
+    reproduces whatever the code omits, so both sides agreed while the run directory
+    named a style neither path used. A recording provider makes the run the source
+    of truth, and the assertion on the system message makes the configuration the
+    other one.
     """
     from clarion.corpus.store import load_corpus
-    from clarion.formats.render import render_document
+    from clarion.experiments.translate import run_translation_task
     from clarion.metrics.terminology import load_policy
-    from clarion.runner import _blank, token_matrix
+    from clarion.prompts import cliff_prompt_v2 as v2
+    from clarion.runner import token_matrix
 
     config = RunConfig(
         name="token-parity",
@@ -90,6 +91,7 @@ def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
         include_policy=True,
         allow_glossary_output=True,
         workflow_style="deliverable",
+        prompt_style="examples",
     )
     corpus = load_corpus("fixture", root=corpus_root)
     tokenizer = get_tokenizer(config.tokenizer)
@@ -98,35 +100,60 @@ def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
     rows = token_matrix(config, corpus, tokenizer=tokenizer, policy=policy)
     assert rows, "the token matrix produced no rows"
 
-    corpus_file = corpus.files[0]
-    for row in rows:
-        arm = Arm(row["arm"])
-        # The same projection the matrix applies: the task document has every
-        # target blanked, which is what changes the prompt's token count.
-        task_document = _blank(corpus_file, arm)
-        document_text = render_document(task_document, row["format"], arm=arm)
-        bundle = build_translation_prompt(
-            document_text=document_text,
-            format_id=row["format"],
+    # Compared against the run, not against a second hand-written argument list.
+    # The earlier version of this test rebuilt the bundle itself and therefore
+    # reproduced whatever the matrix omitted: both sides left out `prompt_style`, so
+    # the numbers agreed while the run directory named a style neither path used. A
+    # recording provider makes the run the source of truth.
+    import clarion.runner as runner_module
+    from clarion.providers.base import Completion, CompletionRequest
+    from clarion.providers.mock import MockProvider
+
+    class Recording:
+        name = "recording"
+        model = "mock-1"
+
+        def __init__(self) -> None:
+            self.inner = MockProvider(mode="perfect", model="mock-1")
+            self.requests: list[CompletionRequest] = []
+
+        def complete(self, request: CompletionRequest) -> Completion:
+            self.requests.append(request)
+            return self.inner.complete(request)
+
+    provider = Recording()
+    original = runner_module.build_provider
+    runner_module.build_provider = lambda _config: provider  # type: ignore[assignment]
+    try:
+        corpus_file = corpus.files[0]
+        result = run_translation_task(
+            corpus_file,
+            format_id="cliff",
+            arm=Arm.CONTEXT,
+            provider=provider,
             tokenizer=tokenizer,
-            source_language=corpus_file.source_language,
-            target_language=corpus_file.target_language,
-            arm=arm.value,
-            spec_location=config.spec_location,
-            spec_reference=config.spec_reference,
-            glossary_text="",
-            policy_fragment=policy.prompt_fragment(),
-            document=task_document,
-            allow_glossary_output=config.allow_glossary_output,
-            workflow_style=config.workflow_style,
+            config=config,
+            policy=policy,
         )
-        assert row["prompt_tokens"] == bundle.budget.total, (
-            f"{row['format']}/{row['arm']}: the token matrix and the translation "
-            f"prompt disagree ({row['prompt_tokens']} vs {bundle.budget.total})"
-        )
-        # The reference specification is what makes the CLIFF row look expensive,
-        # and it is exactly what the old argument list lost.
-        assert bundle.budget.tokens_of("spec.reference") > 0
+    finally:
+        runner_module.build_provider = original  # type: ignore[assignment]
+
+    matrix_row = next(
+        row for row in rows if row["format"] == "cliff" and row["arm"] == "context"
+    )
+    assert matrix_row["prompt_tokens"] == result.prompt_tokens, (
+        "the token matrix and the translation run price different prompts "
+        f"({matrix_row['prompt_tokens']} vs {result.prompt_tokens})"
+    )
+    # And the run reflects the configuration rather than a default: the style the
+    # config names must be the style in the system message it actually sends.
+    system = provider.requests[-1].messages[0].content
+    assert "FIELD NAMES AND THEIR SCOPE" in system, (
+        "prompt_style='examples' must reach the system message; the configuration "
+        "naming a style is not the same as the run using it"
+    )
+    assert v2.CLIFF_FACTS in system
+    assert "spec.reference" not in system
 
 
 def test_glossary_candidates_and_merge(sample_document, sample_glossary) -> None:
