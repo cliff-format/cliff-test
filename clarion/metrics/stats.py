@@ -2,19 +2,24 @@
 
 Implements bootstrap confidence intervals, a paired bootstrap and a paired
 permutation test for the mean difference between two systems, McNemar's exact
-test and the Wilson score interval for pass-rate reporting, and a paired
-t-test sample-size approximation. Only the standard library is used
-(:mod:`random` and :mod:`math`); results are deterministic for a given seed.
+test, the Fisher exact test for two independent proportions and the Wilson score
+interval for pass-rate reporting, and a paired t-test sample-size approximation.
+Only the standard library is used (:mod:`random`, :mod:`math` and
+:mod:`fractions`); results are deterministic for a given seed, and the two exact
+tests are exact rather than asymptotic - they enumerate the tables and sum
+rational probabilities, so no approximation error creeps into a published p.
 """
 
 import math
 import random
 from collections.abc import Sequence
 from dataclasses import dataclass
+from fractions import Fraction
 
 __all__ = [
     "Interval",
     "bootstrap_mean",
+    "fisher_exact",
     "mcnemar_test",
     "paired_bootstrap",
     "paired_permutation_test",
@@ -251,6 +256,48 @@ def mcnemar_test(both_pass: int, only_a_pass: int, only_b_pass: int, both_fail: 
     k = min(only_a_pass, only_b_pass)
     tail = sum(math.comb(n_discordant, i) for i in range(k + 1)) / (2**n_discordant)
     return min(1.0, 2.0 * tail)
+
+
+def fisher_exact(a: int, b: int, c: int, d: int) -> float:
+    """Exact two-sided Fisher p-value for the 2x2 table ``[[a, b], [c, d]]``.
+
+    The two-sided p is the sum of the probabilities of every table with the same
+    margins whose probability is no greater than the observed table's - the
+    standard definition (Fisher 1935; the "sum of small p's" rule). The sum is
+    taken over :class:`~fractions.Fraction` values, so the result is exact to the
+    last bit of the final float conversion, and cannot overflow for the sample
+    sizes this suite reports.
+
+    This is the test for two *independent* proportions (two runs, or two arms of
+    one run when the samples are not paired). Use :func:`mcnemar_test` when the
+    two conditions scored the same items, where pairing is the stronger test.
+
+    The defect this function replaced is worth recording, because it is the
+    reason the implementation is exact and enumerated rather than a formula: the
+    working-copy version of this test summed the *observed* table's probability
+    once per table (its combinatorial helper ignored the table it was asked for),
+    which reported 0.0129 for the invented-key comparison whose answer is 0.0026,
+    and could never report anything below the observed probability times the
+    number of tables. `tests/clarion/test_stats.py` guards the shape of that bug.
+    """
+    cells = (a, b, c, d)
+    if any(count < 0 for count in cells):
+        raise ValueError("cell counts must be non-negative")
+    n = a + b + c + d
+    if n == 0:
+        return 1.0
+    row1, col1 = a + b, a + c
+
+    def probability(x: int) -> Fraction:
+        return Fraction(math.comb(row1, x) * math.comb(n - row1, col1 - x), math.comb(n, col1))
+
+    observed = probability(a)
+    total = Fraction(0)
+    for x in range(max(0, row1 + col1 - n), min(row1, col1) + 1):
+        table = probability(x)
+        if table <= observed:
+            total += table
+    return float(min(Fraction(1), total))
 
 
 def wilson_interval(successes: int, trials: int, *, level: float = 0.95) -> Interval:

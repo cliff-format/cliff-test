@@ -217,7 +217,9 @@ larger because one deviation is re-counted by every later step, so only the
 introduced count may be attributed per operation
 (`.tools/d7_audit.py` prints both). The isolated effect is measured separately:
 18.8 % → 0 % invented-key failures over 48 edits per condition, Fisher exact
-p = 0.0129 ([clarion-prompt-design.md](clarion-prompt-design.md)).
+p = 0.0026 ([clarion-prompt-design.md](clarion-prompt-design.md); this was
+published as 0.0129 from a defective test - the corrected p is smaller, so the
+difference is if anything stronger).
 
 **The XLIFF rows are not comparable across the two runs, and the difference is the
 model, not the decoder.** The prompt change touches CLIFF only, and every XLIFF

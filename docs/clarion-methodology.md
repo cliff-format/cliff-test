@@ -294,7 +294,8 @@ why the edit dimension could not yet honour the configured value:
 | historical (no CLIFF content) | **18.8 %** (95 % CI 10.2–31.9) | 18.8 % |
 | with the field names and scopes stated | **0 %** (95 % CI 0–7.4) | 0 % |
 
-Fisher exact p = 0.0129, and the historical figure reproduces the 18.8 % of the
+Fisher exact p = 0.0026 (corrected from a published 0.0129; the test that produced
+the larger figure was defective), and the historical figure reproduces the 18.8 % of the
 full recorded run. The invented names were `translator-context` (in entry *and*
 group scope), `status` inside a group section, `ref` and `source-ref`. See
 [clarion-prompt-design.md](clarion-prompt-design.md) for the prompt that fixes it

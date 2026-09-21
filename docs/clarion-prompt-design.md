@@ -152,8 +152,9 @@ over four files, scoring every stored answer offline:
 
 Per file, the longest file dominated every failure: `wmt24pp` (42 entries, 41 KB)
 scored 7/17 and 9/17 valid, while `probe-ambiguity` and `ui-workbench` scored 3/3
-in both styles. No per-file difference was distinguishable (Fisher exact p = 1.000
-throughout).
+in both styles. No difference is distinguishable: 16/26 against 17/26 over all
+files gives Fisher exact p = 1.0000, and the worst single file, `wmt24pp`,
+p = 0.7319.
 
 **Conclusion: the specification text was not buying format validity.** The
 token saving is real and large; the validity difference is not measurable at this
@@ -206,7 +207,10 @@ below, because the edit dimension could not yet honour the configured value):
 | historical (no CLIFF content) | **9 / 48 = 18.8 %** (95 % CI 10.2–31.9) | 18.8 % | 0.17 |
 | with the field table | **0 / 48 = 0 %** (95 % CI 0–7.4) | 0 % | 0.42 |
 
-Fisher exact **p = 0.0129**; the `examples` condition was 100 % valid and 100 %
+Fisher exact **p = 0.0026** (this figure was published as 0.0129 while the test that
+produced it was defective - see the correction in the changelog and
+`clarion/metrics/stats.py::fisher_exact`; the corrected p is smaller, so the
+conclusion is unchanged and stronger); the `examples` condition was 100 % valid and 100 %
 intent-applied in all six cells. The historical condition's 18.8 % reproduces the
 18.8 % measured on the full recorded run, so the pilot is exercising the real
 mechanism rather than a contrived one. The invented names were

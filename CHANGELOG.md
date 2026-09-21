@@ -9,6 +9,42 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
+- **Partial re-measurement of the affirmative prompt: CLIFF, bare arm, one cell.**
+  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
+  robustness --formats cliff --arms bare --repeats 3`, run
+  `results/clarion-deepseek-flash-20260921T163044+0000-da6d9d` (and the one-repeat
+  first pass, `...-20260921T162803+0000-591dd9`): 48 answers, 0 provider errors,
+  159 669 prompt + 142 225 output tokens, 90 s. **Deliberately partial**:
+  `robustness` and the context arm are skipped, so the D7 and fidelity rows and the
+  context columns in this run are empty by construction, and this is one cell of
+  the ten-format comparison, not a table.
+  - **Result: 23/48 = 47.9 % valid against 28/48 = 58.3 %** for the previous
+    wording at the same settings (temperature 1.3, `prompt_style: examples`, all
+    sixteen files, three repeats). **Not distinguishable**: Fisher exact p = 0.41,
+    95 % Wilson 34.5–61.7 % against 44.3–71.2 %. The honest reading is that this
+    sample cannot see the difference the rewrite might have made.
+  - **Per file, the picture is not worse**: 9 of 16 files failed here against 11 of
+    16 failing in at least one of the three recorded repeats; 7 files fail in both
+    (`game-quest`, `game-shard`, `hongloumeng-joly`, `legal-privacy`,
+    `news-social`, `news-wire`, `wmt24pp`); `lit-drama`, `lit-modern`,
+    `ui-workbench` and `sanguo-brewitt-taylor` failed in the recorded run and are
+    valid here (`sanguo-brewitt-taylor` was 0/3 there); `godot-l10n` and
+    `probe-ambiguity` were 3/3 valid there and fail here.
+  - **The channel requirement survived the rewording.** Dropping *"The answer
+    begins with the first character of that file and ends with its last"* was the
+    risk in removing the fences; all 48 answers begin with `CLIFF 1.1` and none
+    carries commentary outside the file.
+  - **Failure family unchanged**: the same parse degradation of a long generation
+    (`expected 'key: value' or 'key = value' field` 5, `expected a quoted string`
+    5, `unterminated string` 6, other parse 4) plus dropped required fields. Two
+    shapes appeared that the previous wording's 48 answers did not show, recorded
+    because they are the first thing to look for in the next step rather than
+    because one sample decides anything: `hongloumeng-joly`'s answer parses
+    cleanly and has dropped **every `type:` line** (14 entries, one `missing
+    required field 'type'` diagnostic each), and `news-social` wrote an invented
+    tag (`type: finished-registration`) **and narrated the guess inside its
+    `context` field** (*"unsupported by parser, using nearest invented type; add
+    note in translation"*). Both are n = 1.
 - **The deployment-settings run: 1.3, the example-driven prompt, all ten formats.**
   `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
   run `results/clarion-deepseek-flash-20260921T142211+0000-904a70`: 1 180 records
@@ -396,6 +432,33 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Fixed
 
+- **The Fisher exact test in the prompt-analysis scripts was wrong, and three
+  published p-values were corrected.** `clarion.metrics.stats` had bootstrap,
+  permutation, McNemar and Wilson but no Fisher test, so the two working-copy
+  analysis scripts carried their own - and its combinatorial helper ignored the
+  table it was asked for, returning the *observed* table's probability for every
+  candidate table. The p-value was therefore that probability summed once per
+  table with the same margins, capped at 1: for 9/48 against 0/48 (invented-key
+  failures, 48 edits per condition) it reported **0.0129** where the answer is
+  **0.0026**, and it could never report anything below that product - so it could
+  only ever *understate* a difference, never invent one.
+  - `fisher_exact` now lives in `clarion/metrics/stats.py`, next to the other
+    exact tests, is enumerated over `fractions.Fraction` probabilities (exact, no
+    approximation, no overflow), and is tested in `tests/clarion/test_stats.py`
+    against hand-computed tables **and** against the shape of the defect: the test
+    asserts both the corrected value and that it is not the observed probability
+    times the table count.
+  - Corrected in place: `docs/clarion-prompt-design.md` (the invented-key
+    comparison, 0.0129 → **0.0026**; and the prompt pilot's per-file claim, which
+    now quotes the two real values, 1.0000 over all files and 0.7319 for the worst
+    file, instead of a saturated "1.000 throughout"),
+    `docs/clarion-methodology.md` and `docs/acceptance-criteria.md` (0.0129 →
+    0.0026). Every affected conclusion survives and one gets stronger: the
+    corrected p is smaller than the published one, so a "no difference" claim that
+    rested on the defective test was never in the dangerous direction, but it was
+    unsupported by that number and is now stated with a correct one.
+  - The working-copy scripts import the tested implementation instead of carrying
+    copies, which is the same rule the tools directory follows.
 - **The translation path ignored `prompt_style`.** `run_translation_task` called
   `build_translation_prompt` without the argument, so the dimension silently used
   `DEFAULT_PROMPT_STYLE` whatever the configuration said: a run whose config, run
