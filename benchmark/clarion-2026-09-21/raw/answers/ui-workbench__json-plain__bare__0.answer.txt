@@ -1,0 +1,46 @@
+{
+  "workbench": {
+    "labels": {
+      "nav-scratch-tables": "暂存表",
+      "mode-01a": "Quarry",
+      "mode-01b": "Quarry",
+      "term-02a": "数据量",
+      "term-02b": "数据量",
+      "term-03a": "规模",
+      "term-03b": "规模"
+    },
+    "actions": {
+      "mode-04a": "刷新样本",
+      "mode-04b": "刷新样本",
+      "slot-05a": "将当前视图保存为预设",
+      "slot-05b": "将当前视图保存为预设",
+      "slot-06a": "与上一次运行对比",
+      "slot-06b": "与上一次运行对比",
+      "note-step-order": "第 3 步会设置行数上限，因此在至少运行过一次第 2 步之前，不要调高它。"
+    },
+    "messages": {
+      "msg-row-count": "{rows, plural, one {# 行已复制到暂存表} other {# 行已复制到暂存表}}",
+      "msg-table-state": "{state, select, ready {暂存表已就绪} building {正在构建暂存表} other {暂存表创建失败}}",
+      "msg-welcome-back": "欢迎回来，{name}。你上次运行耗时 12 分钟。",
+      "msg-job-outcome": "{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}",
+      "msg-sample-loading": "由于样本仍在加载，暂存表无法创建。",
+      "msg-board-empty": "此看板尚未固定任何内容。打开一个图表并将其固定到这里。",
+      "cue-chart-updated": "图表已更新"
+    },
+    "help": {
+      "help-scratch-table": "暂存表是你自己的结果集副本。它只存在于当前浏览器标签页中，绝不会与团队共享，并且在你退出登录时会被丢弃。",
+      "help-empty-before-run": "离开页面前请清空它，否则下次运行会从已经过期的行开始。",
+      "help-board-pin": "一旦固定，图表就会一直留在看板上，直到有人将其移除。",
+      "help-keyboard-rows": "按上、下方向键即可在行间移动，无需将手从键盘上移开。",
+      "help-archive": "一个月未打开的图表会自动移至归档页面。不会删除任何内容，再次打开即可将其恢复。"
+    },
+    "settings": {
+      "set-time-window": "在你固定自己的时间窗口之前，新图表会以默认时间窗口打开。",
+      "set-export-resolution": "图表按屏幕分辨率导出，打印时则按 2 倍分辨率导出。",
+      "set-cache-latency": "图表会优先从缓存读取，这使正常连接下的延迟保持在半秒以内。",
+      "set-throughput": "吞吐量约为每秒 1,200 行，集群会在内存中保留其中 30 GB。",
+      "set-retention": "暂存表会保留 7 天，之后会被移除且不会发出警告。",
+      "set-timezone": "此页面上的时间遵循工作区时区，而不是你的浏览器时区。"
+    }
+  }
+}

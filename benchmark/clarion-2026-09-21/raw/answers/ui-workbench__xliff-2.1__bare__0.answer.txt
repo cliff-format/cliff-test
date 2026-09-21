@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.ui-workbench" original="clarion.ui-workbench">
+    <group id="workbench.labels">
+      <unit id="nav-scratch-tables">
+        <segment state="translated">
+          <source>Scratch tables</source>
+          <target>临时表</target>
+        </segment>
+      </unit>
+      <unit id="mode-01a">
+        <segment state="translated">
+          <source>Quarry</source>
+          <target>采掘</target>
+        </segment>
+      </unit>
+      <unit id="mode-01b">
+        <segment state="translated">
+          <source>Quarry</source>
+          <target>采掘</target>
+        </segment>
+      </unit>
+      <unit id="term-02a">
+        <segment state="translated">
+          <source>Volume</source>
+          <target>数据量</target>
+        </segment>
+      </unit>
+      <unit id="term-02b">
+        <segment state="translated">
+          <source>Volume</source>
+          <target>数据量</target>
+        </segment>
+      </unit>
+      <unit id="term-03a">
+        <segment state="translated">
+          <source>Scale</source>
+          <target>规模</target>
+        </segment>
+      </unit>
+      <unit id="term-03b">
+        <segment state="translated">
+          <source>Scale</source>
+          <target>规模</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="workbench.actions">
+      <unit id="mode-04a">
+        <segment state="translated">
+          <source>Refresh the sample</source>
+          <target>刷新样本</target>
+        </segment>
+      </unit>
+      <unit id="mode-04b">
+        <segment state="translated">
+          <source>Refresh the sample</source>
+          <target>刷新样本</target>
+        </segment>
+      </unit>
+      <unit id="slot-05a">
+        <segment state="translated">
+          <source>Save the current view as a preset</source>
+          <target>将当前视图保存为预设</target>
+        </segment>
+      </unit>
+      <unit id="slot-05b">
+        <segment state="translated">
+          <source>Save the current view as a preset</source>
+          <target>将当前视图保存为预设</target>
+        </segment>
+      </unit>
+      <unit id="slot-06a">
+        <segment state="translated">
+          <source>Compare with the previous run</source>
+          <target>与上一次运行比较</target>
+        </segment>
+      </unit>
+      <unit id="slot-06b">
+        <segment state="translated">
+          <source>Compare with the previous run</source>
+          <target>与上一次运行比较</target>
+        </segment>
+      </unit>
+      <unit id="note-step-order">
+        <segment state="translated">
+          <source>Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.</source>
+          <target>第 3 步会设置行数上限，因此在至少运行过一次第 2 步之前，请不要提高该上限。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="workbench.messages">
+      <unit id="msg-row-count">
+        <segment state="translated">
+          <source>{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}</source>
+          <target>{rows, plural, one {已将 # 行复制到临时表} other {已将 # 行复制到临时表}}</target>
+        </segment>
+      </unit>
+      <unit id="msg-table-state">
+        <segment state="translated">
+          <source>{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}</source>
+          <target>{state, select, ready {临时表已就绪} building {正在创建临时表} other {临时表创建失败}}</target>
+        </segment>
+      </unit>
+      <unit id="msg-welcome-back">
+        <segment state="translated">
+          <source>Welcome back, {name}. Your last run took 12 minutes.</source>
+          <target>欢迎回来，{name}。你上次运行用了 12 分钟。</target>
+        </segment>
+      </unit>
+      <unit id="msg-job-outcome">
+        <segment state="translated">
+          <source>{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}</source>
+          <target>{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}</target>
+        </segment>
+      </unit>
+      <unit id="msg-sample-loading">
+        <segment state="translated">
+          <source>The scratch table could not be created because the sample is still loading.</source>
+          <target>样本仍在加载，因此无法创建临时表。</target>
+        </segment>
+      </unit>
+      <unit id="msg-board-empty">
+        <segment state="translated">
+          <source>Nothing is pinned to this board yet. Open a chart and pin it here.</source>
+          <target>这个看板上还没有固定任何内容。打开一个图表，把它固定到这里。</target>
+        </segment>
+      </unit>
+      <unit id="cue-chart-updated">
+        <segment state="translated">
+          <source>Chart updated</source>
+          <target>图表已更新</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="workbench.help">
+      <unit id="help-scratch-table">
+        <segment state="translated">
+          <source>A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.</source>
+          <target>临时表是你自己的结果集副本。它存在于当前浏览器标签页中，绝不会与团队共享，并且在你退出登录时会被丢弃。</target>
+        </segment>
+      </unit>
+      <unit id="help-empty-before-run">
+        <segment state="translated">
+          <source>Empty it before you leave the page, or the next run starts from rows that are already stale.</source>
+          <target>离开页面之前请先清空它，否则下一次运行会从已经过期的行开始。</target>
+        </segment>
+      </unit>
+      <unit id="help-board-pin">
+        <segment state="translated">
+          <source>Once it is pinned, the chart stays on the board until someone takes it down.</source>
+          <target>图表一旦被固定，就会一直留在看板上，直到有人把它取下。</target>
+        </segment>
+      </unit>
+      <unit id="help-keyboard-rows">
+        <segment state="translated">
+          <source>Press the up and down arrows to move through the rows without taking your hands off the keyboard.</source>
+          <target>按上下方向键即可在各行之间移动，无需将手离开键盘。</target>
+        </segment>
+      </unit>
+      <unit id="help-archive">
+        <segment state="translated">
+          <source>A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.</source>
+          <target>一个月没有打开过的图表会自动移到归档页面。不会有任何内容被删除，再次打开它就会恢复。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="workbench.settings">
+      <unit id="set-time-window">
+        <segment state="translated">
+          <source>New charts open with the default time window until you pin one of your own.</source>
+          <target>在你固定自己的时间窗口之前，新建图表会以默认时间窗口打开。</target>
+        </segment>
+      </unit>
+      <unit id="set-export-resolution">
+        <segment state="translated">
+          <source>Charts are exported at the screen resolution, or at 2x for print.</source>
+          <target>图表按屏幕分辨率导出，用于打印时则按 2 倍分辨率导出。</target>
+        </segment>
+      </unit>
+      <unit id="set-cache-latency">
+        <segment state="translated">
+          <source>Charts read from the cache first, which keeps latency under half a second on a normal connection.</source>
+          <target>图表会优先从缓存读取，因此在正常网络连接下延迟可保持在半秒以内。</target>
+        </segment>
+      </unit>
+      <unit id="set-throughput">
+        <segment state="translated">
+          <source>Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.</source>
+          <target>吞吐量约为每秒 1,200 行，集群会在内存中保留其中的 30 GB。</target>
+        </segment>
+      </unit>
+      <unit id="set-retention">
+        <segment state="translated">
+          <source>Scratch tables are kept for 7 days and are then removed without a warning.</source>
+          <target>临时表会保留 7 天，之后将在没有任何警告的情况下被删除。</target>
+        </segment>
+      </unit>
+      <unit id="set-timezone">
+        <segment state="translated">
+          <source>Times on this page follow the workspace time zone, not the time zone of your browser.</source>
+          <target>此页面上的时间遵循工作区时区，而不是你浏览器的时区。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

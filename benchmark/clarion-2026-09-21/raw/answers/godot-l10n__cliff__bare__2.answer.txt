@@ -1,0 +1,342 @@
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n
+source-language: en-US
+target-language: zh-CN
+
+[core-error]
+
+<ok>
+source: "OK"
+target: "正常"
+type: sentence
+status: initial
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: initial
+
+<unavailable>
+source: "Unavailable"
+target: "不可用"
+type: sentence
+status: initial
+
+<unconfigured>
+source: "Unconfigured"
+target: "未配置"
+type: sentence
+status: initial
+
+<unauthorized>
+source: "Unauthorized"
+target: "未授权"
+type: sentence
+status: initial
+
+<parameter-out-of-range>
+source: "Parameter out of range"
+target: "参数超出范围"
+type: sentence
+status: initial
+
+<out-of-memory>
+source: "Out of memory"
+target: "内存不足"
+type: sentence
+status: initial
+
+<file-not-found>
+source: "File not found"
+target: "文件未找到"
+type: sentence
+status: initial
+
+<file-bad-drive>
+source: "File: Bad drive"
+target: "文件：驱动器无效"
+type: sentence
+status: initial
+
+<file-bad-path>
+source: "File: Bad path"
+target: "文件：路径无效"
+type: sentence
+status: initial
+
+<file-permission-denied>
+source: "File: Permission denied"
+target: "文件：权限被拒绝"
+type: sentence
+status: initial
+
+<file-already-in-use>
+source: "File already in use"
+target: "文件已被占用"
+type: sentence
+status: initial
+
+<can-t-open-file>
+source: "Can't open file"
+target: "无法打开文件"
+type: sentence
+status: initial
+
+<can-t-write-file>
+source: "Can't write file"
+target: "无法写入文件"
+type: sentence
+status: initial
+
+<can-t-read-file>
+source: "Can't read file"
+target: "无法读取文件"
+type: sentence
+status: initial
+
+<file-unrecognized>
+source: "File unrecognized"
+target: "无法识别文件"
+type: sentence
+status: initial
+
+<file-corrupt>
+source: "File corrupt"
+target: "文件已损坏"
+type: sentence
+status: initial
+
+<missing-dependencies-for-file>
+source: "Missing dependencies for file"
+target: "文件缺少依赖项"
+type: sentence
+status: initial
+
+<end-of-file>
+source: "End of file"
+target: "文件末尾"
+type: sentence
+status: initial
+
+<can-t-open>
+source: "Can't open"
+target: "无法打开"
+type: sentence
+status: initial
+
+<can-t-create>
+source: "Can't create"
+target: "无法创建"
+type: sentence
+status: initial
+
+<query-failed>
+source: "Query failed"
+target: "查询失败"
+type: sentence
+status: initial
+
+<already-in-use>
+source: "Already in use"
+target: "已被占用"
+type: sentence
+status: initial
+
+<locked>
+source: "Locked"
+target: "已锁定"
+type: sentence
+status: initial
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: sentence
+status: initial
+
+<can-t-connect>
+source: "Can't connect"
+target: "无法连接"
+type: sentence
+status: initial
+
+<can-t-resolve>
+source: "Can't resolve"
+target: "无法解析"
+type: sentence
+status: initial
+
+<connection-error>
+source: "Connection error"
+target: "连接错误"
+type: sentence
+status: initial
+
+<can-t-acquire-resource>
+source: "Can't acquire resource"
+target: "无法获取资源"
+type: sentence
+status: initial
+
+<can-t-fork>
+source: "Can't fork"
+target: "无法派生进程"
+type: sentence
+status: initial
+
+<invalid-data>
+source: "Invalid data"
+target: "数据无效"
+type: sentence
+status: initial
+
+<invalid-parameter>
+source: "Invalid parameter"
+target: "参数无效"
+type: sentence
+status: initial
+
+<already-exists>
+source: "Already exists"
+target: "已存在"
+type: sentence
+status: initial
+
+<does-not-exist>
+source: "Does not exist"
+target: "不存在"
+type: sentence
+status: initial
+
+<can-t-read-database>
+source: "Can't read database"
+target: "无法读取数据库"
+type: sentence
+status: initial
+
+<can-t-write-database>
+source: "Can't write database"
+target: "无法写入数据库"
+type: sentence
+status: initial
+
+<compilation-failed>
+source: "Compilation failed"
+target: "编译失败"
+type: sentence
+status: initial
+
+<method-not-found>
+source: "Method not found"
+target: "未找到方法"
+type: sentence
+status: initial
+
+<link-failed>
+source: "Link failed"
+target: "链接失败"
+type: sentence
+status: initial
+
+<script-failed>
+source: "Script failed"
+target: "脚本失败"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Godot 错误信息术语表 (zh-CN)"
+info: "记录 godot-l10n 中 core-error 分组错误信息翻译所依据的术语判定。"
+
+[terms]
+
+<file>
+source: "File"
+target: "文件"
+type: noun
+status: final
+context: "错误信息中的文件资源统一译为「文件」;不使用「档案」。"
+
+<path>
+source: "Path"
+target: "路径"
+type: noun
+status: final
+context: "文件系统路径译为「路径」,与「驱动器」并列出现时保持一致。"
+
+<drive>
+source: "Drive"
+target: "驱动器"
+type: noun
+status: final
+context: "对应 Bad drive,指盘符或存储卷无效,译为「驱动器」。"
+
+<database>
+source: "Database"
+target: "数据库"
+type: noun
+status: final
+context: "读写数据库失败类错误统一使用「数据库」。"
+
+<query>
+source: "Query"
+target: "查询"
+type: noun
+status: final
+context: "数据库查询操作;Query failed 译为「查询失败」。"
+
+<resource>
+source: "Resource"
+target: "资源"
+type: noun
+status: final
+context: "获取资源失败;统一使用「资源」而非「资源项」。"
+
+<dependency>
+source: "Dependency"
+target: "依赖项"
+type: noun
+status: final
+context: "文件所缺的依赖统一作「依赖项」,复数不加额外标记。"
+
+<fork>
+source: "Fork"
+target: "派生"
+type: verb
+status: final
+context: "进程派生操作,译为「派生」(Can't fork 即「无法派生进程」);Fork 不在保留拉丁字形的名单内。"
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: noun
+status: final
+context: "操作等待超时;统一使用「超时」,不使用「逾时」。"
+
+<method>
+source: "Method"
+target: "方法"
+type: noun
+status: final
+context: "编程语言中的方法,译为「方法」,以区别于函数 function。"
+
+<link>
+source: "Link"
+target: "链接"
+type: noun
+status: final
+context: "链接阶段与链接操作统一使用「链接」。"
+
+<resolve>
+source: "Resolve"
+target: "解析"
+type: verb
+status: final
+context: "解析主机名或地址;与 resolution(分辨率)区分,后者按项目规则固定为「分辨率」。"

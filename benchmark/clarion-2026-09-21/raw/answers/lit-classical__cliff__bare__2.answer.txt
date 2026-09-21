@@ -1,0 +1,134 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical
+source-language: zh-CN
+target-language: en-US
+
+[aphorisms]
+
+<water-holds>
+source: "水静则清，器满则倾。"
+target: "Water grows clear when still; a vessel tips when full."
+type: sentence
+status: initial
+
+<mountain-river>
+source: "山不增高，因登而高；川不返流，因逝而长。"
+target: "The mountain grows no taller of itself: it is climbed, and so becomes high; the river never turns back: it flows on, and so becomes long."
+type: sentence
+status: initial
+
+<mirror>
+source: "镜不自照，故能照人；泉不自饮，故能济渴。"
+target: "A mirror does not reflect itself, and so it can reflect others; a spring does not drink of itself, and so it can quench thirst."
+type: sentence
+status: initial
+
+<scale>
+source: "尺短寸长，各有所宜。"
+target: "The foot may be short and the inch long; each has its own fitting use."
+type: sentence
+status: initial
+
+<lantern-heart>
+source: "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+target: "The lamp whose flame burns high spends its oil soon; the lamp whose light is faint has the longer night."
+type: sentence
+status: initial
+
+[parallel-prose]
+
+<parallel-prose-1>
+source: "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+target: "Peak upon peak, a thousand fathoms high, hides the clouds upon its crest; a cold river, ten thousand li long, sends boats up into the sky."
+type: sentence
+status: initial
+
+<parallel-prose-2>
+source: "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+target: "The valley is silent and gives no echo, yet Cangwu hears the bell; the lamp is faint and sways of itself, yet Cangwu lights the water."
+type: sentence
+status: initial
+
+[quatrain]
+
+<quatrain-1>
+source: "渡口秋灯暗，"
+target: "Autumn lamps dim at the ferry,"
+type: sentence
+status: initial
+
+<quatrain-2>
+source: "江寒雨自斜。"
+target: "The rain slants down over the cold river."
+type: sentence
+status: initial
+
+<quatrain-3>
+source: "潮回沙上字，"
+target: "The tide turns back the words on the sand,"
+type: sentence
+status: initial
+
+<quatrain-4>
+source: "钟入隔岸家。"
+target: "The bell enters a house on the far bank."
+type: sentence
+status: initial
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical-terms
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+
+[terms]
+
+<deng>
+source: "灯"
+target: "lamp"
+type: noun
+status: final
+context: "Plain 'lamp' keeps the elemental register of the aphorisms; 'lantern' would add a decorative, festival tone. Used consistently in lantern-heart and quatrain-1."
+
+<zhong>
+source: "钟"
+target: "bell"
+type: noun
+status: final
+context: "A temple bell heard at a distance; 'chime' was rejected as too soft for the parallel prose and the closing line of the quatrain."
+
+<jiang>
+source: "江"
+target: "river"
+type: noun
+status: final
+context: "The plain 'river' was chosen so that 江 and 川 render identically and the two couplets stay parallel."
+
+<chuan>
+source: "川"
+target: "river"
+type: noun
+status: final
+context: "Same rendering as 江, so mountain-river and parallel-prose-1 share one vocabulary."
+
+<cangwu>
+source: "苍梧"
+target: "Cangwu"
+type: proper-noun
+status: final
+context: "Place name kept in transliteration rather than translated, since the parallel prose sets it against the valley and the lamp as a fixed landmark."
+
+<ren>
+source: "仞"
+target: "fathom"
+type: noun
+status: final
+context: "Rendered with the English fathom, a measure of nearly the same reach, rather than a transliterated 'ren' that a reader could not size."
+
+<li>
+source: "里"
+target: "li"
+type: noun
+status: final
+context: "Kept in transliteration: the classical league has no exact English equivalent, and 'miles' would overstate the distance."

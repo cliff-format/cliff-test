@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Flint, you still owe me a proper blade.-->
+    <string name="ash-greets-flint">弗林特，你还欠我一把像样的剑。</string>
+    <!--cliff:source: Ash, you could not hold a whetstone straight if the forge froze over.-->
+    <string name="flint-replies-ash">艾什，就算熔炉都冻上了，你也摆不平一块磨刀石。</string>
+    <!--cliff:source: Flint, the frost is moving. I saw it breathe.-->
+    <string name="ash-fearful">弗林特，寒霜在动。我看见它呼吸了。</string>
+    <!--cliff:source: You lit that spark, Ash, and now the whole valley pays for it.-->
+    <string name="flint-angry">那点火星是你点燃的，艾什，如今整个山谷都要替你还这笔账。</string>
+    <!--cliff:source: Ash! Get away from the wall — it is coming through!-->
+    <string name="flint-calls-ash">艾什！离墙远点——它要穿过来了！</string>
+    <!--cliff:source: Flint, you forged me a name when no one else would. Thank you.-->
+    <string name="ash-grateful">弗林特，在没人愿意的时候，是你为我锻造了一个名字。谢谢你。</string>
+    <!--cliff:source: You are, of course, welcome to try again. I will even hold the door for you.-->
+    <string name="flint-polite-threat">当然，你大可以再试一次。我甚至愿意替你扶着门。</string>
+    <!--cliff:source: The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.-->
+    <string name="monologue-ash-fire">我胸口的火有自己的记忆。寒冷还没到来，它就已经知道，而且它害怕。</string>
+    <!--cliff:source: Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.-->
+    <string name="monologue-ash-name">弗林特说，名字是抓手，不是镜子。可名字依然可以是你对自己许下的承诺。</string>
+    <!--cliff:source: Ember Burst-->
+    <string name="skill-ember-burst">余烬爆发</string>
+    <!--cliff:source: Frost Whip-->
+    <string name="skill-frost-whip">寒霜之鞭</string>
+    <!--cliff:source: Cinder Sidestep-->
+    <string name="skill-cinder-sidestep">烬步侧闪</string>
+    <!--cliff:source: Thorn Snare-->
+    <string name="skill-thorn-snare">荆棘缠缚</string>
+    <!--cliff:source: Emberbloom Tonic-->
+    <string name="item-emberbloom-tonic">余烬花药剂</string>
+    <!--cliff:source: This greataxe is a real splitting headache — swing once and the argument is over.-->
+    <string name="item-axe-pun-desc">这把巨斧是货真价实的“劈头”之痛——抡一下，争论就结束了。</string>
+    <!--cliff:source: Press [F] to loot.-->
+    <string name="tutorial-loot">按 [F] 拾取。</string>
+    <!--cliff:source: {count, plural, one {# point of damage} other {# points of damage}}-->
+    <string name="combat-log-damage">{count, plural, one {# 点伤害} other {# 点伤害}}</string>
+    <!--cliff:source: {faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}-->
+    <string name="faction-claim">{faction, select, emberborn {余烬之子认下了你的名字。} frostward {守霜者认下了你的名字。} other {没有阵营认下你的名字。}}</string>
+    <!--cliff:source: You take {damage} damage from the frost.-->
+    <string name="hit-taken">你受到寒霜造成的 {damage} 点伤害。</string>
+    <!--cliff:source: Welcome back, {playerName}.-->
+    <string name="welcome-name">欢迎回来，{playerName}。</string>
+    <!--cliff:source: Clear cache and restore default settings-->
+    <string name="settings-cache">清除缓存并恢复默认设置</string>
+    <!--cliff:source: Drink to restore 40 HP over 10 seconds.-->
+    <string name="tutorial-regen">饮下可在 10 秒内恢复 40 点生命值。</string>
+    <!--cliff:source: The frost does not forgive.-->
+    <string name="subtitle-frost">寒霜从不宽恕。</string>
+    <!--cliff:source: [Soft ember crackle]-->
+    <string name="sfx-ember-crackle">[余烬轻柔的噼啪声]</string>
+</resources>

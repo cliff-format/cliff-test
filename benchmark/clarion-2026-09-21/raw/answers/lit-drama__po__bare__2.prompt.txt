@@ -1,0 +1,142 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a gettext PO catalogue. Fill msgstr for every msgid.
+Keep msgctxt and every comment line unchanged.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "scene.arrival.open-house-lights"
+msgid "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+msgstr ""
+
+msgctxt "scene.arrival.enter-cassian"
+msgid "I could find this stage in my sleep."
+msgstr ""
+
+msgctxt "scene.arrival.lit-01a"
+msgid "You came back."
+msgstr ""
+
+msgctxt "scene.arrival.lit-01b"
+msgid "You came back."
+msgstr ""
+
+msgctxt "scene.arrival.reply-cassian"
+msgid "The call board still has my name spelled wrong."
+msgstr ""
+
+msgctxt "scene.confrontation.motif-promise"
+msgid "This theatre kept its promises. People did not."
+msgstr ""
+
+msgctxt "scene.confrontation.lit-02a"
+msgid "Wonderful. Just wonderful."
+msgstr ""
+
+msgctxt "scene.confrontation.lit-02b"
+msgid "Wonderful. Just wonderful."
+msgstr ""
+
+msgctxt "scene.confrontation.callback-promise"
+msgid "You said the theatre kept its promises."
+msgstr ""
+
+msgctxt "scene.confrontation.address-early"
+msgid "Mr. Vale, the call is in five minutes."
+msgstr ""
+
+msgctxt "scene.confrontation.address-late"
+msgid "Cassian. Please. Sit down."
+msgstr ""
+
+msgctxt "scene.confrontation.lit-03a"
+msgid "She turns the lamp toward him."
+msgstr ""
+
+msgctxt "scene.confrontation.lit-03b"
+msgid "She turns the lamp toward him."
+msgstr ""
+
+msgctxt "scene.house.roof-year"
+msgid "The roof has not been touched since 1974."
+msgstr ""
+
+msgctxt "scene.house.lamp-count"
+msgid "Two 500-watt lamps, and a fuse box older than both of us."
+msgstr ""
+
+msgctxt "scene.house.venue-name"
+msgid "The Halloway does not close tonight. It closes when the last person leaves."
+msgstr ""
+
+msgctxt "scene.house.board-default"
+msgid "Use the default setting on the board and do not touch anything else."
+msgstr ""
+
+msgctxt "scene.house.disbelief"
+msgid "Are you serious? Now? After everything?"
+msgstr ""
+
+msgctxt "scene.monologue.monologue-open"
+msgid "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+msgstr ""
+
+msgctxt "scene.monologue.monologue-turn"
+msgid "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+msgstr ""
+
+msgctxt "scene.verse.verse-01"
+msgid "The lamps go dark, the boards remain."
+msgstr ""
+
+msgctxt "scene.verse.verse-02"
+msgid "The players go, the play remains."
+msgstr ""
+
+msgctxt "scene.verse.final-direction"
+msgid "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+msgstr ""

@@ -1,0 +1,132 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "workbench.labels.nav-scratch-tables"
+msgid "Scratch tables"
+msgstr "暂存表"
+
+msgctxt "workbench.labels.mode-01a"
+msgid "Quarry"
+msgstr "采掘"
+
+msgctxt "workbench.labels.mode-01b"
+msgid "Quarry"
+msgstr "采掘"
+
+msgctxt "workbench.labels.term-02a"
+msgid "Volume"
+msgstr "数据量"
+
+msgctxt "workbench.labels.term-02b"
+msgid "Volume"
+msgstr "数据量"
+
+msgctxt "workbench.labels.term-03a"
+msgid "Scale"
+msgstr "规模"
+
+msgctxt "workbench.labels.term-03b"
+msgid "Scale"
+msgstr "规模"
+
+msgctxt "workbench.actions.mode-04a"
+msgid "Refresh the sample"
+msgstr "刷新样本"
+
+msgctxt "workbench.actions.mode-04b"
+msgid "Refresh the sample"
+msgstr "刷新样本"
+
+msgctxt "workbench.actions.slot-05a"
+msgid "Save the current view as a preset"
+msgstr "将当前视图保存为预设"
+
+msgctxt "workbench.actions.slot-05b"
+msgid "Save the current view as a preset"
+msgstr "将当前视图保存为预设"
+
+msgctxt "workbench.actions.slot-06a"
+msgid "Compare with the previous run"
+msgstr "与上一次运行结果对比"
+
+msgctxt "workbench.actions.slot-06b"
+msgid "Compare with the previous run"
+msgstr "与上一次运行结果对比"
+
+msgctxt "workbench.actions.note-step-order"
+msgid "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once."
+msgstr "第 3 步会设置行数上限，因此在至少运行过一次第 2 步之前，不要调高该上限。"
+
+msgctxt "workbench.messages.msg-row-count"
+msgid "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}"
+msgstr "{rows, plural, one {已将 # 行复制到暂存表} other {已将 # 行复制到暂存表}}"
+
+msgctxt "workbench.messages.msg-table-state"
+msgid "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}"
+msgstr "{state, select, ready {暂存表已就绪} building {正在构建暂存表} other {暂存表创建失败}}"
+
+msgctxt "workbench.messages.msg-welcome-back"
+msgid "Welcome back, {name}. Your last run took 12 minutes."
+msgstr "欢迎回来，{name}。你上次运行耗时 12 分钟。"
+
+msgctxt "workbench.messages.msg-job-outcome"
+msgid "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}"
+msgstr "{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}"
+
+msgctxt "workbench.messages.msg-sample-loading"
+msgid "The scratch table could not be created because the sample is still loading."
+msgstr "由于样本仍在加载，无法创建暂存表。"
+
+msgctxt "workbench.messages.msg-board-empty"
+msgid "Nothing is pinned to this board yet. Open a chart and pin it here."
+msgstr "此看板尚未固定任何内容。打开一张图表，把它固定到这里。"
+
+msgctxt "workbench.messages.cue-chart-updated"
+msgid "Chart updated"
+msgstr "图表已更新"
+
+msgctxt "workbench.help.help-scratch-table"
+msgid "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out."
+msgstr "暂存表是你自己的一份结果集副本。它只存在于当前浏览器标签页中，绝不会与团队共享，并且在退出登录时会被丢弃。"
+
+msgctxt "workbench.help.help-empty-before-run"
+msgid "Empty it before you leave the page, or the next run starts from rows that are already stale."
+msgstr "离开页面前请先清空它，否则下一次运行会从已经过期的行开始。"
+
+msgctxt "workbench.help.help-board-pin"
+msgid "Once it is pinned, the chart stays on the board until someone takes it down."
+msgstr "图表一旦被固定，就会一直留在看板上，直到有人将其移除。"
+
+msgctxt "workbench.help.help-keyboard-rows"
+msgid "Press the up and down arrows to move through the rows without taking your hands off the keyboard."
+msgstr "按上下方向键即可在各行之间移动，双手无需离开键盘。"
+
+msgctxt "workbench.help.help-archive"
+msgid "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back."
+msgstr "一个月未打开的图表会自动移至归档页面。不会删除任何内容，再次打开即可恢复。"
+
+msgctxt "workbench.settings.set-time-window"
+msgid "New charts open with the default time window until you pin one of your own."
+msgstr "在你固定自己的时间窗口之前，新图表都会以默认时间窗口打开。"
+
+msgctxt "workbench.settings.set-export-resolution"
+msgid "Charts are exported at the screen resolution, or at 2x for print."
+msgstr "图表按屏幕分辨率导出，用于打印时则按 2 倍分辨率导出。"
+
+msgctxt "workbench.settings.set-cache-latency"
+msgid "Charts read from the cache first, which keeps latency under half a second on a normal connection."
+msgstr "图表会优先从缓存读取，因此在正常网络连接下延迟低于半秒。"
+
+msgctxt "workbench.settings.set-throughput"
+msgid "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory."
+msgstr "吞吐量约为每秒 1,200 行，集群会在内存中保留其中 30 GB 的数据。"
+
+msgctxt "workbench.settings.set-retention"
+msgid "Scratch tables are kept for 7 days and are then removed without a warning."
+msgstr "暂存表保留 7 天，之后会在没有任何提示的情况下被移除。"
+
+msgctxt "workbench.settings.set-timezone"
+msgid "Times on this page follow the workspace time zone, not the time zone of your browser."
+msgstr "本页面上的时间遵循工作区时区，而不是浏览器所在的时区。"

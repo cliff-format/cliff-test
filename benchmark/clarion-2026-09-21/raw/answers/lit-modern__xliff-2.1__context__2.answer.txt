@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.lit-modern" original="clarion.lit-modern">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Modern literary stratum - narration, dialogue, monologue, description</mda:meta>
+        <mda:meta type="info">Original modern literary English composed for CLARION, rendered into literary Chinese that preserves voice, rhythm, point of view and the recurring wind-bell motif.</mda:meta>
+        <mda:meta type="standard">Preserve each character's voice and the narrator's point of view. Localize idioms rather than translating them literally. Render the recurring motif consistently. Dialogue must read as natural spoken Chinese, not stiff written prose.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="narration">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif.</mda:meta>
+          <mda:meta type="type">narration</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif.</note>
+      </notes>
+      <unit id="narration-open">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago.</source>
+          <target>这镇子守着老礼数的年头，比它守着钱财的年头还长。每个工作日将尽时，玛伦都沿着海港路走，像钟表走过自己的表盘；每天傍晚，在黑暗压下来之前，她最后听见的，是杂货铺门楣上那只铁皮风铃——它在告诉这条街：潮水已经转了向，而这个世界，还会在没有她的情形下，再往前走上一小会儿。她不急不赶。盐分渗进了她所拥有的每一件东西，而她多年前就不再为此介意了。</target>
+        </segment>
+      </unit>
+      <unit id="narration-memory">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain.</source>
+          <target>小镇任其滑进海里的一切当中，唯有那铃的声音被它留在了岸上。男人们会忘掉自己的生日，忘掉自己曾在其上当差的船叫什么名字，可他们每一个人都能告诉你：那铃最后一次清亮响起时，风在往哪儿吹。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="dialogue">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct.</mda:meta>
+          <mda:meta type="type">dialogue</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct.</note>
+      </notes>
+      <unit id="dialogue-wall">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|serious</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>"Wind's back," said Sol. "Didn't figure you'd be out." "I couldn't sleep," Maren said. "The bell again?" "The bell." Sol folded his arms. "Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot." "That's the whole of it," Maren said. "You sleep any better for knowing?" "I know the letter F in better, and that's the whole of it," said Sol.</source>
+          <target>“风又回来了，”索尔说，“没想到你会出来。”
+“我睡不着，”玛伦说。
+“又是那铃？”
+“那铃。”
+索尔抱起胳膊。“这一带的人都觉得，风铃不是为风响的。它是为风忘掉的东西响的。”
+“就是这么回事，”玛伦说。
+“知道了这个，你就能睡得踏实些？”
+“我倒是把那个字母F认得清楚了些，也就这么回事，”索尔说。</target>
+        </segment>
+      </unit>
+      <unit id="dialogue-breakfast">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|serious</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>"You'd keep the bell if the sea gave it back," Sol said one morning. "Wouldn't you?" "I'd hang it where it hangs now," Maren said. "Then what's all the listening for?" "To be sure it's still there." Sol shook his head. "It'll be there after both of us," he said, "and it won't miss us." "I know." "Then you know more than most." "I know the listening, anyway." "That's not the same thing." "It's close enough," Maren said. "It's close enough for me."</source>
+          <target>“要是海把那只铃还回来，你会留着的，”一天早上索尔说，“对不对？”
+“我会把它挂回现在挂着的地方，”玛伦说。
+“那你天天听，是听个什么？”
+“听它还在那儿。”
+索尔摇了摇头。“等我们两个都不在了，它还在，”他说，“它不会想我们。”
+“我知道。”
+“那你比大多数人都明白。”
+“反正，我知道听这件事。”
+“那可不是一回事。”
+“也差不离，”玛伦说，“对我来说，差不离就够了。”</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="monologue">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive.</mda:meta>
+          <mda:meta type="type">monologue</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive.</note>
+      </notes>
+      <unit id="monologue-tide">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|sad</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything.</source>
+          <target>我从不知道那铃究竟是一种安慰，还是一种责备。它响起来的调子，和我母亲的名字是同一个调；就像潮水在沙上写下同一道线，又把它抹去。我想把那声音留住，像孩子留一块石头那样；可声音没有口袋可装，于是我只好把它收在胸口，假装它没有分量。</target>
+        </segment>
+      </unit>
+      <unit id="monologue-stone">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|sad</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it.</source>
+          <target>我做姑娘时留着的石头，还在我放它的那块地板底下；就算房子烧了，我也不会为那块石头难过。可那铃不存放在任何地方；它只是被听见的，而被听见的东西，非得再被听见一次不可，否则它根本就不曾存在。于是我总要回去——不是为了留住那铃，而是为了留住听它这件事。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="description">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.</mda:meta>
+          <mda:meta type="type">description</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.</note>
+      </notes>
+      <unit id="description-dusk">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck.</source>
+          <target>海港的灯光把水面染成锤打过的黄铜；一只迟归的海鸥立在木桩上，像个等信的人。雨悬在近海，是一道始终没有落到码头上的灰幕。不知哪里，一把水壶正烧到将沸；而在这一切之上，那只铁皮铃在暖风里摇晃，敲出一声清亮的音，仿佛整个黄昏一直在等着被敲响。</target>
+        </segment>
+      </unit>
+      <unit id="description-lamplighter">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note.</source>
+          <target>点灯人举着长杆，一路走过整条码头；他碰过的每一盏灯都醒了过来，仿佛它们一直只是在等着被人记起。当他走到杂货铺近旁时，铁皮铃接住了灯光，又把它抛过水面；有那么一瞬，整个海港仿佛都悬在那一声小小的、摇摆的铃音上。</target>
+        </segment>
+      </unit>
+      <unit id="description-rain">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">nostalgic|calm</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it.</source>
+          <target>等最后一盏灯亮起时，风已经转向了北面，近海那道灰幕开始移动。它缓缓越过沙洲——整整一堵天气的墙朝小镇倾过来；最初的雨点一颗一颗打在码头上，每一颗都是搭在石面上的一只冰凉的小手。铃在黑暗里继续响着，雨应和着它。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="closing">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">The story's final line, spoken over the harbour; the motif resolves and the register stays plain.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>The story's final line, spoken over the harbour; the motif resolves and the register stays plain.</note>
+      </notes>
+      <unit id="closing-line">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|serious</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="translated">
+          <source>The tide keeps nothing, and forgets nothing.</source>
+          <target>潮水什么都不留下，也什么都不忘记。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

@@ -1,0 +1,19 @@
+{
+  "aphorisms": {
+    "water-holds": "Still water runs clear; a full vessel tips.",
+    "mountain-river": "A mountain gains no height, yet by being climbed it becomes high; a river never turns back, yet by flowing on it becomes long.",
+    "mirror": "A mirror does not reflect itself, and so can reflect others; a spring does not drink itself, and so can quench thirst.",
+    "scale": "A foot is short, an inch is long; each has its proper use.",
+    "lantern-heart": "A high flame burns through its oil quickly; a faint light endures the night."
+  },
+  "parallel-prose": {
+    "parallel-prose-1": "Tiered peaks, a thousand fathoms tall, hide clouds at their summits; a cold river, ten thousand miles long, sends boats into the sky.",
+    "parallel-prose-2": "The valley is silent, without echo; Cangwu hears the bell. The lamp is faint and sways on its own; Cangwu is mirrored in the water."
+  },
+  "quatrain": {
+    "quatrain-1": "At the ferry, the autumn lamp burns dim,",
+    "quatrain-2": "On the cold river, rain slants of its own accord.",
+    "quatrain-3": "The tide returns to the words on the sand,",
+    "quatrain-4": "A bell enters the house on the far bank."
+  }
+}

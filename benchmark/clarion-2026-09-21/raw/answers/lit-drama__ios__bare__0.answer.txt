@@ -1,0 +1,46 @@
+/* cliff:source: The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam. */
+"open-house-lights" = "场灯全灭了。一盏工作灯在舞台前部亮着，灰尘在它的光束里缓缓翻飞。";
+/* cliff:source: I could find this stage in my sleep. */
+"enter-cassian" = "我闭着眼睛都能找到这个舞台。";
+/* cliff:source: You came back. */
+"lit-01a" = "你回来了。";
+/* cliff:source: You came back. */
+"lit-01b" = "你回来了。";
+/* cliff:source: The call board still has my name spelled wrong. */
+"reply-cassian" = "通告板上我的名字还是拼错了。";
+/* cliff:source: This theatre kept its promises. People did not. */
+"motif-promise" = "这座剧院守住了它的承诺。人却没有。";
+/* cliff:source: Wonderful. Just wonderful. */
+"lit-02a" = "好极了。真是好极了。";
+/* cliff:source: Wonderful. Just wonderful. */
+"lit-02b" = "好极了。真是好极了。";
+/* cliff:source: You said the theatre kept its promises. */
+"callback-promise" = "你说过，这座剧院是信守承诺的。";
+/* cliff:source: Mr. Vale, the call is in five minutes. */
+"address-early" = "维尔先生，五分钟后开演。";
+/* cliff:source: Cassian. Please. Sit down. */
+"address-late" = "卡西安。拜托。坐下。";
+/* cliff:source: She turns the lamp toward him. */
+"lit-03a" = "她把灯转向他。";
+/* cliff:source: She turns the lamp toward him. */
+"lit-03b" = "她把灯转向他。";
+/* cliff:source: The roof has not been touched since 1974. */
+"roof-year" = "屋顶自1974年以来就没动过。";
+/* cliff:source: Two 500-watt lamps, and a fuse box older than both of us. */
+"lamp-count" = "两盏500瓦的灯，还有一个比我们俩年纪都大的保险丝盒。";
+/* cliff:source: The Halloway does not close tonight. It closes when the last person leaves. */
+"venue-name" = "哈洛威今晚不关门。它要等到最后一个人离开才关。";
+/* cliff:source: Use the default setting on the board and do not touch anything else. */
+"board-default" = "用控制台上的默认设置，别碰其他任何东西。";
+/* cliff:source: Are you serious? Now? After everything? */
+"disbelief" = "你是认真的吗？现在？在经历了这一切之后？";
+/* cliff:source: I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough. */
+"monologue-open" = "我扫这块地板的次数，比我在自己床上睡觉的次数还多。我知道哪块地板在体重重的演员脚下会吱呀作响，哪块在体重轻的演员脚下会塌下去。只要你待得够久，一栋建筑就会熟悉你。";
+/* cliff:source: And then one night the lights do not come up, and it turns out the building never learned anything at all. */
+"monologue-turn" = "然后有一天晚上，灯没有亮起来，结果发现这栋建筑根本什么都没学会。";
+/* cliff:source: The lamps go dark, the boards remain. */
+"verse-01" = "灯熄了，台板还在。";
+/* cliff:source: The players go, the play remains. */
+"verse-02" = "演员走了，戏还在。";
+/* cliff:source: She reaches up and switches off the work lamp. Darkness, and then the house door closing. */
+"final-direction" = "她抬手关掉工作灯。黑暗，然后是剧院大门关上的声音。";

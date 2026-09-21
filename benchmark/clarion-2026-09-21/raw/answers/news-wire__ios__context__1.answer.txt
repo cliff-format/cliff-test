@@ -1,0 +1,115 @@
+/* Front-page headline. Keep compressed, verbless headline register; do not expand it into a full sentence.
+cliff:source: Harbor bridge: third night closed, tens of thousands rerouted
+cliff:type: noun-phrase
+cliff:status: initial */
+"headline" = "港湾大桥：第三夜封闭，数万人改道";
+/* Standfirst directly under the headline.
+cliff:source: Engineers race the weather to certify the last of 214 cables
+cliff:type: sentence
+cliff:status: initial */
+"subhead" = "工程师与天气赛跑，检定214根缆索中的最后一批";
+/* Opening paragraph of the wire report.
+cliff:source: The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic.
+cliff:type: description
+cliff:status: initial */
+"lede" = "3月14日，梅里迪安港大桥连续第三夜保持封闭。施工人员在暴雨中更换上周风暴中崩断的三根悬索，数万名通勤者被迫改乘两艘临时渡轮接驳船，其运力远不及平日流量。";
+/* Second paragraph of the wire report.
+cliff:source: Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again.
+cliff:type: narration
+cliff:status: initial */
+"body-1" = "梅里迪安港务局官员周二表示，大桥能否重新开放取决于全面的安全审查；214根悬索中已有78%通过检查，其余仍在进行张力调整与测量。港务局此前已三次推迟重新开放的预估时间，局长科林·阿什韦尔警告称，只要风速超过每小时40公里，吊装作业就得停工，工期也将再次后延。";
+/* Third paragraph of the wire report.
+cliff:source: The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall.
+cliff:type: narration
+cliff:status: initial */
+"body-2" = "封桥的影响已波及全市路网。绕行标志把车辆引向一条环路，而这条环路早已承受着设计负荷两倍的车流，高峰时段的排队车流沿北岸绵延逾12公里。渡轮工作人员在早上6点后加开两班，但到上午过半，东码头的队伍仍绕着街区排了一圈，有通勤者称光是排到售票厅就等了一个多小时。";
+/* Direct quotation from the authority director; keep the attribution before the quote and use fullwidth quotation marks.
+cliff:source: Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”
+cliff:type: dialogue
+cliff:status: initial */
+"quote" = "梅里迪安港务局局长科林·阿什韦尔对记者说，大桥“只有在每一根缆索都通过检查之后才会重新开放——一分钟都不会提前”。";
+/* Photo caption under the lead image.
+cliff:source: Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure.
+cliff:type: subtitle
+cliff:status: initial */
+"photo-caption" = "封桥第三天上午，通勤者在港湾东码头排队等候渡轮接驳船。";
+/* Breaking-news push alert sent to readers who follow this story.
+cliff:source: Bridge closure: expect delays of up to 90 minutes on all harbor crossings.
+cliff:type: sentence
+cliff:emotion: urgent
+cliff:status: initial */
+"news-alert" = "大桥封闭：所有跨港通道预计延误最长可达90分钟。";
+/* Headline of the feature article.
+cliff:source: The harbor's quiet ferry revival
+cliff:type: noun-phrase
+cliff:status: initial */
+"feature-headline" = "港湾渡轮的悄然复兴";
+/* Opening of the feature article.
+cliff:source: For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential.
+cliff:type: description
+cliff:status: initial */
+"feature-lede" = "几十年来，港湾渡轮不过是件稀罕物——一种缓慢而风景优美的过水方式，多数通勤者早已忘了它的存在。而三个封闭的夜晚，让它变得不可或缺。";
+/* Body of the feature article.
+cliff:source: The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide.
+cliff:type: narration
+cliff:status: initial */
+"feature-body-1" = "如今，东码头开出的早班船是许多人能在十点前到办公室的唯一指望。三名船员认得每位常客的名字，也记得他们各自的老习惯：那位推折叠自行车的女士，靠着栏杆批改作业的教师，还有提着整箱酸面包过河的厨师。起初只是应急之举，如今却悄然成了一个小社区，有自己的一套老梗，还有一位像导游般一路讲解的船长。";
+/* Second paragraph of the feature article.
+cliff:source: Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days.
+cliff:type: narration
+cliff:status: initial */
+"feature-body-2" = "并非所有人都怀旧。对岸的店主说，改道让他们工作日的生意少了近五分之一，而渡轮单程2欧元的票价，对每天要过两次河的人来说也是笔不小的开销。港务局承诺推出返还补贴方案，但细则仍在起草中；一份要求搭建临时人行桥的请愿书，三天内已征集到一万一千个签名。";
+/* Pull quote from the feature; spoken, lightly colloquial register.
+cliff:source: Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”
+cliff:type: dialogue
+cliff:emotion: informal
+cliff:status: initial */
+"feature-quote" = "掌舵早班接驳船的船长迪亚·普劳斯说得很实在：“这事没人规划过。我们只是出现，然后开始载人。”";
+/* Sarcastic social post. The praise is ironic: the author is a frustrated commuter stuck in the bridge-closure traffic and means the opposite of what the words say. Preserve the irony; do not soften it into sincerity.
+cliff:source: Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks.
+cliff:type: sentence
+cliff:emotion: angry|informal
+cliff:status: initial */
+"post-sarcastic" = "哦，太好了。第三个晚上，又以步行速度一寸寸挪回家。真是一流的桥梁管理，各位。";
+/* Enthusiastic social post praising the shuttle ferry. The hashtag and emoji are part of the message and must survive exactly.
+cliff:source: The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢
+cliff:type: sentence
+cliff:emotion: joyful|hopeful
+cliff:status: initial */
+"post-enthusiastic" = "免费接驳渡轮真是救星——航行平稳，还能一路看风景！#MeridianFerry 🚢";
+/* Reader comment under the wire story; casual, frustrated register. The idiom must be localized, not translated literally.
+cliff:source: Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall.
+cliff:type: sentence
+cliff:emotion: anxious|informal
+cliff:status: initial */
+"comment-1" = "被困在水对岸三天了，我都快抓狂了。市政府，赶紧解决吧。";
+/* Reader comment; casual register with clock times.
+cliff:source: Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours.
+cliff:type: sentence
+cliff:emotion: informal
+cliff:status: initial */
+"comment-2" = "早上6点出门上班，8点50才到办公室。有人欠我两个小时。";
+/* Reader comment; casual, resigned register.
+cliff:source: My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares.
+cliff:type: sentence
+cliff:emotion: informal
+cliff:status: initial */
+"comment-3" = "我邻居都已经在张罗卖车了。他说大桥爱关多久关多久，他才不在乎。";
+/* Editor's note appended to the wire report; formal, impersonal register.
+cliff:source: This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay.
+cliff:type: description
+cliff:emotion: formal|objective
+cliff:status: initial */
+"editors-note" = "本编者按随本篇报道一并刊出，因为周二引用的重新开放时间表已两度变动。港务局发布新信息后，我们将及时更新文中的数据；这些数据若有任何错误，我们将立即更正。";
+/* Formal correction notice appended to the wire report.
+cliff:source: An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours.
+cliff:type: description
+cliff:emotion: formal|objective
+cliff:status: initial */
+"editors-note-correction" = "本文早前版本称东码头接驳船每30分钟一班。实际在高峰时段为每20分钟一班。";
+/* Sign-off line at the end of the editor's note.
+cliff:source: — The Editors
+cliff:type: label
+cliff:emotion: formal
+cliff:status: initial */
+"editors-note-signoff" = "— 编辑部";

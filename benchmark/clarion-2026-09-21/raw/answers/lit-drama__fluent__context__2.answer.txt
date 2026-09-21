@@ -1,0 +1,160 @@
+# The empty auditorium an hour before the final performance. A single work lamp is lit. Opening stage direction of the scene; sets the empty theatre before anyone speaks.
+# cliff:source = The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.
+# cliff:type = description
+# cliff:emotion = calm
+# cliff:status = initial
+open-house-lights = 观众席的灯全灭了。一盏工作灯在台前亮着，尘埃在它的光束里缓缓浮动。
+
+# The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian speaks his first line as he walks in from the wings after ten years away.
+# cliff:source = I could find this stage in my sleep.
+# cliff:type = dialogue
+# cliff:emotion = nostalgic|calm
+# cliff:status = initial
+enter-cassian = 我闭着眼睛都能找到这个舞台。
+
+# The empty auditorium an hour before the final performance. A single work lamp is lit. Odette says this when she is genuinely glad to see him; she has hoped for this for years.
+# cliff:source = You came back.
+# cliff:type = dialogue
+# cliff:emotion = joyful|grateful
+# cliff:status = initial
+lit-01a = 你回来了！
+
+# The empty auditorium an hour before the final performance. A single work lamp is lit. The same words later in the scene, said as a reproach after he admits why he left.
+# cliff:source = You came back.
+# cliff:type = dialogue
+# cliff:emotion = angry|sad
+# cliff:status = initial
+lit-01b = 你回来了。
+
+# The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian deflects with a small joke about the backstage notice board.
+# cliff:source = The call board still has my name spelled wrong.
+# cliff:type = dialogue
+# cliff:emotion = playful
+# cliff:status = initial
+reply-cassian = 通告板上我的名字还是拼错了。
+
+# They circle the argument they have avoided for ten years. Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry.
+# cliff:source = This theatre kept its promises. People did not.
+# cliff:type = dialogue
+# cliff:emotion = serious|sad
+# cliff:status = initial
+motif-promise = 这座剧院信守了它的承诺。人没有。
+
+# They circle the argument they have avoided for ten years. Said when the missing lighting board key is finally found; she means it.
+# cliff:source = Wonderful. Just wonderful.
+# cliff:type = dialogue
+# cliff:emotion = joyful
+# cliff:status = initial
+lit-02a = 太好了。真是太好了。
+
+# They circle the argument they have avoided for ten years. The same words after the fuse blows for the second time; bitter irony, not praise.
+# cliff:source = Wonderful. Just wonderful.
+# cliff:type = dialogue
+# cliff:emotion = angry|playful
+# cliff:status = initial
+lit-02b = 太好了。真是……太好了。
+
+# They circle the argument they have avoided for ten years. Cassian quotes Odette's earlier line back at her; it must read as the same line returning.
+# cliff:source = You said the theatre kept its promises.
+# cliff:type = dialogue
+# cliff:emotion = serious
+# cliff:status = initial
+callback-promise = 你说过，这座剧院信守了它的承诺。
+
+# They circle the argument they have avoided for ten years. Early in the scene Odette keeps him at the distance of a surname and a title.
+# cliff:source = Mr. Vale, the call is in five minutes.
+# cliff:type = dialogue
+# cliff:emotion = formal|polite
+# cliff:status = initial
+address-early = 维尔先生，五分钟后叫场。
+
+# They circle the argument they have avoided for ten years. Late in the scene the distance drops and she uses his given name for the first time.
+# cliff:source = Cassian. Please. Sit down.
+# cliff:type = dialogue
+# cliff:emotion = calm|sad
+# cliff:status = initial
+address-late = 卡西安。拜托。坐下。
+
+# They circle the argument they have avoided for ten years. A stage direction: terse narrative register, describing the action for the crew.
+# cliff:source = She turns the lamp toward him.
+# cliff:type = description
+# cliff:emotion = objective
+# cliff:status = initial
+lit-03a = 她把工作灯转向他。
+
+# They circle the argument they have avoided for ten years. A line of dialogue: an actor describing the blocking aloud during a run-through, in speech.
+# cliff:source = She turns the lamp toward him.
+# cliff:type = dialogue
+# cliff:emotion = playful
+# cliff:status = initial
+lit-03b = 她把灯朝他转了过去。
+
+# Practical talk about the building itself while they avoid each other's eyes. Odette lists what the building needs; the year is a fact and must survive.
+# cliff:source = The roof has not been touched since 1974.
+# cliff:type = dialogue
+# cliff:emotion = neutral
+# cliff:status = initial
+roof-year = 屋顶从1974年起就没动过。
+
+# Practical talk about the building itself while they avoid each other's eyes. Cassian counts what is still working in the grid.
+# cliff:source = Two 500-watt lamps, and a fuse box older than both of us.
+# cliff:type = dialogue
+# cliff:emotion = neutral
+# cliff:status = initial
+lamp-count = 两盏500瓦的灯，还有一个比我们俩都老的保险丝盒。
+
+# Practical talk about the building itself while they avoid each other's eyes. The venue name is the company's mark and is used untranslated in all materials.
+# cliff:source = The Halloway does not close tonight. It closes when the last person leaves.
+# cliff:type = dialogue
+# cliff:emotion = neutral
+# cliff:status = initial
+venue-name = The Halloway今晚不关门。要等到最后一个人离开，它才算关门。
+
+# Practical talk about the building itself while they avoid each other's eyes. A technical instruction to the operator about the lighting board.
+# cliff:source = Use the default setting on the board and do not touch anything else.
+# cliff:type = dialogue
+# cliff:emotion = neutral
+# cliff:status = initial
+board-default = 控制台上用默认设置，别的什么都别碰。
+
+# Practical talk about the building itself while they avoid each other's eyes. Cassian reacts to her telling him the building is already sold.
+# cliff:source = Are you serious? Now? After everything?
+# cliff:type = dialogue
+# cliff:emotion = surprised|angry
+# cliff:status = initial
+disbelief = 你是认真的？现在？都到了这一步？
+
+# Odette alone in the work light after Cassian goes to change. The first half of her monologue, alone on stage; long-form literary prose, not conversational.
+# cliff:source = I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.
+# cliff:type = monologue
+# cliff:emotion = nostalgic
+# cliff:status = initial
+monologue-open = 我扫过这块地板的次数，比在自己床上睡过的觉还多。我知道哪一块地板在胖演员脚下会吱呀作响，哪一块在轻的演员脚下会塌下去。只要你待得够久，一栋楼就会慢慢熟悉你。
+
+# Odette alone in the work light after Cassian goes to change. The turn in the monologue where the comfort collapses.
+# cliff:source = And then one night the lights do not come up, and it turns out the building never learned anything at all.
+# cliff:type = monologue
+# cliff:emotion = nostalgic
+# cliff:status = initial
+monologue-turn = 然后某天晚上，灯再也不亮起来，你才发现这栋楼其实什么都没学会。
+
+# The company's traditional closing couplet, spoken to the empty house at the end of a run. First line of the closing couplet; the two lines are parallel in structure and must stay parallel.
+# cliff:source = The lamps go dark, the boards remain.
+# cliff:type = narration
+# cliff:emotion = serious|nostalgic
+# cliff:status = initial
+verse-01 = 灯熄了，台板还在。
+
+# The company's traditional closing couplet, spoken to the empty house at the end of a run. Second line of the couplet, mirroring the first line word for word in structure.
+# cliff:source = The players go, the play remains.
+# cliff:type = narration
+# cliff:emotion = serious|nostalgic
+# cliff:status = initial
+verse-02 = 人走了，戏还在。
+
+# The company's traditional closing couplet, spoken to the empty house at the end of a run. The closing stage direction of the scene.
+# cliff:source = She reaches up and switches off the work lamp. Darkness, and then the house door closing.
+# cliff:type = description
+# cliff:emotion = calm
+# cliff:status = initial
+final-direction = 她抬手关掉工作灯。一片黑暗，然后是观众席大门关上的声音。

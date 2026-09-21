@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the invoice and payment screen.
+cliff:source: Billing
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="billing">账单</string>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that opens the live stream management screen.
+cliff:source: Streaming
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="streaming">直播</string>
+    <!--Primary navigation links in the Harborline Console sidebar. Sidebar link that lists the user's isolated project environments.
+cliff:source: Workspaces
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="workspaces">工作区</string>
+    <!--Billing screen: invoices, rates and usage totals. Column header in the invoice summary; the price charged per gigabyte.
+cliff:source: Billing rate
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="billing-rate">计费费率</string>
+    <!--Billing screen: invoices, rates and usage totals. Empty state shown when the account has never generated an invoice.
+cliff:source: No invoices yet
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="no-invoices">暂无账单</string>
+    <!--Billing screen: invoices, rates and usage totals. Error toast after a rejected card charge.
+cliff:source: Payment failed
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="payment-failed">支付失败</string>
+    <!--Live stream management screen: sources, keys and quality settings. Field that shows the secret value the encoder sends with the live stream.
+cliff:source: Stream key
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="stream-key">直播流密钥</string>
+    <!--Live stream management screen: sources, keys and quality settings. Label beside the frames-per-second selector on the quality panel.
+cliff:source: Frame rate
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="frame-rate">帧率</string>
+    <!--Live stream management screen: sources, keys and quality settings. Dropdown label above the output resolution list.
+cliff:source: Resolution
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="resolution">分辨率</string>
+    <!--Live stream management screen: sources, keys and quality settings. Menu action that attaches the selected stream to a project environment.
+cliff:source: Add to workspace
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 10-->
+    <string name="add-to-workspace">加入工作区</string>
+    <!--Live stream management screen: sources, keys and quality settings. Error toast when the encoder cannot establish the live stream.
+cliff:source: Stream failed to start
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="stream-failed">直播流启动失败</string>
+    <!--Live stream management screen: sources, keys and quality settings. Summary line under the stream list showing how many streams run in how many regions.
+cliff:source: {count, plural, other {# streams}} across {regions, plural, other {# regions}}
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="stream-summary">{count, plural, other {# 个直播流}}，跨 {regions, plural, other {# 个区域}}</string>
+    <!--Workspace settings page: region, network and cache options. Button that resets every option on this page to its initial value.
+cliff:source: Restore defaults
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 8-->
+    <string name="restore-defaults">恢复默认</string>
+    <!--Workspace settings page: region, network and cache options. Button that empties the stored responses so the next request reaches the origin.
+cliff:source: Clear cache
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="clear-cache">清除缓存</string>
+    <!--Workspace settings page: region, network and cache options. Tooltip over the latency badge; the round-trip time in milliseconds.
+cliff:source: Latency
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="latency">延迟</string>
+    <!--Workspace settings page: region, network and cache options. Label of the credential field used to authenticate programmatic calls.
+cliff:source: API token
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="api-token">API Token</string>
+    <!--Workspace settings page: region, network and cache options. Field in the throttling section; the maximum requests allowed per second.
+cliff:source: Request rate limit
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 8-->
+    <string name="request-rate-limit">请求限速</string>
+    <!--Workspace settings page: region, network and cache options. Status line at the top of the page showing the currently selected region name.
+cliff:source: Region: %s
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="status-line">区域：%s</string>
+    <!--Workspace settings page: region, network and cache options. Explanatory paragraph under the cache options heading.
+cliff:source: Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="cache-description">缓存响应会保留 24 小时，在过期之前会继续被返回。清除缓存后，每个请求都会重新发送到源站。</string>
+    <!--First-run onboarding and workspace management dialogs. Primary button on the onboarding screen that opens the workspace creation flow.
+cliff:source: Create new workspace
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 10-->
+    <string name="create-workspace">创建工作区</string>
+    <!--First-run onboarding and workspace management dialogs. Greeting heading shown after sign-in, with the account holder's display name.
+cliff:source: Welcome back to Harborline, {name}
+cliff:type: prompt
+cliff:emotion: polite
+cliff:status: initial-->
+    <string name="welcome-back">欢迎回到 Harborline，{name}</string>
+    <!--First-run onboarding and workspace management dialogs. Caption under the workspace list that reports the total number of project environments.
+cliff:source: {count, plural, one {# workspace} other {# workspaces}}
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="workspace-count">{count, plural, one {# 个工作区} other {# 个工作区}}</string>
+    <!--First-run onboarding and workspace management dialogs. Confirmation dialog shown before permanently removing a project environment.
+cliff:source: Delete this workspace? This cannot be undone.
+cliff:type: sentence
+cliff:emotion: serious
+cliff:status: initial-->
+    <string name="delete-confirm">删除此工作区？此操作无法撤销。</string>
+    <!--First-run onboarding and workspace management dialogs. Screen-reader cue announcing the action bound to the Escape key.
+cliff:source: Close dialog
+cliff:type: accessibility-cue
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="close-dialog">关闭对话框</string>
+</resources>

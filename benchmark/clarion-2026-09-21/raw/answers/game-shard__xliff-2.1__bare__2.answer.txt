@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.game-shard" original="clarion.game-shard">
+    <group id="dialog.ash-and-flint">
+      <unit id="ash-greets-flint">
+        <segment state="translated">
+          <source>Flint, you still owe me a proper blade.</source>
+          <target>弗林特，你还欠我一把像样的利刃。</target>
+        </segment>
+      </unit>
+      <unit id="flint-replies-ash">
+        <segment state="translated">
+          <source>Ash, you could not hold a whetstone straight if the forge froze over.</source>
+          <target>艾什，就算熔炉都冻上了，你也拿不稳一块磨刀石。</target>
+        </segment>
+      </unit>
+      <unit id="ash-fearful">
+        <segment state="translated">
+          <source>Flint, the frost is moving. I saw it breathe.</source>
+          <target>弗林特，寒霜在动。我看见它呼吸了。</target>
+        </segment>
+      </unit>
+      <unit id="flint-angry">
+        <segment state="translated">
+          <source>You lit that spark, Ash, and now the whole valley pays for it.</source>
+          <target>艾什，是你点燃了那点火花，如今整个山谷都要为此付出代价。</target>
+        </segment>
+      </unit>
+      <unit id="flint-calls-ash">
+        <segment state="translated">
+          <source>Ash! Get away from the wall — it is coming through!</source>
+          <target>艾什！快离开那堵墙——它要穿墙过来了！</target>
+        </segment>
+      </unit>
+      <unit id="ash-grateful">
+        <segment state="translated">
+          <source>Flint, you forged me a name when no one else would. Thank you.</source>
+          <target>弗林特，在没人愿意的时候，你为我铸就了一个名号。谢谢你。</target>
+        </segment>
+      </unit>
+      <unit id="flint-polite-threat">
+        <segment state="translated">
+          <source>You are, of course, welcome to try again. I will even hold the door for you.</source>
+          <target>当然，你大可以再试一次。我甚至可以替你扶着门。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="monologue.ash">
+      <unit id="monologue-ash-fire">
+        <segment state="translated">
+          <source>The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.</source>
+          <target>我胸中的火焰有自己的记忆。寒冷尚未到来，它便已感知到寒冷，而它感到害怕。</target>
+        </segment>
+      </unit>
+      <unit id="monologue-ash-name">
+        <segment state="translated">
+          <source>Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.</source>
+          <target>弗林特说，名字是一个把手，不是一面镜子。但名字依然可以是你对自己许下的承诺。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="skills.items">
+      <unit id="skill-ember-burst">
+        <segment state="translated">
+          <source>Ember Burst</source>
+          <target>余烬迸发</target>
+        </segment>
+      </unit>
+      <unit id="skill-frost-whip">
+        <segment state="translated">
+          <source>Frost Whip</source>
+          <target>寒霜之鞭</target>
+        </segment>
+      </unit>
+      <unit id="skill-cinder-sidestep">
+        <segment state="translated">
+          <source>Cinder Sidestep</source>
+          <target>灰烬侧步</target>
+        </segment>
+      </unit>
+      <unit id="skill-thorn-snare">
+        <segment state="translated">
+          <source>Thorn Snare</source>
+          <target>荆棘陷阱</target>
+        </segment>
+      </unit>
+      <unit id="item-emberbloom-tonic">
+        <segment state="translated">
+          <source>Emberbloom Tonic</source>
+          <target>烬花补剂</target>
+        </segment>
+      </unit>
+      <unit id="item-axe-pun-desc">
+        <segment state="translated">
+          <source>This greataxe is a real splitting headache — swing once and the argument is over.</source>
+          <target>这把巨斧真能让人头痛欲裂——抡上一斧，争论就结束了。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="tutorial.system">
+      <unit id="tutorial-loot">
+        <segment state="translated">
+          <source>Press [F] to loot.</source>
+          <target>按 [F] 拾取。</target>
+        </segment>
+      </unit>
+      <unit id="combat-log-damage">
+        <segment state="translated">
+          <source>{count, plural, one {# point of damage} other {# points of damage}}</source>
+          <target>{count, plural, one {# 点伤害} other {# 点伤害}}</target>
+        </segment>
+      </unit>
+      <unit id="faction-claim">
+        <segment state="translated">
+          <source>{faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}</source>
+          <target>{faction, select, emberborn {余烬之裔认下了你的名号。} frostward {霜卫认下了你的名号。} other {没有任何阵营认下你的名号。}}</target>
+        </segment>
+      </unit>
+      <unit id="hit-taken">
+        <segment state="translated">
+          <source>You take {damage} damage from the frost.</source>
+          <target>你受到寒霜造成的 {damage} 点伤害。</target>
+        </segment>
+      </unit>
+      <unit id="welcome-name">
+        <segment state="translated">
+          <source>Welcome back, {playerName}.</source>
+          <target>欢迎回来，{playerName}。</target>
+        </segment>
+      </unit>
+      <unit id="settings-cache">
+        <segment state="translated">
+          <source>Clear cache and restore default settings</source>
+          <target>清除缓存并恢复默认设置</target>
+        </segment>
+      </unit>
+      <unit id="tutorial-regen">
+        <segment state="translated">
+          <source>Drink to restore 40 HP over 10 seconds.</source>
+          <target>喝下后可在 10 秒内恢复 40 点生命值。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="cutscene.subtitles">
+      <unit id="subtitle-frost">
+        <segment state="translated">
+          <source>The frost does not forgive.</source>
+          <target>寒霜不会宽恕。</target>
+        </segment>
+      </unit>
+      <unit id="sfx-ember-crackle">
+        <segment state="translated">
+          <source>[Soft ember crackle]</source>
+          <target>[轻柔的余烬噼啪声]</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

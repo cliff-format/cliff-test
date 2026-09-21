@@ -1,0 +1,130 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical
+source-language: zh-CN
+target-language: en-US
+
+[aphorisms]
+
+<water-holds>
+source: "水静则清，器满则倾。"
+target: "Water grows clear when still; a vessel tips when full."
+type: sentence
+status: translated
+
+<mountain-river>
+source: "山不增高，因登而高；川不返流，因逝而长。"
+target: "The mountain adds no height, yet is made high by climbing; the river never turns back, yet is made long by flowing on."
+type: sentence
+status: translated
+
+<mirror>
+source: "镜不自照，故能照人；泉不自饮，故能济渴。"
+target: "A mirror does not reflect itself, and so can reflect others; a spring does not drink of itself, and so can quench thirst."
+type: sentence
+status: translated
+
+<scale>
+source: "尺短寸长，各有所宜。"
+target: "A foot is short, an inch is long; each has its own use."
+type: sentence
+status: translated
+
+<lantern-heart>
+source: "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+target: "A lamp whose flame is high spends its oil soon; a lamp whose light is faint endures the long night."
+type: sentence
+status: translated
+
+[parallel-prose]
+
+<parallel-prose-1>
+source: "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+target: "Tier on tier of peaks a thousand fathoms high, keeping the clouds at their summits; a cold river ten thousand miles long, sending boats into the sky."
+type: sentence
+status: translated
+
+<parallel-prose-2>
+source: "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+target: "The valley is still and answers nothing, yet Cangwu hears the bell; the lamp is faint and sways of itself, and Cangwu shines upon the water."
+type: sentence
+status: translated
+
+[quatrain]
+
+<quatrain-1>
+source: "渡口秋灯暗，"
+target: "At the ferry the autumn lamp is dim,"
+type: sentence
+status: translated
+
+<quatrain-2>
+source: "江寒雨自斜。"
+target: "the rain slants down on the cold river."
+type: sentence
+status: translated
+
+<quatrain-3>
+source: "潮回沙上字，"
+target: "the tide turns back to the words on the sand,"
+type: sentence
+status: translated
+
+<quatrain-4>
+source: "钟入隔岸家。"
+target: "the bell enters a house on the farther shore."
+type: sentence
+status: translated
+
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical-terms
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+title: "Glossary for clarion.lit-classical"
+info: "Naming decisions for terms that recur in the translated file; the rendering recorded is the rendering used there."
+
+[terms]
+
+<cangwu>
+source: "苍梧"
+target: "Cangwu"
+type: proper-noun
+status: translated
+context: "Kept as the proper name Cangwu so the deliberate repetition across both halves of parallel-prose-2 survives; 'green wutong trees' was rejected because it would break that parallel."
+
+<lamp>
+source: "灯"
+target: "lamp"
+type: noun
+status: translated
+context: "One rendering for 灯 and 灯焰 throughout (lantern-heart, parallel-prose-2, quatrain-1); 'lantern' was rejected to avoid two renderings of the same image."
+
+<bell>
+source: "钟"
+target: "bell"
+type: noun
+status: translated
+context: "Kept plain 'bell' in parallel-prose-2 and quatrain-4; 'temple bell' was rejected because the source names no temple."
+
+<ren>
+source: "仞"
+target: "fathom"
+type: noun
+status: translated
+context: "Classical measure of height; 'a thousand fathoms' keeps the sense of great height in readable en-US."
+
+<chi-cun>
+source: "尺短寸长"
+target: "A foot is short, an inch is long"
+type: idiom
+status: translated
+context: "The classical idiom 尺有所短，寸有所长; the English foot/inch pair keeps both units in parallel and reads as a proverb."
+
+<milli-li>
+source: "万里"
+target: "ten thousand miles"
+type: noun
+status: translated
+context: "Vast distance in parallel-prose-1; 'ten thousand miles' mirrors the numeral 万 and pairs with 'a thousand fathoms' in the first half."

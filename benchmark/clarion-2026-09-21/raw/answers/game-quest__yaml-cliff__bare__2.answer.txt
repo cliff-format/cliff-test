@@ -1,0 +1,122 @@
+header:
+  namespace: clarion
+  clan: game-quest
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: quest.brief
+  entries:
+  - id: brief-tide-run
+    source: The tide turns twice a day, and twice a day the harbor forgets who owes
+      whom. Carry the sealed manifest to the quartermaster before the water rises,
+      and the ledger stays honest for one more night.
+    target: 潮水一日两转，港口也一日两次忘记谁欠了谁。趁水位未涨，把密封货单送到军需官
+      手上，账本就能再多诚实一个晚上。
+  - id: brief-ninth-light
+    source: Nine lights ring the inner water. Eight are tended by the harbor guild;
+      the last one stands on a rock the guild pretends not to see, and it has never
+      once gone dark.
+    target: 内湾四周环着九盏灯。八盏由港务公会照看；最后一盏立在一块公会假装没看见的
+      礁石上，而它从未熄灭过一回。
+  - id: quest-title-last-watch
+    source: Willow's Last Watch
+    target: Willow 的最后一班守望
+  - id: journal-note-order
+    source: Marrow reads the manifest before he opens the gate, so objective 2 stays
+      locked until objective 1 is signed off.
+    target: Marrow 开闸门前会先看货单，所以在目标 1 被确认之前，目标 2 会一直锁着。
+  - id: brief-warning-fog
+    source: 'Fog comes in from the west without warning. If you cannot see the next
+      light, stop rowing and wait: the current here is patient, and sooner or later
+      it will carry you back to the pier.'
+    target: '雾从西边来时毫无征兆。若你望不见下一盏灯，就停下桨等一等：这里的水流很有
+      耐心，迟早会把你送回码头。'
+- path: quest.objectives
+  entries:
+  - id: objective-03a
+    source: Deliver the Sealed Manifest to Marrow
+    target: 将密封货单交给 Marrow
+  - id: objective-03b
+    source: Deliver the Sealed Manifest to Marrow
+    target: 将密封货单交给 Marrow
+  - id: objective-04a
+    source: Restore Power to the Tide Gate
+    target: 为潮闸恢复供电
+  - id: objective-04b
+    source: Restore Power to the Tide Gate
+    target: 为潮闸恢复供电
+  - id: objective-relight
+    source: Relight the Ninth Light before the ebb
+    target: 在退潮前重新点亮第九盏灯
+  - id: objective-count-crates
+    source: '{secured, plural, one {# crate secured} other {# crates secured}}'
+    target: '{secured, plural, other {已固定 # 个板条箱}}'
+  - id: objective-check-lines
+    source: Check the mooring lines on the east pier
+    target: 检查东码头的系泊缆绳
+- path: quest.dialogue
+  entries:
+  - id: hail-01a
+    source: Hand me the lantern, friend.
+    target: 把提灯递给我，朋友。
+  - id: hail-01b
+    source: Hand me the lantern, friend.
+    target: 把提灯递给我，朋友。
+  - id: hail-02a
+    source: Marrow says the dock is open to you.
+    target: Marrow 说了，码头对你开放。
+  - id: hail-02b
+    source: Marrow says the dock is open to you.
+    target: Marrow 说了，码头对你开放。
+  - id: dialogue-willow-keeps
+    source: Willow has kept the Ninth Light burning for eleven winters, and she has
+      never once asked the guild for oil.
+    target: Willow 让第九盏灯燃了十一个冬天，却从未向公会讨过一滴灯油。
+  - id: dialogue-burn-it
+    source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.
+    target: 在 Marrow 的船靠上码头前把它烧掉。冷透的灰烬什么也不会告诉他。
+  - id: success-echo
+    source: The Ninth Light is yours to keep now. Do not make me regret the hand-over.
+    target: 第九盏灯如今归你照看。别让我后悔把它交出去。
+  - id: line-success-tide
+    source: The gate holds. Whatever you did down there, the water is going where
+      it should.
+    target: 闸门撑住了。不管你在下面做了什么，水总算流向了该去的地方。
+  - id: line-failure-tide
+    source: The gate is jammed and the pier is under water. Come back when the tide
+      drops and we will try again.
+    target: 闸门卡死了，码头已经淹在水下。等退潮后再来，我们再试一次。
+- path: items.rewards
+  entries:
+  - id: item-relay-grid-desc
+    source: 'The relay grid is robust: one failed beacon does not break the chain.'
+    target: '中继网很健壮：一盏信标失效不会断掉整条链路。'
+  - id: item-lamp-oil-desc
+    source: One flask feeds the lamp for 30 minutes at the default wick height.
+    target: 在默认灯芯高度下，一壶灯油可供这盏灯燃烧 30 分钟。
+  - id: item-fog-lamp-desc
+    source: A squat brass lamp with a scratched blue shutter. The light it throws
+      is weak, but in fog a weak light scatters less than a bright one.
+    target: 一盏矮墩墩的黄铜灯，蓝色遮光片上有划痕。它投出的光很弱，但在雾里，弱光比强光
+      散射得更少。
+  - id: achv-marrow-debt
+    source: Marrow's Debt
+    target: Marrow 的债
+  - id: achv-nine-nights
+    source: Nine Nights, Nine Lights
+    target: 九夜九灯
+- path: system.messages
+  entries:
+  - id: system-welcome-runner
+    source: Fair tide, {playerName}. Your last run ended 3 days ago.
+    target: 潮水顺遂，{playerName}。你上一趟出航结束于 3 天前。
+  - id: system-keybind-lantern
+    source: Hold [E] to raise the lantern; press [Q] to signal.
+    target: 按住 [E] 举起提灯；按 [Q] 发出信号。
+  - id: system-signal-range
+    source: 'Signal range: 120 m in fog, 400 m in clear air.'
+    target: '信号范围：雾中 120 米，晴空下 400 米。'
+  - id: system-quest-state
+    source: '{state, select, updated {Quest updated} complete {Quest complete} other
+      {Quest failed}}'
+    target: '{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}'

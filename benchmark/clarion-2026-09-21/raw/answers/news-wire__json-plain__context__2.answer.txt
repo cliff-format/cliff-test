@@ -1,0 +1,86 @@
+{
+  "wire.headline": {
+    "message": "港口大桥：第三夜封闭，数万人改道",
+    "description": "Front-page headline. Keep compressed, verbless headline register; do not expand it into a full sentence. | cliff:type: noun-phrase | cliff:status: initial"
+  },
+  "wire.subhead": {
+    "message": "工程师抢在天气恶化前为最后一批214根缆索做认证",
+    "description": "Standfirst directly under the headline. | cliff:type: sentence | cliff:status: initial"
+  },
+  "wire.lede": {
+    "message": "3月14日，梅里迪安港大桥连续第三夜保持关闭。施工人员在暴雨中作业，更换上周风暴中折断的三根悬索，迫使数万名通勤者改乘两艘临时接驳渡轮，而其运力仅为平日客流的一小部分。",
+    "description": "Opening paragraph of the wire report. | cliff:type: description | cliff:status: initial"
+  },
+  "wire.body-1": {
+    "message": "梅里迪安港务局官员周二表示，重新开放取决于全面的安全审查；大桥214根悬索中已有78%通过检查，其余仍在进行张拉和测量。港务局此前已三次推迟重新开放的时间预估，局长科林·阿什韦尔警告称，只要风速超过每小时40公里，起重机作业就会暂停，工期也将再次推迟。",
+    "description": "Second paragraph of the wire report. | cliff:type: narration | cliff:status: initial"
+  },
+  "wire.body-2": {
+    "message": "此次封闭的影响已波及全市路网。绕行标志将司机引向唯一一条环路，而这条环路已在承受双倍于设计负荷的车流；高峰时段的车辆长龙沿北岸绵延超过12公里。渡轮工作人员在早上6点后加开两班，但到上午过半时，东码头的队伍仍绕着街区排了一圈，一些通勤者称，光是排到售票大厅就等了一个多小时。",
+    "description": "Third paragraph of the wire report. | cliff:type: narration | cliff:status: initial"
+  },
+  "wire.quote": {
+    "message": "梅里迪安港务局局长科林·阿什韦尔告诉记者，大桥“只有在每根缆索都通过检查后才会重新开放——一分钟都不会提前”。",
+    "description": "Direct quotation from the authority director; keep the attribution before the quote and use fullwidth quotation marks. | cliff:type: dialogue | cliff:status: initial"
+  },
+  "wire.photo-caption": {
+    "message": "封闭第三天的早晨，通勤者在港口东码头排队等待接驳渡轮。",
+    "description": "Photo caption under the lead image. | cliff:type: subtitle | cliff:status: initial"
+  },
+  "wire.news-alert": {
+    "message": "大桥封闭：所有跨港通道预计最多延误90分钟。",
+    "description": "Breaking-news push alert sent to readers who follow this story. | cliff:type: sentence | cliff:emotion: urgent | cliff:status: initial"
+  },
+  "feature.feature-headline": {
+    "message": "港口渡轮的悄然复兴",
+    "description": "Headline of the feature article. | cliff:type: noun-phrase | cliff:status: initial"
+  },
+  "feature.feature-lede": {
+    "message": "几十年来，港口渡轮一直是个稀罕物——一种缓慢而风景优美的过港方式，大多数通勤者早已忘了它的存在。而三个封闭的夜晚，却让它们变得不可或缺。",
+    "description": "Opening of the feature article. | cliff:type: description | cliff:status: initial"
+  },
+  "feature.feature-body-1": {
+    "message": "如今，从东码头开出的早班船，成了许多人能在十点前赶到办公室的唯一指望。船上三名船员对常客的名字和登船顺序都一清二楚：那位带着折叠自行车的女士，靠在栏杆上批改作业的教师，还有提着一箱酸面包过港的厨师。一项最初的应急措施，悄然变成了一个小社区，有自己的日常玩笑，还有一位像导游一样讲解航程的船长。",
+    "description": "Body of the feature article. | cliff:type: narration | cliff:status: initial"
+  },
+  "feature.feature-body-2": {
+    "message": "并非所有人都怀旧。对岸的店主说，绕行让他们的工作日生意减少了近五分之一；对每天往返两次的人来说，渡轮单程2欧元的票价累积起来也是一笔开销。港务局承诺推出补贴方案，但细节仍在起草中；一份要求修建临时人行桥的请愿书已在三天内征集到一万一千个签名。",
+    "description": "Second paragraph of the feature article. | cliff:type: narration | cliff:status: initial"
+  },
+  "feature.feature-quote": {
+    "message": "早班接驳船的船长迪亚·普劳斯掌着舵，说得直白：“没人计划过这件事。我们只是来了，然后就开始载人。”",
+    "description": "Pull quote from the feature; spoken, lightly colloquial register. | cliff:type: dialogue | cliff:emotion: informal | cliff:status: initial"
+  },
+  "social.post-sarcastic": {
+    "message": "哦，太好了。第三个晚上，只能以步行速度一点点挪回家。真是顶级的桥梁管理啊，各位。",
+    "description": "Sarcastic social post. The praise is ironic: the author is a frustrated commuter stuck in the bridge-closure traffic and means the opposite of what the words say. Preserve the irony; do not soften it into sincerity. | cliff:type: sentence | cliff:emotion: angry|informal | cliff:status: initial"
+  },
+  "social.post-enthusiastic": {
+    "message": "免费接驳渡轮真是救星——一路顺畅，还附赠美景！#MeridianFerry 🚢",
+    "description": "Enthusiastic social post praising the shuttle ferry. The hashtag and emoji are part of the message and must survive exactly. | cliff:type: sentence | cliff:emotion: joyful|hopeful | cliff:status: initial"
+  },
+  "comments.comment-1": {
+    "message": "三天了还困在水这边过不去，我都快急疯了。市政厅，赶紧解决吧。",
+    "description": "Reader comment under the wire story; casual, frustrated register. The idiom must be localized, not translated literally. | cliff:type: sentence | cliff:emotion: anxious|informal | cliff:status: initial"
+  },
+  "comments.comment-2": {
+    "message": "早上6点出门上班，8点50才到办公室。有人欠我两个小时。",
+    "description": "Reader comment; casual register with clock times. | cliff:type: sentence | cliff:emotion: informal | cliff:status: initial"
+  },
+  "comments.comment-3": {
+    "message": "我邻居已经在张罗着卖车了。他说大桥爱关多久关多久，他才不在乎。",
+    "description": "Reader comment; casual, resigned register. | cliff:type: sentence | cliff:emotion: informal | cliff:status: initial"
+  },
+  "editors-note.editors-note": {
+    "message": "本编者按随报道一同发布，因为周二引用的重新开放时间表已经变了两次。港务局发布新信息后，我们将更新文中数据，并会立即更正其中的任何错误。",
+    "description": "Editor's note appended to the wire report; formal, impersonal register. | cliff:type: description | cliff:emotion: formal|objective | cliff:status: initial"
+  },
+  "editors-note.editors-note-correction": {
+    "message": "本文早前版本称，东码头接驳船每30分钟一班。该船在高峰时段每20分钟一班。",
+    "description": "Formal correction notice appended to the wire report. | cliff:type: description | cliff:emotion: formal|objective | cliff:status: initial"
+  },
+  "editors-note.editors-note-signoff": {
+    "message": "— 编辑部",
+    "description": "Sign-off line at the end of the editor's note. | cliff:type: label | cliff:emotion: formal | cliff:status: initial"
+  }
+}

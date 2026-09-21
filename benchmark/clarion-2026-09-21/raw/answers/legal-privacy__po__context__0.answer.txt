@@ -1,0 +1,212 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. First defined term of the notice. Later clauses use this term instead of describing the data again, and the house term list of this project settles which of the two competing renderings is used.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "policy.definitions.def-personal-data"
+msgid "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+msgstr "“个人信息”是指与已识别或可识别的自然人有关的、由运营者通过门户处理的任何信息。"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Second defined term. The notice speaks about this person in the third person throughout, and the request clauses repeat the term unchanged.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "policy.definitions.def-data-subject"
+msgid "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+msgstr "“数据主体”是指个人信息所涉及的自然人，无论该人是否在运营者处持有账户。"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Third defined term. Both company names are entries on a commercial register and appear the same way in every language edition of this notice, because a reader has to be able to look them up.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "policy.definitions.def-operator"
+msgid "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+msgstr "“运营者”是指 Quillmark Data Services，即决定本通知所述处理的目的和方式，并委托 Halberd Cloud GmbH 托管门户的公司。"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Fourth defined term. It is built on the term defined two entries earlier in this section, and the clauses of the agreement reuse both terms word for word.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "policy.definitions.def-processing"
+msgid "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+msgstr "“处理”是指对个人信息执行的任何操作，无论是否采用自动化方式，包括收集、存储、传输、披露和删除。"
+
+#. Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse. Fifth defined term, describing the product the notice is about.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "policy.definitions.def-portal"
+msgid "“Portal” means the web application through which a request is submitted, tracked and answered."
+msgstr "“门户”是指用于提交、跟踪和答复请求的 Web 应用程序。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Opening line of the notice, printed above the definitions. The first date is the day this edition starts to apply and the second identifies the edition it replaces, so a reader must be able to tell the two apart at a glance.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "policy.requests.policy-effective-date"
+msgid "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+msgstr "本通知自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的通知。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Transparency figure published once a year and checked by an external auditor. The count and the percentage are reported exactly as they were counted.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "policy.requests.policy-volume-figures"
+msgid "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+msgstr "在 2025 报告年度，运营者通过门户收到 1,250,000 份请求，并在法定期间内答复了其中的 98.6%。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Retention clause as it is printed in the notice, carrying the clause number the notice gives it. Other clauses cite this number instead of repeating the rule.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "policy.requests.policy-retention-clause"
+msgid "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+msgstr "4.2 运营者在 30 天内删除已关闭账户的记录，除非法律要求更长的保留期限。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Rights clause of the notice. It rests on two terms that the definitions section of this file fixes, and a reader who compares the two passages must find the same wording in both.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "policy.requests.policy-request-right"
+msgid "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+msgstr "数据主体可以要求运营者更正或删除运营者持有的、与其相关的个人信息。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Cross-reference clause. The rule it points at is the retention clause printed earlier in this file, and the citation has to lead the reader to that clause and to no other.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "policy.requests.policy-erasure-crossref"
+msgid "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+msgstr "删除请求依据第 4.2 条中的保留规则予以答复，运营者通过门户确认结果。"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Counter on the portal dashboard; the portal engine substitutes the number of requests that are still open.
+#. cliff:type: sentence
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "policy.requests.portal-request-count"
+msgid "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+msgstr "{pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}"
+
+#. Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite. Confirmation shown after a request is filed; the portal engine passes the channel the account holder chose.
+#. cliff:type: sentence
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "policy.requests.portal-answer-channel"
+msgid "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+msgstr "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}"
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Core duty clause of the agreement. Each obligation is a duty that binds the party now, not a forecast of what the parties expect to happen later.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.authorised.dpa-scope-instructions"
+msgid "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+msgstr "处理者仅应按照控制者的书面指示处理个人信息；如果某项指示似乎违反适用法律，处理者应立即通知控制者。"
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Numbered audit clause, cited by number from the chapter that follows. The first modal confers a right on one party and the second lays a duty on the other, and the two halves of the sentence must not read alike.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.authorised.dpa-audit-right"
+msgid "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+msgstr "6.1 控制者每个日历年可对处理者进行一次审计，处理者必须为审计人员提供其审计所需记录的访问权限。"
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. The clause closes the list of authorisations in this chapter and tells the Processor that the listed purposes are covered by what the Controller has granted. It is read as the grant itself, not as a boundary drawn around the grant.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.authorised.clause-07a"
+msgid "The Processor may use the Personal Data for the purposes set out in this Article."
+msgstr "处理者可将个人信息用于本条所列目的。"
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Opening clause of the authorisation chapter. It fixes the moment at which the Controller puts its signature to the agreement in the Portal, which is what brings the authorisations of this chapter into force; nothing here concerns how the agreement is carried out afterwards.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.authorised.clause-09a"
+msgid "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+msgstr "本协议的签署在门户中记录，并向双方确认。"
+
+#. Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do. Ordinary operational clause, printed at the end of the authorisation chapter.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.authorised.dpa-hosting-region"
+msgid "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+msgstr "根据本协议创建的所有记录均存储在附件 1 中约定的区域内，并且每晚进行备份。"
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. The same sentence as the purpose clause of the previous chapter, repeated here as the closing limitation. In this chapter the listed purposes are exhaustive: a purpose that is not listed falls outside the authorisation, and the clause exists in order to say so.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.restrictions.clause-07b"
+msgid "The Processor may use the Personal Data for the purposes set out in this Article."
+msgstr "处理者仅可将个人信息用于本条所列目的。"
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. The same sentence, printed in the chapter that limits the authorisation. Here it makes the way the Processor carries out the agreement from day to day traceable, so that the Controller can check at any time whether the limits of this chapter were observed; the signing of the document is dealt with in the earlier chapter.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.restrictions.clause-09b"
+msgid "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+msgstr "本协议的履行在门户中记录，并向双方确认。"
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Enumerated prohibition. An auditor cites these items by their markers in the finding report, so a marker has to stay where the source puts it and keep its own item.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.restrictions.dpa-enumerated-prohibition"
+msgid "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+msgstr "处理者不得：(a) 未经控制者事先书面授权聘请新的次级处理者；(b) 将记录复制到控制者未批准的设备；或 (c) 使用记录训练任何类型的模型。"
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Disclaimer that closes the chapter. The source is set in capitals because the law of the source jurisdiction asks for a conspicuous notice; the target locale marks a conspicuous notice in the sentence itself rather than in the typography.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.restrictions.dpa-caps-disclaimer"
+msgid "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+msgstr "运营者特此明确声明：不保证门户可无中断或无错误地运行；并在适用法律允许的最大范围内，明确排除一切默示保证，包括适销性及特定用途适用性的默示保证。"
+
+#. Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation. Saving clause. It points back to the audit clause of the previous chapter by the number that clause carries in this file, and an auditor follows the number rather than the wording.
+#. cliff:type: sentence
+#. cliff:emotion: formal
+#. cliff:status: initial
+msgctxt "dpa.restrictions.dpa-audit-crossref"
+msgid "Nothing in this Article limits the audit right granted in Section 6.1."
+msgstr "本条中的任何内容均不限制第 6.1 条授予的审计权。"
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Paper title at the head of the abstract and in the conference programme.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "paper.abstract.paper-title"
+msgid "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+msgstr "大规模审计同意记录：对三个同意门户的实地研究"
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. First two sentences of the abstract: the problem and the study.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "paper.abstract.paper-abstract-opening"
+msgid "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+msgstr "当监管机构询问为何使用了某人的数据时，同意记录是公司所依赖的证据，然而这些记录本身却很少受到审计。我们报告一项为期九个月、针对由中型企业运营的三个同意门户的实地研究。"
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Method sentence of the abstract.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "paper.abstract.paper-abstract-method"
+msgid "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+msgstr "我们使用一套固定的常规请求脚本对每个门户进行测试，并将其返回的每一份回执与该门户写入自身日志的记录进行比对。"
+
+#. Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete. Findings and closing claim of the abstract.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "paper.abstract.paper-abstract-findings"
+msgid "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+msgstr "三个门户中有两个丢失了至少一次撤回的时间戳，而且没有一个门户能在无需人工操作的情况下说明某人同意的是哪一个版本的通知。我们认为，同意记录的价值不过取决于其背后的审计轨迹；我们公开测试脚本，以便其他团队能够重复这项研究。"

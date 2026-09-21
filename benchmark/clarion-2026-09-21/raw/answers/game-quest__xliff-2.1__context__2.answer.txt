@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.game-quest" original="clarion.game-quest">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Saltwake: the Ninth Light quest line</mda:meta>
+        <mda:meta type="info">Saltwake is a seafaring adventure game set in a drowned archipelago where couriers called signal runners carry lantern messages between lighthouses. This file is the quest line 'The Ninth Light': journal briefs, objective lines, success and failure lines, item descriptions and achievement names. Audience: players on PC and handheld consoles. Objective lines are shown twice, once on the wide journal page and once in the narrow on-screen tracker, and the system strings are rendered by the game engine.</mda:meta>
+        <mda:meta type="standard">Translate the keeper's name 'Willow' semantically as 柳; never transliterate it as 薇洛, 威洛 or 维洛, and never turn it into the tree 柳树. Transliterate the quartermaster's name 'Marrow' as 马洛; never translate it as 骨髓 and never spell it 马罗. Render 'Ninth Light' identically in every entry that mentions it. Keep engine placeholders such as {playerName}, ICU MessageFormat structure and key hints such as [E] exactly as the source writes them. Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Avoid textbook jargon: write 稳健 rather than 鲁棒, 默认 rather than 缺省, 分辨率 rather than 解析度. Objective lines carry a display-width budget in cells, where Latin letters and digits count one cell and Han or fullwidth characters count two; the narrow version must be rewritten shorter, not truncated.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="quest.brief">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete.</mda:meta>
+          <mda:meta type="type">description</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete.</note>
+      </notes>
+      <unit id="brief-tide-run">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Opening page of the quest journal, read after the quest is accepted. Plain narration, no character voice.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Opening page of the quest journal, read after the quest is accepted. Plain narration, no character voice.</note>
+        </notes>
+        <segment state="translated">
+          <source>The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.</source>
+          <target>潮水一天转向两次，港口也就一天两次忘记谁欠了谁。趁水位上涨之前，把密封货单送到军需官手上，账本就能再多清白一晚。</target>
+        </segment>
+      </unit>
+      <unit id="brief-ninth-light">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Second journal page, giving the player the background of the lights before the first run.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Second journal page, giving the player the background of the lights before the first run.</note>
+        </notes>
+        <segment state="translated">
+          <source>Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.</source>
+          <target>九盏灯环绕着内湾。其中八盏由港口公会照看；最后一盏立在一块公会假装看不见的礁石上，至今一次也没有熄过。</target>
+        </segment>
+      </unit>
+      <unit id="quest-title-last-watch">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="context">Quest title shown at the top of the journal page and in the quest-accepted banner. It names the keeper of the ninth light, who is taking her final shift.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Quest title shown at the top of the journal page and in the quest-accepted banner. It names the keeper of the ninth light, who is taking her final shift.</note>
+        </notes>
+        <segment state="translated">
+          <source>Willow's Last Watch</source>
+          <target>柳的最后一班岗</target>
+        </segment>
+      </unit>
+      <unit id="journal-note-order">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Note printed under the objective list on the journal page. On that list the manifest delivery is the first objective and the tide gate is the second, and the numbers here must match that order.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Note printed under the objective list on the journal page. On that list the manifest delivery is the first objective and the tide gate is the second, and the numbers here must match that order.</note>
+        </notes>
+        <segment state="translated">
+          <source>Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.</source>
+          <target>马洛要先看过货单才会开闸门，所以在目标 1 确认完成之前，目标 2 一直锁定。</target>
+        </segment>
+      </unit>
+      <unit id="brief-warning-fog">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Safety paragraph on the journal page, written in the voice of the harbor handbook.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Safety paragraph on the journal page, written in the voice of the harbor handbook.</note>
+        </notes>
+        <segment state="translated">
+          <source>Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.</source>
+          <target>雾会毫无预兆地从西边压过来。如果你看不见下一盏灯，就停下桨等着：这里的水流有耐心，早晚会把你送回码头。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.objectives">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget.</note>
+      </notes>
+      <unit id="objective-03a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Objective as it appears on the wide journal page, where the full wording fits.</mda:meta>
+            <mda:meta type="max-width">24</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Objective as it appears on the wide journal page, where the full wording fits.</note>
+        </notes>
+        <segment state="translated">
+          <source>Deliver the Sealed Manifest to Marrow</source>
+          <target>将密封货单交给马洛</target>
+        </segment>
+      </unit>
+      <unit id="objective-03b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">The same objective in the narrow on-screen tracker, where the slot is less than half as wide.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same objective in the narrow on-screen tracker, where the slot is less than half as wide.</note>
+        </notes>
+        <segment state="translated">
+          <source>Deliver the Sealed Manifest to Marrow</source>
+          <target>货单交马洛</target>
+        </segment>
+      </unit>
+      <unit id="objective-04a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Objective as it appears on the wide journal page, where the full wording fits.</mda:meta>
+            <mda:meta type="max-width">24</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Objective as it appears on the wide journal page, where the full wording fits.</note>
+        </notes>
+        <segment state="translated">
+          <source>Restore Power to the Tide Gate</source>
+          <target>恢复潮汐闸门供电</target>
+        </segment>
+      </unit>
+      <unit id="objective-04b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">The same objective in the narrow on-screen tracker, where only a few cells are left after the checkbox.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same objective in the narrow on-screen tracker, where only a few cells are left after the checkbox.</note>
+        </notes>
+        <segment state="translated">
+          <source>Restore Power to the Tide Gate</source>
+          <target>闸门通电</target>
+        </segment>
+      </unit>
+      <unit id="objective-relight">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Final objective of the quest line. The lamp it names is the one the keeper and the dockhand talk about elsewhere in this file, and it must read the same way in all of them.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Final objective of the quest line. The lamp it names is the one the keeper and the dockhand talk about elsewhere in this file, and it must read the same way in all of them.</note>
+        </notes>
+        <segment state="translated">
+          <source>Relight the Ninth Light before the ebb</source>
+          <target>在退潮之前重新点亮第九盏灯</target>
+        </segment>
+      </unit>
+      <unit id="objective-count-crates">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">mechanical</mda:meta>
+            <mda:meta type="context">Counter under the cargo objective; the engine substitutes the number of crates already lashed down.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Counter under the cargo objective; the engine substitutes the number of crates already lashed down.</note>
+        </notes>
+        <segment state="translated">
+          <source>{secured, plural, one {# crate secured} other {# crates secured}}</source>
+          <target>{secured, plural, one {已固定 # 个货箱} other {已固定 # 个货箱}}</target>
+        </segment>
+      </unit>
+      <unit id="objective-check-lines">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Side objective on the journal page; nothing is abbreviated here.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Side objective on the journal page; nothing is abbreviated here.</note>
+        </notes>
+        <segment state="translated">
+          <source>Check the mooring lines on the east pier</source>
+          <target>检查东码头的系缆</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="quest.dialogue">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery.</mda:meta>
+          <mda:meta type="type">dialogue</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery.</note>
+      </notes>
+      <unit id="hail-01a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">polite|calm</mda:meta>
+            <mda:meta type="context">The quartermaster reaches out to carry the lantern up the stair for the player; he means the offer kindly.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The quartermaster reaches out to carry the lantern up the stair for the player; he means the offer kindly.</note>
+        </notes>
+        <segment state="translated">
+          <source>Hand me the lantern, friend.</source>
+          <target>把灯递给我吧，朋友。</target>
+        </segment>
+      </unit>
+      <unit id="hail-01b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">rude|angry</mda:meta>
+            <mda:meta type="context">The same words at the top of the stair, where two of his dockhands have closed off the way back; the courtesy is a demand.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same words at the top of the stair, where two of his dockhands have closed off the way back; the courtesy is a demand.</note>
+        </notes>
+        <segment state="translated">
+          <source>Hand me the lantern, friend.</source>
+          <target>灯，给我，朋友。</target>
+        </segment>
+      </unit>
+      <unit id="hail-02a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|hopeful</mda:meta>
+            <mda:meta type="context">A dockhand passes on the quartermaster's word once the manifest has been signed; the message is a genuine welcome.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A dockhand passes on the quartermaster's word once the manifest has been signed; the message is a genuine welcome.</note>
+        </notes>
+        <segment state="translated">
+          <source>Marrow says the dock is open to you.</source>
+          <target>马洛说，码头欢迎你。</target>
+        </segment>
+      </unit>
+      <unit id="hail-02b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">rude|serious</mda:meta>
+            <mda:meta type="context">The same sentence delivered after the player has cheated him, with two dockhands waiting at the ramp; the welcome is a warning.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same sentence delivered after the player has cheated him, with two dockhands waiting at the ramp; the welcome is a warning.</note>
+        </notes>
+        <segment state="translated">
+          <source>Marrow says the dock is open to you.</source>
+          <target>马洛说了，码头为你敞着门。</target>
+        </segment>
+      </unit>
+      <unit id="dialogue-willow-keeps">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|nostalgic</mda:meta>
+            <mda:meta type="context">A dockhand tells the player about the keeper while they wait for the tide. The lamp he names is the one the final objective sends the player back to.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A dockhand tells the player about the keeper while they wait for the tide. The lamp he names is the one the final objective sends the player back to.</note>
+        </notes>
+        <segment state="translated">
+          <source>Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.</source>
+          <target>柳守着第九盏灯，一守就是十一个冬天，一次也没向公会要过油。</target>
+        </segment>
+      </unit>
+      <unit id="dialogue-burn-it">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">urgent|anxious</mda:meta>
+            <mda:meta type="context">Whispered by the keeper the moment the quartermaster's boat is sighted. What must be burned is the object the delivery objective puts in the player's hands, not the lamp she is standing next to.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Whispered by the keeper the moment the quartermaster's boat is sighted. What must be burned is the object the delivery objective puts in the player's hands, not the lamp she is standing next to.</note>
+        </notes>
+        <segment state="translated">
+          <source>Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.</source>
+          <target>趁马洛的船还没靠上码头，把它烧掉。烧成冷灰，他就什么都问不出来。</target>
+        </segment>
+      </unit>
+      <unit id="success-echo">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">serious|hopeful</mda:meta>
+            <mda:meta type="context">The keeper's last line, spoken when the quest line is completed. It answers the sentence the dockhand used earlier about how long she kept the lamp, and should reuse that verb.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The keeper's last line, spoken when the quest line is completed. It answers the sentence the dockhand used earlier about how long she kept the lamp, and should reuse that verb.</note>
+        </notes>
+        <segment state="translated">
+          <source>The Ninth Light is yours to keep now. Do not make me regret the hand-over.</source>
+          <target>第九盏灯如今归你守了。别让我后悔把它交出去。</target>
+        </segment>
+      </unit>
+      <unit id="line-success-tide">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|hopeful</mda:meta>
+            <mda:meta type="context">Spoken by the gate warden when the tide-gate objective succeeds.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Spoken by the gate warden when the tide-gate objective succeeds.</note>
+        </notes>
+        <segment state="translated">
+          <source>The gate holds. Whatever you did down there, the water is going where it should.</source>
+          <target>闸门稳住了。不管你在下面做了什么，水正流去它该去的地方。</target>
+        </segment>
+      </unit>
+      <unit id="line-failure-tide">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">sad|calm</mda:meta>
+            <mda:meta type="context">Spoken by the same warden when the tide-gate objective fails and the player has to retry.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Spoken by the same warden when the tide-gate objective fails and the player has to retry.</note>
+        </notes>
+        <segment state="translated">
+          <source>The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.</source>
+          <target>闸门卡死了，码头已经淹在水下。等退潮了再回来，我们再试一次。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="items.rewards">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list.</mda:meta>
+          <mda:meta type="type">description</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list.</note>
+      </notes>
+      <unit id="item-relay-grid-desc">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Bag description of the relay chart, read by players who never open an engineering manual.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Bag description of the relay chart, read by players who never open an engineering manual.</note>
+        </notes>
+        <segment state="translated">
+          <source>The relay grid is robust: one failed beacon does not break the chain.</source>
+          <target>中继网很稳健：一座信标失效，也不会断掉整条链。</target>
+        </segment>
+      </unit>
+      <unit id="item-lamp-oil-desc">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Bag description of the oil flask. The wick height is the setting the lamp starts with when the player has never touched it.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Bag description of the oil flask. The wick height is the setting the lamp starts with when the player has never touched it.</note>
+        </notes>
+        <segment state="translated">
+          <source>One flask feeds the lamp for 30 minutes at the default wick height.</source>
+          <target>在默认灯芯高度下，一瓶油可供灯燃 30 分钟。</target>
+        </segment>
+      </unit>
+      <unit id="item-fog-lamp-desc">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Bag description of the fog lamp the player is given before the first run.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Bag description of the fog lamp the player is given before the first run.</note>
+        </notes>
+        <segment state="translated">
+          <source>A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.</source>
+          <target>一盏矮墩墩的黄铜灯，蓝色的遮光板布满划痕。它投出的光很弱，可在雾里，弱光比亮光散射得更少。</target>
+        </segment>
+      </unit>
+      <unit id="achv-marrow-debt">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="context">Achievement name shown in the banner when the player clears the quartermaster's account. What he owes is a favour, not money.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Achievement name shown in the banner when the player clears the quartermaster's account. What he owes is a favour, not money.</note>
+        </notes>
+        <segment state="translated">
+          <source>Marrow's Debt</source>
+          <target>马洛的人情债</target>
+        </segment>
+      </unit>
+      <unit id="achv-nine-nights">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="context">Achievement name for visiting every lighthouse on nine consecutive in-game nights.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Achievement name for visiting every lighthouse on nine consecutive in-game nights.</note>
+        </notes>
+        <segment state="translated">
+          <source>Nine Nights, Nine Lights</source>
+          <target>九夜，九盏灯</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="system.messages">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written.</mda:meta>
+          <mda:meta type="emotion">mechanical</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written.</note>
+      </notes>
+      <unit id="system-welcome-runner">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">calm</mda:meta>
+            <mda:meta type="context">Greeting on the loading screen after a save is opened; the placeholder carries the player's profile name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Greeting on the loading screen after a save is opened; the placeholder carries the player's profile name.</note>
+        </notes>
+        <segment state="translated">
+          <source>Fair tide, {playerName}. Your last run ended 3 days ago.</source>
+          <target>潮水顺遂，{playerName}。你上一次出航在 3 天前结束。</target>
+        </segment>
+      </unit>
+      <unit id="system-keybind-lantern">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">prompt</mda:meta>
+            <mda:meta type="context">Input hint over the lantern hook. The bracketed keys are filled in from the player's own bindings and must stay exactly as they are.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Input hint over the lantern hook. The bracketed keys are filled in from the player's own bindings and must stay exactly as they are.</note>
+        </notes>
+        <segment state="translated">
+          <source>Hold [E] to raise the lantern; press [Q] to signal.</source>
+          <target>按住 [E] 举起灯；按 [Q] 发出信号。</target>
+        </segment>
+      </unit>
+      <unit id="system-signal-range">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Status readout on the lamp panel; both distances are shown to the player as plain numbers.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Status readout on the lamp panel; both distances are shown to the player as plain numbers.</note>
+        </notes>
+        <segment state="translated">
+          <source>Signal range: 120 m in fog, 400 m in clear air.</source>
+          <target>信号距离：雾中 120 m，无雾时 400 m。</target>
+        </segment>
+      </unit>
+      <unit id="system-quest-state">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Banner shown at the top of the screen whenever the quest state changes; the engine passes the state name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Banner shown at the top of the screen whenever the quest state changes; the engine passes the state name.</note>
+        </notes>
+        <segment state="translated">
+          <source>{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}</source>
+          <target>{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

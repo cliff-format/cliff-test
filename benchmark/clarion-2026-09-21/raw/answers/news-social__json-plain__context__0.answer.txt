@@ -1,0 +1,114 @@
+{
+  "posts.reactions.news-01a": {
+    "message": "今天干得漂亮，各位。真的。",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly. | cliff:type: sentence | cliff:emotion: grateful|joyful | cliff:status: initial"
+  },
+  "posts.reactions.news-01b": {
+    "message": "今天干得漂亮，各位。真的。",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite. | cliff:type: sentence | cliff:emotion: angry|playful | cliff:status: initial"
+  },
+  "posts.reactions.news-02a": {
+    "message": "修了六个月的路，我们终于走到这一步了。",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last. | cliff:type: sentence | cliff:emotion: joyful|hopeful | cliff:status: initial"
+  },
+  "posts.reactions.news-02b": {
+    "message": "修了六个月的路，我们终于走到这一步了。",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street. | cliff:type: sentence | cliff:emotion: angry|playful | cliff:status: initial"
+  },
+  "posts.reactions.news-03a": {
+    "message": "你真要坐那玩意儿？",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her. | cliff:type: sentence | cliff:emotion: anxious|polite | cliff:status: initial"
+  },
+  "posts.reactions.news-03b": {
+    "message": "你真要坐那玩意儿？",
+    "description": "Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user. | cliff:type: sentence | cliff:emotion: rude|playful | cliff:status: initial"
+  },
+  "posts.referents.news-04a": {
+    "message": "漂亮。",
+    "description": "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise. | cliff:type: sentence | cliff:emotion: joyful|informal | cliff:status: initial"
+  },
+  "posts.referents.news-04b": {
+    "message": "漂亮。",
+    "description": "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line. | cliff:type: sentence | cliff:emotion: joyful|informal | cliff:status: initial"
+  },
+  "posts.referents.news-05a": {
+    "message": "它回来了。",
+    "description": "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself. | cliff:type: sentence | cliff:emotion: joyful|informal | cliff:status: initial"
+  },
+  "posts.referents.news-05b": {
+    "message": "它回来了。",
+    "description": "Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier. | cliff:type: sentence | cliff:emotion: sad|informal | cliff:status: initial"
+  },
+  "platform.conventions.news-06": {
+    "message": "非常感谢 @HollowPineCafe 今天早上在车辆段门口派发免费咖啡。#TramDay",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts. | cliff:type: sentence | cliff:emotion: grateful|informal | cliff:status: initial"
+  },
+  "platform.conventions.news-07": {
+    "message": "今天下午把整条环线坐了个遍，就因为我想坐 🚋💚 不后悔",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood. | cliff:type: sentence | cliff:emotion: joyful|playful | cliff:status: initial"
+  },
+  "platform.conventions.news-08": {
+    "message": "新车辆段的壁画简直绝了。一点渣都没剩。",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene. | cliff:type: sentence | cliff:emotion: joyful|informal | cliff:status: initial"
+  },
+  "platform.conventions.news-09": {
+    "message": "{count, plural, one {# 人} other {# 人}}转发了你的照片。",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands. | cliff:type: prompt | cliff:emotion: mechanical|objective | cliff:status: initial"
+  },
+  "platform.conventions.news-10": {
+    "message": "{name} 和 {others, plural, one {其他 # 人} other {其他 # 人}}赞了你的帖子。",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted. | cliff:type: prompt | cliff:emotion: mechanical|objective | cliff:status: initial"
+  },
+  "platform.conventions.news-11": {
+    "message": "乘坐河畔环线的第 3 天，我单程省了 40 分钟。10 分满分，还会再坐。",
+    "description": "Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction. | cliff:type: sentence | cliff:emotion: joyful|informal | cliff:status: initial"
+  },
+  "thread.replies.news-12": {
+    "message": "@SablewickTransit 河畔环线在周一的公共假日会运行吗？",
+    "description": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account. | cliff:type: sentence | cliff:emotion: curious|polite | cliff:status: initial"
+  },
+  "thread.replies.news-13": {
+    "message": "会，按周日时刻表。",
+    "description": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question. | cliff:type: sentence | cliff:emotion: polite|objective | cliff:status: initial"
+  },
+  "thread.replies.news-14": {
+    "message": "那回程的末班车呢？",
+    "description": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction. | cliff:type: sentence | cliff:emotion: curious|informal | cliff:status: initial"
+  },
+  "thread.replies.news-15": {
+    "message": "11 点 40 分，从北端发车。",
+    "description": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above. | cliff:type: sentence | cliff:emotion: polite|objective | cliff:status: initial"
+  },
+  "thread.replies.news-16": {
+    "message": "太好了，谢谢！我这就把它发到群聊里。",
+    "description": "One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account. | cliff:type: sentence | cliff:emotion: grateful|informal | cliff:status: initial"
+  },
+  "feed.updates.news-17": {
+    "message": "运营更新：从周一起，河畔环线每八分钟一班，末班车于晚上 11:40 发车。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line. | cliff:type: sentence | cliff:emotion: objective|formal | cliff:status: initial"
+  },
+  "feed.updates.news-18": {
+    "message": "车辆段开放日周六上午十点开始，车间参观对所有人免费。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "feed.updates.news-19": {
+    "message": "运营商表示，河畔环线首周客运量达到两万一千人次。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "feed.updates.news-20": {
+    "message": "大多数早上我都坐首班电车，座位全程都够舒服。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line. | cliff:type: sentence | cliff:emotion: neutral|informal | cliff:status: initial"
+  },
+  "feed.updates.news-21": {
+    "message": "有人知道北端的售票机能不能刷卡吗？",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus. | cliff:type: sentence | cliff:emotion: curious|informal | cliff:status: initial"
+  },
+  "feed.updates.news-22": {
+    "message": "仪式期间雨没下起来，站在站台上的所有人都很幸运。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony. | cliff:type: sentence | cliff:emotion: neutral | cliff:status: initial"
+  },
+  "feed.updates.news-23": {
+    "message": "单程票价 1.50 欧元，日票 4 欧元。",
+    "description": "Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "game-shard",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "dialog.ash-and-flint",
+      "entries": [
+        {
+          "id": "ash-greets-flint",
+          "source": "Flint, you still owe me a proper blade.",
+          "target": "弗林特，你还欠我一把像样的利刃。"
+        },
+        {
+          "id": "flint-replies-ash",
+          "source": "Ash, you could not hold a whetstone straight if the forge froze over.",
+          "target": "艾什，就算熔炉冻上了，你也拿不正一块磨刀石。"
+        },
+        {
+          "id": "ash-fearful",
+          "source": "Flint, the frost is moving. I saw it breathe.",
+          "target": "弗林特，寒霜在动。我看见它呼吸了。"
+        },
+        {
+          "id": "flint-angry",
+          "source": "You lit that spark, Ash, and now the whole valley pays for it.",
+          "target": "艾什，那点火星是你点燃的，现在整个山谷都要为此付出代价。"
+        },
+        {
+          "id": "flint-calls-ash",
+          "source": "Ash! Get away from the wall — it is coming through!",
+          "target": "艾什！离那堵墙远点——它要破墙而入了！"
+        },
+        {
+          "id": "ash-grateful",
+          "source": "Flint, you forged me a name when no one else would. Thank you.",
+          "target": "弗林特，别人都不肯的时候，是你为我锻造了一个名字。谢谢你。"
+        },
+        {
+          "id": "flint-polite-threat",
+          "source": "You are, of course, welcome to try again. I will even hold the door for you.",
+          "target": "当然，你大可以再试一次。我甚至可以替你扶着门。"
+        }
+      ]
+    },
+    {
+      "path": "monologue.ash",
+      "entries": [
+        {
+          "id": "monologue-ash-fire",
+          "source": "The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.",
+          "target": "我胸中的火焰有自己的记忆。它能在寒冷降临之前就感知到寒冷，而它感到害怕。"
+        },
+        {
+          "id": "monologue-ash-name",
+          "source": "Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.",
+          "target": "弗林特说，名字是把手，不是镜子。但名字仍可以是你对自己许下的承诺。"
+        }
+      ]
+    },
+    {
+      "path": "skills.items",
+      "entries": [
+        {
+          "id": "skill-ember-burst",
+          "source": "Ember Burst",
+          "target": "余烬爆发"
+        },
+        {
+          "id": "skill-frost-whip",
+          "source": "Frost Whip",
+          "target": "寒霜之鞭"
+        },
+        {
+          "id": "skill-cinder-sidestep",
+          "source": "Cinder Sidestep",
+          "target": "烬步侧闪"
+        },
+        {
+          "id": "skill-thorn-snare",
+          "source": "Thorn Snare",
+          "target": "荆棘陷阱"
+        },
+        {
+          "id": "item-emberbloom-tonic",
+          "source": "Emberbloom Tonic",
+          "target": "烬花补剂"
+        },
+        {
+          "id": "item-axe-pun-desc",
+          "source": "This greataxe is a real splitting headache — swing once and the argument is over.",
+          "target": "这把巨斧真能让人头疼欲裂——只要挥一次，争论就结束了。"
+        }
+      ]
+    },
+    {
+      "path": "tutorial.system",
+      "entries": [
+        {
+          "id": "tutorial-loot",
+          "source": "Press [F] to loot.",
+          "target": "按 [F] 拾取。"
+        },
+        {
+          "id": "combat-log-damage",
+          "source": "{count, plural, one {# point of damage} other {# points of damage}}",
+          "target": "{count, plural, one {# 点伤害} other {# 点伤害}}"
+        },
+        {
+          "id": "faction-claim",
+          "source": "{faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}",
+          "target": "{faction, select, emberborn {余烬裔已将你的名字记入名下。} frostward {霜卫已将你的名字记入名下。} other {没有阵营将你的名字记入名下。}}"
+        },
+        {
+          "id": "hit-taken",
+          "source": "You take {damage} damage from the frost.",
+          "target": "寒霜对你造成 {damage} 点伤害。"
+        },
+        {
+          "id": "welcome-name",
+          "source": "Welcome back, {playerName}.",
+          "target": "欢迎回来，{playerName}。"
+        },
+        {
+          "id": "settings-cache",
+          "source": "Clear cache and restore default settings",
+          "target": "清除缓存并恢复默认设置"
+        },
+        {
+          "id": "tutorial-regen",
+          "source": "Drink to restore 40 HP over 10 seconds.",
+          "target": "饮用后可在 10 秒内恢复 40 点生命值。"
+        }
+      ]
+    },
+    {
+      "path": "cutscene.subtitles",
+      "entries": [
+        {
+          "id": "subtitle-frost",
+          "source": "The frost does not forgive.",
+          "target": "寒霜不会宽恕。"
+        },
+        {
+          "id": "sfx-ember-crackle",
+          "source": "[Soft ember crackle]",
+          "target": "[轻柔的余烬噼啪声]"
+        }
+      ]
+    }
+  ]
+}

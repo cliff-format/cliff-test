@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "emotion.reading.probe-01a"
+msgid "Oh, that's just wonderful."
+msgstr "哦，那可真是太好了。"
+
+msgctxt "emotion.reading.probe-01b"
+msgid "Oh, that's just wonderful."
+msgstr "哦，那可真是太好了。"
+
+msgctxt "emotion.reading.probe-02a"
+msgid "After you."
+msgstr "您先请。"
+
+msgctxt "emotion.reading.probe-02b"
+msgid "After you."
+msgstr "您先请。"
+
+msgctxt "emotion.reading.probe-03a"
+msgid "Well, here we go again."
+msgstr "好吧，又来这一套。"
+
+msgctxt "emotion.reading.probe-03b"
+msgid "Well, here we go again."
+msgstr "好吧，又来这一套。"
+
+msgctxt "emotion.reading.probe-04a"
+msgid "Just relax."
+msgstr "放松点。"
+
+msgctxt "emotion.reading.probe-04b"
+msgid "Just relax."
+msgstr "放松点。"
+
+msgctxt "type.register.probe-05a"
+msgid "Save"
+msgstr "保存"
+
+msgctxt "type.register.probe-05b"
+msgid "Save"
+msgstr "保存"
+
+msgctxt "type.register.probe-06a"
+msgid "Forge"
+msgstr "锻造"
+
+msgctxt "type.register.probe-06b"
+msgid "Forge"
+msgstr "锻造"
+
+msgctxt "type.register.probe-07a"
+msgid "Break a leg!"
+msgstr "祝你好运！"
+
+msgctxt "type.register.probe-07b"
+msgid "Break a leg!"
+msgstr "祝你好运！"
+
+msgctxt "context.referent.probe-08a"
+msgid "Rate"
+msgstr "速率"
+
+msgctxt "context.referent.probe-08b"
+msgid "Rate"
+msgstr "速率"
+
+msgctxt "context.referent.probe-09a"
+msgid "Seal"
+msgstr "密封"
+
+msgctxt "context.referent.probe-09b"
+msgid "Seal"
+msgstr "密封"
+
+msgctxt "context.referent.probe-10a"
+msgid "It won't start."
+msgstr "它启动不了。"
+
+msgctxt "context.referent.probe-10b"
+msgid "It won't start."
+msgstr "它启动不了。"
+
+msgctxt "width.budget.probe-11a"
+msgid "Restore Default Settings"
+msgstr "恢复默认设置"
+
+msgctxt "width.budget.probe-11b"
+msgid "Restore Default Settings"
+msgstr "恢复默认设置"
+
+msgctxt "width.budget.probe-12a"
+msgid "View Frequently Asked Questions"
+msgstr "查看常见问题解答"
+
+msgctxt "width.budget.probe-12b"
+msgid "View Frequently Asked Questions"
+msgstr "查看常见问题解答"

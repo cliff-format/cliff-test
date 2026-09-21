@@ -1,0 +1,201 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is JSON holding the CLIFF data model: groups contain entries with
+source, target and metadata. Fill the target field of every entry.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "game-quest",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "quest.brief",
+      "entries": [
+        {
+          "id": "brief-tide-run",
+          "source": "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+        },
+        {
+          "id": "brief-ninth-light",
+          "source": "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+        },
+        {
+          "id": "quest-title-last-watch",
+          "source": "Willow's Last Watch"
+        },
+        {
+          "id": "journal-note-order",
+          "source": "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+        },
+        {
+          "id": "brief-warning-fog",
+          "source": "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+        }
+      ]
+    },
+    {
+      "path": "quest.objectives",
+      "entries": [
+        {
+          "id": "objective-03a",
+          "source": "Deliver the Sealed Manifest to Marrow"
+        },
+        {
+          "id": "objective-03b",
+          "source": "Deliver the Sealed Manifest to Marrow"
+        },
+        {
+          "id": "objective-04a",
+          "source": "Restore Power to the Tide Gate"
+        },
+        {
+          "id": "objective-04b",
+          "source": "Restore Power to the Tide Gate"
+        },
+        {
+          "id": "objective-relight",
+          "source": "Relight the Ninth Light before the ebb"
+        },
+        {
+          "id": "objective-count-crates",
+          "source": "{secured, plural, one {# crate secured} other {# crates secured}}"
+        },
+        {
+          "id": "objective-check-lines",
+          "source": "Check the mooring lines on the east pier"
+        }
+      ]
+    },
+    {
+      "path": "quest.dialogue",
+      "entries": [
+        {
+          "id": "hail-01a",
+          "source": "Hand me the lantern, friend."
+        },
+        {
+          "id": "hail-01b",
+          "source": "Hand me the lantern, friend."
+        },
+        {
+          "id": "hail-02a",
+          "source": "Marrow says the dock is open to you."
+        },
+        {
+          "id": "hail-02b",
+          "source": "Marrow says the dock is open to you."
+        },
+        {
+          "id": "dialogue-willow-keeps",
+          "source": "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+        },
+        {
+          "id": "dialogue-burn-it",
+          "source": "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+        },
+        {
+          "id": "success-echo",
+          "source": "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+        },
+        {
+          "id": "line-success-tide",
+          "source": "The gate holds. Whatever you did down there, the water is going where it should."
+        },
+        {
+          "id": "line-failure-tide",
+          "source": "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+        }
+      ]
+    },
+    {
+      "path": "items.rewards",
+      "entries": [
+        {
+          "id": "item-relay-grid-desc",
+          "source": "The relay grid is robust: one failed beacon does not break the chain."
+        },
+        {
+          "id": "item-lamp-oil-desc",
+          "source": "One flask feeds the lamp for 30 minutes at the default wick height."
+        },
+        {
+          "id": "item-fog-lamp-desc",
+          "source": "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+        },
+        {
+          "id": "achv-marrow-debt",
+          "source": "Marrow's Debt"
+        },
+        {
+          "id": "achv-nine-nights",
+          "source": "Nine Nights, Nine Lights"
+        }
+      ]
+    },
+    {
+      "path": "system.messages",
+      "entries": [
+        {
+          "id": "system-welcome-runner",
+          "source": "Fair tide, {playerName}. Your last run ended 3 days ago."
+        },
+        {
+          "id": "system-keybind-lantern",
+          "source": "Hold [E] to raise the lantern; press [Q] to signal."
+        },
+        {
+          "id": "system-signal-range",
+          "source": "Signal range: 120 m in fog, 400 m in clear air."
+        },
+        {
+          "id": "system-quest-state",
+          "source": "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+        }
+      ]
+    }
+  ]
+}

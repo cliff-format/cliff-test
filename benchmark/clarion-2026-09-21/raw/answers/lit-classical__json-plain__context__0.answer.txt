@@ -1,0 +1,46 @@
+{
+  "aphorisms.water-holds": {
+    "message": "Still water grows clear; a full vessel tips.",
+    "description": "Short philosophical aphorisms from a fictional anthology, each meant to stand alone. | cliff:type: sentence | cliff:emotion: calm|serious | cliff:status: initial"
+  },
+  "aphorisms.mountain-river": {
+    "message": "A mountain gains no height, yet climbing makes it high; a river never turns back, yet flowing on makes it long.",
+    "description": "Short philosophical aphorisms from a fictional anthology, each meant to stand alone. | cliff:type: sentence | cliff:emotion: serious|calm | cliff:status: initial"
+  },
+  "aphorisms.mirror": {
+    "message": "A mirror does not reflect itself, so it can reflect others; a spring does not drink itself, so it can quench thirst.",
+    "description": "Short philosophical aphorisms from a fictional anthology, each meant to stand alone. | cliff:type: sentence | cliff:emotion: calm | cliff:status: initial"
+  },
+  "aphorisms.scale": {
+    "message": "A foot is short, an inch is long; each has its proper use.",
+    "description": "Short philosophical aphorisms from a fictional anthology, each meant to stand alone. | cliff:type: sentence | cliff:emotion: serious | cliff:status: initial"
+  },
+  "aphorisms.lantern-heart": {
+    "message": "A lamp that flames high soon spends its oil; a lamp that glows faint lasts the night.",
+    "description": "Short philosophical aphorisms from a fictional anthology, each meant to stand alone. | cliff:type: sentence | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  },
+  "parallel-prose.parallel-prose-1": {
+    "message": "Layered peaks, a thousand fathoms high, hide clouds at their crests; a cold river, ten thousand miles long, sends boats to the sky.",
+    "description": "A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name. | cliff:type: narration | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  },
+  "parallel-prose.parallel-prose-2": {
+    "message": "The valley is still, no echo answers; at Cangwu a bell is heard. A faint lamp sways by itself; Cangwu shines upon the water.",
+    "description": "A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name. | cliff:type: narration | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  },
+  "quatrain.quatrain-1": {
+    "message": "At the ferry, autumn lamps are dim,",
+    "description": "A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme. | cliff:type: narration | cliff:emotion: nostalgic|sad | cliff:status: initial"
+  },
+  "quatrain.quatrain-2": {
+    "message": "On the cold river rain slants by.",
+    "description": "A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme. | cliff:type: narration | cliff:emotion: nostalgic|sad | cliff:status: initial"
+  },
+  "quatrain.quatrain-3": {
+    "message": "The tide returns, sand's letters swim,",
+    "description": "A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme. | cliff:type: narration | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  },
+  "quatrain.quatrain-4": {
+    "message": "A bell enters far-bank homes nigh.",
+    "description": "A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme. | cliff:type: narration | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  }
+}

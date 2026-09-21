@@ -1,0 +1,166 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a Fluent (FTL) resource. Each line is identifier = value.
+Replace the value with the translation and keep the identifier and comments.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# cliff:source = OK
+ok = OK
+
+# cliff:source = Failed
+failed = Failed
+
+# cliff:source = Unavailable
+unavailable = Unavailable
+
+# cliff:source = Unconfigured
+unconfigured = Unconfigured
+
+# cliff:source = Unauthorized
+unauthorized = Unauthorized
+
+# cliff:source = Parameter out of range
+parameter-out-of-range = Parameter out of range
+
+# cliff:source = Out of memory
+out-of-memory = Out of memory
+
+# cliff:source = File not found
+file-not-found = File not found
+
+# cliff:source = File: Bad drive
+file-bad-drive = File: Bad drive
+
+# cliff:source = File: Bad path
+file-bad-path = File: Bad path
+
+# cliff:source = File: Permission denied
+file-permission-denied = File: Permission denied
+
+# cliff:source = File already in use
+file-already-in-use = File already in use
+
+# cliff:source = Can't open file
+can-t-open-file = Can't open file
+
+# cliff:source = Can't write file
+can-t-write-file = Can't write file
+
+# cliff:source = Can't read file
+can-t-read-file = Can't read file
+
+# cliff:source = File unrecognized
+file-unrecognized = File unrecognized
+
+# cliff:source = File corrupt
+file-corrupt = File corrupt
+
+# cliff:source = Missing dependencies for file
+missing-dependencies-for-file = Missing dependencies for file
+
+# cliff:source = End of file
+end-of-file = End of file
+
+# cliff:source = Can't open
+can-t-open = Can't open
+
+# cliff:source = Can't create
+can-t-create = Can't create
+
+# cliff:source = Query failed
+query-failed = Query failed
+
+# cliff:source = Already in use
+already-in-use = Already in use
+
+# cliff:source = Locked
+locked = Locked
+
+# cliff:source = Timeout
+timeout = Timeout
+
+# cliff:source = Can't connect
+can-t-connect = Can't connect
+
+# cliff:source = Can't resolve
+can-t-resolve = Can't resolve
+
+# cliff:source = Connection error
+connection-error = Connection error
+
+# cliff:source = Can't acquire resource
+can-t-acquire-resource = Can't acquire resource
+
+# cliff:source = Can't fork
+can-t-fork = Can't fork
+
+# cliff:source = Invalid data
+invalid-data = Invalid data
+
+# cliff:source = Invalid parameter
+invalid-parameter = Invalid parameter
+
+# cliff:source = Already exists
+already-exists = Already exists
+
+# cliff:source = Does not exist
+does-not-exist = Does not exist
+
+# cliff:source = Can't read database
+can-t-read-database = Can't read database
+
+# cliff:source = Can't write database
+can-t-write-database = Can't write database
+
+# cliff:source = Compilation failed
+compilation-failed = Compilation failed
+
+# cliff:source = Method not found
+method-not-found = Method not found
+
+# cliff:source = Link failed
+link-failed = Link failed
+
+# cliff:source = Script failed
+script-failed = Script failed

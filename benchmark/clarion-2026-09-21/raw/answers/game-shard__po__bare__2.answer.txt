@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "dialog.ash-and-flint.ash-greets-flint"
+msgid "Flint, you still owe me a proper blade."
+msgstr "弗林特，你还欠我一把像样的剑。"
+
+msgctxt "dialog.ash-and-flint.flint-replies-ash"
+msgid "Ash, you could not hold a whetstone straight if the forge froze over."
+msgstr "阿什，就算锻炉都冻住了，你也拿不直一块磨刀石。"
+
+msgctxt "dialog.ash-and-flint.ash-fearful"
+msgid "Flint, the frost is moving. I saw it breathe."
+msgstr "弗林特，寒霜在动。我看见它呼吸了。"
+
+msgctxt "dialog.ash-and-flint.flint-angry"
+msgid "You lit that spark, Ash, and now the whole valley pays for it."
+msgstr "是你点燃了那点火星，阿什，现在整个山谷都要为此付出代价。"
+
+msgctxt "dialog.ash-and-flint.flint-calls-ash"
+msgid "Ash! Get away from the wall — it is coming through!"
+msgstr "阿什！快离开那堵墙——它要穿过来了！"
+
+msgctxt "dialog.ash-and-flint.ash-grateful"
+msgid "Flint, you forged me a name when no one else would. Thank you."
+msgstr "弗林特，在没人愿意的时候，是你为我铸就了一个名字。谢谢你。"
+
+msgctxt "dialog.ash-and-flint.flint-polite-threat"
+msgid "You are, of course, welcome to try again. I will even hold the door for you."
+msgstr "当然，你大可以再试一次。我甚至可以替你扶着门。"
+
+msgctxt "monologue.ash.monologue-ash-fire"
+msgid "The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid."
+msgstr "我胸中的火焰自有记忆。它会在寒冷来临之前就认出寒冷，并且它感到恐惧。"
+
+msgctxt "monologue.ash.monologue-ash-name"
+msgid "Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself."
+msgstr "弗林特说，名字是把手，不是镜子。但名字仍可以是你对自己许下的承诺。"
+
+msgctxt "skills.items.skill-ember-burst"
+msgid "Ember Burst"
+msgstr "余烬爆发"
+
+msgctxt "skills.items.skill-frost-whip"
+msgid "Frost Whip"
+msgstr "寒霜之鞭"
+
+msgctxt "skills.items.skill-cinder-sidestep"
+msgid "Cinder Sidestep"
+msgstr "余烬侧步"
+
+msgctxt "skills.items.skill-thorn-snare"
+msgid "Thorn Snare"
+msgstr "荆棘陷阱"
+
+msgctxt "skills.items.item-emberbloom-tonic"
+msgid "Emberbloom Tonic"
+msgstr "烬花药剂"
+
+msgctxt "skills.items.item-axe-pun-desc"
+msgid "This greataxe is a real splitting headache — swing once and the argument is over."
+msgstr "这把巨斧真让人头疼欲裂——挥一下，争论就结束了。"
+
+msgctxt "tutorial.system.tutorial-loot"
+msgid "Press [F] to loot."
+msgstr "按 [F] 拾取。"
+
+msgctxt "tutorial.system.combat-log-damage"
+msgid "{count, plural, one {# point of damage} other {# points of damage}}"
+msgstr "{count, plural, one {# 点伤害} other {# 点伤害}}"
+
+msgctxt "tutorial.system.faction-claim"
+msgid "{faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}"
+msgstr "{faction, select, emberborn {余烬之子会将你的名号收归旗下。} frostward {霜卫会将你的名号收归旗下。} other {没有任何阵营会将你的名号收归旗下。}}"
+
+msgctxt "tutorial.system.hit-taken"
+msgid "You take {damage} damage from the frost."
+msgstr "你受到寒霜造成的 {damage} 点伤害。"
+
+msgctxt "tutorial.system.welcome-name"
+msgid "Welcome back, {playerName}."
+msgstr "欢迎回来，{playerName}。"
+
+msgctxt "tutorial.system.settings-cache"
+msgid "Clear cache and restore default settings"
+msgstr "清除缓存并恢复默认设置"
+
+msgctxt "tutorial.system.tutorial-regen"
+msgid "Drink to restore 40 HP over 10 seconds."
+msgstr "饮用后可在 10 秒内恢复 40 HP。"
+
+msgctxt "cutscene.subtitles.subtitle-frost"
+msgid "The frost does not forgive."
+msgstr "寒霜不会宽恕。"
+
+msgctxt "cutscene.subtitles.sfx-ember-crackle"
+msgid "[Soft ember crackle]"
+msgstr "[轻柔的余烬噼啪声]"

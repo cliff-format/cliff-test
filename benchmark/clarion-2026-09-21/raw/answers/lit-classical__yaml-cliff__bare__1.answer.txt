@@ -1,0 +1,45 @@
+header:
+  namespace: clarion
+  clan: lit-classical
+  source-language: zh-CN
+  target-language: en-US
+groups:
+- path: aphorisms
+  entries:
+  - id: water-holds
+    source: 水静则清，器满则倾。
+    target: Still water grows clear; a full vessel tips over.
+  - id: mountain-river
+    source: 山不增高，因登而高；川不返流，因逝而长。
+    target: The mountain adds no height, yet by being climbed it grows tall; the river never turns back, yet by flowing on it grows long.
+  - id: mirror
+    source: 镜不自照，故能照人；泉不自饮，故能济渴。
+    target: The mirror does not reflect itself, and so it can reflect others; the spring does not drink of itself, and so it can slake thirst.
+  - id: scale
+    source: 尺短寸长，各有所宜。
+    target: A foot falls short, an inch runs long; each has its proper use.
+  - id: lantern-heart
+    source: 灯焰高者，其膏易尽；其光微者，其夜乃长。
+    target: The lamp whose flame leaps high soon spends its oil; the one whose light burns faint endures the longer night.
+- path: parallel-prose
+  entries:
+  - id: parallel-prose-1
+    source: 层峦千仞，藏云于顶；寒江万里，送舟于天。
+    target: Range upon range a thousand fathoms high, keeping clouds upon their peaks; a cold river ten thousand li long, sending boats away to the sky.
+  - id: parallel-prose-2
+    source: 谷静无应，苍梧闻钟；灯微自摇，苍梧照水。
+    target: The valley is silent and gives no answer, yet Cangwu hears the bell; the lamp burns faint and sways of itself, yet Cangwu shines upon the water.
+- path: quatrain
+  entries:
+  - id: quatrain-1
+    source: 渡口秋灯暗，
+    target: At the ferry crossing, autumn lamps grow dim,
+  - id: quatrain-2
+    source: 江寒雨自斜。
+    target: on the cold river, the rain slants down of itself.
+  - id: quatrain-3
+    source: 潮回沙上字，
+    target: The tide turns back; words lie upon the sand,
+  - id: quatrain-4
+    source: 钟入隔岸家。
+    target: the bell enters a home on the farther shore.

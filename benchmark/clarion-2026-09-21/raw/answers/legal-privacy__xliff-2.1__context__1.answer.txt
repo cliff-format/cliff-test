@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.legal-privacy" original="clarion.legal-privacy">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Quillmark consent portal: privacy notice, data processing agreement and conference abstract</mda:meta>
+        <mda:meta type="info">Three original documents that ship together for the Quillmark consent portal: the privacy notice an account holder reads, the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the portal, and the abstract of a conference paper on consent auditing. Audience: account holders, the corporate customers who sign the agreement, and the reviewers of an academic workshop. Two strings of the notice are rendered at runtime by the portal engine and carry ICU MessageFormat payloads. The clause numbers printed in the notice and in the agreement are the numbers that other clauses of this file cite.</mda:meta>
+        <mda:meta type="standard">Defined terms are fixed for the whole notice and the whole agreement and must read the same way in every clause: Personal Data is 个人信息 and never 个人数据, Data Subject is 信息主体 and never 数据主体, Controller is 控制者 and never 委托方, Processor is 处理者 and never 受托方, Operator is 运营方, Portal is 本门户. Render every modal by its legal force and never as a prediction: shall is 应当, must is 必须, may grants a permission, may not is 不得, and neither 将 nor 会 may stand in for a duty. Company names such as Quillmark Data Services and Halberd Cloud GmbH are registered legal entities and stay in Latin script. Keep ICU MessageFormat structure, argument names and enumerated item markers such as (a) exactly as the source writes them. Write a date in the year-month-day order, group digits the way the source groups them, and never round a published figure. Do not imitate the all-capital typography of the source; a clause set in capitals carries its force in the wording of the sentence. Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Avoid textbook jargon: write 默认 rather than 缺省 and 稳健 rather than 鲁棒. The conference abstract is a separate document and is not bound by the defined terms of the notice.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="policy.definitions">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Opening definitions of the Quillmark privacy notice. A capitalised term keeps its defined meaning in every later clause of this file, so the wording chosen here is the wording the clauses of the notice and of the agreement have to reuse.</note>
+      </notes>
+      <unit id="def-personal-data">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">First defined term of the notice. Later clauses use this term instead of describing the data again, and the house term list of this project settles which of the two competing renderings is used.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>First defined term of the notice. Later clauses use this term instead of describing the data again, and the house term list of this project settles which of the two competing renderings is used.</note>
+        </notes>
+        <segment state="translated">
+          <source>“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal.</source>
+          <target>“个人信息”是指运营方通过本门户处理的、与已识别或可识别的自然人有关的任何信息。</target>
+        </segment>
+      </unit>
+      <unit id="def-data-subject">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Second defined term. The notice speaks about this person in the third person throughout, and the request clauses repeat the term unchanged.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Second defined term. The notice speaks about this person in the third person throughout, and the request clauses repeat the term unchanged.</note>
+        </notes>
+        <segment state="translated">
+          <source>“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator.</source>
+          <target>“信息主体”是指个人信息所关联的自然人，无论该自然人是否在运营方处持有账户。</target>
+        </segment>
+      </unit>
+      <unit id="def-operator">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Third defined term. Both company names are entries on a commercial register and appear the same way in every language edition of this notice, because a reader has to be able to look them up.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Third defined term. Both company names are entries on a commercial register and appear the same way in every language edition of this notice, because a reader has to be able to look them up.</note>
+        </notes>
+        <segment state="translated">
+          <source>“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal.</source>
+          <target>“运营方”是指 Quillmark Data Services，即决定本通知所述处理的目的和方式、并委托 Halberd Cloud GmbH 托管本门户的公司。</target>
+        </segment>
+      </unit>
+      <unit id="def-processing">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Fourth defined term. It is built on the term defined two entries earlier in this section, and the clauses of the agreement reuse both terms word for word.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Fourth defined term. It is built on the term defined two entries earlier in this section, and the clauses of the agreement reuse both terms word for word.</note>
+        </notes>
+        <segment state="translated">
+          <source>“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure.</source>
+          <target>“处理”是指对个人信息执行的任何操作，无论是否通过自动化方式，并包括收集、存储、传输、披露和删除。</target>
+        </segment>
+      </unit>
+      <unit id="def-portal">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Fifth defined term, describing the product the notice is about.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Fifth defined term, describing the product the notice is about.</note>
+        </notes>
+        <segment state="translated">
+          <source>“Portal” means the web application through which a request is submitted, tracked and answered.</source>
+          <target>“本门户”是指用于提交、跟踪和答复请求的 Web 应用。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="policy.requests">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+          <mda:meta type="emotion">formal</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Clauses of the privacy notice that an account holder reads before filing a request, together with the two strings the portal itself renders at runtime. Numbers printed in this section are legally operative: dates, published figures and the clause number that other clauses cite.</note>
+      </notes>
+      <unit id="policy-effective-date">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Opening line of the notice, printed above the definitions. The first date is the day this edition starts to apply and the second identifies the edition it replaces, so a reader must be able to tell the two apart at a glance.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Opening line of the notice, printed above the definitions. The first date is the day this edition starts to apply and the second identifies the edition it replaces, so a reader must be able to tell the two apart at a glance.</note>
+        </notes>
+        <segment state="translated">
+          <source>This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024.</source>
+          <target>本通知自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的通知。</target>
+        </segment>
+      </unit>
+      <unit id="policy-volume-figures">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Transparency figure published once a year and checked by an external auditor. The count and the percentage are reported exactly as they were counted.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Transparency figure published once a year and checked by an external auditor. The count and the percentage are reported exactly as they were counted.</note>
+        </notes>
+        <segment state="translated">
+          <source>In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period.</source>
+          <target>在 2025 报告年度，运营方通过本门户收到 1,250,000 份请求，并在法定期限内答复了其中的 98.6%。</target>
+        </segment>
+      </unit>
+      <unit id="policy-retention-clause">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Retention clause as it is printed in the notice, carrying the clause number the notice gives it. Other clauses cite this number instead of repeating the rule.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Retention clause as it is printed in the notice, carrying the clause number the notice gives it. Other clauses cite this number instead of repeating the rule.</note>
+        </notes>
+        <segment state="translated">
+          <source>4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law.</source>
+          <target>4.2 运营方在 30 日内删除已注销账户的记录，除非法律要求更长的保留期限。</target>
+        </segment>
+      </unit>
+      <unit id="policy-request-right">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Rights clause of the notice. It rests on two terms that the definitions section of this file fixes, and a reader who compares the two passages must find the same wording in both.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Rights clause of the notice. It rests on two terms that the definitions section of this file fixes, and a reader who compares the two passages must find the same wording in both.</note>
+        </notes>
+        <segment state="translated">
+          <source>A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them.</source>
+          <target>信息主体可以要求运营方更正或删除运营方持有的与其相关的个人信息。</target>
+        </segment>
+      </unit>
+      <unit id="policy-erasure-crossref">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Cross-reference clause. The rule it points at is the retention clause printed earlier in this file, and the citation has to lead the reader to that clause and to no other.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Cross-reference clause. The rule it points at is the retention clause printed earlier in this file, and the citation has to lead the reader to that clause and to no other.</note>
+        </notes>
+        <segment state="translated">
+          <source>An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal.</source>
+          <target>删除请求依照第 4.2 条中的保留规则予以答复，运营方通过本门户确认处理结果。</target>
+        </segment>
+      </unit>
+      <unit id="portal-request-count">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">mechanical</mda:meta>
+            <mda:meta type="context">Counter on the portal dashboard; the portal engine substitutes the number of requests that are still open.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Counter on the portal dashboard; the portal engine substitutes the number of requests that are still open.</note>
+        </notes>
+        <segment state="translated">
+          <source>{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}</source>
+          <target>{pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}</target>
+        </segment>
+      </unit>
+      <unit id="portal-answer-channel">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">mechanical</mda:meta>
+            <mda:meta type="context">Confirmation shown after a request is filed; the portal engine passes the channel the account holder chose.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Confirmation shown after a request is filed; the portal engine passes the channel the account holder chose.</note>
+        </notes>
+        <segment state="translated">
+          <source>{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}</source>
+          <target>{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过本门户答复}}</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="dpa.authorised">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+          <mda:meta type="emotion">formal</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Chapter 6 of the data processing agreement between the Operator, acting as Controller, and the Processor engaged to run the Portal. Every clause in this chapter grants an authorisation or fixes the condition on which an authorisation is given, and the chapter is read as the source of what the Processor is allowed to do.</note>
+      </notes>
+      <unit id="dpa-scope-instructions">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Core duty clause of the agreement. Each obligation is a duty that binds the party now, not a forecast of what the parties expect to happen later.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Core duty clause of the agreement. Each obligation is a duty that binds the party now, not a forecast of what the parties expect to happen later.</note>
+        </notes>
+        <segment state="translated">
+          <source>The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law.</source>
+          <target>处理者应当仅根据控制者的书面指示处理个人信息，并在某项指示看似违反适用法律时，毫不迟延地通知控制者。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-audit-right">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Numbered audit clause, cited by number from the chapter that follows. The first modal confers a right on one party and the second lays a duty on the other, and the two halves of the sentence must not read alike.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Numbered audit clause, cited by number from the chapter that follows. The first modal confers a right on one party and the second lays a duty on the other, and the two halves of the sentence must not read alike.</note>
+        </notes>
+        <segment state="translated">
+          <source>6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires.</source>
+          <target>6.1 控制者可以在每个自然年度内对处理者进行一次审计，处理者必须向审计人员提供审计所需的记录。</target>
+        </segment>
+      </unit>
+      <unit id="clause-07a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">The clause closes the list of authorisations in this chapter and tells the Processor that the listed purposes are covered by what the Controller has granted. It is read as the grant itself, not as a boundary drawn around the grant.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The clause closes the list of authorisations in this chapter and tells the Processor that the listed purposes are covered by what the Controller has granted. It is read as the grant itself, not as a boundary drawn around the grant.</note>
+        </notes>
+        <segment state="translated">
+          <source>The Processor may use the Personal Data for the purposes set out in this Article.</source>
+          <target>处理者可以将个人信息用于本条约定的目的。</target>
+        </segment>
+      </unit>
+      <unit id="clause-09a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Opening clause of the authorisation chapter. It fixes the moment at which the Controller puts its signature to the agreement in the Portal, which is what brings the authorisations of this chapter into force; nothing here concerns how the agreement is carried out afterwards.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Opening clause of the authorisation chapter. It fixes the moment at which the Controller puts its signature to the agreement in the Portal, which is what brings the authorisations of this chapter into force; nothing here concerns how the agreement is carried out afterwards.</note>
+        </notes>
+        <segment state="translated">
+          <source>Execution of this Agreement is recorded in the Portal and is confirmed to both parties.</source>
+          <target>本协议的签署记录于本门户，并向双方确认。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-hosting-region">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Ordinary operational clause, printed at the end of the authorisation chapter.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Ordinary operational clause, printed at the end of the authorisation chapter.</note>
+        </notes>
+        <segment state="translated">
+          <source>All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night.</source>
+          <target>根据本协议创建的所有记录均存储在附件 1 约定的区域内，并每晚进行备份。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="dpa.restrictions">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation.</mda:meta>
+          <mda:meta type="type">sentence</mda:meta>
+          <mda:meta type="emotion">formal</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Chapter 7 of the same agreement. Every clause here narrows what the previous chapter granted: it states what the Processor is forbidden to do, how its day-to-day performance is checked, and what the Operator does not promise. A clause in this chapter is read as the outer boundary of the authorisation.</note>
+      </notes>
+      <unit id="clause-07b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">The same sentence as the purpose clause of the previous chapter, repeated here as the closing limitation. In this chapter the listed purposes are exhaustive: a purpose that is not listed falls outside the authorisation, and the clause exists in order to say so.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same sentence as the purpose clause of the previous chapter, repeated here as the closing limitation. In this chapter the listed purposes are exhaustive: a purpose that is not listed falls outside the authorisation, and the clause exists in order to say so.</note>
+        </notes>
+        <segment state="translated">
+          <source>The Processor may use the Personal Data for the purposes set out in this Article.</source>
+          <target>处理者可以将个人信息用于本条约定的目的。</target>
+        </segment>
+      </unit>
+      <unit id="clause-09b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">The same sentence, printed in the chapter that limits the authorisation. Here it makes the way the Processor carries out the agreement from day to day traceable, so that the Controller can check at any time whether the limits of this chapter were observed; the signing of the document is dealt with in the earlier chapter.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The same sentence, printed in the chapter that limits the authorisation. Here it makes the way the Processor carries out the agreement from day to day traceable, so that the Controller can check at any time whether the limits of this chapter were observed; the signing of the document is dealt with in the earlier chapter.</note>
+        </notes>
+        <segment state="translated">
+          <source>Execution of this Agreement is recorded in the Portal and is confirmed to both parties.</source>
+          <target>本协议的签署记录于本门户，并向双方确认。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-enumerated-prohibition">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Enumerated prohibition. An auditor cites these items by their markers in the finding report, so a marker has to stay where the source puts it and keep its own item.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Enumerated prohibition. An auditor cites these items by their markers in the finding report, so a marker has to stay where the source puts it and keep its own item.</note>
+        </notes>
+        <segment state="translated">
+          <source>The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind.</source>
+          <target>处理者不得：(a) 未经控制者事先书面授权，聘用新的子处理者；(b) 将记录复制到控制者未批准的设备上；或 (c) 使用记录训练任何类型的模型。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-caps-disclaimer">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Disclaimer that closes the chapter. The source is set in capitals because the law of the source jurisdiction asks for a conspicuous notice; the target locale marks a conspicuous notice in the sentence itself rather than in the typography.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Disclaimer that closes the chapter. The source is set in capitals because the law of the source jurisdiction asks for a conspicuous notice; the target locale marks a conspicuous notice in the sentence itself rather than in the typography.</note>
+        </notes>
+        <segment state="translated">
+          <source>THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</source>
+          <target>运营方不保证本门户可无中断地提供使用或无错误地运行，并且特此在适用法律允许的最大范围内声明不承担一切默示保证，包括对适销性和特定用途适用性的默示保证。</target>
+        </segment>
+      </unit>
+      <unit id="dpa-audit-crossref">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Saving clause. It points back to the audit clause of the previous chapter by the number that clause carries in this file, and an auditor follows the number rather than the wording.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Saving clause. It points back to the audit clause of the previous chapter by the number that clause carries in this file, and an auditor follows the number rather than the wording.</note>
+        </notes>
+        <segment state="translated">
+          <source>Nothing in this Article limits the audit right granted in Section 6.1.</source>
+          <target>本条中的任何内容均不限制第 6.1 条授予的审计权。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="paper.abstract">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete.</mda:meta>
+          <mda:meta type="type">description</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Abstract of an original conference paper submitted to a workshop on privacy engineering. It is an independent document that reports a field study of consent portals and does not use the defined terms of the notice. Register is academic and the sentences are complete.</note>
+      </notes>
+      <unit id="paper-title">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="context">Paper title at the head of the abstract and in the conference programme.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Paper title at the head of the abstract and in the conference programme.</note>
+        </notes>
+        <segment state="translated">
+          <source>Auditing Consent Records at Scale: A Field Study of Three Consent Portals</source>
+          <target>大规模审计同意记录：对三个同意门户的实地研究</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-opening">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">First two sentences of the abstract: the problem and the study.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>First two sentences of the abstract: the problem and the study.</note>
+        </notes>
+        <segment state="translated">
+          <source>Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months.</source>
+          <target>当监管机构询问某人的数据为何被使用时，同意记录是公司赖以举证的依据，然而这些记录本身却很少受到审计。我们报告了一项实地研究，对三家中型企业运营的三个同意门户进行了为期九个月的考察。</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-method">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Method sentence of the abstract.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Method sentence of the abstract.</note>
+        </notes>
+        <segment state="translated">
+          <source>Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log.</source>
+          <target>我们使用一套固定的常规请求脚本对各门户进行测试，并将门户返回的每一份回执与其写入自身日志的条目进行比对。</target>
+        </segment>
+      </unit>
+      <unit id="paper-abstract-findings">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Findings and closing claim of the abstract.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Findings and closing claim of the abstract.</note>
+        </notes>
+        <segment state="translated">
+          <source>Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study.</source>
+          <target>三个门户中有两个至少丢失过一次撤回操作的时间戳，而且没有一个门户能在无需人工处理的情况下说明某人同意的是哪个版本的通知。我们认为，同意记录的价值不超过其背后的审计线索，因此我们公开测试脚本，以便其他团队重复这项研究。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

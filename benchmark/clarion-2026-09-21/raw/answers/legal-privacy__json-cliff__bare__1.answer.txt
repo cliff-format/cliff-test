@@ -1,0 +1,165 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "legal-privacy",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "policy.definitions",
+      "entries": [
+        {
+          "id": "def-personal-data",
+          "source": "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal.",
+          "target": "“个人数据”是指运营者通过门户处理的与已识别或可识别的自然人有关的任何信息。"
+        },
+        {
+          "id": "def-data-subject",
+          "source": "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator.",
+          "target": "“数据主体”是指个人数据所涉的自然人，无论该人是否在运营者处持有账户。"
+        },
+        {
+          "id": "def-operator",
+          "source": "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal.",
+          "target": "“运营者”是指 Quillmark Data Services，即决定本通知所述处理的目的和方式，并委托 Halberd Cloud GmbH 托管门户的公司。"
+        },
+        {
+          "id": "def-processing",
+          "source": "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure.",
+          "target": "“处理”是指对个人数据执行的任何操作，无论是否通过自动化方式，包括收集、存储、传输、披露和删除。"
+        },
+        {
+          "id": "def-portal",
+          "source": "“Portal” means the web application through which a request is submitted, tracked and answered.",
+          "target": "“门户”是指用于提交、跟踪和答复请求的 Web 应用。"
+        }
+      ]
+    },
+    {
+      "path": "policy.requests",
+      "entries": [
+        {
+          "id": "policy-effective-date",
+          "source": "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024.",
+          "target": "本通知于 2026 年 9 月 1 日生效，并取代 2024 年 6 月 14 日发布的通知。"
+        },
+        {
+          "id": "policy-volume-figures",
+          "source": "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period.",
+          "target": "在 2025 报告年度，运营者通过门户收到 1,250,000 份请求，并在法定期限内答复了其中的 98.6%。"
+        },
+        {
+          "id": "policy-retention-clause",
+          "source": "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law.",
+          "target": "4.2 运营者在 30 天内删除已关闭账户的记录，除非法律要求更长的保留期限。"
+        },
+        {
+          "id": "policy-request-right",
+          "source": "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them.",
+          "target": "数据主体可以要求运营者更正或删除运营者持有的关于其本人的个人数据。"
+        },
+        {
+          "id": "policy-erasure-crossref",
+          "source": "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal.",
+          "target": "删除请求依据第 4.2 条中的保留规则予以答复，运营者通过门户确认结果。"
+        },
+        {
+          "id": "portal-request-count",
+          "source": "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}",
+          "target": "{pending, plural, one {# 个请求正在等待答复} other {# 个请求正在等待答复}}"
+        },
+        {
+          "id": "portal-answer-channel",
+          "source": "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}",
+          "target": "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}"
+        }
+      ]
+    },
+    {
+      "path": "dpa.authorised",
+      "entries": [
+        {
+          "id": "dpa-scope-instructions",
+          "source": "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law.",
+          "target": "处理者仅应按照控制者的书面指示处理个人数据，如果某项指示似乎违反适用法律，应立即通知控制者。"
+        },
+        {
+          "id": "dpa-audit-right",
+          "source": "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires.",
+          "target": "6.1 控制者每个日历年可对处理者进行一次审计，处理者必须向审计人员提供审计所需记录的访问权限。"
+        },
+        {
+          "id": "clause-07a",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article.",
+          "target": "处理者可以将个人数据用于本条规定的目的。"
+        },
+        {
+          "id": "clause-09a",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties.",
+          "target": "本协议的签署记录在门户中，并向双方确认。"
+        },
+        {
+          "id": "dpa-hosting-region",
+          "source": "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night.",
+          "target": "本协议项下创建的所有记录存储在附件 1 中约定的区域，并每晚进行备份。"
+        }
+      ]
+    },
+    {
+      "path": "dpa.restrictions",
+      "entries": [
+        {
+          "id": "clause-07b",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article.",
+          "target": "处理者可以将个人数据用于本条规定的目的。"
+        },
+        {
+          "id": "clause-09b",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties.",
+          "target": "本协议的签署记录在门户中，并向双方确认。"
+        },
+        {
+          "id": "dpa-enumerated-prohibition",
+          "source": "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind.",
+          "target": "处理者不得：(a) 未经控制者事先书面授权聘用新的次级处理者；(b) 将记录复制到控制者未批准的设备；或 (c) 使用记录训练任何类型的模型。"
+        },
+        {
+          "id": "dpa-caps-disclaimer",
+          "source": "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.",
+          "target": "运营者不保证门户将无中断或无错误地可用，并且在适用法律允许的最大范围内，不承担所有默示保证，包括对适销性和特定用途适用性的默示保证。"
+        },
+        {
+          "id": "dpa-audit-crossref",
+          "source": "Nothing in this Article limits the audit right granted in Section 6.1.",
+          "target": "本条中的任何内容均不限制第 6.1 条授予的审计权。"
+        }
+      ]
+    },
+    {
+      "path": "paper.abstract",
+      "entries": [
+        {
+          "id": "paper-title",
+          "source": "Auditing Consent Records at Scale: A Field Study of Three Consent Portals",
+          "target": "大规模审计同意记录：三个同意门户的实地研究"
+        },
+        {
+          "id": "paper-abstract-opening",
+          "source": "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months.",
+          "target": "当监管机构询问为何使用某人的数据时，同意记录是公司所依赖的证据，但这些记录本身很少受到审计。我们报告了一项对三家中型企业运营的三个同意门户进行为期九个月的实地研究。"
+        },
+        {
+          "id": "paper-abstract-method",
+          "source": "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log.",
+          "target": "我们使用固定的常规请求脚本对每个门户进行了测试，并将其返回的每份回执与门户写入自身日志的条目进行比对。"
+        },
+        {
+          "id": "paper-abstract-findings",
+          "source": "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study.",
+          "target": "三个门户中有两个丢失了至少一次撤回的时间戳，而且它们都无法在不进行人工操作的情况下显示出某人同意的是哪个版本的通知。我们认为，一份同意记录的价值不会超过其背后的审计追踪，因此我们公开测试脚本，以便其他团队重复该研究。"
+        }
+      ]
+    }
+  ]
+}

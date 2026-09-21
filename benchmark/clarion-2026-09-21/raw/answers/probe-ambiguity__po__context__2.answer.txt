@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just opened an acceptance letter and means the compliment warmly.
+#. cliff:type: dialogue
+#. cliff:emotion: joyful|grateful
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-01a"
+msgid "Oh, that's just wonderful."
+msgstr "哦，这真是太好了！"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just watched the plan fall apart; the line is bitter irony.
+#. cliff:type: dialogue
+#. cliff:emotion: angry|playful
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-01b"
+msgid "Oh, that's just wonderful."
+msgstr "呵，真是好得很。"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A cafe customer holds the door open and genuinely lets the other person go first.
+#. cliff:type: dialogue
+#. cliff:emotion: polite|calm
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-02a"
+msgid "After you."
+msgstr "您先请。"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first.
+#. cliff:type: dialogue
+#. cliff:emotion: polite|angry
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-02b"
+msgid "After you."
+msgstr "您先请吧。"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. Two friends line up for another round of the board game; said with a grin.
+#. cliff:type: dialogue
+#. cliff:emotion: joyful|playful
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-03a"
+msgid "Well, here we go again."
+msgstr "好嘞，又来一局！"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A repair worker returns to the same machine for the third time; said with a sigh.
+#. cliff:type: dialogue
+#. cliff:emotion: sad|calm
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-03b"
+msgid "Well, here we go again."
+msgstr "唉，又得重来一遍。"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A nurse reassures a patient before a routine procedure.
+#. cliff:type: dialogue
+#. cliff:emotion: calm|hopeful
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-04a"
+msgid "Just relax."
+msgstr "放轻松就好。"
+
+#. Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A guard tells a cornered intruder to stop moving; the tone is steady, not warm.
+#. cliff:type: dialogue
+#. cliff:emotion: serious|angry
+#. cliff:status: initial
+msgctxt "emotion.reading.probe-04b"
+msgid "Just relax."
+msgstr "放松点。"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Toolbar button that writes the open document to disk.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-05a"
+msgid "Save"
+msgstr "保存"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Step in the shutdown checklist telling the operator to write the session to disk before closing.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-05b"
+msgid "Save"
+msgstr "保存。"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Neighborhood name on the transit map, after the foundry that once stood there.
+#. cliff:type: proper-noun
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-06a"
+msgid "Forge"
+msgstr "锻造厂"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Single-word task on the smith's workbench menu: begin shaping the heated metal.
+#. cliff:type: verb
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-06b"
+msgid "Forge"
+msgstr "锻造"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Wished to a performer just before they walk on stage.
+#. cliff:type: idiom
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-07a"
+msgid "Break a leg!"
+msgstr "祝你旗开得胜！"
+
+#. Pairs where the same English string changes rendering with its type; honor the register the type implies. Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "type.register.probe-07b"
+msgid "Break a leg!"
+msgstr "当心滑倒受伤！"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Column header on the invoice; the amount charged per hour of work.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-08a"
+msgid "Rate"
+msgstr "费率"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Setting in the video editor's playback panel; how many frames are drawn each second.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-08b"
+msgid "Rate"
+msgstr "帧率"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Caption on the marine-animals picture card in the children's set.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-09a"
+msgid "Seal"
+msgstr "海豹"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Label on the office-supplies drawer; the wax stamp used to close documents.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-09b"
+msgid "Seal"
+msgstr "印章"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Roadside call: the driver means the car engine, which will not turn over.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-10a"
+msgid "It won't start."
+msgstr "车子打不着火了。"
+
+#. Pairs where the context line names the referent; choose the word the scene requires. Support call: the user means the desktop application, which will not launch.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "context.referent.probe-10b"
+msgid "It won't start."
+msgstr "软件启动不了。"
+
+#. Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the settings screen, with room for the full wording.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 14
+msgctxt "width.budget.probe-11a"
+msgid "Restore Default Settings"
+msgstr "恢复默认设置"
+
+#. Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the narrow mobile settings bar, where space is tight.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 8
+msgctxt "width.budget.probe-11b"
+msgid "Restore Default Settings"
+msgstr "恢复默认"
+
+#. Pairs where the width budget forces a shorter wording; stay within the declared cells. Menu item on the desktop help screen, with room for the full wording.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 16
+msgctxt "width.budget.probe-12a"
+msgid "View Frequently Asked Questions"
+msgstr "查看常见问题"
+
+#. Pairs where the width budget forces a shorter wording; stay within the declared cells. Footer link on the narrow mobile page, where space is tight.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 8
+msgctxt "width.budget.probe-12b"
+msgid "View Frequently Asked Questions"
+msgstr "常见问题"

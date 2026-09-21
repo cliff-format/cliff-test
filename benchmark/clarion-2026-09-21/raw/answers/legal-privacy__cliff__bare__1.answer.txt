@@ -1,0 +1,280 @@
+CLIFF 1.1
+namespace: clarion
+clan: legal-privacy
+source-language: en-US
+target-language: zh-CN
+
+[policy.definitions]
+
+<def-personal-data>
+source: "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+target: "“个人数据”是指运营者通过门户处理的、与已识别或可识别的自然人有关的任何信息。"
+type: sentence
+status: initial
+
+<def-data-subject>
+source: "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+target: "“数据主体”是指个人数据所关联的自然人，无论该人是否在运营者处开有账户。"
+type: sentence
+status: initial
+
+<def-operator>
+source: "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+target: "“运营者”是指 Quillmark Data Services，即决定本声明所述处理的目的与方式，并委托 Halberd Cloud GmbH 托管门户的公司。"
+type: sentence
+status: initial
+
+<def-processing>
+source: "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+target: "“处理”是指对个人数据进行的任何操作，无论是否以自动化方式进行，包括收集、存储、传输、披露和删除。"
+type: sentence
+status: initial
+
+<def-portal>
+source: "“Portal” means the web application through which a request is submitted, tracked and answered."
+target: "“门户”是指用于提交、跟踪和答复请求的 Web 应用。"
+type: sentence
+status: initial
+
+[policy.requests]
+
+<policy-effective-date>
+source: "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+target: "本声明自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的声明。"
+type: sentence
+status: initial
+
+<policy-volume-figures>
+source: "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+target: "在 2025 报告年度，运营者通过门户收到 1,250,000 项请求，并在法定期限内答复了其中的 98.6%。"
+type: sentence
+status: initial
+
+<policy-retention-clause>
+source: "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+target: "4.2 运营者在 30 天内删除已注销账户的记录，但法律要求更长保存期限的除外。"
+type: sentence
+status: initial
+
+<policy-request-right>
+source: "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+target: "数据主体可要求运营者更正或删除运营者持有的与其相关的个人数据。"
+type: sentence
+status: initial
+
+<policy-erasure-crossref>
+source: "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+target: "删除请求依照第 4.2 条的保存规则处理，运营者通过门户确认处理结果。"
+type: sentence
+status: initial
+
+<portal-request-count>
+source: "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+target: "{pending, plural, one {# 项请求正在等待答复} other {# 项请求正在等待答复}}"
+type: sentence
+status: initial
+
+<portal-answer-channel>
+source: "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+target: "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}"
+type: sentence
+status: initial
+
+[dpa.authorised]
+
+<dpa-scope-instructions>
+source: "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+target: "处理者仅应按照控制者的书面指示处理个人数据；如某项指示似乎违反适用法律，处理者应立即通知控制者。"
+type: sentence
+status: initial
+
+<dpa-audit-right>
+source: "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+target: "6.1 控制者每个日历年可对处理者进行一次审计，处理者必须向审计人员提供审计所需的记录。"
+type: sentence
+status: initial
+
+<clause-07a>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可将个人数据用于本条所列目的。"
+type: sentence
+status: initial
+
+<clause-09a>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署记录于门户，并向双方确认。"
+type: sentence
+status: initial
+
+<dpa-hosting-region>
+source: "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+target: "本协议项下产生的所有记录均存储在附件 1 约定的区域内，并每晚备份。"
+type: sentence
+status: initial
+
+[dpa.restrictions]
+
+<clause-07b>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可将个人数据用于本条所列目的。"
+type: sentence
+status: initial
+
+<clause-09b>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署记录于门户，并向双方确认。"
+type: sentence
+status: initial
+
+<dpa-enumerated-prohibition>
+source: "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+target: "处理者不得：(a) 未经控制者事先书面授权聘用新的次级处理者；(b) 将记录复制到控制者未批准的设备上；或 (c) 使用记录训练任何类型的模型。"
+type: sentence
+status: initial
+
+<dpa-caps-disclaimer>
+source: "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+target: "运营者不保证门户将不间断或无错误地可用，并且在适用法律允许的最大范围内，不承担任何默示保证，包括对适销性和特定用途适用性的默示保证。"
+type: sentence
+status: initial
+
+<dpa-audit-crossref>
+source: "Nothing in this Article limits the audit right granted in Section 6.1."
+target: "本条任何内容均不限制第 6.1 条授予的审计权。"
+type: sentence
+status: initial
+
+[paper.abstract]
+
+<paper-title>
+source: "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+target: "大规模同意记录的审计：对三个同意门户的实地研究"
+type: sentence
+status: initial
+
+<paper-abstract-opening>
+source: "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+target: "当监管机构询问为何使用某人的数据时，同意记录是公司所依赖的证据，然而这些记录本身却很少受到审计。我们报告了对三家中型公司运营的同意门户为期九个月的实地研究。"
+type: sentence
+status: initial
+
+<paper-abstract-method>
+source: "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+target: "我们以固定脚本的常规请求对每个门户进行测试，并将门户返回的每一份回执与其写入自身日志的记录进行比对。"
+type: sentence
+status: initial
+
+<paper-abstract-findings>
+source: "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+target: "三个门户中有两个丢失了至少一次撤回的时间戳，而且没有一个门户能在不做人工处理的情况下说明某人同意的是哪个版本的声明。我们认为，同意记录的价值不超过其背后的审计轨迹；我们公开测试脚本，以便其他团队能够重复这项研究。"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: legal-privacy-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Legal & Privacy terminology (en-US → zh-CN)"
+info: "Term decisions made while translating clarion/legal-privacy. One term per entry; target is the rendering used in the translated file."
+
+[terms]
+
+<personal-data>
+source: "Personal Data"
+target: "个人数据"
+type: noun-phrase
+status: final
+context: "Defined term of the notice; rendered 个人数据 throughout, never 个人信息, so that the defined term stays distinct from 个人资料 and matches every cross-reference."
+
+<data-subject>
+source: "Data Subject"
+target: "数据主体"
+type: noun-phrase
+status: final
+context: "GDPR-style defined term; 数据主体 is the established Chinese rendering and pairs cleanly with 数据主体请求."
+
+<operator>
+source: "Operator"
+target: "运营者"
+type: noun
+status: final
+context: "The company that decides purposes and means. 运营者 chosen over 运营方 for its statutory register; kept distinct from 处理者 and 控制者."
+
+<processing>
+source: "Processing"
+target: "处理"
+type: noun
+status: final
+context: "Defined term covering collection through erasure; the bare 处理 is used so that 处理者 (Processor) reads as its agent."
+
+<portal>
+source: "Portal"
+target: "门户"
+type: noun
+status: final
+context: "The web application that receives and answers requests. Short 门户 suits a term that recurs in nearly every entry; the full 门户网站 is avoided to keep sentences light."
+
+<processor>
+source: "Processor"
+target: "处理者"
+type: noun
+status: final
+context: "Counterparty of 控制者; the -者 suffix is kept consistent across 运营者 / 处理者 / 控制者."
+
+<controller>
+source: "Controller"
+target: "控制者"
+type: noun
+status: final
+context: "Paired with 处理者; both are defined by role rather than by company, so no company name is folded into the term."
+
+<sub-processor>
+source: "sub-processor"
+target: "次级处理者"
+type: noun
+status: final
+context: "Used in the enumerated prohibition. 次级处理者 keeps the 处理者 stem visible inside the compound."
+
+<consent-record>
+source: "consent record"
+target: "同意记录"
+type: noun-phrase
+status: final
+context: "Central term of the abstract; 同意记录 used for both the singular and the plural so the argument's vocabulary stays fixed."
+
+<audit-trail>
+source: "audit trail"
+target: "审计轨迹"
+type: noun-phrase
+status: final
+context: "Deliberately distinct from 审计 (audit) and from 日志 (log): the abstract contrasts the record with the trail behind it, so the two must not collapse into one word."
+
+<retention-period>
+source: "retention period"
+target: "保存期限"
+type: noun-phrase
+status: final
+context: "Statutory storage duration. 保存期限 used rather than 保留期, matching 保存 in the retention clause 第 4.2 条."
+
+<erasure>
+source: "erasure"
+target: "删除"
+type: noun
+status: final
+context: "Rendered 删除, the same word used for the erasure request, so the cross-reference in policy-erasure-crossref lands on the same term."
+
+<web-application>
+source: "web application"
+target: "Web 应用"
+type: noun-phrase
+status: final
+context: "Project rule keeps Web in Latin script; 应用 is used rather than 应用程序 to stay concise inside a short definition."
+
+<field-study>
+source: "field study"
+target: "实地研究"
+type: noun-phrase
+status: final
+context: "Used in the paper title and the abstract opening; 实地研究 repeats verbatim so the title and the abstract agree."

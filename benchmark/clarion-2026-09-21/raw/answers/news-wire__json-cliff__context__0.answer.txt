@@ -1,0 +1,241 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "news-wire",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "An invented harbor-bridge news day: wire report, feature, social posts and reader comments",
+    "info": "A fictional 14 March news day in a harbor city. Audience: general readers of a local news site. The text spans hard-news wire copy, a human-interest feature, casual social posts and reader comments.",
+    "standard": "zh-CN house style: one space between Han and Latin or digits, fullwidth punctuation in Han sentences, no textbook jargon. Keep the headline verbless. Render Meridian Harbor Authority semantically as 子午港务局 and transliterate Corin Ashwell as 科林·阿什维尔."
+  },
+  "groups": [
+    {
+      "path": "wire",
+      "entries": [
+        {
+          "id": "headline",
+          "source": "Harbor bridge: third night closed, tens of thousands rerouted",
+          "target": "港口大桥：第三夜封闭，数万人改道",
+          "type": "noun-phrase",
+          "status": "initial",
+          "context": "Front-page headline. Keep compressed, verbless headline register; do not expand it into a full sentence."
+        },
+        {
+          "id": "subhead",
+          "source": "Engineers race the weather to certify the last of 214 cables",
+          "target": "工程师与天气抢时间，认证 214 根缆索中的最后一批",
+          "type": "sentence",
+          "status": "initial",
+          "context": "Standfirst directly under the headline."
+        },
+        {
+          "id": "lede",
+          "source": "The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic.",
+          "target": "3 月 14 日，子午港大桥连续第三晚保持封闭。施工人员冒着大雨更换上周风暴中崩断的三根悬索，迫使数万名通勤者改乘两艘临时轮渡接驳船，而这些船的运力仅为平日客流的一小部分。",
+          "type": "description",
+          "status": "initial",
+          "context": "Opening paragraph of the wire report."
+        },
+        {
+          "id": "body-1",
+          "source": "Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again.",
+          "target": "子午港务局官员周二表示，能否重新开放取决于全面的安全审查；大桥 214 根悬索中已有 78% 通过检查，其余仍在进行张拉和测量。港务局此前已三次推迟重新开放的时间预估，局长科林·阿什维尔警告说，只要风速超过每小时 40 公里，起重机作业就会停止，工期也将再次延后。",
+          "type": "narration",
+          "status": "initial",
+          "context": "Second paragraph of the wire report."
+        },
+        {
+          "id": "body-2",
+          "source": "The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall.",
+          "target": "封桥的影响已波及全市道路网。绕行标志把司机引上唯一一条环路，而这条路目前承载的流量已是设计负荷的两倍；高峰时段的车辆排队沿北岸绵延超过 12 公里。渡轮工作人员在早上 6 点后加开两班，但到上午过半时，东码头的队伍仍绕过了街区；一些通勤者说，仅排到售票厅就等了一个多小时。",
+          "type": "narration",
+          "status": "initial",
+          "context": "Third paragraph of the wire report."
+        },
+        {
+          "id": "quote",
+          "source": "Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”",
+          "target": "子午港务局局长科林·阿什维尔告诉记者，大桥“只有在每根缆索都通过检查后才会重新开放——一分钟也不会提前”。",
+          "type": "dialogue",
+          "status": "initial",
+          "context": "Direct quotation from the authority director; keep the attribution before the quote and use fullwidth quotation marks."
+        },
+        {
+          "id": "photo-caption",
+          "source": "Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure.",
+          "target": "封桥第三天的早晨，通勤者在港口东码头排队等候轮渡接驳船。",
+          "type": "subtitle",
+          "status": "initial",
+          "context": "Photo caption under the lead image."
+        },
+        {
+          "id": "news-alert",
+          "source": "Bridge closure: expect delays of up to 90 minutes on all harbor crossings.",
+          "target": "封桥通知：所有跨港通道预计最长延误 90 分钟。",
+          "type": "sentence",
+          "emotion": [
+            "urgent"
+          ],
+          "status": "initial",
+          "context": "Breaking-news push alert sent to readers who follow this story."
+        }
+      ]
+    },
+    {
+      "path": "feature",
+      "entries": [
+        {
+          "id": "feature-headline",
+          "source": "The harbor's quiet ferry revival",
+          "target": "港口轮渡悄然复兴",
+          "type": "noun-phrase",
+          "status": "initial",
+          "context": "Headline of the feature article."
+        },
+        {
+          "id": "feature-lede",
+          "source": "For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential.",
+          "target": "几十年来，港口轮渡只是一种稀罕物——一种缓慢而风景优美的过江方式，大多数通勤者早已忘了它的存在。三个封桥的夜晚却让它们变得不可或缺。",
+          "type": "description",
+          "status": "initial",
+          "context": "Opening of the feature article."
+        },
+        {
+          "id": "feature-body-1",
+          "source": "The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide.",
+          "target": "如今，东码头的早班船是许多人能在十点前到办公室的唯一依靠。船上三名船员对常客的名字和习惯了如指掌：那位带着折叠自行车的女士、靠着栏杆批改试卷的老师、拎着一箱酸面包过江的厨师。起初只是应急措施，如今却悄然成了一个小社区，有自己的老梗，还有一位像导游一样一路讲解的船长。",
+          "type": "narration",
+          "status": "initial",
+          "context": "Body of the feature article."
+        },
+        {
+          "id": "feature-body-2",
+          "source": "Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days.",
+          "target": "并非所有人都怀旧。对岸的店主说，绕行让他们的工作日生意减少了近五分之一，而对每天往返两次的人来说，2 欧元的单程船票累积起来也不少。港务局承诺推出返款方案，但细节仍在起草；一份要求搭建临时人行桥的请愿书三天内已征集到 1.1 万个签名。",
+          "type": "narration",
+          "status": "initial",
+          "context": "Second paragraph of the feature article."
+        },
+        {
+          "id": "feature-quote",
+          "source": "Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”",
+          "target": "掌舵早班接驳船的迪亚·普劳斯船长说得直白：“没人计划过这件事。我们只是来了，然后开始载人。”",
+          "type": "dialogue",
+          "emotion": [
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Pull quote from the feature; spoken, lightly colloquial register."
+        }
+      ]
+    },
+    {
+      "path": "social",
+      "entries": [
+        {
+          "id": "post-sarcastic",
+          "source": "Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks.",
+          "target": "哦，太好了。第三个晚上，以步行速度一点点挪回家。真是顶级的桥梁管理啊，各位。",
+          "type": "sentence",
+          "emotion": [
+            "angry",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Sarcastic social post. The praise is ironic: the author is a frustrated commuter stuck in the bridge-closure traffic and means the opposite of what the words say. Preserve the irony; do not soften it into sincerity."
+        },
+        {
+          "id": "post-enthusiastic",
+          "source": "The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢",
+          "target": "免费接驳渡轮真是救命稻草——航行平稳，还能顺便看风景！#MeridianFerry 🚢",
+          "type": "sentence",
+          "emotion": [
+            "joyful",
+            "hopeful"
+          ],
+          "status": "initial",
+          "context": "Enthusiastic social post praising the shuttle ferry. The hashtag and emoji are part of the message and must survive exactly."
+        }
+      ]
+    },
+    {
+      "path": "comments",
+      "entries": [
+        {
+          "id": "comment-1",
+          "source": "Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall.",
+          "target": "被困在水这边已经三天，我都快急疯了。赶紧解决吧，市政厅。",
+          "type": "sentence",
+          "emotion": [
+            "anxious",
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Reader comment under the wire story; casual, frustrated register. The idiom must be localized, not translated literally."
+        },
+        {
+          "id": "comment-2",
+          "source": "Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours.",
+          "target": "早上 6 点出门上班，8:50 才到办公室。有人欠我两个小时。",
+          "type": "sentence",
+          "emotion": [
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Reader comment; casual register with clock times."
+        },
+        {
+          "id": "comment-3",
+          "source": "My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares.",
+          "target": "我邻居都已经在张罗卖车了。他说桥爱封多久封多久，他才不在乎。",
+          "type": "sentence",
+          "emotion": [
+            "informal"
+          ],
+          "status": "initial",
+          "context": "Reader comment; casual, resigned register."
+        }
+      ]
+    },
+    {
+      "path": "editors-note",
+      "entries": [
+        {
+          "id": "editors-note",
+          "source": "This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay.",
+          "target": "本编者按随这篇报道一同刊发，因为周二引用的重新开放时间表已经两次变更。港务局发布新信息后，我们会更新文中数据，并会立即更正其中的任何错误。",
+          "type": "description",
+          "emotion": [
+            "formal",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Editor's note appended to the wire report; formal, impersonal register."
+        },
+        {
+          "id": "editors-note-correction",
+          "source": "An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours.",
+          "target": "本文早前版本称东码头接驳船每 30 分钟一班。实际上，高峰时段每 20 分钟一班。",
+          "type": "description",
+          "emotion": [
+            "formal",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "Formal correction notice appended to the wire report."
+        },
+        {
+          "id": "editors-note-signoff",
+          "source": "— The Editors",
+          "target": "——编辑部",
+          "type": "label",
+          "emotion": [
+            "formal"
+          ],
+          "status": "initial",
+          "context": "Sign-off line at the end of the editor's note."
+        }
+      ]
+    }
+  ]
+}

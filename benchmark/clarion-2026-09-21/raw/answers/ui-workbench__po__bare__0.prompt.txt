@@ -1,0 +1,178 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a gettext PO catalogue. Fill msgstr for every msgid.
+Keep msgctxt and every comment line unchanged.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "workbench.labels.nav-scratch-tables"
+msgid "Scratch tables"
+msgstr ""
+
+msgctxt "workbench.labels.mode-01a"
+msgid "Quarry"
+msgstr ""
+
+msgctxt "workbench.labels.mode-01b"
+msgid "Quarry"
+msgstr ""
+
+msgctxt "workbench.labels.term-02a"
+msgid "Volume"
+msgstr ""
+
+msgctxt "workbench.labels.term-02b"
+msgid "Volume"
+msgstr ""
+
+msgctxt "workbench.labels.term-03a"
+msgid "Scale"
+msgstr ""
+
+msgctxt "workbench.labels.term-03b"
+msgid "Scale"
+msgstr ""
+
+msgctxt "workbench.actions.mode-04a"
+msgid "Refresh the sample"
+msgstr ""
+
+msgctxt "workbench.actions.mode-04b"
+msgid "Refresh the sample"
+msgstr ""
+
+msgctxt "workbench.actions.slot-05a"
+msgid "Save the current view as a preset"
+msgstr ""
+
+msgctxt "workbench.actions.slot-05b"
+msgid "Save the current view as a preset"
+msgstr ""
+
+msgctxt "workbench.actions.slot-06a"
+msgid "Compare with the previous run"
+msgstr ""
+
+msgctxt "workbench.actions.slot-06b"
+msgid "Compare with the previous run"
+msgstr ""
+
+msgctxt "workbench.actions.note-step-order"
+msgid "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once."
+msgstr ""
+
+msgctxt "workbench.messages.msg-row-count"
+msgid "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}"
+msgstr ""
+
+msgctxt "workbench.messages.msg-table-state"
+msgid "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}"
+msgstr ""
+
+msgctxt "workbench.messages.msg-welcome-back"
+msgid "Welcome back, {name}. Your last run took 12 minutes."
+msgstr ""
+
+msgctxt "workbench.messages.msg-job-outcome"
+msgid "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}"
+msgstr ""
+
+msgctxt "workbench.messages.msg-sample-loading"
+msgid "The scratch table could not be created because the sample is still loading."
+msgstr ""
+
+msgctxt "workbench.messages.msg-board-empty"
+msgid "Nothing is pinned to this board yet. Open a chart and pin it here."
+msgstr ""
+
+msgctxt "workbench.messages.cue-chart-updated"
+msgid "Chart updated"
+msgstr ""
+
+msgctxt "workbench.help.help-scratch-table"
+msgid "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out."
+msgstr ""
+
+msgctxt "workbench.help.help-empty-before-run"
+msgid "Empty it before you leave the page, or the next run starts from rows that are already stale."
+msgstr ""
+
+msgctxt "workbench.help.help-board-pin"
+msgid "Once it is pinned, the chart stays on the board until someone takes it down."
+msgstr ""
+
+msgctxt "workbench.help.help-keyboard-rows"
+msgid "Press the up and down arrows to move through the rows without taking your hands off the keyboard."
+msgstr ""
+
+msgctxt "workbench.help.help-archive"
+msgid "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back."
+msgstr ""
+
+msgctxt "workbench.settings.set-time-window"
+msgid "New charts open with the default time window until you pin one of your own."
+msgstr ""
+
+msgctxt "workbench.settings.set-export-resolution"
+msgid "Charts are exported at the screen resolution, or at 2x for print."
+msgstr ""
+
+msgctxt "workbench.settings.set-cache-latency"
+msgid "Charts read from the cache first, which keeps latency under half a second on a normal connection."
+msgstr ""
+
+msgctxt "workbench.settings.set-throughput"
+msgid "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory."
+msgstr ""
+
+msgctxt "workbench.settings.set-retention"
+msgid "Scratch tables are kept for 7 days and are then removed without a warning."
+msgstr ""
+
+msgctxt "workbench.settings.set-timezone"
+msgid "Times on this page follow the workspace time zone, not the time zone of your browser."
+msgstr ""

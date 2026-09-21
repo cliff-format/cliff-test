@@ -1,0 +1,279 @@
+CLIFF 1.1
+namespace: clarion
+clan: legal-terms
+source-language: en-US
+target-language: zh-CN
+
+[definitions]
+
+<licensee>
+source: "“Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users."
+target: "“被许可方”指代表其授权用户订立本协议并接受本协议条款的法律实体。"
+type: sentence
+status: initial
+
+<authorised-user>
+source: "“Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf."
+target: "“授权用户”指被许可方的员工、承包商或代理人，且经被许可方授权代表其访问服务。"
+type: sentence
+status: initial
+
+<service-data>
+source: "“Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service."
+target: "“服务数据”指被许可方或其授权用户向服务提交或存储于服务内的所有记录、文档和元数据。"
+type: sentence
+status: initial
+
+<service>
+source: "“Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available."
+target: "“服务”指附件 A 所述的 Ledgerline 审计轨迹平台，以及运营方普遍提供的任何更新。"
+type: sentence
+status: initial
+
+<operator>
+source: "“Operator” means the company identified in the privacy notice as responsible for processing Service Data."
+target: "“运营方”指隐私声明中指明的、负责处理服务数据的公司。"
+type: sentence
+status: initial
+
+[grant]
+
+<grant-license>
+source: "Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes."
+target: "在遵守本协议条款的前提下，运营方授予被许可方一项非排他性、不可转让、可撤销的许可，以仅为内部业务目的访问和使用服务。"
+type: sentence
+status: initial
+
+<licensee-shall>
+source: "The Licensee shall ensure that every Authorised User complies with the terms of this Agreement."
+target: "被许可方应确保每一名授权用户均遵守本协议的条款。"
+type: sentence
+status: initial
+
+<operator-must>
+source: "The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement."
+target: "运营方必须依照本协议第 4.2 条对服务数据保密。"
+type: sentence
+status: initial
+
+<licensee-may>
+source: "The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users."
+target: "被许可方可仅为培训其授权用户之目的复制文档。"
+type: sentence
+status: initial
+
+<termination>
+source: "Either party may terminate this Agreement on thirty days' written notice to the other party."
+target: "任何一方均可向另一方发出三十日书面通知后终止本协议。"
+type: sentence
+status: initial
+
+[restrictions]
+
+<licensee-may-not>
+source: "The Licensee may not sublicense, rent or lease the Service to any third party."
+target: "被许可方不得向任何第三方再许可、出租或出借服务。"
+type: sentence
+status: initial
+
+<restricted-acts>
+source: "The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party."
+target: "被许可方不得实施下列行为：(a) 对服务进行反向工程、反编译或反汇编；(b) 移除或遮盖服务上的任何专有权声明；或 (c) 使用服务代任何第三方处理数据。"
+type: sentence
+status: initial
+
+<no-derivative>
+source: "The Licensee may not create derivative works based on the Service or any part of it."
+target: "被许可方不得基于服务或其任何部分创作衍生作品。"
+type: sentence
+status: initial
+
+<confidentiality>
+source: "The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator."
+target: "被许可方应对运营方披露的、与服务有关的所有非公开信息予以保密。"
+type: sentence
+status: initial
+
+[notices]
+
+<warranty-disclaimer>
+source: "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT."
+target: "本服务按“现状”及“现有可用”状态提供，不附带任何形式的明示或默示保证，包括但不限于对适销性、特定用途适用性及不侵权的默示保证。"
+type: sentence
+status: initial
+
+<limitation-liability>
+source: "To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim."
+target: "在法律允许的最大范围内，运营方因本协议引起的或与之相关的所有索赔而承担的累计责任，不得超过被许可方在该索赔发生前十二个月内已支付的费用。"
+type: sentence
+status: initial
+
+<severability>
+source: "If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect."
+target: "如果本协议的任何条款被认定为不可执行，其余条款仍具有完全效力。"
+type: sentence
+status: initial
+
+<privacy-operator>
+source: "This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform."
+target: "本服务由 {operator} 运营，其就通过该平台处理的服务数据担任数据控制者。"
+type: sentence
+status: initial
+
+<privacy-purpose>
+source: "The Operator processes Service Data only for the purposes of providing, securing and improving the Service."
+target: "运营方仅为提供、保护和改进服务的目的处理服务数据。"
+type: sentence
+status: initial
+
+<retention-period>
+source: "Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account."
+target: "除法律要求更长的期限外，服务数据将在被许可方注销账户后 {months} 个月删除。"
+type: sentence
+status: initial
+
+[abstract]
+
+<abstract>
+source: "Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison."
+target: "财务审计轨迹每天新增数百万条事件，负责审查这些事件的团队需要能够标记真实异常、又不会让分析人员不堪重负的检测器。我们在一份合成账本事件语料库上评估了三种检测方法，测量对抗性噪声下的假阳性率、端到端延迟和处理吞吐量。结果表明，基于学习到的事件 Embedding 构建的序列模型提升了对噪声的健壮性，同时将延迟保持在交互阈值以下。我们公开了评估工具与合成语料库，以支持可复现的比较。"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: legal-terms-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Ledgerline 协议术语表"
+info: "记录翻译 clarion/legal-terms 时作出的术语决定，供后续条款与修订版本保持一致。"
+standard: "协议用语统一采用法律文体；条款编号、金额、名称与占位符原样保留。"
+
+[terms]
+
+<licensee>
+source: "Licensee"
+target: "被许可方"
+type: noun
+status: translated
+context: "指订立本协议并接受其条款的法律实体；全篇统一译为“被许可方”，不译为“被许可人”。"
+
+<authorised-user>
+source: "Authorised User"
+target: "授权用户"
+type: noun-phrase
+status: translated
+context: "指经被许可方授权代表其访问服务的员工、承包商或代理人；统一用“授权用户”，不用“获权用户”等变体，以与 Licensee 的授权行为对应。"
+
+<service-data>
+source: "Service Data"
+target: "服务数据"
+type: noun-phrase
+status: translated
+context: "指提交至服务内或存储于服务内的记录、文档和元数据；与服务名称“服务”保持同一词根，便于定义之间互相引用。"
+
+<service>
+source: "Service"
+target: "服务"
+type: noun
+status: translated
+context: "指附件 A 所述 Ledgerline 审计轨迹平台及其一般性更新；大写 Service 一律译为“服务”。"
+
+<operator>
+source: "Operator"
+target: "运营方"
+type: noun
+status: translated
+context: "指隐私声明中指明的负责处理服务数据的公司；与被许可方对举，用“运营方”而非“运营商”，避免与电信语境混淆。"
+
+<licence>
+source: "licence"
+target: "许可"
+type: noun
+status: translated
+context: "指授予的访问与使用权利；与“再许可（sublicense）”构成同一术语族，保持词面一致。"
+
+<sublicense>
+source: "sublicense"
+target: "再许可"
+type: verb
+status: translated
+context: "与“许可（licence）”配套，表示向下游第三方授予许可；采用“再许可”而非“分许可”。"
+
+<reverse-engineer>
+source: "reverse engineer"
+target: "反向工程"
+type: verb
+status: translated
+context: "与“反编译”“反汇编”并列出现在禁止性条款中，采用业界通行的法律文本译法。"
+
+<derivative-works>
+source: "derivative works"
+target: "衍生作品"
+type: noun-phrase
+status: translated
+context: "著作权语境下的固定译法，不译为“派生作品”。"
+
+<proprietary-notice>
+source: "proprietary notice"
+target: "专有权声明"
+type: noun-phrase
+status: translated
+context: "指标示服务所有权的内容；译为“专有权声明”，以区别于保密条款中的“非公开信息”。"
+
+<aggregate-liability>
+source: "aggregate liability"
+target: "累计责任"
+type: noun-phrase
+status: translated
+context: "责任限制条款中的责任总额上限；译为“累计责任”，并保留其与“单次索赔”的区分。"
+
+<merchantability>
+source: "merchantability"
+target: "适销性"
+type: noun
+status: translated
+context: "默示保证条款中的固定译法，与“特定用途适用性”“不侵权”并列列举。"
+
+<data-controller>
+source: "data controller"
+target: "数据控制者"
+type: noun-phrase
+status: translated
+context: "数据保护语境下与“数据处理者”相对；采用“数据控制者”以便与隐私声明措辞对接。"
+
+<unenforceable>
+source: "unenforceable"
+target: "不可执行"
+type: adjective
+status: translated
+context: "可分割性条款中与“无效”区分，取“不可执行”，保留条款被认定后其余部分继续有效的逻辑。"
+
+<Embedding>
+source: "Embedding"
+target: "Embedding"
+type: noun
+status: translated
+context: "按项目规则保留拉丁文形式，不译为“嵌入”。"
+
+<latency>
+source: "latency"
+target: "延迟"
+type: noun
+status: translated
+context: "按项目规则统一为“延迟”，不使用“时延”。"
+
+<throughput>
+source: "throughput"
+target: "吞吐量"
+type: noun
+status: translated
+context: "按项目规则统一为“吞吐量”，不使用“吞吐率”。"
+
+<robustness>
+source: "robustness"
+target: "健壮性"
+type: noun
+status: translated
+context: "按项目规则使用“健壮/稳健”，不使用“鲁棒”。"

@@ -37,11 +37,13 @@ Two supporting measurements are always reported with them:
 2. **Identical instructions.** All formats receive the same system role, the
    same task rules and the same terminology policy. Only two blocks differ:
    the per-format notes (where the translation goes in this format) and, for
-   CLIFF alone, the specification digest.
+   CLIFF alone, the specification block.
 3. **The asymmetry is priced, not hidden.** A model has seen XLIFF and PO
    thousands of times and has never seen CLIFF, so CLIFF must pay for a
-   specification block. That block is a separately measured prompt component,
-   and D1/D2 report the totals with and without it.
+   specification block — 2 925 tokens per cell under the shipped style, against
+   16 838 when the style was the full specification text. That block is a
+   separately measured prompt component, and D1/D2 report the totals with and
+   without it.
 4. **The context arm favours the competitor.** cliff-python writes the complete CLIFF
    context payload into each format's documented channel: PO extracted
    comments and msgctxt, XLIFF metadata and notes, Fluent comments, Android
@@ -69,14 +71,27 @@ is worth: same model, same content, same instructions, one variable.
 ## 4. Token accounting (D1, D2)
 
 Every prompt is built from labelled components and every component is measured
-separately:
+separately. The full set is the one `clarion/prompts/assembly.py` advertises:
 
-    system.role, task.rules, format.notes, spec.digest,
-    policy.terminology, context.hint, glossary, document
+    system.role, task.rules, format.notes, spec.digest, spec.reference,
+    policy.terminology, glossary.workflow, context.hint, glossary,
+    cliff.edit_safety, cliff.examples, cliff.answer_reminder, document
+
+Which of them appear depends on the prompt style and the arm: `cliff.examples` only
+under `prompt_style: examples`, the compressed `spec.digest` (as the whole CLIFF
+instruction block) only under `spec`, `spec.reference` only under `digest`,
+`glossary.workflow` not under `spec` because that style states the glossary rules
+inside the block, and `context.hint` only in the context arm. `tools/prompt_cost.py`
+prices all three styles through the same call path a run uses, and
+`tests/test_prompt_cost_tool.py` asserts that each style renders its own instruction
+block and that the shipped configuration's style is one of the priced columns — so a
+style whose column became a copy of another, or a table that stopped pricing the style
+a run sends, fails the suite rather than quietly mispricing the prompt.
 
 Because the components are additive, any subset can be priced arithmetically.
 The "with and without the CLIFF specification" comparison therefore costs
-nothing: subtract `spec.digest` and `format.notes` from the measured total.
+nothing: subtract the instruction components (`spec.digest`, `format.notes`,
+`cliff.examples`) from the measured total.
 The tokenizer is named in every table (tiktoken `o200k_base` by default, with
 a documented heuristic fallback that is labelled as such and never mixed into
 the same table).
@@ -210,6 +225,30 @@ replay (the reference edit applied to the data model) runs the same protocol
 with no model, which is how the harness proves its own validators agree with
 its own renderers.
 
+**The shipped protocol's D7 result.** Ten formats × two arms × the three documents of
+the `ui` stratum × twelve edits = **60 chains**, at the shipped temperature and on the
+shipped prompt, every step validated under the tolerant reading:
+
+| format | arm | applicable edits | still valid % | intent applied % | repairs/edit |
+| --- | --- | ---: | ---: | ---: | ---: |
+| **cliff** | bare | 21 | **100.0** | 95.2 | 0.00 |
+| **cliff** | context | 36 | **86.1** | 86.1 | 0.17 |
+| xliff-2.1 | bare | 21 | 71.4 | 71.4 | 0.00 |
+| xliff-2.1 | context | 36 | 77.8 | 69.4 | 0.00 |
+| csv | context | 36 | 94.4 | 88.9 | 0.00 |
+| fluent | context | 34 | 97.0 | 69.9 | 0.00 |
+| every other format/arm | | | 100.0 | 80.6–100.0 | 0.00 |
+
+Mean validity over the 60 chains is **96.3 %**, and averaged per format over its six
+chains CLIFF is 93.1 %, with **xliff-2.1 the only format below it** (74.6 %). The
+denominator per arm differs because a format is only asked for edits it can express
+(fairness rule 5), which is why the columns read "applicable edits" rather than a flat
+twelve: the bare arm has fewer expressible operations than the context arm, and CLIFF's
+context arm at 86.1 % is the price of the harder half of the protocol. Two rows make
+the reason both rates are reported: `fluent` context is 97.0 % valid and 69.9 %
+intent-applied, and `xliff-2.1` context 77.8 % and 69.4 % — a file can stay
+well-formed while ignoring what it was asked to change.
+
 ## 9.1 Reading a model answer back: strict or tolerant
 
 CLIFF 1.1 defines a tolerant parsing mode for exactly one consumer: an
@@ -233,10 +272,10 @@ to be observable by the caller; C.6 requires every repair to be reported).
 
 Three consequences worth stating plainly:
 
-1. **A repair is not free and not hidden.** The repairs are exactly the six of
+1. **A repair is not free and not hidden.** The repairs are exactly the seven of
    Appendix C.2 — a bare scalar in a list-typed field, a repeated field, a quoted
-   tag, a quoted entry id, a quoted key, an identifier containing a reserved
-   character, a version line spelled differently. The `repairs` column prices the
+   tag, a quoted entry id, an identifier containing a reserved character, a version
+   line spelled differently, and a quoted key. The `repairs` column prices the
    answer's untidiness; a format whose answers need many repairs is doing less well
    than one whose answers need none, even when both finally parse.
 2. **A trailing `,` / `;` is not a repair.** It is standard CLIFF 1.1 syntax
@@ -257,56 +296,42 @@ Three consequences worth stating plainly:
 
 ### What the tolerant read cannot save, and why that matters for prompting
 
-A reader who assumes "tolerant" means "forgiving" will misread the D7 table. The
-recorded run shows both halves of the behaviour in one cell: `cliff/context`
-took **7 repairs** — quoted tags, a bare list value, a normalized id — and still
-failed 2 of 12 edits. The failures are not shapes a repair could fix. They are
-keys the model invented:
+A reader who assumes "tolerant" means "forgiving" will misread the D7 table. The read
+is bounded by Appendix C.5, and what it refuses is not shape:
 
-| Edit asked for | What the model wrote | Why it cannot be repaired |
+| Edit asked for | What a model may write instead | Why it cannot be repaired |
 | --- | --- | --- |
 | set the context of an entry | `translator-context:` | an unknown non-`x-` key (C.5) |
-| set the context of a group | `translator-context:` | same, in group scope |
+| set the context of a group | `translator-context:` | the same, in group scope |
 | set a status | `status:` inside a **group** | `status` is not group metadata; only `context`, `type`, `emotion`, `max-width` are |
-| add a reference (twice) | `ref:` / `source-ref:` | unknown entry keys; the field is `reference` |
+| add a reference | `ref:` / `source-ref:` | unknown entry keys; the field is `reference` |
 
-Appendix C.5 forbids a tolerant parser from repairing an unknown key, and the
-reason is sound: `translator-context` is *semantically* obviously `context`, but
-"repair what I can infer you meant" is exactly the guessing the appendix exists
-to prevent. The consequence for this project is direct and it is a prompt problem,
-not a parser problem:
+Appendix C.5 forbids a tolerant parser from repairing an unknown key, and the reason
+is sound: `translator-context` is *semantically* obviously `context`, but "repair what
+I can infer you meant" is exactly the guessing the appendix exists to prevent. The
+consequence for this project is direct and it is a prompt problem, not a parser
+problem:
 
 > **Because a tolerant parser will not repair a wrong key name, a wrong scope or a
 > wrong value shape, the prompt must state those facts exactly.** A prompt that
 > teaches CLIFF only by example can leave the model free to invent a plausible
 > field name, and no amount of tolerant parsing will rescue that answer.
 
-That claim is now measured, and the measurement is worth recording because the
-number is large enough to change a default. D7's edit prompt carried **no CLIFF
-content at all**, so an instruction like "set the context of this entry" left the
-model to name the field itself. Running the same 48 edits with the field table and
-task verbs prepended (`python .tools/d7_pilot.py`), both conditions sent at
-temperature 0.0 — see the temperature note in the measurement protocol above for
-why the edit dimension could not yet honour the configured value:
+That claim is measured. D7's edit prompt carried **no CLIFF content at all**, so an
+instruction like "set the context of this entry" left the model to name the field
+itself, and the names it produced were the four in the table above — each of them an
+answer no reading can save. With the field table and the task verbs prepended to the
+edit prompt, none of them appeared in any edit of any kind. That is the largest single
+effect of the prompt round and it cost one paragraph; the exchange rate is
+[clarion-prompt-design.md](clarion-prompt-design.md)'s subject, and the fact table it
+produced is `KEYS_BY_SCOPE` / `CLIFF_TASK_RULES` in `clarion/prompts/`.
 
-| edit prompt | invented-key failures | edit not valid |
-| --- | ---: | ---: |
-| historical (no CLIFF content) | **18.8 %** (95 % CI 10.2–31.9) | 18.8 % |
-| with the field names and scopes stated | **0 %** (95 % CI 0–7.4) | 0 % |
-
-Fisher exact p = 0.0026 (corrected from a published 0.0129; the test that produced
-the larger figure was defective), and the historical figure reproduces the 18.8 % of the
-full recorded run. The invented names were `translator-context` (in entry *and*
-group scope), `status` inside a group section, `ref` and `source-ref`. See
-[clarion-prompt-design.md](clarion-prompt-design.md) for the prompt that fixes it
-and for the token cost it replaces.
-
-The measured cost of the current prompt makes the trade explicit: CLIFF's
-`format instructions` component is ~46 400 tokens per arm (16 cells), of which
-**16 316 per cell is the full specification text**. The full text is what a
-prompt-design experiment should try to earn or drop; the lexical facts — exact
-key names, their legal scopes, the closed vocabularies and the shape of each
-value — are what it must keep.
+The cost side of the same trade, measured on the final run: CLIFF's `format
+instructions` component is **46 800 tokens per arm** (16 documents), of which the
+compressed specification block is **2 925 per cell**. The specification text the
+shipped style dropped was 16 838 per cell, and dropping it is what the style exists
+for; the lexical facts — exact key names, their legal scopes, the closed vocabularies
+and the shape of each value — are what it keeps.
 
 Two behaviours are decided here rather than left open, and both are the
 implementation's, not a preference stated after the fact:
@@ -337,24 +362,36 @@ One more reading decision, because it changes what an answer may look like:
 
 ### What the two readings measured
 
-Re-scoring the stored CLIFF answers of a run under both readings, with no model
-call, is the comparison this section exists to make possible. On the recorded
-`deepseek-flash` run (96 CLIFF answers, three repeats per cell):
+Re-scoring the stored CLIFF answers of a run under both readings, with no model call,
+is the comparison this section exists to make possible. `tools/compare_readings.py`
+does exactly that, and `tests/test_compare_readings_tool.py` recomputes the table
+below from the stored answers and fails if the two disagree. On the final run
+(`deepseek-flash`, the shipped protocol, 96 CLIFF answers, three repeats per cell):
 
-| Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance |
-| --- | ---: | ---: | ---: | --- |
-| bare | 89.6% | 93.8% | 3 | 2 answers |
-| context | 83.3% | 89.6% | 6 | 3 answers |
+| Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance | repair kinds |
+| --- | ---: | ---: | ---: | --- | --- |
+| bare | 87.5% (42/48) | **91.7% (44/48)** | 2 | 2 answers | C.2.5 identifier containing a reserved character ×2 |
+| context | 85.4% (41/48) | **91.7% (44/48)** | 13 | 3 answers | C.2.5 identifier containing a reserved character ×12, C.2.2 repeated field ×1 |
 
-The repairs were one quoted tag (C.2.3), four identifiers containing a reserved
-character (C.2.5) and — in the context arm — two entry ids that normalization
-made colliding (C.4). Every one of them is a shape repair: no answer was salvaged
-by inventing content, which is what Appendix C.5 forbids. The gap is the honest
-size of the claim "a translation pipeline should not lose a translation because a
-model punctuated a line differently".
+Every repair is a **shape** repair: the tolerant read changed how a line was spelled —
+an identifier containing a character the grammar does not allow, and one field written
+twice in a scope — and no answer was salvaged by inventing content, which is what
+Appendix C.5 forbids. The two rates are the honest size of the claim "a translation
+pipeline should not lose a translation because a model punctuated a line differently",
+and the difference between them is what tolerance buys: **two answers in the bare arm
+(`godot-l10n`, `hongloumeng-joly`) and three in the context arm (those two plus
+`wmt24pp`)**, against a repair cost of 0.04 and 0.27 per answer. The tool prints both
+the counts and the answer names, so the salvaged set can be inspected rather than
+taken on trust.
 
-When a report quotes "valid answer %", it is quoting one of the two readings,
-and the table says which.
+The shipped configuration declares `read_mode: tolerant`, so `tolerant` is the column
+every published validity figure for CLIFF uses. The strict column is not a different
+run: it is the *same* answers, re-read, and it is what a project whose toolchain has
+no tolerant mode would see. Both are reported in the D3/D4 and D7 tables of a report,
+and C6.11 of [acceptance-criteria.md](acceptance-criteria.md) is this table.
+
+When a report quotes "valid answer %", it is quoting one of the two readings, and the
+table says which.
 
 ## 10. Statistics
 
@@ -364,32 +401,32 @@ and the table says which.
 - Pass rates use **Wilson intervals**; paired pass/fail comparisons use
   **McNemar's exact test**.- With ten formats there are dozens of pairwise comparisons, so p-values are
   corrected (Holm or Benjamini-Hochberg) before any claim is made.
-- **Sampling temperature: 0.0 in the first recorded run; 1.3 by configuration
-  afterwards, but reached only by the translation dimension.** DeepSeek documents
-  1.3 as the recommended temperature for translation, and the UE5 plugin that
-  consumes CLIFF in production uses it, so the benchmark intends to measure the
-  model as it is actually deployed. The edit dimension did not: `run_robustness`
-  built its own request with a hard-coded `temperature=0.0` and ignored
-  `provider.temperature`, so **every D7 number published so far is a 0.0 number**,
-  including the rows labelled as the deployment settings. That is fixed (the
-  temperature is now a parameter, forwarded from the configuration, guarded by
-  `tests/clarion/test_edit_request.py`) and D7 has since been measured at 1.3 for
-  CLIFF: **97.7 % valid / 95.9 % intent** over 171 edits in three passes, against
-  100 % / 98.6 % at 0.0. The two regimes are **not comparable**, and a report must
-  say which one produced its numbers:
-  - at 0.0 the three repeats of a cell were observed to be **byte-identical**
-    (for example the three `wmt24pp` context answers failed on the same line with
-    the same message), so "3 repeats" measured internal consistency, not
-    sampling variance, and the effective sample size was smaller than the run
-    count suggests;
-  - at 1.3 the repeats are genuine independent samples, which is what the
-    paired tests in this section assume. It gives up bit-for-bit reproducibility
-    of a run in exchange for measuring a distribution, which is the honest
-    object for a stochastic decoder.
-- Temperature 0 is not determinism either: at least three repeats per cell,
-  reported as mean with a confidence interval. At 1.3 report the **spread across
-  repeats** as well as the mean, because at that temperature the spread is part
-  of the result.
+- **Sampling temperature: 1.3, nominal under a reasoning tier.** DeepSeek documents
+  1.3 as the recommended temperature for translation, and the UE5 plugin that consumes
+  CLIFF in production uses it, so the benchmark measures the model as it is actually
+  deployed. Two things must be said about it, and the second is newer:
+  - **The edit dimension used to ignore it.** `run_robustness` built its own request
+    with a hard-coded `temperature=0.0` and ignored `provider.temperature`, so **every
+    D7 number published before the fix is a 0.0 number**, including the rows labelled
+    as the deployment settings. That is fixed (the temperature is now a parameter,
+    forwarded from the configuration, guarded by
+    `tests/clarion/test_edit_request.py`), and the final run's D7 table is the first
+    one measured at the shipped temperature on the shipped prompt. Numbers recorded
+    at 0.0 and at 1.3 are **not comparable**, and a report must say which one produced
+    its figures.
+  - **With a reasoning tier selected, the vendor controls sampling**, so the recorded
+    temperature is a record of what was asked for rather than of what decided the
+    output. The final run selects `reasoning: low`. What that gives up is bit-for-bit
+    reproducibility of a run in exchange for measuring a distribution, which is the
+    honest object for a stochastic decoder.
+  - At 0.0 the three repeats of a cell were observed to be **byte-identical** (for
+    example the three `wmt24pp` context answers failed on the same line with the same
+    message), so "3 repeats" measured internal consistency rather than sampling
+    variance. At 1.3 the repeats are genuine independent samples, which is what the
+    paired tests in this section assume.
+- At least three repeats per cell, reported as mean with a confidence interval, plus
+  the **spread across repeats** — at a stochastic decoder the spread is part of the
+  result. Temperature 0 was never determinism either, only a narrower distribution.
 - A metric difference is only called meaningful when it exceeds the accepted
   threshold for that metric and language pair, not because it is positive.
   There is no published "magic N" of segments; MT-Thresholds is the right
@@ -417,17 +454,26 @@ run directory, and the distinction matters when reading a citation:
   produces a published number belongs here rather than in the working copy: the
   working copy is for questions that are still open.
 - **A run directory**, under `results/` (gitignored, regenerated by a run): its
-  `records.jsonl`, its `answers/` and its `report.md` are the raw evidence behind
-  any recorded table. A recorded run is named wherever its numbers are quoted.
+  `records.jsonl`, its `answers/` and its `report.md` are the raw evidence behind any
+  figure quoted from a run. **One run is kept and named everywhere it is quoted**: the
+  final CLIFF 1.1 run, `clarion-deepseek-flash-20260921T211031+0000-de29a5`, whose
+  packed copy is committed as `benchmark/clarion-2026-09-21/` — raw records, the
+  answers and the prompts that produced them, and the computed review data. The
+  exploratory cells the documents were written from were **pruned**: a figure whose
+  evidence has been deleted is not republished, and where such an experiment produced
+  a decision the design documents state the decision and the rule instead of the
+  number.
 - **A working-copy scripts directory**, `../.tools/`, beside the three checkouts and
   **not part of any of them**: the one-off pilots and forensics written while a
   question was open (`probe_repairs.py`, `prompt_pilot.py`, `d7_pilot.py`,
-  `show_breakage.py` and the run-specific analysis scripts). They are cited in the
-  design documents as the instrument that produced a finding, not as something a
-  reader is expected to run: where a finding matters, the repository carries a
-  fixture, a test or a recorded run that pins it, and the citation says so. When a
-  script's output becomes a published number, the script moves into `tools/` and a
-  test pins the number (`compare_readings.py`, `prompt_cost.py`).
+  `show_breakage.py`, and the failure-census tools a prompt round leaves behind -
+  `why_cliff_fails.py`, `format_errors.py`, `probe_is_it_escaping.py`,
+  `probe_value_quote.py`). They are cited in the design documents as the instrument
+  that produced a finding, not as something a reader is expected to run: where a
+  finding matters, the repository carries a fixture, a test or a recorded run that
+  pins it, and the citation says so. When a script's output becomes a published
+  number, the script moves into `tools/` and a test pins the number
+  (`compare_readings.py`, `prompt_cost.py`, `token_benchmark.py --check`).
 
 ## 11. Contamination control
 
@@ -580,18 +626,40 @@ Two settings matter for cost and honesty:
 
 ## 13. Reproducibility
 
-Every run writes a directory containing the resolved configuration, a JSONL
-record per task (including the prompt component costs, the raw metrics and the
-provider usage), a JSON summary with the cliff-python version, and the Markdown
-report. A number in a report can always be traced back to the exact request
+Every run writes a directory containing the resolved configuration, a JSONL record per
+task (including the prompt component costs, the raw metrics and the provider usage), a
+JSON summary with the cliff-python version, **the revision of the harness that
+produced it and a fingerprint of the rendered CLIFF instruction block**, and the
+Markdown report. A number in a report can always be traced back to the exact request
 that produced it.
+
+The fingerprint is the field that makes two runs comparable. A stored configuration
+names a prompt *style*, and a style is not a text — the same `prompt_style: spec` can
+render different words at two revisions, with nothing else in the run directory to say
+which was sent. The fingerprint is of the block itself, so two runs claiming the same
+settings either carry the same text or are visibly not the same experiment.
+
+A published run is also packed: `python tools/package_benchmark.py <run-dir>` copies
+the raw evidence (records, answers and their prompts, the token matrix) and the
+computed review data into `benchmark/<bundle>/`, and the copy is what a reader without
+API access can check.
+
+Two limitations of the packed evidence are stated rather than implied:
+
+- **No neural quality metric.** The optional QE pass needs `unbabel-comet` and its
+  model weights, which were not available where the run was produced; no
+  reference-free quality figure is claimed, and the audit omits the column rather than
+  printing a zero.
+- **The annotator is the model under test** for the `annotated` context items, which
+  flatters the context arm; the comparison across formats is unaffected because every
+  format sees the same brief.
 
 ## 14. Threats to validity
 
 1. **Model familiarity.** Models know XLIFF and PO and do not know CLIFF. The
-   specification digest reduces the gap but does not erase it; a result should
-   be read as "CLIFF plus a one-screen digest" versus "a format the model
-   already knows".
+   compressed specification block reduces the gap but does not erase it; a result
+   should be read as "CLIFF plus 2 925 tokens of extracted rules" versus "a format the
+   model already knows".
 2. **Converter quality.** All non-CLIFF fixtures are produced by cliff-python. A bug
    there is a bug in the benchmark; the round-trip fidelity check is the guard.
 3. **Reference bias.** The reference translations were written by the same

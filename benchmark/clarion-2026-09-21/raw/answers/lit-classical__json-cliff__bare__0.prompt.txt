@@ -1,0 +1,115 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is JSON holding the CLIFF data model: groups contain entries with
+source, target and metadata. Fill the target field of every entry.
+
+Translate the localization file below from zh-CN into en-US.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in en-US.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-classical",
+    "source-language": "zh-CN",
+    "target-language": "en-US"
+  },
+  "groups": [
+    {
+      "path": "aphorisms",
+      "entries": [
+        {
+          "id": "water-holds",
+          "source": "水静则清，器满则倾。"
+        },
+        {
+          "id": "mountain-river",
+          "source": "山不增高，因登而高；川不返流，因逝而长。"
+        },
+        {
+          "id": "mirror",
+          "source": "镜不自照，故能照人；泉不自饮，故能济渴。"
+        },
+        {
+          "id": "scale",
+          "source": "尺短寸长，各有所宜。"
+        },
+        {
+          "id": "lantern-heart",
+          "source": "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+        }
+      ]
+    },
+    {
+      "path": "parallel-prose",
+      "entries": [
+        {
+          "id": "parallel-prose-1",
+          "source": "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+        },
+        {
+          "id": "parallel-prose-2",
+          "source": "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+        }
+      ]
+    },
+    {
+      "path": "quatrain",
+      "entries": [
+        {
+          "id": "quatrain-1",
+          "source": "渡口秋灯暗，"
+        },
+        {
+          "id": "quatrain-2",
+          "source": "江寒雨自斜。"
+        },
+        {
+          "id": "quatrain-3",
+          "source": "潮回沙上字，"
+        },
+        {
+          "id": "quatrain-4",
+          "source": "钟入隔岸家。"
+        }
+      ]
+    }
+  ]
+}

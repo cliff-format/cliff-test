@@ -1,0 +1,278 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-drama",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "The Last Call at the Halloway - one scene",
+    "info": "An original one-act scene. A closing repertory theatre on its final night. Odette Rill has run the stage for thirty years; Cassian Vale left the company a decade ago and has come back for the last performance. The entries are one continuous scene and must read in order: a line's rendering may depend on a line before it.",
+    "standard": "Stage directions use a terse present-tense narrative register and never the spoken register of dialogue. Keep the venue name Halloway in Latin script. Render the surname Vale as 维尔 wherever it appears. House style: one space between Han text and Latin letters or digits, fullwidth punctuation inside Han sentences, and no textbook jargon."
+  },
+  "groups": [
+    {
+      "path": "scene.arrival",
+      "context": "The empty auditorium an hour before the final performance. A single work lamp is lit.",
+      "type": "description",
+      "emotion": [
+        "calm"
+      ],
+      "entries": [
+        {
+          "id": "open-house-lights",
+          "source": "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.",
+          "status": "initial",
+          "context": "Opening stage direction of the scene; sets the empty theatre before anyone speaks.",
+          "target": "观众席的灯全灭了。一盏工作灯在台口亮着，灰尘在光柱里缓缓翻卷。"
+        },
+        {
+          "id": "enter-cassian",
+          "source": "I could find this stage in my sleep.",
+          "type": "dialogue",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial",
+          "context": "Cassian speaks his first line as he walks in from the wings after ten years away.",
+          "target": "这个台子，我闭着眼睛都找得到。"
+        },
+        {
+          "id": "lit-01a",
+          "source": "You came back.",
+          "type": "dialogue",
+          "emotion": [
+            "joyful",
+            "grateful"
+          ],
+          "status": "initial",
+          "context": "Odette says this when she is genuinely glad to see him; she has hoped for this for years.",
+          "target": "你回来了。"
+        },
+        {
+          "id": "lit-01b",
+          "source": "You came back.",
+          "type": "dialogue",
+          "emotion": [
+            "angry",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "The same words later in the scene, said as a reproach after he admits why he left.",
+          "target": "你回来了。"
+        },
+        {
+          "id": "reply-cassian",
+          "source": "The call board still has my name spelled wrong.",
+          "type": "dialogue",
+          "emotion": [
+            "playful"
+          ],
+          "status": "initial",
+          "context": "Cassian deflects with a small joke about the backstage notice board.",
+          "target": "公告板上，我的名字到现在还是拼错的。"
+        }
+      ]
+    },
+    {
+      "path": "scene.confrontation",
+      "context": "They circle the argument they have avoided for ten years.",
+      "type": "dialogue",
+      "entries": [
+        {
+          "id": "motif-promise",
+          "source": "This theatre kept its promises. People did not.",
+          "emotion": [
+            "serious",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry.",
+          "target": "这座剧院信守承诺。人没有。"
+        },
+        {
+          "id": "lit-02a",
+          "source": "Wonderful. Just wonderful.",
+          "emotion": [
+            "joyful"
+          ],
+          "status": "initial",
+          "context": "Said when the missing lighting board key is finally found; she means it.",
+          "target": "太好了。真是太好了。"
+        },
+        {
+          "id": "lit-02b",
+          "source": "Wonderful. Just wonderful.",
+          "emotion": [
+            "angry",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "The same words after the fuse blows for the second time; bitter irony, not praise.",
+          "target": "太好了。真是太好了。"
+        },
+        {
+          "id": "callback-promise",
+          "source": "You said the theatre kept its promises.",
+          "emotion": [
+            "serious"
+          ],
+          "status": "initial",
+          "context": "Cassian quotes Odette's earlier line back at her; it must read as the same line returning.",
+          "target": "你说过，这座剧院信守承诺。"
+        },
+        {
+          "id": "address-early",
+          "source": "Mr. Vale, the call is in five minutes.",
+          "emotion": [
+            "formal",
+            "polite"
+          ],
+          "status": "initial",
+          "context": "Early in the scene Odette keeps him at the distance of a surname and a title.",
+          "target": "维尔先生，离开演还有五分钟。"
+        },
+        {
+          "id": "address-late",
+          "source": "Cassian. Please. Sit down.",
+          "emotion": [
+            "calm",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "Late in the scene the distance drops and she uses his given name for the first time.",
+          "target": "卡西安。拜托。坐下。"
+        },
+        {
+          "id": "lit-03a",
+          "source": "She turns the lamp toward him.",
+          "type": "description",
+          "emotion": [
+            "objective"
+          ],
+          "status": "initial",
+          "context": "A stage direction: terse narrative register, describing the action for the crew.",
+          "target": "她把灯转向他。"
+        },
+        {
+          "id": "lit-03b",
+          "source": "She turns the lamp toward him.",
+          "emotion": [
+            "playful"
+          ],
+          "status": "initial",
+          "context": "A line of dialogue: an actor describing the blocking aloud during a run-through, in speech.",
+          "target": "她把灯转向他。"
+        }
+      ]
+    },
+    {
+      "path": "scene.house",
+      "context": "Practical talk about the building itself while they avoid each other's eyes.",
+      "type": "dialogue",
+      "emotion": [
+        "neutral"
+      ],
+      "entries": [
+        {
+          "id": "roof-year",
+          "source": "The roof has not been touched since 1974.",
+          "status": "initial",
+          "context": "Odette lists what the building needs; the year is a fact and must survive.",
+          "target": "屋顶自 1974 年起就没动过。"
+        },
+        {
+          "id": "lamp-count",
+          "source": "Two 500-watt lamps, and a fuse box older than both of us.",
+          "status": "initial",
+          "context": "Cassian counts what is still working in the grid.",
+          "target": "两盏 500 瓦的灯，还有一个比我们俩都老的保险丝盒。"
+        },
+        {
+          "id": "venue-name",
+          "source": "The Halloway does not close tonight. It closes when the last person leaves.",
+          "status": "initial",
+          "context": "The venue name is the company's mark and is used untranslated in all materials.",
+          "target": "Halloway 不是今晚关门。它是等最后一个人走了才关门。"
+        },
+        {
+          "id": "board-default",
+          "source": "Use the default setting on the board and do not touch anything else.",
+          "status": "initial",
+          "context": "A technical instruction to the operator about the lighting board.",
+          "target": "灯光控台上用默认设置，其他什么都不要碰。"
+        },
+        {
+          "id": "disbelief",
+          "source": "Are you serious? Now? After everything?",
+          "emotion": [
+            "surprised",
+            "angry"
+          ],
+          "status": "initial",
+          "context": "Cassian reacts to her telling him the building is already sold.",
+          "target": "你是认真的？现在？都到这一步了？"
+        }
+      ]
+    },
+    {
+      "path": "scene.monologue",
+      "context": "Odette alone in the work light after Cassian goes to change.",
+      "type": "monologue",
+      "emotion": [
+        "nostalgic"
+      ],
+      "entries": [
+        {
+          "id": "monologue-open",
+          "source": "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.",
+          "status": "initial",
+          "context": "The first half of her monologue, alone on stage; long-form literary prose, not conversational.",
+          "target": "这块地板我扫过的次数，比我在自己床上睡过的次数还多。我知道哪块地板在壮实的演员脚下会吱呀作响，哪块在瘦削的演员脚下会陷下去。你待得够久，一座建筑就会记住你。"
+        },
+        {
+          "id": "monologue-turn",
+          "source": "And then one night the lights do not come up, and it turns out the building never learned anything at all.",
+          "status": "initial",
+          "context": "The turn in the monologue where the comfort collapses.",
+          "target": "然后某天晚上，灯不再亮起来，你才发现这座建筑其实什么都没记住。"
+        }
+      ]
+    },
+    {
+      "path": "scene.verse",
+      "context": "The company's traditional closing couplet, spoken to the empty house at the end of a run.",
+      "type": "narration",
+      "emotion": [
+        "serious",
+        "nostalgic"
+      ],
+      "entries": [
+        {
+          "id": "verse-01",
+          "source": "The lamps go dark, the boards remain.",
+          "status": "initial",
+          "context": "First line of the closing couplet; the two lines are parallel in structure and must stay parallel.",
+          "target": "灯暗了，台还在。"
+        },
+        {
+          "id": "verse-02",
+          "source": "The players go, the play remains.",
+          "status": "initial",
+          "context": "Second line of the couplet, mirroring the first line word for word in structure.",
+          "target": "人散了，戏还在。"
+        },
+        {
+          "id": "final-direction",
+          "source": "She reaches up and switches off the work lamp. Darkness, and then the house door closing.",
+          "type": "description",
+          "emotion": [
+            "calm"
+          ],
+          "status": "initial",
+          "context": "The closing stage direction of the scene.",
+          "target": "她抬手关掉工作灯。黑暗，接着是观众席的门合上的声音。"
+        }
+      ]
+    }
+  ]
+}

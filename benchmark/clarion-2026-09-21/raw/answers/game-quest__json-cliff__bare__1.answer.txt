@@ -1,0 +1,185 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "game-quest",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "quest.brief",
+      "entries": [
+        {
+          "id": "brief-tide-run",
+          "source": "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.",
+          "target": "潮水一天转向两次，港口也就一天两次忘记谁欠谁的账。趁水位还没涨上来，把密封舱单送到军需官手上，账本就能再多诚实一晚。"
+        },
+        {
+          "id": "brief-ninth-light",
+          "source": "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.",
+          "target": "九盏灯环绕着内湾。其中八盏由港务公会照看；最后一盏立在一块公会假装看不见的礁石上，而它从未熄灭过一次。"
+        },
+        {
+          "id": "quest-title-last-watch",
+          "source": "Willow's Last Watch",
+          "target": "薇洛的最后守望"
+        },
+        {
+          "id": "journal-note-order",
+          "source": "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.",
+          "target": "马罗会先看过舱单再开闸门，所以在目标 1 确认完成之前，目标 2 会一直锁定。"
+        },
+        {
+          "id": "brief-warning-fog",
+          "source": "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.",
+          "target": "雾会毫无预兆地从西边涌来。如果你看不见下一盏灯，就停下桨等着：这里的水流有的是耐性，迟早会把你送回码头。"
+        }
+      ]
+    },
+    {
+      "path": "quest.objectives",
+      "entries": [
+        {
+          "id": "objective-03a",
+          "source": "Deliver the Sealed Manifest to Marrow",
+          "target": "把密封舱单交给马罗"
+        },
+        {
+          "id": "objective-03b",
+          "source": "Deliver the Sealed Manifest to Marrow",
+          "target": "把密封舱单交给马罗"
+        },
+        {
+          "id": "objective-04a",
+          "source": "Restore Power to the Tide Gate",
+          "target": "为潮汐闸门恢复供电"
+        },
+        {
+          "id": "objective-04b",
+          "source": "Restore Power to the Tide Gate",
+          "target": "为潮汐闸门恢复供电"
+        },
+        {
+          "id": "objective-relight",
+          "source": "Relight the Ninth Light before the ebb",
+          "target": "在退潮前重新点亮第九盏灯"
+        },
+        {
+          "id": "objective-count-crates",
+          "source": "{secured, plural, one {# crate secured} other {# crates secured}}",
+          "target": "{secured, plural, one {已固定 # 个板条箱} other {已固定 # 个板条箱}}"
+        },
+        {
+          "id": "objective-check-lines",
+          "source": "Check the mooring lines on the east pier",
+          "target": "检查东码头的系泊缆绳"
+        }
+      ]
+    },
+    {
+      "path": "quest.dialogue",
+      "entries": [
+        {
+          "id": "hail-01a",
+          "source": "Hand me the lantern, friend.",
+          "target": "把提灯递给我，朋友。"
+        },
+        {
+          "id": "hail-01b",
+          "source": "Hand me the lantern, friend.",
+          "target": "把提灯递给我，朋友。"
+        },
+        {
+          "id": "hail-02a",
+          "source": "Marrow says the dock is open to you.",
+          "target": "马罗说了，码头随你进出。"
+        },
+        {
+          "id": "hail-02b",
+          "source": "Marrow says the dock is open to you.",
+          "target": "马罗说了，码头随你进出。"
+        },
+        {
+          "id": "dialogue-willow-keeps",
+          "source": "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.",
+          "target": "薇洛让第九盏灯亮了十一个冬天，而她从没向公会要过一滴灯油。"
+        },
+        {
+          "id": "dialogue-burn-it",
+          "source": "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.",
+          "target": "在马罗的船靠上码头之前把它烧掉。冷灰什么也告诉不了他。"
+        },
+        {
+          "id": "success-echo",
+          "source": "The Ninth Light is yours to keep now. Do not make me regret the hand-over.",
+          "target": "第九盏灯现在归你管了。别让我为这次交接后悔。"
+        },
+        {
+          "id": "line-success-tide",
+          "source": "The gate holds. Whatever you did down there, the water is going where it should.",
+          "target": "闸门撑住了。不管你在下面做了什么，水总算流向了该去的地方。"
+        },
+        {
+          "id": "line-failure-tide",
+          "source": "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.",
+          "target": "闸门卡住了，码头已经泡在水里。等退潮了再回来，我们再试一次。"
+        }
+      ]
+    },
+    {
+      "path": "items.rewards",
+      "entries": [
+        {
+          "id": "item-relay-grid-desc",
+          "source": "The relay grid is robust: one failed beacon does not break the chain.",
+          "target": "中继网足够健壮：一个信标失灵，不会断掉整条链路。"
+        },
+        {
+          "id": "item-lamp-oil-desc",
+          "source": "One flask feeds the lamp for 30 minutes at the default wick height.",
+          "target": "在默认灯芯高度下，一瓶灯油可供灯燃烧 30 分钟。"
+        },
+        {
+          "id": "item-fog-lamp-desc",
+          "source": "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.",
+          "target": "一盏矮墩墩的黄铜灯，蓝色遮光板上满是划痕。它投出的光很弱，可在雾里，弱光比强光散射得更少。"
+        },
+        {
+          "id": "achv-marrow-debt",
+          "source": "Marrow's Debt",
+          "target": "马罗的债"
+        },
+        {
+          "id": "achv-nine-nights",
+          "source": "Nine Nights, Nine Lights",
+          "target": "九夜九灯"
+        }
+      ]
+    },
+    {
+      "path": "system.messages",
+      "entries": [
+        {
+          "id": "system-welcome-runner",
+          "source": "Fair tide, {playerName}. Your last run ended 3 days ago.",
+          "target": "顺风顺水，{playerName}。你上一趟跑船是 3 天前结束的。"
+        },
+        {
+          "id": "system-keybind-lantern",
+          "source": "Hold [E] to raise the lantern; press [Q] to signal.",
+          "target": "按住 [E] 举起提灯；按 [Q] 发出信号。"
+        },
+        {
+          "id": "system-signal-range",
+          "source": "Signal range: 120 m in fog, 400 m in clear air.",
+          "target": "信号范围：雾中 120 米，晴空下 400 米。"
+        },
+        {
+          "id": "system-quest-state",
+          "source": "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}",
+          "target": "{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}"
+        }
+      ]
+    }
+  ]
+}

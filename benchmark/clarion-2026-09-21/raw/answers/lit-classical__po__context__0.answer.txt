@@ -1,0 +1,92 @@
+msgid ""
+msgstr ""
+"Language: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+#. cliff:type: sentence
+#. cliff:emotion: calm|serious
+#. cliff:status: initial
+msgctxt "aphorisms.water-holds"
+msgid "水静则清，器满则倾。"
+msgstr "Water that stays still grows clear; a vessel that is full tips over."
+
+#. Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+#. cliff:type: sentence
+#. cliff:emotion: serious|calm
+#. cliff:status: initial
+msgctxt "aphorisms.mountain-river"
+msgid "山不增高，因登而高；川不返流，因逝而长。"
+msgstr "The mountain adds no height of its own, yet grows tall through those who climb it; the river never turns back, yet grows long by flowing on."
+
+#. Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+#. cliff:type: sentence
+#. cliff:emotion: calm
+#. cliff:status: initial
+msgctxt "aphorisms.mirror"
+msgid "镜不自照，故能照人；泉不自饮，故能济渴。"
+msgstr "The mirror does not reflect itself, and so it can reflect others; the spring does not drink of itself, and so it can quench thirst."
+
+#. Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+#. cliff:type: sentence
+#. cliff:emotion: serious
+#. cliff:status: initial
+msgctxt "aphorisms.scale"
+msgid "尺短寸长，各有所宜。"
+msgstr "The foot has its shortfall, the inch its reach; each is fit for its own use."
+
+#. Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+#. cliff:type: sentence
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "aphorisms.lantern-heart"
+msgid "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+msgstr "The lamp whose flame leaps high spends its oil soon; the lamp whose light is faint lasts the night long."
+
+#. A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "parallel-prose.parallel-prose-1"
+msgid "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+msgstr "Ridges a thousand fathoms high keep their clouds upon the crest; a cold river ten thousand leagues long sends its boats to the sky."
+
+#. A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "parallel-prose.parallel-prose-2"
+msgid "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+msgstr "The valley is still and answers nothing, yet Cangwu hears the bell; the lamp burns faint and sways of itself, yet Cangwu shines upon the water."
+
+#. A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|sad
+#. cliff:status: initial
+msgctxt "quatrain.quatrain-1"
+msgid "渡口秋灯暗，"
+msgstr "At the ferry, autumn lamps burn dim,"
+
+#. A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|sad
+#. cliff:status: initial
+msgctxt "quatrain.quatrain-2"
+msgid "江寒雨自斜。"
+msgstr "On the cold river the slant rain falls."
+
+#. A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "quatrain.quatrain-3"
+msgid "潮回沙上字，"
+msgstr "The tide comes back to the words on sand,"
+
+#. A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+#. cliff:type: narration
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "quatrain.quatrain-4"
+msgid "钟入隔岸家。"
+msgstr "A bell rings into the far shore's halls."

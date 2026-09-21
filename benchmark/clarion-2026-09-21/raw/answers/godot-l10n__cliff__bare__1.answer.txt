@@ -1,0 +1,647 @@
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n
+source-language: en-US
+target-language: zh-CN
+
+[core-error]
+
+<ok>
+source: "OK"
+target: "OK"
+type: sentence
+status: initial
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: initial
+
+<unavailable>
+source: "Unavailable"
+target: "不可用"
+type: sentence
+status: initial
+
+<unconfigured>
+source: "Unconfigured"
+target: "未配置"
+type: sentence
+status: initial
+
+<unauthorized>
+source: "Unauthorized"
+target: "未授权"
+type: sentence
+status: initial
+
+<parameter-out-of-range>
+source: "Parameter out of range"
+target: "参数超出范围"
+type: sentence
+status: initial
+
+<out-of-memory>
+source: "Out of memory"
+target: "内存不足"
+type: sentence
+status: initial
+
+<file-not-found>
+source: "File not found"
+target: "文件未找到"
+type: sentence
+status: initial
+
+<file-bad-drive>
+source: "File: Bad drive"
+target: "文件：驱动器无效"
+type: sentence
+status: initial
+
+<file-bad-path>
+source: "File: Bad path"
+target: "文件：路径无效"
+type: sentence
+status: initial
+
+<file-permission-denied>
+source: "File: Permission denied"
+target: "文件：权限不足"
+type: sentence
+status: initial
+
+<file-already-in-use>
+source: "File already in use"
+target: "文件已被占用"
+type: sentence
+status: initial
+
+<can-t-open-file>
+source: "Can't open file"
+target: "无法打开文件"
+type: sentence
+status: initial
+
+<can-t-write-file>
+source: "Can't write file"
+target: "无法写入文件"
+type: sentence
+status: initial
+
+<can-t-read-file>
+source: "Can't read file"
+target: "无法读取文件"
+type: sentence
+status: initial
+
+<file-unrecognized>
+source: "File unrecognized"
+target: "文件无法识别"
+type: sentence
+status: initial
+
+<file-corrupt>
+source: "File corrupt"
+target: "文件已损坏"
+type: sentence
+status: initial
+
+<missing-dependencies-for-file>
+source: "Missing dependencies for file"
+target: "文件缺少依赖项"
+type: sentence
+status: initial
+
+<end-of-file>
+source: "End of file"
+target: "文件末尾"
+type: sentence
+status: initial
+
+<can-t-open>
+source: "Can't open"
+target: "无法打开"
+type: sentence
+status: initial
+
+<can-t-create>
+source: "Can't create"
+target: "无法创建"
+type: sentence
+status: initial
+
+<query-failed>
+source: "Query failed"
+target: "查询失败"
+type: sentence
+status: initial
+
+<already-in-use>
+source: "Already in use"
+target: "已被占用"
+type: sentence
+status: initial
+
+<locked>
+source: "Locked"
+target: "已锁定"
+type: sentence
+status: initial
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: sentence
+status: initial
+
+<can-t-connect>
+source: "Can't connect"
+target: "无法连接"
+type: sentence
+status: initial
+
+<can-t-resolve>
+source: "Can't resolve"
+target: "无法解析"
+type: sentence
+status: initial
+
+<connection-error>
+source: "Connection error"
+target: "连接错误"
+type: sentence
+status: initial
+
+<can-t-acquire-resource>
+source: "Can't acquire resource"
+target: "无法获取资源"
+type: sentence
+status: initial
+
+<can-t-fork>
+source: "Can't fork"
+target: "无法创建子进程"
+type: sentence
+status: initial
+
+<invalid-data>
+source: "Invalid data"
+target: "无效数据"
+type: sentence
+status: initial
+
+<invalid-parameter>
+source: "Invalid parameter"
+target: "无效参数"
+type: sentence
+status: initial
+
+<already-exists>
+source: "Already exists"
+target: "已存在"
+type: sentence
+status: initial
+
+<does-not-exist>
+source: "Does not exist"
+target: "不存在"
+type: sentence
+status: initial
+
+<can-t-read-database>
+source: "Can't read database"
+target: "无法读取数据库"
+type: sentence
+status: initial
+
+<can-t-write-database>
+source: "Can't write database"
+target: "无法写入数据库"
+type: sentence
+status: initial
+
+<compilation-failed>
+source: "Compilation failed"
+target: "编译失败"
+type: sentence
+status: initial
+
+<method-not-found>
+source: "Method not found"
+target: "未找到方法"
+type: sentence
+status: initial
+
+<link-failed>
+source: "Link failed"
+target: "链接失败"
+type: sentence
+status: initial
+
+<script-failed>
+source: "Script failed"
+target: "脚本执行失败"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+
+[terms]
+
+<file>
+source: "File"
+target: "文件"
+type: noun
+status: translated
+context: "文件类错误消息的统一译法；所有 File 前缀条目与「File not found」等条目均沿用此译法。"
+
+<can-t>
+source: "Can't"
+target: "无法"
+type: fixed-phrase
+status: translated
+context: "Godot 错误串中 Can't 统一译为「无法」并后接动词，不用「不能」或「不可以」，以保持消息简短一致。"
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: translated
+context: "作为独立错误结果名时译为「失败」；与限定词连用时前置限定词，如 Query failed 译作「查询失败」。"
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: noun
+status: translated
+context: "延迟、等待类错误的统一译法，沿用通行译法「超时」，不译为「逾时」。"
+</term>
+
+Hmm, careful: I typed `</term>` accidentally. Must remove. Final glossary ends with `</timeout>`... no—the last field of the last entry. Let me rewrite the glossary properly.
+
+Glossary final:
+
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+
+[terms]
+
+<file>
+source: "File"
+target: "文件"
+type: noun
+status: translated
+context: "..."
+
+<can-t>
+source: "Can't"
+target: "无法"
+type: fixed-phrase
+status: translated
+context: "..."
+
+<permission-denied>
+source: "Permission denied"
+target: "权限不足"
+type: fixed-phrase
+status: translated
+context: "..."
+
+<already-in-use>
+source: "Already in use"
+target: "已被占用"
+type: fixed-phrase
+status: translated
+context: "..."
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: noun
+status: translated
+context: "..."
+
+<fork>
+source: "fork"
+target: "创建子进程"
+type: verb
+status: translated
+context: "..."
+
+Good, ends with context of <fork>. Careful with no stray tags.CLIFF 1.1
+namespace: clarion
+clan: godot-l10n
+source-language: en-US
+target-language: zh-CN
+
+[core-error]
+
+<ok>
+source: "OK"
+target: "OK"
+type: sentence
+status: initial
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: initial
+
+<unavailable>
+source: "Unavailable"
+target: "不可用"
+type: sentence
+status: initial
+
+<unconfigured>
+source: "Unconfigured"
+target: "未配置"
+type: sentence
+status: initial
+
+<unauthorized>
+source: "Unauthorized"
+target: "未授权"
+type: sentence
+status: initial
+
+<parameter-out-of-range>
+source: "Parameter out of range"
+target: "参数超出范围"
+type: sentence
+status: initial
+
+<out-of-memory>
+source: "Out of memory"
+target: "内存不足"
+type: sentence
+status: initial
+
+<file-not-found>
+source: "File not found"
+target: "文件未找到"
+type: sentence
+status: initial
+
+<file-bad-drive>
+source: "File: Bad drive"
+target: "文件：驱动器无效"
+type: sentence
+status: initial
+
+<file-bad-path>
+source: "File: Bad path"
+target: "文件：路径无效"
+type: sentence
+status: initial
+
+<file-permission-denied>
+source: "File: Permission denied"
+target: "文件：权限不足"
+type: sentence
+status: initial
+
+<file-already-in-use>
+source: "File already in use"
+target: "文件已被占用"
+type: sentence
+status: initial
+
+<can-t-open-file>
+source: "Can't open file"
+target: "无法打开文件"
+type: sentence
+status: initial
+
+<can-t-write-file>
+source: "Can't write file"
+target: "无法写入文件"
+type: sentence
+status: initial
+
+<can-t-read-file>
+source: "Can't read file"
+target: "无法读取文件"
+type: sentence
+status: initial
+
+<file-unrecognized>
+source: "File unrecognized"
+target: "文件无法识别"
+type: sentence
+status: initial
+
+<file-corrupt>
+source: "File corrupt"
+target: "文件已损坏"
+type: sentence
+status: initial
+
+<missing-dependencies-for-file>
+source: "Missing dependencies for file"
+target: "文件缺少依赖项"
+type: sentence
+status: initial
+
+<end-of-file>
+source: "End of file"
+target: "文件末尾"
+type: sentence
+status: initial
+
+<can-t-open>
+source: "Can't open"
+target: "无法打开"
+type: sentence
+status: initial
+
+<can-t-create>
+source: "Can't create"
+target: "无法创建"
+type: sentence
+status: initial
+
+<query-failed>
+source: "Query failed"
+target: "查询失败"
+type: sentence
+status: initial
+
+<already-in-use>
+source: "Already in use"
+target: "已被占用"
+type: sentence
+status: initial
+
+<locked>
+source: "Locked"
+target: "已锁定"
+type: sentence
+status: initial
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: sentence
+status: initial
+
+<can-t-connect>
+source: "Can't connect"
+target: "无法连接"
+type: sentence
+status: initial
+
+<can-t-resolve>
+source: "Can't resolve"
+target: "无法解析"
+type: sentence
+status: initial
+
+<connection-error>
+source: "Connection error"
+target: "连接错误"
+type: sentence
+status: initial
+
+<can-t-acquire-resource>
+source: "Can't acquire resource"
+target: "无法获取资源"
+type: sentence
+status: initial
+
+<can-t-fork>
+source: "Can't fork"
+target: "无法创建子进程"
+type: sentence
+status: initial
+
+<invalid-data>
+source: "Invalid data"
+target: "无效数据"
+type: sentence
+status: initial
+
+<invalid-parameter>
+source: "Invalid parameter"
+target: "无效参数"
+type: sentence
+status: initial
+
+<already-exists>
+source: "Already exists"
+target: "已存在"
+type: sentence
+status: initial
+
+<does-not-exist>
+source: "Does not exist"
+target: "不存在"
+type: sentence
+status: initial
+
+<can-t-read-database>
+source: "Can't read database"
+target: "无法读取数据库"
+type: sentence
+status: initial
+
+<can-t-write-database>
+source: "Can't write database"
+target: "无法写入数据库"
+type: sentence
+status: initial
+
+<compilation-failed>
+source: "Compilation failed"
+target: "编译失败"
+type: sentence
+status: initial
+
+<method-not-found>
+source: "Method not found"
+target: "未找到方法"
+type: sentence
+status: initial
+
+<link-failed>
+source: "Link failed"
+target: "链接失败"
+type: sentence
+status: initial
+
+<script-failed>
+source: "Script failed"
+target: "脚本执行失败"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: godot-l10n-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+
+[terms]
+
+<file>
+source: "File"
+target: "文件"
+type: noun
+status: translated
+context: "文件类错误的统一译法；所有 File 前缀条目及 File not found、File corrupt 等条目均沿用此译法。"
+
+<can-t>
+source: "Can't"
+target: "无法"
+type: fixed-phrase
+status: translated
+context: "Godot 错误串中 Can't 一律译为「无法」并后接动词，不使用「不能」「不可以」，以保持消息简短并与其他错误条目一致。"
+
+<failed>
+source: "Failed"
+target: "失败"
+type: sentence
+status: translated
+context: "作为独立错误结果名时译为「失败」；与限定词连用时保留前置结构，如 Query failed 译作「查询失败」。"
+
+<permission-denied>
+source: "Permission denied"
+target: "权限不足"
+type: fixed-phrase
+status: translated
+context: "采用「权限不足」而非「权限被拒绝」，与系统级错误提示的惯用表达一致，且更符合 UI 消息的简洁语气。"
+
+<already-in-use>
+source: "Already in use"
+target: "已被占用"
+type: fixed-phrase
+status: translated
+context: "用于文件、端口等资源被占用时的提示；加「被」字点明被动关系，与「已被锁定」保持同一句式。"
+
+<timeout>
+source: "Timeout"
+target: "超时"
+type: noun
+status: translated
+context: "等待、延迟类错误的统一译法，采用通行译法「超时」，不译为「逾时」。"
+
+<fork>
+source: "fork"
+target: "创建子进程"
+type: verb
+status: translated
+context: "Can't fork 中 fork 对用户不可见，直译「fork」会难以理解，故按实际含义译为「创建子进程」，整体作「无法创建子进程」。"
+</fork>

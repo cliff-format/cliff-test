@@ -1,0 +1,362 @@
+Below is the translated file, complete and in the original order, followed by the glossary for the term decisions the translation made.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+CLIFF 1.1
+namespace: clarion
+clan: ui-workbench
+source-language: en-US
+target-language: zh-CN
+title: "Slatepath data workbench interface strings"
+info: "Slatepath is a data analysis workbench for analysts who open a data set, draw a chart from it and pin the chart to a shared board. Its modules are Quarry, where data sets are browsed and opened, the chart editor, the compute cluster page, the storage page and the notification page. A scratch table is an analyst's own draft copy of a result set: it lives in the browser tab, it is not a database temporary table, and every entry that names it must say it the same way. Several action labels appear twice, once in a wide menu on a settings page and once in the narrow inspector rail at the edge of the screen, which is why some of them carry a display-width budget. Audience: analysts and data engineers working in a desktop browser."
+standard: "Keep the product name Slatepath and module names such as Quarry in Latin script; never transliterate them and never translate them as ordinary words. Render 'scratch table' identically in every entry that names it, and do not borrow the database wording for a temporary table. Keep ICU MessageFormat structure, argument names and engine placeholders such as {name} exactly as the source writes them. Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Avoid textbook jargon: write 默认 rather than 缺省, 缓存 rather than 高速缓存, 延迟 rather than 时延, 分辨率 rather than 解析度, 吞吐量 rather than 吞吐率. Labels are short and never end in a full stop, while help and settings lines are complete sentences. A display-width budget counts cells, where Latin letters and digits count one cell and Han or fullwidth characters count two; a narrow slot must be rewritten shorter, not truncated."
+
+[workbench.labels]
+context: "Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means."
+type: label
+emotion: [objective]
+
+<nav-scratch-tables>
+source: "Scratch tables"
+target: "草稿表"
+status: initial
+context: "Sidebar entry that opens the list of result-set copies the analyst has made in this session."
+
+<mode-01a>
+source: "Quarry"
+target: "Quarry"
+type: proper-noun
+status: initial
+context: "Sidebar entry that opens the module where data sets are browsed and opened."
+
+<mode-01b>
+source: "Quarry"
+target: "采石场"
+type: noun
+status: initial
+context: "Value in the site-type column of the demo data set that ships with the product, where every row is a mining site of one kind or another."
+
+<term-02a>
+source: "Volume"
+target: "数据量"
+status: initial
+context: "Column header on the storage page; the column reports how much data each table holds."
+
+<term-02b>
+source: "Volume"
+target: "音量"
+status: initial
+context: "Label above the slider on the notification page that sets how loud the desktop alert sounds."
+
+<term-03a>
+source: "Scale"
+target: "刻度"
+status: initial
+context: "Label above the axis options in the chart editor, where the analyst chooses how an axis divides its values."
+
+<term-03b>
+source: "Scale"
+target: "规模"
+status: initial
+context: "Label above the worker options on the compute cluster page, where the analyst chooses how many machines a job may use."
+
+[workbench.actions]
+context: "Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions."
+type: label
+emotion: [objective]
+
+<mode-04a>
+source: "Refresh the sample"
+target: "刷新样本"
+status: initial
+context: "Button in the toolbar above the preview table on the Quarry page."
+
+<mode-04b>
+source: "Refresh the sample"
+target: "刷新样本。"
+type: sentence
+status: initial
+context: "Second step of the getting-started checklist, which a new analyst reads before the first run."
+
+<slot-05a>
+source: "Save the current view as a preset"
+target: "将当前视图保存为预设"
+status: initial
+context: "Menu item in the view menu on the settings page, where the whole wording fits on one line."
+max-width: 24
+
+<slot-05b>
+source: "Save the current view as a preset"
+target: "存为预设"
+status: initial
+context: "The same action in the inspector rail at the edge of the screen, where the slot is less than half as wide."
+max-width: 10
+
+<slot-06a>
+source: "Compare with the previous run"
+target: "与上次运行对比"
+status: initial
+context: "Button inside a row of the run history table, where the cell gives the label its full width."
+max-width: 22
+
+<slot-06b>
+source: "Compare with the previous run"
+target: "与上次对比"
+status: initial
+context: "The same action in the chart toolbar, where the button shares one row with four other buttons."
+max-width: 10
+
+<note-step-order>
+source: "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once."
+target: "第 3 步设置行数上限，因此在至少运行过一次第 2 步之前，不要调高它。"
+type: sentence
+status: initial
+context: "Note printed under the getting-started checklist. On that checklist refreshing the sample is step 2 and the row limit is step 3, and the numbers here must match that order."
+
+[workbench.messages]
+context: "Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine."
+type: sentence
+emotion: [mechanical]
+
+<msg-row-count>
+source: "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}"
+target: "{rows, plural, one {# 行已复制到草稿表} other {# 行已复制到草稿表}}"
+status: initial
+context: "Counter under the preview table; the workbench substitutes the number of rows it has copied so far."
+
+<msg-table-state>
+source: "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}"
+target: "{state, select, ready {草稿表已就绪} building {正在创建草稿表} other {草稿表创建失败}}"
+status: initial
+context: "Banner at the top of the panel that holds the copied result set; the workbench passes the state name."
+
+<msg-welcome-back>
+source: "Welcome back, {name}. Your last run took 12 minutes."
+target: "欢迎回来，{name}。上次运行用时 12 分钟。"
+emotion: [polite]
+status: initial
+context: "Greeting on the workbench home page after sign-in; the placeholder carries the analyst's display name."
+
+<msg-job-outcome>
+source: "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}"
+target: "{state, select, running {作业仍在运行} done {作业已完成} failed {作业失败} other {作业状态未知}}"
+status: initial
+context: "Toast shown on the cluster page when a job changes state. The workbench passes the state name and renders one of the four wordings; the selector keys are engine values, not words on screen."
+
+<msg-sample-loading>
+source: "The scratch table could not be created because the sample is still loading."
+target: "样本仍在加载，因此无法创建草稿表。"
+status: initial
+context: "Error toast shown when the analyst copies a result set before the preview has finished loading."
+
+<msg-board-empty>
+source: "Nothing is pinned to this board yet. Open a chart and pin it here."
+target: "这个看板还没有固定任何内容。打开一张图表，把它固定到这里。"
+status: initial
+context: "Empty state on a shared board that no one has put a chart on."
+
+<cue-chart-updated>
+source: "Chart updated"
+target: "图表已更新"
+type: accessibility-cue
+status: initial
+context: "Screen-reader cue announced when the chart redraws after new rows arrive."
+
+[workbench.help]
+context: "Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried."
+type: description
+emotion: [objective]
+
+<help-scratch-table>
+source: "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out."
+target: "草稿表是你自己的结果集副本。它只存在于当前浏览器标签页中，从不与团队共享，退出登录时即被丢弃。"
+status: initial
+context: "First paragraph of the help section about result sets; the paragraph that introduces the object to a new analyst."
+
+<help-empty-before-run>
+source: "Empty it before you leave the page, or the next run starts from rows that are already stale."
+target: "请在离开这个页面前清空它，否则下一次运行会从已经过时的行开始。"
+status: initial
+context: "Tip under the two buttons at the bottom of the Quarry page. What it tells the analyst to empty is the object the help paragraph above describes, not the cache option further down the same page."
+
+<help-board-pin>
+source: "Once it is pinned, the chart stays on the board until someone takes it down."
+target: "图表一旦固定，就会一直留在看板上，直到有人把它取下。"
+status: initial
+context: "Sentence in the help section about shared boards. It answers the empty-state line of this file and must reuse the verb that line uses for putting a chart on a board."
+
+<help-keyboard-rows>
+source: "Press the up and down arrows to move through the rows without taking your hands off the keyboard."
+target: "按上下方向键即可在各行之间移动，双手无需离开键盘。"
+status: initial
+context: "Paragraph in the accessibility section of the help panel."
+
+<help-archive>
+source: "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back."
+target: "一个月没有打开过的图表会自动移到归档页面。不会删除任何内容，再次打开它就会恢复。"
+status: initial
+context: "Paragraph in the help panel explaining what happens to charts nobody looks at."
+
+[workbench.settings]
+context: "The settings page of the workbench: option labels and the explanatory line printed under each of them."
+type: description
+emotion: [objective]
+
+<set-time-window>
+source: "New charts open with the default time window until you pin one of your own."
+target: "在你固定自己的时间窗口之前，新建图表会采用默认时间窗口打开。"
+status: initial
+context: "Line under the time window option; the window a chart starts with when the analyst has never changed it."
+
+<set-export-resolution>
+source: "Charts are exported at the screen resolution, or at 2x for print."
+target: "图表以屏幕分辨率导出，打印时则为 2 倍分辨率。"
+status: initial
+context: "Line under the export option on the settings page."
+
+<set-cache-latency>
+source: "Charts read from the cache first, which keeps latency under half a second on a normal connection."
+target: "图表会优先从缓存读取，因此在正常网络连接下延迟不到半秒。"
+status: initial
+context: "Line under the cache option, explaining why the workbench keeps a copy of recent results."
+
+<set-throughput>
+source: "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory."
+target: "吞吐量约为每秒 1,200 行，集群会在内存中保留其中 30 GB 的数据。"
+status: initial
+context: "Read-out under the cluster option, shown while a job is running."
+
+<set-retention>
+source: "Scratch tables are kept for 7 days and are then removed without a warning."
+target: "草稿表会保留 7 天，之后将被移除，且不会有任何提示。"
+status: initial
+context: "Line under the retention option on the settings page."
+
+<set-timezone>
+source: "Times on this page follow the workspace time zone, not the time zone of your browser."
+target: "本页面上的时间遵循工作区时区，而不是浏览器的时区。"
+status: initial
+context: "Line under the time zone option on the settings page."
+
+CLIFF 1.1
+namespace: clarion
+clan: ui-workbench-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Slatepath workbench terminology"
+info: "Term decisions made while translating the Slatepath workbench interface strings into zh-CN; each rendering here is the rendering used in the translated file."
+
+[terms]
+type: noun
+status: final
+
+<scratch-table>
+source: "scratch table"
+target: "草稿表"
+status: final
+context: "An analyst's own draft copy of a result set, held in the browser tab. Chosen over the database wording for a temporary table so the file never reads as a database object, and used identically in every entry that names it."
+
+<quarry-module>
+source: "Quarry (module)"
+target: "Quarry"
+type: proper-noun
+status: final
+context: "Module where data sets are browsed and opened; a product module name, kept in Latin script and never transliterated."
+
+<quarry-site-type>
+source: "Quarry (mining site)"
+target: "采石场"
+status: final
+context: "Value in the site-type column of the demo data set, where the word is an ordinary noun for a mining site and not the module name."
+
+<volume-data>
+source: "Volume (amount of data)"
+target: "数据量"
+status: final
+context: "Storage page column header reporting how much data each table holds."
+
+<volume-loudness>
+source: "Volume (loudness)"
+target: "音量"
+status: final
+context: "Notification page slider label setting how loud the desktop alert sounds."
+
+<scale-axis>
+source: "Scale (axis divisions)"
+target: "刻度"
+status: final
+context: "Chart editor axis option, where the analyst chooses how an axis divides its values."
+
+<scale-workers>
+source: "Scale (machine count)"
+target: "规模"
+status: final
+context: "Compute cluster page worker option, where the analyst chooses how many machines a job may use."
+
+<preset>
+source: "preset"
+target: "预设"
+status: final
+context: "Saved view configuration; rendered full in the wide menu and shortened to 存为预设 in the ten-cell inspector slot."
+
+<pin>
+source: "pin"
+target: "固定"
+status: final
+context: "Putting a chart on a shared board. The empty state and the help paragraph reuse the same verb so the two entries answer each other."
+
+<board>
+source: "board"
+target: "看板"
+status: final
+context: "Shared surface that charts are pinned to; the empty state and the help paragraph agree on this rendering."
+
+<run>
+source: "run"
+target: "运行"
+status: final
+context: "One execution of an analyst's work; used by the comparison labels, the greeting and the checklist note."
+
+<job>
+source: "job"
+target: "作业"
+status: final
+context: "Unit of work on the compute cluster page whose state changes are announced in the toast."
+
+<sample>
+source: "sample"
+target: "样本"
+status: final
+context: "The demo data set shipped with the product; refreshing it is step 2 of the getting-started checklist."
+
+<cache>
+source: "cache"
+target: "缓存"
+status: final
+context: "Copy of recent results kept by the workbench; project rule: 缓存, never 高速缓存."
+
+<latency>
+source: "latency"
+target: "延迟"
+status: final
+context: "Project rule: 延迟, never 时延."
+
+<throughput>
+source: "throughput"
+target: "吞吐量"
+status: final
+context: "Project rule: 吞吐量, never 吞吐率."
+
+<resolution>
+source: "resolution"
+target: "分辨率"
+status: final
+context: "Export option on the settings page; project rule: 分辨率, never 解析度."
+
+<default>
+source: "default"
+target: "默认"
+type: adjective
+status: final
+context: "Time window a new chart starts with; project rule: 默认, never 缺省."

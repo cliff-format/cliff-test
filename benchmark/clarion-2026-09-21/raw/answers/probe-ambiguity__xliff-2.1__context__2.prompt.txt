@@ -1,0 +1,458 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is XLIFF 2.1. Each translation unit is a unit element with a
+segment containing source and target. Add or fill the target element of every
+segment and set state to translated.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.probe-ambiguity" original="clarion.probe-ambiguity">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Minimal-pair diagnostic set where the brief is decisive</mda:meta>
+        <mda:meta type="info">The probe stratum measures what a translation brief is worth: entries come in minimal pairs whose source text is identical or nearly so, and only one CLIFF field (emotion, type, context or max-width) tells the two members apart. A translation that ignores that field must fail at least one member. Every item is original text written for CLARION, drawn from generic software, transit, stage, warehouse and support scenarios.</mda:meta>
+        <mda:meta type="standard">Use one space between Han text and Latin letters or digits, and fullwidth punctuation inside Han sentences. Render the emotion tag in the wording, particles and punctuation, never as a neutral gloss. Honor the type field's register: a label stays a bare noun, a sentence is a full instruction, an idiom is an idiomatic wish, a proper noun is a place name. Choose the referent the context line names. Fit the declared max-width in display cells, where Latin letters and digits count one cell and Han or fullwidth characters count two. No textbook jargon.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="emotion.reading">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound.</mda:meta>
+          <mda:meta type="type">dialogue</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound.</note>
+      </notes>
+      <unit id="probe-01a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">joyful|grateful</mda:meta>
+            <mda:meta type="context">The speaker has just opened an acceptance letter and means the compliment warmly.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The speaker has just opened an acceptance letter and means the compliment warmly.</note>
+        </notes>
+        <segment state="initial">
+          <source>Oh, that's just wonderful.</source>
+        </segment>
+      </unit>
+      <unit id="probe-01b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">angry|playful</mda:meta>
+            <mda:meta type="context">The speaker has just watched the plan fall apart; the line is bitter irony.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The speaker has just watched the plan fall apart; the line is bitter irony.</note>
+        </notes>
+        <segment state="initial">
+          <source>Oh, that's just wonderful.</source>
+        </segment>
+      </unit>
+      <unit id="probe-02a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">polite|calm</mda:meta>
+            <mda:meta type="context">A cafe customer holds the door open and genuinely lets the other person go first.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A cafe customer holds the door open and genuinely lets the other person go first.</note>
+        </notes>
+        <segment state="initial">
+          <source>After you.</source>
+        </segment>
+      </unit>
+      <unit id="probe-02b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">polite|angry</mda:meta>
+            <mda:meta type="context">The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first.</note>
+        </notes>
+        <segment state="initial">
+          <source>After you.</source>
+        </segment>
+      </unit>
+      <unit id="probe-03a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">joyful|playful</mda:meta>
+            <mda:meta type="context">Two friends line up for another round of the board game; said with a grin.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Two friends line up for another round of the board game; said with a grin.</note>
+        </notes>
+        <segment state="initial">
+          <source>Well, here we go again.</source>
+        </segment>
+      </unit>
+      <unit id="probe-03b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">sad|calm</mda:meta>
+            <mda:meta type="context">A repair worker returns to the same machine for the third time; said with a sigh.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A repair worker returns to the same machine for the third time; said with a sigh.</note>
+        </notes>
+        <segment state="initial">
+          <source>Well, here we go again.</source>
+        </segment>
+      </unit>
+      <unit id="probe-04a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">calm|hopeful</mda:meta>
+            <mda:meta type="context">A nurse reassures a patient before a routine procedure.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A nurse reassures a patient before a routine procedure.</note>
+        </notes>
+        <segment state="initial">
+          <source>Just relax.</source>
+        </segment>
+      </unit>
+      <unit id="probe-04b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">serious|angry</mda:meta>
+            <mda:meta type="context">A guard tells a cornered intruder to stop moving; the tone is steady, not warm.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>A guard tells a cornered intruder to stop moving; the tone is steady, not warm.</note>
+        </notes>
+        <segment state="initial">
+          <source>Just relax.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="type.register">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Pairs where the same English string changes rendering with its type; honor the register the type implies.</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Pairs where the same English string changes rendering with its type; honor the register the type implies.</note>
+      </notes>
+      <unit id="probe-05a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Toolbar button that writes the open document to disk.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Toolbar button that writes the open document to disk.</note>
+        </notes>
+        <segment state="initial">
+          <source>Save</source>
+        </segment>
+      </unit>
+      <unit id="probe-05b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Step in the shutdown checklist telling the operator to write the session to disk before closing.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Step in the shutdown checklist telling the operator to write the session to disk before closing.</note>
+        </notes>
+        <segment state="initial">
+          <source>Save</source>
+        </segment>
+      </unit>
+      <unit id="probe-06a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">proper-noun</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Neighborhood name on the transit map, after the foundry that once stood there.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Neighborhood name on the transit map, after the foundry that once stood there.</note>
+        </notes>
+        <segment state="initial">
+          <source>Forge</source>
+        </segment>
+      </unit>
+      <unit id="probe-06b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">verb</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Single-word task on the smith's workbench menu: begin shaping the heated metal.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Single-word task on the smith's workbench menu: begin shaping the heated metal.</note>
+        </notes>
+        <segment state="initial">
+          <source>Forge</source>
+        </segment>
+      </unit>
+      <unit id="probe-07a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">idiom</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Wished to a performer just before they walk on stage.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Wished to a performer just before they walk on stage.</note>
+        </notes>
+        <segment state="initial">
+          <source>Break a leg!</source>
+        </segment>
+      </unit>
+      <unit id="probe-07b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself.</note>
+        </notes>
+        <segment state="initial">
+          <source>Break a leg!</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="context.referent">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Pairs where the context line names the referent; choose the word the scene requires.</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Pairs where the context line names the referent; choose the word the scene requires.</note>
+      </notes>
+      <unit id="probe-08a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Column header on the invoice; the amount charged per hour of work.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Column header on the invoice; the amount charged per hour of work.</note>
+        </notes>
+        <segment state="initial">
+          <source>Rate</source>
+        </segment>
+      </unit>
+      <unit id="probe-08b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Setting in the video editor's playback panel; how many frames are drawn each second.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Setting in the video editor's playback panel; how many frames are drawn each second.</note>
+        </notes>
+        <segment state="initial">
+          <source>Rate</source>
+        </segment>
+      </unit>
+      <unit id="probe-09a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Caption on the marine-animals picture card in the children's set.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Caption on the marine-animals picture card in the children's set.</note>
+        </notes>
+        <segment state="initial">
+          <source>Seal</source>
+        </segment>
+      </unit>
+      <unit id="probe-09b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Label on the office-supplies drawer; the wax stamp used to close documents.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Label on the office-supplies drawer; the wax stamp used to close documents.</note>
+        </notes>
+        <segment state="initial">
+          <source>Seal</source>
+        </segment>
+      </unit>
+      <unit id="probe-10a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Roadside call: the driver means the car engine, which will not turn over.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Roadside call: the driver means the car engine, which will not turn over.</note>
+        </notes>
+        <segment state="initial">
+          <source>It won't start.</source>
+        </segment>
+      </unit>
+      <unit id="probe-10b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Support call: the user means the desktop application, which will not launch.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Support call: the user means the desktop application, which will not launch.</note>
+        </notes>
+        <segment state="initial">
+          <source>It won't start.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="width.budget">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Pairs where the width budget forces a shorter wording; stay within the declared cells.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Pairs where the width budget forces a shorter wording; stay within the declared cells.</note>
+      </notes>
+      <unit id="probe-11a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Button on the settings screen, with room for the full wording.</mda:meta>
+            <mda:meta type="max-width">14</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button on the settings screen, with room for the full wording.</note>
+        </notes>
+        <segment state="initial">
+          <source>Restore Default Settings</source>
+        </segment>
+      </unit>
+      <unit id="probe-11b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Button on the narrow mobile settings bar, where space is tight.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button on the narrow mobile settings bar, where space is tight.</note>
+        </notes>
+        <segment state="initial">
+          <source>Restore Default Settings</source>
+        </segment>
+      </unit>
+      <unit id="probe-12a">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Menu item on the desktop help screen, with room for the full wording.</mda:meta>
+            <mda:meta type="max-width">16</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Menu item on the desktop help screen, with room for the full wording.</note>
+        </notes>
+        <segment state="initial">
+          <source>View Frequently Asked Questions</source>
+        </segment>
+      </unit>
+      <unit id="probe-12b">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="emotion">objective</mda:meta>
+            <mda:meta type="context">Footer link on the narrow mobile page, where space is tight.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Footer link on the narrow mobile page, where space is tight.</note>
+        </notes>
+        <segment state="initial">
+          <source>View Frequently Asked Questions</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

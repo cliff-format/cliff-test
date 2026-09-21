@@ -1,0 +1,22 @@
+/* cliff:source: 水静则清，器满则倾。 */
+"water-holds" = "When water is still, it turns clear; when a vessel is full, it tips over.";
+/* cliff:source: 山不增高，因登而高；川不返流，因逝而长。 */
+"mountain-river" = "A mountain gains no height, yet is made high by climbing; a river never turns back, yet grows long by flowing on.";
+/* cliff:source: 镜不自照，故能照人；泉不自饮，故能济渴。 */
+"mirror" = "A mirror does not reflect itself, and so can reflect others; a spring does not drink itself, and so can quench thirst.";
+/* cliff:source: 尺短寸长，各有所宜。 */
+"scale" = "Sometimes a foot is short and an inch is long; each has its own use.";
+/* cliff:source: 灯焰高者，其膏易尽；其光微者，其夜乃长。 */
+"lantern-heart" = "A lamp with a high flame soon spends its oil; one with a faint glow endures the long night.";
+/* cliff:source: 层峦千仞，藏云于顶；寒江万里，送舟于天。 */
+"parallel-prose-1" = "Ridges rise a thousand fathoms, hiding clouds at their peaks; a cold river stretches ten thousand miles, sending boats into the sky.";
+/* cliff:source: 谷静无应，苍梧闻钟；灯微自摇，苍梧照水。 */
+"parallel-prose-2" = "The valley is still, and no echo answers; Cangwu hears the bell; a faint lamp sways on its own; Cangwu shines upon the water.";
+/* cliff:source: 渡口秋灯暗， */
+"quatrain-1" = "The autumn lamp at the ferry crossing dims,";
+/* cliff:source: 江寒雨自斜。 */
+"quatrain-2" = "The river is cold, the rain slants by itself.";
+/* cliff:source: 潮回沙上字， */
+"quatrain-3" = "The tide returns to the words on the sand,";
+/* cliff:source: 钟入隔岸家。 */
+"quatrain-4" = "The bell enters homes on the far shore.";

@@ -1,0 +1,85 @@
+header:
+  namespace: clarion
+  clan: lit-modern
+  source-language: en-US
+  target-language: zh-CN
+groups:
+- path: narration
+  entries:
+  - id: narration-open
+    source: The town had kept its old manners longer than it kept its money. At the
+      end of every workday Maren walked the harbour road the way a clock walks its
+      dial, and each evening the last thing she heard before the dark came down was
+      the tin wind-bell over the chandler's door, telling the street that the tide
+      had turned and that the world, for a little while, would go on without her.
+      She did not hurry. The salt worked its way into everything she owned, and she
+      had stopped minding it years ago.
+    target: 这座小镇守着旧礼数的年头，比它守着钱财的年头更长。每个工作日结束时，玛伦走上海港大道，就像钟表的指针走过自己的表盘；每天傍晚，天黑下来之前她听到的最后一点声响，是杂货铺门楣上那只铁皮风铃，它告诉整条街：潮水已经转向，而这个世界还会在没有她的时候，再往前走上一小会儿。她从不加快脚步。盐渗进了她拥有的每一样东西，而她多年前就不再在意了。
+  - id: narration-memory
+    source: Of all the things the town let slip into the sea, the sound of that bell
+      was the one thing it kept onshore. Men forgot their own birthdays and the names
+      of ships they had crewed, but every one of them could tell you what the wind
+      was doing the last time the bell rang plain.
+    target: 小镇任许多东西滑进海里，唯独那铃的声音被留在了岸上。人们会忘记自己的生日，忘记自己曾在其上做事的船叫什么名字，但每个人都能告诉你，那铃最后一次响得清亮时，风当时是什么模样。
+- path: dialogue
+  entries:
+  - id: dialogue-wall
+    source: '"Wind''s back," said Sol. "Didn''t figure you''d be out." "I couldn''t
+      sleep," Maren said. "The bell again?" "The bell." Sol folded his arms. "Folks
+      round here reckon a wind-bell don''t ring for the wind. It rings for what the
+      wind forgot." "That''s the whole of it," Maren said. "You sleep any better for
+      knowing?" "I know the letter F in better, and that''s the whole of it," said
+      Sol.'
+    target: '“风又回来了，”索尔说。“没想到你还会出来。”“我睡不着，”玛伦说。“又是那铃？”“是那铃。”索尔抱起双臂。“这一带的人都觉得，风铃不是为风响的。它是为风忘掉的东西响的。”“就是这么回事，”玛伦说。“知道了这些，你睡得更好吗？”“我只把那其中的字母 F 认得清楚了些，仅此而已，”索尔说。'
+  - id: dialogue-breakfast
+    source: '"You''d keep the bell if the sea gave it back," Sol said one morning.
+      "Wouldn''t you?" "I''d hang it where it hangs now," Maren said. "Then what''s
+      all the listening for?" "To be sure it''s still there." Sol shook his head.
+      "It''ll be there after both of us," he said, "and it won''t miss us." "I know."
+      "Then you know more than most." "I know the listening, anyway." "That''s not
+      the same thing." "It''s close enough," Maren said. "It''s close enough for me."'
+    target: '“要是海把它还回来，你会留着那铃的，”索尔一天早上说。“你会不会？”“我会把它挂在它现在挂着的地方，”玛伦说。“那你这么听着，是为了什么？”“为了确定它还在那儿。”索尔摇了摇头。“我们两个都没了之后，它还会在那儿，”他说，“它不会想念我们。”“我知道。”“那你比大多数人知道得多。”“反正我知道那份聆听。”“那可不是一回事。”“也差不多了，”玛伦说。“对我来说够近了。”'
+- path: monologue
+  entries:
+  - id: monologue-tide
+    source: I never knew whether the bell was a comfort or a reproach. It rang in
+      the same key as my mother's name, the way the tide writes the same line on the
+      sand and then rubs it out. I wanted to keep the sound, the way a child keeps
+      a stone, but a sound has no pocket to be kept in, and so I keep it in my chest
+      and pretend it does not weigh anything.
+    target: 我从来分不清那铃是安慰还是责备。它响的调子和我母亲的名字是同一个调，就像潮水在沙上写下同一道线，然后又把它抹去。我想留住那声音，像孩子留一块石头那样，可声音没有口袋可放，于是我把它收在胸口，假装它一点也不沉。
+  - id: monologue-stone
+    source: The stone I kept as a girl is still under the floorboard where I left
+      it, and if the house burned I would not grieve for the stone. But the bell is
+      not kept anywhere; it is only heard, and a heard thing has to be heard again
+      or it was never there at all. I keep going back, then, not to keep the bell,
+      but to keep the hearing of it.
+    target: 我小时候收着的那块石头，还在地板下我放它的地方；就算房子烧了，我也不会为那块石头伤心。可那铃并不被存放在任何地方；它只是被听见，而一件被听见的东西必须再一次被听见，否则它就从来不曾存在。于是我一次次回到那里，不是为了留住那铃，而是为了留住那份聆听。
+- path: description
+  entries:
+  - id: description-dusk
+    source: The harbour light turned the water to hammered brass, and one late gull
+      stood on a piling like a man waiting for a letter. Rain hung offshore in a grey
+      curtain that never quite reached the quay. Somewhere a kettle was coming to
+      the boil, and over it all the tin bell swung in the warm wind and rang a single
+      clear note, as if the evening had been waiting to be struck.
+    target: 港湾的灯光把水面染成锻打过的黄铜，一只迟归的海鸥立在木桩上，像个等信的人。雨在近海挂成一道灰帘，始终没有真正落到码头上。不知哪里的一只水壶正烧到将沸，而在这一切之上，那只铁皮铃在暖风里摇荡，敲出一个清亮的单音，仿佛整个傍晚一直在等着被敲响。
+  - id: description-lamplighter
+    source: The lamplighter worked the length of the quay with his long pole, and
+      each lamp he touched woke as if it had only been waiting to be remembered. When
+      he came abreast of the chandler's shop the tin bell caught the lamplight and
+      threw it across the water, and for a moment the whole harbour seemed to hang
+      from that one small, swinging note.
+    target: 点灯人用他的长杆沿着码头一路点过去，他碰过的每一盏灯都醒了过来，仿佛它们一直在等着被人记起。当他走到与杂货铺并齐时，铁皮铃接住了灯光，把它抛过水面；有那么一刻，整个港湾仿佛都悬在那一个小小的、摇荡的音符上。
+  - id: description-rain
+    source: By the time the last light was lit the wind had swung to the north, and
+      the grey curtain offshore began to move. It crossed the bar slowly, a whole
+      wall of weather leaning toward the town, and the first drops struck the quay
+      one by one, each one a small cold hand laid on the stone. The bell rang on in
+      the dark, and the rain answered it.
+    target: 等最后一盏灯点亮时，风已经转向北边，近海那道灰帘开始移动。它缓缓越过沙洲，整整一堵天气的墙朝小镇倾过来，最初的雨点一颗一颗打在码头上，每一颗都像一只搭在石头上的冰冷小手。铃在黑暗中继续响着，雨应和着它。
+- path: closing
+  entries:
+  - id: closing-line
+    source: The tide keeps nothing, and forgets nothing.
+    target: 潮水什么也不留，什么也不忘。

@@ -1,0 +1,162 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical
+source-language: zh-CN
+target-language: en-US
+title: "Classical literary stratum - aphorisms, parallel prose, a quatrain"
+info: "Original classical Chinese composed for CLARION, to be rendered into an elevated, archaic-leaning English that keeps the register, imagery and parallel structure rather than explaining them."
+standard: "Render classical Chinese into archaic-leaning literary English. Preserve parallelism and concrete imagery; do not modernise or gloss. Render coined proper nouns consistently."
+
+[aphorisms]
+context: "Short philosophical aphorisms from a fictional anthology, each meant to stand alone."
+type: sentence
+
+<water-holds>
+source: "水静则清，器满则倾。"
+target: "Water at rest grows clear; a vessel full tips over."
+emotion: [calm, serious]
+status: initial
+
+<mountain-river>
+source: "山不增高，因登而高；川不返流，因逝而长。"
+target: "The mountain grows not taller of itself; the climbing makes it high. The river turns not back its course; the passing on makes it long."
+emotion: [serious, calm]
+status: initial
+
+<mirror>
+source: "镜不自照，故能照人；泉不自饮，故能济渴。"
+target: "The mirror reflects not itself, and so can mirror others; the spring drinks not of itself, and so can slake thirst."
+emotion: [calm]
+status: initial
+
+<scale>
+source: "尺短寸长，各有所宜。"
+target: "The foot is short, the inch is long; each has its own fitness."
+emotion: [serious]
+status: initial
+
+<lantern-heart>
+source: "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+target: "The flame that burns high, its oil is soon spent; the light that burns faint, its night is long."
+emotion: [nostalgic, calm]
+status: initial
+
+[parallel-prose]
+context: "A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name."
+type: narration
+
+<parallel-prose-1>
+source: "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+target: "Tiered peaks of a thousand fathoms hold their cloud upon the crest; a cold river of ten thousand li sends a boat into the sky."
+emotion: [nostalgic, calm]
+status: initial
+
+<parallel-prose-2>
+source: "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+target: "Still is the valley, and no voice answers; in Cangwu a bell is heard. Faint is the lamp, and of itself it sways; in Cangwu it lights the water."
+emotion: [nostalgic, calm]
+status: initial
+
+[quatrain]
+context: "A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme."
+type: narration
+
+<quatrain-1>
+source: "渡口秋灯暗，"
+target: "At the ford the autumn lamps grow dim;"
+emotion: [nostalgic, sad]
+status: initial
+
+<quatrain-2>
+source: "江寒雨自斜。"
+target: "the cold river slants its rain to shore;"
+emotion: [nostalgic, sad]
+status: initial
+
+<quatrain-3>
+source: "潮回沙上字，"
+target: "the tide turns back the words on sand;"
+emotion: [nostalgic, calm]
+status: initial
+
+<quatrain-4>
+source: "钟入隔岸家。"
+target: "a bell enters the far-bank door."
+emotion: [nostalgic, calm]
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: lit-classical-terms
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+title: "Terminology for the clarion / lit-classical literary stratum"
+info: "Term decisions made while rendering the classical literary stratum into English; the renderings recorded here are the renderings used in the translated file."
+
+[terms]
+context: "Terms and measures recurring across the aphorisms, the parallel prose and the quatrain."
+type: noun
+
+<cangwu>
+source: "苍梧"
+target: "Cangwu"
+type: proper-noun
+status: final
+context: "Recurring place name of the parallel-prose section; transliterated in Latin script and repeated identically in both couplets, preserving the original anaphora."
+
+<ren>
+source: "仞"
+target: "fathom"
+type: noun
+status: final
+context: "Classical measure of height; the traditional English 'fathom' keeps the archaic register of 'a thousand fathoms' without glossing."
+
+<li>
+source: "里"
+target: "li"
+type: noun
+status: final
+context: "Classical measure of distance; kept in Latin script rather than converted to leagues, so the vastness is not modernised."
+
+<chi>
+source: "尺"
+target: "foot"
+type: noun
+status: final
+context: "Classical measure; 'foot' lets the aphorism's contrast with 'inch' survive in English."
+
+<cun>
+source: "寸"
+target: "inch"
+type: noun
+status: final
+context: "Classical measure; 'inch' pairs with 'foot' so the paired line stays balanced."
+
+<gao>
+source: "膏"
+target: "oil"
+type: noun
+status: final
+context: "Lamp-oil of the aphorism on the high flame; rendered 'oil' so 'its oil is soon spent' keeps the concrete image."
+
+<zhong>
+source: "钟"
+target: "bell"
+type: noun
+status: final
+context: "The bell of the parallel prose and of the quatrain's last line; one rendering serves both places."
+
+<dukou>
+source: "渡口"
+target: "ford"
+type: noun
+status: final
+context: "The river crossing that opens the quatrain; 'ford' keeps the line short and the image concrete."
+
+<chao>
+source: "潮"
+target: "tide"
+type: noun
+status: final
+context: "The returning tide of the quatrain's third line, turning back the words written on the sand."

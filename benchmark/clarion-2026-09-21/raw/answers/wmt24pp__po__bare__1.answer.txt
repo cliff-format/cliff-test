@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "news.test-en-news-beverly-press-3585-1"
+msgid "Siso's depictions of land, water center new gallery exhibition"
+msgstr "西索笔下的土地与水域，成为新画廊展览的焦点"
+
+msgctxt "news.test-en-news-beverly-press-3585-2"
+msgid "\"People Swimming in the Swimming Pool\" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)"
+msgstr "创作于 2022 年的《泳池中游泳的人们》是文森特·西索的一件作品，将于 1 月 13 日起在 Tierra del Sol 画廊展出。（照片由文森特·西索提供）"
+
+msgctxt "news.test-en-news-beverly-press-3585-3"
+msgid "Tierra del Sol is pleased to present \"Vicente Siso: Memories of the Land and Water\" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s."
+msgstr "Tierra del Sol 画廊欣然呈献“文森特·西索：土地与水域的记忆”，展出于西好莱坞的新馆址。西索自 2012 年起便是工作室艺术项目的艺术家，本次展览是他的首次个人画展。西索 1962 年生于马德里，在委内瑞拉、特立尼达和迈阿密之间长大；二十出头时随家人迁居南加州。"
+
+msgctxt "news.test-en-news-beverly-press-3585-4"
+msgid "Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. \"Vicente Siso: Memories of the Land and Water\" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3."
+msgstr "西索在各个题材间游刃有余，创作了大量风景、肖像和静物作品，以丙烯、色粉、铅笔或水彩绘就。他从家族肖像、自己拍摄的参考照片和回忆中汲取素材，色彩丰富的构图展现出他广泛的兴趣和跨媒介的技艺。西索笔下的热带风景与海景映射着他过往生活的地理，运用繁复的图案，并融入人物，在文化、记忆与环境之间建立起有意义的联系。西索给作品命名时西班牙语与英语混用，这正是他在洛杉矶县生活中那些为人称道而又不可或缺的复杂性的体现。“文森特·西索：土地与水域的记忆”于 1 月 13 日星期六开幕，当晚 6 点至 8 点举行招待会。展览持续至 3 月 3 日星期日。"
+
+msgctxt "news.test-en-news-beverly-press-3585-5"
+msgid "The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org."
+msgstr "Tierra del Sol 画廊位于圣莫尼卡大道 7414 号。欲了解详情，请访问 tierradelsolgallery.org。"
+
+msgctxt "news.test-en-news-brisbanetimes-com-au-228963-6"
+msgid "Adapt the old, accommodate the new to solve issue"
+msgstr "改造旧的，容纳新的，才能解决问题"
+
+msgctxt "news.test-en-news-brisbanetimes-com-au-228963-7"
+msgid "At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure."
+msgstr "在街区层面，只需看看悉尼中央商务区：这片区域从殖民定居前的自然地貌，成长为一座楼房不过两层、最高 150 英尺的城市，再到今日高耸入云的塔楼群。把尺度大幅缩小，悉尼各处依托交通节点形成的城镇中心也能发生同样的变化。内城郊区同样必须演进，在关键地块上转向树冠高度以下、更可负担的公寓式居住。当然，新增住房必须设计精良，还要把树木、景观和公园与其他必要基础设施一并纳入。"
+
+msgctxt "news.test-en-news-brisbanetimes-com-au-228963-8"
+msgid "Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code."
+msgstr "我们的规划体系也需要作出调整，不能让看起来不太支持改变的郊区市议会规划人员，成为决定其郊区未来面貌的唯一力量。一种可行路径是设立一个独立的决策机构：只要方案高度低于树冠，包含家庭居住空间、大阳台、公共花园，并呈现出友善的外观，就大力支持优质设计。这一角色可以交由现任新南威尔士州政府建筑师承担，在精心拟定的合规准则框架内运作。"
+
+msgctxt "news.test-en-news-brisbanetimes-com-au-228963-9"
+msgid "Over the past decade, our lives have changed through technology, with many working from home, and Sydney has gained an impressive network of metro and light rail systems. Our ability to purchase online has changed the way we shop, and friends and family seem closer because of smartphone communication. All of these adaptations from one system to another can also occur in our built environment through a planning focus on adaptive reuse rather than preferencing heritage preservation."
+msgstr "过去十年间，技术改变了我们的生活，许多人得以居家办公，悉尼也建成了令人瞩目的地铁和轻轨网络。线上购物的能力改变了我们的购物方式，智能手机的通讯让亲友之间显得更加亲近。所有这些从一个系统到另一个系统的适应，同样可以发生在我们的建成环境中——只要规划上聚焦于适应性再利用，而不是一味偏向遗产保护。"
+
+msgctxt "news.test-en-news-brisbanetimes-com-au-228963-10"
+msgid "Chris Johnson is a former NSW government architect (1995-2005) and executive director, NSW Department of Planning (2005-2009). He was CEO of Urban Taskforce Australia between 2011 and 2019."
+msgstr "克里斯·约翰逊曾任新南威尔士州政府建筑师（1995—2005 年），以及新州规划部执行主任（2005—2009 年）。2011 年至 2019 年间，他担任澳大利亚城市特别工作组（Urban Taskforce Australia）首席执行官。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-11"
+msgid "A final push for female equality"
+msgstr "为女性平等发起最后冲刺"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-12"
+msgid "Last year, the World Economic Forum forecast that it would take five generations to achieve gender equality in every nation. Now the World Bank wants to rapidly accelerate that time frame."
+msgstr "去年，世界经济论坛预测，要在每个国家实现性别平等，还需要五代人的时间。如今，世界银行希望大幅加快这一进程。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-13"
+msgid "The international financial institution is poised to launch a strategy aimed at significantly advancing the rights and economic opportunities for girls and women by 2030. The plan focuses on improving inclusivity and resilience through access to finance, technological innovation, and changes in public policy and law."
+msgstr "这家国际金融机构即将推出一项战略，目标是在 2030 年前大幅推进女童和妇女的权利与经济机会。该计划着重通过融资渠道、技术创新以及公共政策与法律的变革，提升包容性与韧性。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-14"
+msgid "\"Recent research demonstrates that both social norms and mindsets can change, for example, that engaging men and boys can foster their support and buy-in for gender equality,\" a consultative draft of the plan states. \"Positive gender outcomes can be accelerated and scaled with a better understanding of ... how social norms and mindsets shape everyday expectations, priorities, and practices.\""
+msgstr "“近期研究表明，社会规范和思维方式都是可以改变的，例如，让男性与男孩参与其中，能够培养他们对性别平等的支持与认同，”该计划的一份征求意见稿写道。“如果能更好地理解……社会规范与思维方式如何塑造日常的期待、优先事项和做法，积极的性别成果就能加速实现并扩大规模。”"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-15"
+msgid "Shifts in thought are harder to quantify than bank loans for rural women or school enrollment for girls. Yet there is plenty of evidence that female agency can move mountains. In Iran, for example, women have led the greatest threat to the Islamic government in 40 years simply by refusing to comply with laws that force them to cover their hair. In some of the 130 countries with minimum quotas for female representation in government, such as India, male resistance to female voting and political activism has eased."
+msgstr "思想的转变，比向农村妇女发放银行贷款或让女童入学更难量化。然而有大量证据表明，女性的自主能力可以移山填海。例如在伊朗，女性仅仅靠拒绝遵守强制遮盖头发的法律，就领导了对伊斯兰政府四十年来最大的威胁。在设有女性参政最低配额制的 130 个国家中，有些国家（如印度）男性对女性投票和政治活动的抵制已经缓和。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-16"
+msgid "In some rural African communities, civil society organizations are replacing a harmful rite of passage with health education. One such program helped Kamanda Timayio, leader of the Masai village of Maparasha, Kenya, change his mind about female genital mutilation. He told Le Monde that he had \"emerged from ignorance\" and would abandon the practice."
+msgstr "在非洲一些农村社区，民间社会组织正用健康教育取代一种有害的成人礼。其中一个项目帮助肯尼亚马帕拉沙的马赛族村庄领袖卡曼达·蒂马伊奥改变了对女性割礼的看法。他告诉《世界报》，他已经“走出了无知”，将放弃这一陋习。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-17"
+msgid "The World Bank cites other examples. From 1970 to 2022, Bangladesh quadrupled female literacy rates and doubled female participation in the labor force. Its gross domestic product more than tripled. The change gathered its own momentum. Recruiting salaried women as teachers and health workers from within their own communities boosted trust \"and made women's mobility and work more socially acceptable.\""
+msgstr "世界银行还举出了其他例子。1970 年至 2022 年间，孟加拉国女性识字率翻了两番，女性劳动参与率翻了一番，国内生产总值增长了两倍多。这种改变形成了自身的势头。从本地社区中招募女性担任带薪教师和卫生工作者，增强了信任，“也让女性的外出流动和就业在社会上更被接受”。"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-18"
+msgid "The bank's plan would target norms and institutions that may still require generational shifts. It has taken Rwanda more than two decades to establish itself as a model for land reforms that boost economic empowerment for women.\"No one benefits if women are held back,\" Rwanda President Paul Kagame said, arguing for land reform in 2015. \"We have to change mindsets, not just the laws.\""
+msgstr "世行的计划将针对那些或许仍需要代际更替才能改变的规范和制度。卢旺达花了二十多年，才把自己打造成通过土地改革增强女性经济赋权的典范。“如果女性受到压制，没有人会受益，”卢旺达总统保罗·卡加梅在 2015 年为土地改革辩护时说道。“我们必须改变思维方式，而不只是修改法律。”"
+
+msgctxt "news.test-en-news-csmonitor-com-7750-19"
+msgid "The World Bank hopes to spread that message."
+msgstr "世界银行希望把这一信息传播开来。"
+
+msgctxt "news.test-en-news-economist-14223-20"
+msgid "German farmers and train drivers are scaring Germany's bosses"
+msgstr "德国农民和火车司机让德国老板们惶恐不安"
+
+msgctxt "news.test-en-news-economist-14223-21"
+msgid "In Germany, where workers and bosses run many companies jointly, a big strike is unusual. A wave of big strikes is almost unheard of. Right now the country of \"co-determination\" is simultaneously facing an eight-day \"action week\" by irate farmers, who blocked roads with tractors, a three-day strike of railway workers and, to top it off, a looming strike of doctors, who already closed surgeries between Christmas and New Year's Day. This Mistgabelmop (pitchfork mob), as some have taken to calling it, will test Germany's harmonious labour relations in the year to come."
+msgstr "在德国，工人和雇主共同管理着许多企业，因此大规模罢工并不常见，而一波大规模罢工更是几乎闻所未闻。眼下，这个以“共同决定制”著称的国家同时面对：愤怒的农民用拖拉机封锁道路，举行为期八天的“行动周”；铁路工人举行为期三天的罢工；更糟的是，医生也即将罢工——他们已经在圣诞节到元旦期间停诊。有人开始把这场风波称作“Mistgabelmop”（干草叉暴民），它将在未来一年考验德国和谐的劳资关系。"
+
+msgctxt "news.test-en-news-economist-14223-22"
+msgid "The protests were ostensibly set off by the government's decision to end subsidies for diesel fuel used in agriculture and to cut an exemption from car tax for farm vehicles. These measures pushed farmers over the edge. It also mobilised other angry workers, already straining under the pressure of inflation, recession and the government's self-imposed austerity. On January 9th drivers of freight and passenger trains at Deutsche Bahn, the national railway, began a strike over working hours and pay."
+msgstr "表面上看，抗议是由政府决定取消农业用柴油补贴、并取消农用车辆免征汽车税的政策引发的。这些措施把农民逼到了极限，也动员了其他本就因通胀、衰退和政府自我施加的紧缩政策而紧绷的愤怒劳动者。1 月 9 日，国营铁路德国铁路（Deutsche Bahn）的货运和客运列车司机因工时和薪酬问题开始罢工。"
+
+msgctxt "news.test-en-news-economist-14223-23"
+msgid "In an effort to defuse the tension with the farmers, the government agreed to a gradual removal of the diesel subsidy over three years and to keeping the exemption from the car tax. The farmers pooh-poohed the concessions as insufficient. On January 4th an aggressive group of them prevented Robert Habeck, the economy minister, from disembarking from a ferry on his return from a family holiday. If the train drivers are similarly unimpressed, that could prove expensive for German business, reckons IW Köln, a think-tank. The rail strike could cost businesses €100m ($110m) a day if it forced them to interrupt production. The car, chemical and steel industries, Germany's biggest, are especially reliant on rail transport."
+msgstr "为缓和与农民的紧张关系，政府同意在三年内逐步取消柴油补贴，并保留汽车税豁免。农民对这些让步嗤之以鼻，认为远远不够。1 月 4 日，一群情绪激烈的农民阻止经济部长罗伯特·哈贝克在结束家庭度假后走下渡轮。智库科隆德国经济研究所（IW Köln）认为，如果火车司机同样不买账，德国企业可能要付出高昂代价。如果铁路罢工迫使企业中断生产，每天可能给企业造成 1 亿欧元（1.1 亿美元）的损失。德国规模最大的汽车、化工和钢铁行业尤其依赖铁路运输。"
+
+msgctxt "news.test-en-news-economist-14223-24"
+msgid "The workers\" mood is increasingly angry. \"Appeals are circulating with fantasies of revolution,\" warned Mr Habeck. The far-right Alternative for Germany party is doing its best to fan the grievances. In Dresden the Free Saxons, another far-right group, infiltrated the farmers\" protest calling for the \"extinction of the traffic light\" (as the governing coalition of the Social Democrats, Free Democrats and Greens is referred to because of their party colours)."
+msgstr "工人们的情绪越来越愤怒。“流传的呼吁里带着革命的幻想，”哈贝克警告说。极右翼的德国选择党正竭力煽动不满情绪。在德累斯顿，另一个极右团体“自由萨克森人”混入了农民的抗议活动，呼吁“让红绿灯消亡”（这是对社民党、自民党和绿党组成的执政联盟的称呼，因其党色与交通信号灯的颜色相同而得名）。"
+
+msgctxt "news.test-en-news-economist-14223-25"
+msgid "Thomas Puls of IW Köln fears that the strikes will harm the image of Germany as a place for business. Local bosses are already fretting about a German version of the gilets jaunes protests in France in 2018, which culminated in yellow-jacketed demonstrators torching cars on the Champs-Elysées and the police stepping in with tear gas. Jochen Kopelke, head of Germany's police union, warned in an interview with Tagesspiegel, a daily, that the farmers were probably \"just the start of an enormous wave of protest this year.\" Germany was the only big economy to shrink in 2023, and the year ended on an especially sour note, with an unexpected drop in business confidence in December. This year is shaping up to be even tougher."
+msgstr "科隆德国经济研究所的托马斯·普尔斯担心，罢工将损害德国作为商业投资地的形象。本地企业老板已经在担忧德国会重演 2018 年法国的“黄背心”抗议——那场抗议的高潮是身穿黄背心的示威者在香榭丽舍大街焚烧汽车，警察动用催泪瓦斯介入。德国警察工会主席约亨·科佩尔克在接受《每日镜报》采访时警告说，农民的抗议很可能“只是今年这场巨大抗议浪潮的开端”。德国是 2023 年唯一萎缩的大型经济体，而这一年的收尾格外糟糕：12 月企业信心意外下滑。今年的形势看来会更加艰难。"
+
+msgctxt "news.test-en-news-euronews-en-43091-26"
+msgid "Brewers froth over winemakers\" exemption from anti-waste rules"
+msgstr "葡萄酒商豁免反浪费规则，啤酒商气得冒泡"
+
+msgctxt "news.test-en-news-euronews-en-43091-27"
+msgid "As the EU debates rules to limit packaging waste, beer producers argue they are being unfairly discriminated against with exemptions for winemakers from reuse targets and deposit-return schemes, but one of Europe's wine industry association chiefs says brewers should \"mind their own business.\""
+msgstr "在欧盟讨论限制包装废弃物的规则之际，啤酒生产商认为，葡萄酒商在再利用目标和押金返还制度上获得豁免，是对啤酒业的不公平歧视；但欧洲一家葡萄酒行业协会的负责人说，啤酒商应当“管好自己的事”。"
+
+msgctxt "news.test-en-news-euronews-en-43091-28"
+msgid "European brewers have warned that exempting wine and not beer from deposit return schemes and reuse targets is unfair and potentially illegal, as lawmakers enter final talks over a new law designed to turn a surging tide of packaging waste across the EU."
+msgstr "欧洲啤酒商警告说，押金返还制度和再利用目标只豁免葡萄酒而不豁免啤酒，既不公平，也可能不合法。此时议员们正就一项新法律展开最后阶段的谈判，该法旨在扭转欧盟各地包装废弃物汹涌增长的势头。"
+
+msgctxt "news.test-en-news-euronews-en-43091-29"
+msgid "Environment ministers agreed an EU Council negotiating mandate on the proposed Packaging and Packaging Waste Regulation (PPWR) before Christmas, paving the way for imminent political talks with the European Parliament, which are already underway at the technical level."
+msgstr "圣诞节前，各国环境部长就拟议的《包装和包装废弃物法规》（PPWR）达成了欧盟理事会的谈判授权，为即将与欧洲议会展开的政治谈判铺平了道路——相关谈判已在技术层面启动。"
+
+msgctxt "news.test-en-news-euronews-en-43091-30"
+msgid "\"Our position is clear,\" the trade association Brewers of Europe wrote to MEPs and government negotiators (10 January). \"If targets and mandatory requirements in the PPWR apply to beer then there is a legal obligation that they apply to all alcoholic beverage categories.\""
+msgstr "“我们的立场很明确，”行业协会“欧洲啤酒商”（Brewers of Europe）在 1 月 10 日致欧洲议会议员和政府谈判代表的信中写道。“如果 PPWR 中的目标和强制性要求适用于啤酒，那么在法律上就有义务同样适用于所有酒精饮料类别。”"
+
+msgctxt "news.test-en-news-euronews-en-43091-31"
+msgid "The 18 December ministerial summit yielded a carve out for winemakers from the requirement that, by the end of the decade, 10% of products must be supplied in reusable containers within a system for reuse or refill, rising to 40% in 2040. The exemption would also apply to the requirement, likewise supported by the European Parliament, that wine should be exempt from deposit-return schemes that should be put in place by 2029 under the proposal."
+msgstr "12 月 18 日的部长级峰会为葡萄酒商开辟了一项例外：原本要求到本十年末，10% 的产品必须通过再利用或再填充体系以可重复使用的容器供应，到 2040 年这一比例升至 40%。这项豁免同样适用于另一项要求——即按照该提案，葡萄酒应免于适用须在 2029 年前建立的押金返还制度，欧洲议会也支持这一要求。"
+
+msgctxt "news.test-en-news-euronews-en-43091-32"
+msgid "Both the Czech and Belgian ministers immediately expressed reservations at the 18 December summit about the unequal treatment for brewers, but acquiesced. Belgium, which now chairs the rotating EU Council presidency and is therefore in principle neutral in terms of inter-governmental negotiations, hopes to clinch a deal with the parliament by early March."
+msgstr "在 12 月 18 日的峰会上，捷克和比利时两国的部长立即对啤酒商受到的不平等待遇表示保留，但最终还是默许了。比利时目前担任欧盟理事会轮值主席国，因而在政府间谈判中原则上保持中立，它希望能在 3 月初与欧洲议会达成协议。"
+
+msgctxt "news.test-en-news-euronews-en-43091-33"
+msgid "Ignacio Sánchez Recarte, secretary general of the Comité Européen des Entreprises Vins trade association representing some 7,000 wine producers across Europe, is dismissive of the concerns of the beer makers. He told Euronews that a market dominated by multinational brewing conglomerates bears no comparison with one comprised almost entirely of small, domestic producers."
+msgstr "代表欧洲约 7000 家葡萄酒生产商的行业协会欧洲葡萄酒企业委员会（Comité Européen des Entreprises Vins）秘书长伊格纳西奥·桑切斯·雷卡特，对啤酒商的担忧不以为然。他告诉欧洲新闻台，一个由跨国啤酒集团主导的市场，与一个几乎完全由本土小型生产商构成的市场，根本不可同日而语。"
+
+msgctxt "news.test-en-news-euronews-en-43091-34"
+msgid "More than 99% of the domestic wine sector is made up of micro- to medium-sized companies, Sánchez Recarte said, questioning the solidity of legal arguments made by brewers and asserting that his organisation had focused on presenting policy makers with information \"relevant and appropriate\" to its own industry."
+msgstr "桑切斯·雷卡特说，本土葡萄酒行业超过 99% 由微型到中型企业构成。他质疑啤酒商所提法律论据是否站得住脚，并声称他的组织一直专注于向政策制定者提供与其自身行业“相关且恰当”的信息。"
+
+msgctxt "news.test-en-news-euronews-en-43091-35"
+msgid "\"It is not my role to estimate if the beer sector should have this or that target, as it would depend on the intrinsic characteristics of their own sector,\" Sánchez Recarte said. \"In the same way, brewers should mind their own business and focus on their own responsibilities.\""
+msgstr "“评估啤酒行业该设定怎样的目标不是我的职责，这取决于他们自身行业的内在特征，”桑切斯·雷卡特说。“同样，啤酒商也应该管好自己的事，专注于自己的责任。”"
+
+msgctxt "news.test-en-news-euronews-en-43091-36"
+msgid "Brewers of Europe shared with Euronews a brief legal analysis it sent to the European Commission last year, where it argues that wine and beer are competing products that are \"at least partially, substitutable with each other,\" and which argued that rules favouring one over the other would distort the market."
+msgstr "“欧洲啤酒商”向欧洲新闻台分享了一份去年提交给欧盟委员会的简短法律分析。该分析认为，葡萄酒和啤酒是相互竞争的产品，“至少在一定程度上可以相互替代”，并指出偏向其一的规则会扭曲市场。"
+
+msgctxt "news.test-en-news-euronews-en-43091-37"
+msgid "Simon Spillane, the lobby group's head of operations, said brewers were \"already leading the way\" in packaging sustainability, citing the example of beer kegs being reused around 165 times before being crushed and recycled after 30 years. They support reuse recycling systems already in place in many countries, he said."
+msgstr "该游说团体的运营负责人西蒙·斯皮兰说，啤酒商在包装可持续性方面“已经走在前列”，并以啤酒桶为例：啤酒桶可重复使用约 165 次，30 年后才被压碎回收。他说，他们支持许多国家已经建立的再利用回收体系。"
+
+msgctxt "news.test-en-news-euronews-en-43091-38"
+msgid "\"We therefore advocate for an ambitious PPWR but need a level playing field in packaging legislation where beer and other alcoholic beverages play by the same rules, with each sector contributing fairly to reaching the targets and supporting collection systems,\" Spillane told. \"Any other approach puts the brewers at a competitive disadvantage.\""
+msgstr "“因此我们主张制定一部有雄心的 PPWR，但需要在包装立法中拥有公平的竞争环境，让啤酒和其他酒精饮料遵循同样的规则，各行业都为实现目标和支持回收体系做出公平的贡献，”斯皮兰表示。“任何其他做法都会让啤酒商处于竞争劣势。”"
+
+msgctxt "news.test-en-news-newsrepublic-com-6817-39"
+msgid "The Biden Administration Is Letting Corporate Criminals Off the Hook"
+msgstr "拜登政府正在让企业罪犯逍遥法外"
+
+msgctxt "news.test-en-news-newsrepublic-com-6817-40"
+msgid "Tim Whitehouse, a former EPA enforcement attorney and the executive director of Public Employees for Environmental Responsibility, praised the Biden administration's recent improvements on enforcement while acknowledging the strong headwinds such efforts face. \"It takes years of sustained funding and political support to build a good enforcement program,\" he told me. \"The instability in Congress is not only demoralizing to EPA staff but undermines their ability to think strategically over the long term.\""
+msgstr "曾担任美国环保署（EPA）执法律师、现任“公务员环境责任组织”（Public Employees for Environmental Responsibility）执行主任的蒂姆·怀特豪斯，称赞拜登政府近来在执法方面有所改善，同时也承认这类努力面临强劲逆风。“要建立一套良好的执法体系，需要多年持续的经费和政治支持，”他告诉我。“国会的不稳定不仅让 EPA 员工士气低落，也削弱了他们进行长期战略思考的能力。”"
+
+msgctxt "news.test-en-news-newsrepublic-com-6817-41"
+msgid "The problems at the EPA are distinct but not unrelated to those at the Department of Justice, which handles environmental crimes via its Environment and Natural Resources Division, or ENRD. Prior to joining the EPA, Uhlmann - the EPA assistant secretary for enforcement - had served as the longtime head of that division's Environmental Crimes Section, from 1990 through 2007. The EPA sends its most serious civil and criminal cases to ENRD, which - as a relatively underfunded office - often relies on other agencies in helping to choose which fights to take on. In fiscal year 2022, the EPA deferred fewer cases to DOJ (88) than at any point since 2000 and concluded fewer civil judicial cases than it had since that time, as well. As the Environmental Integrity Project notes, even Trump's EPA concluded 94 civil cases and deferred 106 cases per year to the DOJ per year, on average."
+msgstr "EPA 的问题与司法部的问题各不相同，但并非毫无关联。司法部通过其环境与自然资源司（ENRD）处理环境犯罪。在加入 EPA 之前，现任 EPA 负责执法事务的助理部长乌尔曼曾长期担任该司环境犯罪处处长，任期从 1990 年到 2007 年。EPA 将最严重的民事和刑事案件移交给 ENRD，而 ENRD 作为一个经费相对不足的部门，往往要依靠其他机构帮助决定受理哪些案件。2022 财年，EPA 移交给司法部的案件（88 件）是 2000 年以来最少的一次，审结的民事司法案件数也是同期最低。正如“环境诚信项目”（Environmental Integrity Project）所指出的，即便是特朗普时期的 EPA，平均每年也审结 94 件民事案件、向司法部移交 106 件案件。"
+
+msgctxt "news.test-en-news-newsrepublic-com-6817-42"
+msgid "The Department of Justice's overall approach to corporate crimes has come under intense scrutiny from advocates. While watchdogs have lauded some steps the department has taken during Merrick Garland's tenure as attorney general - like finally establishing a database on corporate crime - Biden's DOJ has also leaned heavily on leniency agreements that allow companies to defer or avoid prosecution, and encouraged companies to scapegoat individual employees so as to avoid a broader charge. Kenneth Polite Jr., former assistant attorney general for DOJ's Criminal Division, revised the division's corporate enforcement policy so as to limit prosecutions."
+msgstr "司法部处理企业犯罪的整体方针受到倡导者的严格审视。监督机构对梅里克·加兰担任司法部长期间该部采取的一些举措表示赞赏——比如终于建立了企业犯罪数据库——但拜登治下的司法部也严重依赖宽大处理协议，允许企业推迟或免于起诉，并鼓励企业把个别员工作为替罪羊，以规避更广泛的指控。司法部刑事司前助理部长小肯尼斯·波莱特修订了该司的企业执法政策，以限制起诉。"

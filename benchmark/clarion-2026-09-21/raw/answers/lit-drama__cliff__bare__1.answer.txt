@@ -1,0 +1,153 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-drama
+source-language: en-US
+target-language: zh-CN
+
+[scene.arrival]
+
+<open-house-lights>
+source: "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+target: "场灯灭了。一盏工作灯在舞台前部亮着，尘埃在光束中缓缓翻飞。"
+type: sentence
+status: initial
+
+<enter-cassian>
+source: "I could find this stage in my sleep."
+target: "我闭着眼睛都能找到这个舞台。"
+type: sentence
+status: initial
+
+<lit-01a>
+source: "You came back."
+target: "你回来了。"
+type: sentence
+status: initial
+
+<lit-01b>
+source: "You came back."
+target: "你回来了。"
+type: sentence
+status: initial
+
+<reply-cassian>
+source: "The call board still has my name spelled wrong."
+target: "通告栏上我的名字还是拼错了。"
+type: sentence
+status: initial
+
+[scene.confrontation]
+
+<motif-promise>
+source: "This theatre kept its promises. People did not."
+target: "这座剧院信守承诺。人却没有。"
+type: sentence
+status: initial
+
+<lit-02a>
+source: "Wonderful. Just wonderful."
+target: "好极了。简直好极了。"
+type: sentence
+status: initial
+
+<lit-02b>
+source: "Wonderful. Just wonderful."
+target: "好极了。简直好极了。"
+type: sentence
+status: initial
+
+<callback-promise>
+source: "You said the theatre kept its promises."
+target: "你说过这座剧院信守承诺。"
+type: sentence
+status: initial
+
+<address-early>
+source: "Mr. Vale, the call is in five minutes."
+target: "维尔先生，五分钟后开演。"
+type: sentence
+status: initial
+
+<address-late>
+source: "Cassian. Please. Sit down."
+target: "卡西安。拜托了。坐下。"
+type: sentence
+status: initial
+
+<lit-03a>
+source: "She turns the lamp toward him."
+target: "她把灯转向他。"
+type: sentence
+status: initial
+
+<lit-03b>
+source: "She turns the lamp toward him."
+target: "她把灯转向他。"
+type: sentence
+status: initial
+
+[scene.house]
+
+<roof-year>
+source: "The roof has not been touched since 1974."
+target: "屋顶自1974年以来就没被动过。"
+type: sentence
+status: initial
+
+<lamp-count>
+source: "Two 500-watt lamps, and a fuse box older than both of us."
+target: "两盏500瓦的灯，还有一个比我们俩都老的保险丝盒。"
+type: sentence
+status: initial
+
+<venue-name>
+source: "The Halloway does not close tonight. It closes when the last person leaves."
+target: "哈洛韦剧院今晚不关门。最后一个人离开时，它才关门。"
+type: sentence
+status: initial
+
+<board-default>
+source: "Use the default setting on the board and do not touch anything else."
+target: "用控制板上的默认设置，别碰其他任何东西。"
+type: sentence
+status: initial
+
+<disbelief>
+source: "Are you serious? Now? After everything?"
+target: "你是认真的？现在？经历了这么多之后？"
+type: sentence
+status: initial
+
+[scene.monologue]
+
+<monologue-open>
+source: "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+target: "我扫这块地板的次数，比我睡在自己床上的次数还多。我知道哪块木板在身子重的演员脚下吱呀作响，哪块在身子轻的演员脚下塌陷。只要你待得够久，一座建筑就会了解你。"
+type: sentence
+status: initial
+
+<monologue-turn>
+source: "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+target: "然后有一天晚上，灯没有亮起，结果发现这座建筑其实什么都没学会。"
+type: sentence
+status: initial
+
+[scene.verse]
+
+<verse-01>
+source: "The lamps go dark, the boards remain."
+target: "灯熄了，台板仍在。"
+type: sentence
+status: initial
+
+<verse-02>
+source: "The players go, the play remains."
+target: "演员走了，戏仍在。"
+type: sentence
+status: initial
+
+<final-direction>
+source: "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+target: "她伸手关掉工作灯。黑暗，然后是剧院大门关上的声音。"
+type: sentence
+status: initial

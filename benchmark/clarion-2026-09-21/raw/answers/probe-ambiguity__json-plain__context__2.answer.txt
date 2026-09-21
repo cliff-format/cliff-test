@@ -1,0 +1,98 @@
+{
+  "emotion.reading.probe-01a": {
+    "message": "哦，真是太棒了。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just opened an acceptance letter and means the compliment warmly. | cliff:type: dialogue | cliff:emotion: joyful|grateful | cliff:status: initial"
+  },
+  "emotion.reading.probe-01b": {
+    "message": "哦，真是太棒了。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just watched the plan fall apart; the line is bitter irony. | cliff:type: dialogue | cliff:emotion: angry|playful | cliff:status: initial"
+  },
+  "emotion.reading.probe-02a": {
+    "message": "您先请。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A cafe customer holds the door open and genuinely lets the other person go first. | cliff:type: dialogue | cliff:emotion: polite|calm | cliff:status: initial"
+  },
+  "emotion.reading.probe-02b": {
+    "message": "您先请。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first. | cliff:type: dialogue | cliff:emotion: polite|angry | cliff:status: initial"
+  },
+  "emotion.reading.probe-03a": {
+    "message": "好吧，又来了。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. Two friends line up for another round of the board game; said with a grin. | cliff:type: dialogue | cliff:emotion: joyful|playful | cliff:status: initial"
+  },
+  "emotion.reading.probe-03b": {
+    "message": "好吧，又来了。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A repair worker returns to the same machine for the third time; said with a sigh. | cliff:type: dialogue | cliff:emotion: sad|calm | cliff:status: initial"
+  },
+  "emotion.reading.probe-04a": {
+    "message": "放松点。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A nurse reassures a patient before a routine procedure. | cliff:type: dialogue | cliff:emotion: calm|hopeful | cliff:status: initial"
+  },
+  "emotion.reading.probe-04b": {
+    "message": "放松点。",
+    "description": "Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A guard tells a cornered intruder to stop moving; the tone is steady, not warm. | cliff:type: dialogue | cliff:emotion: serious|angry | cliff:status: initial"
+  },
+  "type.register.probe-05a": {
+    "message": "保存",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Toolbar button that writes the open document to disk. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "type.register.probe-05b": {
+    "message": "请保存。",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Step in the shutdown checklist telling the operator to write the session to disk before closing. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "type.register.probe-06a": {
+    "message": "锻炉",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Neighborhood name on the transit map, after the foundry that once stood there. | cliff:type: proper-noun | cliff:emotion: objective | cliff:status: initial"
+  },
+  "type.register.probe-06b": {
+    "message": "锻造",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Single-word task on the smith's workbench menu: begin shaping the heated metal. | cliff:type: verb | cliff:emotion: objective | cliff:status: initial"
+  },
+  "type.register.probe-07a": {
+    "message": "祝你好运！",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Wished to a performer just before they walk on stage. | cliff:type: idiom | cliff:emotion: objective | cliff:status: initial"
+  },
+  "type.register.probe-07b": {
+    "message": "小心别摔断腿！",
+    "description": "Pairs where the same English string changes rendering with its type; honor the register the type implies. Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-08a": {
+    "message": "费率",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Column header on the invoice; the amount charged per hour of work. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-08b": {
+    "message": "帧率",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Setting in the video editor's playback panel; how many frames are drawn each second. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-09a": {
+    "message": "海豹",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Caption on the marine-animals picture card in the children's set. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-09b": {
+    "message": "印章",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Label on the office-supplies drawer; the wax stamp used to close documents. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-10a": {
+    "message": "它发动不起来。",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Roadside call: the driver means the car engine, which will not turn over. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "context.referent.probe-10b": {
+    "message": "它启动不了。",
+    "description": "Pairs where the context line names the referent; choose the word the scene requires. Support call: the user means the desktop application, which will not launch. | cliff:type: sentence | cliff:emotion: objective | cliff:status: initial"
+  },
+  "width.budget.probe-11a": {
+    "message": "恢复默认设置",
+    "description": "Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the settings screen, with room for the full wording. | cliff:type: label | cliff:emotion: objective | cliff:status: initial | cliff:max-width: 14"
+  },
+  "width.budget.probe-11b": {
+    "message": "恢复默认",
+    "description": "Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the narrow mobile settings bar, where space is tight. | cliff:type: label | cliff:emotion: objective | cliff:status: initial | cliff:max-width: 8"
+  },
+  "width.budget.probe-12a": {
+    "message": "查看常见问题解答",
+    "description": "Pairs where the width budget forces a shorter wording; stay within the declared cells. Menu item on the desktop help screen, with room for the full wording. | cliff:type: label | cliff:emotion: objective | cliff:status: initial | cliff:max-width: 16"
+  },
+  "width.budget.probe-12b": {
+    "message": "常见问题",
+    "description": "Pairs where the width budget forces a shorter wording; stay within the declared cells. Footer link on the narrow mobile page, where space is tight. | cliff:type: label | cliff:emotion: objective | cliff:status: initial | cliff:max-width: 8"
+  }
+}

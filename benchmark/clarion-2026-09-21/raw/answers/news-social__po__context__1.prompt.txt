@@ -1,0 +1,279 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a gettext PO catalogue. Fill msgstr for every msgid.
+Keep msgctxt and every comment line unchanged.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly.
+#. cliff:type: sentence
+#. cliff:emotion: grateful|joyful
+#. cliff:status: initial
+msgctxt "posts.reactions.news-01a"
+msgid "Great work today, everyone. Really."
+msgstr ""
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite.
+#. cliff:type: sentence
+#. cliff:emotion: angry|playful
+#. cliff:status: initial
+msgctxt "posts.reactions.news-01b"
+msgid "Great work today, everyone. Really."
+msgstr ""
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|hopeful
+#. cliff:status: initial
+msgctxt "posts.reactions.news-02a"
+msgid "Six months of roadworks and here we are."
+msgstr ""
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street.
+#. cliff:type: sentence
+#. cliff:emotion: angry|playful
+#. cliff:status: initial
+msgctxt "posts.reactions.news-02b"
+msgid "Six months of roadworks and here we are."
+msgstr ""
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her.
+#. cliff:type: sentence
+#. cliff:emotion: anxious|polite
+#. cliff:status: initial
+msgctxt "posts.reactions.news-03a"
+msgid "You are really going to ride that thing?"
+msgstr ""
+
+#. Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user.
+#. cliff:type: sentence
+#. cliff:emotion: rude|playful
+#. cliff:status: initial
+msgctxt "posts.reactions.news-03b"
+msgid "You are really going to ride that thing?"
+msgstr ""
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|informal
+#. cliff:status: initial
+msgctxt "posts.referents.news-04a"
+msgid "Nice shot."
+msgstr ""
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|informal
+#. cliff:status: initial
+msgctxt "posts.referents.news-04b"
+msgid "Nice shot."
+msgstr ""
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|informal
+#. cliff:status: initial
+msgctxt "posts.referents.news-05a"
+msgid "It is back."
+msgstr ""
+
+#. Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier.
+#. cliff:type: sentence
+#. cliff:emotion: sad|informal
+#. cliff:status: initial
+msgctxt "posts.referents.news-05b"
+msgid "It is back."
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts.
+#. cliff:type: sentence
+#. cliff:emotion: grateful|informal
+#. cliff:status: initial
+msgctxt "platform.conventions.news-06"
+msgid "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|playful
+#. cliff:status: initial
+msgctxt "platform.conventions.news-07"
+msgid "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|informal
+#. cliff:status: initial
+msgctxt "platform.conventions.news-08"
+msgid "The new depot mural absolutely ate. No crumbs left."
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands.
+#. cliff:type: prompt
+#. cliff:emotion: mechanical|objective
+#. cliff:status: initial
+msgctxt "platform.conventions.news-09"
+msgid "{count, plural, one {# person} other {# people}} reposted your photo."
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted.
+#. cliff:type: prompt
+#. cliff:emotion: mechanical|objective
+#. cliff:status: initial
+msgctxt "platform.conventions.news-10"
+msgid "{name} and {others, plural, one {# other} other {# others}} liked your post."
+msgstr ""
+
+#. Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction.
+#. cliff:type: sentence
+#. cliff:emotion: joyful|informal
+#. cliff:status: initial
+msgctxt "platform.conventions.news-11"
+msgid "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+msgstr ""
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account.
+#. cliff:type: sentence
+#. cliff:emotion: curious|polite
+#. cliff:status: initial
+msgctxt "thread.replies.news-12"
+msgid "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+msgstr ""
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question.
+#. cliff:type: sentence
+#. cliff:emotion: polite|objective
+#. cliff:status: initial
+msgctxt "thread.replies.news-13"
+msgid "Yes, on a Sunday timetable."
+msgstr ""
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction.
+#. cliff:type: sentence
+#. cliff:emotion: curious|informal
+#. cliff:status: initial
+msgctxt "thread.replies.news-14"
+msgid "And the last one back?"
+msgstr ""
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above.
+#. cliff:type: sentence
+#. cliff:emotion: polite|objective
+#. cliff:status: initial
+msgctxt "thread.replies.news-15"
+msgid "Eleven forty, from the north end."
+msgstr ""
+
+#. One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account.
+#. cliff:type: sentence
+#. cliff:emotion: grateful|informal
+#. cliff:status: initial
+msgctxt "thread.replies.news-16"
+msgid "Perfect, thank you! Adding it to the group chat now."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line.
+#. cliff:type: sentence
+#. cliff:emotion: objective|formal
+#. cliff:status: initial
+msgctxt "feed.updates.news-17"
+msgid "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "feed.updates.news-18"
+msgid "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "feed.updates.news-19"
+msgid "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line.
+#. cliff:type: sentence
+#. cliff:emotion: neutral|informal
+#. cliff:status: initial
+msgctxt "feed.updates.news-20"
+msgid "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus.
+#. cliff:type: sentence
+#. cliff:emotion: curious|informal
+#. cliff:status: initial
+msgctxt "feed.updates.news-21"
+msgid "Does anyone know whether the ticket machine at the north end takes cards?"
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony.
+#. cliff:type: sentence
+#. cliff:emotion: neutral
+#. cliff:status: initial
+msgctxt "feed.updates.news-22"
+msgid "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+msgstr ""
+
+#. Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line.
+#. cliff:type: sentence
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "feed.updates.news-23"
+msgid "A single journey costs one euro fifty and a day pass costs four euros."
+msgstr ""

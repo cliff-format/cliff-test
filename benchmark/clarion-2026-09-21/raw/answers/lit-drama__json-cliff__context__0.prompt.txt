@@ -1,0 +1,306 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is JSON holding the CLIFF data model: groups contain entries with
+source, target and metadata. Fill the target field of every entry.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-drama",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "The Last Call at the Halloway - one scene",
+    "info": "An original one-act scene. A closing repertory theatre on its final night. Odette Rill has run the stage for thirty years; Cassian Vale left the company a decade ago and has come back for the last performance. The entries are one continuous scene and must read in order: a line's rendering may depend on a line before it.",
+    "standard": "Stage directions use a terse present-tense narrative register and never the spoken register of dialogue. Keep the venue name Halloway in Latin script. Render the surname Vale as 维尔 wherever it appears. House style: one space between Han text and Latin letters or digits, fullwidth punctuation inside Han sentences, and no textbook jargon."
+  },
+  "groups": [
+    {
+      "path": "scene.arrival",
+      "context": "The empty auditorium an hour before the final performance. A single work lamp is lit.",
+      "type": "description",
+      "emotion": [
+        "calm"
+      ],
+      "entries": [
+        {
+          "id": "open-house-lights",
+          "source": "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.",
+          "status": "initial",
+          "context": "Opening stage direction of the scene; sets the empty theatre before anyone speaks."
+        },
+        {
+          "id": "enter-cassian",
+          "source": "I could find this stage in my sleep.",
+          "type": "dialogue",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial",
+          "context": "Cassian speaks his first line as he walks in from the wings after ten years away."
+        },
+        {
+          "id": "lit-01a",
+          "source": "You came back.",
+          "type": "dialogue",
+          "emotion": [
+            "joyful",
+            "grateful"
+          ],
+          "status": "initial",
+          "context": "Odette says this when she is genuinely glad to see him; she has hoped for this for years."
+        },
+        {
+          "id": "lit-01b",
+          "source": "You came back.",
+          "type": "dialogue",
+          "emotion": [
+            "angry",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "The same words later in the scene, said as a reproach after he admits why he left."
+        },
+        {
+          "id": "reply-cassian",
+          "source": "The call board still has my name spelled wrong.",
+          "type": "dialogue",
+          "emotion": [
+            "playful"
+          ],
+          "status": "initial",
+          "context": "Cassian deflects with a small joke about the backstage notice board."
+        }
+      ]
+    },
+    {
+      "path": "scene.confrontation",
+      "context": "They circle the argument they have avoided for ten years.",
+      "type": "dialogue",
+      "entries": [
+        {
+          "id": "motif-promise",
+          "source": "This theatre kept its promises. People did not.",
+          "emotion": [
+            "serious",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry."
+        },
+        {
+          "id": "lit-02a",
+          "source": "Wonderful. Just wonderful.",
+          "emotion": [
+            "joyful"
+          ],
+          "status": "initial",
+          "context": "Said when the missing lighting board key is finally found; she means it."
+        },
+        {
+          "id": "lit-02b",
+          "source": "Wonderful. Just wonderful.",
+          "emotion": [
+            "angry",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "The same words after the fuse blows for the second time; bitter irony, not praise."
+        },
+        {
+          "id": "callback-promise",
+          "source": "You said the theatre kept its promises.",
+          "emotion": [
+            "serious"
+          ],
+          "status": "initial",
+          "context": "Cassian quotes Odette's earlier line back at her; it must read as the same line returning."
+        },
+        {
+          "id": "address-early",
+          "source": "Mr. Vale, the call is in five minutes.",
+          "emotion": [
+            "formal",
+            "polite"
+          ],
+          "status": "initial",
+          "context": "Early in the scene Odette keeps him at the distance of a surname and a title."
+        },
+        {
+          "id": "address-late",
+          "source": "Cassian. Please. Sit down.",
+          "emotion": [
+            "calm",
+            "sad"
+          ],
+          "status": "initial",
+          "context": "Late in the scene the distance drops and she uses his given name for the first time."
+        },
+        {
+          "id": "lit-03a",
+          "source": "She turns the lamp toward him.",
+          "type": "description",
+          "emotion": [
+            "objective"
+          ],
+          "status": "initial",
+          "context": "A stage direction: terse narrative register, describing the action for the crew."
+        },
+        {
+          "id": "lit-03b",
+          "source": "She turns the lamp toward him.",
+          "emotion": [
+            "playful"
+          ],
+          "status": "initial",
+          "context": "A line of dialogue: an actor describing the blocking aloud during a run-through, in speech."
+        }
+      ]
+    },
+    {
+      "path": "scene.house",
+      "context": "Practical talk about the building itself while they avoid each other's eyes.",
+      "type": "dialogue",
+      "emotion": [
+        "neutral"
+      ],
+      "entries": [
+        {
+          "id": "roof-year",
+          "source": "The roof has not been touched since 1974.",
+          "status": "initial",
+          "context": "Odette lists what the building needs; the year is a fact and must survive."
+        },
+        {
+          "id": "lamp-count",
+          "source": "Two 500-watt lamps, and a fuse box older than both of us.",
+          "status": "initial",
+          "context": "Cassian counts what is still working in the grid."
+        },
+        {
+          "id": "venue-name",
+          "source": "The Halloway does not close tonight. It closes when the last person leaves.",
+          "status": "initial",
+          "context": "The venue name is the company's mark and is used untranslated in all materials."
+        },
+        {
+          "id": "board-default",
+          "source": "Use the default setting on the board and do not touch anything else.",
+          "status": "initial",
+          "context": "A technical instruction to the operator about the lighting board."
+        },
+        {
+          "id": "disbelief",
+          "source": "Are you serious? Now? After everything?",
+          "emotion": [
+            "surprised",
+            "angry"
+          ],
+          "status": "initial",
+          "context": "Cassian reacts to her telling him the building is already sold."
+        }
+      ]
+    },
+    {
+      "path": "scene.monologue",
+      "context": "Odette alone in the work light after Cassian goes to change.",
+      "type": "monologue",
+      "emotion": [
+        "nostalgic"
+      ],
+      "entries": [
+        {
+          "id": "monologue-open",
+          "source": "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.",
+          "status": "initial",
+          "context": "The first half of her monologue, alone on stage; long-form literary prose, not conversational."
+        },
+        {
+          "id": "monologue-turn",
+          "source": "And then one night the lights do not come up, and it turns out the building never learned anything at all.",
+          "status": "initial",
+          "context": "The turn in the monologue where the comfort collapses."
+        }
+      ]
+    },
+    {
+      "path": "scene.verse",
+      "context": "The company's traditional closing couplet, spoken to the empty house at the end of a run.",
+      "type": "narration",
+      "emotion": [
+        "serious",
+        "nostalgic"
+      ],
+      "entries": [
+        {
+          "id": "verse-01",
+          "source": "The lamps go dark, the boards remain.",
+          "status": "initial",
+          "context": "First line of the closing couplet; the two lines are parallel in structure and must stay parallel."
+        },
+        {
+          "id": "verse-02",
+          "source": "The players go, the play remains.",
+          "status": "initial",
+          "context": "Second line of the couplet, mirroring the first line word for word in structure."
+        },
+        {
+          "id": "final-direction",
+          "source": "She reaches up and switches off the work lamp. Darkness, and then the house door closing.",
+          "type": "description",
+          "emotion": [
+            "calm"
+          ],
+          "status": "initial",
+          "context": "The closing stage direction of the scene."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+cliff:source: 水静则清，器满则倾。
+cliff:type: sentence
+cliff:emotion: calm|serious
+cliff:status: initial-->
+    <string name="water-holds">Still water clears; a full vessel tips.</string>
+    <!--Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+cliff:source: 山不增高，因登而高；川不返流，因逝而长。
+cliff:type: sentence
+cliff:emotion: serious|calm
+cliff:status: initial-->
+    <string name="mountain-river">A mountain gains no height, yet climbing makes it high; a river never turns back, yet flowing on makes it long.</string>
+    <!--Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+cliff:source: 镜不自照，故能照人；泉不自饮，故能济渴。
+cliff:type: sentence
+cliff:emotion: calm
+cliff:status: initial-->
+    <string name="mirror">A mirror does not reflect itself, and so can reflect others; a spring does not drink itself, and so can quench thirst.</string>
+    <!--Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+cliff:source: 尺短寸长，各有所宜。
+cliff:type: sentence
+cliff:emotion: serious
+cliff:status: initial-->
+    <string name="scale">A foot may be short, an inch may be long; each has its proper use.</string>
+    <!--Short philosophical aphorisms from a fictional anthology, each meant to stand alone.
+cliff:source: 灯焰高者，其膏易尽；其光微者，其夜乃长。
+cliff:type: sentence
+cliff:emotion: nostalgic|calm
+cliff:status: initial-->
+    <string name="lantern-heart">The lamp whose flame burns high spends its oil soon; the lamp whose light is faint draws out the night.</string>
+    <!--A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+cliff:source: 层峦千仞，藏云于顶；寒江万里，送舟于天。
+cliff:type: narration
+cliff:emotion: nostalgic|calm
+cliff:status: initial-->
+    <string name="parallel-prose-1">Tiered peaks a thousand fathoms tall, hiding clouds at their crests; a cold river ten thousand miles long, sending boats to the sky.</string>
+    <!--A short passage in the parallel-prose manner of a philosophical anthology, with balanced couplets and a recurring place name.
+cliff:source: 谷静无应，苍梧闻钟；灯微自摇，苍梧照水。
+cliff:type: narration
+cliff:emotion: nostalgic|calm
+cliff:status: initial-->
+    <string name="parallel-prose-2">The valley is still, no echo answers; in Cangwu, a bell is heard; the lamp burns low and sways alone; in Cangwu, it shines on the water.</string>
+    <!--A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+cliff:source: 渡口秋灯暗，
+cliff:type: narration
+cliff:emotion: nostalgic|sad
+cliff:status: initial-->
+    <string name="quatrain-1">At the ferry, autumn lamps grow dim,</string>
+    <!--A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+cliff:source: 江寒雨自斜。
+cliff:type: narration
+cliff:emotion: nostalgic|sad
+cliff:status: initial-->
+    <string name="quatrain-2">On the cold river, rain slants down.</string>
+    <!--A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+cliff:source: 潮回沙上字，
+cliff:type: narration
+cliff:emotion: nostalgic|calm
+cliff:status: initial-->
+    <string name="quatrain-3">The tide turns back; the sand holds words,</string>
+    <!--A five-character quatrain about a river crossing at autumn dusk; the reference keeps quatrain form and rhyme.
+cliff:source: 钟入隔岸家。
+cliff:type: narration
+cliff:emotion: nostalgic|calm
+cliff:status: initial-->
+    <string name="quatrain-4">Bells enter homes on the far-bank town.</string>
+</resources>

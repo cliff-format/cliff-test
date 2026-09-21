@@ -1,0 +1,77 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is CSV with a header row. Fill the target column of every data row
+and change nothing else. Quote fields that contain commas or quotes.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+namespace,clan,source-language,target-language,version,variant,title,info,standard,dependency,group,group-context,group-type,group-emotion,group-max-width,id,source,target,type,emotion,status,context,max-width,reference,reviewer
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.brief,,,,,brief-tide-run,"The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.brief,,,,,brief-ninth-light,"Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.brief,,,,,quest-title-last-watch,Willow's Last Watch,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.brief,,,,,journal-note-order,"Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.brief,,,,,brief-warning-fog,"Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-03a,Deliver the Sealed Manifest to Marrow,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-03b,Deliver the Sealed Manifest to Marrow,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-04a,Restore Power to the Tide Gate,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-04b,Restore Power to the Tide Gate,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-relight,Relight the Ninth Light before the ebb,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-count-crates,"{secured, plural, one {# crate secured} other {# crates secured}}",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.objectives,,,,,objective-check-lines,Check the mooring lines on the east pier,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,hail-01a,"Hand me the lantern, friend.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,hail-01b,"Hand me the lantern, friend.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,hail-02a,Marrow says the dock is open to you.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,hail-02b,Marrow says the dock is open to you.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,dialogue-willow-keeps,"Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,dialogue-burn-it,Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,success-echo,The Ninth Light is yours to keep now. Do not make me regret the hand-over.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,line-success-tide,"The gate holds. Whatever you did down there, the water is going where it should.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,quest.dialogue,,,,,line-failure-tide,The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,items.rewards,,,,,item-relay-grid-desc,The relay grid is robust: one failed beacon does not break the chain.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,items.rewards,,,,,item-lamp-oil-desc,One flask feeds the lamp for 30 minutes at the default wick height.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,items.rewards,,,,,item-fog-lamp-desc,"A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,items.rewards,,,,,achv-marrow-debt,Marrow's Debt,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,items.rewards,,,,,achv-nine-nights,"Nine Nights, Nine Lights",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,system.messages,,,,,system-welcome-runner,"Fair tide, {playerName}. Your last run ended 3 days ago.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,system.messages,,,,,system-keybind-lantern,Hold [E] to raise the lantern; press [Q] to signal.,,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,system.messages,,,,,system-signal-range,"Signal range: 120 m in fog, 400 m in clear air.",,,,,,,,
+clarion,game-quest,en-US,zh-CN,,standard,,,,,system.messages,,,,,system-quest-state,"{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}",,,,,,,,

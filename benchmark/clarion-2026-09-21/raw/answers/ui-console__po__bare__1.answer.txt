@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "nav.billing"
+msgid "Billing"
+msgstr "账单"
+
+msgctxt "nav.streaming"
+msgid "Streaming"
+msgstr "直播"
+
+msgctxt "nav.workspaces"
+msgid "Workspaces"
+msgstr "工作区"
+
+msgctxt "billing.billing-rate"
+msgid "Billing rate"
+msgstr "计费费率"
+
+msgctxt "billing.no-invoices"
+msgid "No invoices yet"
+msgstr "暂无发票"
+
+msgctxt "billing.payment-failed"
+msgid "Payment failed"
+msgstr "支付失败"
+
+msgctxt "streaming.stream-key"
+msgid "Stream key"
+msgstr "推流密钥"
+
+msgctxt "streaming.frame-rate"
+msgid "Frame rate"
+msgstr "帧率"
+
+msgctxt "streaming.resolution"
+msgid "Resolution"
+msgstr "分辨率"
+
+msgctxt "streaming.add-to-workspace"
+msgid "Add to workspace"
+msgstr "添加到工作区"
+
+msgctxt "streaming.stream-failed"
+msgid "Stream failed to start"
+msgstr "推流启动失败"
+
+msgctxt "streaming.stream-summary"
+msgid "{count, plural, other {# streams}} across {regions, plural, other {# regions}}"
+msgstr "{count, plural, other {# 个直播流}}，覆盖 {regions, plural, other {# 个区域}}"
+
+msgctxt "settings.restore-defaults"
+msgid "Restore defaults"
+msgstr "恢复默认值"
+
+msgctxt "settings.clear-cache"
+msgid "Clear cache"
+msgstr "清除缓存"
+
+msgctxt "settings.latency"
+msgid "Latency"
+msgstr "延迟"
+
+msgctxt "settings.api-token"
+msgid "API token"
+msgstr "API Token"
+
+msgctxt "settings.request-rate-limit"
+msgid "Request rate limit"
+msgstr "请求速率限制"
+
+msgctxt "settings.status-line"
+msgid "Region: %s"
+msgstr "区域：%s"
+
+msgctxt "settings.cache-description"
+msgid "Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin."
+msgstr "缓存的响应会保留 24 小时，并在过期前被再次提供。清除缓存后，所有请求都将重新发送回源站。"
+
+msgctxt "onboarding.create-workspace"
+msgid "Create new workspace"
+msgstr "创建新工作区"
+
+msgctxt "onboarding.welcome-back"
+msgid "Welcome back to Harborline, {name}"
+msgstr "欢迎回到 Harborline，{name}"
+
+msgctxt "onboarding.workspace-count"
+msgid "{count, plural, one {# workspace} other {# workspaces}}"
+msgstr "{count, plural, one {# 个工作区} other {# 个工作区}}"
+
+msgctxt "onboarding.delete-confirm"
+msgid "Delete this workspace? This cannot be undone."
+msgstr "删除此工作区？此操作无法撤销。"
+
+msgctxt "onboarding.close-dialog"
+msgid "Close dialog"
+msgstr "关闭对话框"

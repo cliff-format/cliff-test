@@ -1,0 +1,475 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is XLIFF 2.1. Each translation unit is a unit element with a
+segment containing source and target. Add or fill the target element of every
+segment and set state to translated.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.godot-l10n" original="clarion.godot-l10n">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Godot editor localization (gettext PO with translator comments)</mda:meta>
+        <mda:meta type="info">Imported from Godot editor localization (gettext PO with translator comments).</mda:meta>
+        <mda:meta type="standard">Reference translations are the upstream human translations; do not edit them.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="core-error">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control.</note>
+      </notes>
+      <unit id="ok">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp|editor/editor_node.cpp|editor/run/editor_run_bar.cpp|editor/scene/2d/scene_paint_2d_editor_plugin.cpp|editor/scene/gui/theme_editor_plugin.cpp|editor/script/script_editor_plugin.cpp|modules/visual_shader/editor/visual_shader_editor_plugin.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>OK</source>
+        </segment>
+      </unit>
+      <unit id="failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Failed</source>
+        </segment>
+      </unit>
+      <unit id="unavailable">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Unavailable</source>
+        </segment>
+      </unit>
+      <unit id="unconfigured">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Unconfigured</source>
+        </segment>
+      </unit>
+      <unit id="unauthorized">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Unauthorized</source>
+        </segment>
+      </unit>
+      <unit id="parameter-out-of-range">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Parameter out of range</source>
+        </segment>
+      </unit>
+      <unit id="out-of-memory">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Out of memory</source>
+        </segment>
+      </unit>
+      <unit id="file-not-found">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File not found</source>
+        </segment>
+      </unit>
+      <unit id="file-bad-drive">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File: Bad drive</source>
+        </segment>
+      </unit>
+      <unit id="file-bad-path">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File: Bad path</source>
+        </segment>
+      </unit>
+      <unit id="file-permission-denied">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File: Permission denied</source>
+        </segment>
+      </unit>
+      <unit id="file-already-in-use">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File already in use</source>
+        </segment>
+      </unit>
+      <unit id="can-t-open-file">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't open file</source>
+        </segment>
+      </unit>
+      <unit id="can-t-write-file">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't write file</source>
+        </segment>
+      </unit>
+      <unit id="can-t-read-file">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't read file</source>
+        </segment>
+      </unit>
+      <unit id="file-unrecognized">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File unrecognized</source>
+        </segment>
+      </unit>
+      <unit id="file-corrupt">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>File corrupt</source>
+        </segment>
+      </unit>
+      <unit id="missing-dependencies-for-file">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Missing dependencies for file</source>
+        </segment>
+      </unit>
+      <unit id="end-of-file">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>End of file</source>
+        </segment>
+      </unit>
+      <unit id="can-t-open">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't open</source>
+        </segment>
+      </unit>
+      <unit id="can-t-create">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't create</source>
+        </segment>
+      </unit>
+      <unit id="query-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Query failed</source>
+        </segment>
+      </unit>
+      <unit id="already-in-use">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Already in use</source>
+        </segment>
+      </unit>
+      <unit id="locked">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp|editor/scene/3d/node_3d_editor_plugin.cpp|editor/scene/canvas_item_editor_plugin.cpp|scene/debugger/runtime_node_select.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Locked</source>
+        </segment>
+      </unit>
+      <unit id="timeout">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Timeout</source>
+        </segment>
+      </unit>
+      <unit id="can-t-connect">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't connect</source>
+        </segment>
+      </unit>
+      <unit id="can-t-resolve">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't resolve</source>
+        </segment>
+      </unit>
+      <unit id="connection-error">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Connection error</source>
+        </segment>
+      </unit>
+      <unit id="can-t-acquire-resource">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't acquire resource</source>
+        </segment>
+      </unit>
+      <unit id="can-t-fork">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't fork</source>
+        </segment>
+      </unit>
+      <unit id="invalid-data">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Invalid data</source>
+        </segment>
+      </unit>
+      <unit id="invalid-parameter">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Invalid parameter</source>
+        </segment>
+      </unit>
+      <unit id="already-exists">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Already exists</source>
+        </segment>
+      </unit>
+      <unit id="does-not-exist">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Does not exist</source>
+        </segment>
+      </unit>
+      <unit id="can-t-read-database">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't read database</source>
+        </segment>
+      </unit>
+      <unit id="can-t-write-database">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Can't write database</source>
+        </segment>
+      </unit>
+      <unit id="compilation-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Compilation failed</source>
+        </segment>
+      </unit>
+      <unit id="method-not-found">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Method not found</source>
+        </segment>
+      </unit>
+      <unit id="link-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Link failed</source>
+        </segment>
+      </unit>
+      <unit id="script-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="reference">core/error/error_list.cpp</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <segment state="initial">
+          <source>Script failed</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

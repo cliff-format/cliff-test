@@ -1,0 +1,48 @@
+/* cliff:source: Oh, that's just wonderful. */
+"probe-01a" = "哦，那可真是太好了。";
+/* cliff:source: Oh, that's just wonderful. */
+"probe-01b" = "哦，那可真是太好了。";
+/* cliff:source: After you. */
+"probe-02a" = "您先请。";
+/* cliff:source: After you. */
+"probe-02b" = "您先请。";
+/* cliff:source: Well, here we go again. */
+"probe-03a" = "好吧，又来了。";
+/* cliff:source: Well, here we go again. */
+"probe-03b" = "好吧，又来了。";
+/* cliff:source: Just relax. */
+"probe-04a" = "放松点。";
+/* cliff:source: Just relax. */
+"probe-04b" = "放松点。";
+/* cliff:source: Save */
+"probe-05a" = "保存";
+/* cliff:source: Save */
+"probe-05b" = "保存";
+/* cliff:source: Forge */
+"probe-06a" = "锻造";
+/* cliff:source: Forge */
+"probe-06b" = "锻造";
+/* cliff:source: Break a leg! */
+"probe-07a" = "祝你好运！";
+/* cliff:source: Break a leg! */
+"probe-07b" = "祝你好运！";
+/* cliff:source: Rate */
+"probe-08a" = "评分";
+/* cliff:source: Rate */
+"probe-08b" = "评分";
+/* cliff:source: Seal */
+"probe-09a" = "封印";
+/* cliff:source: Seal */
+"probe-09b" = "封印";
+/* cliff:source: It won't start. */
+"probe-10a" = "它无法启动。";
+/* cliff:source: It won't start. */
+"probe-10b" = "它无法启动。";
+/* cliff:source: Restore Default Settings */
+"probe-11a" = "恢复默认设置";
+/* cliff:source: Restore Default Settings */
+"probe-11b" = "恢复默认设置";
+/* cliff:source: View Frequently Asked Questions */
+"probe-12a" = "查看常见问题解答";
+/* cliff:source: View Frequently Asked Questions */
+"probe-12b" = "查看常见问题解答";

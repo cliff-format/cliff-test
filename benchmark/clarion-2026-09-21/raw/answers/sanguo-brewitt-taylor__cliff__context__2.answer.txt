@@ -1,0 +1,522 @@
+CLIFF 1.1
+namespace: clarion
+clan: sanguo-brewitt-taylor
+source-language: zh-CN
+target-language: en-US
+title: "San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation"
+info: "This is the opening of the classic Chinese historical novel Romance of the Three Kingdoms, covering the first two chapters. The text appears as narrative prose with embedded poetry, dialogue, and chapter-end cliffhanger couplets. The audience is general English-language readers of classical Chinese literature. Translators should note that this is a literary work with archaic language, formal narrative conventions, and a large cast of historical figures; consistency in names, titles, and epithets across the whole novel is essential."
+standard: "Use a formal, literary register appropriate to a classic novel, with slightly archaic but readable English. Romanize Chinese names in Wade-Giles as in the 1925 Brewitt-Taylor translation (e.g., Liu Pei, Kuan Yu, Chang Fei, Ts'ao Ts'ao). Keep official titles translated consistently (e.g., Emperor, General, Prefect). Keep place names in Wade-Giles romanization. Poetry should be rendered as verse with attention to rhyme or meter where feasible. Untranslated terms should be limited to culturally specific items explained in context or notes. Use standard English punctuation and spacing. Chapter-end couplets should be rendered as verse and may be set off from prose."
+
+[chapter-1]
+context: "Imported from San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation. Document 'chapter-1', 16 segments in their original order; translate them as one continuous document, not as isolated sentences."
+
+<chapter-1-001>
+source: "建寧二年四月望日，帝御溫德殿。方陞座，殿角狂風驟起，只見一條大青蛇，從梁 上飛將下來，蟠於椅上。帝驚倒，左右急救入宮，百官俱奔避。須臾，蛇不見了。忽然 大雷大雨，加以冰雹，落到半夜方止，壞卻房屋無數。建寧四年二月，洛陽地震；又海 水泛溢，沿海居民，盡被大浪捲入海中。光和元年，雌雞化雄。六月朔，黑氣十餘丈， 飛入溫德殿中。秋七月，有虹見於玉堂；五原山岸，盡皆崩裂。種種不祥，非止一端。"
+target: "In the second year of Chien Ning, on the fifteenth day of the fourth month, the Emperor held his court in the Wen Te Hall. As he was mounting the throne, a wild wind suddenly sprang up from a corner of the hall, and a great green serpent flew down from the beam and coiled upon the seat. The Emperor fell down in terror, and his attendants hastened to bear him into the palace, while all the officers of state fled for their lives. In a moment the serpent was gone. Then of a sudden came thunder and torrents of rain, with hail, which did not cease till midnight, destroying countless houses. In the second month of the fourth year of Chien Ning, there was an earthquake at Loyang; again the sea overflowed its bounds, and the dwellers along the coast were all swept into the sea by the great waves. In the first year of Kuang Ho, a hen was changed into a cock. On the first day of the sixth month, a black vapour more than ten chang in length flew into the Wen Te Hall. In the autumn, in the seventh month, a rainbow was seen above the Jade Hall; and the cliffs of Wu Yuan Mountain all fell away. Such evil omens were not confined to one kind."
+type: narration
+emotion: [formal, serious, anxious]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 1 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Following segment: 帝下詔問群臣以災異之由，議郎蔡邕上疏，以為蜺墮雞化，乃婦寺干政之所致，言 頗切直。帝覽奏歎息，因起更衣。曹節在後竊視，悉宣告左右。遂以他事陷邕於罪，放 歸田里。後張讓，趙忠，封諝…"
+
+<chapter-1-002>
+source: "帝下詔問群臣以災異之由，議郎蔡邕上疏，以為蜺墮雞化，乃婦寺干政之所致，言 頗切直。帝覽奏歎息，因起更衣。曹節在後竊視，悉宣告左右。遂以他事陷邕於罪，放 歸田里。後張讓，趙忠，封諝，段珪，曹節，候覽，蹇碩，程曠，夏惲，郭勝十人朋比 為奸，號為「十常侍」。帝尊信張讓，呼為「阿父」，朝政日非，以致天下人心思亂， 盜賊蜂起。"
+target: "The Emperor issued a decree asking his ministers the cause of these calamities. Ts'ai Yung, a Gentleman of the Household, presented a memorial, holding that the fall of the rainbow and the changing of the hen were brought about by the meddling of women and eunuchs in the government; and his words were somewhat blunt and outspoken. When the Emperor had read the memorial he sighed, and rose up to change his garments. Ts'ao Chieh, who was behind him, watched him secretly, and told the whole matter to those about him. Then he involved Ts'ai Yung in guilt by some other affair and had him sent back to his native fields. Afterwards Chang Jang, Chao Chung, Feng Hsü, Tuan Kuei, Ts'ao Chieh, Hou Lan, Chien Shih, Ch'eng K'uang, Hsia Yün, and Kuo Sheng, ten men leagued together in villainy, were known as the Ten Regular Attendants. The Emperor honoured and trusted Chang Jang, and called him 'Papa', so that the government of the court grew daily worse, and the hearts of all under heaven turned towards disorder, and robbers swarmed like bees."
+type: narration
+emotion: [formal, serious, sad]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 2 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 建寧二年四月望日，帝御溫德殿。方陞座，殿角狂風驟起，只見一條大青蛇，從梁 上飛將下來，蟠於椅上。帝驚倒，左右急救入宮，百官俱奔避。須臾，蛇不見了。忽然 大雷大雨，加以冰雹，落到半… Following segment: 時鉅鹿郡有兄弟三人：一名張角，一名張寶，一名張梁。那張角本是個不第秀才。 因入山採藥，遇一老人，碧眼童顏，手執藜杖，喚角至一洞中，以天書三卷授之，曰： 「此名太平要術。汝得之，當…"
+
+<chapter-1-003>
+source: "時鉅鹿郡有兄弟三人：一名張角，一名張寶，一名張梁。那張角本是個不第秀才。 因入山採藥，遇一老人，碧眼童顏，手執藜杖，喚角至一洞中，以天書三卷授之，曰： 「此名太平要術。汝得之，當代天宣化，普救世人；若萌異心，必獲惡報。」角拜問姓 名。老人曰：「吾乃南華老仙也。」言訖，化陣清風而去。"
+target: "At that time there lived in the district of Chü Lu three brothers, whose names were Chang Chiao, Chang Pao, and Chang Liang. Now Chang Chiao was a scholar who had failed in the examinations. Having gone into the mountains to gather herbs, he met an old man with blue eyes and the face of a boy, who carried in his hand a staff of wild pear-wood. The old man called Chang Chiao into a cave, and gave him three rolls of a heavenly book, saying, 'This is called the Book of Great Peace. When you have learned it, you shall proclaim the will of Heaven in My stead and save all mankind. But if you harbour a rebellious heart, you shall surely meet with evil recompense.' Chang Chiao bowed and asked his name. The old man answered, 'I am the Old Immortal of Nan Hua.' Having spoken, he was changed into a gust of clear wind and departed."
+type: narration
+emotion: [formal, serious, curious]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 3 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 帝下詔問群臣以災異之由，議郎蔡邕上疏，以為蜺墮雞化，乃婦寺干政之所致，言 頗切直。帝覽奏歎息，因起更衣。曹節在後竊視，悉宣告左右。遂以他事陷邕於罪，放 歸田里。後張讓，趙忠，封諝… Following segment: 張角聞知事露，星夜舉兵，自稱天公將軍，─張寶稱地公將軍，張梁稱人公將軍─ 。申言於眾曰：「今漢運將終，大聖人出﹔汝等皆宜順從天意，以槳太平。」四方百姓 ，裹黃巾從張角反者，四五十…"
+
+<chapter-1-004>
+source: "張角聞知事露，星夜舉兵，自稱天公將軍，─張寶稱地公將軍，張梁稱人公將軍─ 。申言於眾曰：「今漢運將終，大聖人出﹔汝等皆宜順從天意，以槳太平。」四方百姓 ，裹黃巾從張角反者，四五十萬。賊勢浩大，官軍望風而靡。何進奏帝火速降詔，令各 處備禦，討賊立功；一面遣中郎將盧植，皇甫嵩，朱雋，各引精兵，分三路討之。"
+target: "When Chang Chiao learned that his plans had been discovered, he raised his troops by night and took up arms, calling himself the General of Heaven; Chang Pao styled himself the General of Earth, and Chang Liang the General of Man. He made proclamation to the people, saying, 'The fortune of the Hans is now at an end, and a great sage has appeared. You should all obey the will of Heaven and enjoy the Great Peace together.' The common folk of every quarter wrapped yellow cloth about their heads and followed Chang Chiao in rebellion, to the number of four or five hundred thousand. The rebel host was so mighty that the imperial troops melted away before the mere rumour of their coming. Ho Chin petitioned the Emperor to send down a decree in all haste, ordering every place to prepare its defence and win merit by suppressing the rebels; and at the same time he sent the commandants of the centre, Lu Chih, Huangfu Sung, and Chu Chün, each with picked troops, to march against them in three divisions."
+type: narration
+emotion: [formal, serious, urgent]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 4 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 時鉅鹿郡有兄弟三人：一名張角，一名張寶，一名張梁。那張角本是個不第秀才。 因入山採藥，遇一老人，碧眼童顏，手執藜杖，喚角至一洞中，以天書三卷授之，曰： 「此名太平要術。汝得之，當… Following segment: 且說張角一軍，前犯幽州界分。幽州太守劉焉，乃江夏竟陵人氏，漢魯恭王之後也 ；當時聞得賊兵將至，召校尉鄒靖計議。靖曰：「賊兵眾，我兵寡，明公宜作速招軍應 敵。」劉焉然其說，隨即出榜…"
+
+<chapter-1-005>
+source: "且說張角一軍，前犯幽州界分。幽州太守劉焉，乃江夏竟陵人氏，漢魯恭王之後也 ；當時聞得賊兵將至，召校尉鄒靖計議。靖曰：「賊兵眾，我兵寡，明公宜作速招軍應 敵。」劉焉然其說，隨即出榜招募義兵。榜文行到涿縣，乃引出涿縣中一個英雄。"
+target: "Let us turn now to the army of Chang Chiao, which was advancing to attack the border of Yu Chou. The governor of Yu Chou, Liu Yen, was a man of Ching Ling in Chiang Hsia, and a descendant of Prince Kung of Lu of the House of Han. When he heard that the rebel troops were about to arrive, he called his captain Tsou Ching to take counsel with him. Said Tsou Ching, 'The rebels are many and our troops are few. My lord should lose no time in enlisting men to meet them.' Liu Yen approved his words, and at once issued a proclamation calling for the enlistment of volunteers. The proclamation travelled as far as Cho County, and thereby brought forward a hero of that place."
+type: narration
+emotion: [formal, serious, neutral]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 5 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 張角聞知事露，星夜舉兵，自稱天公將軍，─張寶稱地公將軍，張梁稱人公將軍─ 。申言於眾曰：「今漢運將終，大聖人出﹔汝等皆宜順從天意，以槳太平。」四方百姓 ，裹黃巾從張角反者，四五十… Following segment: 那人不甚好讀書；性寬和，寡言語，喜怒不形於色；素有大志，專好結交天下豪傑 ；生得身長七尺五寸，兩耳垂肩，雙手過膝，目能自顧其耳，面如冠玉，脣若塗脂；中 山靖王劉勝之後，漢景帝閣下…"
+
+<chapter-1-006>
+source: "那人不甚好讀書；性寬和，寡言語，喜怒不形於色；素有大志，專好結交天下豪傑 ；生得身長七尺五寸，兩耳垂肩，雙手過膝，目能自顧其耳，面如冠玉，脣若塗脂；中 山靖王劉勝之後，漢景帝閣下玄孫﹔姓劉，名備，字玄德。昔劉勝之子劉貞，漢武時封 涿鹿亭侯，後坐酬金失侯，因此遺這一枝在涿縣。玄德祖劉雄，父劉弘。弘曾舉孝廉， 亦嘗作吏，早喪。玄德幼孤，事母至孝；家貧，販屨織蓆為業。家住本縣樓桑村。其家 之東南，有一大桑樹，高五丈餘，遙望之，童童如車蓋。相者云：「此家必出貴人。」"
+target: "This man was not greatly given to study, but he was of a mild and generous temper, sparing of speech, and never let joy or anger show upon his face. He had long cherished great ambitions, and took delight above all in making friends with the heroes of the empire. He was seven feet five inches in height; his ears hung down to his shoulders, and his hands reached below his knees; his eyes could turn and see his own ears. His face was as fair as jade, and his lips as though painted with vermilion. He was a descendant of Liu Sheng, Prince Ching of Chungshan, and a great-great-grandson of the Emperor Ching of Han. His surname was Liu, his name Pei, his style Hsüan Te. In former days, Liu Chen, son of Liu Sheng, had been made Marquis of Chuo Lu in the reign of the Emperor Wu, but afterwards lost his marquisate through a fault about the tribute of gold, and so this branch of the family was left in Cho County. Hsüan Te's grandfather was Liu Hsiung, and his father Liu Hung. Liu Hung had been recommended as a Filial and Incorrupt, and had also held office, but he died early. Hsüan Te, left an orphan in childhood, served his mother with the utmost filial piety; the family being poor, he sold straw sandals and wove mats for a living. His home was in the village of Lou Sang in that county. To the southeast of his house stood a great mulberry tree, more than five chang in height; seen from afar, its spreading foliage was like the canopy of a carriage. A physiognomist said, 'A man of noble rank is sure to come forth from this house.'"
+type: narration
+emotion: [formal, serious, hopeful]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 6 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 且說張角一軍，前犯幽州界分。幽州太守劉焉，乃江夏竟陵人氏，漢魯恭王之後也 ；當時聞得賊兵將至，召校尉鄒靖計議。靖曰：「賊兵眾，我兵寡，明公宜作速招軍應 敵。」劉焉然其說，隨即出榜… Following segment: 飛曰：「吾莊後有一桃園，花開正盛；明日當於園中祭告天地，我三人結為兄弟， 協力同心，然後可圖大事。」玄德、雲長、齊聲應曰：「如此甚好。」次日，於桃園中 ，備下烏牛白馬祭禮等項，三…"
+
+<chapter-1-007>
+source: "飛曰：「吾莊後有一桃園，花開正盛；明日當於園中祭告天地，我三人結為兄弟， 協力同心，然後可圖大事。」玄德、雲長、齊聲應曰：「如此甚好。」次日，於桃園中 ，備下烏牛白馬祭禮等項，三人焚香，再拜而說誓曰：「念劉備、關羽、張飛，雖然異 姓，既結為兄弟，則同心協力，救困扶危；上報國家，下安黎庶；不求同年同月同日生 ，但願同年同月同日死。皇天后土，實鑒此心。背義忘恩，天人共戮。」誓畢，拜玄德 為兄，關羽次之，張飛為弟。祭罷天地，復宰牛設酒，聚鄉中勇士，得三百餘人，就桃 園中痛飲一醉。來日收拾軍器，但恨無馬匹可乘。"
+target: "Said Chang Fei, 'Behind my farm there is a peach garden where the flowers are now in full bloom. Tomorrow let us go there and sacrifice to Heaven and Earth, and the three of us will become brothers, of one heart and one strength; and then we may attempt great things.' Hsüan Te and Yün Chang answered with one voice, 'So be it; that is well.' The next day, in the peach garden, they made ready a black ox, a white horse, and all the offerings, and the three burned incense, bowed twice, and made this oath: 'We, Liu Pei, Kuan Yü, and Chang Fei, though of different surnames, being now bound as brothers, will be of one heart and one strength, to rescue the distressed and succour the endangered, to serve the state above and bring peace to the people below. We ask not to be born in the same year, the same month, and the same day, but only to die in the same year, the same month, and the same day. May Heaven above and Earth below truly bear witness to our hearts. If we turn from right and forget gratitude, may Heaven and man alike put us to death.' When the oath was ended, Hsüan Te was made the elder brother, Kuan Yü the next, and Chang Fei the youngest. The sacrifice to Heaven and Earth being over, they slew the ox and set out wine, gathered the brave men of the neighbourhood to the number of more than three hundred, and drank themselves merry in the peach garden. On the morrow they put their weapons in order, but to their regret there was no horse for them to ride."
+type: narration
+emotion: [formal, serious, hopeful]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 7 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 那人不甚好讀書；性寬和，寡言語，喜怒不形於色；素有大志，專好結交天下豪傑 ；生得身長七尺五寸，兩耳垂肩，雙手過膝，目能自顧其耳，面如冠玉，脣若塗脂；中 山靖王劉勝之後，漢景帝閣下… Following segment: 英雄發穎在今朝，一試矛兮一試刀。初出便將威力展，三分好把姓名標。"
+
+<chapter-1-008>
+source: "英雄發穎在今朝，一試矛兮一試刀。初出便將威力展，三分好把姓名標。"
+target: "The hero shines to-day, at last,
+Who tries the spear, who tries the blade;
+At his first sally shows his might,
+And in the Threefold Realm his name is made."
+type: narration
+emotion: [formal, hopeful, serious]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 8 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 飛曰：「吾莊後有一桃園，花開正盛；明日當於園中祭告天地，我三人結為兄弟， 協力同心，然後可圖大事。」玄德、雲長、齊聲應曰：「如此甚好。」次日，於桃園中 ，備下烏牛白馬祭禮等項，三… Following segment: 次日，玄德與鄒靖，引軍鼓譟而進。賊眾迎戰，玄德引軍便退。賊眾乘勢追趕，方 過山嶺，玄德軍中一齊鳴金，左右兩軍齊出，玄德麾軍回身復殺。三路夾攻，賊眾大潰 。直趕至青州城下，太守龔景…"
+
+<chapter-1-009>
+source: "次日，玄德與鄒靖，引軍鼓譟而進。賊眾迎戰，玄德引軍便退。賊眾乘勢追趕，方 過山嶺，玄德軍中一齊鳴金，左右兩軍齊出，玄德麾軍回身復殺。三路夾攻，賊眾大潰 。直趕至青州城下，太守龔景亦率民兵出城助戰。賊勢大敗，剿戮極多，遂解青州之圍 。後人有詩讚玄德曰："
+target: "The next day Hsüan Te and Tsou Ching led their troops forward with beating of drums and loud shouting. The rebel host came out to give battle, and Hsüan Te drew off his men. The rebels pressed on in pursuit, and had no sooner passed the ridge of the hill than the gongs sounded all together in Hsüan Te's camp; the two divisions of the left and right came out at once, and Hsüan Te, wheeling his men about, turned and smote again. Attacked on three sides at once, the rebels were utterly routed. They were pursued right up to the walls of Ch'ing Chou, and the governor Kung Ching also led out the levies of the city to help in the fighting. The rebel power was decisively broken, and very many were slain, and so the siege of Ch'ing Chou was raised. Afterwards a man wrote verses in praise of Hsüan Te, saying:"
+type: narration
+emotion: [formal, serious, joyful]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 9 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 英雄發穎在今朝，一試矛兮一試刀。初出便將威力展，三分好把姓名標。 Following segment: 運籌決算有神功，二虎還須遜一龍。初出便能垂偉績，自應分鼎在孤窮。"
+
+<chapter-1-010>
+source: "運籌決算有神功，二虎還須遜一龍。初出便能垂偉績，自應分鼎在孤窮。"
+target: "In counsel and device the work of gods was his;
+Before one dragon, two tigers must give place.
+At his first sally he great deeds achieved:
+Well was it his, though poor and lone, to share the realm."
+type: narration
+emotion: [formal, hopeful, serious]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 10 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 次日，玄德與鄒靖，引軍鼓譟而進。賊眾迎戰，玄德引軍便退。賊眾乘勢追趕，方 過山嶺，玄德軍中一齊鳴金，左右兩軍齊出，玄德麾軍回身復殺。三路夾攻，賊眾大潰 。直趕至青州城下，太守龔景… Following segment: 龔景犒軍畢，鄒靖欲回。玄德曰：「近聞中郎將盧植與賊首張角戰於廣宗，備昔曾 師事盧植，欲往助之。」於是鄒靖引軍自回，玄德與關、張引本部五百人投廣宗來。至 盧植軍中，入帳施禮，具道來…"
+
+<chapter-1-011>
+source: "龔景犒軍畢，鄒靖欲回。玄德曰：「近聞中郎將盧植與賊首張角戰於廣宗，備昔曾 師事盧植，欲往助之。」於是鄒靖引軍自回，玄德與關、張引本部五百人投廣宗來。至 盧植軍中，入帳施禮，具道來意。盧植大喜，留在帳前聽調。"
+target: "When Kung Ching had finished rewarding the troops, Tsou Ching wished to return. Then said Hsüan Te, 'I have lately heard that the commandant Lu Chih is fighting the rebel leader Chang Chiao at Kuang Tsung. I once studied under Lu Chih, and I wish to go and help him.' So Tsou Ching led his troops back by himself, while Hsüan Te, with Kuan and Chang, took his own five hundred men and went to Kuang Tsung. Arriving in Lu Chih's camp, he entered the tent, made his salutation, and set forth the purpose of his coming. Lu Chih was greatly pleased, and kept him before the tent awaiting orders."
+type: narration
+emotion: [formal, serious, neutral]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 11 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 運籌決算有神功，二虎還須遜一龍。初出便能垂偉績，自應分鼎在孤窮。 Following segment: 時張角賊眾十五萬，植兵五萬，相拒於廣宗，未見勝負。植謂玄德曰：「我今圍賊 在此，賊弟張梁，張寶在潁川，與皇甫嵩、朱雋對壘。汝可引本部人馬，我更助汝一千 官軍，前去潁川打探消息，約…"
+
+<chapter-1-012>
+source: "時張角賊眾十五萬，植兵五萬，相拒於廣宗，未見勝負。植謂玄德曰：「我今圍賊 在此，賊弟張梁，張寶在潁川，與皇甫嵩、朱雋對壘。汝可引本部人馬，我更助汝一千 官軍，前去潁川打探消息，約期剿捕。」玄德領命，引軍星夜投潁川來。時皇甫嵩、朱 雋領軍拒賊，賊戰不利，退入長社，依草結營。嵩與雋計曰：「賊依草結營，當用火攻 之。」遂令軍士，每人束草一把，暗地埋伏。其夜大風忽起。二更以後，一齊縱火，嵩 與雋各引兵攻擊賊寨，火燄張天，賊眾驚慌，馬不及鞍，人不及甲，四散奔走。殺到天 明，張梁、張寶引敗殘軍士，奪路而走。"
+target: "At that time Chang Chiao's rebels numbered one hundred and fifty thousand, while Lu Chih had fifty thousand men; they held each other in check at Kuang Tsung, and neither had yet won the day. Said Lu Chih to Hsüan Te, 'I am holding the rebels penned up here, but the rebel brothers Chang Liang and Chang Pao are at Ying Ch'uan, facing Huangfu Sung and Chu Chün. Do you take your own men, and I will add to them a thousand of the government troops, and go to Ying Ch'uan to find out how matters stand, and to appoint a time for their destruction.' Hsüan Te received the order, and marched his men by night to Ying Ch'uan. At that time Huangfu Sung and Chu Chün were holding the rebels in check, and the rebels, having fared ill in battle, retired into Ch'ang She and pitched their camp among the grass. Said Sung and Chün to one another, 'The rebels have camped among the grass; we should attack them with fire.' So they bade every soldier bind a bundle of grass and lie hidden in ambush. That night a great wind suddenly rose. After the second watch they set fire all together, and Sung and Chün each led their troops to attack the rebel camp. The flames reached to the sky, and the rebels, thrown into a panic, could not saddle their horses nor put on their armour, but scattered and fled in all directions. The slaughter went on till dawn, when Chang Liang and Chang Pao, with the remnant of their beaten troops, cut their way out and fled."
+type: narration
+emotion: [formal, serious, urgent]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 12 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 龔景犒軍畢，鄒靖欲回。玄德曰：「近聞中郎將盧植與賊首張角戰於廣宗，備昔曾 師事盧植，欲往助之。」於是鄒靖引軍自回，玄德與關、張引本部五百人投廣宗來。至 盧植軍中，入帳施禮，具道來… Following segment: 忽見一彪軍馬，盡打紅旗，當頭來到，截往去路。為首閃出一將，身長七尺，細眼 長髯；官拜騎都尉；沛國譙郡人也：姓曹，名操，字孟德。操父曹嵩，本姓夏侯氏；因 為中常侍曹騰之養子，故冒姓…"
+
+<chapter-1-013>
+source: "忽見一彪軍馬，盡打紅旗，當頭來到，截往去路。為首閃出一將，身長七尺，細眼 長髯；官拜騎都尉；沛國譙郡人也：姓曹，名操，字孟德。操父曹嵩，本姓夏侯氏；因 為中常侍曹騰之養子，故冒姓曹。曹嵩生操，小字阿瞞，一名吉利。操幼時，好游獵， 喜歌舞；有權謀，多機變。操有叔父，見操游蕩無度，嘗怒之，言於曹嵩。嵩責操。操 忽心生一計：見叔父來，詐倒於地，作中風之狀。叔父驚告嵩，嵩急視之，操故無恙。 嵩曰：「叔言汝中風，今己愈乎？」操曰：「兒自來無此病；因失愛於叔父，故見罔耳 。」嵩信其言。後叔父但言操過，嵩並不聽。因此，操得恣意放蕩。"
+target: "Suddenly there came into sight a body of horsemen, all bearing red banners, advancing straight towards them and barring the road. From their head there flashed out a general, seven feet in height, with small eyes and a long beard; his rank was that of a cavalry commandant; he was a man of Ch'iao in the kingdom of P'ei. His surname was Ts'ao, his name Ts'ao, his style Meng Te. Ts'ao Ts'ao's father, Ts'ao Sung, was by birth of the Hsiahou family; because he became the adopted son of the eunuch Ts'ao T'eng, he took the surname of Ts'ao. Ts'ao Sung begot Ts'ao Ts'ao, whose boyish name was A-man, and who was also called Chi-li. In his youth Ts'ao Ts'ao loved hunting and delighted in song and dance; he was crafty and full of shifts. Ts'ao Ts'ao had an uncle who, seeing him given up to idleness without measure, was often angry with him and told Ts'ao Sung of it. Sung reproved Ts'ao Ts'ao. Then Ts'ao Ts'ao suddenly conceived a plan: when he saw his uncle coming, he fell to the ground and feigned the appearance of a stroke. His uncle, in alarm, told Sung, and Sung hastened to look at him, but Ts'ao Ts'ao was quite well as before. Said Sung, 'Your uncle said you had a stroke; are you now recovered?' Ts'ao Ts'ao replied, 'I never had such a sickness; it is only because I have lost my uncle's favour that he deceives you about me.' Sung believed his words. Afterwards, whenever his uncle spoke of Ts'ao Ts'ao's faults, Sung would not listen to him. And so Ts'ao Ts'ao was able to give himself up to his wild ways to his heart's content."
+type: narration
+emotion: [objective, formal]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 13 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 時張角賊眾十五萬，植兵五萬，相拒於廣宗，未見勝負。植謂玄德曰：「我今圍賊 在此，賊弟張梁，張寶在潁川，與皇甫嵩、朱雋對壘。汝可引本部人馬，我更助汝一千 官軍，前去潁川打探消息，約… Following segment: 卻說玄德引關、張來潁川，聽得喊殺之聲，又望見火光燭天，急引兵來時，賊已敗 散。玄德見皇甫嵩，朱雋，其道盧植之意。嵩曰：「張梁、張寶勢窮力乏，必投廣宗去 依張角。玄德可即星夜往助。」"
+
+<chapter-1-014>
+source: "卻說玄德引關、張來潁川，聽得喊殺之聲，又望見火光燭天，急引兵來時，賊已敗 散。玄德見皇甫嵩，朱雋，其道盧植之意。嵩曰：「張梁、張寶勢窮力乏，必投廣宗去 依張角。玄德可即星夜往助。」"
+target: "Now when Hsüan Te, with Kuan and Chang, came to Ying Ch'uan, he heard the shouts of battle and saw the flames lighting up the sky; he hurried his troops forward, but by the time he arrived the rebels had already been defeated and scattered. Hsüan Te sought out Huangfu Sung and Chu Chün, and told them Lu Chih's purpose. Said Sung, 'Chang Liang and Chang Pao, at the end of their resources and strength, will surely flee to Kuang Tsung to join Chang Chiao. You, Hsüan Te, should at once march thither by night to help.'"
+type: narration
+emotion: [neutral, formal]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 14 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 忽見一彪軍馬，盡打紅旗，當頭來到，截往去路。為首閃出一將，身長七尺，細眼 長髯；官拜騎都尉；沛國譙郡人也：姓曹，名操，字孟德。操父曹嵩，本姓夏侯氏；因 為中常侍曹騰之養子，故冒姓… Following segment: 玄德領命，遂引兵復回。到得半路，只見一簇軍馬，護送一輛檻車，車中之囚，乃 盧植也。玄德大驚，滾鞍下馬，問其緣故。植曰：「我圍張角，將次可破；因角用妖術 ，未能即勝。朝廷差黃門左豐…"
+
+<chapter-1-015>
+source: "玄德領命，遂引兵復回。到得半路，只見一簇軍馬，護送一輛檻車，車中之囚，乃 盧植也。玄德大驚，滾鞍下馬，問其緣故。植曰：「我圍張角，將次可破；因角用妖術 ，未能即勝。朝廷差黃門左豐前來體探，問我索取賄賂。我答曰：『軍糧尚缺，安有餘 錢奉承天使？』左豐挾恨，回奏朝廷，說我高壘不戰，惰慢軍心；因此朝廷震怒，遣中 郎將董卓來代將我兵，取我回京問罪。」"
+target: "Hsüan Te received the order and led his troops back again. When they had gone half the way, they saw a company of horsemen escorting a prison cart, and the prisoner in the cart was none other than Lu Chih. Hsüan Te was greatly shocked; he slipped from his saddle and dismounted, and asked the reason. Said Lu Chih, 'I was besieging Chang Chiao and was on the point of overcoming him; but because he used sorcery, I could not win an immediate victory. The court sent the eunuch Tso Feng to make inquiry, and he demanded a bribe of me. I answered, "The soldiers' pay is still lacking; how should I have money to spare to give to the Emperor's envoy?" Tso Feng bore the grudge, and on his return reported to the court that I had raised high ramparts and would not fight, and was slackening the spirit of the army. Therefore the court was enraged, and sent the commandant Tung Cho to take command of my troops in my stead, and to bring me back to the capital for trial.'"
+type: narration
+emotion: [serious, sad, formal]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 15 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 卻說玄德引關、張來潁川，聽得喊殺之聲，又望見火光燭天，急引兵來時，賊已敗 散。玄德見皇甫嵩，朱雋，其道盧植之意。嵩曰：「張梁、張寶勢窮力乏，必投廣宗去 依張角。玄德可即星夜往助。」 Following segment: 三人飛馬引軍而出。張角正殺敗董卓，乘勢趕來，忽遇三人衝殺，角軍大亂，敗走 五十餘里。三人救了董卓回寨。卓問三人現居何職。玄德曰：「白身。」卓甚輕之，不 為禮。玄德出，張飛大怒曰：…"
+
+<chapter-1-016>
+source: "三人飛馬引軍而出。張角正殺敗董卓，乘勢趕來，忽遇三人衝殺，角軍大亂，敗走 五十餘里。三人救了董卓回寨。卓問三人現居何職。玄德曰：「白身。」卓甚輕之，不 為禮。玄德出，張飛大怒曰：「我等親赴血戰，救了這廝，他卻如此無禮﹔若不殺之， 難消我氣！」便要提刀入帳來殺董卓。正是：人情勢利古猶今，誰識英雄是白身？安得 快人如翼德，盡誅世上負心人！畢竟董卓性命如何，且看下文分解。"
+target: "The three galloped out with their troops. Chang Chiao had just defeated Tung Cho and was pressing on in pursuit, when of a sudden he met the three charging down upon him; Chang Chiao's army was thrown into confusion and fled more than fifty li. The three rescued Tung Cho and brought him back to the camp. Cho asked them what offices they held. Hsüan Te answered, 'We are common men.' Cho despised them greatly and paid them no courtesy. As Hsüan Te went out, Chang Fei flew into a rage, crying, 'We went ourselves into the bloody fight and saved this fellow, yet he is so rude! If I do not kill him, my anger will never be appeased!' And he would have seized his sword and gone into the tent to kill Tung Cho. Truly:
+
+The world has ever bowed to place and power;
+Who in a common man a hero knows?
+Would we had such a one as I Te now,
+To slay the thankless of the world!
+
+After all, what became of Tung Cho's life, pray read the next chapter."
+type: narration
+emotion: [angry, serious, formal]
+status: initial
+context: "chapter 1 / chapter 1. Paragraph 16 of the chapter, aligned by index and verified (16 of 29 proposals accepted). Preceding segment: 玄德領命，遂引兵復回。到得半路，只見一簇軍馬，護送一輛檻車，車中之囚，乃 盧植也。玄德大驚，滾鞍下馬，問其緣故。植曰：「我圍張角，將次可破；因角用妖術 ，未能即勝。朝廷差黃門左豐…"
+
+[chapter-2]
+context: "Imported from San kuo (Romance of the Three Kingdoms), Chinese original with Brewitt-Taylor's 1925 translation. Document 'chapter-2', 6 segments in their original order; translate them as one continuous document, not as isolated sentences."
+
+<chapter-2-001>
+source: "中平六年，夏四月，靈帝病篤，召大將軍何進入宮，商議後事。那何進起身屠家； 因妹入宮為貴人，生皇子辯，遂立為皇后，進由是得權重任。帝又寵幸王美人，生皇子 協。何后嫉妒，鴆殺王美人。皇子協養於董太后宮中。董太后乃靈帝之母，解瀆亭侯劉 萇之妻也。初因桓帝無子，迎立解瀆亭侯之子，是為靈帝。靈帝入繼大統，遂迎養母氏 於宮中，尊為太后。"
+target: "In the sixth year of Chung P'ing, in the summer, in the fourth month, the Emperor Ling fell gravely ill and summoned the General-in-Chief Ho Chin into the palace to take counsel with him about the succession. Now Ho Chin came of a butcher's family; because his sister entered the palace as a favourite and bore the prince Pien, she was made Empress, and Chin thereby obtained power and high office. The Emperor also favoured Lady Wang, who bore the prince Hsieh. The Empress Ho, in her jealousy, poisoned Lady Wang. The prince Hsieh was brought up in the palace of the Empress Dowager Tung. The Empress Dowager Tung was the mother of the Emperor Ling, and the wife of Liu Ch'ang, Marquis of Chieh Tu T'ing. Formerly, because the Emperor Huan had no son, the son of the Marquis of Chieh Tu T'ing was brought to court and made Emperor, and he was the Emperor Ling. When the Emperor Ling came into the succession, he brought his foster-mother into the palace and honoured her as Empress Dowager."
+type: narration
+emotion: [formal, objective, serious]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 1 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Following segment: 何進聽罷，出謂眾官曰：「蹇碩設謀害我，可族滅其家。其餘不必妄加殘害。」袁 紹曰：「若不斬草除根，必為喪身之本。」進曰：「吾意已決，汝勿多言。」眾官皆退 。"
+
+<chapter-2-002>
+source: "何進聽罷，出謂眾官曰：「蹇碩設謀害我，可族滅其家。其餘不必妄加殘害。」袁 紹曰：「若不斬草除根，必為喪身之本。」進曰：「吾意已決，汝勿多言。」眾官皆退 。"
+target: "When Ho Chin had heard it all, he went out and said to the assembled officers, 'Chien Shih plotted to do me harm; his whole clan should be exterminated. The rest need not be wantonly destroyed.' Said Yüan Shao, 'Unless the grass is cut up by the roots, it will surely be the ruin of us in the end.' Said Chin, 'My mind is made up; say no more.' And all the officers withdrew."
+type: dialogue
+emotion: [angry, serious, urgent]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 2 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Preceding segment: 中平六年，夏四月，靈帝病篤，召大將軍何進入宮，商議後事。那何進起身屠家； 因妹入宮為貴人，生皇子辯，遂立為皇后，進由是得權重任。帝又寵幸王美人，生皇子 協。何后嫉妒，鴆殺王美人。… Following segment: 次日，太后命何進參錄尚書事，其餘皆封官職。董太后宣張讓等入宮商議曰：「何 進之妹，始初我抬舉他。今日他孩兒即皇帝位，內外臣僚，皆其心腹：威權太重，我將 如何？」讓奏曰：「娘娘可臨…"
+
+<chapter-2-003>
+source: "次日，太后命何進參錄尚書事，其餘皆封官職。董太后宣張讓等入宮商議曰：「何 進之妹，始初我抬舉他。今日他孩兒即皇帝位，內外臣僚，皆其心腹：威權太重，我將 如何？」讓奏曰：「娘娘可臨朝，垂簾聽政；封皇子協為王；加國舅董重大官，掌握軍 權；重用臣等：大事可圖矣。」"
+target: "The next day the Empress Dowager appointed Ho Chin to take charge of the Imperial Secretariat, and conferred office and rank on all the others. The Empress Dowager Tung summoned Chang Jang and his fellows into the palace and took counsel with them, saying, 'It was I who first raised the sister of Ho Chin to her place. To-day her son sits on the imperial throne, and all the officers of the court, within and without, are her creatures: her power and authority are too great. What am I to do?' Chang Jang replied, 'Your Highness may hold a court and sit behind the screen to hear the government; you may create the prince Hsieh a prince of the realm; you may give the Empress Dowager's kinsman Tung Chung a great office and put the military power into his hand; and you may give weight to us, your servants: then the great affair may be compassed.'"
+type: dialogue
+emotion: [anxious, formal, serious]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 3 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Preceding segment: 何進聽罷，出謂眾官曰：「蹇碩設謀害我，可族滅其家。其餘不必妄加殘害。」袁 紹曰：「若不斬草除根，必為喪身之本。」進曰：「吾意已決，汝勿多言。」眾官皆退 。 Following segment: 董太后大喜。次日設朝，董太后降旨，封皇子協為陳留王，董重為驃騎將軍，張讓 等共預朝政。何太后見董太后專權，於宮中設一宴，請董太后赴席。酒至半酣，何太后 起身捧盃再拜曰：「我等皆婦…"
+
+<chapter-2-004>
+source: "董太后大喜。次日設朝，董太后降旨，封皇子協為陳留王，董重為驃騎將軍，張讓 等共預朝政。何太后見董太后專權，於宮中設一宴，請董太后赴席。酒至半酣，何太后 起身捧盃再拜曰：「我等皆婦人也，參預朝政，非其所宜。昔呂后因握重權，宗族千口 皆被戮。今我等宜深居九重；朝廷大事，任大臣元老自行商議，此國家之幸也。願垂聽 焉。」董太后大怒曰：「汝鴆死王美人，設心嫉妒。今倚汝子為君，與汝兄何進之勢， 輒敢亂言！吾敕驃騎斷汝兄首，如反掌耳！」何后亦怒曰：「吾以好言相勸，何反怒耶 ？」董后曰：「汝家屠沽小輩，有何見識！」"
+target: "The Empress Dowager Tung was greatly pleased. The next day she held a court, and by her decree created the prince Hsieh Prince of Ch'en Liu, made Tung Chung General of the Flying Cavalry, and gave Chang Jang and his fellows a share in the government. When the Empress Dowager Ho saw the Empress Dowager Tung monopolising the power, she spread a banquet in the palace and invited the Empress Dowager Tung to it. When the wine had gone halfway round, the Empress Dowager Ho rose, raised her cup, bowed twice, and said, 'We are all women, and it is not fitting that we should take part in the government. In former days, because the Empress Lü grasped too great power, a thousand mouths of her clan were put to death. It were well for us now to dwell retired within the palace, and to leave the great affairs of the court to the great ministers and the elders to discuss among themselves. That would be the good fortune of the state. I pray you to hear me.' The Empress Dowager Tung was greatly enraged, saying, 'You poisoned Lady Wang, for your heart is set on jealousy. Now, relying on your son being emperor and on the power of your brother Ho Chin, you dare to prate at random! If I bid the Flying Cavalry cut off your brother's head, it is as easy as turning my hand.' The Empress Ho too was angry, and said, 'I spoke to you in all kindness; why then are you angry?' Said the Empress Tung, 'You are a low creature of butchers and wine-sellers; what insight can you have?'"
+type: dialogue
+emotion: [angry, formal, rude, serious]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 4 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Preceding segment: 次日，太后命何進參錄尚書事，其餘皆封官職。董太后宣張讓等入宮商議曰：「何 進之妹，始初我抬舉他。今日他孩兒即皇帝位，內外臣僚，皆其心腹：威權太重，我將 如何？」讓奏曰：「娘娘可臨… Following segment: 少頃，何進入白后，欲誅中涓。何后曰：「中官統領禁省，漢家故事。先帝新棄天 下，爾欲誅殺舊臣，非重宗廟也。」進本是沒決斷之人，聽太后言，唯唯而出。袁紹迎 問曰：「大事若何？」進曰：…"
+
+<chapter-2-005>
+source: "少頃，何進入白后，欲誅中涓。何后曰：「中官統領禁省，漢家故事。先帝新棄天 下，爾欲誅殺舊臣，非重宗廟也。」進本是沒決斷之人，聽太后言，唯唯而出。袁紹迎 問曰：「大事若何？」進曰：「太后不允，如之奈何？」紹曰：「可召四方英雄人士， 勒兵來京，盡誅閹豎。此時事急，不容太后不從。」進曰：「此計大妙！」便發檄至各 鎮，召赴京師。"
+target: "In a little while Ho Chin went in and told the Empress of his wish to put the eunuchs to death. Said the Empress Ho, 'The eunuchs have charge of the palace, and that is the old custom of the House of Han. The late Emperor has but lately left the world, and you would slay his old servants; that is no way to honour the ancestral temple.' Ho Chin was by nature a man of no decision, so when he heard the Empress Dowager's words he assented and went out. Yüan Shao met him and asked, 'How stands the great affair?' Said Chin, 'The Empress Dowager will not consent; what is to be done?' Said Shao, 'Summon the heroes and men of parts from all quarters, bid them bring their troops to the capital, and put all the eunuchs to death. The times are pressing, and the Empress Dowager cannot but consent.' Said Chin, 'A most excellent plan!' And he at once sent out proclamations to the various garrisons, summoning them to the capital."
+type: narration
+emotion: [anxious, serious, urgent]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 5 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Preceding segment: 董太后大喜。次日設朝，董太后降旨，封皇子協為陳留王，董重為驃騎將軍，張讓 等共預朝政。何太后見董太后專權，於宮中設一宴，請董太后赴席。酒至半酣，何太后 起身捧盃再拜曰：「我等皆婦… Following segment: 主簿陳琳曰：「不可！俗云：『掩目而捕燕雀』，是自欺也。微物尚不可欺以得志 ，況國家大事乎？今將軍仗皇威，掌兵要，龍驤虎步，高下在心：若欲誅宦官，如鼓洪 爐燎毛髮耳。但當速發，行權…"
+
+<chapter-2-006>
+source: "主簿陳琳曰：「不可！俗云：『掩目而捕燕雀』，是自欺也。微物尚不可欺以得志 ，況國家大事乎？今將軍仗皇威，掌兵要，龍驤虎步，高下在心：若欲誅宦官，如鼓洪 爐燎毛髮耳。但當速發，行權立斷，則天人順之﹔卻反外檄大臣，臨犯京闕，英雄聚會 ，各懷一心：所謂倒持干戈，授人以柄，功必一成，反生亂矣。」何進笑曰：「此懦夫 之見也！」傍邊一人鼓掌大笑曰：「此事易如反掌，何必多議！」視之，乃曹操也。正 是：欲除君側宵人亂，須聽朝中智士謀。不知曹操說出甚話來，且聽下文分解。"
+target: "The Registrar Ch'en Lin said, 'That will not do. As the saying goes, "To shut the eyes and catch sparrows" — that is to deceive oneself. If one cannot get one's way even in a small matter by deceit, how much less in the great affairs of state? Now, General, you rely on the imperial majesty and hold the military power; you stride like a dragon and a tiger, and the high and the low are in your hand. If you wish to put the eunuchs to death, it is as easy as blowing a great furnace to burn a hair. You need only act quickly, exercise your authority and decide at once, and Heaven and men will follow you. But instead you would send proclamations to the great ministers without, and bring them to the very gates of the capital. The heroes will gather together, each with a mind of his own: this is what is called "holding the spear reversed and giving the handle to another." The deed may be accomplished, but disorder will arise from it.' Ho Chin laughed and said, 'That is the view of a coward!' And a man who stood by clapped his hands and laughed aloud, saying, 'This affair is as easy as turning one's hand; why all this talk?' They looked at him, and it was no other than Ts'ao Ts'ao. Truly:
+
+Who would the vermin round the throne remove,
+Must heed the counsel of the court's wise men.
+
+What words Ts'ao Ts'ao spoke, listen to the next chapter."
+type: narration
+emotion: [serious, urgent, formal]
+status: initial
+context: "chapter 2 / chapter 2. Paragraph 6 of the chapter, aligned by index and verified (6 of 28 proposals accepted). Preceding segment: 少頃，何進入白后，欲誅中涓。何后曰：「中官統領禁省，漢家故事。先帝新棄天 下，爾欲誅殺舊臣，非重宗廟也。」進本是沒決斷之人，聽太后言，唯唯而出。袁紹迎 問曰：「大事若何？」進曰：…"
+
+CLIFF 1.1
+namespace: clarion
+clan: sanguo-brewitt-taylor-terms
+source-language: zh-CN
+target-language: en-US
+variant: glossary
+title: "Romance of the Three Kingdoms (Brewitt-Taylor style) — term glossary"
+info: "Terminology recorded while translating chapters 1-2. Names, titles and set phrases are rendered in Wade-Giles as in the 1925 Brewitt-Taylor translation, so that the rendering used here can be applied consistently across the whole novel."
+standard: "One term per entry. source is the Chinese term; target is the rendering used in the translated file. Names are given in Wade-Giles. Do not translate the same name differently; do not localise titles beyond the established English equivalents."
+
+[terms]
+context: "Naming and terminology policy for the translated chapters 1-2. Fixed renderings for personal names, official titles and set phrases."
+
+<liu-pei>
+source: "劉備"
+target: "Liu Pei"
+type: proper-noun
+status: final
+context: "The hero of the novel. Style 玄德 = Hsüan Te; rendered as 'Hsüan Te' in narration and as 'Liu Pei' when the full name is used."
+
+<kuan-yu>
+source: "關羽"
+target: "Kuan Yü"
+type: proper-noun
+status: final
+context: "Sworn brother of Liu Pei. Style 雲長 = Yün Chang. Given as 'Kuan Yü' formally and 'Yün Chang' in address."
+
+<chang-fei>
+source: "張飛"
+target: "Chang Fei"
+type: proper-noun
+status: final
+context: "Sworn brother of Liu Pei. Style 翼德 = I Te; used in the chapter-end verse."
+
+<tsao-tsao>
+source: "曹操"
+target: "Ts'ao Ts'ao"
+type: proper-noun
+status: final
+context: "Style 孟德 = Meng Te; boyish name 阿瞞 = A-man, also called 吉利 = Chi-li."
+
+<chang-chiao>
+source: "張角"
+target: "Chang Chiao"
+type: proper-noun
+status: final
+context: "Leader of the Yellow Turban rebellion; title 天公將軍 = General of Heaven."
+
+<chang-pao>
+source: "張寶"
+target: "Chang Pao"
+type: proper-noun
+status: final
+context: "Brother of Chang Chiao; title 地公將軍 = General of Earth."
+
+<chang-liang>
+source: "張梁"
+target: "Chang Liang"
+type: proper-noun
+status: final
+context: "Brother of Chang Chiao; title 人公將軍 = General of Man."
+
+<lu-chih>
+source: "盧植"
+target: "Lu Chih"
+type: proper-noun
+status: final
+context: "Commandant of the centre; Liu Pei's former teacher."
+
+<huangfu-sung>
+source: "皇甫嵩"
+target: "Huangfu Sung"
+type: proper-noun
+status: final
+context: "Commandant of the centre fighting the rebels at Ying Ch'uan."
+
+<chu-chun>
+source: "朱雋"
+target: "Chu Chün"
+type: proper-noun
+status: final
+context: "Commandant of the centre fighting the rebels at Ying Ch'uan."
+
+<tung-cho>
+source: "董卓"
+target: "Tung Cho"
+type: proper-noun
+status: final
+context: "Commandant sent to replace Lu Chih; later a dominant warlord. Note the Wade-Giles 'Cho' here differs from 涿 (Chuo/Cho County)."
+
+<ho-chin>
+source: "何進"
+target: "Ho Chin"
+type: proper-noun
+status: final
+context: "General-in-Chief; brother of the Empress Ho."
+
+<yuan-shao>
+source: "袁紹"
+target: "Yüan Shao"
+type: proper-noun
+status: final
+context: "Counselor to Ho Chin; later a great warlord."
+
+<kung-ching>
+source: "龔景"
+target: "Kung Ching"
+type: proper-noun
+status: final
+context: "Governor of Ch'ing Chou."
+
+<tsou-ching>
+source: "鄒靖"
+target: "Tsou Ching"
+type: proper-noun
+status: final
+context: "Captain under Liu Yen, governor of Yu Chou."
+
+<liu-yen>
+source: "劉焉"
+target: "Liu Yen"
+type: proper-noun
+status: final
+context: "Governor of Yu Chou; descendant of Prince Kung of Lu."
+
+<tsao-sung>
+source: "曹嵩"
+target: "Ts'ao Sung"
+type: proper-noun
+status: final
+context: "Father of Ts'ao Ts'ao; by birth of the Hsiahou family, adopted by the eunuch Ts'ao T'eng."
+
+<tsai-yung>
+source: "蔡邕"
+target: "Ts'ai Yung"
+type: proper-noun
+status: final
+context: "Gentleman of the Household who memorialised on the evil omens."
+
+<chang-jang>
+source: "張讓"
+target: "Chang Jang"
+type: proper-noun
+status: final
+context: "Chief of the Ten Regular Attendants; called 'Papa' by the Emperor Ling."
+
+<chen-lin>
+source: "陳琳"
+target: "Ch'en Lin"
+type: proper-noun
+status: final
+context: "Registrar who advises Ho Chin against summoning the provincial lords."
+
+<emperor-ling>
+source: "靈帝"
+target: "the Emperor Ling"
+type: noun-phrase
+status: final
+context: "Reigning emperor at the opening of the novel; 'Emperor' is capitalised as a title, 'the Emperor' when standing alone."
+
+<empress-dowager-tung>
+source: "董太后"
+target: "the Empress Dowager Tung"
+type: noun-phrase
+status: final
+context: "Mother of the Emperor Ling; a rival of the Empress Ho."
+
+<empress-dowager-ho>
+source: "何太后"
+target: "the Empress Dowager Ho"
+type: noun-phrase
+status: final
+context: "Sister of Ho Chin and mother of the prince Pien."
+
+<ten-regular-attendants>
+source: "十常侍"
+target: "the Ten Regular Attendants"
+type: noun-phrase
+status: final
+context: "Set phrase for the ten eunuchs leagued in villainy; capitalised as a body."
+
+<yellow-turbans>
+source: "黃巾"
+target: "the Yellow Turbans"
+type: noun-phrase
+status: final
+context: "The rebels who bound yellow cloth about their heads and followed Chang Chiao."
+
+<book-of-great-peace>
+source: "太平要術"
+target: "the Book of Great Peace"
+type: noun-phrase
+status: final
+context: "The heavenly book given to Chang Chiao by the Old Immortal of Nan Hua."
+
+<old-immortal-of-nan-hua>
+source: "南華老仙"
+target: "the Old Immortal of Nan Hua"
+type: noun-phrase
+status: final
+context: "The blue-eyed old man who bestows the Book of Great Peace."
+
+<general-of-heaven>
+source: "天公將軍"
+target: "the General of Heaven"
+type: noun-phrase
+status: final
+context: "Title taken by Chang Chiao; paired with General of Earth (地公將軍) and General of Man (人公將軍)."
+
+<commandant-of-the-centre>
+source: "中郎將"
+target: "commandant of the centre"
+type: noun-phrase
+status: final
+context: "Military title; lower-case as a common noun when attached to a name."
+
+<general-in-chief>
+source: "大將軍"
+target: "General-in-Chief"
+type: noun-phrase
+status: final
+context: "Ho Chin's office; hyphenated and capitalised."
+
+<governor>
+source: "太守"
+target: "governor"
+type: noun-phrase
+status: final
+context: "Civil office, as of Liu Yen of Yu Chou and Kung Ching of Ch'ing Chou."
+
+<registrar>
+source: "主簿"
+target: "Registrar"
+type: noun-phrase
+status: final
+context: "Office of Ch'en Lin; capitalised as a title before a name."
+
+<cho-county>
+source: "涿縣"
+target: "Cho County"
+type: proper-noun
+status: final
+context: "Liu Pei's native place. Wade-Giles 'Cho'; kept distinct from 董卓 Tung Cho by the English word 'County'."
+
+<kuang-tsung>
+source: "廣宗"
+target: "Kuang Tsung"
+type: proper-noun
+status: final
+context: "Place where Lu Chih besieges Chang Chiao."
+
+<ying-chuan>
+source: "潁川"
+target: "Ying Ch'uan"
+type: proper-noun
+status: final
+context: "Place where Huangfu Sung and Chu Chün fight Chang Liang and Chang Pao."
+
+<loyang>
+source: "洛陽"
+target: "Loyang"
+type: proper-noun
+status: final
+context: "The Han capital; spelt without a hyphen."
+
+<chung-ping>
+source: "中平"
+target: "Chung P'ing"
+type: proper-noun
+status: final
+context: "Reign-period name; used with 'the Nth year of' as in the source."
+
+<hsuan-te>
+source: "玄德"
+target: "Hsüan Te"
+type: proper-noun
+status: final
+context: "Style of Liu Pei, used throughout the narrative in place of the full name."
+
+<yun-chang>
+source: "雲長"
+target: "Yün Chang"
+type: proper-noun
+status: final
+context: "Style of Kuan Yü."
+
+<i-te>
+source: "翼德"
+target: "I Te"
+type: proper-noun
+status: final
+context: "Style of Chang Fei; used in the chapter-end verse."
+
+<plain-man>
+source: "白身"
+target: "a common man"
+type: noun-phrase
+status: final
+context: "Ho Chin's contemptuous word for one without office; rendered 'a common man' rather than 'a commoner' to keep the sneer, and 'in a common man' in the verse."
+
+<cut-up-by-the-roots>
+source: "斬草除根"
+target: "cut up by the roots"
+type: fixed-phrase
+status: final
+context: "Yüan Shao's proverb; kept as an image rather than replaced by an English idiom."
+
+<easy-as-turning-the-hand>
+source: "易如反掌"
+target: "as easy as turning my hand"
+type: idiom
+status: final
+context: "Used twice, once by the Empress Dowager Tung and once of Ts'ao Ts'ao's judgement, so the same rendering is kept both times."

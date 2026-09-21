@@ -1,0 +1,46 @@
+{
+  "dialog": {
+    "ash-and-flint": {
+      "ash-greets-flint": "弗林特，你还欠我一柄像样的剑。",
+      "flint-replies-ash": "阿什，就算熔炉都冻住了，你也拿不稳一块磨刀石。",
+      "ash-fearful": "弗林特，寒霜在动。我看见它呼吸了。",
+      "flint-angry": "是你点燃了那点火星，阿什，现在整个山谷都要为此付出代价。",
+      "flint-calls-ash": "阿什！离墙远点——它要穿过来了！",
+      "ash-grateful": "弗林特，别人都不肯，你却为我锻造了一个名号。谢谢你。",
+      "flint-polite-threat": "当然，欢迎你再试一次。我甚至可以为你扶着门。"
+    }
+  },
+  "monologue": {
+    "ash": {
+      "monologue-ash-fire": "我胸中的火焰有自己的记忆。它能在寒冷到来之前感知到寒冷，而且它感到害怕。",
+      "monologue-ash-name": "弗林特说，名字是一个把手，不是一面镜子。但名字仍然可以是你对自己许下的承诺。"
+    }
+  },
+  "skills": {
+    "items": {
+      "skill-ember-burst": "余烬爆发",
+      "skill-frost-whip": "寒霜之鞭",
+      "skill-cinder-sidestep": "灰烬侧步",
+      "skill-thorn-snare": "荆棘陷阱",
+      "item-emberbloom-tonic": "余烬花补剂",
+      "item-axe-pun-desc": "这把巨斧真能让人头痛欲裂——挥一斧，争论就结束了。"
+    }
+  },
+  "tutorial": {
+    "system": {
+      "tutorial-loot": "按 [F] 拾取。",
+      "combat-log-damage": "{count, plural, one {# 点伤害} other {# 点伤害}}",
+      "faction-claim": "{faction, select, emberborn {余烬之子将你收入名册。} frostward {霜卫将你收入名册。} other {没有阵营将你收入名册。}}",
+      "hit-taken": "你受到来自寒霜的 {damage} 点伤害。",
+      "welcome-name": "欢迎回来，{playerName}。",
+      "settings-cache": "清除缓存并恢复默认设置",
+      "tutorial-regen": "饮用后在 10 秒内恢复 40 点生命值。"
+    }
+  },
+  "cutscene": {
+    "subtitles": {
+      "subtitle-frost": "寒霜不会宽恕。",
+      "sfx-ember-crackle": "[轻柔的余烬噼啪声]"
+    }
+  }
+}

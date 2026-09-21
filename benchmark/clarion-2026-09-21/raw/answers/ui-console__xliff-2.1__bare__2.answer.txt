@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.ui-console" original="clarion.ui-console">
+    <group id="nav">
+      <unit id="billing">
+        <segment state="translated">
+          <source>Billing</source>
+          <target>账单</target>
+        </segment>
+      </unit>
+      <unit id="streaming">
+        <segment state="translated">
+          <source>Streaming</source>
+          <target>流媒体</target>
+        </segment>
+      </unit>
+      <unit id="workspaces">
+        <segment state="translated">
+          <source>Workspaces</source>
+          <target>工作区</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="billing">
+      <unit id="billing-rate">
+        <segment state="translated">
+          <source>Billing rate</source>
+          <target>计费费率</target>
+        </segment>
+      </unit>
+      <unit id="no-invoices">
+        <segment state="translated">
+          <source>No invoices yet</source>
+          <target>暂无账单</target>
+        </segment>
+      </unit>
+      <unit id="payment-failed">
+        <segment state="translated">
+          <source>Payment failed</source>
+          <target>支付失败</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="streaming">
+      <unit id="stream-key">
+        <segment state="translated">
+          <source>Stream key</source>
+          <target>推流密钥</target>
+        </segment>
+      </unit>
+      <unit id="frame-rate">
+        <segment state="translated">
+          <source>Frame rate</source>
+          <target>帧率</target>
+        </segment>
+      </unit>
+      <unit id="resolution">
+        <segment state="translated">
+          <source>Resolution</source>
+          <target>分辨率</target>
+        </segment>
+      </unit>
+      <unit id="add-to-workspace">
+        <segment state="translated">
+          <source>Add to workspace</source>
+          <target>添加到工作区</target>
+        </segment>
+      </unit>
+      <unit id="stream-failed">
+        <segment state="translated">
+          <source>Stream failed to start</source>
+          <target>推流启动失败</target>
+        </segment>
+      </unit>
+      <unit id="stream-summary">
+        <segment state="translated">
+          <source>{count, plural, other {# streams}} across {regions, plural, other {# regions}}</source>
+          <target>{count, plural, other {# 个流}}，分布在 {regions, plural, other {# 个区域}}</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="settings">
+      <unit id="restore-defaults">
+        <segment state="translated">
+          <source>Restore defaults</source>
+          <target>恢复默认值</target>
+        </segment>
+      </unit>
+      <unit id="clear-cache">
+        <segment state="translated">
+          <source>Clear cache</source>
+          <target>清除缓存</target>
+        </segment>
+      </unit>
+      <unit id="latency">
+        <segment state="translated">
+          <source>Latency</source>
+          <target>延迟</target>
+        </segment>
+      </unit>
+      <unit id="api-token">
+        <segment state="translated">
+          <source>API token</source>
+          <target>API Token</target>
+        </segment>
+      </unit>
+      <unit id="request-rate-limit">
+        <segment state="translated">
+          <source>Request rate limit</source>
+          <target>请求速率限制</target>
+        </segment>
+      </unit>
+      <unit id="status-line">
+        <segment state="translated">
+          <source>Region: %s</source>
+          <target>区域：%s</target>
+        </segment>
+      </unit>
+      <unit id="cache-description">
+        <segment state="translated">
+          <source>Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.</source>
+          <target>缓存响应会保留 24 小时，并在过期之前持续复用。清除缓存后，每个请求都会重新回源。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="onboarding">
+      <unit id="create-workspace">
+        <segment state="translated">
+          <source>Create new workspace</source>
+          <target>新建工作区</target>
+        </segment>
+      </unit>
+      <unit id="welcome-back">
+        <segment state="translated">
+          <source>Welcome back to Harborline, {name}</source>
+          <target>欢迎回到 Harborline，{name}</target>
+        </segment>
+      </unit>
+      <unit id="workspace-count">
+        <segment state="translated">
+          <source>{count, plural, one {# workspace} other {# workspaces}}</source>
+          <target>{count, plural, one {# 个工作区} other {# 个工作区}}</target>
+        </segment>
+      </unit>
+      <unit id="delete-confirm">
+        <segment state="translated">
+          <source>Delete this workspace? This cannot be undone.</source>
+          <target>要删除此工作区吗？此操作无法撤销。</target>
+        </segment>
+      </unit>
+      <unit id="close-dialog">
+        <segment state="translated">
+          <source>Close dialog</source>
+          <target>关闭对话框</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

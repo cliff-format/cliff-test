@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "scene.arrival.open-house-lights"
+msgid "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+msgstr "观众席的灯全灭了。一盏工作灯在舞台前区亮着，尘埃在它的光柱里缓缓翻涌。"
+
+msgctxt "scene.arrival.enter-cassian"
+msgid "I could find this stage in my sleep."
+msgstr "这个舞台，我闭着眼睛都能找到。"
+
+msgctxt "scene.arrival.lit-01a"
+msgid "You came back."
+msgstr "你回来了。"
+
+msgctxt "scene.arrival.lit-01b"
+msgid "You came back."
+msgstr "你回来了。"
+
+msgctxt "scene.arrival.reply-cassian"
+msgid "The call board still has my name spelled wrong."
+msgstr "演员通告板上，我的名字到现在还是拼错的。"
+
+msgctxt "scene.confrontation.motif-promise"
+msgid "This theatre kept its promises. People did not."
+msgstr "这座剧院信守承诺。人却没有。"
+
+msgctxt "scene.confrontation.lit-02a"
+msgid "Wonderful. Just wonderful."
+msgstr "好极了。真是好极了。"
+
+msgctxt "scene.confrontation.lit-02b"
+msgid "Wonderful. Just wonderful."
+msgstr "好极了。真是好极了。"
+
+msgctxt "scene.confrontation.callback-promise"
+msgid "You said the theatre kept its promises."
+msgstr "你说过，剧院是信守承诺的。"
+
+msgctxt "scene.confrontation.address-early"
+msgid "Mr. Vale, the call is in five minutes."
+msgstr "维尔先生，距离开演还有五分钟。"
+
+msgctxt "scene.confrontation.address-late"
+msgid "Cassian. Please. Sit down."
+msgstr "卡西安。拜托。坐下。"
+
+msgctxt "scene.confrontation.lit-03a"
+msgid "She turns the lamp toward him."
+msgstr "她把灯转向他。"
+
+msgctxt "scene.confrontation.lit-03b"
+msgid "She turns the lamp toward him."
+msgstr "她把灯转向他。"
+
+msgctxt "scene.house.roof-year"
+msgid "The roof has not been touched since 1974."
+msgstr "屋顶从 1974 年起就没人动过。"
+
+msgctxt "scene.house.lamp-count"
+msgid "Two 500-watt lamps, and a fuse box older than both of us."
+msgstr "两盏 500 瓦的灯，还有一个比我们俩年纪都大的保险丝盒。"
+
+msgctxt "scene.house.venue-name"
+msgid "The Halloway does not close tonight. It closes when the last person leaves."
+msgstr "哈洛威今晚不会关门。它要等到最后一个人离开时才关。"
+
+msgctxt "scene.house.board-default"
+msgid "Use the default setting on the board and do not touch anything else."
+msgstr "用控制板上的默认设置，别的什么都别碰。"
+
+msgctxt "scene.house.disbelief"
+msgid "Are you serious? Now? After everything?"
+msgstr "你是认真的？现在？经历了这么多之后？"
+
+msgctxt "scene.monologue.monologue-open"
+msgid "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+msgstr "我扫这块地板的次数，比在自己床上睡觉的次数还多。我知道哪块地板会被壮实的演员踩得吱呀作响，哪块会被轻的人一踩就塌。只要你待得够久，一栋建筑就会慢慢认识你。"
+
+msgctxt "scene.monologue.monologue-turn"
+msgid "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+msgstr "然后某天晚上，灯没有亮起来，你才发现这栋建筑其实什么都没学会。"
+
+msgctxt "scene.verse.verse-01"
+msgid "The lamps go dark, the boards remain."
+msgstr "灯熄灭了，地板仍在。"
+
+msgctxt "scene.verse.verse-02"
+msgid "The players go, the play remains."
+msgstr "演员离开了，戏还在。"
+
+msgctxt "scene.verse.final-direction"
+msgid "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+msgstr "她伸手关掉工作灯。一片黑暗，随后是大门关上的声音。"

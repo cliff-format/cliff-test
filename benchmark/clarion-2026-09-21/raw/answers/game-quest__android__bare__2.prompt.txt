@@ -1,0 +1,111 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an Android strings.xml resource. Replace the text of every
+string element with its translation and keep the name attribute and the
+comments unchanged. Escape apostrophes as \' as Android requires.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.-->
+    <string name="brief-tide-run">The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night.</string>
+    <!--cliff:source: Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.-->
+    <string name="brief-ninth-light">Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark.</string>
+    <!--cliff:source: Willow's Last Watch-->
+    <string name="quest-title-last-watch">Willow's Last Watch</string>
+    <!--cliff:source: Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.-->
+    <string name="journal-note-order">Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off.</string>
+    <!--cliff:source: Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.-->
+    <string name="brief-warning-fog">Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier.</string>
+    <!--cliff:source: Deliver the Sealed Manifest to Marrow-->
+    <string name="objective-03a">Deliver the Sealed Manifest to Marrow</string>
+    <!--cliff:source: Deliver the Sealed Manifest to Marrow-->
+    <string name="objective-03b">Deliver the Sealed Manifest to Marrow</string>
+    <!--cliff:source: Restore Power to the Tide Gate-->
+    <string name="objective-04a">Restore Power to the Tide Gate</string>
+    <!--cliff:source: Restore Power to the Tide Gate-->
+    <string name="objective-04b">Restore Power to the Tide Gate</string>
+    <!--cliff:source: Relight the Ninth Light before the ebb-->
+    <string name="objective-relight">Relight the Ninth Light before the ebb</string>
+    <!--cliff:source: {secured, plural, one {# crate secured} other {# crates secured}}-->
+    <string name="objective-count-crates">{secured, plural, one {# crate secured} other {# crates secured}}</string>
+    <!--cliff:source: Check the mooring lines on the east pier-->
+    <string name="objective-check-lines">Check the mooring lines on the east pier</string>
+    <!--cliff:source: Hand me the lantern, friend.-->
+    <string name="hail-01a">Hand me the lantern, friend.</string>
+    <!--cliff:source: Hand me the lantern, friend.-->
+    <string name="hail-01b">Hand me the lantern, friend.</string>
+    <!--cliff:source: Marrow says the dock is open to you.-->
+    <string name="hail-02a">Marrow says the dock is open to you.</string>
+    <!--cliff:source: Marrow says the dock is open to you.-->
+    <string name="hail-02b">Marrow says the dock is open to you.</string>
+    <!--cliff:source: Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.-->
+    <string name="dialogue-willow-keeps">Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil.</string>
+    <!--cliff:source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.-->
+    <string name="dialogue-burn-it">Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing.</string>
+    <!--cliff:source: The Ninth Light is yours to keep now. Do not make me regret the hand-over.-->
+    <string name="success-echo">The Ninth Light is yours to keep now. Do not make me regret the hand-over.</string>
+    <!--cliff:source: The gate holds. Whatever you did down there, the water is going where it should.-->
+    <string name="line-success-tide">The gate holds. Whatever you did down there, the water is going where it should.</string>
+    <!--cliff:source: The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.-->
+    <string name="line-failure-tide">The gate is jammed and the pier is under water. Come back when the tide drops and we will try again.</string>
+    <!--cliff:source: The relay grid is robust: one failed beacon does not break the chain.-->
+    <string name="item-relay-grid-desc">The relay grid is robust: one failed beacon does not break the chain.</string>
+    <!--cliff:source: One flask feeds the lamp for 30 minutes at the default wick height.-->
+    <string name="item-lamp-oil-desc">One flask feeds the lamp for 30 minutes at the default wick height.</string>
+    <!--cliff:source: A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.-->
+    <string name="item-fog-lamp-desc">A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one.</string>
+    <!--cliff:source: Marrow's Debt-->
+    <string name="achv-marrow-debt">Marrow's Debt</string>
+    <!--cliff:source: Nine Nights, Nine Lights-->
+    <string name="achv-nine-nights">Nine Nights, Nine Lights</string>
+    <!--cliff:source: Fair tide, {playerName}. Your last run ended 3 days ago.-->
+    <string name="system-welcome-runner">Fair tide, {playerName}. Your last run ended 3 days ago.</string>
+    <!--cliff:source: Hold [E] to raise the lantern; press [Q] to signal.-->
+    <string name="system-keybind-lantern">Hold [E] to raise the lantern; press [Q] to signal.</string>
+    <!--cliff:source: Signal range: 120 m in fog, 400 m in clear air.-->
+    <string name="system-signal-range">Signal range: 120 m in fog, 400 m in clear air.</string>
+    <!--cliff:source: {state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}-->
+    <string name="system-quest-state">{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}</string>
+</resources>

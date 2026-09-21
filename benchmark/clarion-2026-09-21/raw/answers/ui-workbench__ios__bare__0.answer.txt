@@ -1,0 +1,64 @@
+/* cliff:source: Scratch tables */
+"nav-scratch-tables" = "暂存表";
+/* cliff:source: Quarry */
+"mode-01a" = "采掘";
+/* cliff:source: Quarry */
+"mode-01b" = "采掘";
+/* cliff:source: Volume */
+"term-02a" = "数据量";
+/* cliff:source: Volume */
+"term-02b" = "数据量";
+/* cliff:source: Scale */
+"term-03a" = "规模";
+/* cliff:source: Scale */
+"term-03b" = "规模";
+/* cliff:source: Refresh the sample */
+"mode-04a" = "刷新样本";
+/* cliff:source: Refresh the sample */
+"mode-04b" = "刷新样本";
+/* cliff:source: Save the current view as a preset */
+"slot-05a" = "将当前视图保存为预设";
+/* cliff:source: Save the current view as a preset */
+"slot-05b" = "将当前视图保存为预设";
+/* cliff:source: Compare with the previous run */
+"slot-06a" = "与上一次运行进行比较";
+/* cliff:source: Compare with the previous run */
+"slot-06b" = "与上一次运行进行比较";
+/* cliff:source: Step 3 sets the row limit, so do not raise it before you have run step 2 at least once. */
+"note-step-order" = "第 3 步会设置行数限制，因此在至少运行过一次第 2 步之前，请不要提高该限制。";
+/* cliff:source: {rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}} */
+"msg-row-count" = "{rows, plural, one {# 行已复制到暂存表} other {# 行已复制到暂存表}}";
+/* cliff:source: {state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}} */
+"msg-table-state" = "{state, select, ready {暂存表已就绪} building {正在构建暂存表} other {暂存表创建失败}}";
+/* cliff:source: Welcome back, {name}. Your last run took 12 minutes. */
+"msg-welcome-back" = "欢迎回来，{name}。你上次运行耗时 12 分钟。";
+/* cliff:source: {state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}} */
+"msg-job-outcome" = "{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}";
+/* cliff:source: The scratch table could not be created because the sample is still loading. */
+"msg-sample-loading" = "无法创建暂存表，因为样本仍在加载。";
+/* cliff:source: Nothing is pinned to this board yet. Open a chart and pin it here. */
+"msg-board-empty" = "此看板尚未固定任何内容。打开图表并将其固定到这里。";
+/* cliff:source: Chart updated */
+"cue-chart-updated" = "图表已更新";
+/* cliff:source: A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out. */
+"help-scratch-table" = "暂存表是你自己的结果集副本。它存在于当前浏览器标签页中，绝不会与团队共享，并且会在你退出登录时被丢弃。";
+/* cliff:source: Empty it before you leave the page, or the next run starts from rows that are already stale. */
+"help-empty-before-run" = "在离开页面之前清空它，否则下一次运行会从已经过时的行开始。";
+/* cliff:source: Once it is pinned, the chart stays on the board until someone takes it down. */
+"help-board-pin" = "图表一经固定，就会一直保留在看板上，直到有人将其移除。";
+/* cliff:source: Press the up and down arrows to move through the rows without taking your hands off the keyboard. */
+"help-keyboard-rows" = "按上下方向键在行之间移动，无需将手离开键盘。";
+/* cliff:source: A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back. */
+"help-archive" = "一个月未打开的图表会自动移至归档页面。不会删除任何内容，再次打开即可恢复。";
+/* cliff:source: New charts open with the default time window until you pin one of your own. */
+"set-time-window" = "在固定你自己的时间窗口之前，新图表会以默认时间窗口打开。";
+/* cliff:source: Charts are exported at the screen resolution, or at 2x for print. */
+"set-export-resolution" = "图表以屏幕分辨率导出，打印时则以 2 倍分辨率导出。";
+/* cliff:source: Charts read from the cache first, which keeps latency under half a second on a normal connection. */
+"set-cache-latency" = "图表会首先从缓存读取，这使正常连接下的延迟保持在半秒以内。";
+/* cliff:source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory. */
+"set-throughput" = "吞吐量约为每秒 1,200 行，集群会在内存中保留其中 30 GB。";
+/* cliff:source: Scratch tables are kept for 7 days and are then removed without a warning. */
+"set-retention" = "暂存表会保留 7 天，之后将被移除，且不会发出警告。";
+/* cliff:source: Times on this page follow the workspace time zone, not the time zone of your browser. */
+"set-timezone" = "此页面上的时间遵循工作区时区，而不是浏览器所在时区。";

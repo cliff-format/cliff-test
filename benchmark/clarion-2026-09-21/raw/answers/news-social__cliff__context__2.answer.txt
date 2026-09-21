@@ -1,0 +1,315 @@
+CLIFF 1.1
+namespace: clarion
+clan: news-social
+source-language: en-US
+target-language: zh-CN
+title: "一条电车线路开通当天的城市社交动态：帖子、回复、通知和评论"
+info: "来自虚构城市萨布尔威克的一天社交媒体内容：一条名叫“河畔环线”的新电车线路刚刚开通。受众：公共社交平台的普通用户，以及在本地新闻网站下留言的读者。材料包括帖子、帖子回复、应用内通知和读者评论，用的是当下随意的口语；账号名、话题标签、emoji 和消息参数都是文本的一部分，属于平台，不属于句子。"
+standard: "zh-CN 内部规范：汉字与拉丁字母或数字之间加一个空格，汉语句内使用全角标点，不用教科书式术语。@ 账号、话题标签和 emoji 一律照原文原样保留，位置不变。当下网络俚语用同样当行的汉语说法，不要逐字直译。保留发帖的随口感，不要升格成新闻腔。情绪标签要通过措辞、语气词和标点体现，不能译成中性表达。保留 ICU 参数、参数名及其结构。同一线路名、地名或账号在本文件每条里出现时译法必须一致，回复必须紧接上面那条消息把话补完。"
+
+[posts.reactions]
+context: "同一天同一小时内发布的帖子。每条措辞在信息流里都出现两次；每条帖子的说明注明发帖人和刚刚发生的事。"
+type: sentence
+
+<news-01a>
+source: "Great work today, everyone. Really."
+target: "今天各位都干得漂亮。真的。"
+emotion: [grateful, joyful]
+status: initial
+context: "由志愿者协调员发布：施工队提前两天完成了车厂壁画，这句感谢是真心实意的。"
+
+<news-01b>
+source: "Great work today, everyone. Really."
+target: "今天各位可真是辛苦了。呵呵。"
+emotion: [angry, playful]
+status: initial
+context: "由一位通勤者发布：当天早上第三条运营提示发出二十分钟后，这句夸奖是反话，意思是相反的。"
+
+<news-02a>
+source: "Six months of roadworks and here we are."
+target: "修了半年的路，总算等到今天了。"
+emotion: [joyful, hopeful]
+status: initial
+context: "由一位居民在马罗街的开通仪式现场发布，他很高兴工程终于完工了。"
+
+<news-02b>
+source: "Six months of roadworks and here we are."
+target: "修了半年的路，结果又围上了。"
+emotion: [angry, playful]
+status: initial
+context: "一周后由一位居民发布，他正站在同一条街上新立起来的一组围栏前。"
+
+<news-03a>
+source: "You are really going to ride that thing?"
+target: "你真的打算坐那个回去吗？"
+emotion: [anxious, polite]
+status: initial
+context: "回复一位朋友：她刚发帖说今晚有暴风雨预警，她要坐新线路回家；发帖人替她担心。"
+
+<news-03b>
+source: "You are really going to ride that thing?"
+target: "你还真敢坐那破玩意儿？"
+emotion: [rude, playful]
+status: initial
+context: "来自一个整周都在嘲讽这个项目的账号的回复；发帖人觉得这车是破烂，在激对方。"
+
+[posts.referents]
+context: "措辞完全相同的简短回复。每条说明注明发帖人发这条时看的是什么。"
+type: sentence
+
+<news-04a>
+source: "Nice shot."
+target: "拍得真好看。"
+emotion: [joyful, informal]
+status: initial
+context: "在一位关注者拍的日出时分首班电车过河照片下的评论。"
+
+<news-04b>
+source: "Nice shot."
+target: "好球！"
+emotion: [joyful, informal]
+status: initial
+context: "在车厂慈善篮球赛的一段视频下的评论，发在中场线投篮命中的那一刻。"
+
+<news-05a>
+source: "It is back."
+target: "它回来了！"
+emotion: [joyful, informal]
+status: initial
+context: "在暴风雨后恢复运营的通知下的评论；发帖人说的是电车线路本身。"
+
+<news-05b>
+source: "It is back."
+target: "它又回来了。"
+emotion: [sad, informal]
+status: initial
+context: "在一张照片下的评论，照片里马罗街的施工围栏又立了起来；发帖人说的是围栏。"
+
+[platform.conventions]
+context: "平台本身发布的帖子和应用内通知。账号名、话题标签、emoji 和消息参数都是用户看到的文本的一部分。"
+type: sentence
+
+<news-06>
+source: "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay"
+target: "太感谢 @HollowPineCafe 今天早上在车厂门口免费送咖啡了。#TramDay"
+emotion: [grateful, informal]
+status: initial
+context: "一位乘客发的感谢本地咖啡馆的帖子。账号名和话题标签是其他用户找到这家咖啡馆和当天帖子的方式。"
+
+<news-07>
+source: "Rode the whole loop this afternoon just because I could 🚋💚 no regrets"
+target: "今天下午就因为想坐，把整条环线坐了个遍 🚋💚 一点也不后悔"
+emotion: [joyful, playful]
+status: initial
+context: "一位乘客发的帖子，他下午纯粹为了好玩在这条线上坐了一趟。两个 emoji 位于句子前后两半之间，承担情绪。"
+
+<news-08>
+source: "The new depot mural absolutely ate. No crumbs left."
+target: "车厂那幅新壁画简直杀疯了。连渣都没剩。"
+emotion: [joyful, informal]
+status: initial
+context: "夸赞电车车厂壁画的帖子。两句都是当下称赞作品出色的俚语，这里没有任何东西被吃掉。"
+
+<news-09>
+source: "{count, plural, one {# person} other {# people}} reposted your photo."
+target: "{count, plural, one {# 人} other {# 人}} 转发了你的照片。"
+type: prompt
+emotion: [mechanical, objective]
+status: initial
+context: "照片被转发时，活动列表里的应用内通知。参数决定复数形式，数字打印在井号所在的位置。"
+
+<news-10>
+source: "{name} and {others, plural, one {# other} other {# others}} liked your post."
+target: "{name} 和{others, plural, one {其他 # 位} other {其他 # 位}}用户赞了你的帖子。"
+type: prompt
+emotion: [mechanical, objective]
+status: initial
+context: "点赞的应用内通知。第一个参数是显示名称，第二个统计其他所有点了赞的人。"
+
+<news-11>
+source: "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again."
+target: "在河畔环线上通勤的第 3 天，单程省下 40 分钟。10 分满分，还会再坐。"
+emotion: [joyful, informal]
+status: initial
+context: "一位通勤者发的帖子，算新线路省下的时间。结尾那句话是评分，不是分数。"
+
+[thread.replies]
+context: "服务公告下的一条评论串，按发布顺序排列。每条回复都承接紧挨着它上面的那条消息，略去那条消息已经说过的话。"
+type: sentence
+
+<news-12>
+source: "@SablewickTransit Will the Riverside Loop run on the holiday Monday?"
+target: "@SablewickTransit 河畔环线周一假日这天会开吗？"
+emotion: [curious, polite]
+status: initial
+context: "该串的第一条：一位乘客向交通账号提问。"
+
+<news-13>
+source: "Yes, on a Sunday timetable."
+target: "会的，按周日时刻表。"
+emotion: [polite, objective]
+status: initial
+context: "交通账号对紧挨着上面那条提问的回复。这句话本身没有动词，要靠上面那句补上。"
+
+<news-14>
+source: "And the last one back?"
+target: "那回程的末班呢？"
+emotion: [curious, informal]
+status: initial
+context: "乘客在同一串里追问。这个光杆名词短语指的是刚刚确认的线路在返程方向的末班车。"
+
+<news-15>
+source: "Eleven forty, from the north end."
+target: "十一点四十，从北端发车。"
+emotion: [polite, objective]
+status: initial
+context: "交通账号回应这条追问。这个时间是乘客问的晚间末班车，动词同样来自上面那条消息。"
+
+<news-16>
+source: "Perfect, thank you! Adding it to the group chat now."
+target: "太好了，谢谢！这就把消息发到群里。"
+emotion: [grateful, informal]
+status: initial
+context: "乘客给这条串收尾。转发的是刚给出的发车信息，不是电车，也不是账号。"
+
+[feed.updates]
+context: "交通账号的日常帖子和同一天读者平实的评论。"
+type: sentence
+
+<news-17>
+source: "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm."
+target: "运营信息：从周一起，河畔环线每 8 分钟一班，末班车 23:40 发出。"
+emotion: [objective, formal]
+status: initial
+context: "交通账号发布的定时帖子，公布该线路的新班次。"
+
+<news-18>
+source: "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone."
+target: "车厂开放日周六上午十点开始，车间参观对所有人免费。"
+emotion: [objective]
+status: initial
+context: "公布电车车厂开放日的帖子。"
+
+<news-19>
+source: "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said."
+target: "运营方表示，河畔环线首周客流量达到两万一千人次。"
+emotion: [objective]
+status: initial
+context: "汇总运营方公布的首周客流数字的帖子。"
+
+<news-20>
+source: "I take the first tram most mornings and the seats are comfortable enough for the whole ride."
+target: "我大多数早上都坐首班电车，座位全程坐下来都挺舒服的。"
+emotion: [neutral, informal]
+status: initial
+context: "读者评论，描述这条线路上一次平常的通勤。"
+
+<news-21>
+source: "Does anyone know whether the ticket machine at the north end takes cards?"
+target: "有人知道北端的售票机能不能刷卡吗？"
+emotion: [curious, informal]
+status: initial
+context: "读者评论，问北端终点站售票机的一个实际问题。"
+
+<news-22>
+source: "The rain held off for the ceremony, which was lucky for everyone standing on the platform."
+target: "仪式期间雨没下下来，站在站台上的人都算是走运。"
+emotion: [neutral]
+status: initial
+context: "读者就开通仪式当天的天气发表的评论。"
+
+<news-23>
+source: "A single journey costs one euro fifty and a day pass costs four euros."
+target: "单程票价 1.5 欧元，日票 4 欧元。"
+emotion: [objective]
+status: initial
+context: "交通账号列出新线路票价的帖子。"
+
+CLIFF 1.1
+namespace: clarion
+clan: news-social-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "news-social 术语表：河畔环线与线路运营用语"
+info: "记录本文件译文中的术语取舍，供同一项目后续内容保持一致。"
+
+[terms]
+context: "译文里反复出现、且换一种译法就会前后不一致的词。"
+
+<riverside-loop>
+source: "Riverside Loop"
+target: "河畔环线"
+type: proper-noun
+status: final
+context: "线路正式名称，全文件统一，不保留拉丁原文。"
+
+<depot>
+source: "depot"
+target: "车厂"
+type: noun
+status: final
+context: "电车停放与检修的场区；帖子口语里用车厂比车辆段更贴近语气，壁画、开放日、篮球赛均同此译法。"
+
+<repost>
+source: "repost"
+target: "转发"
+type: verb
+status: final
+context: "社交平台上的再次发布动作，通知与帖子中统一用转发。"
+
+<like>
+source: "like"
+target: "点赞"
+type: verb
+status: final
+context: "平台互动动作；通知文案里与“赞了你的帖子”搭配时同样取点赞这一概念。"
+
+<group-chat>
+source: "group chat"
+target: "群聊"
+type: noun
+status: final
+context: "即时通讯中的多人会话；口语里也说群，消息文案中统一用群。"
+
+<day-pass>
+source: "day pass"
+target: "日票"
+type: noun
+status: final
+context: "票价文案里的一日通票。"
+
+<ticket-machine>
+source: "ticket machine"
+target: "售票机"
+type: noun
+status: final
+context: "车站售票设备，读者提问中使用。"
+
+<journeys>
+source: "journeys (ridership)"
+target: "人次"
+type: noun
+status: final
+context: "客流统计的单位，与客流量搭配使用。"
+
+<service-update>
+source: "service update"
+target: "运营信息"
+type: noun
+status: final
+context: "交通账号公告的标题用语。"
+
+<last-departure>
+source: "last departure"
+target: "末班车"
+type: noun
+status: final
+context: "当日最后一班；对话中简作末班。"
+
+<north-end>
+source: "north end"
+target: "北端"
+type: noun
+status: final
+context: "线路北侧终点；回答与提问中译法一致。"

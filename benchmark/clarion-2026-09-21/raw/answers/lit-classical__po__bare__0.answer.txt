@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Language: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "aphorisms.water-holds"
+msgid "水静则清，器满则倾。"
+msgstr "Still water grows clear; a full vessel tips over."
+
+msgctxt "aphorisms.mountain-river"
+msgid "山不增高，因登而高；川不返流，因逝而长。"
+msgstr "A mountain gains no height, yet is made high by those who climb it; a river never turns back, yet is made long by its flowing on."
+
+msgctxt "aphorisms.mirror"
+msgid "镜不自照，故能照人；泉不自饮，故能济渴。"
+msgstr "A mirror does not reflect itself, and so it can reflect others; a spring does not drink of itself, and so it can quench thirst."
+
+msgctxt "aphorisms.scale"
+msgid "尺短寸长，各有所宜。"
+msgstr "A foot may be short and an inch long; each has its proper use."
+
+msgctxt "aphorisms.lantern-heart"
+msgid "灯焰高者，其膏易尽；其光微者，其夜乃长。"
+msgstr "The lamp whose flame burns high spends its oil soon; the one whose light is faint endures the longer night."
+
+msgctxt "parallel-prose.parallel-prose-1"
+msgid "层峦千仞，藏云于顶；寒江万里，送舟于天。"
+msgstr "Tiered peaks a thousand fathoms high, hiding clouds upon their summits; a cold river ten thousand li long, sending a boat out into the sky."
+
+msgctxt "parallel-prose.parallel-prose-2"
+msgid "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。"
+msgstr "The valley is still and answers nothing, yet Cangwu hears the bell; the lamp is faint and sways of itself, yet Cangwu lights the water."
+
+msgctxt "quatrain.quatrain-1"
+msgid "渡口秋灯暗，"
+msgstr "At the ferry, autumn lamps burn dim,"
+
+msgctxt "quatrain.quatrain-2"
+msgid "江寒雨自斜。"
+msgstr "the river cold, the rain slanting of its own accord."
+
+msgctxt "quatrain.quatrain-3"
+msgid "潮回沙上字，"
+msgstr "The tide returns to the words upon the sand,"
+
+msgctxt "quatrain.quatrain-4"
+msgid "钟入隔岸家。"
+msgstr "a bell enters homes on the farther shore."

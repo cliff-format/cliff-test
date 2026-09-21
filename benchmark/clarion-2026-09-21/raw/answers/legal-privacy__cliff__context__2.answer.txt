@@ -1,0 +1,310 @@
+CLIFF 1.1
+namespace: clarion
+clan: legal-privacy
+source-language: en-US
+target-language: zh-CN
+title: "Quillmark 同意门户：隐私声明、数据处理协议与会议论文摘要"
+info: "随 Quillmark 同意门户一同交付的三份原始文件：账户持有人阅读的隐私声明；作为控制者的运营方与受聘运营该门户的处理者之间的数据处理协议；以及一篇关于同意审计的会议论文摘要。读者对象：账户持有人、签署该协议的企业客户，以及学术工作坊的评审人。声明中有两个字符串由门户引擎在运行时渲染，并带有 ICU MessageFormat 载荷。声明和协议中印出的条款编号，就是本文件其他条款所引用的编号。"
+standard: "定义术语在整份声明和整份协议中固定不变，在每一条款里都必须以同样的方式表述：Personal Data 为个人信息，绝不写作个人数据；Data Subject 为信息主体，绝不写作数据主体；Controller 为控制者，绝不写作委托方；Processor 为处理者，绝不写作受托方；Operator 为运营方；Portal 为本门户。每个情态动词都按其法律效力翻译，绝不译成预测：shall 为应当，must 为必须，may 表示授予许可，may not 为不得，且不得用将或会来替代义务。Quillmark Data Services、Halberd Cloud GmbH 等公司名称是注册法律实体，保持拉丁字母。ICU MessageFormat 的结构、参数名，以及 (a) 这类枚举项标记，一律与原文写法保持一致。日期按年-月-日顺序书写，数字按原文的分组方式分组，已公布的数字绝不四舍五入。不要模仿原文的全大写排版；以大写排出的条款，其效力体现在句子的措辞之中。汉字与拉丁字母或数字之间用一个空格，汉语句子内使用全角标点。避免教科书式行话：写作默认而不是缺省，写作稳健而不是鲁棒。会议论文摘要是另一份独立文件，不受本声明定义术语的约束。"
+
+[policy.definitions]
+context: "Quillmark 隐私声明的开头定义。已定义的术语在本文件后续每一条款中都保持其定义含义，因此在此处选定的措辞，就是声明与协议的条款必须沿用的措辞。"
+type: sentence
+emotion: [objective]
+
+<def-personal-data>
+source: "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+target: "“个人信息”指与已识别或可识别的自然人有关的任何信息，运营方通过本门户处理此类信息。"
+status: initial
+context: "声明的第一个定义术语。后续条款使用该术语，而不再次描述数据；本项目的术语表确定了两种竞争译法中采用哪一种。"
+
+<def-data-subject>
+source: "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+target: "“信息主体”指个人信息所涉及的自然人，无论该人是否在运营方处持有账户。"
+status: initial
+context: "第二个定义术语。声明全篇均以第三人称提及此人，请求条款原样重复该术语。"
+
+<def-operator>
+source: "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+target: "“运营方”指 Quillmark Data Services，即决定本声明所述处理的目的与方式的公司，并委托 Halberd Cloud GmbH 托管本门户。"
+status: initial
+context: "第三个定义术语。两个公司名称均登记于商业登记簿，在本声明的各语言版本中写法一致，因为读者必须能够查到它们。"
+
+<def-processing>
+source: "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+target: "“处理”指对个人信息执行的任何操作，无论是否通过自动化手段，包括收集、存储、传输、披露和删除。"
+status: initial
+context: "第四个定义术语。它建立在同一节中前面两个条目所定义的术语之上，协议的条款逐字沿用这两个术语。"
+
+<def-portal>
+source: "“Portal” means the web application through which a request is submitted, tracked and answered."
+target: "“本门户”指供提交、跟踪和答复请求的 Web 应用。"
+status: initial
+context: "第五个定义术语，描述本声明所涉及的产品。"
+
+[policy.requests]
+context: "隐私声明中账户持有人在提交请求之前阅读的条款，以及门户自身在运行时渲染的两个字符串。本节中印出的数字具有法律效力：日期、已公布的数字，以及其他条款所引用的条款编号。"
+type: sentence
+emotion: [formal]
+
+<policy-effective-date>
+source: "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+target: "本声明自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的声明。"
+status: initial
+context: "声明的首行，印在定义之上。第一个日期是本版开始适用的日期，第二个日期标明它所取代的版本，因此读者必须能一眼分辨两者。"
+
+<policy-volume-figures>
+source: "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+target: "在 2025 报告年度，运营方通过本门户收到 1,250,000 份请求，并在法定期间内答复了其中的 98.6%。"
+status: initial
+context: "每年公布一次并由外部审计师核对的透明度数据。计数与百分比按实际统计结果如实报告。"
+
+<policy-retention-clause>
+source: "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+target: "4.2 运营方在 30 天内删除已注销账户的记录，法律要求更长保存期限的除外。"
+status: initial
+context: "声明中印出的保存条款，带有声明赋予它的条款编号。其他条款引用该编号，而不重复该规则。"
+
+<policy-request-right>
+source: "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+target: "信息主体可以要求运营方更正或删除运营方持有的与其有关的个人信息。"
+status: initial
+context: "声明的权利条款。它依托本文件定义部分确定的两个术语，读者对照这两处时应看到相同的措辞。"
+
+<policy-erasure-crossref>
+source: "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+target: "删除请求依照第 4.2 条的保存规则予以答复，运营方通过本门户确认处理结果。"
+status: initial
+context: "交叉引用条款。它指向的规则是本文件前面印出的保存条款，该引用必须把读者引向该条款，而非其他条款。"
+
+<portal-request-count>
+source: "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+target: "{pending, plural, one {# 份请求正在等待答复} other {# 份请求正在等待答复}}"
+emotion: [mechanical]
+status: initial
+context: "门户仪表板上的计数器；门户引擎替换仍处于未结状态的请求数量。"
+
+<portal-answer-channel>
+source: "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+target: "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过本门户答复}}"
+emotion: [mechanical]
+status: initial
+context: "提交请求后显示的确认信息；门户引擎传入账户持有人所选的渠道。"
+
+[dpa.authorised]
+context: "运营方（作为控制者）与受聘运营本门户的处理者之间的数据处理协议第 6 章。本章的每一条款都授予一项授权，或规定授予该项授权的条件；本章被解读为处理者获准做什么的依据。"
+type: sentence
+emotion: [formal]
+
+<dpa-scope-instructions>
+source: "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+target: "处理者应当仅依据控制者的书面指示处理个人信息；如某项指示似乎违反适用法律，处理者应当立即通知控制者。"
+status: initial
+context: "协议的核心义务条款。每项义务都是当下约束该方的义务，而不是对双方日后预期的预测。"
+
+<dpa-audit-right>
+source: "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+target: "6.1 控制者可以每个日历年度对处理者进行一次审计，处理者必须向审计人员提供审计所需的记录。"
+status: initial
+context: "编号审计条款，由其后的一章按编号引用。第一个情态动词授予一方权利，第二个为另一方设定义务，句子的两半读起来不能相同。"
+
+<clause-07a>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可以将个人信息用于本条列明的目的。"
+status: initial
+context: "该条款结束本章的授权清单，告知处理者清单所列目的已包含在控制者所授予的范围内。它被解读为授权本身，而不是围绕授权划出的边界。"
+
+<clause-09a>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署在本门户中记录，并向双方确认。"
+status: initial
+context: "授权章的开头条款。它确定控制者在本门户中对协议签字的时刻，正是这一时刻使本章的授权生效；此处不涉及此后协议如何履行。"
+
+<dpa-hosting-region>
+source: "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+target: "根据本协议创建的所有记录存储在附件 1 约定的区域内，且每晚进行备份。"
+status: initial
+context: "普通运营条款，印在授权章末尾。"
+
+[dpa.restrictions]
+context: "同一协议的第 7 章。此处的每一条款都收窄上一章所授予的内容：它规定处理者不得做什么、其日常履行如何接受核查，以及运营方不作哪些承诺。本章的条款被解读为授权的外边界。"
+type: sentence
+emotion: [formal]
+
+<clause-07b>
+source: "The Processor may use the Personal Data for the purposes set out in this Article."
+target: "处理者可以将个人信息用于本条列明的目的。"
+status: initial
+context: "与上一章目的条款相同的句子，在此作为收尾性限制重复出现。在本章中，所列目的为穷尽性列举：未列出的目的不在授权范围内，该条款的存在正是为了说明这一点。"
+
+<clause-09b>
+source: "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+target: "本协议的签署在本门户中记录，并向双方确认。"
+status: initial
+context: "同一句话，印在限制授权的这一章。此处它使处理者日常履行协议的方式可被追溯，以便控制者随时核查本章的限制是否得到遵守；文件的签署事宜由前面那一章处理。"
+
+<dpa-enumerated-prohibition>
+source: "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+target: "处理者不得：(a) 未经控制者事先书面授权聘用新的分包处理者；(b) 将记录复制到控制者未批准的设备；或 (c) 使用记录训练任何类型的模型。"
+status: initial
+context: "枚举式禁止条款。审计师在核查报告中以各项的标记来引用这些项，因此标记必须留在原文放置的位置，并保持其对应的项。"
+
+<dpa-caps-disclaimer>
+source: "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+target: "运营方不保证本门户可无中断或无错误地运行，并且在适用法律允许的最大范围内不承担一切默示担保，包括适销性和特定用途适用性的默示担保。"
+status: initial
+context: "收尾本章的免责声明。原文使用全大写，是因为来源辖区法律要求醒目的提示；目标语言地区把醒目提示体现在句子本身，而不是排版上。"
+
+<dpa-audit-crossref>
+source: "Nothing in this Article limits the audit right granted in Section 6.1."
+target: "本条中的任何内容均不限制第 6.1 条授予的审计权。"
+status: initial
+context: "保留条款。它按审计条款在本文件中所带的编号指回上一章的审计条款，审计师依据的是编号而不是措辞。"
+
+[paper.abstract]
+context: "提交给隐私工程工作坊的一篇原创会议论文的摘要。它是一份独立文件，报告一项关于同意门户的实地研究，不使用声明中的定义术语。语域为学术语域，句子完整。"
+type: description
+emotion: [objective]
+
+<paper-title>
+source: "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+target: "大规模审计同意记录：三家同意门户的实地研究"
+type: label
+status: initial
+context: "摘要开头及会议日程中的论文标题。"
+
+<paper-abstract-opening>
+source: "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+target: "当监管机构询问为何使用某人的个人信息时，同意记录是企业所依赖的证据，然而这些记录本身很少受到审计。我们报告一项为期九个月、针对三家中型公司运营的同意门户的实地研究。"
+status: initial
+context: "摘要的前两句：问题与研究。"
+
+<paper-abstract-method>
+source: "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+target: "我们以固定的常规请求脚本对每个门户进行了测试，并将其返回的每一份回执与门户写入自身日志的条目进行比对。"
+status: initial
+context: "摘要的方法句。"
+
+<paper-abstract-findings>
+source: "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+target: "三家门户中有两家丢失了至少一次撤回的时间戳，且没有一家能够在无需人工操作的情况下说明某人同意的是哪个版本的声明。我们认为，同意记录的价值不超过其背后的审计轨迹；我们公开测试脚本，以便其他团队重复这项研究。"
+status: initial
+context: "摘要的发现与结语主张。"
+
+CLIFF 1.1
+namespace: clarion
+clan: legal-privacy-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Quillmark 法律隐私术语表"
+info: "记录隐私声明、数据处理协议与会议论文摘要翻译中所确定的术语译法，供本项目后续文件沿用。"
+
+[terms]
+context: "隐私声明与数据处理协议的定义术语及复用术语。译法与交付译文中实际使用的写法一致。"
+type: noun
+
+<personal-data>
+source: "Personal Data"
+target: "个人信息"
+type: noun
+status: final
+context: "声明定义的术语，在声明与协议中一律使用；项目术语政策禁止译作个人数据。"
+
+<data-subject>
+source: "Data Subject"
+target: "信息主体"
+type: noun
+status: final
+context: "声明定义的术语；禁止译作数据主体，以保证定义条款与请求条款措辞一致。"
+
+<controller>
+source: "Controller"
+target: "控制者"
+type: noun
+status: final
+context: "数据处理协议中的一方；禁止译作委托方。"
+
+<processor>
+source: "Processor"
+target: "处理者"
+type: noun
+status: final
+context: "数据处理协议中的另一方；禁止译作受托方。"
+
+<operator>
+source: "Operator"
+target: "运营方"
+type: noun
+status: final
+context: "声明定义的术语，指 Quillmark Data Services；协议免责条款中同样使用。"
+
+<portal>
+source: "Portal"
+target: "本门户"
+type: noun
+status: final
+context: "声明定义的术语，用于所有指代产品的语境；公司名称等专有名词保持拉丁字母。"
+
+<processing>
+source: "Processing"
+target: "处理"
+type: noun
+status: final
+context: "声明定义的术语，包括收集、存储、传输、披露和删除等操作。"
+
+<consent-portal>
+source: "consent portal"
+target: "同意门户"
+type: noun-phrase
+status: final
+context: "论文摘要中反复出现的研究对象；与声明中的本门户保持同一用词习惯。"
+
+<consent-record>
+source: "consent record"
+target: "同意记录"
+type: noun-phrase
+status: final
+context: "论文摘要的核心概念，指企业据以证明使用行为合法的记录。"
+
+<audit-trail>
+source: "audit trail"
+target: "审计轨迹"
+type: noun-phrase
+status: final
+context: "摘要结语中的论点依据；与审计一词的译法配套使用。"
+
+<audit>
+source: "audit"
+target: "审计"
+type: noun
+status: final
+context: "协议第 6.1 条授予的权利与摘要的研究方法均使用该译法。"
+
+<sub-processor>
+source: "sub-processor"
+target: "分包处理者"
+type: noun
+status: final
+context: "协议禁止条款 (a) 项中的主体；与处理者一词保持构词一致。"
+
+<withdrawal>
+source: "withdrawal"
+target: "撤回"
+type: noun
+status: final
+context: "摘要发现部分所指的同意撤回行为。"
+
+<field-study>
+source: "field study"
+target: "实地研究"
+type: noun-phrase
+status: final
+context: "论文标题、开头与方法句均使用的学术表述。"
+
+<implied-warranty>
+source: "implied warranty"
+target: "默示担保"
+type: noun-phrase
+status: final
+context: "协议免责声明中的法律术语；适销性与特定用途适用性为其下位表述。"

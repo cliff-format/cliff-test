@@ -1,0 +1,317 @@
+CLIFF 1.1
+namespace: clarion
+clan: game-quest
+source-language: en-US
+target-language: zh-CN
+title: "Saltwake：第九盏灯任务线"
+info: "Saltwake 是一款航海冒险游戏，故事发生在一片被海水淹没的群岛，被称为信号手的信使在灯塔之间传递提灯讯息。本文件是任务线“第九盏灯”：日志简报、目标条目、成功与失败台词、物品描述和成就名称。目标读者：PC 与掌上游戏机玩家。目标条目会显示两次，一次在宽幅日志页面，一次在狭窄的屏幕追踪器上，系统字符串由游戏引擎渲染。"
+standard: "守灯人的名字 “Willow” 按其含义译为“柳”；不得音译为薇洛、威洛或维洛，也不得译成树木“柳树”。军需官的名字 “Marrow” 音译为“马洛”；不得意译为“骨髓”，也不得写作“马罗”。凡提及 “Ninth Light” 的条目，译文必须完全一致。引擎占位符（如 {playerName}）、ICU MessageFormat 结构和按键提示（如 [E]）必须与原文写法完全一致。汉字与拉丁字母或数字之间用一个空格，汉语句内使用全角标点。避免教材式术语：写“稳健”而不是“鲁棒”，写“默认”而不是“缺省”，写“分辨率”而不是“解析度”。目标条目带有以格数计的显示宽度预算，其中拉丁字母和数字计 1 格，汉字或全角字符计 2 格；窄版必须改写得更短，而不是截断。"
+
+[quest.brief]
+context: "任务线“第九盏灯”的任务日志页面。玩家在各次出航之间阅读，因此语气不慌不忙，句子完整。"
+type: description
+emotion: [objective]
+
+<brief-tide-run>
+source: "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+target: "潮水一天涨落两次，港口也一天两次忘记谁欠了谁。趁水位还没上涨，把密封货单送到军需官手上，账簿就还能再清白一晚。"
+status: initial
+context: "任务日志的首页，玩家接受任务后读到。纯叙述，不带角色口吻。"
+
+<brief-ninth-light>
+source: "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+target: "九盏灯环绕着内湾。其中八盏由港口公会照看；最后一盏立在一块公会假装看不见的礁石上，从未熄灭过一次。"
+status: initial
+context: "第二页日志，在玩家首次出航前交代这些灯的来历。"
+
+<quest-title-last-watch>
+source: "Willow's Last Watch"
+target: "柳的最后一班岗"
+type: label
+status: initial
+context: "任务标题，显示在日志页面顶部和任务接受横幅上。它点出第九盏灯的守灯人，她正要值完最后一班。"
+
+<journal-note-order>
+source: "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+target: "马洛要先看过货单才会开闸门，所以在目标 1 验收通过之前，目标 2 一直锁定。"
+status: initial
+context: "日志页面目标列表下方的说明。在该列表中，送交货单是第一项目标，潮闸是第二项，这里的编号必须与那个顺序一致。"
+
+<brief-warning-fog>
+source: "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+target: "雾会毫无预兆地从西边漫过来。如果看不见下一盏灯，就停下桨等着：这里的水流很有耐心，迟早会把你带回码头。"
+status: initial
+context: "日志页面上的安全须知段落，以港口手册的口吻写成。"
+
+[quest.objectives]
+context: "同一条任务线的目标条目。每个目标都写了两遍：一遍用于宽幅日志页面，一遍用于屏幕边缘的狭窄追踪器，因此其中若干条带有宽度预算。"
+type: label
+emotion: [objective]
+
+<objective-03a>
+source: "Deliver the Sealed Manifest to Marrow"
+target: "把密封货单交给马洛"
+status: initial
+context: "目标在宽幅日志页面上的显示形式，完整措辞可以容纳。"
+max-width: 24
+
+<objective-03b>
+source: "Deliver the Sealed Manifest to Marrow"
+target: "货单交马洛"
+status: initial
+context: "同一目标在屏幕狭窄追踪器中的显示形式，那里的槽位宽度不到一半。"
+max-width: 10
+
+<objective-04a>
+source: "Restore Power to the Tide Gate"
+target: "恢复潮闸的电力"
+status: initial
+context: "目标在宽幅日志页面上的显示形式，完整措辞可以容纳。"
+max-width: 24
+
+<objective-04b>
+source: "Restore Power to the Tide Gate"
+target: "潮闸通电"
+status: initial
+context: "同一目标在屏幕狭窄追踪器中的显示形式，勾选框之后只剩几格可用。"
+max-width: 10
+
+<objective-relight>
+source: "Relight the Ninth Light before the ebb"
+target: "在退潮前重新点亮第九盏灯"
+status: initial
+context: "任务线的最终目标。这里说的灯，就是本文件其他处守灯人与码头工谈论的那一盏，各处必须读法一致。"
+
+<objective-count-crates>
+source: "{secured, plural, one {# crate secured} other {# crates secured}}"
+target: "{secured, plural, one {已绑牢 # 个木箱} other {已绑牢 # 个木箱}}"
+type: sentence
+emotion: [mechanical]
+status: initial
+context: "货物目标下方的计数器；引擎会填入已经绑扎好的木箱数量。"
+
+<objective-check-lines>
+source: "Check the mooring lines on the east pier"
+target: "检查东码头的系泊缆绳"
+status: initial
+context: "日志页面上的支线目标；此处没有任何缩写。"
+
+[quest.dialogue]
+context: "任务线中的配音台词。第九盏灯的守灯人说话缓慢而平实；港口军需官则说简短的、公事公办的句子。每句台词都要表演，因此情绪标签决定念白方式。"
+type: dialogue
+
+<hail-01a>
+source: "Hand me the lantern, friend."
+target: "朋友，把灯递给我。"
+emotion: [polite, calm]
+status: initial
+context: "军需官伸手要替玩家把灯提上楼梯；他是真心想帮忙。"
+
+<hail-01b>
+source: "Hand me the lantern, friend."
+target: "朋友，把灯递给我。"
+emotion: [rude, angry]
+status: initial
+context: "同样的话，说在楼梯顶端，他的两个码头工已经堵住了退路；这句客气话其实是命令。"
+
+<hail-02a>
+source: "Marrow says the dock is open to you."
+target: "马洛说码头对你敞开。"
+emotion: [calm, hopeful]
+status: initial
+context: "货单签署后，一名码头工转达军需官的话；这是一句真心的欢迎。"
+
+<hail-02b>
+source: "Marrow says the dock is open to you."
+target: "马洛说码头对你敞开。"
+emotion: [rude, serious]
+status: initial
+context: "同一句话，说在玩家欺骗了他之后，坡道上有两个码头工等着；这句欢迎其实是警告。"
+
+<dialogue-willow-keeps>
+source: "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+target: "柳守着第九盏灯，守了十一个冬天，从没向公会要过一滴油。"
+emotion: [calm, nostalgic]
+status: initial
+context: "一名码头工在等潮水的时候向玩家说起守灯人。他提到的灯，正是最终目标要玩家回去的那一盏。"
+
+<dialogue-burn-it>
+source: "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+target: "趁马洛的船还没靠上码头，把它烧掉。冷掉的灰烬什么也不会告诉他。"
+emotion: [urgent, anxious]
+status: initial
+context: "军需官的船一露面，守灯人就低声说出这句话。要烧掉的是送货目标交到玩家手里的那件东西，不是她身边的那盏灯。"
+
+<success-echo>
+source: "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+target: "第九盏灯现在归你守了。别让我后悔把它交出去。"
+emotion: [serious, hopeful]
+status: initial
+context: "守灯人的最后一句台词，任务线完成时说出。它回应了码头工先前那句关于她守了多久的话，动词要与之一致。"
+
+<line-success-tide>
+source: "The gate holds. Whatever you did down there, the water is going where it should."
+target: "闸门守住了。不管你在下面做了什么，水总算流向了它该去的地方。"
+emotion: [calm, hopeful]
+status: initial
+context: "潮闸目标成功时，闸门看守说的话。"
+
+<line-failure-tide>
+source: "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+target: "闸门卡死了，码头已经淹在水下。等退潮了你再回来，我们重新试一次。"
+emotion: [sad, calm]
+status: initial
+context: "潮闸目标失败、玩家必须重试时，同一位看守说的话。"
+
+[items.rewards]
+context: "沿任务线获得的物品名称、背包描述和成就名称。描述在背包面板中阅读；成就名称出现在横幅和档案列表中。"
+type: description
+emotion: [objective]
+
+<item-relay-grid-desc>
+source: "The relay grid is robust: one failed beacon does not break the chain."
+target: "中继网很稳健：一个信标失灵，并不会断掉整条链。"
+status: initial
+context: "中继图的背包描述，读者是从不翻工程手册的玩家。"
+
+<item-lamp-oil-desc>
+source: "One flask feeds the lamp for 30 minutes at the default wick height."
+target: "在默认灯芯高度下，一瓶油能供灯烧 30 分钟。"
+status: initial
+context: "油瓶的背包描述。灯芯高度是玩家从未调整过时灯的初始设置。"
+
+<item-fog-lamp-desc>
+source: "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+target: "一盏矮墩墩的黄铜灯，蓝色灯罩上满是划痕。它放出的光很弱，但在雾里，弱光比强光散射得更少。"
+status: initial
+context: "玩家首次出航前拿到的那盏雾灯的背包描述。"
+
+<achv-marrow-debt>
+source: "Marrow's Debt"
+target: "马洛的人情债"
+type: label
+status: initial
+context: "玩家结清军需官那笔账时，横幅上显示的成就名称。他欠的是人情，不是钱。"
+
+<achv-nine-nights>
+source: "Nine Nights, Nine Lights"
+target: "九夜九灯"
+type: label
+status: initial
+context: "连续九个游戏内夜晚造访每一座灯塔的成就名称。"
+
+[system.messages]
+context: "故事之外显示的系统字符串：加载问候语、输入提示、状态读数以及任务状态横幅。引擎占位符、ICU MessageFormat 结构和按键提示必须与原文完全一致地保留。"
+emotion: [mechanical]
+
+<system-welcome-runner>
+source: "Fair tide, {playerName}. Your last run ended 3 days ago."
+target: "顺风顺潮，{playerName}。你上一次出航在 3 天前结束。"
+type: sentence
+emotion: [calm]
+status: initial
+context: "打开存档后，加载界面上的问候语；占位符承载玩家的档案名。"
+
+<system-keybind-lantern>
+source: "Hold [E] to raise the lantern; press [Q] to signal."
+target: "按住 [E] 举起提灯；按 [Q] 发出信号。"
+type: prompt
+status: initial
+context: "提灯挂钩上方的输入提示。方括号中的按键来自玩家自己的按键绑定，必须保持原样。"
+
+<system-signal-range>
+source: "Signal range: 120 m in fog, 400 m in clear air."
+target: "信号距离：有雾时 120 米，晴朗时 400 米。"
+type: sentence
+status: initial
+context: "灯面板上的状态读数；两个距离都以普通数字显示给玩家。"
+
+<system-quest-state>
+source: "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+target: "{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}"
+type: sentence
+status: initial
+context: "任务状态每次变化时，屏幕顶部显示的横幅；引擎会传入状态名称。"
+
+CLIFF 1.1
+namespace: clarion
+clan: game-quest-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Saltwake：第九盏灯 术语表"
+info: "本文件记录“第九盏灯”任务线译文中所用的术语与名称，供后续条目保持一致。"
+
+[terms]
+context: "任务线“第九盏灯”的译名与术语决定，均取自本次译文实际使用的写法。"
+type: noun
+
+<term-willow>
+source: "Willow"
+target: "柳"
+type: proper-noun
+status: final
+context: "守灯人的名字，按语义译为“柳”；不音译，也不译成树木“柳树”。"
+
+<term-marrow>
+source: "Marrow"
+target: "马洛"
+type: proper-noun
+status: final
+context: "军需官的名字，音译为“马洛”；不意译为“骨髓”，也不写作“马罗”。"
+
+<term-ninth-light>
+source: "Ninth Light"
+target: "第九盏灯"
+type: proper-noun
+status: final
+context: "任务线核心地标，全部条目统一作“第九盏灯”，包括任务标题、目标、台词与成就。"
+
+<term-keeper>
+source: "keeper"
+target: "守灯人"
+type: noun
+status: final
+context: "照看灯塔的人；台词中“守”这一动词在相关条目间保持统一。"
+
+<term-signal-runner>
+source: "signal runner"
+target: "信号手"
+type: noun-phrase
+status: final
+context: "在灯塔之间传递灯火讯息的信使。"
+
+<term-manifest>
+source: "sealed manifest"
+target: "密封货单"
+type: noun
+status: final
+context: "玩家要送交的封缄货单；窄版目标中简作“货单”。"
+
+<term-tide-gate>
+source: "tide gate"
+target: "潮闸"
+type: noun
+status: final
+context: "港口受潮汐控制的水闸；宽版目标作“恢复潮闸的电力”，窄版作“潮闸通电”。"
+
+<term-robust>
+source: "robust"
+target: "稳健"
+type: adjective
+status: final
+context: "按项目规则使用“稳健”，不使用“鲁棒”。"
+
+<term-default>
+source: "default"
+target: "默认"
+type: adjective
+status: final
+context: "按项目规则使用“默认”，不使用“缺省”。"
+
+<term-beacon>
+source: "beacon"
+target: "信标"
+type: noun
+status: final
+context: "中继网上的灯标，与作为任务地标的“灯”区分开。"

@@ -1,0 +1,414 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+CLIFF 1.1 - THE SPECIFICATION, COMPRESSED TO ITS RULES
+
+SECTIONS AND ENTRIES ARE SINGLE LINES
+
+  A section line `[group.path]` opens a section; an entry line `<id>` opens an entry.
+  Each is a label on one line standing alone, and what it opens runs until the next
+  such line or the end of the document. So the last thing in the answer is the last
+  field of the last entry, and inside a string `<` and `>` are ordinary characters
+  like any other.
+
+The normative grammar, in ABNF (RFC 5234). It is the definition of the format, and
+its first production is the whole of what an answer is: one `cliff-file`, from its
+version line to its last field. The constraints after the grammar state the rules
+a grammar cannot express.
+
+--- GRAMMAR ---
+cliff-file            = version-line *header-line *section
+version-line         = *WSP %s"CLIFF" SP ( %s"1.0" / %s"1.1" ) *WSP [ terminator ] *WSP LF
+header-line          = field-line
+section              = section-line *group-metadata-line *entry
+section-line         = *WSP "[" group-path "]" *WSP [ terminator ] *WSP LF
+group-path           = name *( "." name )
+group-metadata-line  = field-line
+entry                = entry-line *field-line
+entry-line           = *WSP "<" name ">" *WSP [ terminator ] *WSP LF
+field-line           = *WSP field *WSP [ terminator ] *WSP LF *continuation-line
+continuation-line    = *WSP ( string-value / list ) *WSP [ terminator ] *WSP LF
+field                = key *WSP ( "=" / ":" ) *WSP value
+value                = string-value / list / integer / name / language-tag
+string-value         = string *( *WSP string )
+list                 = "[" *WSP [ list-items ] *WSP "]"
+list-items           = list-item *( *WSP "," *WSP list-item ) *WSP [ "," ]
+list-item            = string / integer / name / language-tag
+key                  = name
+name                 = name-char *name-char
+name-char            = ALPHA / DIGIT / "_" / "-"
+tag-name             = %x61-7A *( %x61-7A / DIGIT / "-" )
+terminator           = "," / ";"
+integer              = 1*DIGIT
+language-tag         = ALPHA *( ALPHA / DIGIT / "-" )
+string               = double-string / single-string
+double-string        = DQUOTE *( double-char / double-escape ) DQUOTE
+double-char          = %x20-21 / %x23-5B / %x5D-7E / non-ascii
+double-escape        = "\" ( DQUOTE / "\" / "n" / "r" / "t" )
+single-string        = SQUOTE *( single-char / single-escape ) SQUOTE
+single-char          = %x20-26 / %x28-5B / %x5D-7E / non-ascii
+single-escape        = "\" ( SQUOTE / "\" / "n" / "r" / "t" )
+non-ascii            = %x80-F4
+WSP                  = SP / HTAB
+SP                   = %x20
+HTAB                 = %x09
+DQUOTE               = %x22
+SQUOTE               = %x27
+LF                   = %x0A
+ALPHA                = %x41-5A / %x61-7A
+DIGIT                = %x30-39
+--- END GRAMMAR ---
+
+SEMANTIC CONSTRAINTS (normative)
+Semantic constraints (enforced by validators, not by ABNF):
+ * version-line must be the first non-ignored line and must declare 1.0 or
+   1.1; any other version is rejected with the supported versions named.
+ * Header fields occur before the first section-line; group metadata lines
+   occur only before the first entry-line of a section.
+ * namespace, clan, source-language, and target-language are all required.
+   A layout (folder "<target-language>/<clan>.cliff" or flat
+   "<clan>.<target-language>.cliff") that disagrees with the header is a
+   WARNING by default in 1.1 (spec 11.3); an implementation MAY offer an
+   explicit opt-in mode that reports it as an error.
+ * Entry-level: source, type (direct or inherited), and status are
+   required; target is optional and required only for status translated /
+   reviewed / final (status initial allows a missing target).
+ * Section paths and entry ids are unique; duplicate entry ids are a hard
+   error (never last-wins). Canonical IDs
+   namespace.clan.group-path.entry-id are unique. Case is significant, so
+   "Save" and "save" are two different ids.
+ * Names are used verbatim: no case folding and no kebab-case rewriting of
+   identifiers by a parser (spec 5.5, 10.1). Identifier *style* is a
+   recommendation (style/README.md), never a validity rule.
+ * Fixed tag vocabularies: type, emotion, status, variant. Tag values are
+   tag-name (lowercase kebab-case). Status tags are initial, translated,
+   reviewed, final.
+ * A field separator is the first "=" or ":" outside a quoted string; the
+   entry anchor is the label "<id>" on its own line, and it runs to the next
+   entry or section line. "<" and ">" carry no other structural meaning and
+   never pair across lines.
+ * A line terminator ("," / ";") is recognized only after the value's
+   closing quote or bracket, is never significant, and is never emitted by a
+   canonical serializer. At most one is permitted per line; a run of them
+   (";;", ",,", ", ;") is a syntax error. A ";" or "," inside a quoted string
+   is payload, and the optional trailing comma inside a list is the list's
+   own production, not a terminator.
+ * Every key appears at most once per scope (header, group, entry);
+   duplicate keys are validity errors — there are no repeatable fields.
+ * Strings containing braces must have balanced braces; the check applies
+   to the fully concatenated value after continuation lines are joined.
+ * List-typed fields (emotion, dependency, reference) are always written
+   as a list, even for a single item; a bare scalar in a list-typed field
+   is a validity error. dependency and reference list items are quoted
+   path/string values.
+ * Continuation lines (string fragments after scalar string fields, bare
+   lists after list fields) concatenate verbatim / extend the list in
+   order. A blank or comment line ends a continuation; an orphan
+   continuation line is a syntax error. Lists themselves never span lines
+   and list items never continue across lines.
+ * Implementations MUST enforce documented, configurable resource limits in
+   both strict and tolerant modes (spec 19): file size, line length, decoded
+   string length, group path segment count, list length, and entry count.
+ * Tolerant parsing (spec Appendix C) is opt-in, is a superset of this
+   grammar, MUST report every repair, and MUST NOT guess the items listed in
+   Appendix C.5. Its output MUST be valid under this grammar.
+ * The identifier relaxations of C.2.5 apply to an identifier that **begins**
+   with a name character (or that uses the quoted form of C.2.4). Angle
+   brackets whose content is not such an identifier are not an entry marker:
+   the line is rejected under C.5, and a tolerant parser MUST NOT manufacture
+   an entry, a group or an identifier out of it, because that would be guessing
+   data the document does not contain. The same rule governs the first segment
+   of a group path inside "[...]". (Appendix C.2.5 gives the cases.)
+
+HEADER FIELDS
+  namespace       name  (required)
+  clan            name  (required)
+  source-language BCP 47 tag  (required)
+  target-language BCP 47 tag  (required)
+  version         string
+  variant         `standard` / `glossary`
+  title           string
+  info            string
+  standard        string
+  dependency      list of path strings
+
+ENTRY FIELDS
+  source          string  (required)
+  target          string
+  type            type tag  (required, inherited)
+  emotion         emotion list  (inherited)
+  status          status tag  (required)
+  context         string  (inherited)
+  max-width       integer > 0  (inherited)
+  reference       list of path strings
+  reviewer        string
+
+GROUP FIELDS (the [section.path] line, before the section's first entry)
+  context  type  emotion  max-width
+  type, emotion, context, max-width may be given on the group instead of on every entry: the entry value overrides the group value, lists do not merge, and at least one of the two provides type. context is joined, group value then entry value with one space. No other entry field is inherited.
+
+CLOSED VOCABULARIES (section 12; a value outside its set is an error)
+
+  type      noun, verb, adjective, adverb, pronoun, numeral, preposition, conjunction, particle, interjection, proper-noun, noun-phrase, verb-phrase, adjective-phrase, adverb-phrase, fixed-phrase, idiom, sentence, description, narration, dialogue, monologue, prompt, label, subtitle, accessibility-cue
+  emotion   neutral, objective, mechanical, joyful, sad, angry, fearful, surprised, curious, disgusted, anxious, calm, playful, serious, urgent, romantic, hopeful, grateful, formal, informal, polite, rude, nostalgic
+  status    initial, translated, reviewed, final
+  variant   standard, glossary
+
+A CONFORMING FILE (the specification's own quick example, section 3)
+
+CLIFF 1.1
+namespace: demo
+clan: settings
+source-language: en-US
+target-language: zh-CN
+title: "Demo application settings"
+info: "End-user UI strings of the demo app; shown in the settings screen."
+standard: "Keep UI terms short; do not translate product names."
+dependency: ["../shared/terms.zh-CN.cliff", "docs/style-guide.md"]
+
+[video]
+context: "Video settings screen."
+type: label
+emotion: [objective]
+max-width: 12
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+type: noun
+emotion: [objective]
+status: final
+
+<Fullscreen>
+source: "Fullscreen"
+target: "全屏"
+type: noun
+status: reviewed
+context: "Toggle label on the video settings screen."
+
+ESCAPING (sections 5.7 and 6.2)
+
+  A value is a C-style string literal. Five characters are written with a
+  backslash inside it: the double quote (\"), the backslash itself (\\), newline
+  (\n), carriage return (\r) and tab (\t) - those five are the whole escape set.
+  So a value that contains a quote has \" at that point, however long the value is,
+  and the file you were given already spells it that way: the source text and every
+  other value come through with their backslashes exactly as written. Chinese,
+  Japanese and Korean curly quotes (“ ” 「 」) are ordinary characters and are
+  written as they are, with no backslash.
+
+VARIANT: glossary (section 13)
+
+A glossary is the same grammar with variant: glossary: one term per entry, unique
+ids, source the term and target its canonical rendering. It is a deliverable of
+translation as well as an input, so a term decided while translating is recorded in
+one. Section 13.2.2 states the criterion: add the document when the brief asks for
+terminology consistency or a naming policy, when a term recurs across entries, or
+when a naming judgement would otherwise be re-made differently. The rendering
+recorded is the rendering used in the translated file.
+
+Its shape, from section 13.2.1: the header carries variant: glossary, and the clan
+of the glossary is the clan it serves with the suffix -terms (settings becomes
+settings-terms; a glossary shared by a whole project uses the clan terms). The
+entries sit in a section, by convention [terms], one term per entry, each carrying
+source (the term), target (the rendering used), type (a term-level tag from the
+closed set above), status, and context saying why that rendering was chosen.
+
+Two documents are then one answer. A second document is recognised by its own
+version line, so the glossary begins with its own CLIFF 1.1 line placed immediately
+after the last field of the translated file, and each document is complete in
+itself: the translated file is the first, the glossary is the second.
+
+SECTIONS AND ENTRIES ARE SINGLE LINES
+
+  A section line `[group.path]` opens a section; an entry line `<id>` opens an entry.
+  Each is a label on one line standing alone, and what it opens runs until the next
+  such line or the end of the document. So the last thing in the answer is the last
+  field of the last entry, and inside a string `<` and `>` are ordinary characters
+  like any other.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+This task has one required deliverable, the translated file, and one
+optional deliverable: a CLIFF glossary for the term decisions the translation
+makes.
+
+The file below contains 24 entries in 5 sections.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file below already has its structure: an `<id>` line and a
+`[group.path]` line each stand alone, and the field lines that follow one - up to the
+next such line, or to the end of the file - are that entry's or that section's.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+CLIFF 1.1
+namespace: clarion
+clan: ui-console
+source-language: en-US
+target-language: zh-CN
+
+[nav]
+
+<billing>
+source: "Billing"
+type: sentence
+status: initial
+
+<streaming>
+source: "Streaming"
+type: sentence
+status: initial
+
+<workspaces>
+source: "Workspaces"
+type: sentence
+status: initial
+
+[billing]
+
+<billing-rate>
+source: "Billing rate"
+type: sentence
+status: initial
+
+<no-invoices>
+source: "No invoices yet"
+type: sentence
+status: initial
+
+<payment-failed>
+source: "Payment failed"
+type: sentence
+status: initial
+
+[streaming]
+
+<stream-key>
+source: "Stream key"
+type: sentence
+status: initial
+
+<frame-rate>
+source: "Frame rate"
+type: sentence
+status: initial
+
+<resolution>
+source: "Resolution"
+type: sentence
+status: initial
+
+<add-to-workspace>
+source: "Add to workspace"
+type: sentence
+status: initial
+
+<stream-failed>
+source: "Stream failed to start"
+type: sentence
+status: initial
+
+<stream-summary>
+source: "{count, plural, other {# streams}} across {regions, plural, other {# regions}}"
+type: sentence
+status: initial
+
+[settings]
+
+<restore-defaults>
+source: "Restore defaults"
+type: sentence
+status: initial
+
+<clear-cache>
+source: "Clear cache"
+type: sentence
+status: initial
+
+<latency>
+source: "Latency"
+type: sentence
+status: initial
+
+<api-token>
+source: "API token"
+type: sentence
+status: initial
+
+<request-rate-limit>
+source: "Request rate limit"
+type: sentence
+status: initial
+
+<status-line>
+source: "Region: %s"
+type: sentence
+status: initial
+
+<cache-description>
+source: "Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin."
+type: sentence
+status: initial
+
+[onboarding]
+
+<create-workspace>
+source: "Create new workspace"
+type: sentence
+status: initial
+
+<welcome-back>
+source: "Welcome back to Harborline, {name}"
+type: sentence
+status: initial
+
+<workspace-count>
+source: "{count, plural, one {# workspace} other {# workspaces}}"
+type: sentence
+status: initial
+
+<delete-confirm>
+source: "Delete this workspace? This cannot be undone."
+type: sentence
+status: initial
+
+<close-dialog>
+source: "Close dialog"
+type: sentence
+status: initial

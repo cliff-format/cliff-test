@@ -1,0 +1,83 @@
+# cliff:source = Great work today, everyone. Really.
+news-01a = 今天大家干得真好。真的。
+
+# cliff:source = Great work today, everyone. Really.
+news-01b = 今天大家干得真好。真的。
+
+# cliff:source = Six months of roadworks and here we are.
+news-02a = 六个月的施工，终于等到今天了。
+
+# cliff:source = Six months of roadworks and here we are.
+news-02b = 六个月的施工，终于等到今天了。
+
+# cliff:source = You are really going to ride that thing?
+news-03a = 你真打算坐那玩意儿？
+
+# cliff:source = You are really going to ride that thing?
+news-03b = 你真打算坐那玩意儿？
+
+# cliff:source = Nice shot.
+news-04a = 拍得不错。
+
+# cliff:source = Nice shot.
+news-04b = 拍得不错。
+
+# cliff:source = It is back.
+news-05a = 它回来了。
+
+# cliff:source = It is back.
+news-05b = 它回来了。
+
+# cliff:source = Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay
+news-06 = 非常感谢 @HollowPineCafe 今天早上在车辆段门口免费派发咖啡。#TramDay
+
+# cliff:source = Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+news-07 = 今天下午把整条环线坐了个遍，就因为我想坐 🚋💚 毫不后悔
+
+# cliff:source = The new depot mural absolutely ate. No crumbs left.
+news-08 = 新车辆段的壁画简直绝了，连渣都没剩。
+
+# cliff:source = {count, plural, one {# person} other {# people}} reposted your photo.
+news-09 = {count, plural, one {# 人} other {# 人}}转发了你的照片。
+
+# cliff:source = {name} and {others, plural, one {# other} other {# others}} liked your post.
+news-10 = {name} 和 {others, plural, one {# 位其他用户} other {# 位其他用户}}赞了你的帖子。
+
+# cliff:source = Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.
+news-11 = 河畔环线开通第 3 天，我每程省下了 40 分钟。10 分满分，还会再坐。
+
+# cliff:source = @SablewickTransit Will the Riverside Loop run on the holiday Monday?
+news-12 = @SablewickTransit 河畔环线在周一假日那天会运行吗？
+
+# cliff:source = Yes, on a Sunday timetable.
+news-13 = 会，按周日时刻表运行。
+
+# cliff:source = And the last one back?
+news-14 = 那末班回程是几点？
+
+# cliff:source = Eleven forty, from the north end.
+news-15 = 11 点 40 分，从北端发车。
+
+# cliff:source = Perfect, thank you! Adding it to the group chat now.
+news-16 = 太好了，谢谢！这就发到群里。
+
+# cliff:source = Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.
+news-17 = 运营公告：自周一起，河畔环线每 8 分钟一班，末班车发车时间为晚上 11:40。
+
+# cliff:source = The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.
+news-18 = 车辆段开放日于周六上午十点开始，车间参观对所有人免费。
+
+# cliff:source = Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.
+news-19 = 运营商表示，河畔环线首周客流量达到 2.1 万人次。
+
+# cliff:source = I take the first tram most mornings and the seats are comfortable enough for the whole ride.
+news-20 = 大多数早上我都坐首班电车，座位坐完全程也够舒服。
+
+# cliff:source = Does anyone know whether the ticket machine at the north end takes cards?
+news-21 = 有人知道北端的售票机能不能刷卡吗？
+
+# cliff:source = The rain held off for the ceremony, which was lucky for everyone standing on the platform.
+news-22 = 仪式期间雨没下起来，站台上的人算是走运了。
+
+# cliff:source = A single journey costs one euro fifty and a day pass costs four euros.
+news-23 = 单程票价 1.5 欧元，日票 4 欧元。

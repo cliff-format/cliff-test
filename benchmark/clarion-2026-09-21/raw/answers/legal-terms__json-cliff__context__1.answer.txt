@@ -1,0 +1,210 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "legal-terms",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "Licence agreement and research abstract for Ledgerline",
+    "info": "Two original documents: the end-user licence for Ledgerline, a hosted audit-trail platform, and the abstract of an independent evaluation paper. Register is formal legal and academic English.",
+    "standard": "Render modal verbs by their legal force, keep defined terms and brand names consistent, keep placeholders and Latin terms untranslated, use fullwidth punctuation and a space between Han text and Latin or digits."
+  },
+  "groups": [
+    {
+      "path": "definitions",
+      "context": "Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document.",
+      "type": "sentence",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "licensee",
+          "source": "“Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.",
+          "target": "“被许可方”指代表其授权用户订立本协议并接受本协议条款的法律实体。",
+          "status": "initial",
+          "context": "First defined term; later clauses refer to this party by the capitalised noun."
+        },
+        {
+          "id": "authorised-user",
+          "source": "“Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.",
+          "target": "“授权用户”指经被许可方授权代表其访问服务的被许可方雇员、承包商或代理人。",
+          "status": "initial",
+          "context": "Defined term for the individuals the Licensee may let use the Service."
+        },
+        {
+          "id": "service-data",
+          "source": "“Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.",
+          "target": "“服务数据”指被许可方或其授权用户提交至服务或在服务中存储的所有记录、文档和元数据。",
+          "status": "initial",
+          "context": "Defined term covering everything the customer loads into the platform."
+        },
+        {
+          "id": "service",
+          "source": "“Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.",
+          "target": "“服务”指附录 A 中描述的 Ledgerline 审计追踪平台，连同运营方普遍提供的任何更新。",
+          "status": "initial",
+          "context": "Defined term for the product itself; the brand name stays in Latin script."
+        },
+        {
+          "id": "operator",
+          "source": "“Operator” means the company identified in the privacy notice as responsible for processing Service Data.",
+          "target": "“运营方”指隐私声明中指明负责处理服务数据的公司。",
+          "status": "initial",
+          "context": "Defined term for the provider; the privacy notice fills in the actual company name."
+        }
+      ]
+    },
+    {
+      "path": "grant",
+      "context": "Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent.",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "grant-license",
+          "source": "Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.",
+          "target": "在遵守本协议条款的前提下，运营方授予被许可方一项非排他性、不可转让、可撤销的许可，允许其仅为内部业务目的访问和使用服务。",
+          "status": "initial",
+          "context": "The core grant clause; its scope is narrowed by the restrictions that follow."
+        },
+        {
+          "id": "licensee-shall",
+          "source": "The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.",
+          "target": "被许可方应确保每一位授权用户遵守本协议条款。",
+          "status": "initial",
+          "context": "Obligation clause. “Shall” is a duty here, not a future tense."
+        },
+        {
+          "id": "operator-must",
+          "source": "The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.",
+          "target": "运营方必须依照本协议第 4.2 节维护服务数据的保密性。",
+          "status": "initial",
+          "context": "Security obligation with a cross-reference; the section number must survive."
+        },
+        {
+          "id": "licensee-may",
+          "source": "The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.",
+          "target": "被许可方可仅为培训其授权用户的目的复制文档。",
+          "status": "initial",
+          "context": "Permission clause. “May” grants a right; it does not predict a possibility."
+        },
+        {
+          "id": "termination",
+          "source": "Either party may terminate this Agreement on thirty days' written notice to the other party.",
+          "target": "任何一方均可通过向另一方发出三十天书面通知终止本协议。",
+          "status": "initial",
+          "context": "Termination right; another use of permissive “may”."
+        }
+      ]
+    },
+    {
+      "path": "restrictions",
+      "context": "Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction.",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "licensee-may-not",
+          "source": "The Licensee may not sublicense, rent or lease the Service to any third party.",
+          "target": "被许可方不得向任何第三方再许可、出租或租赁服务。",
+          "status": "initial",
+          "context": "Prohibition clause. “May not” forbids an act; it is not a statement of likelihood."
+        },
+        {
+          "id": "restricted-acts",
+          "source": "The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.",
+          "target": "被许可方不得：(a) 对服务进行反向工程、反编译或反汇编；(b) 移除或遮盖服务上的任何专有权利声明；或 (c) 使用服务代表任何第三方处理数据。",
+          "status": "initial",
+          "context": "Enumerated prohibition; the item markers must survive so citations stay valid."
+        },
+        {
+          "id": "no-derivative",
+          "source": "The Licensee may not create derivative works based on the Service or any part of it.",
+          "target": "被许可方不得基于服务或其任何部分创建衍生作品。",
+          "status": "initial",
+          "context": "Short prohibition parallel to the enumerated list."
+        },
+        {
+          "id": "confidentiality",
+          "source": "The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.",
+          "target": "被许可方应对运营方披露的关于服务的所有非公开信息予以保密。",
+          "status": "initial",
+          "context": "Confidentiality duty; the obligation falls on the Licensee."
+        }
+      ]
+    },
+    {
+      "path": "notices",
+      "context": "Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography.",
+      "type": "sentence",
+      "emotion": [
+        "formal"
+      ],
+      "entries": [
+        {
+          "id": "warranty-disclaimer",
+          "source": "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.",
+          "target": "服务按“现状”和“可用状态”提供，不提供任何形式的保证，无论是明示还是默示，包括但不限于对适销性、特定用途适用性和不侵权的默示保证。",
+          "status": "initial",
+          "context": "All-caps disclaimer; the Chinese keeps the same force without adding any formatting."
+        },
+        {
+          "id": "limitation-liability",
+          "source": "To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.",
+          "target": "在法律允许的最大范围内，运营方因本协议引起或与之相关的所有索赔而承担的累计责任，不得超过被许可方在该索赔发生前十二个月内支付的费用。",
+          "status": "initial",
+          "context": "Liability cap; translate fully without dropping the fee basis or the time window."
+        },
+        {
+          "id": "severability",
+          "source": "If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.",
+          "target": "如果本协议的任何条款被认定为不可强制执行，其余条款仍完全有效。",
+          "status": "initial",
+          "context": "Standard severability clause."
+        },
+        {
+          "id": "privacy-operator",
+          "source": "This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.",
+          "target": "本服务由 {operator} 运营，其担任通过平台处理的服务数据的数据控制者。",
+          "status": "initial",
+          "context": "Privacy notice template; {operator} is filled in by the billing system at runtime."
+        },
+        {
+          "id": "privacy-purpose",
+          "source": "The Operator processes Service Data only for the purposes of providing, securing and improving the Service.",
+          "target": "运营方仅为提供服务、保障服务安全和改进服务的目的处理服务数据。",
+          "status": "initial",
+          "context": "Purpose limitation from the privacy notice."
+        },
+        {
+          "id": "retention-period",
+          "source": "Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.",
+          "target": "除非法律要求更长的期限，否则服务数据将在被许可方关闭账户 {months} 个月后被删除。",
+          "status": "initial",
+          "context": "Retention clause; {months} is a runtime number, not translatable text."
+        }
+      ]
+    },
+    {
+      "path": "abstract",
+      "context": "Abstract of an original evaluation paper on anomaly detection in financial audit trails. Technical terms follow the agreed terminology; one term stays in Latin script.",
+      "type": "description",
+      "emotion": [
+        "objective"
+      ],
+      "entries": [
+        {
+          "id": "abstract",
+          "source": "Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.",
+          "target": "金融审计追踪每天新增数百万个事件，而审查这些追踪的团队需要能够标记真正异常、又不会使人工分析师不堪重负的检测器。我们在一个合成账本事件语料库上评估三种检测方法，在对抗性噪声下测量假阳性率、端到端延迟和处理吞吐量。我们的结果表明，基于学习到的事件 Embedding 构建的序列模型提高了对噪声的健壮性，同时将延迟保持在交互阈值以下。我们发布评估工具和合成语料库，以支持可复现的比较。",
+          "status": "initial",
+          "context": "Full abstract; keep the evaluation framing and the three measurements intact."
+        }
+      ]
+    }
+  ]
+}

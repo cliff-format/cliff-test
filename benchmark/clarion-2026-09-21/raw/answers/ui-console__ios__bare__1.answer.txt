@@ -1,0 +1,48 @@
+/* cliff:source: Billing */
+"billing" = "计费";
+/* cliff:source: Streaming */
+"streaming" = "直播";
+/* cliff:source: Workspaces */
+"workspaces" = "工作区";
+/* cliff:source: Billing rate */
+"billing-rate" = "计费费率";
+/* cliff:source: No invoices yet */
+"no-invoices" = "暂无发票";
+/* cliff:source: Payment failed */
+"payment-failed" = "支付失败";
+/* cliff:source: Stream key */
+"stream-key" = "直播密钥";
+/* cliff:source: Frame rate */
+"frame-rate" = "帧率";
+/* cliff:source: Resolution */
+"resolution" = "分辨率";
+/* cliff:source: Add to workspace */
+"add-to-workspace" = "添加到工作区";
+/* cliff:source: Stream failed to start */
+"stream-failed" = "直播启动失败";
+/* cliff:source: {count, plural, other {# streams}} across {regions, plural, other {# regions}} */
+"stream-summary" = "{count, plural, other {# 个直播}}覆盖 {regions, plural, other {# 个区域}}";
+/* cliff:source: Restore defaults */
+"restore-defaults" = "恢复默认值";
+/* cliff:source: Clear cache */
+"clear-cache" = "清除缓存";
+/* cliff:source: Latency */
+"latency" = "延迟";
+/* cliff:source: API token */
+"api-token" = "API Token";
+/* cliff:source: Request rate limit */
+"request-rate-limit" = "请求速率限制";
+/* cliff:source: Region: %s */
+"status-line" = "区域：%s";
+/* cliff:source: Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin. */
+"cache-description" = "缓存响应会保留 24 小时，在过期前会一直被复用。清除缓存后，每个请求都会重新回源。";
+/* cliff:source: Create new workspace */
+"create-workspace" = "创建新工作区";
+/* cliff:source: Welcome back to Harborline, {name} */
+"welcome-back" = "欢迎回到 Harborline，{name}";
+/* cliff:source: {count, plural, one {# workspace} other {# workspaces}} */
+"workspace-count" = "{count, plural, one {# 个工作区} other {# 个工作区}}";
+/* cliff:source: Delete this workspace? This cannot be undone. */
+"delete-confirm" = "删除此工作区？此操作无法撤销。";
+/* cliff:source: Close dialog */
+"close-dialog" = "关闭对话框";

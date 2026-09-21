@@ -1,0 +1,148 @@
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just opened an acceptance letter and means the compliment warmly.
+cliff:source: Oh, that's just wonderful.
+cliff:type: dialogue
+cliff:emotion: joyful|grateful
+cliff:status: initial */
+"probe-01a" = "哦，那真是太好了。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just watched the plan fall apart; the line is bitter irony.
+cliff:source: Oh, that's just wonderful.
+cliff:type: dialogue
+cliff:emotion: angry|playful
+cliff:status: initial */
+"probe-01b" = "哦，那真是太好了。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A cafe customer holds the door open and genuinely lets the other person go first.
+cliff:source: After you.
+cliff:type: dialogue
+cliff:emotion: polite|calm
+cliff:status: initial */
+"probe-02a" = "您先请。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first.
+cliff:source: After you.
+cliff:type: dialogue
+cliff:emotion: polite|angry
+cliff:status: initial */
+"probe-02b" = "您先请。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. Two friends line up for another round of the board game; said with a grin.
+cliff:source: Well, here we go again.
+cliff:type: dialogue
+cliff:emotion: joyful|playful
+cliff:status: initial */
+"probe-03a" = "好吧，又来了。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A repair worker returns to the same machine for the third time; said with a sigh.
+cliff:source: Well, here we go again.
+cliff:type: dialogue
+cliff:emotion: sad|calm
+cliff:status: initial */
+"probe-03b" = "好吧，又来了。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A nurse reassures a patient before a routine procedure.
+cliff:source: Just relax.
+cliff:type: dialogue
+cliff:emotion: calm|hopeful
+cliff:status: initial */
+"probe-04a" = "放松点。";
+/* Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A guard tells a cornered intruder to stop moving; the tone is steady, not warm.
+cliff:source: Just relax.
+cliff:type: dialogue
+cliff:emotion: serious|angry
+cliff:status: initial */
+"probe-04b" = "放松点。";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Toolbar button that writes the open document to disk.
+cliff:source: Save
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"probe-05a" = "保存";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Step in the shutdown checklist telling the operator to write the session to disk before closing.
+cliff:source: Save
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"probe-05b" = "保存。";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Neighborhood name on the transit map, after the foundry that once stood there.
+cliff:source: Forge
+cliff:type: proper-noun
+cliff:emotion: objective
+cliff:status: initial */
+"probe-06a" = "锻炉";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Single-word task on the smith's workbench menu: begin shaping the heated metal.
+cliff:source: Forge
+cliff:type: verb
+cliff:emotion: objective
+cliff:status: initial */
+"probe-06b" = "锻造";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Wished to a performer just before they walk on stage.
+cliff:source: Break a leg!
+cliff:type: idiom
+cliff:emotion: objective
+cliff:status: initial */
+"probe-07a" = "祝演出成功！";
+/* Pairs where the same English string changes rendering with its type; honor the register the type implies. Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself.
+cliff:source: Break a leg!
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"probe-07b" = "别摔断腿！";
+/* Pairs where the context line names the referent; choose the word the scene requires. Column header on the invoice; the amount charged per hour of work.
+cliff:source: Rate
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"probe-08a" = "费率";
+/* Pairs where the context line names the referent; choose the word the scene requires. Setting in the video editor's playback panel; how many frames are drawn each second.
+cliff:source: Rate
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"probe-08b" = "帧率";
+/* Pairs where the context line names the referent; choose the word the scene requires. Caption on the marine-animals picture card in the children's set.
+cliff:source: Seal
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"probe-09a" = "海豹";
+/* Pairs where the context line names the referent; choose the word the scene requires. Label on the office-supplies drawer; the wax stamp used to close documents.
+cliff:source: Seal
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"probe-09b" = "印章";
+/* Pairs where the context line names the referent; choose the word the scene requires. Roadside call: the driver means the car engine, which will not turn over.
+cliff:source: It won't start.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"probe-10a" = "车打不着火。";
+/* Pairs where the context line names the referent; choose the word the scene requires. Support call: the user means the desktop application, which will not launch.
+cliff:source: It won't start.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"probe-10b" = "程序启动不了。";
+/* Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the settings screen, with room for the full wording.
+cliff:source: Restore Default Settings
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 14 */
+"probe-11a" = "恢复默认设置";
+/* Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the narrow mobile settings bar, where space is tight.
+cliff:source: Restore Default Settings
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 8 */
+"probe-11b" = "恢复默认";
+/* Pairs where the width budget forces a shorter wording; stay within the declared cells. Menu item on the desktop help screen, with room for the full wording.
+cliff:source: View Frequently Asked Questions
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 16 */
+"probe-12a" = "查看常见问题解答";
+/* Pairs where the width budget forces a shorter wording; stay within the declared cells. Footer link on the narrow mobile page, where space is tight.
+cliff:source: View Frequently Asked Questions
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 8 */
+"probe-12b" = "常见问题";

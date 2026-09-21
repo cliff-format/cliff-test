@@ -105,9 +105,9 @@ project might ship", using one corpus and one generation path. Protocol:
 | C6.8 | Format validity and intent success after model edits, every format | `python -m clarion robustness` | yes (deterministic replay available) |
 | C6.9 | Round-trip context fidelity per format | `python -m clarion fidelity` | no |
 | C6.10 | Harness self-verification: a perfect answer scores perfectly, a damaged answer is detected, degenerate controls stay below a real answer, deterministic edits keep every format valid | `python -m clarion selfcheck` | no |
-| C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python -m clarion translate --read-mode tolerant` vs `--read-mode strict`; `read_mode` and `repairs` columns in the D3/D4/D7 tables | yes |
+| C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python tools/compare_readings.py <run-dir>`; `read_mode`/`repairs` on every translation, robustness and fidelity record | yes |
 | C6.12 | **Modification correctness of a single-pass rewrite**: `valid %`, `ids kept %`, `coverage %`, `source kept %`, `repairs/answer`, and the extra / missing / drifted / untranslated identifier counts, per format and arm | the `D3/D4 - structural integrity of the rewrite` table of `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch` (`clarion/report.py` `structure_report`) | yes |
-| C6.13 | **measured at the deployment settings** (the shipped configuration: 1.3, all ten formats, tolerant reading) | **CLIFF bare 58.3% valid / 75.0% ids kept / 75.0% coverage; context 70.8% / 72.9% / 72.9%** — CLIFF is the least surviving of the ten and the best on the answers that survive (chrF++ 53.3) | see the run entry in [CHANGELOG.md](../CHANGELOG.md) |
+| C6.13 | **measured at the shipped settings** (`reasoning: low`, temperature 1.3, `prompt_style: spec`, all ten formats, tolerant reading) | **CLIFF bare 91.7% valid / 91.7% ids kept / 91.7% coverage; context 91.7% / 91.7% / 91.7%** — above csv's bare arm (89.6%) and xliff-2.1's context arm (79.2%); CLIFF's checker is the official validator and the strictest of the ten, so the column is comparable within a row, not across formats | the final run in [CHANGELOG.md](../CHANGELOG.md) |
 
 ### C6.12 is the modification-correctness number; C4 and C6.8 are not
 
@@ -119,12 +119,11 @@ the wrong document, which is why `ids kept %` and `coverage %` sit beside
 `valid %`.
 
 **One protocol, every format.** C6.12 is reported for all ten formats of the
-configured run, not for CLIFF alone: the same single-pass task, the same
-temperature (`1.3`, the value the production plugin uses and the configuration
-carries) and the same prompt style (`examples`) for every row, so the rows differ
-only in the format. A per-format override - `--formats cliff` - narrows a run, and
-then the table says which formats it covers, because a number quoted out of a
-narrowed run is not the benchmark's.
+configured run, not for CLIFF alone: the same single-pass task, the same decoder
+regime (`reasoning: low`), the same temperature (`1.3`) and the same prompt style
+for every row, so the rows differ only in the format. A per-format override -
+`--formats cliff` - narrows a run, and then the table says which formats it covers,
+because a number quoted out of a narrowed run is not the benchmark's.
 
 C4 (100 sequential edits) and C6.8 (twelve sequential edits per file, each applied
 to the previous answer) measure something else: whether a file **survives being
@@ -134,7 +133,7 @@ Quoting a multi-edit rate as "the model's format correctness" understates it;
 quoting C6.12 as "robustness under repeated editing" overstates it. Both are
 reported, each stating which question it answers.
 
-Recorded in this revision:
+Recorded in this revision (every one of these is the command's own output):
 
 - `python -m clarion corpus validate` — **16 files, 392 entries, 0 problems**.
 - `python -m clarion corpus stats` — CLARION-Core **0.3.0**, six strata, 18
@@ -144,147 +143,86 @@ Recorded in this revision:
 - `python -m clarion tokens` — CLARION-Core document payload, `o200k_base`:
   CLIFF **24 322** tokens in the plain arm and **47 499** in the context arm,
   against 20 647–41 228 (plain) and 52 753–140 693 (context) for the other nine
-  formats. The command also prices each prompt and its components.
-- `python -m clarion selfcheck` — **SELF-CHECK PASS**, including two checks new
-  in this revision: the strict and tolerant readings differ exactly as
-  Appendix C documents, and a repaired document serializes into one the strict
-  grammar accepts.
-- `python -m pytest tests/clarion` and `python tests/run_all.py --quality --robustness` — pass
-  (100/100 edit-robustness edits valid; all validator suites exit as expected).
+  formats. The command also prices each prompt and its components; CLIFF's prompt
+  is the most expensive in the plain arm because it carries the 2 925-token
+  specification block on every call.
+- `python -m clarion selfcheck` — **SELF-CHECK PASS**, including the strict and
+  tolerant readings differing exactly as Appendix C documents, and a repaired
+  document serializing into one the strict grammar accepts.
+- `python -m pytest` — **512 passed, 2 xfailed**; `python tests/run_all.py` and
+  `python tests/run_all.py --quality --robustness` — **ALL PASS** (100/100
+  edit-robustness edits valid, 48/48 quality constraints); `python
+  tools/token_benchmark.py --check` — every tracked generated artefact matches
+  what the tool renders; `ruff check .` clean; `python -m clarion secret-scan` —
+  0 findings.
 
-### C6.4–C6.8 recorded run
+### The recorded run
 
 `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
-model `deepseek-flash`, `read_mode: tolerant`, 3 repeats per cell, corpus
-**CLARION-Core 0.3.0** (16 documents, 392 entries).
+model `deepseek-flash`, **reasoning `low`**, temperature **1.3**,
+`prompt_style: spec`, `read_mode: tolerant`, 3 repeats per cell, corpus
+**CLARION-Core 0.3.0** (16 documents, 392 entries), revision `b81d3e6`, prompt
+fingerprint `6ef59ba44d454294`.
 
 Run directory:
-`results/clarion-deepseek-flash-20260920T114819+0000-6a5259` — 1 180 records,
+`results/clarion-deepseek-flash-20260921T211031+0000-de29a5` — 1 180 records,
 exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
-**5 598 954 prompt + 4 172 463 output tokens** billed, 53 minutes wall clock
-(concurrency 50, one endpoint, temperature 0).
+**3 993 022 prompt + 11 501 757 output tokens** billed, ≈ 57 minutes wall clock
+(concurrency 50, one endpoint, 2 806 s translating + 640 s editing). **0 truncated
+answers in every cell.** Raw evidence and the computed review data are published as
+[`benchmark/clarion-2026-09-21`](../benchmark/clarion-2026-09-21).
 
 | # | Criterion | CLIFF recorded | Best other format | Note |
 | --- | --- | --- | --- | --- |
-| C6.4 | quality, plain arm, chrF++ (failures scored 0) | **51.2** | android 51.8 | measured on the same segments, same model, one variable |
-| C6.4 | quality, context arm, chrF++ | **53.9** | android 54.9 | |
-| C6.5 | instruction-following, plain / context | **79.5% / 83.0%** | json-cliff 76.8% / json-cliff 83.4% | rule engine over the gold manifests |
-| C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
-| C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
-| C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run with the example prompt (**at temperature 0.0**, see below); was 100.0% / 83.3% |
-| C6.8 | same, at the shipped temperature 1.3 | **97.7% valid / 95.9% intent** | — | CLIFF only, 171 edits over three passes; the deployment number **for repeated editing**, which is not C6.12 |
+| C6.4 | quality, plain arm, chrF++ (failures scored 0 / survivors) | **46.5 / 50.7** | android 51.8 / 51.8 | measured on the same segments, same model, one variable |
+| C6.4 | quality, context arm, chrF++ | **49.3 / 53.8** | yaml-cliff 55.0 / 55.0 | |
+| C6.5 | instruction-following, plain / context | **78.7% / 81.2%** | yaml-cliff 78.3% / yaml-cliff 87.0% | rule engine over the gold manifests |
+| C6.6 | terminology / de-jargon, plain | **94.5% / 99.9%** | — | |
+| C6.7 | output tokens per run, context arm | **17 704** | fluent 10 127 | CLIFF is the largest here: thinking tokens are billed as output and CLIFF is the only format that may answer with a second document |
+| C6.8 | still valid after model edits, bare / context | **100.0% / 86.1%** | xliff-2.1 71.4% / 77.8% | mean over the 60 chains **96.3%**; intent applied 95.2% / 86.1% |
 | C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
+| C6.11 | the two readings on the same 96 answers | strict **87.5% / 85.4%**, tolerant **91.7% / 91.7%**, at **2 / 13** repairs | — | every repair a shape repair; no answer salvaged by inventing content |
+| C6.12 | single-pass rewrite: valid / ids kept / coverage | **91.7% / 91.7% / 91.7%** in both arms | 100% for the seven formats whose checker is a parse, not a validator | above csv's bare arm (89.6%) and xliff-2.1's context arm (79.2%) |
+| C6.13 | at the shipped settings, all ten formats | as above | — | one protocol; the rows differ only in the format |
 
-### C6.8 re-run: the prompt redesign, and what it fixed
+**Everything in that table is under one protocol and one reading.** The reading is
+`tolerant`, which is what the shipped configuration declares, so `repairs` is
+reported per row beside validity rather than hidden in it; the strict column of
+C6.11 is what a toolchain without the tolerant mode would see, measured on the same
+stored answers with no model call.
 
-After the two prompt pilots the shipped configuration moved to
-`temperature: 1.3` (DeepSeek's recommended translation temperature, and what the
-production plugin uses) and `prompt_style: examples` (the specification text
-replaced by the key/scope facts plus two conforming documents; 20 739 → 2 510
-prompt tokens per cell at the time; the table has since been re-measured through
-the assembly path and reads **21 383 → 2 417**, see
-`docs/clarion-prompt-design.md`). Dimension 7 was then re-run through
-`run_robustness_matrix` over the `ui` stratum, 2 passes × 12 edits, 240 calls.
-**Only the prompt change reached that run**: the edit path built its own request
-with a hard-coded `temperature=0.0` and ignored the configured value, so the
-column below is a 0.0 comparison — same model, same files, same edits, only the
-CLIFF edit prompt differing. The defect is fixed (the temperature is now a
-parameter forwarded from the configuration, guarded by
-`tests/clarion/test_edit_request.py`) and the 1.3 baseline has since been
-measured: CLIFF **97.7 % valid / 95.9 % intent** over 171 edits in three passes,
-against 100 % / 98.6 % here. See
-[clarion-prompt-design.md](clarion-prompt-design.md) for the per-failure
-attribution, and note that **the 1.3 row is the number to quote**: the 0.0 column
-measures a decoder the pipeline does not use.
+**No reference-free quality figure is claimed.** The optional MetricX-23-QE pass
+needs `unbabel-comet` and its model weights, which were not available where this run
+was produced, so the bundle carries no `qe_scores.jsonl` and neither this document
+nor [BENCHMARK.md](../BENCHMARK.md) reports a QE number. `python tools/qe_score.py
+<run-dir>` adds one, after which `tools/audit_report.mjs` regenerates the column.
 
-| format | arm | still valid % | invented-key failures | repairs |
-| --- | --- | ---: | ---: | ---: |
-| **cliff** | bare | **100.0** | 0 | 0 |
-| **cliff** | context | **100.0** (was 83.3) | **0** (was 2) | 44 / 6 introduced |
-| xliff-2.1 | bare | 59.5 (was 57.1) | 0 | 0 |
-| xliff-2.1 | context | 62.5 (was 55.6) | 0 | 0 |
-| other eight formats | both | 100.0 | 0 | 0 |
+### What the shipped prompt fixed, and what it did not
 
-The `cliff/context` failures were the invented keys of the previous run
-(`translator-context`, `ref`, `source-ref`, `status` in a group section); D7's
-edit prompt had carried no CLIFF content at all, so the model named the fields
-itself. With the field names and scopes stated, **no edit in the run invented a
-key**, and every repair was absorbed by the tolerant reader rather than failing.
-The repair figures are the running total over document-steps (44) and the repairs
-the model actually introduced (6, on `add-reference` and `set-emotion` — the two
-operations that require creating a field that is not on the page); the total is
-larger because one deviation is re-counted by every later step, so only the
-introduced count may be attributed per operation
-(`.tools/d7_audit.py` prints both). The isolated effect is measured separately:
-18.8 % → 0 % invented-key failures over 48 edits per condition, Fisher exact
-p = 0.0026 ([clarion-prompt-design.md](clarion-prompt-design.md); this was
-published as 0.0129 from a defective test - the corrected p is smaller, so the
-difference is if anything stronger).
+The single-pass validity of CLIFF at the shipped settings is **91.7 %** in both
+arms, against **58.3 %** for the protocol this document recorded before (the
+example-driven prompt with thinking off). Three changes account for it, and the
+design record behind each is in [clarion-prompt-design.md](clarion-prompt-design.md):
 
-**The XLIFF rows are not comparable across the two runs, and the difference is the
-model, not the decoder.** The prompt change touches CLIFF only, and every XLIFF
-failure is an XML parse error in a document the model rewrote wholesale. An
-earlier version of this note attributed the 100.0 % to a temperature-0.0 lucky
-sample; that was wrong on both counts. Both runs sent 0.0 on the edit path, and
-the 100.0 % belongs to the frozen `benchmark/clarion-2026-09-02` run, whose
-configuration reads `model: deepseek-v4-flash` with the same stratum and edit
-count. The same-model baseline is 57.1 % / 55.6 %, so what separates 100 % from
-59.5 % is the model change (`deepseek-v4-flash` → `deepseek-flash`). CLIFF's own
-comparison is unaffected: both of its columns come from the same model.
+- the prompt became the specification **compressed to its rules** (`prompt_style:
+  spec`, 2 925 tokens per cell against 16 838 for the full text), so a model reads
+  the ABNF, the semantic constraints, the field tables and the closed vocabularies
+  rather than a hand-kept restatement of them;
+- the decoder regime moved to `reasoning: low`, which moved both survival and
+  quality where no prompt edit had moved quality;
+- the three markup **cues this project had been injecting** — the phrase
+  *"single-line marker; no closing tag exists"*, an XLIFF attribution for the status
+  tags, and the literal `</terms>` in the C.5 note — were removed from the ABNF's
+  comment block, which is what a prompt injects when it carries the compressed
+  specification.
 
-**No `truncated` runs** (0.0% in every cell), so the rows measure the format,
-not the output budget.
-
-**The two readings, on the same answers.** Re-scoring the 96 stored CLIFF
-answers of this run under both readings, with no model call
-(`python tools/compare_readings.py <run-dir>`):
-
-| Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance |
-| --- | ---: | ---: | ---: | --- |
-| bare | 89.6% | 93.8% | 3 | 2 answers |
-| context | 83.3% | 89.6% | 6 | 3 answers |
-
-Every repair was a shape repair — one quoted tag, four identifiers containing a
-reserved character, two normalization-induced id collisions. None was salvaged by
-inventing content, which is what Appendix C.5 forbids: one `wmt24pp` context
-answer claimed `status: translated` on an entry with no `target` at all, and the
-tolerant reading refused it exactly as the strict one did.
-
-**Failure composition (a format property, not a harness fault).** 61 of 960 runs
-did not parse, all of them in the two formats that cannot carry multi-line
-context cleanly: `csv` (context arm) writes a context field containing a newline
-into one row, which shifts every later column, and `xliff-2.1` (context arm)
-emits malformed XML at a specific line. Each failure was inspected in the stored
-answer text, not read off the summary.
-
-**Correction carried into this revision.** The token tables previously priced a
-CLIFF prompt that no arm sends: `token_matrix` omitted `allow_glossary_output`
-and `workflow_style`, so the terminology-workflow block was missing and the
-reference specification — which only CLIFF's prompt carries, 16 316 tokens per
-cell — was charged to no row. CLIFF's prompt columns were therefore about half
-of the real figure. The document columns were unaffected. `tests/clarion/test_tools.py`
-now asserts that the token matrix and the translation arms build the same prompt,
-argument for argument.
-
-**Reading used for the scored rows.** The C6.4–C6.8 numbers are recorded under
-the configuration shipped in `configs/deepseek-flash.json`, which sets
-`read_mode: tolerant` — the reading CLIFF 1.1 defines for an automated
-translation pipeline (Appendix C). Every row carries that mode and its repair
-count, so the same answers can also be scored under `--read-mode strict`;
-`docs/clarion-methodology.md` §9.1 states which question each reading answers.
-CLIFF's D7 context row (83.3% still valid) is measured under that reading and is
-the only row in the table whose validity is affected by which reading is in
-force; the other nine formats have one reading each.
-
-**Known limitation of the recorded run.** The annotator that wrote the
-`context_origin: annotated` briefs is the same model as the system under test
-(`deepseek-flash`), which `clarion/corpus/annotate.py` warns against because it
-flatters the context arm. A context-arm gain measured on annotated context is a
-weaker claim than one measured on native context; the rows' `context source`
-column says which items are which. This run therefore supports the
-format-to-format comparison (every format sees the same brief, so the pairing
-moves all formats together) but not a claim that CLIFF's context arm would gain
-as much against a human-written brief.
+What it did not fix is visible in the same table and stated in full in
+[BENCHMARK.md §11](../BENCHMARK.md): eight answers in 96 fail to parse, spread over
+six of the sixteen documents, with `sanguo-brewitt-taylor` (classical Chinese whose
+values mix CJK curly quotes with ASCII ones) accounting for three. One failure is
+the precise shape Appendix C.5 forbids a parser from repairing — `status` written
+into a group section — which is the failure the CLIFF-specific prompt was written
+for and which now survives at one answer in 96.
 
 ## How to re-run with a different model class
 

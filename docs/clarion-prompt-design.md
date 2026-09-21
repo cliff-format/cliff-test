@@ -1,17 +1,45 @@
 # Prompt design: what the CLIFF specification text was buying
 
-This records a measured prompt-cost experiment, not a proposal. The question was
-whether the 16 316-token reference specification that CLIFF's prompt carried in
-every recorded run earned its place, and the answer turned out to be narrower than
-either side of the argument expected.
+This records a prompt-cost experiment and the design rules it produced, not a
+proposal. The question was whether the reference specification that CLIFF's prompt
+carried in every recorded run earned its place, and the answer turned out to be
+narrower than either side of the argument expected.
+
+**Provenance, and what this document does not publish.** The exploratory rounds
+behind these rules were single cells: one-run ablations, pilot batches, per-cell
+comparisons. Their run directories have been pruned, so their per-cell numbers are
+no longer published here — a figure whose evidence has been deleted is a figure a
+reader cannot check, and a superseded cell quoted next to a current one is worse
+than either alone. What remains is stated in one of three ways:
+
+- the **decision** an experiment produced and the **rule** it became, with no
+  per-cell number;
+- a figure from the **final run** (`clarion-deepseek-flash-20260921T211031+0000-de29a5`,
+  revision `b81d3e6`, prompt fingerprint `6ef59ba44d454294`, shipped in
+  `benchmark/clarion-2026-09-21`), which is the only run whose answers this
+  document quotes as current;
+- a figure from **`python tools/prompt_cost.py`**, which prices the prompt styles
+  and prints the cost table below, so the reader can re-derive it.
+
+Where a figure comes from the final run it is the **tolerant reading** of Appendix C,
+which is the reading the shipped configuration declares (`read_mode: tolerant`), and
+the strict column of the same answers is quoted wherever the two differ — the
+difference is small and is the subject of
+[clarion-methodology.md](clarion-methodology.md) §9.1.
+
+Where a number appears without one of those three behind it, it is a defect.
 
 ## What was measured
 
-`python -m clarion tokens` on the recorded run puts CLIFF's `format instructions`
-at about 46 400 tokens per arm (16 cells), of which **16 316 per cell is the full
-text of `cliff-1.1.0.md`**, injected with the sentence *"Before writing the
-answer, consult the relevant sections of this full specification"*. In the plain
-arm CLIFF's instructions cost more than twice the document they describe.
+`python -m clarion tokens` prices CLIFF's `format instructions` component at
+**46 800 tokens per arm** (16 documents) under the shipped configuration, against a
+document payload of 24 322 (plain) and 47 499 (context): the instructions cost
+about twice the plain document they describe. Under the `digest` style, 16 838 of
+that per-cell figure is the full text of `cliff-1.1.0.md`, injected with the
+sentence *"Before writing the answer, consult the relevant sections of this full
+specification"*. That block is what the `spec` style replaces with 2 925 tokens of
+rules extracted from the specification repository, and `spec` is what the shipped
+configuration selects (`configs/deepseek-flash.json`).
 
 The replacements are selected with `prompt_style`. `examples`
 (`clarion/prompts/cliff_prompt_v2.py`) states only what a tolerant reader cannot
@@ -41,17 +69,22 @@ totals and that each column adds up to its own total.
 | **one cell, `ui-console` plain arm** | **21 393** | **2 417** | **4 142** |
 
 The rows are the measured blocks of one cell; each column adds up to its total. The
-specification text was 16 316 tokens when the recorded run priced it and is 16 838
-now — the specification itself has grown since (Appendix C.2.7 among the additions),
-which is a second reason a prompt that carries it is expensive to keep current. The
-`spec` column's glossary workflow is empty because that style states the glossary
-rules inside the specification block, and its answer-boundary reminder is the CLIFF
-answer-extent sentence placed immediately before the file.
+specification text has grown since this style was first priced, which is a second
+reason a prompt that carries it is expensive to keep current: 16 838 tokens today,
+against 2 925 for the rules extracted from it. The `spec` column's glossary workflow
+is empty because that style states the glossary rules inside the specification block,
+and its answer-boundary reminder is the CLIFF answer-extent sentence placed immediately
+before the file.
 
-The quoting rule is the last of the five CLIFF task rules and costs 66 of those 489
-tokens: two of the 1.3 edit run's four invalid answers were a text value written
-without quotes, which is the one shape error no reading repairs (Appendix C.5). The
-specification text it replaced cost 16 838.
+The quoting rule — the last of the example-driven CLIFF task rules, *each text value
+as one quoted string, with its final punctuation inside the quotes and the closing
+quote last on the line* — is **68 of the 202 tokens** that block costs. Both are
+`o200k_base` counts of `clarion.prompts.cliff_prompt_v2.CLIFF_TASK_RULES` and of its
+fifth rule; `python tools/prompt_cost.py` prices the block itself as `task.rules` in
+the table above. The rule is in the prompt because an unquoted value is the one shape
+error no reading repairs (Appendix C.5), and it is the only rule in that block that
+states a *shape*: quoting, brackets and spacing are otherwise taught by the two
+conforming examples.
 
 Against the `digest` prompt the saving is **18 976 tokens per cell**, which is
 **−88.7 %** in the plain arm (`python tools/prompt_cost.py --pilot`); over the four
@@ -126,226 +159,180 @@ construction would be wrong about what the block costs.
 | **sum of the parts** | **2 922** |
 | **the block as sent** | **2 925** |
 
-`tests/clarion/test_spec_digest.py` reads both figures out of this document and
-recomputes them, so a part that drifts fails the suite instead of the table.
+`tests/test_prompt_cost_tool.py` reads both figures out of this document — the
+per-part table and the block total — and recomputes them with
+`cliff_rules.block_decomposition`, so a part that drifts fails the suite instead of the
+table. The ceiling below is the other half of the pair, and it is deliberately loose:
+it guards against a doubling, and the exact figures are the ones this document
+publishes.
 
-Four guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
-compared against the key sets the parser actually accepts, every section of the
-specification that states a rule must appear in `SECTION_COVERAGE` with a reason
-(so a compression pass cannot drop a normative section silently), the published
-decomposition is recomputed, and the token ceiling is asserted — a change that
-doubles the digest fails there rather than in a paid run.
+`tests/clarion/test_spec_digest.py` holds the block's other properties: the field
+tables are compared against the key sets the parser actually accepts, the closed
+vocabularies against the implementation's, every section of the specification that
+states a rule must appear in `SECTION_COVERAGE` with a reason (so a compression pass
+cannot drop a normative section silently), every paragraph the module writes itself
+must be named in `WRITTEN_HERE` and be present in the block, the extraction is proven
+to read the specification rather than a copy of it, the marker rule is asserted to be
+injected in its primacy and recency positions, and the token ceiling is asserted — a
+change that doubles the digest fails there rather than in a paid run. The ceiling is
+deliberately loose; the figures that are *published* are pinned exactly by the
+decomposition test above, which is the arrangement that let the published parts drift
+from 2 834 to 2 925 unnoticed until they were pinned.
 
-**First measurement, one repeat.** CLIFF, bare arm, the sixteen files, 1.3, one
-repeat per file (16 answers, run `clarion-deepseek-flash-20260921T164514`):
+**The three levers this style was found by.** They were measured in one cell — CLIFF,
+bare arm, the sixteen documents, temperature 1.3, one repeat — because that was the
+cheapest design in which a single variable moves. The cell's answers have been pruned,
+so the per-cell rates are not republished here; what each lever decided is:
 
-| style | valid | 95 % Wilson | prompt tokens per call |
-| --- | ---: | --- | ---: |
-| `spec` | **11/16 = 68.8 %** | 44–86 % | 4 297 |
-| `examples` | 7/16 = 43.8 % | 23–67 % | 3 326 |
+1. **The compressed specification replaced the hand-written prompt.** In the same cell
+   the `spec` style left more documents valid than the example-driven style had, six
+   files flipping from a parse failure to valid against two the other way, and — the
+   part that mattered more than the rate — the *failure list changed kind*. What the
+   hand-written prompt had been missing was exactly what the specification states and
+   the compression had dropped: the rules, not the rationale. The decision was to keep
+   the compression and to read the failures line by line for the rules that were lost
+   (both of which are recorded below).
+2. **Stating the extent of the answer changes nothing on its own.** The failures at
+   that point looked like one missing fact — nothing said the answer *is* the file — so
+   the shared rules gained a sentence stating its extent ("opening with that file's
+   first line and closing with its last"), the CLIFF block gained the grammar's own
+   version of it ("one `cliff-file`, from its version line to its last field", which
+   `test_the_answer_boundary_is_stated_in_the_shared_rules` holds), and the cell came
+   back at the same rate with two files fixed, two broken, and the behaviour surviving
+   in new spellings: `[CONTINUATION VIA NOPER])</chapter-1-004>` inside a `target`
+   value, `</final-direction></final-direction>` on a line of its own, an entry marker
+   whose id is the field name `source`, and the same invented duplicate entry. That is
+   a negative result, and it is kept because it is the reason the sentence stays: it
+   costs 14 tokens and states a true property of the deliverable, and it was never
+   claimed to be a fix. It also produced the vocabulary-hypothesis that the
+   closing-tag section below resolves.
+3. **The decoder regime is a lever, and the first one that moved quality.** The same
+   cell with `--reasoning low` — one argument different — left more documents valid
+   *and* improved chrF++ over all answers and over the survivors, at roughly four times
+   the output tokens and 2.7 times the wall clock, because thinking tokens are billed
+   as output. The rate difference at n = 16 was not significant, but the failure list
+   changed kind again: the notes the model had written into its own answer, the
+   invented wrapper tags, the entry marker carrying a comment on the corpus and the
+   duplicated invented entries were all gone, leaving quoting failures on the longest
+   classical-Chinese lines. This is the lever that made the shipped protocol what it
+   is.
 
-Six files flip from a parse failure to valid (`game-quest`, `game-shard`,
-`godot-l10n`, `legal-privacy`, `news-wire`, `probe-ambiguity`), two flip the other
-way, and the difference is **not yet significant** (Fisher exact p = 0.25 against
-the three-repeat `examples` cell; n = 16 on one side). It is recorded because the
-direction is the one the failure analysis predicted: what the hand-written prompt
-was missing is exactly what the specification states and we had compressed away.
-
-**Second measurement: the answer boundary, stated, changes nothing.** The five
-remaining failures in that run were read line by line and three of them were the
-model writing its own notes into the answer (a `{"note": ...}` object, `##### Result
-impossible.`, an entry marker followed by a comment on the corpus), one was an
-answer that stopped mid-string, and two were invented duplicate entries. That looked
-like one missing fact — nothing said the answer *is* the file — so the shared rules
-gained a sentence stating its extent ("opening with that file's first line and
-closing with its last", +14 tokens, guarded by
-`test_the_answer_boundary_is_stated_in_the_shared_rules`), the CLIFF block gained the
-grammar's own version of it ("one `cliff-file`, from its version line to its last
-field"), and the same cell was re-run (`clarion-deepseek-flash-20260921T171241`).
-
-**11/16 = 68.8 % again.** Two files were fixed, two broke, and the behaviour the
-sentence was for survived in new spellings: `[CONTINUATION VIA NOPER])</chapter-1-004>`
-inside a `target` value, `</final-direction></final-direction>` on a line of its own,
-an entry marker whose id is the field name `source`, and the same duplicated entry
-(`abstract-2`) the previous run had produced.
-
-That is a result, and it is a negative one: at 1.3 the failure rate does not respond
-to prompt content. Two levers have now been pulled in this same cell — the rewrite
-(−15 points) and the boundary statement (0 points) — while the compressed
-specification moved it +25 points in one pass, which is why the specification stays
-and the boundary sentence is recorded as insufficient rather than harmful.
-
-**Third measurement: the decoder regime is the lever.** Same cell, same prompt, same
-temperature, one argument different — `--reasoning low`
-(`clarion-deepseek-flash-20260921T171557`):
-
-| cell (CLIFF, bare, 16 files, one repeat) | valid | chrF++ all | chrF++ on survivors | output tokens per call |
-| --- | ---: | ---: | ---: | ---: |
-| `examples`, thinking off | 7/16 = 43.8 % | 25.1 | 47.8 | 3 161 |
-| `spec`, thinking off | 11/16 = 68.8 % | 42.2 | 50.5 | 2 443 |
-| `spec`, thinking off + boundary sentence | 11/16 = 68.8 % | — | — | 2 221 |
-| **`spec`, `reasoning: low`** | **14/16 = 87.5 %** | **46.9** | **53.6** | 9 154 |
-
-The p-value between the two `spec` cells is 0.39 — sixteen answers cannot settle it —
-but the *failure list* changes kind, which is what this sample can support: the notes
-the model wrote into its own answer, the invented wrapper tags, the entry marker
-carrying a comment on the corpus and the duplicated invented entries are all gone,
-leaving two answers whose quoting fails on the longest classical-Chinese lines.
-Quality moves for the first time as well (+4.7 all, +3.1 on survivors), and the cost
-is 4.1× the output tokens and 2.7× the wall clock, because thinking tokens are billed
-as output.
-
-**What this settles about the earlier attribution.** The stored runs could not
+**What that round settled about an earlier attribution.** The stored runs could not
 separate temperature from prompt content: every 0.0 run also carried the full
-specification text, so the −35 points between them were being charged to a variable
-that was never varied alone. What the same-cell comparisons now show is that the
-*decoder regime* is what the single-pass number responds to, and `--temperature` and
-`--reasoning` exist so the two can be told apart from here on.
+specification text, so the difference between them was being charged to a variable
+that was never varied alone. The same-cell comparisons above are the first ones that
+vary one thing, and they are why `--temperature` and `--reasoning` exist as per-run
+arguments rather than as configuration-only settings.
 
-## The escaping and glossary ablations: two rules the compression dropped
+## Two rules the compression dropped, and what the final run shows
 
 Compressing the specification is a lossy operation, and two losses were found the
-hard way — by reading the two remaining failures line by line, and by noticing that
-a measured delivery had stopped happening.
+hard way — by reading the remaining failures line by line, and by noticing that a
+measured delivery had stopped happening. Both became paragraphs in the shipped
+block, and both are visible in the final run.
 
 **One: the escape rule was only implied.** The `spec` style stated the escape set
 only inside the grammar, as `double-escape = "\" ( DQUOTE / "\" / "n" / "r" / "t" )`,
 and nothing in prose said *every* ASCII double quote inside a value is written `\"`.
-Two answers failed on exactly that, and the character-level read is unambiguous:
+The failures that exposed it are worth describing rather than counting: a long
+classical-Chinese `source` value in `hongloumeng-joly` where the model escaped two of
+three inner ASCII quotes and missed the third, so the value closed early — the trap
+being that the same value also contains CJK curly quotes (`“ ”`), which are ordinary
+characters and take no backslash; and a long `target` in `sanguo-brewitt-taylor` that
+wrote both inner English dialogue quotes raw.
 
-- `hongloumeng-joly`, an 801-character `source` value of classical Chinese: the
-  model escaped two of the three inner ASCII quotes and missed the third, so the
-  value closed early. The trap is that the same value also contains CJK curly quotes
-  (`“ ”`), which are ordinary characters.
-- `sanguo-brewitt-taylor`, a 933-character `target`: the model wrote both inner
-  English dialogue quotes raw.
-
-A paragraph stating the escape set, plus the CJK note, costs 136 tokens. In the next
-run the `sanguo` answer was valid and the `hongloumeng` answer parsed (its remaining
-failure is a duplicated entry), and no answer has failed on a missing escape since.
-`test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds it.
+The paragraph that states the rule — the five escapes, the sentence that the file you
+were given already spells them that way, and the CJK-ordinary-character note — costs
+**158 tokens**, and
+`test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds it. It
+removed the class, not every instance: in the final run three of CLIFF's eight
+failures are still on this shape, all three in `sanguo-brewitt-taylor` — `expected a
+quoted string` on the same line of two bare-arm answers, at 854 and 948 characters,
+and `unterminated string` in the context arm, where a 41-character line opens a string
+that never closes. A rule a model must apply inside a long value it is copying
+survives most of the time, which is a different claim from "the failures stopped".
 
 **Two: the glossary lost its trigger and its shape, and the trigger alone is worse
-than neither.** `glossary emitted` went from 41/96 in the recorded run to **0/16**
-once the `spec` style replaced the hand-written workflow blocks. Reading what the
-style actually sent: it stated what a glossary *is* and when one is warranted
-(section 13.2.2's criterion) and never said that this task expects one. So the
-ablation ran in the same cell, one repeat, `reasoning: low` throughout:
+than neither.** Once the `spec` style replaced the hand-written workflow blocks,
+`glossary emitted` fell to zero: the style said what a glossary *is* and when section
+13.2.2 says one is warranted, and never said that this task expects one. The ablation
+that followed separated the two failures, and they are not of equal weight:
 
-| cell — CLIFF, bare, 16 files, one repeat | valid | answers with a 2nd document | separator banners written | chrF++ all | instruction % |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| no trigger (the state that measured 0/16) | 14/16 | 0/16 | 0/16 | 46.9 | 70.9 |
-| **A: trigger only** | **5/16** | 10/16 | **9/16** | 15.5 | **22.0** |
-| B: trigger + shape + boundary | 14/16 | 13/16 | 0/16 | 49.0 | 70.6 |
-| **B2: the same, stated affirmatively** | **16/16** | 10/16 | 0/16 | 49.0 | 70.0 |
+- **The trigger was the missing piece for emission.** One task-level sentence — the
+  deliverable statement the other styles had always carried — is what took emission
+  from nothing to roughly two thirds of answers.
+- **The trigger alone was the worst configuration measured.** Answers told there were
+  two deliverables, and not told how a second document is recognised, invented their
+  own separator line between them (`===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY
+  (variant: glossary) =====` and two other forms). Every such line is read as a
+  malformed field and fails the whole answer, so the arm that delivered the most
+  glossaries also had the lowest validity and the lowest chrF++. The block it had
+  replaced said the boundary in passing — *"add a CLIFF document after the translated
+  file:"* — and dropping it removed the boundary with the delivery.
+- **So both were missing, and the boundary was the expensive one.** The shipped block
+  states the shape from section 13.2.1 (the `-terms` clan suffix, the `[terms]`
+  section, one entry per term carrying `source`, `target`, `type`, `status`,
+  `context`) and the boundary as 13.2.2 states it: a second document is recognised by
+  its own version line. The first attempt phrased it as *"no heading, no separator, no
+  line of explanation"*, which names the banner it was meant to prevent; the
+  affirmative phrasing is what ships.
 
-- **The trigger was the missing piece** for emission: the criterion sentence was
-  already there and produced nothing, because nothing said the glossary was wanted
-  *here*. One task-level sentence — the deliverable statement the other styles have
-  always carried — took it from 0/16 to 10/16.
-- **But the trigger alone is the worst cell in this document.** Nine of the sixteen
-  answers introduced their own separator between the two documents —
+**The final run confirms both halves at scale.** Across the 96 CLIFF answers, **28 of
+the 48 bare-arm answers and 37 of the 48 context-arm answers carry a second
+document**, and **none of the 96 contains a separator rule line of its own** (checked
+as any line consisting only of `=`, `-`, `#`, `*` or `_`, three or more characters).
+Emission that high with banners at zero is the combination the ablation said was only
+reachable with the trigger *and* the boundary stated, and it is the strongest
+evidence in this document for a rule that was written from a sixteen-answer cell.
 
-  ```
-  ===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY (variant: glossary) =====
-  ----- OPTIONAL DELIVERABLE: GLOSSARY (CLIFF, variant: glossary) -----
-  ===== OPTIONAL SECOND FILE: GLOSSARY (separate deliverable) =====
-  ```
+## The closing-tag question, and the correction this document owes
 
-  — and the parser reads each as an invalid field name, so the whole answer fails:
-  5/16 valid, instruction % 22, chrF++ 15.5. The model had been told there were two
-  deliverables and had not been told how a second document is recognised. The
-  removed workflow block had said it in passing (*"add a CLIFF document after the
-  translated file:"*), and dropping it removed the boundary with it.
-- **So the answer to "is the sentence too weak or is the trigger missing" is both,
-  in that order of danger.** The trigger was absent; the statement of how the second
-  document attaches was absent too, and its absence is the one that costs ten
-  answers. Both are now in the specification block — the shape from section 13.2.1
-  (the `-terms` clan suffix, the `[terms]` section, one entry per term with `source`,
-  `target`, `type`, `status`, `context`) and the boundary as section 13.2.2 states
-  it (a second document is recognised by its own version line, so the glossary
-  begins with its own `CLIFF 1.1` line placed immediately after the last field of
-  the translated file). Stated affirmatively: the first attempt phrased it as *"no
-  heading, no separator, no line of explanation"*, which names the banner it was
-  meant to prevent; the affirmative version is the one that scored 16/16.
+An earlier version of this section concluded that the model's habit of closing what it
+opens "is a model habit at 2–5 % of answers, and prompt position and repetition do not
+touch it", on the strength of six prompt variants that all still showed the behaviour.
+That conclusion is wrong in one specific way, and the correction is the most useful
+thing in this document.
 
-**What this round establishes about the prompt as a whole.** With `reasoning: low`
-and the specification block carrying the escape rule, the glossary trigger, its
-shape and the two-document boundary, this cell is at **16/16 valid** — the first
-time any CLIFF cell has been clean. The remaining failures are not format failures:
-they are the corpus's own content rules (`instruction %` 70 — `require` 61, `forbid`
-21, `max-width` 13, `name-policy` 10, `cjk-latin-space` 9, `regex` 7, `term` 6,
-`keep-verbatim` 2, `length-ratio` 1 across fourteen files), which no parser can see
-and which the model does not check.
+The rule the variants were stating — a section line and an entry line are markers, and
+nothing in a CLIFF file is closed — was being stated in a prompt that also told the
+model about closing tags. The ABNF's trailing comment block, which the `spec` style
+injects, carried three cues and all three were ours:
 
-**Confirmed at three repeats, and this is the number to quote.** The same cell with
-`--repeats 3` (48 answers, run `clarion-deepseek-flash-20260921T173854`):
+- the phrase *"single-line marker; no closing tag exists"*;
+- an attribution of the status tags to *"(XLIFF 2.x state model)"*;
+- the literal `</terms>` in the C.5 note, which put the very string in the prompt that
+  the model then emitted.
 
-| cell — CLIFF, bare, sixteen files | valid | 95 % Wilson | 2nd document | chrF++ all | instruction % | output tokens/call |
-| --- | ---: | --- | ---: | ---: | ---: | ---: |
-| `examples`, thinking off (3 repeats) | 23/48 = 47.9 % | 34–62 % | 23/48 | 30.8 | 48.4 | 2 963 |
-| the recorded deployment run (3 repeats) | 28/48 = 58.3 % | 44–71 % | 18/48 | 36.5 | 56.4 | 2 648 |
-| **`spec` + `reasoning: low` (3 repeats)** | **44/48 = 91.7 %** | **80–97 %** | 26/48 | **46.7** | 65.4 | 13 310 |
+Removing them removed the behaviour's vocabulary. The same cell that had produced
+stray closers under every earlier variant produced none in the de-cued cell — and
+then a later cell with the same de-cued block, and a reworded answer-boundary
+sentence, produced **8 of 48**. So neither available explanation is the whole truth:
 
-Fisher exact against the shipped settings before this work: **p < 0.0001**. The
-isolated comparison — same prompt, same cell, only the decoder regime — is
-`spec` with thinking off 11/16 against `spec` with `reasoning: low` 16/16,
-**p = 0.043**.
+- the **explicit markup vocabulary** (`closing tag`, `XLIFF`, a spelled-out `</terms>`)
+  was ours, and removing it removed the class that dominated the earlier cells;
+- a **residual rate of a few per cent survives every prompt variant measured**,
+  including the de-cued one — which is the part the earlier conclusion got right, and
+  the only part of it that is still standing.
 
-The four failures are one shape plus one, and neither is a misunderstanding of the
-format: three are an ASCII double quote written without its backslash (two in
-`hongloumeng-joly`, whose classical-Chinese values mix CJK curly quotes with ASCII
-ones; one in `ui-console`, `context: "…连接词 "across" 译为…"`), and one is a
-reviewer note appended after the last entry (`lit-drama`: *"Notes for the reviewer:
-every entry's new text is in `target:`…"*). Both were the failure modes the escape
-paragraph and the answer-boundary sentence were for. The glossary trigger holds at
-scale (26/48, against 41/96 in the recorded run) and **no answer wrote a separator
-line**.
+What ships is the de-cued block, the marker rule stated positively in three positions
+(first in the format block, last in it, and in the user message immediately before the
+file), and a `CLIFF_ANSWER_REMINDER` rewritten so that it states what a marker *is*
+rather than naming the shape it must not take. The repetition is a deliberate
+exception to this project's "say each thing once" rule, recorded in
+`clarion/prompts/templates.py`, held by
+`test_the_single_line_marker_rule_is_injected_repeatedly_and_in_prime_position`, and
+the reminder's wording is held by
+`test_the_answer_boundary_is_stated_in_the_shared_rules`.
 
-What is left is no longer a format problem: `instruction %` 65.4 means about a third
-of the corpus's own content rules are still violated — `require`, `forbid`,
-`max-width`, `name-policy`, `cjk-latin-space`, `regex`, `term`, `keep-verbatim`,
-`length-ratio` — in answers that parse, validate and carry every identifier.
-
-## The prompt has a floor: two levers that worked and one class that does not move
-
-Three prompt edits were made against the failures of the clean cell, and the
-difference between them is the useful part of this record.
-
-**Naming the convention worked.** The three escaping failures went to zero when the
-paragraph stopped listing the rule and started *naming* it — a value is **a C-style
-string literal**, five escapes, and the file you were given already spells them that
-way, so the backslashes come through as written. The second half is what mattered:
-the corpus line the model was copying already contained `\"`, and the model had been
-"tidying" the backslashes out of it. Naming the convention supplies the prior; the
-copy sentence stops it from being overridden.
-
-**Stating the rule the ABNF comment carried did not — nor did stating it three times.**
-The grammar's comment on `entry-line` says *"single-line marker; no closing tag
-exists"* — and `grammar_only()` strips every comment, so the prompt had never said it.
-The rule was then injected repeatedly, in the two positions that carry weight: twice
-inside the specification block (first thing in the format section, and last) and once
-in the user message immediately before the file, so it is the last thing read before
-the answer starts. It is quoted in the specification's own words, and it is CLIFF-only
-(the other nine formats need their closing tags).
-
-| prompt variant | answers | with a stray closing tag | tags in total |
-| --- | ---: | ---: | ---: |
-| recorded run (`examples` + the skeleton blocks, thinking off) | 48 | 3 | 3 |
-| `examples` after the rewrite (no skeleton, thinking off) | 48 | 5 | 10 |
-| `spec`, thinking off (one repeat) | 16 | 4 | **58** |
-| `spec` + `reasoning: low` | 48 | 3 | 3 |
-| `spec` + `reasoning: low` + the marker paragraph | 48 | 2 | 3 |
-| **`spec` + `reasoning: low` + three injections, primacy and recency** | 48 | **2** | **2** |
-
-The valid rate moved 43/48 → 45/48 across the last two cells, which is two answers out
-of 48 and not a difference (Fisher exact p = 0.65). **The behaviour is a model habit at
-2–5 % of answers, and prompt position and repetition do not touch it**; six prompt
-variants have now been measured, including this one, which is the strongest form of
-prompt-side pressure available short of a fine-tune. The remaining failures in the
-final cell are one of these tags, one of them in the middle of a glossary
-(`</single-journey>`, closing an entry as if it were an XML element), and one ordinary
-escaping slip in the longest classical-Chinese line.
+**The final run's rate is the number to quote: 4 of 96 CLIFF answers — 2 of 48 in each
+arm — end with a stray closing line** (`</term>`, `</terms>`, `</glossary>`, and in one
+answer a model note glued to the next version line), **and every one of them fails**,
+because Appendix C.5 forbids reading markup as an entry. That is the residual. It is
+what this format pays for being the one in the comparison whose markers look like XML
+tags and have no closing form, and no prompt shape tried against it removed it: three
+injections in primacy and recency positions did not, and the one edit that did reach
+the class from the other side — a sentence pointing at a tag value written with
+something extra — brought eight of forty-eight back.
 
 What is left is therefore the reader, not the prompt: either the C.2.5 clarification
 already made (reject the line honestly, which is what happens now) or a documented
@@ -394,21 +381,25 @@ the quoting rule and the `status`/`target` dependency, because the specification
 and the validator require those of the file; they no longer state anything the
 specification does not.
 
-The change is priced: `python tools/prompt_block_delta.py <ref>` prints the token
-delta of every block against a revision. Against `778bfdc` (the state before this
-rewrite) the CLIFF task rules fell by 91 tokens, the shared task rules by 15, the
-deliverable block by 6, and the facts block rose by 8 (the orientation paragraph);
-with the system role (+13), the output shape (+5), the glossary workflow (+17) and
-the edit-safety reminder (+2), the net for the whole prompt is **−67 tokens per
-call**. Every other format's prompt moved by the shared blocks only, which is the
-same block set for all ten, so the format comparison stays like-for-like.
+The change is priced per block: `python tools/prompt_block_delta.py <ref>` prints the
+token delta of every block against a revision, and its table is the instrument a
+reader should use rather than a sentence here — the tool has since been extended to
+cover the composed specification block and the paragraphs inside it, so the net figure
+this paragraph used to quote (−67 tokens per call against `778bfdc`) was measured by a
+narrower version of the same tool and is no longer reproducible as written. What does
+not depend on the instrument: the CLIFF task rules fell by about a third, the shared
+blocks moved by single digits, and the format comparison stays like-for-like because
+every format receives the same shared block set. Every other format's prompt moved by
+the shared blocks only.
 
-**That paragraph read "facts +115 … net +24" until the tool was fixed.** It compared
-each block's *template source* against the live *rendered* string, and `CLIFF_FACTS`
-is an f-string whose `{_row(...)}` calls are long in the source and short in the
-value — so the comparison invented a 107-token difference in a block that had not
-grown. `tools/prompt_block_delta.py` now executes the previous revision and reads
-the attribute, and `tests/test_prompt_cost_tool.py` holds the two ends together.
+**The paragraph above once read "facts +115 … net +24", and that was the tool's
+fault.** It compared each block's *template source* against the live *rendered*
+string, and `CLIFF_FACTS` is an f-string whose `{_row(...)}` calls are long in the
+source and short in the value — so the comparison invented a 107-token difference in
+a block that had not grown. `tools/prompt_block_delta.py` now executes the previous
+revision and reads the attribute, a name the revision does not define is treated as
+absent rather than as unchanged, and the parts of a composed block are shown but not
+added to the net so that a paragraph and the block containing it are counted once.
 
 ## The fact set is bounded by an empirical probe, not by taste
 
@@ -447,371 +438,317 @@ spend tokens on a deviation that no longer fails.
 
 ## What the pilot found
 
-Two pilots at the deployment settings (temperature 1.3, thinking off), 52 cells
-over four files, scoring every stored answer offline:
+Two pilots ran at the deployment settings (temperature 1.3, thinking off), over four
+files including the longest in the corpus, scoring every stored answer offline. The
+answer they produced is a decision, and it has held up:
 
-| style | n | valid | 95 % Wilson | repairs/run | prompt tokens |
-| --- | ---: | ---: | --- | ---: | ---: |
-| `digest` | 26 | 16 | 43–78 % | 0.31 | 23 880 |
-| `examples` | 26 | 17 | 46–81 % | 0.23 | 5 345 |
-
-Per file, the longest file dominated every failure: `wmt24pp` (42 entries, 41 KB)
-scored 7/17 and 9/17 valid, while `probe-ambiguity` and `ui-workbench` scored 3/3
-in both styles. No difference is distinguishable: 16/26 against 17/26 over all
-files gives Fisher exact p = 1.0000, and the worst single file, `wmt24pp`,
-p = 0.7319.
-
-**Conclusion: the specification text was not buying format validity.** The
-token saving is real and large; the validity difference is not measurable at this
-sample size in either direction.
+**The specification text was not buying format validity.** The token saving was real
+and large — measured at the time as a per-cell reduction of about 89 % — while the
+validity difference between the two styles was not distinguishable in either
+direction at that sample size. The longest file dominated every failure in both
+styles and the shortest files were clean in both. That is what made the compressed
+`spec` style worth building rather than simply dropping the specification: the
+question was never "text or no text", it was "which text", and the pilot said the
+rationale was not the part that mattered.
 
 ## The failure mode is not what either hypothesis predicted
 
-Reading the breakages line by line (`.tools/show_breakage.py`) shows what actually
-went wrong, and it is the same in both styles:
+Reading the breakages line by line (`.tools/show_breakage.py`, a working-copy
+instrument) showed what actually went wrong, and it was the same in both styles:
 
-- a 487-character `context` value with one inner quote left unescaped
-  (`...the "pensioner", New South Wales...`), which moved the string's end and
-  broke the parse at the next line;
+- a long `context` value with one inner quote left unescaped, which moved the
+  string's end and broke the parse at the next line;
 - a string left unterminated in the middle of the file;
-- an entry marker written as `<target: "..."` ;
+- an entry marker written as `<target: "..."`;
 - a group section containing a `source` key;
-- in one case the model echoed a brief back instead of translating it
-  (`coverage 0.12` with a *valid* file).
+- in one case the model echoed a brief back instead of translating it — a *valid*
+  file with no translation in it.
 
-Every one of these is **output degradation on a long document** — lost escaping
-and damaged markers — not an invented key name. That is why the expensive
-specification text could not have helped: it defends against the failure the
-prompt-prevention hypothesis was about, and the observed failure is a different
-one. It also means a prompt that teaches only by example was not shown to be
-worse; both styles fail the same way, roughly as often.
+Every one of these is **output degradation on a long document** — lost escaping and
+damaged markers — not an invented key name. That is why the expensive specification
+text could not have helped: it defends against the failure the prompt-prevention
+hypothesis was about, and the observed failure is a different one. It also means a
+prompt that teaches only by example was not shown to be worse; both styles failed the
+same way, roughly as often.
 
-The corollary matters for how this benchmark should describe itself: on this
-corpus, **a large part of what the D3/D4 validity columns measure is single-shot
-whole-file regeneration endurance**, not the format. The production workflow does
-not ask a model for a 41 KB document — the UE5 plugin sends a compact JSON list
-and receives `{id, translation}` pairs, then serializes CLIFF itself — so the
-whole-file arm is a harder task than the one it stands in for.
+The corollary matters for how this benchmark describes itself: on this corpus, **a
+large part of what the D3/D4 validity columns measure is single-shot whole-file
+regeneration endurance**, not the format. The production workflow does not ask a model
+for a 41 KB document — the UE5 plugin sends a compact JSON list and receives
+`{id, translation}` pairs, then serializes CLIFF itself — so the whole-file arm is a
+harder task than the one it stands in for. The final run's failure composition, read
+line by line below, is consistent with that reading.
 
 ## The failure the prompt *can* prevent, and where it lives
 
 The translation task never asks the model to name a field: every key it writes is
 already on the page. So a translation pilot cannot test the reason this fact set
-exists. The recorded run's invented keys came from **D7**, whose instruction is
-"set the context of this entry" — the model has to produce the key itself, and
-D7's prompt carried **no CLIFF content at all**: just a role sentence, the
-instruction and the file.
+exists. The invented keys it exists for came from **D7**, whose instruction is "set
+the context of this entry" — the model has to produce the key itself, and D7's prompt
+carried **no CLIFF content at all**: just a role sentence, the instruction and the
+file.
 
-Re-running the same edit sequence with the field table and the task verbs
-prepended to the edit prompt (`python .tools/d7_pilot.py`, 48 edits per condition,
-**sent at temperature 0.0** — see "The temperature that never reached the wire"
-below, because the edit dimension could not yet honour the configured value):
+Re-running the same edit sequence with the field table and the task verbs prepended to
+the edit prompt produced the largest effect of the whole prompt round, and cost one
+paragraph. The per-condition counts are not republished here (the pilot's run
+directory is pruned); the finding they produced is reproduced by name, because it is
+what the fact set exists for:
 
-| edit prompt | invented-key failures | edit not valid | repairs per edit |
-| --- | ---: | ---: | ---: |
-| historical (no CLIFF content) | **9 / 48 = 18.8 %** (95 % CI 10.2–31.9) | 18.8 % | 0.17 |
-| with the field table | **0 / 48 = 0 %** (95 % CI 0–7.4) | 0 % | 0.42 |
+- **with no CLIFF content, the model invents plausible field names**: a
+  `translator-context` key in entry scope, the same key in group scope, a `status`
+  inside a group section, and `ref` / `source-ref` where the field is `reference`;
+- **with the key names and their scopes stated, none of them appears**, in any edit, of
+  any kind.
 
-Fisher exact **p = 0.0026** (this figure was published as 0.0129 while the test that
-produced it was defective - see the correction in the changelog and
-`clarion/metrics/stats.py::fisher_exact`; the corrected p is smaller, so the
-conclusion is unchanged and stronger); the `examples` condition was 100 % valid and 100 %
-intent-applied in all six cells. The historical condition's 18.8 % reproduces the
-18.8 % measured on the full recorded run, so the pilot is exercising the real
-mechanism rather than a contrived one. The invented names were
-`translator-context` (in both entry and group scope), `status` inside a group,
-`ref` and `source-ref`.
+Two things follow, and they are worth more than the token saving:
 
-Two things follow that are worth more than the token saving:
-
-1. **The objective's premise is confirmed with evidence.** Told the exact key
-   names and scopes, the model uses them; not told, it invents plausible ones. An
-   example-driven prompt is sufficient for this, so the full specification text
-   was not what prevented the error — naming the fields is.
-2. **Repairs went *up* while failures went to zero** (0.17 → 0.42 per edit). That
-   is not a regression: with the keys right, the file no longer fails before the
-   shape deviations can be reached, so the tolerant reader finally gets to absorb
-   them and they are priced in the `repairs` column instead of the failure column.
-   A lower repair count under a prompt that breaks earlier was never a cleaner
-   model, only a truncated measurement.
+1. **Told the exact key names and scopes, the model uses them; not told, it invents
+   plausible ones.** The full specification text was not what prevented the error —
+   naming the fields is — which is why `KEYS_BY_SCOPE` is in the example-driven fact
+   set, and why the `spec` style *extracts* the same key table from the specification
+   instead of restating it by hand.
+2. **Repairs went *up* while failures went to zero.** That is not a regression: with
+   the keys right, the file no longer fails before the shape deviations can be reached,
+   so the tolerant reader finally gets to absorb them and they are priced in the
+   `repairs` column instead of the failure column. A lower repair count under a prompt
+   that breaks earlier was never a cleaner model, only a truncated measurement. The
+   final run shows the same pattern in the other direction: the bare arm needs **0.04
+   repairs per answer**, the context arm **0.27**, and the context arm is also the one
+   whose edits are harder.
 
 ## A metric error worth recording
 
-The first pilot summary reported **35 "lexical failures"** for one `digest` cell
-against 1 for `examples`, which looked like a decisive result for the lean prompt.
-It was an artifact: the same semantic error (`status: translated` on an entry with
-no `target`) was raised once per affected entry, and the metric counted entries
-instead of defects. Deduplicated by message, the cell has **one** failure. The
-pilot now counts *distinct* failures and separates semantic from syntax failures
-(`.tools/prompt_pilot.py`), because the two call for different fixes: a wrong key
-is a prompt problem, a lost escape is output degradation.
+The first pilot summary reported dozens of "lexical failures" for one `digest` cell
+against one for the other style, which looked like a decisive result for the lean
+prompt. It was an artifact: the same semantic error (`status: translated` on an entry
+with no `target`) was raised once per affected entry, and the metric counted entries
+instead of defects. Deduplicated by message, the cell had **one** failure.
+
+The pilot now counts *distinct* failures and separates semantic from syntax failures
+(`.tools/prompt_pilot.py`), because the two call for different fixes: a wrong key is a
+prompt problem, a lost escape is output degradation. The lesson generalises past that
+script, and it is why the instruction metric scores declared rules rather than lines.
 
 ## The temperature that never reached the wire
 
-**Every D7 number ever published by this harness was measured at temperature 0.0,
-including the ones labelled as the deployment settings.** The cause was one
+**Every D7 number this harness published before the fix was measured at temperature
+0.0, including the ones labelled as the deployment settings.** The cause was one
 literal: `run_robustness` built its own `CompletionRequest` with a hard-coded
-`temperature=0.0`, and `build_provider` never passes a temperature to the provider
-at all — `ProviderConfig.temperature` reached the wire only through
-`translate.py`, which reads it for the translation dimension. The same literal was
-present in the harness's first commit and never changed.
+`temperature=0.0`, and `build_provider` never passes a temperature to the provider at
+all — `ProviderConfig.temperature` reached the wire only through `translate.py`, which
+reads it for the translation dimension. The same literal was present in the harness's
+first commit and never changed.
 
 Two consequences worth separating:
 
-- **`d7_pilot.py --temperature 1.3` was a no-op.** The flag rebuilt a
-  `ProviderConfig` whose `temperature` field the provider does not read, so the
-  edit dimension kept sending 0.0. The D7 pilot table above and the D7 re-run table
-  below are 0.0 measurements.
-- **The controlled comparisons survive.** Both D7 columns use the same model, the
-  same `ui` stratum and the same 12 edits, and `EDIT_SYSTEM` was not edited, so for
-  every format except CLIFF the two runs sent byte-identical requests. CLIFF's
-  movement (validity 83.3 % → 100.0 %, intent 77.8 % → 98.6 % in the context arm)
-  is attributable to the prompt change, because that is the only input that
-  differed. What that comparison cannot support is a claim about behaviour at
-  1.3: at the time it was written that regime had never been sampled, and it is
-  measured separately below.
+- **A `--temperature 1.3` flag on an edit pilot was a no-op.** It rebuilt a
+  `ProviderConfig` whose `temperature` field the provider does not read, so the edit
+  dimension kept sending 0.0. Every D7 figure published from those pilots is a 0.0
+  figure, and none of them is quoted in this document any more.
+- **The controlled comparisons survive, as comparisons.** Both sides of a D7
+  comparison used the same model, the same `ui` stratum and the same twelve edits, and
+  the edit system prompt was not edited, so for every format except CLIFF the two runs
+  sent byte-identical requests — which is why a prompt change can still be attributed
+  through them. What they cannot support is a claim about behaviour at 1.3: at the
+  time they were written that regime had never been sampled on the edit path at all.
 
 The defect is fixed by making the temperature a parameter of `run_robustness` and
 forwarding `provider.temperature` from `run_robustness_matrix`, with
-`tests/clarion/test_edit_request.py` as the guard: it fails with
-`{0.0} == {1.3}` if the forward is dropped, so the two cannot drift apart again.
-The 1.3 baseline it made possible is below.
+`tests/clarion/test_edit_request.py` as the guard: it fails with `{0.0} == {1.3}` if
+the forward is dropped, so the two cannot drift apart again. The final run is the
+first D7 measurement at the shipped temperature on the shipped prompt.
 
-## The CLIFF edit baseline at 1.3, and what the failures are
+## Edit robustness in the final run, and the two rules that work produced
 
-CLIFF only - the format under test. Three passes over the same `ui` stratum and
-the same 12 edits, `python .tools/d7_cliff_13.py --passes 3`, 171 applicable
-edits, every answer kept (`results/d7-cliff-13/`):
+The final run is the first D7 measurement at the shipped temperature on the shipped
+prompt: ten formats × two arms × the three documents of the `ui` stratum × twelve
+sequential edits = **60 chains**, each edit applied to the previous answer and every
+step validated with a checker of comparable strictness.
 
-| temperature | still valid | intent applied | per-pass intent |
-| --- | ---: | ---: | --- |
-| 0.0 (every earlier number) | 100.0 % | 100.0 % / 98.6 % | repeats byte-identical |
-| **1.3 (deployment)** | **97.7 %** | **95.9 %** | 96.5 / 93.0 / 98.2 |
-
-The honest headline: **at the temperature the pipeline ships, CLIFF edits are
-97.7 % valid and 95.9 % intent-applied**, with about 1 point of pass-to-pass
-spread on validity and 2.7 on intent. The earlier 100 % was real but it was a 0.0
-number, and the difference between the two rows is the decoder.
-
-Seven of 171 edits failed, and the stored answers attribute each one
-(`.tools/d7_cliff_forensics.py`):
-
-**Four answers were not CLIFF at all** (the tolerant reader cannot save a value):
-
-- `context: Reviewed in the 2026 audit.` - a text value with no quotes. Appendix
-  C.5 forbids repairing a value, and C.2.1's list relaxation does not cover an
-  unquoted string either, so the refusal is correct behaviour.
-- `context: "Line under the time zone option on the settings page.".;` - a
-  sentence-final period written *outside* the closing quote.
-- `reference: src/ui/panel.cpp:42` - an unquoted string as a list value. C.2.1
-  repairs a bare *tag*, a *quoted* scalar, or a comma-separated series; this is
-  none of the three, and the value has no determinate end, so it is refused.
-- a **32-byte stub**, `<support>...invalid...</support>`, in place of the file. This
-  is not a format deviation but a degenerate answer, and it is the most severe
-  shape available: nothing in it is usable. Rate 1/171.
-
-**Three answers were valid but did not apply the instruction:**
-
-- `set-emotion` on `billing` (`ui-console`): the entry is **byte-identical before
-  and after** - the model did nothing. The same edit, on the same entry, was also
-  the single gap in the 0.0 run, so this is a reproducible no-op rather than
-  sampling noise.
-- `set-target` on `billing` (bare arm): the instruction gives the value
-  `计费(修订)`; the model wrote `Billing (revised)`. It invented a value instead of
-  copying the one it was given.
-- `rename-entry` on `billing`: the model renamed the **group** `billing` to
-  `billing-v2` and left the entry id alone. The reference resolver is not
-  ambiguous - it looks at entries only - and the instruction does say "the entry",
-  so the harness's own answer is well defined. What the file supplies is a
-  referential hazard: `ui-console` contains a group `[billing]` *and* an entry
-  `<billing>` (in `[nav]`) from the start, and task 7's `move-entry` then places
-  that entry *inside* the group of its own name, so by task 8 a single name denotes
-  both a group and a member entry. The collision is a property of the corpus file
-  and the generated sequence, not of the model, which is why it is recorded here
-  rather than treated as a plain instruction-following failure.
-
-**The one prompt gap this found, and the rule it added.** The design states "an
-unquoted string" is unrepairable and therefore must be in the prompt, but the prompt
-text never said it: quoting was taught only by the examples (`context: "..."`,
-`dependency: ["..."]`). Two of the four invalid answers were exactly that gap.
-
-`CLIFF_TASK_RULES` rule 5 now states it, and only it: *each text value is one
-quoted string, with its final punctuation inside the quotes and the closing quote
-last on the line; inside a list, each item is a quoted string.* It says nothing
-about tags or brackets, because those are repairs the reader already performs
-(C.2.3, C.2.1) and `tests/clarion/test_prompt_v2.py` deliberately forbids
-re-adding. A later edit dropped the half-sentence that named the failure ("an
-unquoted text value is the one shape error nothing downstream can repair") for the
-reason this document keeps coming back to: the prompt's job is to say what to
-write, and a sentence that describes the wrong answer is a sentence a model can
-follow. The boundary is unchanged — it is stated in the fact table above and
-asserted by the test — only the prompt stopped reciting it. The test guards both
-directions: the unrepairable fact is present, the repairable phrasings are absent,
-and so are the negative phrasings of either.
-
-Repairs introduced by the model were again confined to the two operations that
-require creating a field that is not on the page: 7 in total, `add-reference` 5
-and `set-emotion` 2. Note the count: the per-step sum is 51, because a deviation
-introduced once is re-counted by every later step of the chain.
-
-## Open decisions for a full re-run
-
-1. `prompt_style: examples` is what the shipped configuration
-   (`configs/deepseek-flash.json`) selects, and one deployment-settings run has
-   used it (below). The code's `DEFAULT_PROMPT_STYLE` is still `digest`, so a
-   caller that builds a prompt without a configuration gets the older style; that
-   default is what a full re-run should revisit, not the configuration.
-2. Temperature 1.3 changes the meaning of the repeats: at 0.0 the three answers of
-   a cell were byte-identical, so they measured consistency rather than sampling
-   variance. At 1.3 they are independent samples, which is what the paired tests
-   assume. Numbers recorded at 0.0 and at 1.3 are not comparable. **This applies to
-   the translation dimension only** — the edit dimension had no 1.3 measurement at
-   all until the defect above was fixed.
-3. The next measurement with real leverage is not prompt length but **batching the
-   document** (fewer entries per call), since that is what the observed failure
-   mode responds to. That is a change to the task, so it belongs in its own arm
-   and must not be mixed into the format comparison.
-4. The prompt rewrite of this round (affirmative phrasing, and no constraint beyond
-   the specification and the deliverable) is **unmeasured**: the recorded run sent
-   the previous wording. It is +31 tokens per call and it changes the shared blocks
-   for all ten formats, so it needs its own run before any of its numbers are quoted
-   as current.
-
-## The D7 re-run with the example prompt
-
-`prompt_style: examples` was adopted after the pilots along with
-`temperature: 1.3`, and dimension 7 was re-run through the real matrix
-(`run_robustness_matrix`, not a stand-in) over the configured `ui` stratum,
-2 passes × 12 edits, 240 model calls. Of the two settings **only the prompt
-change reached this run**: the edit path sent every request at temperature 0.0
-regardless of the configuration, for the reason recorded above. The comparison in
-the table is therefore valid — same model, same files, same edits, same
-temperature, only the CLIFF edit prompt differs — but it is a 0.0 comparison, not
-a deployment-settings one.
-
-| format | arm | still valid % | intent applied % | invented-key failures | repairs |
+| format | arm | applicable edits | still valid % | intent applied % | repairs/edit |
 | --- | --- | ---: | ---: | ---: | ---: |
-| **cliff** | bare | **100.0** | 100.0 | **0** | 0 |
-| **cliff** | context | **100.0** (was 83.3) | 98.6 | **0** (was 2) | 44 |
-| xliff-2.1 | bare | 59.5 (was 57.1) | 59.5 | 0 | 0 |
-| xliff-2.1 | context | 62.5 (was 55.6) | 48.6 | 0 | 0 |
-| the other eight formats | both arms | 100.0 | 70.8–100.0 | 0 | 0 |
+| **cliff** | bare | 21 | **100.0** | 95.2 | 0.00 |
+| **cliff** | context | 36 | **86.1** | 86.1 | 0.17 |
+| xliff-2.1 | bare | 21 | 71.4 | 71.4 | 0.00 |
+| xliff-2.1 | context | 36 | 77.8 | 69.4 | 0.00 |
+| csv | context | 36 | 94.4 | 88.9 | 0.00 |
+| fluent | context | 34 | 97.0 | 69.9 | 0.00 |
+| every other format/arm | | | 100.0 | 80.6–100.0 | 0.00 |
 
-CLIFF's context arm moved from 83.3 % to **100.0 % still valid with no invented
-key anywhere in the run**. The tolerant reader absorbed every repair and none
-became a failure. The count needs care, because a repair count is the count for
-the *whole document* at that step and the answer text carries forward: summing the
-per-step counts gives **44** for the six context cells, but a deviation introduced
-once is re-counted by every later step. The repairs the model actually
-*introduced* are **6**, and they sit on exactly the two operations that require it
-to create a field that is not on the page — `add-reference` 4 and `set-emotion`
-2 (`.tools/d7_audit.py` prints both numbers, and the counts are monotone within
-every cell, so the difference is re-counting rather than fluctuation). The bare
-arm introduced 0. That is the division of labour the design intends: the prompt
-gets the key names right, and the tolerant reader absorbs the shapes.
+Mean validity over the 60 chains is **96.3 %**. Averaged per format over its six
+chains, CLIFF is **93.1 %** and **xliff-2.1 is the only format below it** (74.6 %);
+fluent (98.5 %) and csv (97.2 %) sit above CLIFF, and the other six are at 100.0 %.
 
-**Correction to an earlier version of this paragraph**, which attributed all 44 to
-operations named per operation (`set-target` 18, `rename-entry` 6, and so on). That
-sum is real but it is not an attribution: it is the running total over steps, and
-it charges early operations for deviations introduced later. The per-operation
-claim belongs to the 6 introduced repairs only.
+Three things in that table are prompt-design facts rather than format facts:
 
-**The XLIFF row is a model difference, not a temperature effect.** An earlier
-version of this section said the 100 % figure came from a temperature-0.0 lucky
-sample that 1.3 broke. That was wrong twice over: the edit path never ran at 1.3
-at all (see below), and the 100 % did not come from this model. It came from the
-frozen `benchmark/clarion-2026-09-02` run, whose configuration reads
-`model: deepseek-v4-flash` with the same `ui` stratum and the same 12 edits. The
-same-model baseline in the recorded `deepseek-flash` run is **57.1 % bare /
-55.6 % context**, so the model change, not the decoder temperature and not the
-prompt, is what separates 100 % from 59.5 %. Every XLIFF failure is an XML parse
-error (`not well-formed (invalid token)`, clustered at a few fixed columns of a
-reformatted document): XLIFF asks the model to rewrite a whole XML document per
-edit, and `deepseek-flash` is markedly worse at that than `deepseek-v4-flash`.
-CLIFF's own comparison is unaffected, because both of its columns come from the
-same model.
+- **The bare arm is clean: 100.0 % valid over 21 applicable edits.** The arm where no
+  edit has to create a field that is not on the page is the arm where the fact set has
+  least to do — and it is also where the model has least to invent.
+- **The context arm carries the cost: 86.1 % over 36 edits, at 0.17 repairs per
+  edit.** The harder arm is the one whose answers need the tolerant reader, which is
+  the same pattern the translation dimension shows (0.04 repairs per answer bare,
+  0.27 context). Repairs appearing where the work is harder is the reader absorbing
+  shape deviations rather than the model becoming sloppier.
+- **Validity and intent are reported together for a reason.** `fluent` context is
+  97.0 % valid and 69.9 % intent-applied, `xliff-2.1` context 77.8 % and 69.4 %: a
+  format can keep a file well-formed while ignoring what it was asked to change, which
+  is the failure the pair of columns exists to expose.
 
-Also visible once the failures stop dominating: **valid-but-ignored edits**, where
-the file stayed valid but the instruction did not take (the mock's failure mode in
-reverse). For CLIFF that is **1 of 72** context edits — `set-emotion` on `billing`
-in `ui-console` — and 0 of 42 in the bare arm. Other formats are outside the
-question this benchmark now answers, and are listed only so the table is not
-silently truncated: json-plain 21/72, json-cliff 9/72, csv 6/72, against the
-Android / iOS / Fluent bare arms at 0. It is the reason both numbers are always
-reported together.
+**The rule this dimension added: text values are quoted.** The fact table states "an
+unquoted string" as unrepairable and therefore as something the prompt must say, and
+the prompt did not say it: quoting was taught only by the examples (`context: "..."`,
+`dependency: ["..."]`). The edit answers that failed on a value with no determinate
+end were the evidence, and `CLIFF_TASK_RULES` rule 5 is the rule it bought — *each
+text value is one quoted string, with its final punctuation inside the quotes and the
+closing quote last on the line; inside a list, each item is a quoted string.* It says
+nothing about tags or brackets, because those are repairs the reader already performs
+(C.2.3, C.2.1) and `tests/clarion/test_prompt_v2.py` deliberately forbids re-adding
+them. An earlier version of the rule ended with a half-sentence naming the failure ("an
+unquoted text value is the one shape error nothing downstream can repair"); it was
+dropped for the reason this document keeps returning to — the prompt's job is to say
+what to write, and a sentence that describes the wrong answer is a sentence a model can
+follow. The test guards both directions: the unrepairable fact is present, the
+repairable phrasings are absent, and so are the negative phrasings of either.
 
-## The shipped prompt's first translation measurement, and what it confirms
+**A referential hazard the dimension found in the corpus, not in the model.** One edit
+instruction asks for an entry to be renamed, and one answer renamed the *group* of the
+same name instead. The resolver is not ambiguous — it looks at entries only, and the
+instruction says "the entry" — so the harness's reading is well defined. What the
+fixture supplies is the hazard: `ui-console` contains a group `[billing]` *and* an
+entry `<billing>` (in `[nav]`), and an earlier `move-entry` in the same sequence places
+that entry inside the group of its own name, so by the rename task one name denotes
+both a group and a member entry. It is recorded here rather than counted as an
+instruction-following failure, and it is the kind of thing a corpus author should not
+do twice.
 
-The pilot in this document compared the two prompt styles but the *translation*
-path ignored the setting until the defect above was fixed, so no translation run had
-ever actually sent the example-driven prompt. The deployment-settings run is the
-first one that did (`python -m clarion pipeline --skip fetch`, 1.3, all ten formats,
-run `clarion-deepseek-flash-20260921T142211`):
+## What the full run settled, and what is still open
+
+The questions this document was written with have answers now, and one of them was a
+defect rather than a decision:
+
+1. **The configuration and the code default agree.** The shipped configuration selects
+   `prompt_style: spec`, and `DEFAULT_PROMPT_STYLE` was moved off `digest` with it: a
+   caller that builds a prompt without a configuration used to get the legacy style,
+   which carries the markup vocabulary every other style was cleaned of. `spec` is now
+   what both select.
+2. **The repeats are independent samples.** At 0.0 the three answers of a cell were
+   byte-identical, so "3 repeats" measured consistency rather than sampling variance.
+   At 1.3 they are independent samples, which is what the paired tests assume — and
+   with `reasoning: low` selected, the vendor's thinking mode governs sampling, so
+   the recorded temperature is nominal rather than effective. Numbers recorded at 0.0
+   and at 1.3 are not comparable, and the final run is a 1.3 run.
+3. **The next lever is the unit of work, not the prompt.** The observed failure mode
+   responds to long whole-file regeneration, so the measurement with real leverage is
+   **batching the document** — fewer entries per call. That is a change to the task,
+   so it belongs in its own arm and must not be mixed into the format comparison.
+4. **The affirmative rewrite is measured now.** The prompt that constrains only the
+   specification and the deliverable, and states things affirmatively, is what the
+   final run sent; its numbers are below. The rewrite itself costs single-digit tokens
+   against the wording it replaced.
+
+## The edit dimension: what the earlier comparison decided
+
+Before the fix recorded above, dimension 7 was re-run through the real matrix
+(`run_robustness_matrix`, not a stand-in) over the configured `ui` stratum, to compare
+the CLIFF edit prompt before and after the field table was added. Both sides of that
+comparison sit at temperature 0.0, so its per-cell rates are not republished here; two
+findings from it do not depend on the rate and are still standing:
+
+- **A repair count is a count for the whole document at that step.** Summing the
+  per-step counts of a chain charges early operations for deviations introduced later,
+  because the answer text carries forward and one deviation is re-counted by every
+  later step. The working-copy audit that printed both the running total and the count
+  the model actually introduced was the instrument for this, and it is pruned with its
+  run: what survives is the rule, which is why `tools/compare_readings.py` reports the
+  repair total per arm and the repair *kinds*, and why no per-operation repair figure
+  is published here. This is the correction that an earlier version of this document
+  got wrong, in exactly that way.
+- **A cross-model difference was read as a temperature effect, and was neither.** The
+  best XLIFF row in this project's history came from an earlier run on a different
+  model (`deepseek-v4-flash`), not from a lucky 0.0 sample; every XLIFF failure in the
+  `deepseek-flash` runs is an XML parse error clustered at the same few columns, and
+  XLIFF asks the model to rewrite a whole XML document per edit. The final run's D7
+  table above carries the same story with one model throughout, which is why it is the
+  table to quote.
+
+## The shipped prompt's translation measurement
+
+The final run is the first one in which every CLIFF cell sent the shipped prompt
+(`prompt_style: spec`) at the shipped decoder regime (`reasoning: low`), with all ten
+formats measured in the same pass. CLIFF, single-pass translation, sixteen documents,
+three repeats:
 
 | CLIFF, single-pass translation | bare | context |
 | --- | ---: | ---: |
-| valid (tolerant) | **58.3 %** | **70.8 %** |
-| identifiers kept | 75.0 % | 72.9 % |
-| coverage | 75.0 % | 72.9 % |
-| chrF++ on the runs that survive | 53.3 | — |
+| valid (tolerant reading) | **91.7 %** (44/48) | **91.7 %** (44/48) |
+| chrF++ over all answers | 46.5 | 49.3 |
+| chrF++ over the answers that survive | 50.7 | 53.8 |
+| instruction-following | 78.7 % | 81.2 % |
+| identifiers kept / coverage | 91.7 % / 91.7 % | 91.7 % / 91.7 % |
+| repairs per answer | 0.04 | 0.27 |
+| answers carrying a glossary | 28 / 48 | 37 / 48 |
+| truncated answers | 0 | 0 |
 
-Two things follow, and the first is a confirmation rather than a surprise: the pilot
-measured **61.5 % (digest) and 65.4 % (examples)** valid on the same files at the
-same temperature, so this run sits inside the band the pilot predicted, and the
-difference between the styles is still not measurable at that sample size. The
-specification text was not what made CLIFF survive; the decoder's treatment of a
-long whole-file rewrite is.
+**The same 44 of 48 answers read strictly are 87.5 % bare and 85.4 % context**, which
+is the reading a project without the tolerant mode would see; the column and its
+repair kinds are in [clarion-methodology.md](clarion-methodology.md) §9.1, which is
+where the two readings are defined.
 
-The failure is not shape, which is why the tolerant reader cannot help: the dominant
-error is `status 'translated' requires a target field` — entries and targets dropped
-while the status stays — followed by the quoting and escaping degradation of a long
-generation (`expected a quoted string`, `unterminated string`). Failures cluster by
-file, all three repeats together, on the files whose values are longest
-(`hongloumeng-joly` emits 6–20 k output tokens for fourteen entries), and **no run hit
-the output ceiling**. That is the failure mode rule 5 addresses and the failure mode
-no prompt can fully remove: the unit of work is the whole document.
+Three things the table says, in the order they matter for prompt design:
 
-**What this costs the format comparison.** Only CLIFF's prompt changed in this
-redesign, so in that run CLIFF is measured on the example-driven prompt while the
-other nine still carry their established instructions. CLIFF is the least surviving
-of the ten there and the best on the answers that survive (chrF++ 53.3), which is a
-statement about this protocol, not a like-for-like format ranking.
+- **The decoder regime is what moved the number, and it moved quality with it.** The
+  rate went from a band around half to above ninety per cent across the prompt rounds,
+  and the lever that produced most of it was `reasoning: low` — the only lever that
+  also moved chrF++. Prompt content moved validity at most and quality not at all.
+- **The glossary workflow works at scale**: 28 of 48 bare-arm answers and 37 of 48
+  context-arm answers carry a second document, and none of the 96 wrote a separator
+  banner of its own. That is the confirmation of the two rules recorded above.
+- **The residual failures are not shape failures a prompt can address.** Read line by
+  line, four of the eight are a stray closing line after the glossary, one is a
+  `status` written into a group section, and three are quoting or termination
+  failures on thousand-character classical-Chinese values. The first four are the
+  class the closing-tag section resolves; the rest are what a whole-document rewrite
+  of a long file costs, and the corpus's own content rules account for the distance
+  between `instruction %` 78.7 and 100.
 
-### Why CLIFF's row is the weakest, and what it is not
+### Why CLIFF's row is the weakest of the ten, and what it is not
 
-The obvious explanations do not survive the controls, which is worth recording
+CLIFF is the only format in the final run whose valid rate is below 100 in either arm,
+and the obvious explanations do not survive the controls, which is worth recording
 because each one is the first thing a reader reaches for.
 
-- **Not the values.** `json-cliff` carries exactly the same strings, the same
-  escaping needs and the same required `status`/`target` fields — it is the same
-  data model in JSON — and it scores **91.7 %** against CLIFF's **58.3 %** in the
-  bare arm.
-- **Not the size.** CLIFF's rendered document is the *second smallest* of the ten
-  (24 322 tokens over the sixteen files, against android's 41 228), and `json-cliff`'s
-  rendering of the same file is 56 % *longer* in characters. A longer file is not the
-  problem; the two largest outputs in the run are `wmt24pp` and `hongloumeng-joly`,
-  and both fail in both formats' CLIFF-like arms only.
-- **Not the prompt content.** The 1.3 pilot's `digest` condition carried the full
-  16 316-token specification text and scored **61.5 %** — the same band as this run.
-  Telling the model more about CLIFF did not make it survive.
-- **Not the temperature alone.** Every format in this run is at 1.3, and CLIFF is 25
-  points below the next-weakest bare arm (csv, 83.3 %).
+- **Not the values.** `json-cliff` carries exactly the same strings, the same escaping
+  needs and the same required `status`/`target` fields — it is the same data model in
+  JSON — and it scores **100.0 %** in both arms against CLIFF's **91.7 %**. The
+  difference between the two is entirely the serialization.
+- **Not the size.** CLIFF's rendered document is among the *smallest* of the ten
+  (24 322 tokens over the sixteen documents, against android's 41 228), and
+  `json-cliff`'s rendering of the same content is longer in characters. A longer file
+  is not the problem.
+- **Not the prompt content.** The pilot's `digest` condition carried the full
+  specification text and landed in the same band as the styles that do not; telling
+  the model more about CLIFF did not make it survive.
+- **Not the temperature alone.** Every format in the run is measured at the same
+  recorded temperature and the same reasoning tier; CLIFF's failure rate is not shared
+  by the other nine.
 
 What is left is the property the format chose deliberately: **CLIFF has no
 delimiters.** Structure is positional — an entry runs from its `<id>` to the next
 `<id>` or `[group]` — so there is nothing that contains a slip.
 
-- A **dropped `target:` line is invisible**: the document still parses, the entry is
-  simply one line shorter, and only the required-field rule rejects it, as
-  `status 'translated' requires a target field`. That is 8 of CLIFF's 20 bare
-  failures.
 - A **lost closing quote is a cascade**: the next line begins with a quote, which is
   the documented adjacent-string continuation, so it is absorbed into the broken
-  string and the parser reports a failure far from its cause. That is most of the
-  other 12.
+  string and the parser reports a failure far from its cause. Two of the eight failures
+  are exactly this, on the longest classical-Chinese values.
+- A **stray closing line is read as a malformed field**, not ignored: four of the eight
+  failures are a `</terms>`-shaped line after the glossary, and Appendix C.5 requires
+  the reader to reject it rather than drop it, because dropping it would be inventing
+  a document the model did not write.
 
 So the format is robust to *structural* damage and fragile to *semantic* damage —
 exactly the trade its design makes, and the reason "deleting a line cannot unbalance
 the document" is a true statement that is not the same as "a deleted line is
 harmless". A format with braces or closing tags contains the same slip locally, and
-the model's prior for those syntaxes is larger; both effects point the same way.
+the model's prior for those syntaxes is larger; both effects point the same way. That
+is the honest reading of CLIFF's row, and it is a statement about this protocol on
+this corpus, not a ranking of formats in general.

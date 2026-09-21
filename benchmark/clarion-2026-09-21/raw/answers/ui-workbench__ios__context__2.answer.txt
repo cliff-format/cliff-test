@@ -1,0 +1,196 @@
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Sidebar entry that opens the list of result-set copies the analyst has made in this session.
+cliff:source: Scratch tables
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"nav-scratch-tables" = "暂存表";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Sidebar entry that opens the module where data sets are browsed and opened.
+cliff:source: Quarry
+cliff:type: proper-noun
+cliff:emotion: objective
+cliff:status: initial */
+"mode-01a" = "Quarry";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Value in the site-type column of the demo data set that ships with the product, where every row is a mining site of one kind or another.
+cliff:source: Quarry
+cliff:type: noun
+cliff:emotion: objective
+cliff:status: initial */
+"mode-01b" = "采石场";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Column header on the storage page; the column reports how much data each table holds.
+cliff:source: Volume
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"term-02a" = "数据量";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the slider on the notification page that sets how loud the desktop alert sounds.
+cliff:source: Volume
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"term-02b" = "音量";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the axis options in the chart editor, where the analyst chooses how an axis divides its values.
+cliff:source: Scale
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"term-03a" = "刻度";
+/* Short labels in the Slatepath workbench: sidebar entries, panel titles, column headers and the values of the demo data set that ships with the product. The same English word can head a panel on one page and a column on another, so the page a label belongs to decides what it means. Label above the worker options on the compute cluster page, where the analyst chooses how many machines a job may use.
+cliff:source: Scale
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"term-03b" = "规模";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Button in the toolbar above the preview table on the Quarry page.
+cliff:source: Refresh the sample
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"mode-04a" = "刷新样本";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Second step of the getting-started checklist, which a new analyst reads before the first run.
+cliff:source: Refresh the sample
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"mode-04b" = "刷新样本";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Menu item in the view menu on the settings page, where the whole wording fits on one line.
+cliff:source: Save the current view as a preset
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 24 */
+"slot-05a" = "保存当前视图为预设";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. The same action in the inspector rail at the edge of the screen, where the slot is less than half as wide.
+cliff:source: Save the current view as a preset
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 10 */
+"slot-05b" = "保存为预设";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Button inside a row of the run history table, where the cell gives the label its full width.
+cliff:source: Compare with the previous run
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 22 */
+"slot-06a" = "与上一次运行比较";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. The same action in the chart toolbar, where the button shares one row with four other buttons.
+cliff:source: Compare with the previous run
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial
+cliff:max-width: 10 */
+"slot-06b" = "对比上次";
+/* Action labels in menus, toolbars and the inspector rail, together with the numbered getting-started checklist that walks a new analyst through the same actions. The rail at the edge of the screen is far narrower than the settings page, and the checklist is read as running instructions. Note printed under the getting-started checklist. On that checklist refreshing the sample is step 2 and the row limit is step 3, and the numbers here must match that order.
+cliff:source: Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"note-step-order" = "第 3 步会设置行数上限，因此在至少执行过一次第 2 步之前，不要调高它。";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Counter under the preview table; the workbench substitutes the number of rows it has copied so far.
+cliff:source: {rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"msg-row-count" = "{rows, plural, one {已复制 # 行到暂存表} other {已复制 # 行到暂存表}}";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Banner at the top of the panel that holds the copied result set; the workbench passes the state name.
+cliff:source: {state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"msg-table-state" = "{state, select, ready {暂存表已就绪} building {正在构建暂存表} other {暂存表创建失败}}";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Greeting on the workbench home page after sign-in; the placeholder carries the analyst's display name.
+cliff:source: Welcome back, {name}. Your last run took 12 minutes.
+cliff:type: sentence
+cliff:emotion: polite
+cliff:status: initial */
+"msg-welcome-back" = "欢迎回来，{name}。您上次运行耗时 12 分钟。";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Toast shown on the cluster page when a job changes state. The workbench passes the state name and renders one of the four wordings; the selector keys are engine values, not words on screen.
+cliff:source: {state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"msg-job-outcome" = "{state, select, running {作业仍在运行} done {作业已完成} failed {作业失败} other {作业状态未知}}";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Error toast shown when the analyst copies a result set before the preview has finished loading.
+cliff:source: The scratch table could not be created because the sample is still loading.
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"msg-sample-loading" = "由于样本仍在加载，无法创建暂存表。";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Empty state on a shared board that no one has put a chart on.
+cliff:source: Nothing is pinned to this board yet. Open a chart and pin it here.
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"msg-board-empty" = "这个看板上还没有固定任何内容。打开一个图表，把它固定到这里。";
+/* Strings the workbench itself renders: counters, state banners, the greeting on the home page, error toasts, empty states and one screen-reader cue. ICU MessageFormat structure, argument names and placeholders are filled in by the engine. Screen-reader cue announced when the chart redraws after new rows arrive.
+cliff:source: Chart updated
+cliff:type: accessibility-cue
+cliff:emotion: mechanical
+cliff:status: initial */
+"cue-chart-updated" = "图表已更新";
+/* Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. First paragraph of the help section about result sets; the paragraph that introduces the object to a new analyst.
+cliff:source: A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"help-scratch-table" = "暂存表是你自己的结果集副本。它只存在于这个浏览器标签页中，绝不会与团队共享，并且在退出登录时会被丢弃。";
+/* Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Tip under the two buttons at the bottom of the Quarry page. What it tells the analyst to empty is the object the help paragraph above describes, not the cache option further down the same page.
+cliff:source: Empty it before you leave the page, or the next run starts from rows that are already stale.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"help-empty-before-run" = "离开页面前请清空它，否则下次运行会从已经过期的行开始。";
+/* Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Sentence in the help section about shared boards. It answers the empty-state line of this file and must reuse the verb that line uses for putting a chart on a board.
+cliff:source: Once it is pinned, the chart stays on the board until someone takes it down.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"help-board-pin" = "图表一旦被固定，就会一直留在看板上，直到有人将它移除。";
+/* Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Paragraph in the accessibility section of the help panel.
+cliff:source: Press the up and down arrows to move through the rows without taking your hands off the keyboard.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"help-keyboard-rows" = "按上下箭头键在行之间移动，双手无需离开键盘。";
+/* Paragraphs from the help panel, written for an analyst who is opening the workbench for the first time. They are read on a wide page, so the sentences are complete and unhurried. Paragraph in the help panel explaining what happens to charts nobody looks at.
+cliff:source: A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"help-archive" = "一个月没有打开过的图表会自动移到归档页面。不会删除任何内容，再次打开它就会恢复。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the time window option; the window a chart starts with when the analyst has never changed it.
+cliff:source: New charts open with the default time window until you pin one of your own.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-time-window" = "在你固定自己的时间窗口之前，新建图表会以默认时间窗口打开。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the export option on the settings page.
+cliff:source: Charts are exported at the screen resolution, or at 2x for print.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-export-resolution" = "图表按屏幕分辨率导出，打印时则按 2 倍分辨率导出。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the cache option, explaining why the workbench keeps a copy of recent results.
+cliff:source: Charts read from the cache first, which keeps latency under half a second on a normal connection.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-cache-latency" = "图表会优先从缓存读取，这能让正常网络连接下的延迟保持在半秒以内。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Read-out under the cluster option, shown while a job is running.
+cliff:source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-throughput" = "吞吐量约为每秒 1,200 行，集群会在内存中保留其中的 30 GB。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the retention option on the settings page.
+cliff:source: Scratch tables are kept for 7 days and are then removed without a warning.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-retention" = "暂存表会保留 7 天，之后会在无警告的情况下被移除。";
+/* The settings page of the workbench: option labels and the explanatory line printed under each of them. Line under the time zone option on the settings page.
+cliff:source: Times on this page follow the workspace time zone, not the time zone of your browser.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"set-timezone" = "此页面上的时间遵循工作区时区，而不是你的浏览器时区。";

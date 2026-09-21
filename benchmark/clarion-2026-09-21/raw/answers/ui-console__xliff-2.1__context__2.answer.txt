@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.ui-console" original="clarion.ui-console">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">Harborline Console interface strings</mda:meta>
+        <mda:meta type="info">Developer-facing control panel of the Harborline cloud streaming product, for product engineers operating workspaces, billing and live streams.</mda:meta>
+        <mda:meta type="standard">Follow the zh-CN house style: one space between Han text and Latin or digits, fullwidth punctuation inside Han sentences, and no textbook jargon. UI labels are short, fit their width budget, and never end with a full stop.</mda:meta>
+        <mda:meta type="dependency">ui-console-terms.zh-CN.cliff</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="nav">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Primary navigation links in the Harborline Console sidebar.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Primary navigation links in the Harborline Console sidebar.</note>
+      </notes>
+      <unit id="billing">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Sidebar link that opens the invoice and payment screen.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that opens the invoice and payment screen.</note>
+        </notes>
+        <segment state="translated">
+          <source>Billing</source>
+          <target>账单</target>
+        </segment>
+      </unit>
+      <unit id="streaming">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Sidebar link that opens the live stream management screen.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that opens the live stream management screen.</note>
+        </notes>
+        <segment state="translated">
+          <source>Streaming</source>
+          <target>直播</target>
+        </segment>
+      </unit>
+      <unit id="workspaces">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Sidebar link that lists the user's isolated project environments.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sidebar link that lists the user's isolated project environments.</note>
+        </notes>
+        <segment state="translated">
+          <source>Workspaces</source>
+          <target>工作区</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="billing">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Billing screen: invoices, rates and usage totals.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Billing screen: invoices, rates and usage totals.</note>
+      </notes>
+      <unit id="billing-rate">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Column header in the invoice summary; the price charged per gigabyte.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Column header in the invoice summary; the price charged per gigabyte.</note>
+        </notes>
+        <segment state="translated">
+          <source>Billing rate</source>
+          <target>计费费率</target>
+        </segment>
+      </unit>
+      <unit id="no-invoices">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Empty state shown when the account has never generated an invoice.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Empty state shown when the account has never generated an invoice.</note>
+        </notes>
+        <segment state="translated">
+          <source>No invoices yet</source>
+          <target>暂无账单</target>
+        </segment>
+      </unit>
+      <unit id="payment-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Error toast after a rejected card charge.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Error toast after a rejected card charge.</note>
+        </notes>
+        <segment state="translated">
+          <source>Payment failed</source>
+          <target>支付失败</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="streaming">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Live stream management screen: sources, keys and quality settings.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Live stream management screen: sources, keys and quality settings.</note>
+      </notes>
+      <unit id="stream-key">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Field that shows the secret value the encoder sends with the live stream.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Field that shows the secret value the encoder sends with the live stream.</note>
+        </notes>
+        <segment state="translated">
+          <source>Stream key</source>
+          <target>直播密钥</target>
+        </segment>
+      </unit>
+      <unit id="frame-rate">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Label beside the frames-per-second selector on the quality panel.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Label beside the frames-per-second selector on the quality panel.</note>
+        </notes>
+        <segment state="translated">
+          <source>Frame rate</source>
+          <target>帧率</target>
+        </segment>
+      </unit>
+      <unit id="resolution">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Dropdown label above the output resolution list.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Dropdown label above the output resolution list.</note>
+        </notes>
+        <segment state="translated">
+          <source>Resolution</source>
+          <target>分辨率</target>
+        </segment>
+      </unit>
+      <unit id="add-to-workspace">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Menu action that attaches the selected stream to a project environment.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Menu action that attaches the selected stream to a project environment.</note>
+        </notes>
+        <segment state="translated">
+          <source>Add to workspace</source>
+          <target>加入工作区</target>
+        </segment>
+      </unit>
+      <unit id="stream-failed">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Error toast when the encoder cannot establish the live stream.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Error toast when the encoder cannot establish the live stream.</note>
+        </notes>
+        <segment state="translated">
+          <source>Stream failed to start</source>
+          <target>直播启动失败</target>
+        </segment>
+      </unit>
+      <unit id="stream-summary">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Summary line under the stream list showing how many streams run in how many regions.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Summary line under the stream list showing how many streams run in how many regions.</note>
+        </notes>
+        <segment state="translated">
+          <source>{count, plural, other {# streams}} across {regions, plural, other {# regions}}</source>
+          <target>{count, plural, other {# 个直播}}分布于 {regions, plural, other {# 个区域}}</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="settings">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">Workspace settings page: region, network and cache options.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>Workspace settings page: region, network and cache options.</note>
+      </notes>
+      <unit id="restore-defaults">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Button that resets every option on this page to its initial value.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button that resets every option on this page to its initial value.</note>
+        </notes>
+        <segment state="translated">
+          <source>Restore defaults</source>
+          <target>恢复默认</target>
+        </segment>
+      </unit>
+      <unit id="clear-cache">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Button that empties the stored responses so the next request reaches the origin.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Button that empties the stored responses so the next request reaches the origin.</note>
+        </notes>
+        <segment state="translated">
+          <source>Clear cache</source>
+          <target>清除缓存</target>
+        </segment>
+      </unit>
+      <unit id="latency">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Tooltip over the latency badge; the round-trip time in milliseconds.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Tooltip over the latency badge; the round-trip time in milliseconds.</note>
+        </notes>
+        <segment state="translated">
+          <source>Latency</source>
+          <target>延迟</target>
+        </segment>
+      </unit>
+      <unit id="api-token">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Label of the credential field used to authenticate programmatic calls.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Label of the credential field used to authenticate programmatic calls.</note>
+        </notes>
+        <segment state="translated">
+          <source>API token</source>
+          <target>API Token</target>
+        </segment>
+      </unit>
+      <unit id="request-rate-limit">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Field in the throttling section; the maximum requests allowed per second.</mda:meta>
+            <mda:meta type="max-width">8</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Field in the throttling section; the maximum requests allowed per second.</note>
+        </notes>
+        <segment state="translated">
+          <source>Request rate limit</source>
+          <target>请求限速</target>
+        </segment>
+      </unit>
+      <unit id="status-line">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Status line at the top of the page showing the currently selected region name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Status line at the top of the page showing the currently selected region name.</note>
+        </notes>
+        <segment state="translated">
+          <source>Region: %s</source>
+          <target>区域：%s</target>
+        </segment>
+      </unit>
+      <unit id="cache-description">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="context">Explanatory paragraph under the cache options heading.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Explanatory paragraph under the cache options heading.</note>
+        </notes>
+        <segment state="translated">
+          <source>Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.</source>
+          <target>缓存响应会保留 24 小时，在过期前继续复用。清除缓存后，所有请求都会回源。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="onboarding">
+      <mda:metadata>
+        <mda:metaGroup category="cliff">
+          <mda:meta type="context">First-run onboarding and workspace management dialogs.</mda:meta>
+          <mda:meta type="type">label</mda:meta>
+          <mda:meta type="emotion">objective</mda:meta>
+        </mda:metaGroup>
+      </mda:metadata>
+      <notes>
+        <note>First-run onboarding and workspace management dialogs.</note>
+      </notes>
+      <unit id="create-workspace">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="context">Primary button on the onboarding screen that opens the workspace creation flow.</mda:meta>
+            <mda:meta type="max-width">10</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Primary button on the onboarding screen that opens the workspace creation flow.</note>
+        </notes>
+        <segment state="translated">
+          <source>Create new workspace</source>
+          <target>新建工作区</target>
+        </segment>
+      </unit>
+      <unit id="welcome-back">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">prompt</mda:meta>
+            <mda:meta type="emotion">polite</mda:meta>
+            <mda:meta type="context">Greeting heading shown after sign-in, with the account holder's display name.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Greeting heading shown after sign-in, with the account holder's display name.</note>
+        </notes>
+        <segment state="translated">
+          <source>Welcome back to Harborline, {name}</source>
+          <target>欢迎回到 Harborline，{name}</target>
+        </segment>
+      </unit>
+      <unit id="workspace-count">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Caption under the workspace list that reports the total number of project environments.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Caption under the workspace list that reports the total number of project environments.</note>
+        </notes>
+        <segment state="translated">
+          <source>{count, plural, one {# workspace} other {# workspaces}}</source>
+          <target>{count, plural, one {# 个工作区} other {# 个工作区}}</target>
+        </segment>
+      </unit>
+      <unit id="delete-confirm">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">serious</mda:meta>
+            <mda:meta type="context">Confirmation dialog shown before permanently removing a project environment.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Confirmation dialog shown before permanently removing a project environment.</note>
+        </notes>
+        <segment state="translated">
+          <source>Delete this workspace? This cannot be undone.</source>
+          <target>确定要删除此工作区吗？此操作无法撤销。</target>
+        </segment>
+      </unit>
+      <unit id="close-dialog">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="accessibility-cue</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Screen-reader cue announcing the action bound to the Escape key.</note>
+        </notes>
+      </unit>
+    </group>
+  </file>
+</xliff>

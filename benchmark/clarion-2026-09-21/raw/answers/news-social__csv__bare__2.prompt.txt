@@ -1,0 +1,75 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is CSV with a header row. Fill the target column of every data row
+and change nothing else. Quote fields that contain commas or quotes.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+namespace,clan,source-language,target-language,version,variant,title,info,standard,dependency,group,group-context,group-type,group-emotion,group-max-width,id,source,target,type,emotion,status,context,max-width,reference,reviewer
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-01a,"Great work today, everyone. Really.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-01b,"Great work today, everyone. Really.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-02a,Six months of roadworks and here we are.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-02b,Six months of roadworks and here we are.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-03a,You are really going to ride that thing?,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.reactions,,,,,news-03b,You are really going to ride that thing?,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.referents,,,,,news-04a,Nice shot.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.referents,,,,,news-04b,Nice shot.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.referents,,,,,news-05a,It is back.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,posts.referents,,,,,news-05b,It is back.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-06,Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-07,Rode the whole loop this afternoon just because I could 🚋💚 no regrets,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-08,The new depot mural absolutely ate. No crumbs left.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-09,"{count, plural, one {# person} other {# people}} reposted your photo.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-10,"{name} and {others, plural, one {# other} other {# others}} liked your post.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,platform.conventions,,,,,news-11,"Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,thread.replies,,,,,news-12,@SablewickTransit Will the Riverside Loop run on the holiday Monday?,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,thread.replies,,,,,news-13,"Yes, on a Sunday timetable.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,thread.replies,,,,,news-14,And the last one back?,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,thread.replies,,,,,news-15,"Eleven forty, from the north end.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,thread.replies,,,,,news-16,"Perfect, thank you! Adding it to the group chat now.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-17,"Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-18,The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-19,"Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-20,I take the first tram most mornings and the seats are comfortable enough for the whole ride.,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-21,Does anyone know whether the ticket machine at the north end takes cards?,,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-22,"The rain held off for the ceremony, which was lucky for everyone standing on the platform.",,,,,,,,
+clarion,news-social,en-US,zh-CN,,standard,,,,,feed.updates,,,,,news-23,A single journey costs one euro fifty and a day pass costs four euros.,,,,,,,,

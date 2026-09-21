@@ -1,0 +1,80 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-classical",
+    "source-language": "zh-CN",
+    "target-language": "en-US"
+  },
+  "groups": [
+    {
+      "path": "aphorisms",
+      "entries": [
+        {
+          "id": "water-holds",
+          "source": "水静则清，器满则倾。",
+          "target": "Water grows clear when still; a vessel tips when full."
+        },
+        {
+          "id": "mountain-river",
+          "source": "山不增高，因登而高；川不返流，因逝而长。",
+          "target": "A mountain grows no taller, yet climbing makes it high; a river never turns back, yet its going makes it long."
+        },
+        {
+          "id": "mirror",
+          "source": "镜不自照，故能照人；泉不自饮，故能济渴。",
+          "target": "The mirror does not reflect itself, and so it can reflect others; the spring does not drink of itself, and so it can quench thirst."
+        },
+        {
+          "id": "scale",
+          "source": "尺短寸长，各有所宜。",
+          "target": "The foot is short, the inch is long; each serves its proper purpose."
+        },
+        {
+          "id": "lantern-heart",
+          "source": "灯焰高者，其膏易尽；其光微者，其夜乃长。",
+          "target": "The lamp whose flame burns high spends its oil soon; the one whose light is faint outlasts the night."
+        }
+      ]
+    },
+    {
+      "path": "parallel-prose",
+      "entries": [
+        {
+          "id": "parallel-prose-1",
+          "source": "层峦千仞，藏云于顶；寒江万里，送舟于天。",
+          "target": "Ridge upon ridge a thousand fathoms tall, hiding clouds upon their peaks; a cold river ten thousand li long, sending boats away into the sky."
+        },
+        {
+          "id": "parallel-prose-2",
+          "source": "谷静无应，苍梧闻钟；灯微自摇，苍梧照水。",
+          "target": "The valley is still and answers nothing, yet Cangwu hears the bell; the lamp burns faint and sways of itself, yet Cangwu lights the water."
+        }
+      ]
+    },
+    {
+      "path": "quatrain",
+      "entries": [
+        {
+          "id": "quatrain-1",
+          "source": "渡口秋灯暗，",
+          "target": "At the ferry, autumn lamps grow dim,"
+        },
+        {
+          "id": "quatrain-2",
+          "source": "江寒雨自斜。",
+          "target": "the river cold, the rain slants down of itself."
+        },
+        {
+          "id": "quatrain-3",
+          "source": "潮回沙上字，",
+          "target": "The tide turns back over the words on the sand,"
+        },
+        {
+          "id": "quatrain-4",
+          "source": "钟入隔岸家。",
+          "target": "a bell enters the houses on the far bank."
+        }
+      ]
+    }
+  ]
+}

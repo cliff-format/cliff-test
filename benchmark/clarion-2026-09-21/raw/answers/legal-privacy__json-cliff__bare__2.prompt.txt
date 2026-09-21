@@ -1,0 +1,185 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is JSON holding the CLIFF data model: groups contain entries with
+source, target and metadata. Fill the target field of every entry.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "legal-privacy",
+    "source-language": "en-US",
+    "target-language": "zh-CN"
+  },
+  "groups": [
+    {
+      "path": "policy.definitions",
+      "entries": [
+        {
+          "id": "def-personal-data",
+          "source": "“Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal."
+        },
+        {
+          "id": "def-data-subject",
+          "source": "“Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator."
+        },
+        {
+          "id": "def-operator",
+          "source": "“Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal."
+        },
+        {
+          "id": "def-processing",
+          "source": "“Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure."
+        },
+        {
+          "id": "def-portal",
+          "source": "“Portal” means the web application through which a request is submitted, tracked and answered."
+        }
+      ]
+    },
+    {
+      "path": "policy.requests",
+      "entries": [
+        {
+          "id": "policy-effective-date",
+          "source": "This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024."
+        },
+        {
+          "id": "policy-volume-figures",
+          "source": "In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period."
+        },
+        {
+          "id": "policy-retention-clause",
+          "source": "4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law."
+        },
+        {
+          "id": "policy-request-right",
+          "source": "A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them."
+        },
+        {
+          "id": "policy-erasure-crossref",
+          "source": "An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal."
+        },
+        {
+          "id": "portal-request-count",
+          "source": "{pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}}"
+        },
+        {
+          "id": "portal-answer-channel",
+          "source": "{channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}}"
+        }
+      ]
+    },
+    {
+      "path": "dpa.authorised",
+      "entries": [
+        {
+          "id": "dpa-scope-instructions",
+          "source": "The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law."
+        },
+        {
+          "id": "dpa-audit-right",
+          "source": "6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires."
+        },
+        {
+          "id": "clause-07a",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article."
+        },
+        {
+          "id": "clause-09a",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+        },
+        {
+          "id": "dpa-hosting-region",
+          "source": "All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night."
+        }
+      ]
+    },
+    {
+      "path": "dpa.restrictions",
+      "entries": [
+        {
+          "id": "clause-07b",
+          "source": "The Processor may use the Personal Data for the purposes set out in this Article."
+        },
+        {
+          "id": "clause-09b",
+          "source": "Execution of this Agreement is recorded in the Portal and is confirmed to both parties."
+        },
+        {
+          "id": "dpa-enumerated-prohibition",
+          "source": "The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind."
+        },
+        {
+          "id": "dpa-caps-disclaimer",
+          "source": "THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE."
+        },
+        {
+          "id": "dpa-audit-crossref",
+          "source": "Nothing in this Article limits the audit right granted in Section 6.1."
+        }
+      ]
+    },
+    {
+      "path": "paper.abstract",
+      "entries": [
+        {
+          "id": "paper-title",
+          "source": "Auditing Consent Records at Scale: A Field Study of Three Consent Portals"
+        },
+        {
+          "id": "paper-abstract-opening",
+          "source": "Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months."
+        },
+        {
+          "id": "paper-abstract-method",
+          "source": "Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log."
+        },
+        {
+          "id": "paper-abstract-findings",
+          "source": "Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study."
+        }
+      ]
+    }
+  ]
+}

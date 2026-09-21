@@ -1,0 +1,19 @@
+{
+  "aphorisms": {
+    "water-holds": "Water grows clear when still; a vessel tips when full.",
+    "mountain-river": "A mountain grows no taller, yet is made high by climbing; a river never turns back, yet is made long by flowing on.",
+    "mirror": "A mirror does not reflect itself, and so can reflect others; a spring does not drink itself, and so can quench thirst.",
+    "scale": "A foot may be short, an inch may be long; each has its proper use.",
+    "lantern-heart": "A lamp whose flame burns high soon spends its oil; a lamp whose glow is faint has the longer night."
+  },
+  "parallel-prose": {
+    "parallel-prose-1": "Tiered peaks a thousand fathoms high hide clouds at their summits; a cold river ten thousand miles long sends boats to the sky.",
+    "parallel-prose-2": "The valley is silent, echoless; the green wutong hears a bell; the lamp is faint and sways by itself; the green wutong is mirrored in the water."
+  },
+  "quatrain": {
+    "quatrain-1": "At the ferry, the autumn lamp dims,",
+    "quatrain-2": "The cold river, the rain slants as it will.",
+    "quatrain-3": "The tide returns, writing on the sand,",
+    "quatrain-4": "A bell enters homes on the opposite bank."
+  }
+}

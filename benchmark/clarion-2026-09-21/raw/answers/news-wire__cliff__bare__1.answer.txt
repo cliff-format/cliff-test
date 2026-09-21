@@ -1,0 +1,236 @@
+CLIFF 1.1
+namespace: clarion
+clan: news-wire
+source-language: en-US
+target-language: zh-CN
+
+[wire]
+
+<headline>
+source: "Harbor bridge: third night closed, tens of thousands rerouted"
+target: "港湾大桥：第三夜封闭，数万人被迫绕行"
+type: sentence
+status: initial
+
+<subhead>
+source: "Engineers race the weather to certify the last of 214 cables"
+target: "抢在天气变脸之前：工程师为最后一批214根缆索做认证"
+type: sentence
+status: initial
+
+<lede>
+source: "The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic."
+target: "3月14日，子午港大桥连续第三个夜晚封闭。施工人员冒雨抢修，更换上周风暴中崩断的三根悬索；数万名通勤者只能挤上两艘临时接驳渡轮，运力仅为平日的一小部分。"
+type: sentence
+status: initial
+
+<body-1>
+source: "Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again."
+target: "子午港务局官员周二表示，大桥能否重新开放取决于一次全面的安全审查；214根悬索中已有78%通过检查，其余仍在进行张拉和测量。港务局此前已三次推迟预计重开时间，局长科林·阿什韦尔警告说，只要风速超过每小时40公里，吊装作业就得停工，工期将再次延后。"
+type: sentence
+status: initial
+
+<body-2>
+source: "The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall."
+target: "封桥的影响已波及全市路网。绕行标志把车辆引向唯一一条环路，而这条路的实际流量已是设计负荷的两倍；高峰时段的车辆长龙沿北岸绵延超过12公里。渡轮工作人员在早上6点后加开两个班次，但东码头的队伍到上午过半仍绕着街区排下去，有通勤者称光是走到售票大厅就等了一个多小时。"
+type: sentence
+status: initial
+
+<quote>
+source: "Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”"
+target: "子午港务局局长科林·阿什韦尔对记者说，大桥“只有在每一根缆索都通过检查之后”才会重开——“一分钟都不会提前”。"
+type: sentence
+status: initial
+
+<photo-caption>
+source: "Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure."
+target: "封桥第三个清晨，通勤者在港口东码头排队等候接驳渡轮。"
+type: sentence
+status: initial
+
+<news-alert>
+source: "Bridge closure: expect delays of up to 90 minutes on all harbor crossings."
+target: "封桥提醒：港口各过江通道预计延误最长可达90分钟。"
+type: sentence
+status: initial
+
+[feature]
+
+<feature-headline>
+source: "The harbor's quiet ferry revival"
+target: "港口渡轮的悄然复兴"
+type: sentence
+status: initial
+
+<feature-lede>
+source: "For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential."
+target: "几十年来，港口渡轮不过是件稀罕物——一种缓慢而风景优美的过江方式，多数通勤者早已忘了它的存在。而封桥的三个夜晚，让它成了不可或缺的选择。"
+type: sentence
+status: initial
+
+<feature-body-1>
+source: "The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide."
+target: "东码头早班船如今是许多人能在十点前赶到办公室的唯一指望。三名船员叫得出常客的名字，也记得他们上船的先后：推折叠自行车的女士、靠着栏杆批改作业的老师、带着一箱酸面包过江的厨师。一项应急措施就这样悄然变成了一个小社区，有自己的老笑话，还有一位像导游一样讲解航程的船长。"
+type: sentence
+status: initial
+
+<feature-body-2>
+source: "Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days."
+target: "也不是所有人都怀旧。对岸的店主说，绕行让他们工作日的生意少了近五分之一；而渡轮2欧元的单程票价，对每天往返两次的人来说也不是小数目。港务局已承诺推出补贴方案，但细节仍在拟定；一份要求搭建临时人行桥的请愿书三天内已征集到一万一千个签名。"
+type: sentence
+status: initial
+
+<feature-quote>
+source: "Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”"
+target: "早班接驳船的船长迪亚·普劳斯说得直白：“没有人为此做过计划。我们只是来了，然后开始把人送过江。”"
+type: sentence
+status: initial
+
+[social]
+
+<post-sarcastic>
+source: "Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks."
+target: "哦，太好了。第三个晚上以步行速度一点点挪回家。真是顶级的桥梁管理，各位。"
+type: sentence
+status: initial
+
+<post-enthusiastic>
+source: "The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢"
+target: "免费接驳渡轮真是救命稻草——航行平稳，还能顺带看风景！#MeridianFerry 🚢"
+type: sentence
+status: initial
+
+[comments]
+
+<comment-1>
+source: "Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall."
+target: "困在水这边三天了，我头发都要抓秃了。市政府，赶紧解决吧。"
+type: sentence
+status: initial
+
+<comment-2>
+source: "Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours."
+target: "早上6点出门上班，8点50才到办公室。有人欠我两个小时。"
+type: sentence
+status: initial
+
+<comment-3>
+source: "My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares."
+target: "我邻居已经在张罗卖车了。他说桥爱关多久就关多久，他无所谓。"
+type: sentence
+status: initial
+
+[editors-note]
+
+<editors-note>
+source: "This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay."
+target: "本文附上这则编者按，是因为周二引用的重开时间表已经两次变动。港务局每发布新信息，我们都会更新文中的数字；一旦发现其中有任何错误，我们也会立即更正。"
+type: sentence
+status: initial
+
+<editors-note-correction>
+source: "An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours."
+target: "本文早前版本称东码头接驳渡轮每30分钟一班。实际上高峰时段为每20分钟一班。"
+type: sentence
+status: initial
+
+<editors-note-signoff>
+source: "— The Editors"
+target: "——编辑部"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: news-wire-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "news-wire 术语表"
+info: "港湾大桥封桥报道及其特稿、社交帖文与编者按中统一使用的术语。"
+
+[terms]
+
+<meridian-harbor-bridge>
+source: "Meridian Harbor Bridge"
+target: "子午港大桥"
+type: proper-noun
+status: final
+context: "全文统一使用“子午港大桥”，首见后不再加注原文。"
+
+<meridian-harbor-authority>
+source: "Meridian Harbor Authority"
+target: "子午港务局"
+type: proper-noun
+status: final
+context: "机构名统一译“子午港务局”；其负责人 director 译“局长”。"
+
+<suspension-cable>
+source: "suspension cable"
+target: "悬索"
+type: noun
+status: final
+context: "桥梁构件，统一用“悬索”，与“缆索”区分，避免与 steel cable 混同。"
+
+<ferry-shuttle>
+source: "ferry shuttle"
+target: "接驳渡轮"
+type: noun
+status: final
+context: "临时替代桥梁的渡轮服务，统一译“接驳渡轮”；shuttle 不译“班车”。"
+
+<detour>
+source: "detour"
+target: "绕行"
+type: noun
+status: final
+context: "道路改道标志与改道行为均用“绕行”，不用“迂回”。"
+
+<footbridge>
+source: "temporary footbridge"
+target: "临时人行桥"
+type: noun
+status: final
+context: "请愿书诉求中的临时步行桥，统一译“临时人行桥”。"
+
+<editors-note>
+source: "editor's note"
+target: "编者按"
+type: noun
+status: final
+context: "报纸体例用语，统一译“编者按”；signoff 译“编辑部”。"
+
+<rounding-percent>
+source: "78%"
+target: "78%"
+type: numeral
+status: final
+context: "百分比保持阿拉伯数字，与数字口径一致，不作中文数字改写。"
+
+<units-speed-distance>
+source: "kilometres per hour / kilometres"
+target: "公里/小时 / 公里"
+type: noun
+status: final
+context: "公制单位统一用“公里”，不用“千米”。"
+
+<curly-quotes>
+source: "“ ”"
+target: "“ ”"
+type: fixed-phrase
+status: final
+context: "引语一律使用中文弯引号“ ”，不用直引号；ASCII 引号仅作 CLIFF 字符串定界符。"
+
+<em-dash>
+source: "—"
+target: "——"
+type: fixed-phrase
+status: final
+context: "行文中破折号按中文习惯写作“——”；署名前的破折号亦同。"
+
+<hashtag-token>
+source: "#MeridianFerry"
+target: "#MeridianFerry"
+type: fixed-phrase
+status: final
+context: "话题标签属专有标识，保持拉丁原文不译，与专名保留政策一致。"

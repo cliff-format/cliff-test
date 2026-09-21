@@ -1,0 +1,164 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgctxt "core-error.ok"
+msgid "OK"
+msgstr "正常"
+
+msgctxt "core-error.failed"
+msgid "Failed"
+msgstr "失败"
+
+msgctxt "core-error.unavailable"
+msgid "Unavailable"
+msgstr "不可用"
+
+msgctxt "core-error.unconfigured"
+msgid "Unconfigured"
+msgstr "未配置"
+
+msgctxt "core-error.unauthorized"
+msgid "Unauthorized"
+msgstr "未授权"
+
+msgctxt "core-error.parameter-out-of-range"
+msgid "Parameter out of range"
+msgstr "参数超出范围"
+
+msgctxt "core-error.out-of-memory"
+msgid "Out of memory"
+msgstr "内存不足"
+
+msgctxt "core-error.file-not-found"
+msgid "File not found"
+msgstr "未找到文件"
+
+msgctxt "core-error.file-bad-drive"
+msgid "File: Bad drive"
+msgstr "文件：驱动器无效"
+
+msgctxt "core-error.file-bad-path"
+msgid "File: Bad path"
+msgstr "文件：路径无效"
+
+msgctxt "core-error.file-permission-denied"
+msgid "File: Permission denied"
+msgstr "文件：权限被拒绝"
+
+msgctxt "core-error.file-already-in-use"
+msgid "File already in use"
+msgstr "文件已在使用中"
+
+msgctxt "core-error.can-t-open-file"
+msgid "Can't open file"
+msgstr "无法打开文件"
+
+msgctxt "core-error.can-t-write-file"
+msgid "Can't write file"
+msgstr "无法写入文件"
+
+msgctxt "core-error.can-t-read-file"
+msgid "Can't read file"
+msgstr "无法读取文件"
+
+msgctxt "core-error.file-unrecognized"
+msgid "File unrecognized"
+msgstr "文件无法识别"
+
+msgctxt "core-error.file-corrupt"
+msgid "File corrupt"
+msgstr "文件损坏"
+
+msgctxt "core-error.missing-dependencies-for-file"
+msgid "Missing dependencies for file"
+msgstr "文件缺少依赖项"
+
+msgctxt "core-error.end-of-file"
+msgid "End of file"
+msgstr "文件结束"
+
+msgctxt "core-error.can-t-open"
+msgid "Can't open"
+msgstr "无法打开"
+
+msgctxt "core-error.can-t-create"
+msgid "Can't create"
+msgstr "无法创建"
+
+msgctxt "core-error.query-failed"
+msgid "Query failed"
+msgstr "查询失败"
+
+msgctxt "core-error.already-in-use"
+msgid "Already in use"
+msgstr "已在使用中"
+
+msgctxt "core-error.locked"
+msgid "Locked"
+msgstr "已锁定"
+
+msgctxt "core-error.timeout"
+msgid "Timeout"
+msgstr "超时"
+
+msgctxt "core-error.can-t-connect"
+msgid "Can't connect"
+msgstr "无法连接"
+
+msgctxt "core-error.can-t-resolve"
+msgid "Can't resolve"
+msgstr "无法解析"
+
+msgctxt "core-error.connection-error"
+msgid "Connection error"
+msgstr "连接错误"
+
+msgctxt "core-error.can-t-acquire-resource"
+msgid "Can't acquire resource"
+msgstr "无法获取资源"
+
+msgctxt "core-error.can-t-fork"
+msgid "Can't fork"
+msgstr "无法创建子进程"
+
+msgctxt "core-error.invalid-data"
+msgid "Invalid data"
+msgstr "无效数据"
+
+msgctxt "core-error.invalid-parameter"
+msgid "Invalid parameter"
+msgstr "无效参数"
+
+msgctxt "core-error.already-exists"
+msgid "Already exists"
+msgstr "已存在"
+
+msgctxt "core-error.does-not-exist"
+msgid "Does not exist"
+msgstr "不存在"
+
+msgctxt "core-error.can-t-read-database"
+msgid "Can't read database"
+msgstr "无法读取数据库"
+
+msgctxt "core-error.can-t-write-database"
+msgid "Can't write database"
+msgstr "无法写入数据库"
+
+msgctxt "core-error.compilation-failed"
+msgid "Compilation failed"
+msgstr "编译失败"
+
+msgctxt "core-error.method-not-found"
+msgid "Method not found"
+msgstr "未找到方法"
+
+msgctxt "core-error.link-failed"
+msgid "Link failed"
+msgstr "链接失败"
+
+msgctxt "core-error.script-failed"
+msgid "Script failed"
+msgstr "脚本失败"

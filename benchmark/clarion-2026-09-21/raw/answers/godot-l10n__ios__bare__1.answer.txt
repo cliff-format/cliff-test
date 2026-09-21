@@ -1,0 +1,80 @@
+/* cliff:source: OK */
+"ok" = "正常";
+/* cliff:source: Failed */
+"failed" = "失败";
+/* cliff:source: Unavailable */
+"unavailable" = "不可用";
+/* cliff:source: Unconfigured */
+"unconfigured" = "未配置";
+/* cliff:source: Unauthorized */
+"unauthorized" = "未授权";
+/* cliff:source: Parameter out of range */
+"parameter-out-of-range" = "参数超出范围";
+/* cliff:source: Out of memory */
+"out-of-memory" = "内存不足";
+/* cliff:source: File not found */
+"file-not-found" = "文件未找到";
+/* cliff:source: File: Bad drive */
+"file-bad-drive" = "文件：驱动器错误";
+/* cliff:source: File: Bad path */
+"file-bad-path" = "文件：路径错误";
+/* cliff:source: File: Permission denied */
+"file-permission-denied" = "文件：权限被拒绝";
+/* cliff:source: File already in use */
+"file-already-in-use" = "文件已被占用";
+/* cliff:source: Can't open file */
+"can-t-open-file" = "无法打开文件";
+/* cliff:source: Can't write file */
+"can-t-write-file" = "无法写入文件";
+/* cliff:source: Can't read file */
+"can-t-read-file" = "无法读取文件";
+/* cliff:source: File unrecognized */
+"file-unrecognized" = "文件无法识别";
+/* cliff:source: File corrupt */
+"file-corrupt" = "文件已损坏";
+/* cliff:source: Missing dependencies for file */
+"missing-dependencies-for-file" = "文件缺少依赖项";
+/* cliff:source: End of file */
+"end-of-file" = "文件结尾";
+/* cliff:source: Can't open */
+"can-t-open" = "无法打开";
+/* cliff:source: Can't create */
+"can-t-create" = "无法创建";
+/* cliff:source: Query failed */
+"query-failed" = "查询失败";
+/* cliff:source: Already in use */
+"already-in-use" = "已被占用";
+/* cliff:source: Locked */
+"locked" = "已锁定";
+/* cliff:source: Timeout */
+"timeout" = "超时";
+/* cliff:source: Can't connect */
+"can-t-connect" = "无法连接";
+/* cliff:source: Can't resolve */
+"can-t-resolve" = "无法解析";
+/* cliff:source: Connection error */
+"connection-error" = "连接错误";
+/* cliff:source: Can't acquire resource */
+"can-t-acquire-resource" = "无法获取资源";
+/* cliff:source: Can't fork */
+"can-t-fork" = "无法派生进程";
+/* cliff:source: Invalid data */
+"invalid-data" = "数据无效";
+/* cliff:source: Invalid parameter */
+"invalid-parameter" = "参数无效";
+/* cliff:source: Already exists */
+"already-exists" = "已存在";
+/* cliff:source: Does not exist */
+"does-not-exist" = "不存在";
+/* cliff:source: Can't read database */
+"can-t-read-database" = "无法读取数据库";
+/* cliff:source: Can't write database */
+"can-t-write-database" = "无法写入数据库";
+/* cliff:source: Compilation failed */
+"compilation-failed" = "编译失败";
+/* cliff:source: Method not found */
+"method-not-found" = "方法未找到";
+/* cliff:source: Link failed */
+"link-failed" = "链接失败";
+/* cliff:source: Script failed */
+"script-failed" = "脚本执行失败";

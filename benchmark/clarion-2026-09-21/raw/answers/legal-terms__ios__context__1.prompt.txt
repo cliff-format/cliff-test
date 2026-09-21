@@ -1,0 +1,178 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an iOS Localizable.strings resource of "key" = "value"; lines.
+Replace every value with its translation and keep every key and comment.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. First defined term; later clauses refer to this party by the capitalised noun.
+cliff:source: “Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"licensee" = "“Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.";
+/* Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the individuals the Licensee may let use the Service.
+cliff:source: “Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"authorised-user" = "“Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.";
+/* Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term covering everything the customer loads into the platform.
+cliff:source: “Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"service-data" = "“Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.";
+/* Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the product itself; the brand name stays in Latin script.
+cliff:source: “Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"service" = "“Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.";
+/* Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the provider; the privacy notice fills in the actual company name.
+cliff:source: “Operator” means the company identified in the privacy notice as responsible for processing Service Data.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"operator" = "“Operator” means the company identified in the privacy notice as responsible for processing Service Data.";
+/* Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. The core grant clause; its scope is narrowed by the restrictions that follow.
+cliff:source: Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"grant-license" = "Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.";
+/* Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Obligation clause. “Shall” is a duty here, not a future tense.
+cliff:source: The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"licensee-shall" = "The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.";
+/* Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Security obligation with a cross-reference; the section number must survive.
+cliff:source: The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"operator-must" = "The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.";
+/* Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Permission clause. “May” grants a right; it does not predict a possibility.
+cliff:source: The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"licensee-may" = "The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.";
+/* Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Termination right; another use of permissive “may”.
+cliff:source: Either party may terminate this Agreement on thirty days' written notice to the other party.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"termination" = "Either party may terminate this Agreement on thirty days' written notice to the other party.";
+/* Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Prohibition clause. “May not” forbids an act; it is not a statement of likelihood.
+cliff:source: The Licensee may not sublicense, rent or lease the Service to any third party.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"licensee-may-not" = "The Licensee may not sublicense, rent or lease the Service to any third party.";
+/* Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Enumerated prohibition; the item markers must survive so citations stay valid.
+cliff:source: The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"restricted-acts" = "The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.";
+/* Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Short prohibition parallel to the enumerated list.
+cliff:source: The Licensee may not create derivative works based on the Service or any part of it.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"no-derivative" = "The Licensee may not create derivative works based on the Service or any part of it.";
+/* Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Confidentiality duty; the obligation falls on the Licensee.
+cliff:source: The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"confidentiality" = "The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. All-caps disclaimer; the Chinese keeps the same force without adding any formatting.
+cliff:source: THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"warranty-disclaimer" = "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Liability cap; translate fully without dropping the fee basis or the time window.
+cliff:source: To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"limitation-liability" = "To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Standard severability clause.
+cliff:source: If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"severability" = "If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Privacy notice template; {operator} is filled in by the billing system at runtime.
+cliff:source: This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"privacy-operator" = "This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Purpose limitation from the privacy notice.
+cliff:source: The Operator processes Service Data only for the purposes of providing, securing and improving the Service.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"privacy-purpose" = "The Operator processes Service Data only for the purposes of providing, securing and improving the Service.";
+/* Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Retention clause; {months} is a runtime number, not translatable text.
+cliff:source: Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.
+cliff:type: sentence
+cliff:emotion: formal
+cliff:status: initial */
+"retention-period" = "Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.";
+/* Abstract of an original evaluation paper on anomaly detection in financial audit trails. Technical terms follow the agreed terminology; one term stays in Latin script. Full abstract; keep the evaluation framing and the three measurements intact.
+cliff:source: Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"abstract" = "Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.";

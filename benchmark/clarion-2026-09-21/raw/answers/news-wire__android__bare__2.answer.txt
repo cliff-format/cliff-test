@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Harbor bridge: third night closed, tens of thousands rerouted-->
+    <string name="headline">港口大桥连续第三晚封闭，数万人被迫绕行</string>
+    <!--cliff:source: Engineers race the weather to certify the last of 214 cables-->
+    <string name="subhead">工程师抢在天气变化前，为214根缆索中最后一批完成检测认证</string>
+    <!--cliff:source: The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic.-->
+    <string name="lede">3月14日，梅里迪安港大桥连续第三个夜晚保持封闭。施工人员冒雨更换上周风暴中崩断的三根悬索，数万名通勤者被迫挤上两班临时渡轮接驳船，而它们运送的客流量只是平日的一小部分。</string>
+    <!--cliff:source: Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again.-->
+    <string name="body-1">梅里迪安港务局官员周二表示，能否重新开放取决于一次完整的安全审查；大桥214根悬索中已有78%通过检测，其余仍在进行张拉和测量。港务局此前已三度推迟原定的重开时间，局长科林·阿什韦尔警告说，只要风速超过每小时40公里，吊装作业就必须停顿，工期将再次延后。</string>
+    <!--cliff:source: The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall.-->
+    <string name="body-2">封桥的影响已波及全市路网。绕行标志把车辆引向唯一的环城公路，而这条路的实际负荷已是设计值的两倍，高峰时段的排队车流如今沿北岸绵延超过12公里。渡轮员工在早上6点后加开了两个班次，但到上午过半时，东码头外的队伍仍绕过了整个街区，一些通勤者称光是排到售票大厅就等了一个多小时。</string>
+    <!--cliff:source: Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”-->
+    <string name="quote">梅里迪安港务局局长科林·阿什韦尔对记者说，大桥将“只在每一根缆索都通过检测之后——一分钟都不会提前”重新开放。</string>
+    <!--cliff:source: Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure.-->
+    <string name="photo-caption">封桥后的第三个早晨，通勤者在港口东码头排队等候渡轮接驳船。</string>
+    <!--cliff:source: Bridge closure: expect delays of up to 90 minutes on all harbor crossings.-->
+    <string name="news-alert">大桥封闭：港口各过江通道预计最长延误90分钟。</string>
+    <!--cliff:source: The harbor's quiet ferry revival-->
+    <string name="feature-headline">港口渡轮的悄然复兴</string>
+    <!--cliff:source: For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential.-->
+    <string name="feature-lede">几十年来，港口渡轮一直是个稀罕物——一种缓慢而风景优美的过江方式，多数通勤者早已忘了它还存在着。而三个封闭的夜晚，让它们变得不可或缺。</string>
+    <!--cliff:source: The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide.-->
+    <string name="feature-body-1">如今，对许多人来说，从东码头开出的早班船是他们能在十点前到办公室的唯一指望。三名船员能叫出常客的名字，也记得他们上船的次序：那位推着折叠自行车的女士，那位靠着栏杆批改作业的老师，那位拎着一箱酸面包过江的厨师。原本只是应急之举的渡轮，悄然间长成了一个小社区，有自己的老梗，还有一位像导游一样解说航程的船长。</string>
+    <!--cliff:source: Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days.-->
+    <string name="feature-body-2">并非人人都怀旧。对岸的店主说，绕行让他们工作日的生意少了近五分之一；而对每天往返两次的人来说，渡轮单程2欧元的票价也是一笔不小的开销。港务局承诺推出票价补贴方案，但细节仍在拟定中；一份要求临时搭建人行桥的请愿书三天内已征集到一万一千个签名。</string>
+    <!--cliff:source: Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”-->
+    <string name="feature-quote">早班接驳船的船长迪亚·普劳斯说得很直白：“没人为此做过准备。我们只是来了，然后开始载人。”</string>
+    <!--cliff:source: Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks.-->
+    <string name="post-sarcastic">哦，真是太好了。第三个晚上要像走路一样一点一点挪回家。真是顶级的桥梁管理，各位。</string>
+    <!--cliff:source: The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢-->
+    <string name="post-enthusiastic">免费接驳渡轮真是救命了——航行平稳，还能顺便看风景！#MeridianFerry 🚢</string>
+    <!--cliff:source: Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall.-->
+    <string name="comment-1">困在水这边的三天，我头发都快揪光了。市政厅，赶紧把这事解决了吧。</string>
+    <!--cliff:source: Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours.-->
+    <string name="comment-2">早上6点出门上班，8点50才到办公室。有人欠我两个小时。</string>
+    <!--cliff:source: My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares.-->
+    <string name="comment-3">我邻居已经在张罗着卖车了。他说桥爱关多久关多久，他才不在乎。</string>
+    <!--cliff:source: This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay.-->
+    <string name="editors-note">本编者按与这篇报道同时刊出，因为周二引用的重开时间表已经变了两次。港务局发布新信息后，我们会及时更新文中的数据；若其中出现任何错误，我们将立即更正。</string>
+    <!--cliff:source: An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours.-->
+    <string name="editors-note-correction">本文早前版本称东码头接驳船每30分钟一班。实际在高峰时段为每20分钟一班。</string>
+    <!--cliff:source: — The Editors-->
+    <string name="editors-note-signoff">——编辑部</string>
+</resources>

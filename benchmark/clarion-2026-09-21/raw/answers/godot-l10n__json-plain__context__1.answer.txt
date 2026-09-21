@@ -1,0 +1,164 @@
+```json
+{
+  "core-error.ok": {
+    "message": "正常",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp|editor/editor_node.cpp|editor/run/editor_run_bar.cpp|editor/scene/2d/scene_paint_2d_editor_plugin.cpp|editor/scene/gui/theme_editor_plugin.cpp|editor/script/script_editor_plugin.cpp|modules/visual_shader/editor/visual_shader_editor_plugin.cpp"
+  },
+  "core-error.failed": {
+    "message": "失败",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.unavailable": {
+    "message": "不可用",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.unconfigured": {
+    "message": "未配置",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.unauthorized": {
+    "message": "未授权",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.parameter-out-of-range": {
+    "message": "参数超出范围",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.out-of-memory": {
+    "message": "内存不足",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-not-found": {
+    "message": "文件未找到",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-bad-drive": {
+    "message": "文件：驱动器无效",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-bad-path": {
+    "message": "文件：路径无效",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-permission-denied": {
+    "message": "文件：权限被拒绝",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-already-in-use": {
+    "message": "文件已在使用",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-open-file": {
+    "message": "无法打开文件",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-write-file": {
+    "message": "无法写入文件",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-read-file": {
+    "message": "无法读取文件",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-unrecognized": {
+    "message": "文件无法识别",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.file-corrupt": {
+    "message": "文件损坏",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.missing-dependencies-for-file": {
+    "message": "文件缺少依赖项",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.end-of-file": {
+    "message": "文件末尾",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-open": {
+    "message": "无法打开",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-create": {
+    "message": "无法创建",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.query-failed": {
+    "message": "查询失败",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.already-in-use": {
+    "message": "已在使用",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.locked": {
+    "message": "已锁定",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp|editor/scene/3d/node_3d_editor_plugin.cpp|editor/scene/canvas_item_editor_plugin.cpp|scene/debugger/runtime_node_select.cpp"
+  },
+  "core-error.timeout": {
+    "message": "超时",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-connect": {
+    "message": "无法连接",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-resolve": {
+    "message": "无法解析",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.connection-error": {
+    "message": "连接错误",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-acquire-resource": {
+    "message": "无法获取资源",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-fork": {
+    "message": "无法创建子进程",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.invalid-data": {
+    "message": "无效数据",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.invalid-parameter": {
+    "message": "无效参数",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.already-exists": {
+    "message": "已存在",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.does-not-exist": {
+    "message": "不存在",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-read-database": {
+    "message": "无法读取数据库",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.can-t-write-database": {
+    "message": "无法写入数据库",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.compilation-failed": {
+    "message": "编译失败",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.method-not-found": {
+    "message": "方法未找到",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.link-failed": {
+    "message": "链接失败",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  },
+  "core-error.script-failed": {
+    "message": "脚本失败",
+    "description": "Imported from Godot editor localization (gettext PO with translator comments). Resource group 'core-error' of a string catalogue, 40 strings. Each string is used independently in the interface; translate it on its own and keep it short enough for its control. | cliff:type: label | cliff:status: initial | cliff:reference: core/error/error_list.cpp"
+  }
+}
+```

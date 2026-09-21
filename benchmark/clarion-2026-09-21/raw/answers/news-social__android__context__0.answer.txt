@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly.
+cliff:source: Great work today, everyone. Really.
+cliff:type: sentence
+cliff:emotion: grateful|joyful
+cliff:status: initial-->
+    <string name="news-01a">今天干得漂亮，各位。真的。</string>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite.
+cliff:source: Great work today, everyone. Really.
+cliff:type: sentence
+cliff:emotion: angry|playful
+cliff:status: initial-->
+    <string name="news-01b">今天干得漂亮，各位。真的。</string>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last.
+cliff:source: Six months of roadworks and here we are.
+cliff:type: sentence
+cliff:emotion: joyful|hopeful
+cliff:status: initial-->
+    <string name="news-02a">修路修了六个月，总算到了这一步。</string>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street.
+cliff:source: Six months of roadworks and here we are.
+cliff:type: sentence
+cliff:emotion: angry|playful
+cliff:status: initial-->
+    <string name="news-02b">修路修了六个月，总算到了这一步。</string>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her.
+cliff:source: You are really going to ride that thing?
+cliff:type: sentence
+cliff:emotion: anxious|polite
+cliff:status: initial-->
+    <string name="news-03a">你真要去坐那玩意儿？</string>
+    <!--Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user.
+cliff:source: You are really going to ride that thing?
+cliff:type: sentence
+cliff:emotion: rude|playful
+cliff:status: initial-->
+    <string name="news-03b">你真要去坐那玩意儿？</string>
+    <!--Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise.
+cliff:source: Nice shot.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial-->
+    <string name="news-04a">漂亮！</string>
+    <!--Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line.
+cliff:source: Nice shot.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial-->
+    <string name="news-04b">漂亮！</string>
+    <!--Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself.
+cliff:source: It is back.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial-->
+    <string name="news-05a">它又回来了。</string>
+    <!--Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier.
+cliff:source: It is back.
+cliff:type: sentence
+cliff:emotion: sad|informal
+cliff:status: initial-->
+    <string name="news-05b">它又回来了。</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts.
+cliff:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay
+cliff:type: sentence
+cliff:emotion: grateful|informal
+cliff:status: initial-->
+    <string name="news-06">非常感谢 @HollowPineCafe 今天早上在车辆段门口免费派发咖啡。#TramDay</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood.
+cliff:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+cliff:type: sentence
+cliff:emotion: joyful|playful
+cliff:status: initial-->
+    <string name="news-07">今天下午把整条环线坐了个遍，就因为我想坐 🚋💚 一点都不后悔</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene.
+cliff:source: The new depot mural absolutely ate. No crumbs left.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial-->
+    <string name="news-08">车辆段的新壁画简直绝了。连渣都不剩。</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands.
+cliff:source: {count, plural, one {# person} other {# people}} reposted your photo.
+cliff:type: prompt
+cliff:emotion: mechanical|objective
+cliff:status: initial-->
+    <string name="news-09">{count, plural, one {# 人} other {# 人}}转发了你的照片。</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted.
+cliff:source: {name} and {others, plural, one {# other} other {# others}} liked your post.
+cliff:type: prompt
+cliff:emotion: mechanical|objective
+cliff:status: initial-->
+    <string name="news-10">{name} 和另外 {others, plural, one {# 人} other {# 人}}赞了你的帖子。</string>
+    <!--Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction.
+cliff:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial-->
+    <string name="news-11">河畔环线开通第三天，我每程都省下了 40 分钟。10 分满分，还想再坐。</string>
+    <!--One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account.
+cliff:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?
+cliff:type: sentence
+cliff:emotion: curious|polite
+cliff:status: initial-->
+    <string name="news-12">@SablewickTransit 假期那个周一河畔环线会运营吗？</string>
+    <!--One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question.
+cliff:source: Yes, on a Sunday timetable.
+cliff:type: sentence
+cliff:emotion: polite|objective
+cliff:status: initial-->
+    <string name="news-13">会的，按周日时刻表。</string>
+    <!--One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction.
+cliff:source: And the last one back?
+cliff:type: sentence
+cliff:emotion: curious|informal
+cliff:status: initial-->
+    <string name="news-14">那返程的末班呢？</string>
+    <!--One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above.
+cliff:source: Eleven forty, from the north end.
+cliff:type: sentence
+cliff:emotion: polite|objective
+cliff:status: initial-->
+    <string name="news-15">十一点四十，从北端发车。</string>
+    <!--One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account.
+cliff:source: Perfect, thank you! Adding it to the group chat now.
+cliff:type: sentence
+cliff:emotion: grateful|informal
+cliff:status: initial-->
+    <string name="news-16">太好了，谢谢！这就把它转到群聊里。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line.
+cliff:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.
+cliff:type: sentence
+cliff:emotion: objective|formal
+cliff:status: initial-->
+    <string name="news-17">运营更新：自周一起，河畔环线每八分钟一班，末班车于晚上 11:40 发出。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot.
+cliff:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="news-18">车辆段开放日于周六上午十点开始，车间参观对所有人免费。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator.
+cliff:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="news-19">运营方表示，河畔环线首周客流量达到两万一千人次。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line.
+cliff:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.
+cliff:type: sentence
+cliff:emotion: neutral|informal
+cliff:status: initial-->
+    <string name="news-20">我大多数早上都坐头班电车，座位全程坐下来还算舒服。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus.
+cliff:source: Does anyone know whether the ticket machine at the north end takes cards?
+cliff:type: sentence
+cliff:emotion: curious|informal
+cliff:status: initial-->
+    <string name="news-21">有人知道北端的售票机能不能刷卡吗？</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony.
+cliff:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.
+cliff:type: sentence
+cliff:emotion: neutral
+cliff:status: initial-->
+    <string name="news-22">仪式期间雨没下起来，站在站台上的所有人都算走运。</string>
+    <!--Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line.
+cliff:source: A single journey costs one euro fifty and a day pass costs four euros.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial-->
+    <string name="news-23">单程票价一欧五，日票四欧元。</string>
+</resources>

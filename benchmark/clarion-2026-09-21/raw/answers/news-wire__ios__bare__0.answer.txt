@@ -1,0 +1,42 @@
+/* cliff:source: Harbor bridge: third night closed, tens of thousands rerouted */
+"headline" = "子午港大桥：第三晚封闭，数万人被迫改道";
+/* cliff:source: Engineers race the weather to certify the last of 214 cables */
+"subhead" = "工程师抢在天气变化前为214根缆索中的最后一批做认证";
+/* cliff:source: The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic. */
+"lede" = "3月14日，子午港大桥连续第三晚保持封闭，施工人员冒大雨更换上周风暴中崩断的三根悬索，迫使数万名通勤者改乘两艘临时渡轮，而它们的运力仅为平时交通量的一小部分。";
+/* cliff:source: Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again. */
+"body-1" = "子午港务局官员周二表示，大桥重新开放取决于全面的安全审查；大桥214根悬索中已有78%通过检查，其余仍在进行张拉和测量。港务局此前已三次推迟重新开放的时间预估，其局长科林·阿什韦尔警告称，只要风速超过每小时40公里，起重机作业就会停止，工期也将再次后延。";
+/* cliff:source: The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall. */
+"body-2" = "封桥的影响已波及全市路网。绕行标志把司机引向唯一一条环路，而这条路已在承受两倍于设计负荷的通行量；高峰时段的排队车流如今沿北岸延伸超过12公里。渡轮工作人员在早上6点后加开了两班，但到上午过半，东码头的队伍仍绕过了街区，一些通勤者称仅为了到达售票大厅就等了一个多小时。";
+/* cliff:source: Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.” */
+"quote" = "子午港务局局长科林·阿什韦尔告诉记者，大桥将“只有在每一根缆索都通过检查后才会重新开放——一分钟都不会提前。”";
+/* cliff:source: Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure. */
+"photo-caption" = "封桥第三天早晨，通勤者在港口东码头排队等候渡轮接驳。";
+/* cliff:source: Bridge closure: expect delays of up to 90 minutes on all harbor crossings. */
+"news-alert" = "大桥封闭：所有跨港通道预计延误最长可达90分钟。";
+/* cliff:source: The harbor's quiet ferry revival */
+"feature-headline" = "港口渡轮的悄然复兴";
+/* cliff:source: For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential. */
+"feature-lede" = "几十年来，港口渡轮一直是个稀罕物——一种缓慢而风景优美的过水方式，大多数通勤者都忘了它们的存在。而连续三个封桥的夜晚，让它们变得不可或缺。";
+/* cliff:source: The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide. */
+"feature-body-1" = "从东码头开出的早班船，如今是许多人能在十点前到办公室的唯一原因。船上三名船员叫得出常客的名字，也记得他们登船的顺序：带着折叠自行车的女士、靠着栏杆批改作业的老师、提着一箱酸面包过河的厨师。原本作为应急措施开始的摆渡，已悄然变成一个小社区，有自己的固定玩笑，还有一位像导游一样一路讲解的船长。";
+/* cliff:source: Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days. */
+"feature-body-2" = "并非人人都怀旧。对岸的店主说，绕行使他们工作日的生意减少了近五分之一；而对每天往返两次的人来说，渡轮单程2欧元的票价也是一笔不小的开销。港务局承诺推出补贴方案，但细节仍在起草中；一份要求修建临时人行桥的请愿书已在三天内征集到1.1万个签名。";
+/* cliff:source: Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.” */
+"feature-quote" = "早班接驳船的船长迪娅·普劳斯说得很直白：“没有人计划过这件事。我们只是出现了，然后开始载人。”";
+/* cliff:source: Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks. */
+"post-sarcastic" = "哦，太棒了。第三个傍晚以步行速度挪回家。真是顶级的桥梁管理啊，各位。";
+/* cliff:source: The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢 */
+"post-enthusiastic" = "免费接驳渡轮真是救星——航行平稳，还有风景可看！#子午渡轮 🚢";
+/* cliff:source: Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall. */
+"comment-1" = "三天了还困在水对岸，我都快急疯了。市政府，赶紧解决吧。";
+/* cliff:source: Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours. */
+"comment-2" = "早上6点出门上班，8点50才到办公室。有人欠我两个小时。";
+/* cliff:source: My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares. */
+"comment-3" = "我的邻居已经在想办法卖车了。他说大桥封着也无所谓。";
+/* cliff:source: This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay. */
+"editors-note" = "本编辑附注随报道一并发布，因为周二引用的重新开放时间表已经变了两次。随着港务局发布新信息，我们将更新本文中的数据，并会立即更正其中的任何错误。";
+/* cliff:source: An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours. */
+"editors-note-correction" = "本文早先版本称，东码头接驳船每30分钟一班。实际上，高峰时段每20分钟一班。";
+/* cliff:source: — The Editors */
+"editors-note-signoff" = "—— 编辑部";

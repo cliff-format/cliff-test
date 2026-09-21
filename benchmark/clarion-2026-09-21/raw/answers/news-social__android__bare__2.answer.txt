@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Great work today, everyone. Really.-->
+    <string name="news-01a">今天大家干得很棒。真的。</string>
+    <!--cliff:source: Great work today, everyone. Really.-->
+    <string name="news-01b">今天大家干得很棒。真的。</string>
+    <!--cliff:source: Six months of roadworks and here we are.-->
+    <string name="news-02a">六个月的施工，我们终于走到了今天。</string>
+    <!--cliff:source: Six months of roadworks and here we are.-->
+    <string name="news-02b">六个月的施工，我们终于走到了今天。</string>
+    <!--cliff:source: You are really going to ride that thing?-->
+    <string name="news-03a">你真要坐那玩意儿？</string>
+    <!--cliff:source: You are really going to ride that thing?-->
+    <string name="news-03b">你真要坐那玩意儿？</string>
+    <!--cliff:source: Nice shot.-->
+    <string name="news-04a">拍得不错。</string>
+    <!--cliff:source: Nice shot.-->
+    <string name="news-04b">拍得不错。</string>
+    <!--cliff:source: It is back.-->
+    <string name="news-05a">它回来了。</string>
+    <!--cliff:source: It is back.-->
+    <string name="news-05b">它回来了。</string>
+    <!--cliff:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay-->
+    <string name="news-06">万分感谢 @HollowPineCafe 今天早上在车库门口免费派发咖啡。#TramDay</string>
+    <!--cliff:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets-->
+    <string name="news-07">今天下午纯粹因为想坐，就把整条环线坐了个遍 🚋💚 毫不后悔</string>
+    <!--cliff:source: The new depot mural absolutely ate. No crumbs left.-->
+    <string name="news-08">车库的新壁画简直绝了，连渣都不剩。</string>
+    <!--cliff:source: {count, plural, one {# person} other {# people}} reposted your photo.-->
+    <string name="news-09">{count, plural, one {# 人} other {# 人}}转发了你的照片。</string>
+    <!--cliff:source: {name} and {others, plural, one {# other} other {# others}} liked your post.-->
+    <string name="news-10">{name} 和{others, plural, one {另外 # 人} other {另外 # 人}}赞了你的帖子。</string>
+    <!--cliff:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.-->
+    <string name="news-11">搭乘河畔环线的第 3 天，我来回各省下了 40 分钟。10 分满分，还会再坐。</string>
+    <!--cliff:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?-->
+    <string name="news-12">@SablewickTransit 河畔环线在假日周一运行吗？</string>
+    <!--cliff:source: Yes, on a Sunday timetable.-->
+    <string name="news-13">是的，按周日时刻表运行。</string>
+    <!--cliff:source: And the last one back?-->
+    <string name="news-14">那回程的末班车呢？</string>
+    <!--cliff:source: Eleven forty, from the north end.-->
+    <string name="news-15">11 点 40 分，从北端发车。</string>
+    <!--cliff:source: Perfect, thank you! Adding it to the group chat now.-->
+    <string name="news-16">太好了，谢谢！我这就发到群里。</string>
+    <!--cliff:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.-->
+    <string name="news-17">运营通告：从周一起，河畔环线每八分钟一班，末班车 23:40 发车。</string>
+    <!--cliff:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.-->
+    <string name="news-18">车库开放日周六上午十点开始，车间参观对所有人免费。</string>
+    <!--cliff:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.-->
+    <string name="news-19">运营商表示，河畔环线首周的客运量达到了两万一千人次。</string>
+    <!--cliff:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.-->
+    <string name="news-20">大多数早上我都坐首班电车，座位挺舒服，全程坐下来都没问题。</string>
+    <!--cliff:source: Does anyone know whether the ticket machine at the north end takes cards?-->
+    <string name="news-21">有人知道北端的售票机能不能刷卡吗？</string>
+    <!--cliff:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.-->
+    <string name="news-22">仪式期间雨一直没下下来，站在站台上的所有人都很走运。</string>
+    <!--cliff:source: A single journey costs one euro fifty and a day pass costs four euros.-->
+    <string name="news-23">单程票价一欧元五十，日票四欧元。</string>
+</resources>

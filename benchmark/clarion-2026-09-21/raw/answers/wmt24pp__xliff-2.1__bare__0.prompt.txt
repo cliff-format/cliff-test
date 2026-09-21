@@ -1,0 +1,264 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is XLIFF 2.1. Each translation unit is a unit element with a
+segment containing source and target. Add or fill the target element of every
+segment and set state to translated.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.wmt24pp" original="clarion.wmt24pp">
+    <group id="news">
+      <unit id="test-en-news-beverly-press-3585-1">
+        <segment>
+          <source>Siso's depictions of land, water center new gallery exhibition</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-beverly-press-3585-2">
+        <segment>
+          <source>"People Swimming in the Swimming Pool" from 2022 is one Vicente Siso artwork that will display at Tierra del Sol Gallery beginning Jan. 13. (photo courtesy of Vicente Siso)</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-beverly-press-3585-3">
+        <segment>
+          <source>Tierra del Sol is pleased to present "Vicente Siso: Memories of the Land and Water" at the new gallery location in West Hollywood. Siso has been an artist in the Studio Arts Program since 2012, this marks his debut solo exhibition. Siso was born 1962 in Madrid and raised between Venezuela, Trinidad and Miami; he moved with his family to Southern California in his early 20s.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-beverly-press-3585-4">
+        <segment>
+          <source>Masterfully working across subject matter, Siso has generated a prolific series of landscapes, portraits, and still-life works rendered in either acrylic, pastel, pencil or watercolor. Drawing from family portraits, his own reference photographs, and recollection, his colorful compositions demonstrate his range of interests and skill across media. Siso's tropical landscapes and seascapes reflect the geographies of his past, employing rich patterns and incorporating people to make meaningful connections between culture, memory and the environment. Siso titles his artworks in a mix of Spanish and English, signifying the celebrated and integral complexities of his life in Los Angeles County. "Vicente Siso: Memories of the Land and Water" opens on Saturday, Jan. 13, with a reception from 6-8 p.m. The exhibition is on view through Sunday, March 3.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-beverly-press-3585-5">
+        <segment>
+          <source>The Tierra del Sol Gallery is located at 7414 Santa Monica Blvd. For information, visit tierradelsolgallery.org.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-brisbanetimes-com-au-228963-6">
+        <segment>
+          <source>Adapt the old, accommodate the new to solve issue</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-brisbanetimes-com-au-228963-7">
+        <segment>
+          <source>At the precinct level, we just need to look at the Sydney CBD as an example of an area which has grown from its pre-settlement landscape into a two-storey city, from a maximum height of 150 feet to the soaring towers of today. At a much scaled-down level, the same can occur across Sydney's town centres located around transport nodes. Inner suburbs must also evolve, with a swing to more affordable apartment living at heights below the tree tops on key sites. Of course, the new growth in housing needs to be well-designed and trees, landscaping and parks need to be included along with other essential infrastructure.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-brisbanetimes-com-au-228963-8">
+        <segment>
+          <source>Our planning system also needs to adapt so that planners in suburban councils, who seem to be less supportive of change, are not the only determinants of the future shape of their suburbs. A way forward could be to have an independent decision-making body that championed quality design as long as it fitted below the tree tops and incorporated family living, large balconies, common gardens and presented a friendly appearance. This could be a role for the current NSW government architect working within a carefully crafted complying code.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-brisbanetimes-com-au-228963-9">
+        <segment>
+          <source>Over the past decade, our lives have changed through technology, with many working from home, and Sydney has gained an impressive network of metro and light rail systems. Our ability to purchase online has changed the way we shop, and friends and family seem closer because of smartphone communication. All of these adaptations from one system to another can also occur in our built environment through a planning focus on adaptive reuse rather than preferencing heritage preservation.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-brisbanetimes-com-au-228963-10">
+        <segment>
+          <source>Chris Johnson is a former NSW government architect (1995-2005) and executive director, NSW Department of Planning (2005-2009). He was CEO of Urban Taskforce Australia between 2011 and 2019.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-11">
+        <segment>
+          <source>A final push for female equality</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-12">
+        <segment>
+          <source>Last year, the World Economic Forum forecast that it would take five generations to achieve gender equality in every nation. Now the World Bank wants to rapidly accelerate that time frame.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-13">
+        <segment>
+          <source>The international financial institution is poised to launch a strategy aimed at significantly advancing the rights and economic opportunities for girls and women by 2030. The plan focuses on improving inclusivity and resilience through access to finance, technological innovation, and changes in public policy and law.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-14">
+        <segment>
+          <source>"Recent research demonstrates that both social norms and mindsets can change, for example, that engaging men and boys can foster their support and buy-in for gender equality," a consultative draft of the plan states. "Positive gender outcomes can be accelerated and scaled with a better understanding of ... how social norms and mindsets shape everyday expectations, priorities, and practices."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-15">
+        <segment>
+          <source>Shifts in thought are harder to quantify than bank loans for rural women or school enrollment for girls. Yet there is plenty of evidence that female agency can move mountains. In Iran, for example, women have led the greatest threat to the Islamic government in 40 years simply by refusing to comply with laws that force them to cover their hair. In some of the 130 countries with minimum quotas for female representation in government, such as India, male resistance to female voting and political activism has eased.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-16">
+        <segment>
+          <source>In some rural African communities, civil society organizations are replacing a harmful rite of passage with health education. One such program helped Kamanda Timayio, leader of the Masai village of Maparasha, Kenya, change his mind about female genital mutilation. He told Le Monde that he had "emerged from ignorance" and would abandon the practice.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-17">
+        <segment>
+          <source>The World Bank cites other examples. From 1970 to 2022, Bangladesh quadrupled female literacy rates and doubled female participation in the labor force. Its gross domestic product more than tripled. The change gathered its own momentum. Recruiting salaried women as teachers and health workers from within their own communities boosted trust "and made women's mobility and work more socially acceptable."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-18">
+        <segment>
+          <source>The bank's plan would target norms and institutions that may still require generational shifts. It has taken Rwanda more than two decades to establish itself as a model for land reforms that boost economic empowerment for women."No one benefits if women are held back," Rwanda President Paul Kagame said, arguing for land reform in 2015. "We have to change mindsets, not just the laws."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-csmonitor-com-7750-19">
+        <segment>
+          <source>The World Bank hopes to spread that message.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-20">
+        <segment>
+          <source>German farmers and train drivers are scaring Germany's bosses</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-21">
+        <segment>
+          <source>In Germany, where workers and bosses run many companies jointly, a big strike is unusual. A wave of big strikes is almost unheard of. Right now the country of "co-determination" is simultaneously facing an eight-day "action week" by irate farmers, who blocked roads with tractors, a three-day strike of railway workers and, to top it off, a looming strike of doctors, who already closed surgeries between Christmas and New Year's Day. This Mistgabelmop (pitchfork mob), as some have taken to calling it, will test Germany's harmonious labour relations in the year to come.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-22">
+        <segment>
+          <source>The protests were ostensibly set off by the government's decision to end subsidies for diesel fuel used in agriculture and to cut an exemption from car tax for farm vehicles. These measures pushed farmers over the edge. It also mobilised other angry workers, already straining under the pressure of inflation, recession and the government's self-imposed austerity. On January 9th drivers of freight and passenger trains at Deutsche Bahn, the national railway, began a strike over working hours and pay.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-23">
+        <segment>
+          <source>In an effort to defuse the tension with the farmers, the government agreed to a gradual removal of the diesel subsidy over three years and to keeping the exemption from the car tax. The farmers pooh-poohed the concessions as insufficient. On January 4th an aggressive group of them prevented Robert Habeck, the economy minister, from disembarking from a ferry on his return from a family holiday. If the train drivers are similarly unimpressed, that could prove expensive for German business, reckons IW Köln, a think-tank. The rail strike could cost businesses €100m ($110m) a day if it forced them to interrupt production. The car, chemical and steel industries, Germany's biggest, are especially reliant on rail transport.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-24">
+        <segment>
+          <source>The workers" mood is increasingly angry. "Appeals are circulating with fantasies of revolution," warned Mr Habeck. The far-right Alternative for Germany party is doing its best to fan the grievances. In Dresden the Free Saxons, another far-right group, infiltrated the farmers" protest calling for the "extinction of the traffic light" (as the governing coalition of the Social Democrats, Free Democrats and Greens is referred to because of their party colours).</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-economist-14223-25">
+        <segment>
+          <source>Thomas Puls of IW Köln fears that the strikes will harm the image of Germany as a place for business. Local bosses are already fretting about a German version of the gilets jaunes protests in France in 2018, which culminated in yellow-jacketed demonstrators torching cars on the Champs-Elysées and the police stepping in with tear gas. Jochen Kopelke, head of Germany's police union, warned in an interview with Tagesspiegel, a daily, that the farmers were probably "just the start of an enormous wave of protest this year." Germany was the only big economy to shrink in 2023, and the year ended on an especially sour note, with an unexpected drop in business confidence in December. This year is shaping up to be even tougher.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-26">
+        <segment>
+          <source>Brewers froth over winemakers" exemption from anti-waste rules</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-27">
+        <segment>
+          <source>As the EU debates rules to limit packaging waste, beer producers argue they are being unfairly discriminated against with exemptions for winemakers from reuse targets and deposit-return schemes, but one of Europe's wine industry association chiefs says brewers should "mind their own business."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-28">
+        <segment>
+          <source>European brewers have warned that exempting wine and not beer from deposit return schemes and reuse targets is unfair and potentially illegal, as lawmakers enter final talks over a new law designed to turn a surging tide of packaging waste across the EU.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-29">
+        <segment>
+          <source>Environment ministers agreed an EU Council negotiating mandate on the proposed Packaging and Packaging Waste Regulation (PPWR) before Christmas, paving the way for imminent political talks with the European Parliament, which are already underway at the technical level.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-30">
+        <segment>
+          <source>"Our position is clear," the trade association Brewers of Europe wrote to MEPs and government negotiators (10 January). "If targets and mandatory requirements in the PPWR apply to beer then there is a legal obligation that they apply to all alcoholic beverage categories."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-31">
+        <segment>
+          <source>The 18 December ministerial summit yielded a carve out for winemakers from the requirement that, by the end of the decade, 10% of products must be supplied in reusable containers within a system for reuse or refill, rising to 40% in 2040. The exemption would also apply to the requirement, likewise supported by the European Parliament, that wine should be exempt from deposit-return schemes that should be put in place by 2029 under the proposal.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-32">
+        <segment>
+          <source>Both the Czech and Belgian ministers immediately expressed reservations at the 18 December summit about the unequal treatment for brewers, but acquiesced. Belgium, which now chairs the rotating EU Council presidency and is therefore in principle neutral in terms of inter-governmental negotiations, hopes to clinch a deal with the parliament by early March.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-33">
+        <segment>
+          <source>Ignacio Sánchez Recarte, secretary general of the Comité Européen des Entreprises Vins trade association representing some 7,000 wine producers across Europe, is dismissive of the concerns of the beer makers. He told Euronews that a market dominated by multinational brewing conglomerates bears no comparison with one comprised almost entirely of small, domestic producers.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-34">
+        <segment>
+          <source>More than 99% of the domestic wine sector is made up of micro- to medium-sized companies, Sánchez Recarte said, questioning the solidity of legal arguments made by brewers and asserting that his organisation had focused on presenting policy makers with information "relevant and appropriate" to its own industry.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-35">
+        <segment>
+          <source>"It is not my role to estimate if the beer sector should have this or that target, as it would depend on the intrinsic characteristics of their own sector," Sánchez Recarte said. "In the same way, brewers should mind their own business and focus on their own responsibilities."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-36">
+        <segment>
+          <source>Brewers of Europe shared with Euronews a brief legal analysis it sent to the European Commission last year, where it argues that wine and beer are competing products that are "at least partially, substitutable with each other," and which argued that rules favouring one over the other would distort the market.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-37">
+        <segment>
+          <source>Simon Spillane, the lobby group's head of operations, said brewers were "already leading the way" in packaging sustainability, citing the example of beer kegs being reused around 165 times before being crushed and recycled after 30 years. They support reuse recycling systems already in place in many countries, he said.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-euronews-en-43091-38">
+        <segment>
+          <source>"We therefore advocate for an ambitious PPWR but need a level playing field in packaging legislation where beer and other alcoholic beverages play by the same rules, with each sector contributing fairly to reaching the targets and supporting collection systems," Spillane told. "Any other approach puts the brewers at a competitive disadvantage."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-newsrepublic-com-6817-39">
+        <segment>
+          <source>The Biden Administration Is Letting Corporate Criminals Off the Hook</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-newsrepublic-com-6817-40">
+        <segment>
+          <source>Tim Whitehouse, a former EPA enforcement attorney and the executive director of Public Employees for Environmental Responsibility, praised the Biden administration's recent improvements on enforcement while acknowledging the strong headwinds such efforts face. "It takes years of sustained funding and political support to build a good enforcement program," he told me. "The instability in Congress is not only demoralizing to EPA staff but undermines their ability to think strategically over the long term."</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-newsrepublic-com-6817-41">
+        <segment>
+          <source>The problems at the EPA are distinct but not unrelated to those at the Department of Justice, which handles environmental crimes via its Environment and Natural Resources Division, or ENRD. Prior to joining the EPA, Uhlmann - the EPA assistant secretary for enforcement - had served as the longtime head of that division's Environmental Crimes Section, from 1990 through 2007. The EPA sends its most serious civil and criminal cases to ENRD, which - as a relatively underfunded office - often relies on other agencies in helping to choose which fights to take on. In fiscal year 2022, the EPA deferred fewer cases to DOJ (88) than at any point since 2000 and concluded fewer civil judicial cases than it had since that time, as well. As the Environmental Integrity Project notes, even Trump's EPA concluded 94 civil cases and deferred 106 cases per year to the DOJ per year, on average.</source>
+        </segment>
+      </unit>
+      <unit id="test-en-news-newsrepublic-com-6817-42">
+        <segment>
+          <source>The Department of Justice's overall approach to corporate crimes has come under intense scrutiny from advocates. While watchdogs have lauded some steps the department has taken during Merrick Garland's tenure as attorney general - like finally establishing a database on corporate crime - Biden's DOJ has also leaned heavily on leniency agreements that allow companies to defer or avoid prosecution, and encouraged companies to scapegoat individual employees so as to avoid a broader charge. Kenneth Polite Jr., former assistant attorney general for DOJ's Criminal Division, revised the division's corporate enforcement policy so as to limit prosecutions.</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

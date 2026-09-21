@@ -1,0 +1,222 @@
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity
+source-language: en-US
+target-language: zh-CN
+title: "由简报定夺的最小对照诊断集"
+info: "探针层用来衡量翻译简报的价值：条目以最小对照对的形式出现，其源文完全相同或几乎相同，仅靠一个 CLIFF 字段（emotion、type、context 或 max-width）区分两者的译法。忽略该字段的译文必然会在其中一条上失分。所有条目均为专为 CLARION 撰写的原创文本，取自通用软件、公共交通、舞台、仓库与客服场景。"
+standard: "汉字与拉丁字母或数字之间用一个空格，汉语句子内使用全角标点。情感标签要体现在措辞、语气词和标点中，绝不译成中性释义。遵循 type 字段所要求的语体：label 保持为光杆名词，sentence 为完整指令，idiom 为地道的祝愿语，proper-noun 为地名。选择 context 行所指明的具体所指。译文需符合所声明的 max-width 显示格数：拉丁字母和数字计一格，汉字或全角字符计两格。不要使用教科书式的行话。"
+
+[emotion.reading]
+context: "成对出现的口语句子；决定语气的是 emotion 标签，而不是字面内容。"
+type: dialogue
+
+<probe-01a>
+source: "Oh, that's just wonderful."
+emotion: [joyful, grateful]
+status: initial
+context: "说话人刚拆开录取通知书，这句称赞是真心实意的。"
+
+<probe-01b>
+source: "Oh, that's just wonderful."
+emotion: [angry, playful]
+status: initial
+context: "说话人刚看着计划彻底泡汤；这句话是苦涩的反语。"
+
+<probe-02a>
+source: "After you."
+emotion: [polite, calm]
+status: initial
+context: "咖啡馆的顾客扶着门，真心让对方先走。"
+
+<probe-02b>
+source: "After you."
+emotion: [polite, angry]
+status: initial
+context: "说话人朝没有灯光的楼梯间抬了抬下巴；所谓客气其实是在命令对方先上。"
+
+<probe-03a>
+source: "Well, here we go again."
+emotion: [joyful, playful]
+status: initial
+context: "两个朋友排队再战一局桌游；笑着说。"
+
+<probe-03b>
+source: "Well, here we go again."
+emotion: [sad, calm]
+status: initial
+context: "维修工第三次回到同一台机器旁；叹气着说。"
+
+<probe-04a>
+source: "Just relax."
+emotion: [calm, hopeful]
+status: initial
+context: "护士在常规检查前安抚病人。"
+
+<probe-04b>
+source: "Just relax."
+emotion: [serious, angry]
+status: initial
+context: "警卫命令被逼到角落的闯入者别再动；语气平稳，并不温和。"
+
+[type.register]
+context: "同一英文文本随 type 不同而改变译法的对照；遵循各 type 所要求的语体。"
+
+<probe-05a>
+source: "Save"
+type: label
+emotion: [objective]
+status: initial
+context: "工具栏按钮，把当前打开的文档写入磁盘。"
+
+<probe-05b>
+source: "Save"
+type: sentence
+emotion: [objective]
+status: initial
+context: "关机检查清单中的一步，指示操作员在关闭前把会话写入磁盘。"
+
+<probe-06a>
+source: "Forge"
+type: proper-noun
+emotion: [objective]
+status: initial
+context: "公交线路图上的街区名，得名于此地曾经存在的铸造厂。"
+
+<probe-06b>
+source: "Forge"
+type: verb
+emotion: [objective]
+status: initial
+context: "铁匠工作台菜单上的单词任务：开始锻打加热好的金属。"
+
+<probe-07a>
+source: "Break a leg!"
+type: idiom
+emotion: [objective]
+status: initial
+context: "演员上台前收到的祝愿。"
+
+<probe-07b>
+source: "Break a leg!"
+type: sentence
+emotion: [objective]
+status: initial
+context: "仓库里的安全告示：注意地面湿滑，别滑倒伤了自己。"
+
+[context.referent]
+context: "由 context 行指明所指对象的对照；选用场景所要求的那一个词。"
+
+<probe-08a>
+source: "Rate"
+type: label
+emotion: [objective]
+status: initial
+context: "发票上的列标题；每工作小时收取的金额。"
+
+<probe-08b>
+source: "Rate"
+type: label
+emotion: [objective]
+status: initial
+context: "视频编辑器播放面板中的设置项；每秒绘制多少帧。"
+
+<probe-09a>
+source: "Seal"
+type: label
+emotion: [objective]
+status: initial
+context: "儿童套装里海洋动物图卡上的说明文字。"
+
+<probe-09b>
+source: "Seal"
+type: label
+emotion: [objective]
+status: initial
+context: "办公用品抽屉上的标签；用来给文件封口的火漆印章。"
+
+<probe-10a>
+source: "It won't start."
+type: sentence
+emotion: [objective]
+status: initial
+context: "路边救援电话：司机说的是汽车发动机，发动不起来。"
+
+<probe-10b>
+source: "It won't start."
+type: sentence
+emotion: [objective]
+status: initial
+context: "客服来电：用户说的是桌面应用程序，启动不了。"
+
+[width.budget]
+context: "宽度预算迫使措辞更短的对照；不得超过所声明的格数。"
+type: label
+
+<probe-11a>
+source: "Restore Default Settings"
+emotion: [objective]
+status: initial
+context: "设置界面上的按钮，有足够空间写出完整措辞。"
+max-width: 14
+
+<probe-11b>
+source: "Restore Default Settings"
+emotion: [objective]
+status: initial
+context: "窄版手机设置栏上的按钮，空间很紧。"
+max-width: 8
+
+<probe-12a>
+source: "View Frequently Asked Questions"
+emotion: [objective]
+status: initial
+context: "桌面版帮助界面上的菜单项，有足够空间写出完整措辞。"
+max-width: 16
+
+<probe-12b>
+source: "View Frequently Asked Questions"
+emotion: [objective]
+status: initial
+context: "窄版手机页面上的页脚链接，空间很紧。"
+max-width: 8
+
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "probe-ambiguity 术语表"
+info: "记录本次翻译中已定下的术语选择，供同一 clan 的后续条目复用。"
+
+[terms]
+context: "本 clan 的术语裁决；一个术语一条，target 为译文中实际使用的写法。"
+
+<default-settings>
+source: "Default Settings"
+target: "默认设置"
+type: noun-phrase
+status: translated
+context: "项目术语政策规定 default 一律用“默认”，不得使用“缺省”；术语在本族条目中反复出现，故固定为“默认设置”。"
+
+<frequently-asked-questions>
+source: "Frequently Asked Questions"
+target: "常见问题"
+type: noun-phrase
+status: translated
+context: "“查看常见问题”为帮助与页脚场景的通行说法；窄栏位下截取“常见问题”（8 格）仍可辨识，故定此写法。"
+
+<break-a-leg>
+source: "Break a leg!"
+target: "马到成功"
+type: idiom
+status: translated
+context: "type 为 idiom，须译成地道的祝愿语而非字面“摔断腿”；中文梨园与演出语境中以“马到成功”作祝词最自然。"
+
+<save>
+source: "Save"
+target: "保存"
+type: label
+status: translated
+context: "label 语体保持光杆动词“保存”；同一源文在 sentence 语体中另作“请先保存”，两者的差别由 type 决定，不写入本术语。"

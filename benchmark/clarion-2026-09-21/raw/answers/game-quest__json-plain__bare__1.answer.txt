@@ -1,0 +1,48 @@
+{
+  "quest": {
+    "brief": {
+      "brief-tide-run": "潮水一天涨落两次，而港口一天两次忘记谁欠了谁。在水位上涨之前，把密封货单送到军需官那里，账本就能再多诚实一晚。",
+      "brief-ninth-light": "九盏灯环绕内港。其中八盏由港口公会照管；最后一盏立在一块公会假装看不见的礁石上，而它从未熄灭过一次。",
+      "quest-title-last-watch": "薇洛的最后一班岗",
+      "journal-note-order": "马罗会先读货单再开门，所以目标 1 确认完成前，目标 2 会保持锁定。",
+      "brief-warning-fog": "雾会毫无预兆地从西边涌来。如果你看不见下一盏灯，就停下划桨等待：这里的水流很有耐心，迟早会把你带回码头。"
+    },
+    "objectives": {
+      "objective-03a": "将密封货单交给马罗",
+      "objective-03b": "将密封货单交给马罗",
+      "objective-04a": "恢复潮汐闸门的电力",
+      "objective-04b": "恢复潮汐闸门的电力",
+      "objective-relight": "在退潮前重新点亮第九盏灯",
+      "objective-count-crates": "{secured, plural, one {已固定 # 个板条箱} other {已固定 # 个板条箱}}",
+      "objective-check-lines": "检查东码头的系泊缆绳"
+    },
+    "dialogue": {
+      "hail-01a": "把提灯给我，朋友。",
+      "hail-01b": "把提灯给我，朋友。",
+      "hail-02a": "马罗说码头对你开放。",
+      "hail-02b": "马罗说码头对你开放。",
+      "dialogue-willow-keeps": "薇洛让第九盏灯燃烧了十一个冬天，而她从未向公会要过一次油。",
+      "dialogue-burn-it": "在马罗的船抵达码头前把它烧掉。冷掉的灰烬什么也不会告诉他。",
+      "success-echo": "第九盏灯现在归你保管了。别让我后悔把它交出去。",
+      "line-success-tide": "闸门撑住了。不管你在下面做了什么，水正流向它该去的地方。",
+      "line-failure-tide": "闸门卡住了，码头被水淹了。等退潮后再回来，我们再试一次。"
+    }
+  },
+  "items": {
+    "rewards": {
+      "item-relay-grid-desc": "中继网很健壮：一个信标失效并不会打断整条链路。",
+      "item-lamp-oil-desc": "在默认灯芯高度下，一小瓶油可供灯燃烧 30 分钟。",
+      "item-fog-lamp-desc": "一盏矮胖的黄铜灯，蓝色遮光板上有划痕。它发出的光很弱，但在雾中，弱光比强光散射得更少。",
+      "achv-marrow-debt": "马罗的债务",
+      "achv-nine-nights": "九夜九灯"
+    }
+  },
+  "system": {
+    "messages": {
+      "system-welcome-runner": "顺潮，{playerName}。你上次航行在 3 天前结束。",
+      "system-keybind-lantern": "按住 [E] 举起提灯；按 [Q] 发信号。",
+      "system-signal-range": "信号范围：雾中 120 米，无雾时 400 米。",
+      "system-quest-state": "{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}"
+    }
+  }
+}

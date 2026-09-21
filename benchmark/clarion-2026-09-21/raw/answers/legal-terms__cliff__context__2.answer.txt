@@ -1,0 +1,311 @@
+CLIFF 1.1
+namespace: clarion
+clan: legal-terms
+source-language: en-US
+target-language: zh-CN
+title: "Licence agreement and research abstract for Ledgerline"
+info: "两份原创文档：Ledgerline（一个托管式审计轨迹平台）的最终用户许可协议，以及一篇独立评估论文的摘要。语域为正式法律与学术英语。"
+standard: "Render modal verbs by their legal force, keep defined terms and brand names consistent, keep placeholders and Latin terms untranslated, use fullwidth punctuation and a space between Han text and Latin or digits."
+
+[definitions]
+context: "Ledgerline 最终用户许可协议的开篇定义。带引号的术语在整份文件中始终按其定义含义使用。"
+type: sentence
+emotion: [objective]
+
+<licensee>
+source: "“Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users."
+target: "“被许可方”指代表其授权用户订立本协议并接受本协议各项条款的法律实体。"
+status: initial
+context: "首个定义术语；后续条款均以该带引号的名词指称此一方。"
+
+<authorised-user>
+source: "“Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf."
+target: "“授权用户”指被许可方的员工、承包商或代理人，且经被许可方授权代表其访问本服务。"
+status: initial
+context: "指被许可方可准许其使用本服务的个人，为定义术语。"
+
+<service-data>
+source: "“Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service."
+target: "“服务数据”指被许可方或其授权用户提交至本服务或在本服务内存储的所有记录、文档和元数据。"
+status: initial
+context: "该定义术语涵盖客户载入本平台的全部内容。"
+
+<service>
+source: "“Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available."
+target: "“服务”指附件 A 所述 Ledgerline 审计轨迹平台，以及运营方普遍提供的任何更新。"
+status: initial
+context: "指产品本身的定义术语；品牌名称保留拉丁字母。"
+
+<operator>
+source: "“Operator” means the company identified in the privacy notice as responsible for processing Service Data."
+target: "“运营方”指隐私声明中指明的、负责处理服务数据的公司。"
+status: initial
+context: "指服务提供方的定义术语；实际公司名称由隐私声明载明。"
+
+[grant]
+context: "许可授予与核心义务。情态动词承载法律效力：表示许可的措辞不是预测，表示义务的措辞不是意图声明。"
+type: sentence
+emotion: [formal]
+
+<grant-license>
+source: "Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes."
+target: "在遵守本协议条款的前提下，运营方授予被许可方一项非排他、不可转让、可撤销的许可，仅限为其内部业务目的访问和使用本服务。"
+status: initial
+context: "核心授予条款；其范围受后续限制条款的限缩。"
+
+<licensee-shall>
+source: "The Licensee shall ensure that every Authorised User complies with the terms of this Agreement."
+target: "被许可方应确保每位授权用户均遵守本协议各项条款。"
+status: initial
+context: "义务条款。此处“应”表示义务，而非将来时。"
+
+<operator-must>
+source: "The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement."
+target: "运营方必须依照本协议第 4.2 条对服务数据予以保密。"
+status: initial
+context: "含交叉引用的安全义务；条款编号必须保留。"
+
+<licensee-may>
+source: "The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users."
+target: "被许可方仅可为培训其授权用户之目的复制文档。"
+status: initial
+context: "许可条款。“可”授予一项权利，而非预测某种可能性。"
+
+<termination>
+source: "Either party may terminate this Agreement on thirty days' written notice to the other party."
+target: "任何一方均可向另一方发出三十日书面通知后终止本协议。"
+status: initial
+context: "终止权；此处再次使用表许可的“可”。"
+
+[restrictions]
+context: "禁止性使用。否定情态动词译为禁止，而非无能力或预测。"
+type: sentence
+emotion: [formal]
+
+<licensee-may-not>
+source: "The Licensee may not sublicense, rent or lease the Service to any third party."
+target: "被许可方不得将本服务再许可、出租或租赁给任何第三方。"
+status: initial
+context: "禁止条款。“不得”禁止某一行为，而非陈述可能性。"
+
+<restricted-acts>
+source: "The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party."
+target: "被许可方不得：(a) 对本服务进行反向工程、反编译或反汇编；(b) 移除或遮蔽本服务上的任何专有权利声明；或 (c) 使用本服务代任何第三方处理数据。"
+status: initial
+context: "逐项列明的禁止性行为；各项标记必须保留，以便引用仍然有效。"
+
+<no-derivative>
+source: "The Licensee may not create derivative works based on the Service or any part of it."
+target: "被许可方不得基于本服务或其任何部分创作衍生作品。"
+status: initial
+context: "与逐项列明条款相呼应的简短禁止条款。"
+
+<confidentiality>
+source: "The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator."
+target: "被许可方应对运营方披露的、有关本服务的所有非公开信息予以保密。"
+status: initial
+context: "保密义务；该义务由被许可方承担。"
+
+[notices]
+context: "免责声明、责任上限与隐私声明。免责声明的效力由措辞承载，而非由字体排版承载。"
+type: sentence
+emotion: [formal]
+
+<warranty-disclaimer>
+source: "THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT."
+target: "本服务按“现状”和“可用”状态提供，不附带任何形式的保证，无论明示或默示，包括但不限于对适销性、特定用途适用性及不侵权的默示保证。"
+status: initial
+context: "全大写免责声明；中文在不添加任何格式的情况下保持同等效力。"
+
+<limitation-liability>
+source: "To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim."
+target: "在法律允许的最大范围内，运营方就因本协议引起或与之相关的所有索赔所承担的累计责任，不得超过被许可方在索赔发生前十二个月内支付的费用。"
+status: initial
+context: "责任上限；须完整翻译，不得省略费用基数或时间窗口。"
+
+<severability>
+source: "If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect."
+target: "如本协议任何条款被判定为不可执行，其余条款仍具有完全效力。"
+status: initial
+context: "标准可分割性条款。"
+
+<privacy-operator>
+source: "This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform."
+target: "本服务由 {operator} 运营，其作为通过本平台处理的服务数据的数据控制者。"
+status: initial
+context: "隐私声明模板；{operator} 由计费系统在运行时填入。"
+
+<privacy-purpose>
+source: "The Operator processes Service Data only for the purposes of providing, securing and improving the Service."
+target: "运营方仅为提供、保护和改进本服务之目的处理服务数据。"
+status: initial
+context: "隐私声明中的目的限制条款。"
+
+<retention-period>
+source: "Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account."
+target: "除法律要求更长的保存期限外，服务数据在被许可方注销其账户后 {months} 个月即被删除。"
+status: initial
+context: "留存条款；{months} 是运行时数值，不是可翻译文本。"
+
+[abstract]
+context: "关于金融审计轨迹中异常检测的原创评估论文摘要。技术术语遵循约定的术语表；其中一个术语保留拉丁字母。"
+type: description
+emotion: [objective]
+
+<abstract>
+source: "Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison."
+target: "金融审计轨迹每天新增数百万条事件，负责审核这些轨迹的团队需要这样的检测器：既能标记出真正的异常，又不会让分析人员不堪重负。我们在一个合成账本事件语料库上评估三种检测方法，衡量对抗性噪声下的误报率、端到端延迟和处理吞吐量。结果表明，基于学习到的 event Embedding 构建的序列模型能提升抗噪健壮性，同时将延迟保持在交互式阈值以下。我们公开评估框架与合成语料库，以支持可复现的对比。"
+status: initial
+context: "完整摘要；保留评估框架与三项衡量指标不变。"
+
+CLIFF 1.1
+namespace: clarion
+clan: legal-terms-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Ledgerline 许可协议与论文摘要术语表"
+info: "记录本次翻译中确定的术语取舍，供后续 Ledgerline 系列文档统一沿用。"
+
+[terms]
+context: "本次翻译中确定的术语与统一译法。首字母大写的定义术语在全篇文件中始终按此译法出现。"
+
+<licensee>
+source: "Licensee"
+target: "被许可方"
+type: noun
+status: final
+context: "带引号的定义术语，全篇统一；不用“许可持有人”。"
+
+<authorised-user>
+source: "Authorised User"
+target: "授权用户"
+type: noun-phrase
+status: final
+context: "定义术语，指被许可方准许使用本服务的个人。"
+
+<service-data>
+source: "Service Data"
+target: "服务数据"
+type: noun-phrase
+status: final
+context: "定义术语，涵盖客户提交至平台的一切内容。"
+
+<service>
+source: "Service"
+target: "服务"
+type: noun
+status: final
+context: "指产品本身的定义术语，与品牌名 Ledgerline 区分使用。"
+
+<operator>
+source: "Operator"
+target: "运营方"
+type: noun
+status: final
+context: "服务提供方的定义术语；不用“运营商”，以免与电信语境混淆。"
+
+<licence>
+source: "licence"
+target: "许可"
+type: noun
+status: final
+context: "与“许可证”（licence 文本）区分，本文件指授予的权利本身。"
+
+<sublicense>
+source: "sublicense"
+target: "再许可"
+type: verb
+status: final
+context: "禁止条款中的动词；不用“分许可”。"
+
+<reverse-engineer>
+source: "reverse engineer"
+target: "反向工程"
+type: verb
+status: final
+context: "禁止条款中的动词，与反编译、反汇编并列。"
+
+<derivative-work>
+source: "derivative work"
+target: "衍生作品"
+type: noun-phrase
+status: final
+context: "著作权法惯用译法。"
+
+<as-is>
+source: "“AS IS”"
+target: "“现状”"
+type: fixed-phrase
+status: final
+context: "免责声明固定表述；“AS AVAILABLE”对应译为“可用”。"
+
+<aggregate-liability>
+source: "aggregate liability"
+target: "累计责任"
+type: noun-phrase
+status: final
+context: "责任上限条款中的责任范围表述。"
+
+<severability>
+source: "severability"
+target: "可分割性"
+type: noun
+status: final
+context: "条款名称的标准译法。"
+
+<audit-trail>
+source: "audit trail"
+target: "审计轨迹"
+type: noun-phrase
+status: final
+context: "平台性质与论文主题的核心术语，全篇统一。"
+
+<anomaly>
+source: "anomaly"
+target: "异常"
+type: noun
+status: final
+context: "论文摘要中的检测对象；误报对应 false positive。"
+
+<data-controller>
+source: "data controller"
+target: "数据控制者"
+type: noun-phrase
+status: final
+context: "隐私声明中运营方的角色。"
+
+<false-positive-rate>
+source: "false-positive rate"
+target: "误报率"
+type: noun-phrase
+status: final
+context: "摘要中三项衡量指标之一。"
+
+<latency>
+source: "latency"
+target: "延迟"
+type: noun
+status: final
+context: "遵循项目术语政策，不用“时延”。"
+
+<throughput>
+source: "throughput"
+target: "吞吐量"
+type: noun
+status: final
+context: "遵循项目术语政策，不用“吞吐率”。"
+
+<embedding>
+source: "Embedding"
+target: "Embedding"
+type: noun
+status: final
+context: "依项目术语政策保留拉丁字母；不改写为“嵌入表示”，以与既有的 event Embedding 表述一致。"
+
+<robustness>
+source: "robustness"
+target: "健壮性"
+type: noun
+status: final
+context: "遵循项目术语政策，不用“鲁棒性”或“稳健性”。"

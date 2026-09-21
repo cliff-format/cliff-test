@@ -1,0 +1,88 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-modern
+source-language: en-US
+target-language: zh-CN
+title: "现代文学层：叙事、对话、独白、描写"
+info: "为 CLARION 创作的原创现代文学英语，译成文学中文，保留声口、节奏、视角以及反复出现的风铃意象。"
+standard: "保留每个人物的声口与叙述者的视角。习语应归化意译，不作字面直译。反复出现的意象须前后一致。对话必须读来像自然的汉语口语，而不是生硬的书面语。"
+
+[narration]
+context: "一段很长的叙事段落，开启一个虚构的港口小镇故事，并引出反复出现的风铃意象。"
+type: narration
+
+<narration-open>
+source: "The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago."
+target: "小镇守住旧日礼数，比守住钱财还久。每个工作日结束时，玛伦走在港路上，像钟表的指针走过表盘；每天傍晚，黑暗降临前她听见的最后一样东西，就是船具店门楣上那只铁皮风铃。它告诉街上的人，潮水已经转向，而世界在没有她的情形下，还会再继续一小会儿。她不慌不忙。盐分渗进她所有的东西，而她许多年前就已经不再在意了。"
+emotion: [nostalgic, calm]
+status: initial
+
+<narration-memory>
+source: "Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain."
+target: "小镇任其滑进海里的东西中，唯有那铃声被它留在了岸上。人们会忘记自己的生日，忘记自己曾在哪些船上当过船员，可他们每一个人都说得上来：风铃上一次响得清亮时，风在做什么。"
+emotion: [nostalgic, calm]
+status: initial
+
+[dialogue]
+context: "玛伦与沉默寡言的渡船人索尔在港墙边的一段交谈；两人声音必须保持区分。"
+type: dialogue
+
+<dialogue-wall>
+source: "\"Wind's back,\" said Sol. \"Didn't figure you'd be out.\" \"I couldn't sleep,\" Maren said. \"The bell again?\" \"The bell.\" Sol folded his arms. \"Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot.\" \"That's the whole of it,\" Maren said. \"You sleep any better for knowing?\" \"I know the letter F in better, and that's the whole of it,\" said Sol."
+target: "“风又回来了，”索尔说。“没想到你还会出来。”“我睡不着，”玛伦说。“又是那铃？”“那铃。”索尔抱起胳膊。“这附近的人觉得，风铃不是为风而响。它是为风忘记的东西而响。”“就是这么回事，”玛伦说。“知道了这个，你就能睡得好些？”“我知道 better 里没有 F，就这么回事，”索尔说。"
+emotion: [calm, serious]
+status: initial
+
+<dialogue-breakfast>
+source: "\"You'd keep the bell if the sea gave it back,\" Sol said one morning. \"Wouldn't you?\" \"I'd hang it where it hangs now,\" Maren said. \"Then what's all the listening for?\" \"To be sure it's still there.\" Sol shook his head. \"It'll be there after both of us,\" he said, \"and it won't miss us.\" \"I know.\" \"Then you know more than most.\" \"I know the listening, anyway.\" \"That's not the same thing.\" \"It's close enough,\" Maren said. \"It's close enough for me.\""
+target: "“要是海把它还回来，你会留着那铃的，”一天早晨索尔说。“你会吧？”“我会把它挂在现在挂的地方，”玛伦说。“那还听它做什么？”“好确认它还在那儿。”索尔摇摇头。“我们俩都没了以后，它还会在那儿，”他说，“它不会想念我们。”“我知道。”“那你知道的比大多数人多。”“至少我知道倾听。”“那不是一回事。”“差不多就够了，”玛伦说。“对我来说，差不多就够了。”"
+emotion: [calm, serious]
+status: initial
+
+[monologue]
+context: "渡船人离开后玛伦的内心独白；视角和第一人称节奏必须保留。"
+type: monologue
+
+<monologue-tide>
+source: "I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything."
+target: "我始终不知道，那铃是安慰还是责备。它响起的调子和我母亲的名字一样，就像潮水在沙上写下同一行字，然后再把它抹去。我想留住那声音，像孩子留住一块石头；可声音没有口袋可装，于是我把它收在胸口，假装它没有重量。"
+emotion: [nostalgic, sad]
+status: initial
+
+<monologue-stone>
+source: "The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it."
+target: "我小时候收着的那块石头，还在我当年放它的那块地板下面；就算房子烧了，我也不会为那块石头难过。可铃不是收在哪里的；它只被听见，而一个被听见的东西必须再被听见一次，否则它根本就不曾存在。于是我一次次回去，不是为了留住铃，而是为了留住听见它这件事。"
+emotion: [nostalgic, sad]
+status: initial
+
+[description]
+context: "最后一次交谈前的黄昏场景铺陈；确立光线、天气和风铃意象。"
+type: description
+
+<description-dusk>
+source: "The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck."
+target: "港口的灯光把水面染成捶打过的黄铜，一只晚归的海鸥立在木桩上，像个等信的男人。雨悬在近海，像一幅灰幕，始终没有完全落到码头上。某处有一只水壶正要烧开，而在这所有之上，那只铁皮铃在暖风里摆动，敲出一声清亮的音，仿佛整个傍晚一直在等着被敲响。"
+emotion: [nostalgic, calm]
+status: initial
+
+<description-lamplighter>
+source: "The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note."
+target: "点灯人拿着一根长杆，沿着码头一路点过去；他碰到的每一盏灯都醒了过来，仿佛它们只是等着被人记起。当他走到船具店旁边时，铁皮铃接住灯光，把它抛过水面；有那么一瞬间，整个港口仿佛都悬在那一个微小、摆动的音上。"
+emotion: [nostalgic, calm]
+status: initial
+
+<description-rain>
+source: "By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it."
+target: "等最后一盏灯亮起时，风已经转向北方，近海那道灰幕开始移动。它缓缓越过沙洲，像一整堵天气之墙朝小镇倾来；最初的雨点一滴一滴打在码头上，每一滴都是一只冰凉的小手，按在石头上。铃在黑暗中继续响着，雨应和着它。"
+emotion: [nostalgic, calm]
+status: initial
+
+[closing]
+context: "故事最后一句，在港口上方说出；意象在此收束，语域保持朴素。"
+type: sentence
+
+<closing-line>
+source: "The tide keeps nothing, and forgets nothing."
+target: "潮水什么都留不住，也什么都忘不掉。"
+emotion: [calm, serious]
+status: initial

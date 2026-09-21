@@ -1,0 +1,52 @@
+/* cliff:source: “Personal Data” means any information relating to an identified or identifiable natural person that the Operator processes through the Portal. */
+"def-personal-data" = "“个人数据”是指运营者通过门户处理的、与已识别或可识别的自然人有关的任何信息。";
+/* cliff:source: “Data Subject” means the natural person to whom the Personal Data relates, whether or not that person holds an account with the Operator. */
+"def-data-subject" = "“数据主体”是指个人数据所涉及的自然人，无论其是否在运营者处持有账户。";
+/* cliff:source: “Operator” means Quillmark Data Services, the company that decides the purposes and the means of the Processing described in this notice and that engages Halberd Cloud GmbH to host the Portal. */
+"def-operator" = "“运营者”是指 Quillmark Data Services，即决定本通知所述处理的目的与方式，并委托 Halberd Cloud GmbH 托管门户的公司。";
+/* cliff:source: “Processing” means any operation performed on Personal Data, whether or not by automated means, and includes collection, storage, transfer, disclosure and erasure. */
+"def-processing" = "“处理”是指对个人数据执行的任何操作，无论是否采用自动化方式，包括收集、存储、传输、披露和删除。";
+/* cliff:source: “Portal” means the web application through which a request is submitted, tracked and answered. */
+"def-portal" = "“门户”是指用于提交、跟踪和答复请求的 Web 应用程序。";
+/* cliff:source: This notice takes effect on 1 September 2026 and replaces the notice published on 14 June 2024. */
+"policy-effective-date" = "本通知自 2026 年 9 月 1 日起生效，并取代 2024 年 6 月 14 日发布的通知。";
+/* cliff:source: In the 2025 reporting year the Operator received 1,250,000 requests through the Portal and answered 98.6% of them within the statutory period. */
+"policy-volume-figures" = "在 2025 报告年度，运营者通过门户收到 1,250,000 份请求，并在法定期限内答复了其中的 98.6%。";
+/* cliff:source: 4.2 The Operator deletes the records of a closed account within 30 days, unless a longer retention period is required by law. */
+"policy-retention-clause" = "4.2 运营者在 30 天内删除已关闭账户的记录，除非法律要求更长的保留期限。";
+/* cliff:source: A Data Subject may ask the Operator to correct or erase the Personal Data that the Operator holds about them. */
+"policy-request-right" = "数据主体可要求运营者更正或删除运营者所持有的关于其本人的个人数据。";
+/* cliff:source: An erasure request is answered under the retention rule in Section 4.2, and the Operator confirms the outcome through the Portal. */
+"policy-erasure-crossref" = "删除请求依照第 4.2 条中的保留规则予以答复，运营者通过门户确认结果。";
+/* cliff:source: {pending, plural, one {# request is waiting for an answer} other {# requests are waiting for an answer}} */
+"portal-request-count" = "{pending, plural, one {# 份请求正在等待答复} other {# 份请求正在等待答复}}";
+/* cliff:source: {channel, select, email {We answer by email} letter {We answer by letter} other {We answer through the Portal}} */
+"portal-answer-channel" = "{channel, select, email {我们通过电子邮件答复} letter {我们通过信函答复} other {我们通过门户答复}}";
+/* cliff:source: The Processor shall process Personal Data only on the documented instructions of the Controller, and shall inform the Controller without delay if an instruction appears to breach applicable law. */
+"dpa-scope-instructions" = "处理者仅应依据控制者有记录的指示处理个人数据，并且如果某项指示看似违反适用法律，应立即通知控制者。";
+/* cliff:source: 6.1 The Controller may audit the Processor once in each calendar year, and the Processor must give the auditor access to the records that the audit requires. */
+"dpa-audit-right" = "6.1 控制者每个日历年可对处理者进行一次审计，处理者必须向审计人员提供审计所需记录的访问权限。";
+/* cliff:source: The Processor may use the Personal Data for the purposes set out in this Article. */
+"clause-07a" = "处理者可将个人数据用于本条规定的目的。";
+/* cliff:source: Execution of this Agreement is recorded in the Portal and is confirmed to both parties. */
+"clause-09a" = "本协议的签署记录于门户中，并向双方确认。";
+/* cliff:source: All records created under this Agreement are stored in the region agreed in Annex 1 and are backed up every night. */
+"dpa-hosting-region" = "根据本协议创建的所有记录均存储在附件 1 中约定的区域内，并每晚进行备份。";
+/* cliff:source: The Processor may use the Personal Data for the purposes set out in this Article. */
+"clause-07b" = "处理者可将个人数据用于本条规定的目的。";
+/* cliff:source: Execution of this Agreement is recorded in the Portal and is confirmed to both parties. */
+"clause-09b" = "本协议的签署记录于门户中，并向双方确认。";
+/* cliff:source: The Processor may not: (a) engage a new sub-processor without the prior written authorisation of the Controller; (b) copy the records to a device that the Controller has not approved; or (c) use the records to train a model of any kind. */
+"dpa-enumerated-prohibition" = "处理者不得：(a) 未经控制者事先书面授权，聘用新的子处理者；(b) 将记录复制到控制者未批准的设备上；或 (c) 使用记录训练任何类型的模型。";
+/* cliff:source: THE OPERATOR DOES NOT WARRANT THAT THE PORTAL WILL BE AVAILABLE WITHOUT INTERRUPTION OR FREE OF ERROR, AND, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, DISCLAIMS ALL IMPLIED WARRANTIES, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. */
+"dpa-caps-disclaimer" = "运营者不保证门户将不间断地可用或无错误，并且在适用法律允许的最大范围内，否认一切默示保证，包括对适销性和特定用途适用性的默示保证。";
+/* cliff:source: Nothing in this Article limits the audit right granted in Section 6.1. */
+"dpa-audit-crossref" = "本条中的任何内容均不限制第 6.1 条所授予的审计权。";
+/* cliff:source: Auditing Consent Records at Scale: A Field Study of Three Consent Portals */
+"paper-title" = "大规模审计同意记录：三个同意门户的实地研究";
+/* cliff:source: Consent records are the evidence a company relies on when a regulator asks why a person's data was used, yet the records themselves are rarely audited. We report a field study of three consent portals run by mid-sized companies over nine months. */
+"paper-abstract-opening" = "当监管机构询问为何使用某人的数据时，同意记录是公司所依赖的证据，然而这些记录本身却很少受到审计。我们报告了一项对中型企业运营的三个同意门户、历时九个月的实地研究。";
+/* cliff:source: Each portal was exercised with a fixed script of routine requests, and every receipt it returned was compared against the entry that the portal had written to its own log. */
+"paper-abstract-method" = "我们使用一套固定的例行请求脚本对每个门户进行操作，并将其返回的每一份回执与该门户写入自身日志的条目进行比对。";
+/* cliff:source: Two of the three portals lost the timestamp of at least one withdrawal, and none of them could show, without manual work, which version of the notice a person had agreed to. We argue that a consent record is worth no more than the audit trail behind it, and we publish the test script so that other teams can repeat the study. */
+"paper-abstract-findings" = "三个门户中有两个丢失了至少一次撤回的时间戳，而且没有一个门户能在无需人工操作的情况下说明某人同意的是哪个版本的通知。我们认为，同意记录的价值不会超过其背后的审计轨迹，并且我们公开测试脚本，以便其他团队能够重复这项研究。";

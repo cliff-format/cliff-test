@@ -1,0 +1,237 @@
+header:
+  namespace: clarion
+  clan: game-shard
+  source-language: en-US
+  target-language: zh-CN
+  title: 'Emberveil: dialogue, skills, items and tutorial strings'
+  info: 'Emberveil is a story-driven fantasy RPG. Ash, a fire-blooded orphan, and
+    Flint, a plain-spoken forgehand, travel a valley being swallowed by an unnatural
+    frost. Audience: players on PC and console. Strings appear in voiced dialogue,
+    skill and item UI, tutorial cards and cutscene subtitles.'
+  standard: Translate the name 'Ash' semantically as 余烬, never 艾什, 艾许 or 阿什. Translate
+    the name 'Flint' phonetically as 弗林特, never 燧石 or 打火石. Render the factions Emberborn
+    and Frostward as 焰裔 and 霜卫. Keep engine placeholders such as {damage} and {playerName}
+    and ICU MessageFormat syntax intact. Use one space between Han text and Latin
+    letters or digits, and fullwidth punctuation inside Han sentences. Prefer compact
+    renderings for skill and item names that must fit their width budgets.
+  dependency:
+  - game-shard-terms.zh-CN.cliff
+groups:
+- path: dialog.ash-and-flint
+  context: Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken
+    forgehand, in Chapter One. Each line is acted; keep the two registers distinct.
+  type: dialogue
+  entries:
+  - id: ash-greets-flint
+    source: Flint, you still owe me a proper blade.
+    target: 弗林特，你还欠我一把像样的剑。
+    emotion:
+    - playful
+    status: initial
+    context: Ash teases Flint at the forge door; friendly, not hostile.
+  - id: flint-replies-ash
+    source: Ash, you could not hold a whetstone straight if the forge froze over.
+    target: 余烬，就算熔炉冻上了，你也拿不正一块磨刀石。
+    emotion:
+    - playful
+    - rude
+    status: initial
+    context: Flint answers with affection disguised as an insult.
+  - id: ash-fearful
+    source: Flint, the frost is moving. I saw it breathe.
+    target: 弗林特，霜在动。我看见它呼吸了。
+    emotion:
+    - fearful
+    status: initial
+    context: Ash reports the unnatural cold at the palisade; she is genuinely afraid.
+  - id: flint-angry
+    source: You lit that spark, Ash, and now the whole valley pays for it.
+    target: 那点火星是你点燃的，余烬，如今整座山谷都在为此付出代价。
+    emotion:
+    - angry
+    status: initial
+    context: Flint blames Ash for the spreading fire; real anger, not banter.
+  - id: flint-calls-ash
+    source: Ash! Get away from the wall — it is coming through!
+    target: 余烬！离墙远一点——它要冲进来了！
+    emotion:
+    - urgent
+    - fearful
+    status: initial
+    context: Flint shouts a warning as the frost breaches the palisade.
+  - id: ash-grateful
+    source: Flint, you forged me a name when no one else would. Thank you.
+    target: 弗林特，在没人肯给我的时候，是你为我锻出了一个名字。谢谢你。
+    emotion:
+    - grateful
+    status: initial
+    context: Ash thanks Flint for taking her in; the single soft beat in the scene.
+  - id: flint-polite-threat
+    source: You are, of course, welcome to try again. I will even hold the door for
+      you.
+    target: 当然，你大可以再试一次。我甚至可以替你扶着门。
+    emotion:
+    - polite
+    status: initial
+    context: 'Flint speaks to a rival who just failed to cheat him. The words are
+      courteous but the intent is a threat: surface meaning polite, subtext menacing.'
+- path: monologue.ash
+  context: Ash's interior voice, heard during quiet story beats. Register is more
+    formal and image-driven than her spoken lines.
+  type: monologue
+  entries:
+  - id: monologue-ash-fire
+    source: The fire in my chest has a memory of its own. It knows the cold before
+      the cold arrives, and it is afraid.
+    target: 我胸口的火自有它的记忆。寒意尚未抵达，它便已经知晓，并且心怀恐惧。
+    emotion:
+    - anxious
+    status: initial
+    context: Ash reasons through the fire-spirit's dread; literary and slower than
+      her speech.
+  - id: monologue-ash-name
+    source: Flint says a name is a handle, not a mirror. But a name can still be a
+      promise you make to yourself.
+    target: 弗林特说，名字是把手，不是镜子。但名字依然可以是你对自己许下的诺言。
+    emotion:
+    - calm
+    - hopeful
+    status: initial
+    context: Ash reflects on the weight of the name she chose.
+- path: skills.items
+  context: Skill-bar and inventory strings. Skill and item names must fit the width
+    budget shown on the hotbar and in the bag grid.
+  entries:
+  - id: skill-ember-burst
+    source: Ember Burst
+    target: 烬爆术
+    type: noun-phrase
+    status: initial
+    context: Fire skill on the hotbar; keep within the 6-cell slot.
+    max-width: 6
+  - id: skill-frost-whip
+    source: Frost Whip
+    target: 冰霜鞭
+    type: noun-phrase
+    status: initial
+    context: Ice skill on the hotbar; keep within the 6-cell slot.
+    max-width: 6
+  - id: skill-cinder-sidestep
+    source: Cinder Sidestep
+    target: 灰影步
+    type: noun-phrase
+    status: initial
+    context: Mobility skill on the hotbar; keep within the 6-cell slot.
+    max-width: 6
+  - id: skill-thorn-snare
+    source: Thorn Snare
+    target: 荆棘缚
+    type: noun-phrase
+    status: initial
+    context: Crowd-control skill on the hotbar; keep within the 6-cell slot.
+    max-width: 6
+  - id: item-emberbloom-tonic
+    source: Emberbloom Tonic
+    target: 烬花药剂
+    type: noun-phrase
+    status: initial
+    context: Consumable in the bag grid; keep within the 8-cell slot.
+    max-width: 8
+  - id: item-axe-pun-desc
+    source: This greataxe is a real splitting headache — swing once and the argument
+      is over.
+    target: 这把巨斧是名副其实的“劈头”头疼——抡上一次，再大的争论也就此了结。
+    type: description
+    status: initial
+    context: Inventory flavor text for the greataxe 'Splitting Headache'. The phrase
+      is a pun that must be recreated in Chinese, not translated literally.
+- path: tutorial.system
+  context: Tutorial cards, system prompts and combat log strings shown on screen during
+    the prologue.
+  entries:
+  - id: tutorial-loot
+    source: Press [F] to loot.
+    target: 按 [F] 拾取。
+    type: prompt
+    emotion:
+    - mechanical
+    status: initial
+    context: Tutorial hint over the first lootable body. The keybind [F] must read
+      exactly as configured by the player.
+  - id: combat-log-damage
+    source: '{count, plural, one {# point of damage} other {# points of damage}}'
+    target: '{count, plural, one {# 点伤害} other {# 点伤害}}'
+    type: sentence
+    emotion:
+    - mechanical
+    status: initial
+    context: Combat log entry shown each time a hit lands.
+  - id: faction-claim
+    source: '{faction, select, emberborn {The Emberborn claim your name.} frostward
+      {The Frostward claim your name.} other {No faction claims your name.}}'
+    target: '{faction, select, emberborn {焰裔认领了你的名字。} frostward {霜卫认领了你的名字。}
+      other {没有阵营认领你的名字。}}'
+    type: sentence
+    emotion:
+    - mechanical
+    status: initial
+    context: Faction choice result shown after the player picks a side at the end
+      of the prologue.
+  - id: hit-taken
+    source: You take {damage} damage from the frost.
+    target: 你受到霜寒造成的 {damage} 点伤害。
+    type: sentence
+    emotion:
+    - mechanical
+    status: initial
+    context: Floating combat text when the player is hit; {damage} is an engine value
+      that must survive unchanged.
+  - id: welcome-name
+    source: Welcome back, {playerName}.
+    target: 欢迎回来，{playerName}。
+    type: sentence
+    emotion:
+    - calm
+    status: initial
+    context: Main-menu greeting after loading a save; {playerName} is the player's
+      profile name.
+  - id: settings-cache
+    source: Clear cache and restore default settings
+    target: 清除缓存并恢复默认设置
+    type: label
+    emotion:
+    - objective
+    status: initial
+    context: Button on the system options screen that resets cached data and preferences.
+  - id: tutorial-regen
+    source: Drink to restore 40 HP over 10 seconds.
+    target: 饮下后可在 10 秒内恢复 40 HP。
+    type: prompt
+    emotion:
+    - mechanical
+    status: initial
+    context: Tooltip over the tonic's hotbar slot; keep the spacing between Han text
+      and the numbers and Latin letters.
+- path: cutscene.subtitles
+  context: Cutscene subtitles and closed-caption cues for the prologue cinematic.
+    Subtitle lines are timed; keep them within the reading-speed width.
+  entries:
+  - id: subtitle-frost
+    source: The frost does not forgive.
+    target: 霜从不宽恕。
+    type: subtitle
+    emotion:
+    - serious
+    status: initial
+    context: Spoken slowly over roughly three seconds; the width is the reading-speed
+      budget for one subtitle line.
+    max-width: 14
+  - id: sfx-ember-crackle
+    source: '[Soft ember crackle]'
+    target: '[轻柔的余烬噼啪声]'
+    type: accessibility-cue
+    emotion:
+    - calm
+    status: initial
+    context: Closed-caption sound cue for a campfire scene. Style cues in this corner-bracket
+      form.

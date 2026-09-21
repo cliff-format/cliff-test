@@ -1,0 +1,146 @@
+# Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. First defined term; later clauses refer to this party by the capitalised noun.
+# cliff:source = “Licensee” means the legal entity that enters into this Agreement and accepts its terms on behalf of its Authorised Users.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+licensee = “被许可方”是指代表其授权用户订立本协议并接受本协议条款的法律实体。
+
+# Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the individuals the Licensee may let use the Service.
+# cliff:source = “Authorised User” means an employee, contractor or agent of the Licensee whom the Licensee authorises to access the Service on its behalf.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+authorised-user = “授权用户”是指经被许可方授权代表其访问本服务的被许可方雇员、承包商或代理人。
+
+# Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term covering everything the customer loads into the platform.
+# cliff:source = “Service Data” means all records, documents and metadata that the Licensee or its Authorised Users submit to or store within the Service.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+service-data = “服务数据”是指被许可方或其授权用户提交至本服务或存储在本服务内的所有记录、文档和元数据。
+
+# Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the product itself; the brand name stays in Latin script.
+# cliff:source = “Service” means the Ledgerline audit-trail platform described in Schedule A, together with any updates that the Operator makes generally available.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+service = “服务”是指附表 A 所述的 Ledgerline 审计追踪平台，以及运营方普遍发布提供的任何更新。
+
+# Opening definitions of the Ledgerline end-user licence. Capitalised terms carry their defined meaning throughout the document. Defined term for the provider; the privacy notice fills in the actual company name.
+# cliff:source = “Operator” means the company identified in the privacy notice as responsible for processing Service Data.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+operator = “运营方”是指隐私声明中指明的、负责处理服务数据的公司。
+
+# Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. The core grant clause; its scope is narrowed by the restrictions that follow.
+# cliff:source = Subject to the terms of this Agreement, the Operator grants the Licensee a non-exclusive, non-transferable, revocable licence to access and use the Service solely for its internal business purposes.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+grant-license = 在遵守本协议条款的前提下，运营方授予被许可方一项非排他性、不可转让、可撤销的许可，允许其仅为自身内部业务目的访问和使用本服务。
+
+# Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Obligation clause. “Shall” is a duty here, not a future tense.
+# cliff:source = The Licensee shall ensure that every Authorised User complies with the terms of this Agreement.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+licensee-shall = 被许可方应确保每一位授权用户均遵守本协议的条款。
+
+# Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Security obligation with a cross-reference; the section number must survive.
+# cliff:source = The Operator must maintain the confidentiality of Service Data in accordance with Section 4.2 of this Agreement.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+operator-must = 运营方必须依照本协议第 4.2 条的规定，对服务数据予以保密。
+
+# Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Permission clause. “May” grants a right; it does not predict a possibility.
+# cliff:source = The Licensee may reproduce the documentation solely for the purpose of training its Authorised Users.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+licensee-may = 被许可方仅可为培训其授权用户的目的复制相关文档。
+
+# Grant of licence and core obligations. Modal verbs carry legal force: a permission is not a prediction, and an obligation is not a statement of intent. Termination right; another use of permissive “may”.
+# cliff:source = Either party may terminate this Agreement on thirty days' written notice to the other party.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+termination = 任何一方均可经向另一方发出三十日书面通知后终止本协议。
+
+# Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Prohibition clause. “May not” forbids an act; it is not a statement of likelihood.
+# cliff:source = The Licensee may not sublicense, rent or lease the Service to any third party.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+licensee-may-not = 被许可方不得向任何第三方再许可、出租或租赁本服务。
+
+# Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Enumerated prohibition; the item markers must survive so citations stay valid.
+# cliff:source = The Licensee may not: (a) reverse engineer, decompile or disassemble the Service; (b) remove or obscure any proprietary notice from the Service; or (c) use the Service to process data on behalf of any third party.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+restricted-acts = 被许可方不得：(a) 对本服务进行反向工程、反编译或反汇编；(b) 移除或遮蔽本服务上的任何所有权声明；或 (c) 使用本服务为任何第三方处理数据。
+
+# Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Short prohibition parallel to the enumerated list.
+# cliff:source = The Licensee may not create derivative works based on the Service or any part of it.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+no-derivative = 被许可方不得基于本服务或其任何部分创作衍生作品。
+
+# Prohibited uses. The negative modal renders as a prohibition, not as an inability or a prediction. Confidentiality duty; the obligation falls on the Licensee.
+# cliff:source = The Licensee shall keep confidential all non-public information about the Service disclosed by the Operator.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+confidentiality = 被许可方应对运营方披露的、与本服务有关的一切非公开信息予以保密。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. All-caps disclaimer; the Chinese keeps the same force without adding any formatting.
+# cliff:source = THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+warranty-disclaimer = 本服务按“现状”及“现有可用”状态提供，不附带任何形式的保证，无论是明示的还是默示的，包括但不限于对适销性、特定用途适用性及不侵权的默示保证。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Liability cap; translate fully without dropping the fee basis or the time window.
+# cliff:source = To the maximum extent permitted by law, the aggregate liability of the Operator for all claims arising out of or relating to this Agreement shall not exceed the fees paid by the Licensee during the twelve months preceding the claim.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+limitation-liability = 在法律允许的最大范围内，对于因本协议引起或与本协议有关的一切索赔，运营方的累计责任不超过被许可方在该索赔发生前十二个月内所支付的费用。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Standard severability clause.
+# cliff:source = If any provision of this Agreement is held to be unenforceable, the remaining provisions remain in full force and effect.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+severability = 如本协议的任何条款被认定为不可执行，其余条款仍具有完全效力。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Privacy notice template; {operator} is filled in by the billing system at runtime.
+# cliff:source = This Service is operated by {operator}, which acts as the data controller for Service Data processed through the platform.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+privacy-operator = 本服务由 {operator} 运营，其作为通过本平台处理的服务数据的数据控制者。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Purpose limitation from the privacy notice.
+# cliff:source = The Operator processes Service Data only for the purposes of providing, securing and improving the Service.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+privacy-purpose = 运营方仅为提供、保护及改进本服务的目的处理服务数据。
+
+# Disclaimers, liability caps and the privacy notice. The force of the disclaimer is carried by wording, not by typography. Retention clause; {months} is a runtime number, not translatable text.
+# cliff:source = Unless a longer period is required by law, Service Data is deleted {months} months after the Licensee closes its account.
+# cliff:type = sentence
+# cliff:emotion = formal
+# cliff:status = initial
+retention-period = 除法律要求更长的保存期限外，服务数据将在被许可方注销其账户后 {months} 个月予以删除。
+
+# Abstract of an original evaluation paper on anomaly detection in financial audit trails. Technical terms follow the agreed terminology; one term stays in Latin script. Full abstract; keep the evaluation framing and the three measurements intact.
+# cliff:source = Financial audit trails grow by millions of events each day, and the teams that review them need detectors that flag genuine anomalies without overwhelming human analysts. We evaluate three detection approaches on a corpus of synthetic ledger events, measuring false-positive rate, end-to-end latency and processing throughput under adversarial noise. Our results show that a sequence model built on learned event Embedding improves robustness to noise while keeping latency below the interactive threshold. We release the evaluation harness and the synthetic corpus to support reproducible comparison.
+# cliff:type = description
+# cliff:emotion = objective
+# cliff:status = initial
+abstract = 金融审计追踪每天新增数百万条事件，负责审查这些事件的团队需要能够标记出真实异常、又不会令人类分析师不堪重负的检测器。我们在一个合成账本事件语料库上评估了三种检测方法，并在对抗性噪声下测量了误报率、端到端延迟和处理吞吐量。结果表明，基于所学事件 Embedding 构建的序列模型可提升对噪声的稳健性，同时将延迟保持在交互式阈值以下。我们公开评估框架与合成语料库，以支持可复现的对比。

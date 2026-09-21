@@ -1,0 +1,98 @@
+{
+  "dialog.ash-and-flint.ash-greets-flint": {
+    "message": "弗林特，你还欠我一把像样的剑。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash teases Flint at the forge door; friendly, not hostile. | cliff:type: dialogue | cliff:emotion: playful | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.flint-replies-ash": {
+    "message": "艾什，就算炉子冻上了，你也握不正一块磨刀石。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint answers with affection disguised as an insult. | cliff:type: dialogue | cliff:emotion: playful|rude | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.ash-fearful": {
+    "message": "弗林特，霜在动。我看见它呼吸了。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash reports the unnatural cold at the palisade; she is genuinely afraid. | cliff:type: dialogue | cliff:emotion: fearful | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.flint-angry": {
+    "message": "那点火星是你点的，艾什，现在整个山谷都得替你受着。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint blames Ash for the spreading fire; real anger, not banter. | cliff:type: dialogue | cliff:emotion: angry | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.flint-calls-ash": {
+    "message": "艾什！离墙远点——它要冲过来了！",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint shouts a warning as the frost breaches the palisade. | cliff:type: dialogue | cliff:emotion: urgent|fearful | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.ash-grateful": {
+    "message": "弗林特，别人都不肯，是你为我锻出了一个名字。谢谢你。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash thanks Flint for taking her in; the single soft beat in the scene. | cliff:type: dialogue | cliff:emotion: grateful | cliff:status: initial"
+  },
+  "dialog.ash-and-flint.flint-polite-threat": {
+    "message": "当然，你尽可以再来试一次。我甚至可以替你扶着门。",
+    "description": "Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint speaks to a rival who just failed to cheat him. The words are courteous but the intent is a threat: surface meaning polite, subtext menacing. | cliff:type: dialogue | cliff:emotion: polite | cliff:status: initial"
+  },
+  "monologue.ash.monologue-ash-fire": {
+    "message": "我胸中的火焰自有记忆。寒意未至，它便已察觉，并且心怀恐惧。",
+    "description": "Ash's interior voice, heard during quiet story beats. Register is more formal and image-driven than her spoken lines. Ash reasons through the fire-spirit's dread; literary and slower than her speech. | cliff:type: monologue | cliff:emotion: anxious | cliff:status: initial"
+  },
+  "monologue.ash.monologue-ash-name": {
+    "message": "弗林特说，名字是一道把手，不是一面镜子。可名字也可以是人对自己的承诺。",
+    "description": "Ash's interior voice, heard during quiet story beats. Register is more formal and image-driven than her spoken lines. Ash reflects on the weight of the name she chose. | cliff:type: monologue | cliff:emotion: calm|hopeful | cliff:status: initial"
+  },
+  "skills.items.skill-ember-burst": {
+    "message": "余烬爆",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Fire skill on the hotbar; keep within the 6-cell slot. | cliff:type: noun-phrase | cliff:status: initial | cliff:max-width: 6"
+  },
+  "skills.items.skill-frost-whip": {
+    "message": "寒霜鞭",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Ice skill on the hotbar; keep within the 6-cell slot. | cliff:type: noun-phrase | cliff:status: initial | cliff:max-width: 6"
+  },
+  "skills.items.skill-cinder-sidestep": {
+    "message": "烬侧步",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Mobility skill on the hotbar; keep within the 6-cell slot. | cliff:type: noun-phrase | cliff:status: initial | cliff:max-width: 6"
+  },
+  "skills.items.skill-thorn-snare": {
+    "message": "荆棘缚",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Crowd-control skill on the hotbar; keep within the 6-cell slot. | cliff:type: noun-phrase | cliff:status: initial | cliff:max-width: 6"
+  },
+  "skills.items.item-emberbloom-tonic": {
+    "message": "烬花药剂",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Consumable in the bag grid; keep within the 8-cell slot. | cliff:type: noun-phrase | cliff:status: initial | cliff:max-width: 8"
+  },
+  "skills.items.item-axe-pun-desc": {
+    "message": "这把巨斧劈得人头痛欲裂——只消一挥，争论便一刀两断。",
+    "description": "Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Inventory flavor text for the greataxe 'Splitting Headache'. The phrase is a pun that must be recreated in Chinese, not translated literally. | cliff:type: description | cliff:status: initial"
+  },
+  "tutorial.system.tutorial-loot": {
+    "message": "按 [F] 拾取。",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Tutorial hint over the first lootable body. The keybind [F] must read exactly as configured by the player. | cliff:type: prompt | cliff:emotion: mechanical | cliff:status: initial"
+  },
+  "tutorial.system.combat-log-damage": {
+    "message": "{count, plural, one {# 点伤害} other {# 点伤害}}",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Combat log entry shown each time a hit lands. | cliff:type: sentence | cliff:emotion: mechanical | cliff:status: initial"
+  },
+  "tutorial.system.faction-claim": {
+    "message": "{faction, select, emberborn {余烬之子认下了你的名字。} frostward {霜卫认下了你的名字。} other {没有阵营认下你的名字。}}",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Faction choice result shown after the player picks a side at the end of the prologue. | cliff:type: sentence | cliff:emotion: mechanical | cliff:status: initial"
+  },
+  "tutorial.system.hit-taken": {
+    "message": "你受到来自寒霜的 {damage} 点伤害。",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Floating combat text when the player is hit; {damage} is an engine value that must survive unchanged. | cliff:type: sentence | cliff:emotion: mechanical | cliff:status: initial"
+  },
+  "tutorial.system.welcome-name": {
+    "message": "欢迎回来，{playerName}。",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Main-menu greeting after loading a save; {playerName} is the player's profile name. | cliff:type: sentence | cliff:emotion: calm | cliff:status: initial"
+  },
+  "tutorial.system.settings-cache": {
+    "message": "清除缓存并恢复默认设置",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Button on the system options screen that resets cached data and preferences. | cliff:type: label | cliff:emotion: objective | cliff:status: initial"
+  },
+  "tutorial.system.tutorial-regen": {
+    "message": "饮用后在 10 秒内恢复 40 HP。",
+    "description": "Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Tooltip over the tonic's hotbar slot; keep the spacing between Han text and the numbers and Latin letters. | cliff:type: prompt | cliff:emotion: mechanical | cliff:status: initial"
+  },
+  "cutscene.subtitles.subtitle-frost": {
+    "message": "寒霜从不宽恕。",
+    "description": "Cutscene subtitles and closed-caption cues for the prologue cinematic. Subtitle lines are timed; keep them within the reading-speed width. Spoken slowly over roughly three seconds; the width is the reading-speed budget for one subtitle line. | cliff:type: subtitle | cliff:emotion: serious | cliff:status: initial | cliff:max-width: 14"
+  },
+  "cutscene.subtitles.sfx-ember-crackle": {
+    "message": "[余烬轻响]",
+    "description": "Cutscene subtitles and closed-caption cues for the prologue cinematic. Subtitle lines are timed; keep them within the reading-speed width. Closed-caption sound cue for a campfire scene. Style cues in this corner-bracket form. | cliff:type: accessibility-cue | cliff:emotion: calm | cliff:status: initial"
+  }
+}

@@ -144,12 +144,17 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
     for key in order:
         items = selected[key].records
         # Two chrF columns, because one number cannot answer two questions.
-        # 'chrF (all)' keeps a failed run in as a zero: that is the number a
-        # project experiences, and a format that breaks must carry the cost.
-        # 'chrF (ok)' averages only the runs that produced a usable file: that
-        # is translation quality with format survival factored out. Reporting
-        # only the first hides why a format lost; reporting only the second
-        # rewards a format for failing.
+        # 'chrF (all runs)' counts every run once, at the score its answer earned: a
+        # run that did not parse usually earns 0, but an answer that parses far enough
+        # to be scored keeps its partial score. 'chrF (survivors)' averages only the
+        # runs that produced a usable file: that is translation quality with format
+        # survival factored out. Reporting only the first hides why a format lost;
+        # reporting only the second rewards a format for failing.
+        #
+        # The first column was headed "chrF++ (all, failures=0)" until the shipped run
+        # showed otherwise: four of its twenty cells carry a non-zero score for a failed
+        # run, so the header described a convention the code does not implement. The
+        # zero-scored convention is published by `tools/audit_report.mjs`.
         chrf = [float(r["quality"].get("chrf", 0.0)) for r in items if r.get("quality")]
         chrf_ok = [
             float(r["quality"].get("chrf", 0.0))
@@ -203,8 +208,8 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "context source",
         "read mode",
         "runs",
-        "chrF++ (all)",
-        "chrF++ (ok)",
+        "chrF++ (all runs)",
+        "chrF++ (survivors)",
         "BLEU",
         "TER (lower better)",
         "instruction %",
@@ -218,10 +223,13 @@ def quality_report(records: list[dict[str, Any]], *, arm: str, title: str) -> st
         "glossaries",
     ]
     note = (
-        "\n'chrF++ (all)' scores a failed run as zero, which is what a project would "
-        "experience; 'chrF++ (ok)' averages only the runs that produced a usable file, "
-        "which is translation quality with format survival factored out. Read them "
-        "together: the gap between the two columns IS the cost of format fragility.\n"
+        "\n'chrF++ (all runs)' counts every run once, at the score its answer earned - a run "
+        "that did not parse usually earns 0, and an answer that parses far enough to be "
+        "scored keeps its partial score; 'chrF++ (survivors)' averages only the runs that "
+        "produced a usable file, which is translation quality with format survival factored "
+        "out. Read them together: the gap between the two columns IS the cost of format "
+        "fragility. `tools/audit_report.mjs` publishes the other convention, in which every "
+        "failure is scored as zero.\n"
         "\n'read mode' is how the answer was read back: 'tolerant' applies the documented "
         "relaxations of CLIFF 1.1 Appendix C, 'strict' is the reference-toolchain reading. "
         "'repairs/run' is the mean number of Appendix C repairs a CLIFF answer needed under "

@@ -1,0 +1,212 @@
+CLIFF 1.1
+namespace: clarion
+clan: lit-drama
+source-language: en-US
+target-language: zh-CN
+
+[scene.arrival]
+
+<open-house-lights>
+source: "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+target: "观众席灯全灭了。舞台前区只剩一盏工作灯亮着，尘埃在它的光束里缓缓翻卷。"
+type: sentence
+status: initial
+
+<enter-cassian>
+source: "I could find this stage in my sleep."
+target: "这座舞台，我就算睡着也摸得到。"
+type: sentence
+status: initial
+
+<lit-01a>
+source: "You came back."
+target: "你回来了。"
+type: sentence
+status: initial
+
+<lit-01b>
+source: "You came back."
+target: "你回来了。"
+type: sentence
+status: initial
+
+<reply-cassian>
+source: "The call board still has my name spelled wrong."
+target: "通告板上，我的名字还是拼错的。"
+type: sentence
+status: initial
+
+[scene.confrontation]
+
+<motif-promise>
+source: "This theatre kept its promises. People did not."
+target: "这座剧院一直信守承诺。人却不会。"
+type: sentence
+status: initial
+
+<lit-02a>
+source: "Wonderful. Just wonderful."
+target: "好极了。真是好极了。"
+type: sentence
+status: initial
+
+<lit-02b>
+source: "Wonderful. Just wonderful."
+target: "好极了。真是好极了。"
+type: sentence
+status: initial
+
+<callback-promise>
+source: "You said the theatre kept its promises."
+target: "你说过，这座剧院是信守承诺的。"
+type: sentence
+status: initial
+
+<address-early>
+source: "Mr. Vale, the call is in five minutes."
+target: "维尔先生，还有五分钟就要开演了。"
+type: sentence
+status: initial
+
+<address-late>
+source: "Cassian. Please. Sit down."
+target: "卡西安。拜托。坐下吧。"
+type: sentence
+status: initial
+
+<lit-03a>
+source: "She turns the lamp toward him."
+target: "她把灯转向他。"
+type: sentence
+status: initial
+
+<lit-03b>
+source: "She turns the lamp toward him."
+target: "她把灯转向他。"
+type: sentence
+status: initial
+
+[scene.house]
+
+<roof-year>
+source: "The roof has not been touched since 1974."
+target: "屋顶从1974年起就没再动过。"
+type: sentence
+status: initial
+
+<lamp-count>
+source: "Two 500-watt lamps, and a fuse box older than both of us."
+target: "两盏500瓦的灯，还有一只比我们俩都老的保险丝盒。"
+type: sentence
+status: initial
+
+<venue-name>
+source: "The Halloway does not close tonight. It closes when the last person leaves."
+target: "哈洛威今晚不关门。要等最后一个人离开，它才关门。"
+type: sentence
+status: initial
+
+<board-default>
+source: "Use the default setting on the board and do not touch anything else."
+target: "用控制台上的默认设置，别的什么都别碰。"
+type: sentence
+status: initial
+
+<disbelief>
+source: "Are you serious? Now? After everything?"
+target: "你是认真的？现在？都到这一步了？"
+type: sentence
+status: initial
+
+[scene.monologue]
+
+<monologue-open>
+source: "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+target: "我扫这片地板的次数，比睡自己那张床的次数还多。我知道哪块板子会在沉甸甸的演员脚下吱呀作响，哪块又会在轻巧的脚步下塌陷。只要你待得够久，一栋建筑就会记住你。"
+type: sentence
+status: initial
+
+<monologue-turn>
+source: "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+target: "然后有那么一晚，灯没有亮起来，你才发现这栋建筑其实什么都没记住。"
+type: sentence
+status: initial
+
+[scene.verse]
+
+<verse-01>
+source: "The lamps go dark, the boards remain."
+target: "灯熄了，台还在。"
+type: sentence
+status: initial
+
+<verse-02>
+source: "The players go, the play remains."
+target: "人走了，戏还在。"
+type: sentence
+status: initial
+
+<final-direction>
+source: "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+target: "她抬手关掉工作灯。一片黑暗，接着是剧场大门合上的声音。"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: lit-drama-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "lit-drama 术语表"
+
+[terms]
+
+<work-lamp>
+source: "work lamp"
+target: "工作灯"
+type: noun
+status: final
+context: "舞台上用于作业照明的灯具，与观众席灯相对；全剧反复出现，翻译时统一用它，不用台灯或作业灯。"
+
+<house-lights>
+source: "house lights"
+target: "观众席灯"
+type: noun
+status: final
+context: "指观众席一侧的照明，与舞台工作灯相对；首句译为全灭，表现断电状态。"
+
+<call-board>
+source: "call board"
+target: "通告板"
+type: noun
+status: final
+context: "剧院后台张贴通告、供演员签到之处；不译为控制台或公告牌，以免与灯光控制台（board）混淆。"
+
+<the-boards>
+source: "the boards"
+target: "舞台"
+type: noun-phrase
+status: final
+context: "剧院行话，the boards 既指舞台地板也指舞台本身；verse-01 取单字台，与灯对仗。"
+
+<house-door>
+source: "house door"
+target: "剧场大门"
+type: noun
+status: final
+context: "指剧场观众席一侧的出入大门；结尾以关门声收束，需与全剧的剧场空间用词一致。"
+
+<default-setting>
+source: "default setting"
+target: "默认设置"
+type: noun-phrase
+status: final
+context: "遵循项目术语规则：default 用默认，不用缺省。"
+
+<lighting-board>
+source: "board (lighting control)"
+target: "控制台"
+type: noun
+status: final
+context: "board-default 中指灯光控制台；与 call board（通告板）区别处理，二者不共用译名。"

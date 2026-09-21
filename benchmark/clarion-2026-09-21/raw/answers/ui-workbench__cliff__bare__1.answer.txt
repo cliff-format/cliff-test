@@ -1,0 +1,366 @@
+CLIFF 1.1
+namespace: clarion
+clan: ui-workbench
+source-language: en-US
+target-language: zh-CN
+
+[workbench.labels]
+
+<nav-scratch-tables>
+source: "Scratch tables"
+target: "暂存表"
+type: sentence
+status: initial
+
+<mode-01a>
+source: "Quarry"
+target: "Quarry"
+type: sentence
+status: initial
+
+<mode-01b>
+source: "Quarry"
+target: "Quarry"
+type: sentence
+status: initial
+
+<term-02a>
+source: "Volume"
+target: "数据量"
+type: sentence
+status: initial
+
+<term-02b>
+source: "Volume"
+target: "数据量"
+type: sentence
+status: initial
+
+<term-03a>
+source: "Scale"
+target: "刻度"
+type: sentence
+status: initial
+
+<term-03b>
+source: "Scale"
+target: "刻度"
+type: sentence
+status: initial
+
+[workbench.actions]
+
+<mode-04a>
+source: "Refresh the sample"
+target: "刷新样本"
+type: sentence
+status: initial
+
+<mode-04b>
+source: "Refresh the sample"
+target: "刷新样本"
+type: sentence
+status: initial
+
+<slot-05a>
+source: "Save the current view as a preset"
+target: "将当前视图保存为预设"
+type: sentence
+status: initial
+
+<slot-05b>
+source: "Save the current view as a preset"
+target: "将当前视图保存为预设"
+type: sentence
+status: initial
+
+<slot-06a>
+source: "Compare with the previous run"
+target: "与上一次运行对比"
+type: sentence
+status: initial
+
+<slot-06b>
+source: "Compare with the previous run"
+target: "与上一次运行对比"
+type: sentence
+status: initial
+
+<note-step-order>
+source: "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once."
+target: "第 3 步会设置行数上限，因此在至少运行过一次第 2 步之前，不要调高该上限。"
+type: sentence
+status: initial
+
+[workbench.messages]
+
+<msg-row-count>
+source: "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}"
+target: "{rows, plural, one {已将 # 行复制到暂存表} other {已将 # 行复制到暂存表}}"
+type: sentence
+status: initial
+
+<msg-table-state>
+source: "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}"
+target: "{state, select, ready {暂存表已就绪} building {正在创建暂存表} other {暂存表创建失败}}"
+type: sentence
+status: initial
+
+<msg-welcome-back>
+source: "Welcome back, {name}. Your last run took 12 minutes."
+target: "欢迎回来，{name}。上次运行耗时 12 分钟。"
+type: sentence
+status: initial
+
+<msg-job-outcome>
+source: "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}"
+target: "{state, select, running {任务仍在运行} done {任务已完成} failed {任务失败} other {任务状态未知}}"
+type: sentence
+status: initial
+
+<msg-sample-loading>
+source: "The scratch table could not be created because the sample is still loading."
+target: "由于样本仍在加载，无法创建暂存表。"
+type: sentence
+status: initial
+
+<msg-board-empty>
+source: "Nothing is pinned to this board yet. Open a chart and pin it here."
+target: "此看板上还没有固定任何内容。打开一张图表，将它固定到这里。"
+type: sentence
+status: initial
+
+<cue-chart-updated>
+source: "Chart updated"
+target: "图表已更新"
+type: sentence
+status: initial
+
+[workbench.help]
+
+<help-scratch-table>
+source: "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out."
+target: "暂存表是你自己的结果集副本。它只存在于当前浏览器标签页中，绝不会与团队共享，并且在你退出登录时会被丢弃。"
+type: sentence
+status: initial
+
+<help-empty-before-run>
+source: "Empty it before you leave the page, or the next run starts from rows that are already stale."
+target: "离开此页面之前请先清空它，否则下一次运行会从已经过期的数据行开始。"
+type: sentence
+status: initial
+
+<help-board-pin>
+source: "Once it is pinned, the chart stays on the board until someone takes it down."
+target: "一旦固定，图表就会一直留在看板上，直到有人将它移除。"
+type: sentence
+status: initial
+
+<help-keyboard-rows>
+source: "Press the up and down arrows to move through the rows without taking your hands off the keyboard."
+target: "按上下方向键即可在数据行之间移动，双手无需离开键盘。"
+type: sentence
+status: initial
+
+<help-archive>
+source: "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back."
+target: "一个月未曾打开的图表会自动移到归档页面。不会删除任何内容，再次打开它即可恢复。"
+type: sentence
+status: initial
+
+[workbench.settings]
+
+<set-time-window>
+source: "New charts open with the default time window until you pin one of your own."
+target: "在你固定自己的时间窗口之前，新图表会以默认时间窗口打开。"
+type: sentence
+status: initial
+
+<set-export-resolution>
+source: "Charts are exported at the screen resolution, or at 2x for print."
+target: "图表按屏幕分辨率导出，用于打印时则按 2 倍分辨率导出。"
+type: sentence
+status: initial
+
+<set-cache-latency>
+source: "Charts read from the cache first, which keeps latency under half a second on a normal connection."
+target: "图表优先从缓存读取，因此在正常网络连接下延迟可保持在半秒以内。"
+type: sentence
+status: initial
+
+<set-throughput>
+source: "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory."
+target: "吞吐量约为每秒 1,200 行，集群会将其中 30 GB 保留在内存中。"
+type: sentence
+status: initial
+
+<set-retention>
+source: "Scratch tables are kept for 7 days and are then removed without a warning."
+target: "暂存表会保留 7 天，之后将被移除，且不会给出任何警告。"
+type: sentence
+status: initial
+
+<set-timezone>
+source: "Times on this page follow the workspace time zone, not the time zone of your browser."
+target: "此页面上的时间遵循工作区时区，而不是浏览器的时区。"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: ui-workbench-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "clarion ui-workbench 术语表"
+info: "ui-workbench 界面文案的术语决策，与 ui-workbench.zh-CN.cliff 配套使用。"
+standard: "术语 id 使用小写 kebab-case；同一术语在整份界面文件中必须保持同一译法。"
+
+[terms]
+
+<scratch-table>
+source: "scratch table"
+target: "暂存表"
+type: noun-phrase
+status: translated
+context: "结果集在工作台中的个人临时副本，只存在于当前浏览器标签页。全文件统一使用“暂存表”，不使用“临时表”“临时数据表”。"
+
+<quarry>
+source: "Quarry"
+target: "Quarry"
+type: proper-noun
+status: translated
+context: "工作台内的模式名称，作为专名保留英文原名，不意译、不音译，避免与“采石场”等字面义混淆。"
+
+<volume>
+source: "Volume"
+target: "数据量"
+type: noun
+status: translated
+context: "指图表所呈现的数据规模，而非音量或卷册，故译作“数据量”。"
+
+<scale>
+source: "Scale"
+target: "刻度"
+type: noun
+status: translated
+context: "指图表坐标轴上的刻度，不译作“比例尺”“缩放”。"
+
+<sample>
+source: "sample"
+target: "样本"
+type: noun
+status: translated
+context: "用于预览和试运行的数据样本，界面所有动作条目（如“刷新样本”）保持一致。"
+
+<run>
+source: "run"
+target: "运行"
+type: noun
+status: translated
+context: "指一次作业执行，兼作名词与动词；不译作“跑”“执行一次”。"
+
+<preset>
+source: "preset"
+target: "预设"
+type: noun
+status: translated
+context: "保存下来的视图配置，统一译作“预设”。"
+
+<board>
+source: "board"
+target: "看板"
+type: noun
+status: translated
+context: "可固定图表的看板区域，统一译作“看板”，不译作“面板”“板”。"
+
+<pin>
+source: "pin"
+target: "固定"
+type: verb
+status: translated
+context: "把图表加入看板的动作，统一译作“固定”，不译作“钉住”。"
+
+<cache>
+source: "cache"
+target: "缓存"
+type: noun
+status: translated
+context: "项目术语政策要求使用“缓存”，不使用“高速缓存”。"
+
+<latency>
+source: "latency"
+target: "延迟"
+type: noun
+status: translated
+context: "项目术语政策要求使用“延迟”，不使用“时延”。"
+
+<throughput>
+source: "throughput"
+target: "吞吐量"
+type: noun
+status: translated
+context: "项目术语政策要求使用“吞吐量”，不使用“吞吐率”。"
+
+<resolution>
+source: "resolution"
+target: "分辨率"
+type: noun
+status: translated
+context: "项目术语政策要求使用“分辨率”，不使用“解析度”；2x 写作“2 倍分辨率”。"
+
+<default>
+source: "default"
+target: "默认"
+type: adjective
+status: translated
+context: "项目术语政策要求使用“默认 / 默认值”，不使用“缺省”。"
+
+<time-window>
+source: "time window"
+target: "时间窗口"
+type: noun-phrase
+status: translated
+context: "图表默认覆盖的时间范围，统一译作“时间窗口”。"
+
+<row>
+source: "row"
+target: "行"
+type: noun
+status: translated
+context: "结果集中的一行数据；复数语境下同样用“行”（如“# 行”），不译作“条”。"
+
+<chart>
+source: "chart"
+target: "图表"
+type: noun
+status: translated
+context: "工作台中的可视化对象，统一译作“图表”。"
+
+<archive>
+source: "archive"
+target: "归档"
+type: noun
+status: translated
+context: "长期未打开内容的存放处，译作“归档（页面）”，并强调内容不会被删除。"
+
+<time-zone>
+source: "time zone"
+target: "时区"
+type: noun-phrase
+status: translated
+context: "工作区设置中的时区，统一译作“时区”。"
+
+<workspace>
+source: "workspace"
+target: "工作区"
+type: noun
+status: translated
+context: "团队共用的工作空间，统一译作“工作区”，不译作“工作空间”。"
+
+<sign-out>
+source: "sign out"
+target: "退出登录"
+type: verb
+status: translated
+context: "结束会话的动作，译作“退出登录”，不译作“注销”“登出”。"

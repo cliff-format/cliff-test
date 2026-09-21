@@ -9,204 +9,121 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
-- **The confirmation cell: 44/48 = 91.7 % valid for CLIFF single-pass translation,
-  the best number this suite has measured, and the first at a sample worth quoting.**
-  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
-  robustness --formats cliff --arms bare --repeats 3 --prompt-style spec
-  --reasoning low`, run `clarion-deepseek-flash-20260921T173854+0000-1381fd`:
-  48 answers, 0 provider errors, 226 341 prompt + 638 884 output tokens, 186 s.
-  - **44/48 = 91.7 % valid** (95 % Wilson 80–97 %), against 23/48 = 47.9 % for the
-    shipped settings before this work (`examples`, thinking off) — Fisher exact
-    **p < 0.0001** — and 28/48 = 58.3 % for the recorded deployment run. chrF++ over
-    all answers **46.7** (was 30.8 / 36.5) and 51.0 on the answers that survive;
-    `instruction %` 65.4 (was 48.4 / 56.4).
-  - **The isolated comparison, same prompt and same cell, only the decoder regime
-    different**: `spec` with thinking off 11/16 against `spec` with `reasoning: low`
-    16/16, Fisher exact **p = 0.043**.
-  - **All four failures are the same two shapes, and neither is a misunderstanding
-    of the format**: three are an ASCII double quote inside a value written without
-    its backslash — two in `hongloumeng-joly` (classical Chinese whose values mix
-    CJK curly quotes, which take no backslash, with ASCII ones, which do; the corpus
-    escapes them and the model wrote them raw) and one in `ui-console`
-    (`context: "…连接词 "across" 译为…"`, where the model wrote its own quotes raw) —
-    and one is a reviewer note appended after the last entry (`lit-drama`:
-    *"Notes for the reviewer: every entry's new text is in `target:`…"*). Both were
-    the failure modes the escape paragraph and the answer-boundary sentence were
-    added for; the paragraph removed them from fourteen of sixteen files and these
-    are what is left.
-  - **The glossary trigger holds at scale and the banners are gone**: 26/48 answers
-    (54 %) carry a second document, against 41/96 (43 %) in the recorded run, and
-    **0/48** wrote a separator line, against 9/16 in the trigger-only ablation.
-  - **Cost**: 13 310 output tokens per call against 2 963 (4.5x; thinking tokens are
-    billed as output — median 9 682, max 27 801 here) and 186 s for the cell.
-  - **Still file-clustered**: the four failures sit in three files
-    (`hongloumeng-joly` 1/3, `lit-drama` 2/3, `ui-console` 2/3); the other thirteen
-    files are 3/3.
-- **The decoder regime is the lever that moves the single-pass number: `reasoning:
-  low` takes the same cell from 68.8 % to 87.5 %.** Same prompt (`spec`), same
-  sixteen files, same arm (bare), same temperature, one repeat — run
-  `clarion-deepseek-flash-20260921T171557+0000-4ef58c`, command
-  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
-  robustness --formats cliff --arms bare --repeats 1 --prompt-style spec
-  --reasoning low`.
-  - **14/16 = 87.5 % valid** (95 % Wilson 64–97 %) against 11/16 = 68.8 % with
-    thinking off, and 7/16 = 43.8 % for the `examples` style. Fisher exact
-    p = 0.39 between the two `spec` cells — n = 16 is not enough to call it — but
-    the *failure list* changes kind, which is the part n = 16 can support: the
-    meta-notes written into the file, the invented wrapper tags (`</langkau>`,
-    `</final-direction>`), the entry marker carrying a comment on the corpus and
-    the duplicated invented entries are all **gone**. What remains is two answers
-    whose `expected a quoted string` fails on the longest classical-Chinese lines.
-  - **Quality moves with it**, which no other lever did: chrF++ over all answers
-    42.2 → **46.9**, and over the answers that survive 50.5 → **53.6** (`examples`
-    off: 25.1 / 47.8). The compressed specification moved survival without moving
-    quality; the thinking tier moves both.
-  - **Cost**: output tokens 35 551 → **146 471** (2 221 → 9 154 per call, ~4.1x;
-    thinking tokens are billed as output and are recorded per record, 1 257–12 596
-    here), and wall clock 53 s → 141 s for the cell. A full run at this setting
-    costs about four times its output budget, which is the price of the result.
-  - **The two levers so far, measured in the same cell**: prompt content moved the
-    number by +25 (compressed specification) and 0 (boundary statement) and −15
-    (the affirmative rewrite); the decoder regime moved it +18.7 and moved quality
-    for the first time. The stored runs could not have shown this: every 0.0 run
-    also carried the full specification text, so temperature and prompt content were
-    confounded, which is why `--temperature` and `--reasoning` now exist as
-    per-run arguments.
-- **Partial re-measurement of the affirmative prompt: CLIFF, both arms.**
-  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
-  robustness --formats cliff --repeats 3` in two passes, one arm each: run
-  `results/clarion-deepseek-flash-20260921T163044+0000-da6d9d` (bare, 159 669
-  prompt + 142 225 output tokens, 90 s) and
-  `results/clarion-deepseek-flash-20260921T163515+0000-b943b1` (context, 230 772 +
-  211 785, 91 s), plus a one-repeat first pass (`...-20260921T162803+0000-591dd9`).
-  96 answers per wording, 0 provider errors. **Deliberately partial**:
-  `robustness` is skipped, so the D7 rows are empty by construction, and this is
-  the CLIFF cell of the ten-format comparison, not a table.
-  - **Result: 47/96 = 49.0 % valid against 62/96 = 64.6 %** for the previous wording
-    at the same settings (temperature 1.3, `prompt_style: examples`, the same
-    sixteen files, three repeats). Fisher exact **p = 0.041** (Wilson 39.2–58.8 %
-    against 54.6–73.4 %). Bare: 23/48 = 47.9 % against 28/48 = 58.3 %
-    (p = 0.41). Context: 24/48 = 50.0 % against 34/48 = 70.8 % (**p = 0.060**).
-  - **The failure mix names the two sentences that were cut**, which is why this is
-    recorded as a finding rather than a shrug:
-    - **Escaping and quoting**, which is `CLIFF_TASK_RULES` rule 5. Bare quoting
-      failures went 5 → 11 (`unterminated string` 2 → 6, `expected a quoted
-      string` 3 → 5), and the context arm adds `unknown escape sequence \` and
-      `unknown escape sequence \u` plus three answers with an empty field name
-      (`invalid field name ''`). The rewrite kept the positive half of rule 5
-      ("each text value as one quoted string") and dropped the escape facts and
-      the sentence that said the quoting error is the one nothing downstream can
-      repair.
-    - **The extent of the answer**, which is the sentence *"The answer begins with
-      the first character of that file and ends with its last"* in the shared rules.
-      Two context answers put content outside the file — one ends with a Chinese
-      summary of what it did (*"本文已完成术语策略文件…"*), and three end with
-      invented wrapper tags (`</langkau>`, `</params>`, a bare `<`) — and others
-      carried a misplaced key (`unknown group key 'source'`, `unknown entry key
-      'Emotion'`).
-  - **Per file it is a widespread small loss, not a few files collapsing**:
-    `godot-l10n` 3/3 → 1/3 (bare) and 3/3 → 2/3 (context), `lit-classical`
-    3/3 → 1/3, `lit-drama` 2/3 → 1/3, `lit-modern` 2/3 → 1/3, `news-social`
-    2/3 → 1/3, `ui-workbench` (context) 3/3 → 1/3; against improvements on
-    `legal-privacy` (bare) 0/3 → 2/3, `news-wire` 1/3 → 2/3, `ui-console`
-    (context) 2/3 → 3/3 and `wmt24pp` (context) 0/3 → 1/3.
-  - **What this does not establish**: it is a before/after across two runs, not a
-    randomised paired experiment. The provider may not serve the same model
-    snapshot, the arms were run in separate passes, and several comparisons were
-    made while stepping through the measurement, so one p near 0.05 is weaker than
-    it looks. It is enough to justify a controlled re-measurement of the two
-    sentences above, not enough to call the rewrite a regression on its own.
-  - **The channel requirement's other half survived.** All 96 answers begin with
-    `CLIFF 1.1`, so removing the sentence did not invite a preamble; what it cost
-    was the tail and the wrapping.
-- **The deployment-settings run: 1.3, the example-driven prompt, all ten formats.**
-  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
-  run `results/clarion-deepseek-flash-20260921T142211+0000-904a70`: 1 180 records
-  (960 translation + 60 robustness chains + 160 fidelity), exit 0, 3 831 306 prompt
-  + 3 813 836 output tokens, 34 minutes, **no truncated run**. This is the first
-  translation measurement taken with the settings the pipeline actually ships, and
-  the first in which the configuration's `prompt_style` reached the wire at all.
-  - **C6.12, the modification-correctness number.** CLIFF, single-pass rewrite:
-    bare **58.3 % valid, 75.0 % ids kept, 75.0 % coverage, 75.0 % source kept,
-    0.38 repairs/answer, 41.7 % failed**; context **70.8 % / 72.9 % / 72.9 % /
-    72.2 %, 0.79 repairs, 29.2 % failed**. The other nine formats' rows are in the
-    report; CLIFF is the **least surviving** of the ten (android 91.7, fluent 91.7,
-    json-cliff 91.7, json-plain 91.7, xliff-2.1 97.9, ios 89.6, po 89.6,
-    yaml-cliff 85.4, csv 83.3) and, on the answers that do survive, the **best**
-    (chrF++ 53.3, the highest of the ten).
-  - **Why it fails, from the stored answers** rather than from the rate: the
-    dominant error is `status 'translated' requires a target field` — the model
-    drops entries or their `target` lines and leaves the status behind, which is
-    also what the 252 (bare) and 333 (context) missing identifiers count. Then the
-    1.3 quoting degradation (`expected a quoted string`, `unterminated string`,
-    `expected 'key: value' or 'key = value' field`). Failures cluster **by file**,
-    all three repeats together, on the files whose values are longest
-    (`hongloumeng-joly` emits 6–20 k output tokens for 14 entries). **Not an output
-    budget problem**: 0 runs hit the ceiling.
-  - **D7 at the same settings**: CLIFF bare **100.0 % still valid / 95.2 % intent
-    applied**, context **100.0 % / 94.4 %**; xliff-2.1 bare 47.6 %, the only format
-    below 97 %. Editing and translating are different tasks, and the format that is
-    most robust to being edited is not the one that survives being rewritten.
-  - Round-trip fidelity: CLIFF **100 %** retention, csv/json-cliff/yaml-cliff/
-    xliff-2.1 100 %, android/fluent/ios/po 97.6 % (header fields only), json-plain
-    67.3 %.
-  - **Not comparable to the 0.0/digest run.** Two variables changed at once
-    (temperature and prompt style), so the difference between 89.6 % and 70.8 %
-    cannot be attributed to either. The 1.3 pilot that varied the prompt style
-    alone measured 61.5 % (digest) and 65.4 % (examples) on the same files, which
-    places this run in the temperature regime rather than the prompt regime.
-  - **One caveat on the cross-format comparison**: only CLIFF's prompt changed in
-    the redesign, so in this run CLIFF is measured on the example-driven prompt
-    while the other nine still carry their established instructions. A format
-    ranking that mixes the two protocols is not a like-for-like claim.
-- **The CLIFF edit baseline at the shipped temperature 1.3**, which no earlier
-  D7 number could be: `python .tools/d7_cliff_13.py --passes 3`, CLIFF only, the
-  `ui` stratum, the same 12 edits, 171 applicable edits, every answer kept
-  (`results/d7-cliff-13/`). **97.7 % still valid / 95.9 % intent applied**, per
-  pass 96.5 / 93.0 / 98.2 on intent and 1.0 point of standard deviation on
-  validity. Against the 0.0 rows (100 % / 98.6 %) the difference is the decoder.
-  All seven failures are attributed from the stored answers in
-  [docs/clarion-prompt-design.md](docs/clarion-prompt-design.md): four answers were
-  not CLIFF (an unquoted text value, a period outside the closing quote, an
-  unquoted string as a list value, and one 32-byte `<support>...invalid...</support>`
-  stub), three were valid but did not apply the instruction (a reproducible no-op
-  on `set-emotion`, an invented target value, and a rename applied to a group
-  rather than to an entry of the same name). Repairs the model introduced were
-  confined to `add-reference` (5) and `set-emotion` (2).
-- **The first benchmark run on the 1.1 corpus and the current model name**:
-  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
-  model `deepseek-flash`, `read_mode: tolerant`, 3 repeats per cell over
-  CLARION-Core 0.3.0 (16 documents, 392 entries). Run
-  `results/clarion-deepseek-flash-20260920T114819+0000-6a5259`: 1 180 records,
-  exit 0, 960 translation runs + 60 robustness chains + 160 fidelity
-  conversions, 5 598 954 prompt + 4 172 463 output tokens, 53 minutes, no
-  truncated run.
-  - CLIFF **chrF++ 51.2 plain / 53.9 context**, instruction-following
-    79.5% / 83.0%, round-trip context retention **100%**, still valid after
-    edits **100.0% bare / 83.3% context**.
-  - `--skip fetch` is deliberate and recorded in
-    [docs/acceptance-criteria.md](docs/acceptance-criteria.md): the fetch cache
-    was empty, so importing again would have rewritten the committed corpus —
-    the 118 `human_verified` items, their checksums and their attribution — and
-    spent several hundred extra annotation calls on the same model as the system
-    under test, which `clarion/corpus/annotate.py` warns against.
-  - **The two readings measured on the same answers**: re-scoring the 96 stored
-    CLIFF answers with no model call gives strict valid 89.6% / 83.3% against
-    tolerant valid 93.8% / 89.6%, at 0.06 / 0.12 repairs per answer. All six
-    repairs were shape repairs; one `wmt24pp` answer claimed
-    `status: translated` on an entry with no `target`, which both readings
-    refuse (Appendix C.5). This is the number that makes the tolerant mode worth
-    having, and it could not be produced before this revision.
-  - 61 of 960 runs failed to parse, all in the two formats that cannot carry
-    multi-line context cleanly (`csv` context writes a newline into one row and
-    shifts every later column; `xliff-2.1` context emits malformed XML). Each
-    was inspected in the stored answer text rather than read off the summary.
-  - Correction: the D1/D2 prompt columns of [BENCHMARK.md](BENCHMARK.md) are
-    restated from the regenerated tables, because `token_matrix` had been
-    pricing a CLIFF prompt no arm sends.
+**The final measurement: the shipped protocol, ten formats, one pass.**
+`python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
+model `deepseek-flash`, **reasoning `low`**, temperature 1.3, `prompt_style: spec`,
+`read_mode: tolerant`, 3 repeats, corpus CLARION-Core 0.3.0 (16 documents, 392
+entries), revision `b81d3e6`, prompt fingerprint `6ef59ba44d454294`. Run
+`results/clarion-deepseek-flash-20260921T211031+0000-de29a5`: 1 180 records, exit 0,
+960 translation runs + 60 robustness chains + 160 fidelity conversions,
+**3 993 022 prompt + 11 501 757 output tokens**, ≈ 57 minutes wall clock, **0
+truncated answers in any cell**. Published as the bundle
+`benchmark/clarion-2026-09-21`.
+
+- **CLIFF's single-pass rewrite: 91.7 % valid, 91.7 % ids kept, 91.7 % coverage in
+  both arms.** The other nine formats' rows are in `BENCHMARK.md`; CLIFF is above
+  csv's bare arm (89.6 %) and xliff-2.1's context arm (79.2 %) under those formats'
+  own, laxer checkers, and its own checker is the official validator — the strictest
+  of the ten, so the column is comparable within a row and not across formats.
+- **The two readings, same 96 answers, no model call** (`python
+  tools/compare_readings.py`): bare strict 87.5 % / tolerant 91.7 % at 2 repairs;
+  context strict 85.4 % / tolerant 91.7 % at 13. Every repair was a shape repair
+  (C.2.5 identifier with a reserved character; one C.2.2 repeated field); none was
+  salvaged by inventing content, which is what Appendix C.5 forbids.
+- **After twelve sequential model edits**: 100.0 % valid / 95.2 % intent bare,
+  86.1 % / 86.1 % context; mean over the 60 chains 96.3 %; xliff-2.1 is the only
+  format below it. **Round-trip fidelity 100 %**, repairs per round trip 0.00.
+- **The eight answers in 96 that still fail to parse are file-clustered**, six
+  documents' worth, three of them the same classical-Chinese document; one failure
+  is the `status`-in-a-group-section shape Appendix C.5 forbids a parser from
+  repairing. `BENCHMARK.md` §11 lists them with the reader's own rejection message.
+- **No reference-free QE pass**: `tools/qe_score.py` needs `unbabel-comet` and its
+  weights, which were unavailable here, so no QE figure is claimed anywhere and the
+  bundle carries no `qe_scores.jsonl`. `tools/audit_report.mjs` now omits the column
+  rather than printing `0.00 (0)`, which is how a missing measurement was being
+  published as a perfect score.
+
+**What the exploration established, and the decisions it produced.** The rounds
+that led here were per-cell experiments whose run directories are not kept; what
+survives of them is this list, and every number above is from the run named in it.
+
+- **The decoder regime is a lever, and it is not the prompt's.** `reasoning: low`
+  moved both survival and quality where four prompt edits had moved quality not at
+  all. It is what the shipped configuration selects, and it is why the output-token
+  column has to be read as the decoder regime rather than as the format.
+- **Removing content beats adding it.** The single largest prompt finding was that
+  **this project had been injecting the failure it was trying to prevent**: the
+  ABNF's comment block — which a prompt injects when it carries the compressed
+  specification — said *"single-line marker; no closing tag exists"*, attributed the
+  status tags to *"(XLIFF 2.x state model)"*, and spelled a stray closing tag
+  literally in the C.5 note. De-cued, the answered-with-a-closing-tag rate fell to
+  zero in the cell that measured it and came back at a few per cent in the next one,
+  so the honest reading is that the cues were ours and a residual rate survives
+  every variant measured. `cliff`'s CHANGELOG records the same finding.
+- **The compressed specification is the shipped prompt.** `prompt_style: spec`
+  renders the specification's own rules — ABNF, semantic constraints, field tables,
+  closed vocabularies — extracted at build time, 2 925 tokens per cell against
+  16 838 for the full text. It is the cheap prompt that still carries the rules, and
+  `tools/prompt_cost.py` prices all three styles so the shipped one is never the one
+  nothing measures.
+- **Three prompt edits after that were measured, and two of them hurt**: a firmer
+  restatement of the escape rule, a sentence stating the bare-word tag rule whose
+  target it fixed while reintroducing stray closing tags elsewhere, and a third
+  injection of the marker rule that changed nothing distinguishable. All were
+  reverted or kept on that evidence, and the prompt now carries only what the
+  specification requires and what the deliverable needs.
+- **The prompt has a floor.** The residual failures are the corpus's own content
+  rules (`instruction %` 78.7 — `require`, `forbid`, `max-width`, `name-policy`,
+  `cjk-latin-space`, `regex`, `term`, `keep-verbatim`, `length-ratio`) in answers
+  that parse, validate and carry every identifier, and a few per cent of shape
+  slips concentrated in the longest classical-Chinese document. Neither is a
+  prompt-shaped problem.
+- **Vendor markup is real and is stripped.** Some answers arrive carrying the
+  provider's own `｜DSML｜` tool-call delimiter at the document boundary — it is in
+  no corpus and no prompt, and the request carries no tools. The tolerant reader
+  strips it and reports a `provider-markup` repair, so it is priced rather than
+  silently absorbed.
+- **Two tools were wrong and are fixed**, both of which had published numbers: the
+  edited `prompt_block_delta.py` compared a template's source against a live
+  rendered value and invented a 107-token difference in a block that had not grown,
+  and `clarion.metrics.stats.fisher_exact` summed the observed table's probability
+  once per table, reporting 0.0129 where the answer is 0.0026. Both are held by
+  tests now.
+
+**Recorded this revision, in the harness's own words.**
+
+- `python -m clarion corpus validate` — **16 files, 392 entries, 0 problems**.
+- `python -m clarion corpus stats` — CLARION-Core **0.3.0**, six strata, 18
+  `.cliff` files in the tree (16 standard documents plus two `variant: glossary`
+  term files); 118 of 392 items `human_verified` (the imported corpora); the
+  authored items are CC0 and still await sign-off.
+- `python -m clarion tokens` — CLARION-Core document payload, `o200k_base`:
+  CLIFF **24 322** tokens in the plain arm and **47 499** in the context arm,
+  against 20 647–41 228 (plain) and 52 753–140 693 (context) for the other nine
+  formats. The command also prices each prompt and its components.
+- `python -m clarion selfcheck` — **SELF-CHECK PASS**, including the strict and
+  tolerant readings differing exactly as Appendix C documents, and a repaired
+  document serializing into one the strict grammar accepts.
+- `python -m pytest` — **512 passed, 2 xfailed**; `python tests/run_all.py` and
+  `python tests/run_all.py --quality --robustness` — **ALL PASS** (100/100 edits);
+  `python tools/token_benchmark.py --check` — every tracked artefact matches what
+  the tool renders; `ruff check .` clean; `python -m clarion secret-scan` — 0
+  findings.
 
 ### Changed
 
+- **The shipped protocol is now the one that was measured.** `configs/deepseek-flash.json`
+  selects `prompt_style: spec` and `reasoning: low`, and `DEFAULT_PROMPT_STYLE` moves
+  with it: the configuration had named `examples` with thinking off while every
+  measured cell of the last round reached the compressed specification through
+  `--prompt-style spec --reasoning low` on the command line, so a run started as
+  documented measured a prompt the design work had moved past. The default matters
+  for the same reason in the other direction — a configuration that names no style
+  used to get `digest`, the 21 393-token legacy prompt, which is the one style that
+  still sends the full specification text and with it the markup vocabulary removed
+  from the other two. `tests/clarion/test_cli.py` asserts the shipped style, the
+  shipped reasoning tier and the temperature that reaches the wire, so a silent
+  revert to the old protocol fails the suite rather than the paid run.
 - **The prompt now states what the specification requires and what we need back,
   and nothing else.** Two rules, applied to every block all ten formats receive:
   state the rule affirmatively (a sentence that names the failure — "an unquoted
@@ -240,22 +157,21 @@ fixture still passes, and the checks below answer the 1.1 questions.
   - `CLIFF_EDIT_SAFETY` (the `digest` style's reminder) states the same facts as
     properties rather than as a *"copy exactly as written"* imperative.
   - **Priced, because these blocks reach every call of every format**:
-    `tools/prompt_block_delta.py <ref>` prints the delta per block against a
-    revision. Against the state before the rewrite: CLIFF task rules **−91**, shared
-    task rules **−15**, glossary deliverable **−6**, CLIFF facts **+8** (the
-    orientation paragraph), system role **+13**, output shape **+5**, glossary
-    workflow **+17**, edit safety **+2** — net **−67 tokens per call**. The prompt
-    was *cheaper* after the rewrite, not dearer. The original figures here said
-    "facts **+115** … net **+24**": the tool was comparing each block's template
-    source against the live rendered string, and `CLIFF_FACTS` is an f-string whose
-    `{_row(...)}` calls are long in the source and short in the value, so it
-    invented a 107-token difference in a block that had barely moved. The tool now
-    executes the previous revision and reads the attribute, and
-    `tests/test_prompt_cost_tool.py` holds both ends together.
+    `tools/prompt_block_delta.py <ref>` prints the delta per block against a git
+    revision, and against the state before the rewrite it showed the prompt was
+    *cheaper* after the rewrite, not dearer. The original figures in this entry were
+    wrong in a way worth recording: the tool compared each block's *template source*
+    against the live *rendered* string, and `CLIFF_FACTS` is an f-string whose
+    `{_row(...)}` calls are long in the source and short in the value, so it invented
+    a 107-token difference in a block that had barely moved. The tool now executes the
+    previous revision and reads the attribute, prices the composed specification
+    block and the hand-written paragraphs inside it as well as the module strings, and
+    counts each block once rather than counting a paragraph and the block containing
+    it twice; `tests/test_prompt_cost_tool.py` holds both ends together.
     The prompt-cost table in `docs/clarion-prompt-design.md` is re-measured through
-    the assembly path and reads **21 383 → 2 417** tokens for the `ui-console` plain
-    cell (the older 20 739 / 2 630 figures are superseded; the specification text
-    alone grew from 16 316 to 16 656 tokens).
+    the assembly path: for the `ui-console` plain cell, `digest` **21 393**,
+    `examples` **2 417**, `spec` **4 142**, against a 16 838-token reference-specification
+    block for the `digest` style.
   - The rule is held by
     `tests/clarion/test_tools.py::test_no_prompt_block_fences_the_working_method`,
     which names the phrases an edit would add back,
@@ -269,9 +185,60 @@ fixture still passes, and the checks below answer the 1.1 questions.
     the facts block was retitled. Both now read the marker from
     `cliff_prompt_v2.CLIFF_FACTS`, so a retitle cannot leave an assertion pointing
     at a string that no longer exists.
-  - **Not yet measured by a run**: the recorded deployment run sent the previous
-    wording. This is recorded as an open decision in
-    `docs/clarion-prompt-design.md` rather than quoted as a result.
+  - **Measured at last.** The final run at the head of this entry is the first
+    protocol carrying this wording, so the CLIFF numbers above are its numbers. The
+    earlier deployment run sent the previous wording, which is why the rounds in
+    between are recorded in this file as decisions rather than as results.
+- **A paragraph for the rule the ABNF comment carried, which comment-stripping had
+  been deleting.** `grammar_only()` removes every `;` comment, and one of them states
+  a rule the prompt therefore never made: the ABNF says of `entry-line` that it is a
+  *"single-line marker; no closing tag exists"*. The compressed block now states it
+  affirmatively (`SECTIONS AND ENTRIES ARE SINGLE LINES`: a marker stands alone and
+  what it opens runs to the next marker or the end of the file), injected at the top
+  and the end of the block and once more in the user message immediately before the
+  file, so primacy and recency both apply.
+  - **Stating it did not remove the behaviour, and that is the finding.** Answers
+    that close what they open appeared in every prompt variant this project measured
+    — from a few per cent of answers up to one answer that closed every entry it had
+    written. What moved the rate was the prompt's *vocabulary* rather than the
+    statement of the rule (the de-cueing finding recorded at the head of this entry),
+    and a residual rate
+    survived every variant: the model closes what it opens, and the prompt side has
+    reached its floor on it.
+  - The cost of the class is out of proportion to its content: a closing tag carries
+    no information, but the tolerant reader used to normalize `</terms>` into the
+    entry id `terms` (C.2.5 lists `/` among its reserved characters, C.3 strips it)
+    and then fail the document on `entry 'terms' is missing required field 'source'`
+    — an entry the answer does not contain. The fix belonged in the reader, and it is
+    the C.2.5 clarification below. A wrapper relaxation was the other option
+    considered and was **not** made.
+- **Appendix C.2.5 clarified: markup is not an identifier, so the reading no longer
+  manufactures entries.** The relaxation applies to an identifier that begins with a
+  name character (or the quoted form of C.2.4); a stray closing tag `</terms>` is
+  **not an entry marker**, and C.5 rejects the line. Found by measurement: the model
+  closes what it opens, so answers arrive with `</terms>`, `</result>`, `</preset>`
+  after the glossary, and the reading normalized `/terms` into the entry `terms`
+  (C.3 step 4 replaces the slash, step 6 strips it) and then failed the document on
+  `entry 'terms' is missing required field 'source'` — an entry the answer never had.
+  The diagnostic pointed at the invented entry instead of at the stray line, and
+  manufacturing data out of markup is what C.5 forbids.
+  - Synced across the three repositories: the specification's C.2.5, its ABNF
+    semantic-constraint block (which reaches a prompt that injects that block), the
+    `cliff.zh-CN` mirrors of both, the Python parser
+    (`_marker_begins_with_identifier`, with the same test for a group path's first
+    segment), the parser's README table, and this suite.
+  - New fixture `tests/fixtures/tolerant/closing-tag.zh-CN.cliff`, listed in
+    `UNREPAIRABLE`: refused in both readings, strict reporting `invalid entry id
+    '/terms'` and tolerant reporting that the line is neither a field, a section nor
+    an entry marker. `tests/clarion/test_read_modes.py` asserts both halves — refused,
+    and **no entry produced**. `cliff-python` gained three tests covering the same
+    boundary plus the two cases that must keep working (`<  resolution  >` still
+    normalizes; an empty marker still takes C.3's fallback name).
+  - **No validity rate changed.** Those answers really do contain an invalid line,
+    and they now fail *at it* rather than at an entry the reader invented. The repair
+    count moved instead, because the reading no longer reports a repair for a line it
+    rejects; `tests/test_compare_readings_tool.py` carries the reason next to the
+    figures, and the final run's two-readings table is in the acceptance criteria.
 - **`tools/cliff_validator.py` follows the relaxed `name` production**
   (`A-Z a-z 0-9 _ -`, never `.`) and keeps tags narrow via a separate
   `TAG_NAME_RE`. A near-miss tag is reported as a `vocabulary` error listing the
@@ -309,33 +276,84 @@ fixture still passes, and the checks below answer the 1.1 questions.
   authoring specification.
 - **Token-cost prompt columns corrected.** `token_matrix` built its prompt
   without `allow_glossary_output` and `workflow_style`, and never accounted for
-  the reference specification that only the CLIFF prompt carries (16 316 tokens
-  per cell). CLIFF's D1/D2 prompt totals were therefore roughly half of what the
+  the specification block that only the CLIFF prompt carries (16 838 tokens per
+  cell as the reference text, 2 925 as the compressed block the shipped style
+  sends). CLIFF's D1/D2 prompt totals were therefore roughly half of what the
   translation arms actually send; the other nine formats were correct, and the
   document-token columns were never affected.
+- **The two tools that produce a published bundle no longer carry a run id.** The
+  provenance line is the first thing a reader checks, and it was the one string
+  neither tool derived: `audit_report.mjs` wrote one particular run's id into every
+  `investor-data.md` it generated, and `package_benchmark.py` both packed into a
+  hard-coded bundle directory and described the bundle with a hard-coded run id and
+  counts, so auditing or packing a *new* run produced evidence about the *old* one.
+  The audit tool reads the id from the directory it is given, the packer derives the
+  bundle name from the run id's own timestamp and writes its README — protocol, model,
+  formats, arms, task counts — out of the run it packs. The audit's corpus index also
+  filtered the two `variant: glossary` term files by **file name**, so the run line
+  read one count of corpus files where the corpus has another; it filters on the
+  variant header now, and `tests/test_benchmark_bundle_tool.py` runs the tool on a
+  real bundled run and asserts the line it produces. Both tools also survive a run
+  that did not measure every format or every arm instead of throwing.
+- **A run directory now records the revision and the rendered prompt behind its
+  answers.** `summary.json` gained `revision` and `prompt_fingerprint`: the stored
+  configuration names a *style*, and a style is not a text, so two runs recorded as
+  "the same settings" could differ in the words sent with nothing on disk to say so.
+  The fingerprint is of the block itself, and a test fails if it stops moving when
+  the block does.
+- **The prompt blocks are held to rules the tests can see.** `CLIFF_ANSWER_REMINDER`
+  named the failure shape it exists to prevent (*"nothing in a CLIFF file is closed"*)
+  and restated the extent of the answer that the shared task rules already state in
+  the same message; it now states the marker rule and nothing else, and both tests
+  that forbid a named failure and a repeated paragraph scan it. The digest style's
+  supplement carried *"Keep the glossary concise."* — the house cap the same test
+  forbids by name — in a block nothing scanned; it is gone, the scan covers the
+  supplement and the composed specification block, and the supplement's escape list
+  gained the `\r` the ABNF has always had. `spec_digest.semantic_constraints()` used
+  to return an empty string if the ABNF's marker wording changed, silently dropping
+  the constraint block from the prompt; it raises.
+- **The generated artefacts that are tracked are now compared with what generates
+  them.** `tools/token_benchmark.py --check` renders every artefact in memory and
+  compares it byte for byte with the committed copy, and the step runs in `make check`
+  and in CI — the counterpart of `cliff-python`'s `regenerate_examples.py --check`.
+  The writer also emits LF explicitly: the default text-mode write on Windows turned
+  every newline into CRLF, which left the tracked reports looking modified after every
+  run and made the committed bytes platform-dependent.
 
 ### Added
 
 - **`prompt_style: spec` — the specification compressed to its rules, assembled
-  from the specification repository.** The format's own text is 16 656 tokens, of
-  which only **2 467 are sentences that state a rule**; the rest is motivation,
-  examples, comparisons and migration notes. `clarion/prompts/cliff_rules.py`
-  builds a **2 252-token** prompt block out of the parts that state rules and
-  nothing else: the ABNF with comments stripped (613), the ABNF's semantic-
-  constraint block (794, where required fields, the `status`/`target` dependency,
-  the escape rules, brace balance, list-typed fields and identifier case already
-  live), the field tables of sections 7-9 (258, extracted from the specification's
-  own markdown), the closed vocabularies and the rules that frame them (414), and
-  the specification's own quick example (173).
-  - **Nothing in it is hand-written**, which is the difference between this style
-    and `examples`: a hand-maintained restatement is a second source of truth, and
-    the second source is the one that goes stale. `tests/clarion/test_spec_digest.py`
-    holds the trace: the extracted key tables are compared against the key sets the
-    parser accepts (`HEADER_KEYS`/`ENTRY_KEYS`), the inherited set against section 9,
-    the vocabularies against the implementation, `SECTION_COVERAGE` must account for
-    every section of the specification that states a rule (represented, or excluded
-    with a reason), and the token ceiling is asserted so growth fails here rather
-    than in a paid run.
+  from the specification repository.** The format's own text is 16 803 tokens, of
+  which only **2 492 tokens are lines that state a rule** (`MUST` / `SHOULD` / `MAY`
+  / `REQUIRED`); the rest is motivation, examples, comparisons and migration notes.
+  `clarion/prompts/cliff_rules.py` builds a **2 925-token** prompt block out of the
+  parts that state rules and nothing else, and
+  `python tools/prompt_cost.py --decomposition` prints the decomposition: the title
+  (17), the marker rule stated
+  at each end of the block (99 + 99), the intro (65), the ABNF with comments stripped
+  (625), the ABNF's semantic-constraint block (941, where required fields, the
+  `status`/`target` dependency, the escape rules, brace balance, list-typed fields
+  and identifier case already live), the field tables of sections 7-9 (258, extracted
+  from the specification's own markdown), the closed vocabularies (163), the
+  specification's own quick example (190), the escape paragraph (158) and the
+  `variant: glossary` section (307). The parts sum to 2 922 against a block of 2 925,
+  because a token boundary at a join is shared.
+  - **The extracted parts cannot drift; the written ones are named.** The grammar,
+    the semantic constraints, the field tables, the vocabularies and the quick example
+    are read out of the specification repository at prompt-build time, so they cannot
+    become a second source of truth. The framing paragraphs that exist only because a
+    *prompt* needs them — the intro, the marker rule, the vocabularies' framing line,
+    the group note, the escaping paragraph and the glossary section — are written in
+    the module and listed in `cliff_rules.WRITTEN_HERE` with the section each carries.
+    An earlier version of the module claimed *nothing* in the block was hand-written,
+    which is the kind of claim that stops a reader reviewing the paragraphs that need
+    it. `tests/clarion/test_spec_digest.py` holds both halves: the extracted key
+    tables are compared against the key sets the parser accepts
+    (`HEADER_KEYS`/`ENTRY_KEYS`), the inherited set against section 9, the
+    vocabularies against the implementation, `SECTION_COVERAGE` must account for every
+    section of the specification that states a rule (represented, or excluded with a
+    reason, and the reason's kind is a closed vocabulary) — and every declared
+    hand-written part must really be in the block.
   - The style is reachable per run without editing a configuration:
     `--prompt-style {digest,examples,spec}` on `pipeline` and `translate`, because a
     run directory records the configuration it was started with and two styles have
@@ -345,38 +363,34 @@ fixture still passes, and the checks below answer the 1.1 questions.
     - the digest *plus* the text it replaces), and it drops the hand-written
     `FORMAT_NOTES`, `CLIFF_TASK_RULES`, `GLOSSARY_WORKFLOW` and edit-safety blocks,
     each of which restates rules the specification block already carries.
-  - **First measurement** (CLIFF, bare, sixteen files, 1.3, one repeat, run
-    `clarion-deepseek-flash-20260921T164514`): **11/16 = 68.8 % valid against
-    7/16 = 43.8 %** for the `examples` style in the same cell, six files flipping
-    from a parse failure to valid and two the other way. **Not significant yet**
-    (Fisher exact p = 0.25, n = 16 on one side) and recorded as a direction to
-    confirm at three repeats, not as a result.
-  - **Second measurement, with the answer boundary stated** (same cell, same
-    settings, run `clarion-deepseek-flash-20260921T171241`, +14 prompt tokens):
-    **11/16 = 68.8 % again.** The number did not move, and the failures are the
-    finding: two files were fixed and two broke, while the behaviour that was
-    supposed to be fixed persisted in new spellings — a bare `[CONTINUATION VIA
-    NOPER])</chapter-1-004>` inside a `target` value, `</final-direction></final-direction>`
-    on its own line, an entry marker whose id is the field name `source`, and the
-    same duplicated entry (`abstract-2`, missing `source` and `status`) that the
-    first run had. **Conclusion: the remaining failures are not a missing
-    instruction.** Two different prompt-content levers have now been tested in the
-    same cell (the rewrite, −15 points; the boundary statement, 0 points) and the
-    failure rate did not respond to either, which leaves the decoding regime as the
-    variable still standing.
+  - **Measured, twice, and neither measurement was a result.** Two single-repeat
+    sixteen-file cells were run to compare the compressed block against the
+    example-driven style, one of them with the answer-extent sentence added, and the
+    valid rate did not move in either. What they produced is the *decision*: the
+    remaining failures are not a missing instruction, and two prompt-content levers
+    had now been tested in the same cell without moving the number, which left the
+    decoding regime as the only variable still standing. Both cells' run directories
+    are pruned; the finding survives in `docs/clarion-prompt-design.md`.
 - **`tools/prompt_cost.py` and `tools/prompt_block_delta.py`, with
   `tests/test_prompt_cost_tool.py`.** The prompt-cost table in
   `docs/clarion-prompt-design.md` is quoted in this changelog and in the acceptance
   criteria, and until now the instrument that produced it lived in the working-copy
   `.tools/` directory outside the repository — a number a reader cannot reproduce is
   a number they have to take on trust. `prompt_cost.py` prints the per-component
-  table for one cell (`--pilot` for the four pilot files, `--block-delta` for the
-  per-block token delta against the last commit, which `prompt_block_delta.py` also
-  does on its own). Both styles are assembled through `build_translation_prompt`,
-  the call path a run uses; the earlier measurement projected the example-driven
-  side arithmetically and drifted the moment the assembly changed. The test pins
-  what the document publishes, and checks the invariant that catches this table's
-  own failure mode: every column's rows sum to that column's total.
+  table for one cell (`--pilot` for the four pilot files, `--decomposition` for the
+  compressed block part by part, `--block-delta` for the per-block token delta
+  against a git revision, which `prompt_block_delta.py` also does on its own), and it
+  prices **all three** styles: for the `ui-console` plain cell, `digest` **21 393**,
+  `examples` **2 417**, `spec` **4 142**, a per-cell saving of **18 976** tokens and
+  **75 904** over the four pilot files. Everything is assembled through
+  `build_translation_prompt`, the call path a run uses; the earlier measurement
+  projected the example-driven side arithmetically and drifted the moment the
+  assembly changed. It used to price only `digest` and `examples`, so the style the
+  shipped configuration actually sends was the one published figure nothing measured
+  — `tests/test_prompt_cost_tool.py` now asserts that the shipped style is one of
+  the priced ones, pins the three totals **read out of the document**, recomputes the
+  published decomposition, and checks the invariant that catches this table's own
+  failure mode: every column's rows sum to that column's total.
 - **A quoted key is now a repaired deviation (specification Appendix C.2.7).**  The specification gained the relaxation, so this suite gained the fixtures that
   decide it: `tests/fixtures/tolerant/quoted-key.zh-CN.cliff` carries the three
   spellings (double quotes, single quotes, `=`) in header, group and entry scope
@@ -399,9 +413,8 @@ fixture still passes, and the checks below answer the 1.1 questions.
   with its final punctuation inside, and the same holds inside a list — so it says
   nothing about tags or brackets, which a tolerant read repairs (C.2.3, C.2.1).
   `tests/clarion/test_prompt_v2.py` now guards both directions: the fact is present,
-  the repairable phrasings are absent. Cost **+120 tokens per call**; the prompt cost
-  table in docs/clarion-prompt-design.md moves from 2 510 to **2 630** per cell, and
-  the specification text the redesign replaced was 16 316.
+  the repairable phrasings are absent. It is priced with everything else in the table
+  `docs/clarion-prompt-design.md` publishes.
 - **The modification-correctness table the benchmark quotes**:
   `clarion/report.py` gained `structure_report`, rendered between D4 and latency.
   Per format and arm it prints `valid %`, `ids kept %`, `coverage %`,
@@ -421,20 +434,22 @@ fixture still passes, and the checks below answer the 1.1 questions.
 - **`tests/clarion/test_roundtrip_fields.py`** (70 cases): every format must read
   back each field it wrote, in both its single-valued and multi-valued form.
   `roundtrip_fidelity` answers this in aggregate and the corpus hides the failure —
-  it holds only two entries with a multi-valued list, so a codec that loses the
-  second element of every list still scores 98 %. The two json-plain cases where a
+  it holds far too few entries with a multi-valued list for the loss of a second
+  element to move the aggregate, so a codec that drops one still scores in the high
+  nineties. The two json-plain cases where a
   `|` separates both list items and fields are pinned with a **strict** xfail, so
   fixing that codec becomes an XPASS failure rather than passing quietly.
 - **CI runs the whole suite.** The workflow ran `python tests/run_all.py` and
   nothing else, so the harness tests, the lint gate, the corpus guard and the
   offline self-check never ran on a push. It now checks out the sibling `cliff` and
-  `cliff-python` repositories and runs `run_all.py`, `tools/corpus_version.py`,
-  `ruff check clarion tests/clarion`, `pytest` and `python -m clarion selfcheck`.
-  `make check` runs the same five steps in the same order.
+  `cliff-python` repositories and runs the conformance suites, the generated-artefact
+  check, the specification's own `check_examples.py` against that checkout, the corpus
+  guard, `ruff check .`, `pytest`, the offline self-check, the credential scan, and
+  the two on-request batteries. `make check` runs the same steps in the same order.
 - **`testpaths` is `tests/`, not `tests/clarion/`.** A bare `pytest` collected 245
   tests and silently never collected `tests/test_validator_tool.py` or
   `tests/test_edit_robustness.py` — eleven tests that existed and did not run. It
-  now collects 381 plus the two pinned xfails.
+  collects the whole tree now (**512 passed, 2 xfailed** at this revision).
 - **`tests/clarion/test_judge.py`** (13 tests): the optional MQM judge is disabled
   by default, so nothing in a default run exercised it. The suite pins the parts
   that fail silently — JSON wrapped in prose must still be read, a missing object is
@@ -491,9 +506,11 @@ fixture still passes, and the checks below answer the 1.1 questions.
   table — and are waived per file in `pyproject.toml` with the reason written down,
   because wrapping them would obscure the bytes under test without changing one.
   CI and `make check` now run `ruff check .` rather than a subset.
-- **`make check` and CI now run the same six steps**, in the same order, including
+- **`make check` and CI now run the same steps**, in the same order, including
   the credential scan: a key pasted into a test can no longer reach a commit
-  unnoticed.
+  unnoticed. The step that compares the tracked generated artefacts against what
+  their generator renders (`tools/token_benchmark.py --check`) is part of both, so a
+  stale report fails locally before it fails on a push.
 - **`tools/coverage_audit.py`** — the reachability audit, in the repository rather
   than beside it, so the claim "no module is untested" is checkable by whoever reads
   it. It resolves relative imports and walks the graph, because a text search reports
@@ -504,8 +521,12 @@ fixture still passes, and the checks below answer the 1.1 questions.
   with `tests/fixtures/valid/valid-terminators.zh-CN.cliff` and
   `tests/fixtures/invalid/double-terminator.zh-CN.cliff`.
 - **`tests/run_all.py`** now states the mode and the expected exit code of
-  every suite, checks both spec example directories, and warns when the
-  tolerant refusal set (Appendix C.5) is empty.
+  every suite, checks both spec example directories, and **fails** when the tolerant
+  refusal set (Appendix C.5) is empty — a warning that left the battery green while
+  it tested nothing. A validator usage error (exit 2, which an empty file list
+  produces) can no longer satisfy a non-zero expectation, the 100 gitignored edits
+  are generated rather than demanded, and a missing sibling checkout fails when
+  `CLIFF_REQUIRE_SIBLINGS=1` instead of turning into a skip.
 - `--tolerant` delegates to `cliff_format`, so the tolerant contract has exactly
   one implementation in the ecosystem.
 - **`--read-mode {strict,tolerant}`** on the CLARION commands, plus the
@@ -517,10 +538,14 @@ fixture still passes, and the checks below answer the 1.1 questions.
   *plus* the glossary the terminology workflow produced, and each document is
   validated on its own (concatenating two valid documents is not one valid
   document). Fixture: `tests/fixtures/tolerant/two-documents.txt`.
-- **Three tolerant fixtures** pinning the repair set by category, including one
-  whose every line ends with `,` / `;` to assert that a line terminator is
-  syntax and not a repair: `terminators-and-quoted-tags.zh-CN.cliff`,
-  `quoted-id-and-bare-list.zh-CN.cliff`, `two-documents.txt`.
+- **Nine tolerant fixtures** pinning the repair set by category — the count, not
+  just the exit code, so one relaxation cannot silently become another. The first
+  three are `terminators-and-quoted-tags.zh-CN.cliff`, whose every line ends with
+  `,` / `;` to assert that a line terminator is syntax and not a repair,
+  `quoted-id-and-bare-list.zh-CN.cliff` and `two-documents.txt`; the six added later
+  are the C.2.1, C.2.2, C.2.3, C.2.4, C.2.5/§C.4 and C.2.6 cases, each measured by
+  reading the fixture through the tolerant reader rather than copied from the
+  fixtures' README.
 - **`tools/corpus_version.py`**: the corpus version-line guard and migration,
   with a semantic fingerprint that makes "only the version line changed" a
   checkable claim.
@@ -562,126 +587,54 @@ fixture still passes, and the checks below answer the 1.1 questions.
 - `docs/clarion-methodology.md` §9.1 states what each reading answers, which
   repairs exist, what a terminator is not, and which C.5 refusals hold.
 
-### Changed
-
-- **Naming a convention beats stating a rule: the escape paragraph is now "a value is
-  a C-style string literal".** Three of the four failures in the clean cell were an
-  ASCII double quote written without its backslash, and the byte-level comparison
-  showed why: the model's line and the corpus line had **the same number of quotes**
-  and the corpus had seven backslashes where the answer had one, with nothing added
-  or removed — the model was copying a line that already carried `\"` and tidying the
-  backslashes out of it. The paragraph now names the convention (five escapes, the
-  whole set) and states that the source text and every other value come through
-  *with their backslashes exactly as written*. In the same cell the escaping failures
-  went **3 → 0**.
-- **A paragraph for the rule the ABNF comment carried, which comment-stripping had
-  been deleting.** `grammar_only()` removes every `;` comment, and one of them states
-  a rule the prompt therefore never made: the ABNF says of `entry-line` that it is a
-  *"single-line marker; no closing tag exists"*. The compressed block now states it
-  affirmatively (`SECTIONS AND ENTRIES ARE SINGLE LINES`: a marker stands alone and
-  what it opens runs to the next marker or the end of the document), guarded by
-  `test_the_single_line_marker_rule_survives_the_comment_stripping`.
-  - **It did not fix the behaviour it was written for, and the measurement is the
-    point.** Stray closing tags after the glossary appear in every prompt variant
-    this project has measured: the recorded run 3 of 48 answers, `examples` after the
-    rewrite 5 of 48, `spec` with thinking off 4 of 16 (**58 tags** — one answer
-    closed every entry it had written), `spec` + `reasoning: low` 3 of 48, and 2 of
-    48 with the paragraph added. The model closes what it opens; that is a model
-    habit, and the prompt side has reached its floor on it.
-  - The cost of the class is out of proportion to its content: a closing tag carries
-    no information, but the tolerant reader normalizes `</terms>` into the entry id
-    `terms` (C.2.5 lists `/` among its reserved characters, C.3 strips it) and then
-    fails the document on `entry 'terms' is missing required field 'source'` — an
-    entry the answer does not contain. The fix belongs in the reader, and the two
-    options (clarify C.2.5, or document a wrapper relaxation) are spec changes that
-    have **not** been made.
-  - The cell's numbers with the paragraph: 43/48 = 89.6 % valid, five failures in
-    four shapes (two phantom entries from closing tags, a chain of closers, a line
-    containing only `.`, and one answer whose first line was the prompt's own
-    `===== FILE TO TRANSLATE, RETURNED COMPLETE =====`), against 45/48 before it —
-    a difference of two answers out of 48, which is noise.
-
-### Changed
-
-- **Appendix C.2.5 clarified: markup is not an identifier, so the reading no longer
-  manufactures entries.** The relaxation applies to an identifier that begins with a
-  name character (or the quoted form of C.2.4); a stray closing tag `</terms>` is
-  **not an entry marker**, and C.5 rejects the line. Found by measurement: the model
-  closes what it opens, so answers arrive with `</terms>`, `</result>`, `</preset>`
-  after the glossary, and the reading normalized `/terms` into the entry `terms`
-  (C.3 step 4 replaces the slash, step 6 strips it) and then failed the document on
-  `entry 'terms' is missing required field 'source'` — an entry the answer never had.
-  The diagnostic pointed at the invented entry instead of at the stray line, and
-  manufacturing data out of markup is what C.5 forbids.
-  - Synced across the three repositories: the specification's C.2.5, its ABNF
-    semantic-constraint block (which reaches a prompt that injects that block), the
-    `cliff.zh-CN` mirrors of both, the Python parser
-    (`_marker_begins_with_identifier`, with the same test for a group path's first
-    segment), the parser's README table, and this suite.
-  - New fixture `tests/fixtures/tolerant/closing-tag.zh-CN.cliff`, listed in
-    `UNREPAIRABLE`: refused in both readings, strict reporting `invalid entry id
-    '/terms'` and tolerant reporting that the line is neither a field, a section nor
-    an entry marker. `tests/clarion/test_read_modes.py` asserts both halves — refused,
-    and **no entry produced**. `cliff-python` gained three tests covering the same
-    boundary plus the two cases that must keep working (`<  resolution  >` still
-    normalizes; an empty marker still takes C.3's fallback name).
-  - **No validity number changed.** Re-reading the stored answers of the three cells
-    that carried markup gives exactly the same rates (43/48, 45/48, 44/48): those
-    answers really do contain an invalid line, and now they fail *at it*.
-  - The published repair counts did change, because the reading no longer reports a
-    repair for a line it rejects: the two-readings table of the recorded run 6a5259
-    moves from 3 to 2 repairs in the bare arm (0.04 per answer) and from 6 to 4 in
-    the context arm, with both validity rates unchanged. `tests/test_compare_readings_tool.py`
-    carries the reason next to the numbers.
-  - The prompt-cost table moved with the specification text: the digest-style cell is
-    **21 373** tokens (was 21 092, the ABNF constraint block grew), the per-cell
-    saving from the example-driven style is **18 963** (was 18 682, so 75 852 over
-    the four pilot files), and the compressed `spec` block is **2 834** (was 2 700).
-
 ### Fixed
 
 - **Two rules the specification compression had dropped, found from failures and
-  from a measurement that had silently stopped happening. With `reasoning: low` and
-  both fixed, the CLIFF cell is clean for the first time: 16/16 valid.**
+  from a measurement that had silently stopped happening.**
   - **The escape rule was only implied.** The `spec` style stated the escape set
     only as the grammar's `double-escape` production. Two answers failed on exactly
-    that, and the character-level read is unambiguous: an 801-character
-    classical-Chinese `source` value in which the model escaped two of the three
-    inner ASCII quotes and missed the third (the same value also carries CJK curly
-    quotes, which take no backslash), and a 933-character `target` in which it
-    escaped none of two. A 136-token paragraph now states the escape set and the
-    curly-quote case; in the next run the `sanguo` answer was valid and the
-    `hongloumeng` answer parsed, and no answer has failed on an escape since.
-    `test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds it.
+    that, and the character-level read is unambiguous: a long classical-Chinese
+    `source` value in which the model escaped two of the three inner ASCII quotes and
+    missed the third (the same value also carries CJK curly quotes, which take no
+    backslash), and a long `target` in which it escaped none of two. A 158-token
+    paragraph now states the escape set and the curly-quote case — and the useful part
+    is *how* it states it: it **names the convention** ("a value is a C-style string
+    literal", five escapes, the whole set) and says the file you were given already
+    spells it that way, rather than listing the escapes for the model to apply.
+    Listing them was what the grammar already did and what the model was already
+    ignoring: the byte-level read of the failing answers showed the model copying a
+    corpus line that already carried `\"` and tidying the backslashes out of it, which
+    a stated convention prevents and a list does not.
+    `test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds both
+    halves.
   - **The glossary lost its trigger and its shape, and the trigger alone is worse
-    than neither.** `glossary emitted` fell from 41/96 in the recorded run to
-    **0/16** when the `spec` style replaced the hand-written workflow blocks: the
-    block stated what a glossary *is* and when one is warranted, and never said this
-    task expects one. The ablation, same cell, one repeat, `reasoning: low`:
-    no trigger 14/16 valid and 0/16 glossaries; **trigger only 5/16 valid** with
-    10/16 answers appending a glossary and **9/16 writing their own separator line**
+    than neither.** `glossary emitted` fell to nothing when the `spec` style replaced
+    the hand-written workflow blocks: the block stated what a glossary *is* and when
+    one is warranted, and never said this task expects one. The ablation, same cell,
+    one repeat, `reasoning: low`, is the finding: with the trigger added back but no
+    shape, answers appended a glossary **and invented their own separator line**
     (`===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY (variant: glossary) =====` and two
-    other spellings), which the parser reads as an invalid field name and which
-    fails the whole answer, instruction % 22, chrF++ 15.5; trigger plus the shape of
-    13.2.1 plus the two-document boundary of 13.2.2 14/16 valid and 0 banners; the
-    same, stated affirmatively, **16/16 valid**.
+    other spellings), which the parser reads as an invalid field name and which fails
+    the whole answer — so stating the deliverable without stating how a second
+    document is recognised made the cell *worse* than saying nothing. Trigger plus the
+    shape of 13.2.1 plus the two-document boundary of 13.2.2 fixed it. Both halves are
+    now in the specification block, and the ablation's run directories are pruned.
   - The boundary statement had to be phrased affirmatively too: the first version
     read *"no heading, no separator, no line of explanation"*, which names the
-    banner it was meant to prevent. The affirmative version is the one that scored
-    16/16, and `test_the_two_document_boundary_is_stated_where_the_glossary_is`
-    rejects the prohibitions.
-  - The compressed block is now **2 568 tokens** (from 2 252), still a 6.5x
-    compression of the 16 656-token specification text, and the design document
-    carries the decomposition and the ablation table.
+    banner it was meant to prevent.
+    `test_the_two_document_boundary_is_stated_where_the_glossary_is` rejects the
+    prohibitions.
+  - The compressed block is **2 925 tokens** against the 16 803-token specification
+    text, and the design document carries the decomposition and the ablation table.
 - **The Fisher exact test in the prompt-analysis scripts was wrong, and three
   published p-values were corrected.** `clarion.metrics.stats` had bootstrap,
   permutation, McNemar and Wilson but no Fisher test, so the two working-copy
   analysis scripts carried their own - and its combinatorial helper ignored the
   table it was asked for, returning the *observed* table's probability for every
   candidate table. The p-value was therefore that probability summed once per
-  table with the same margins, capped at 1: for 9/48 against 0/48 (invented-key
-  failures, 48 edits per condition) it reported **0.0129** where the answer is
-  **0.0026**, and it could never report anything below that product - so it could
+  table with the same margins, capped at 1: for the invented-key table (48 edits per
+  condition) it reported **0.0129** where the exact answer is **0.0026**, and it could
+  never report anything below that product - so it could
   only ever *understate* a difference, never invent one.
   - `fisher_exact` now lives in `clarion/metrics/stats.py`, next to the other
     exact tests, is enumerated over `fractions.Fraction` probabilities (exact, no
@@ -691,8 +644,8 @@ fixture still passes, and the checks below answer the 1.1 questions.
     times the table count.
   - Corrected in place: `docs/clarion-prompt-design.md` (the invented-key
     comparison, 0.0129 → **0.0026**; and the prompt pilot's per-file claim, which
-    now quotes the two real values, 1.0000 over all files and 0.7319 for the worst
-    file, instead of a saturated "1.000 throughout"),
+    quotes the worst file's corrected value, **0.7319**, pinned in
+    `tests/clarion/test_stats.py`, instead of a saturated "1.000 throughout"),
     `docs/clarion-methodology.md` and `docs/acceptance-criteria.md` (0.0129 →
     0.0026). Every affected conclusion survives and one gets stronger: the
     corrected p is smaller than the published one, so a "no difference" claim that
@@ -736,30 +689,30 @@ fixture still passes, and the checks below answer the 1.1 questions.
   built its own `CompletionRequest` with a hard-coded `temperature=0.0`, and
   `build_provider` never passes a temperature to the provider at all, so
   `provider.temperature` reached the wire only through the translation path. Two
-  consequences: **every D7 number published so far is a 0.0 number**, including the
-  rows labelled as the deployment settings, and `d7_pilot.py --temperature 1.3`
-  was a no-op that changed a `ProviderConfig` field nothing reads. The controlled
-  CLIFF comparison survives (both its columns are the same model, the same `ui`
-  stratum, the same 12 edits and an unedited `EDIT_SYSTEM`, so only the prompt
-  differed), but no claim about D7 at 1.3 was ever supported, and a 1.3
-  measurement is now owed. The temperature is a parameter of `run_robustness`,
-  forwarded from the configuration, and
-  `tests/clarion/test_edit_request.py` fails with `{0.0} == {1.3}` if the
-  forward is dropped. Related corrections recorded in
+  consequences: **every D7 number published before this fix is a 0.0 number**,
+  including the rows labelled as the deployment settings, and `d7_pilot.py
+  --temperature 1.3` was a no-op that changed a `ProviderConfig` field nothing reads.
+  The controlled CLIFF comparison survives (both its columns are the same model, the
+  same `ui` stratum, the same 12 edits and an unedited `EDIT_SYSTEM`, so only the
+  prompt differed), but no claim about D7 at the shipped decoder settings was ever
+  supported by those runs, and that measurement is now made by the final run at the
+  head of this file. The temperature is a parameter of `run_robustness`, forwarded
+  from the configuration, and `tests/clarion/test_edit_request.py` fails with
+  `{0.0} == {1.3}` if the forward is dropped. Related corrections recorded in
   [docs/clarion-prompt-design.md](docs/clarion-prompt-design.md): the D7 pilot
-  table's "temperature 1.3" heading, the "re-run at the shipped settings"
-  section, and the attribution of the XLIFF row — the 100.0 % it was compared
-  against belongs to the frozen `deepseek-v4-flash` benchmark, not to this model,
-  whose same-run baseline is 57.1 %, so that difference is a model change rather
-  than a temperature or prompt effect.
+  table's "temperature 1.3" heading, the "re-run at the shipped settings" section,
+  and the attribution of the XLIFF row — the 100.0 % it was compared against belongs
+  to an earlier benchmark run on a different model, not to this one, so that difference
+  is a model change rather than a temperature or prompt effect.
 - **The published repair attribution for D7 counted re-counts as repairs.** A
   record's repair count is the count for the whole document at that step, and the
   answer text carries forward, so one deviation is counted again by every later
-  step: the six CLIFF context cells sum to 44 per-step repair counts but the model
-  introduced only **6** (`add-reference` 4, `set-emotion` 2). Attributing the sum
-  per operation charged early operations for deviations introduced later.
-  `.tools/d7_audit.py` now prints both figures and warns if the counts are not
-  monotone within a cell.
+  step: the per-step repair counts across the CLIFF context cells summed to many
+  times the number of repairs the model actually introduced (the two operations that
+  create a field not already on the page, `add-reference` and `set-emotion`).
+  Attributing the sum per operation charged early operations for deviations
+  introduced later. `.tools/d7_audit.py` now prints both figures and warns if the
+  counts are not monotone within a cell.
 - **`clarion/experiments/robustness.py` annotated `answer_dir` with `Path`
   without importing it.** It survived only because
   `from __future__ import annotations` defers evaluation; ruff's F821 reports it
@@ -790,8 +743,9 @@ fixture still passes, and the checks below answer the 1.1 questions.
   document now matches the implementation.
 - Stale corpus figures in the README, the acceptance criteria and the
   methodology (6 files / 111 entries from version 0.1.0) replaced with the
-  measured 16 files / 392 entries of 0.3.0, and the published
-  `results/clarion-core-tokens.md` regenerated.
+  measured 16 files / 392 entries of 0.3.0. The token table the README cites is
+  printed by `python -m clarion tokens` rather than linked, because `results/` is
+  gitignored and a link into it is a dead link in every fresh clone.
 
 ### Moved
 

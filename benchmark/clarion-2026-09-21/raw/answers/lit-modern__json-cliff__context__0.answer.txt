@@ -1,0 +1,148 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "lit-modern",
+    "source-language": "en-US",
+    "target-language": "zh-CN",
+    "title": "Modern literary stratum - narration, dialogue, monologue, description",
+    "info": "Original modern literary English composed for CLARION, rendered into literary Chinese that preserves voice, rhythm, point of view and the recurring wind-bell motif.",
+    "standard": "Preserve each character's voice and the narrator's point of view. Localize idioms rather than translating them literally. Render the recurring motif consistently. Dialogue must read as natural spoken Chinese, not stiff written prose."
+  },
+  "groups": [
+    {
+      "path": "narration",
+      "context": "A long narrative paragraph that opens a fictional harbour-town story and introduces the recurring wind-bell motif.",
+      "type": "narration",
+      "entries": [
+        {
+          "id": "narration-open",
+          "source": "The town had kept its old manners longer than it kept its money. At the end of every workday Maren walked the harbour road the way a clock walks its dial, and each evening the last thing she heard before the dark came down was the tin wind-bell over the chandler's door, telling the street that the tide had turned and that the world, for a little while, would go on without her. She did not hurry. The salt worked its way into everything she owned, and she had stopped minding it years ago.",
+          "target": "这座小镇守住旧日礼数的年头，比它守住钱财的年头更久。每逢工作日结束，玛伦便沿海港路走，像钟表走完自己的表盘；每天傍晚，黑暗落下之前，她听见的最后一个声音，是船具铺门上那只锡风铃。它告诉整条街：潮水已经转向，而这个世界，暂时还会没有她，也照样走下去。她不慌不忙。盐一点点渗进她拥有的每一件东西，而她多年前就不再在意了。",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "narration-memory",
+          "source": "Of all the things the town let slip into the sea, the sound of that bell was the one thing it kept onshore. Men forgot their own birthdays and the names of ships they had crewed, but every one of them could tell you what the wind was doing the last time the bell rang plain.",
+          "target": "小镇任许多东西滑进海里，可那铃的声音，是它唯一留在岸上的东西。男人们会忘记自己的生日，忘记自己当船员时待过的船名，可他们每一个人都说得上来，那铃最后一次响得清亮时，风在做什么。",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "dialogue",
+      "context": "An exchange at the harbour wall between Maren and the taciturn ferryman Sol; the two voices must stay distinct.",
+      "type": "dialogue",
+      "entries": [
+        {
+          "id": "dialogue-wall",
+          "source": "\"Wind's back,\" said Sol. \"Didn't figure you'd be out.\" \"I couldn't sleep,\" Maren said. \"The bell again?\" \"The bell.\" Sol folded his arms. \"Folks round here reckon a wind-bell don't ring for the wind. It rings for what the wind forgot.\" \"That's the whole of it,\" Maren said. \"You sleep any better for knowing?\" \"I know the letter F in better, and that's the whole of it,\" said Sol.",
+          "target": "“风又回来了，”索尔说。“没想到你会出来。”\n“我睡不着，”玛伦说。\n“又是那风铃？”\n“那风铃。”\n索尔抱起胳膊。“这一带的人都说，风铃不是为风响的。它是为风忘掉的东西响的。”\n“就是这么回事，”玛伦说。“知道了这个，你睡得好些了吗？”\n“字面意思我比别人清楚，就这么回事，”索尔说。",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "dialogue-breakfast",
+          "source": "\"You'd keep the bell if the sea gave it back,\" Sol said one morning. \"Wouldn't you?\" \"I'd hang it where it hangs now,\" Maren said. \"Then what's all the listening for?\" \"To be sure it's still there.\" Sol shook his head. \"It'll be there after both of us,\" he said, \"and it won't miss us.\" \"I know.\" \"Then you know more than most.\" \"I know the listening, anyway.\" \"That's not the same thing.\" \"It's close enough,\" Maren said. \"It's close enough for me.\"",
+          "target": "“要是海把它还回来，你会留下那风铃的，”一天早晨，索尔说。“对吧？”\n“我会把它挂回现在挂着的地方，”玛伦说。\n“那你听来听去，是图什么？”\n“就为确认它还在那儿。”\n索尔摇摇头。“等我们两个都没了，它还会在那儿，”他说，“它不会惦记我们。”\n“我知道。”\n“那你比多数人知道得多。”\n“至少，我懂的是听。”\n“那不是一回事。”\n“也差不离了，”玛伦说。“对我来说，差不离就够了。”",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "monologue",
+      "context": "Maren's interior monologue after the ferryman leaves; point of view and first-person rhythm must survive.",
+      "type": "monologue",
+      "entries": [
+        {
+          "id": "monologue-tide",
+          "source": "I never knew whether the bell was a comfort or a reproach. It rang in the same key as my mother's name, the way the tide writes the same line on the sand and then rubs it out. I wanted to keep the sound, the way a child keeps a stone, but a sound has no pocket to be kept in, and so I keep it in my chest and pretend it does not weigh anything.",
+          "target": "我一直不知道，那铃是安慰，还是责备。它响起来的调子，跟我母亲的名字是同一个调门，就像潮水在沙上写下同一道线，又把它抹掉。我想留住那声音，像孩子留住一块石头；可声音没有口袋可装，于是我把它收在胸口，装作它没有重量。",
+          "emotion": [
+            "nostalgic",
+            "sad"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "monologue-stone",
+          "source": "The stone I kept as a girl is still under the floorboard where I left it, and if the house burned I would not grieve for the stone. But the bell is not kept anywhere; it is only heard, and a heard thing has to be heard again or it was never there at all. I keep going back, then, not to keep the bell, but to keep the hearing of it.",
+          "target": "我小时候收着的那块石头，还在我当初放下的那块地板下面。就算房子烧了，我也不会为那块石头伤心。可那铃不存放在任何地方；它只是被听见，而一个被听见的东西，必须再一次被听见，否则它就从未存在过。于是我一次次回去，不是为了留住那铃，而是为了留住听见它的那回事。",
+          "emotion": [
+            "nostalgic",
+            "sad"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "description",
+      "context": "Scene-setting at dusk before the final exchange; establishes light, weather and the wind-bell motif.",
+      "type": "description",
+      "entries": [
+        {
+          "id": "description-dusk",
+          "source": "The harbour light turned the water to hammered brass, and one late gull stood on a piling like a man waiting for a letter. Rain hung offshore in a grey curtain that never quite reached the quay. Somewhere a kettle was coming to the boil, and over it all the tin bell swung in the warm wind and rang a single clear note, as if the evening had been waiting to be struck.",
+          "target": "海港的夕光把水面染成锤打过的黄铜，一只迟归的海鸥立在木桩上，像个等信的人。雨悬在外海，像一幅灰幕，始终没有真正够到码头。不知哪里有一只水壶正要烧开；在这一切之上，那只锡铃在暖风里摇荡，敲出一声清越的音，仿佛整个傍晚一直在等着被敲响。",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "description-lamplighter",
+          "source": "The lamplighter worked the length of the quay with his long pole, and each lamp he touched woke as if it had only been waiting to be remembered. When he came abreast of the chandler's shop the tin bell caught the lamplight and threw it across the water, and for a moment the whole harbour seemed to hang from that one small, swinging note.",
+          "target": "点灯人拿着长杆，沿码头一路点过去；他碰到的每一盏灯都醒过来，仿佛一直只是在等着被人记起。当他走到船具铺正对面，锡铃接住灯光，把它抛过水面；有那么一瞬，整个海港仿佛都悬在那一声细小、摇摆的铃音上。",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        },
+        {
+          "id": "description-rain",
+          "source": "By the time the last light was lit the wind had swung to the north, and the grey curtain offshore began to move. It crossed the bar slowly, a whole wall of weather leaning toward the town, and the first drops struck the quay one by one, each one a small cold hand laid on the stone. The bell rang on in the dark, and the rain answered it.",
+          "target": "最后一盏灯亮起时，风已经转向北边，海外的灰幕开始移动。它缓缓越过沙洲，像一整堵天气之墙朝小镇倾来；最初的雨点一颗一颗打在码头上，每一颗都像一只冰冷的小手按在石头上。铃在黑暗里继续响着，雨应和着它。",
+          "emotion": [
+            "nostalgic",
+            "calm"
+          ],
+          "status": "initial"
+        }
+      ]
+    },
+    {
+      "path": "closing",
+      "context": "The story's final line, spoken over the harbour; the motif resolves and the register stays plain.",
+      "type": "sentence",
+      "entries": [
+        {
+          "id": "closing-line",
+          "source": "The tide keeps nothing, and forgets nothing.",
+          "target": "潮水什么也不留下，什么也不忘记。",
+          "emotion": [
+            "calm",
+            "serious"
+          ],
+          "status": "initial"
+        }
+      ]
+    }
+  ]
+}

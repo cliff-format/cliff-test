@@ -1,0 +1,77 @@
+Here is the translated file, complete and with its structure intact:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Scratch tables-->
+    <string name="nav-scratch-tables">暂存表</string>
+    <!--cliff:source: Quarry-->
+    <string name="mode-01a">采石场</string>
+    <!--cliff:source: Quarry-->
+    <string name="mode-01b">采石场</string>
+    <!--cliff:source: Volume-->
+    <string name="term-02a">数据量</string>
+    <!--cliff:source: Volume-->
+    <string name="term-02b">数据量</string>
+    <!--cliff:source: Scale-->
+    <string name="term-03a">规模</string>
+    <!--cliff:source: Scale-->
+    <string name="term-03b">规模</string>
+    <!--cliff:source: Refresh the sample-->
+    <string name="mode-04a">刷新样本</string>
+    <!--cliff:source: Refresh the sample-->
+    <string name="mode-04b">刷新样本</string>
+    <!--cliff:source: Save the current view as a preset-->
+    <string name="slot-05a">将当前视图保存为预设</string>
+    <!--cliff:source: Save the current view as a preset-->
+    <string name="slot-05b">将当前视图保存为预设</string>
+    <!--cliff:source: Compare with the previous run-->
+    <string name="slot-06a">与上一次运行比较</string>
+    <!--cliff:source: Compare with the previous run-->
+    <string name="slot-06b">与上一次运行比较</string>
+    <!--cliff:source: Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.-->
+    <string name="note-step-order">第 3 步会设置行数上限，因此在至少运行过一次第 2 步之前，不要调高该上限。</string>
+    <!--cliff:source: {rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}-->
+    <string name="msg-row-count">{rows, plural, one {已将 # 行复制到暂存表} other {已将 # 行复制到暂存表}}</string>
+    <!--cliff:source: {state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}-->
+    <string name="msg-table-state">{state, select, ready {暂存表已就绪} building {正在构建暂存表} other {暂存表创建失败}}</string>
+    <!--cliff:source: Welcome back, {name}. Your last run took 12 minutes.-->
+    <string name="msg-welcome-back">欢迎回来，{name}。上次运行耗时 12 分钟。</string>
+    <!--cliff:source: {state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}-->
+    <string name="msg-job-outcome">{state, select, running {任务仍在运行} done {任务已完成} failed {任务已失败} other {任务状态未知}}</string>
+    <!--cliff:source: The scratch table could not be created because the sample is still loading.-->
+    <string name="msg-sample-loading">无法创建暂存表，因为样本仍在加载中。</string>
+    <!--cliff:source: Nothing is pinned to this board yet. Open a chart and pin it here.-->
+    <string name="msg-board-empty">此看板上还没有固定任何内容。打开一个图表并将其固定到这里。</string>
+    <!--cliff:source: Chart updated-->
+    <string name="cue-chart-updated">图表已更新</string>
+    <!--cliff:source: A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.-->
+    <string name="help-scratch-table">暂存表是你自己的结果集副本。它只存在于当前浏览器标签页中，绝不会与团队共享，并且在你退出登录时会被丢弃。</string>
+    <!--cliff:source: Empty it before you leave the page, or the next run starts from rows that are already stale.-->
+    <string name="help-empty-before-run">离开此页面前请先清空它，否则下一次运行会从已经过时的数据行开始。</string>
+    <!--cliff:source: Once it is pinned, the chart stays on the board until someone takes it down.-->
+    <string name="help-board-pin">图表一旦被固定，就会一直留在看板上，直到有人将其移除。</string>
+    <!--cliff:source: Press the up and down arrows to move through the rows without taking your hands off the keyboard.-->
+    <string name="help-keyboard-rows">按上、下方向键即可在数据行之间移动，双手无需离开键盘。</string>
+    <!--cliff:source: A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.-->
+    <string name="help-archive">一个月未打开的图表会自动移到归档页面。不会删除任何内容，再次打开即可将其恢复。</string>
+    <!--cliff:source: New charts open with the default time window until you pin one of your own.-->
+    <string name="set-time-window">新图表打开时使用默认时间窗口，直到你固定自己的时间窗口。</string>
+    <!--cliff:source: Charts are exported at the screen resolution, or at 2x for print.-->
+    <string name="set-export-resolution">图表按屏幕分辨率导出，用于打印时则按 2 倍分辨率导出。</string>
+    <!--cliff:source: Charts read from the cache first, which keeps latency under half a second on a normal connection.-->
+    <string name="set-cache-latency">图表优先从缓存读取，这使正常网络连接下的延迟保持在半秒以内。</string>
+    <!--cliff:source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.-->
+    <string name="set-throughput">吞吐量约为每秒 1,200 行，集群会在内存中保留其中的 30 GB。</string>
+    <!--cliff:source: Scratch tables are kept for 7 days and are then removed without a warning.-->
+    <string name="set-retention">暂存表保留 7 天，之后会在没有任何提示的情况下被删除。</string>
+    <!--cliff:source: Times on this page follow the workspace time zone, not the time zone of your browser.-->
+    <string name="set-timezone">本页面上的时间遵循工作区时区，而不是你的浏览器时区。</string>
+</resources>
+```
+
+Translation notes:
+- **暂存表** is used consistently for "scratch table" (a personal, disposable copy of a result set), and **看板** for "board" with **固定** for "pin".
+- ICU MessageFormat constructs are preserved character for character, including the `{rows, plural, ...}` and `{state, select, ...}` blocks and the `{name}` placeholder, with only the human-readable text inside each branch translated (both plural branches carry the same Chinese wording, as zh-CN has no plural inflection).
+- Terminology follows project rules: 默认 (not 缺省), 缓存 (not 高速缓存), 延迟 (not 时延), 吞吐量 (not 吞吐率), 分辨率 (not 解析度).
+- No apostrophe escaping was needed: no translated string contains a straight apostrophe.

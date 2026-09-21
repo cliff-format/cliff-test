@@ -1,0 +1,42 @@
+{
+  "emotion": {
+    "reading": {
+      "probe-01a": "哦，那可真是太好了。",
+      "probe-01b": "哦，那可真是太好了。",
+      "probe-02a": "您先请。",
+      "probe-02b": "您先请。",
+      "probe-03a": "好吧，又来了。",
+      "probe-03b": "好吧，又来了。",
+      "probe-04a": "放轻松。",
+      "probe-04b": "放轻松。"
+    }
+  },
+  "type": {
+    "register": {
+      "probe-05a": "保存",
+      "probe-05b": "保存",
+      "probe-06a": "锻造",
+      "probe-06b": "锻造",
+      "probe-07a": "祝你好运！",
+      "probe-07b": "祝你好运！"
+    }
+  },
+  "context": {
+    "referent": {
+      "probe-08a": "评分",
+      "probe-08b": "评分",
+      "probe-09a": "封印",
+      "probe-09b": "封印",
+      "probe-10a": "它无法启动。",
+      "probe-10b": "它无法启动。"
+    }
+  },
+  "width": {
+    "budget": {
+      "probe-11a": "恢复默认设置",
+      "probe-11b": "恢复默认设置",
+      "probe-12a": "查看常见问题",
+      "probe-12b": "查看常见问题"
+    }
+  }
+}

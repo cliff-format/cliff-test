@@ -1,0 +1,306 @@
+CLIFF 1.1
+namespace: clarion
+clan: ui-console
+source-language: en-US
+target-language: zh-CN
+title: "Harborline Console interface strings"
+info: "Developer-facing control panel of the Harborline cloud streaming product, for product engineers operating workspaces, billing and live streams."
+standard: "Follow the zh-CN house style: one space between Han text and Latin or digits, fullwidth punctuation inside Han sentences, and no textbook jargon. UI labels are short, fit their width budget, and never end with a full stop."
+dependency: ["ui-console-terms.zh-CN.cliff"]
+
+[nav]
+context: "Primary navigation links in the Harborline Console sidebar."
+type: label
+emotion: [objective]
+
+<billing>
+source: "Billing"
+target: "账单"
+status: initial
+context: "Sidebar link that opens the invoice and payment screen."
+
+<streaming>
+source: "Streaming"
+target: "直播"
+status: initial
+context: "Sidebar link that opens the live stream management screen."
+
+<workspaces>
+source: "Workspaces"
+target: "工作区"
+status: initial
+context: "Sidebar link that lists the user's isolated project environments."
+
+[billing]
+context: "Billing screen: invoices, rates and usage totals."
+type: label
+emotion: [objective]
+
+<billing-rate>
+source: "Billing rate"
+target: "计费费率"
+status: initial
+context: "Column header in the invoice summary; the price charged per gigabyte."
+
+<no-invoices>
+source: "No invoices yet"
+target: "暂无账单"
+type: sentence
+status: initial
+context: "Empty state shown when the account has never generated an invoice."
+
+<payment-failed>
+source: "Payment failed"
+target: "支付失败"
+type: sentence
+status: initial
+context: "Error toast after a rejected card charge."
+
+[streaming]
+context: "Live stream management screen: sources, keys and quality settings."
+type: label
+emotion: [objective]
+
+<stream-key>
+source: "Stream key"
+target: "直播密钥"
+status: initial
+context: "Field that shows the secret value the encoder sends with the live stream."
+
+<frame-rate>
+source: "Frame rate"
+target: "帧率"
+status: initial
+context: "Label beside the frames-per-second selector on the quality panel."
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: initial
+context: "Dropdown label above the output resolution list."
+
+<add-to-workspace>
+source: "Add to workspace"
+target: "加入工作区"
+status: initial
+context: "Menu action that attaches the selected stream to a project environment."
+max-width: 10
+
+<stream-failed>
+source: "Stream failed to start"
+target: "直播启动失败"
+type: sentence
+status: initial
+context: "Error toast when the encoder cannot establish the live stream."
+
+<stream-summary>
+source: "{count, plural, other {# streams}} across {regions, plural, other {# regions}}"
+target: "{count, plural, other {# 条直播}}，覆盖 {regions, plural, other {# 个区域}}"
+type: sentence
+status: initial
+context: "Summary line under the stream list showing how many streams run in how many regions."
+
+[settings]
+context: "Workspace settings page: region, network and cache options."
+type: label
+emotion: [objective]
+
+<restore-defaults>
+source: "Restore defaults"
+target: "恢复默认"
+status: initial
+context: "Button that resets every option on this page to its initial value."
+max-width: 8
+
+<clear-cache>
+source: "Clear cache"
+target: "清除缓存"
+status: initial
+context: "Button that empties the stored responses so the next request reaches the origin."
+
+<latency>
+source: "Latency"
+target: "延迟"
+status: initial
+context: "Tooltip over the latency badge; the round-trip time in milliseconds."
+
+<api-token>
+source: "API token"
+target: "API Token"
+status: initial
+context: "Label of the credential field used to authenticate programmatic calls."
+
+<request-rate-limit>
+source: "Request rate limit"
+target: "请求限速"
+status: initial
+context: "Field in the throttling section; the maximum requests allowed per second."
+max-width: 8
+
+<status-line>
+source: "Region: %s"
+target: "区域：%s"
+type: sentence
+status: initial
+context: "Status line at the top of the page showing the currently selected region name."
+
+<cache-description>
+source: "Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin."
+target: "缓存响应会保留 24 小时，并在过期前继续直接返回。清除缓存后，每个请求都会重新回到源站。"
+type: description
+status: initial
+context: "Explanatory paragraph under the cache options heading."
+
+[onboarding]
+context: "First-run onboarding and workspace management dialogs."
+type: label
+emotion: [objective]
+
+<create-workspace>
+source: "Create new workspace"
+target: "新建工作区"
+status: initial
+context: "Primary button on the onboarding screen that opens the workspace creation flow."
+max-width: 10
+
+<welcome-back>
+source: "Welcome back to Harborline, {name}"
+target: "欢迎回到 Harborline，{name}"
+type: prompt
+emotion: [polite]
+status: initial
+context: "Greeting heading shown after sign-in, with the account holder's display name."
+
+<workspace-count>
+source: "{count, plural, one {# workspace} other {# workspaces}}"
+target: "{count, plural, one {# 个工作区} other {# 个工作区}}"
+type: sentence
+status: initial
+context: "Caption under the workspace list that reports the total number of project environments."
+
+<delete-confirm>
+source: "Delete this workspace? This cannot be undone."
+target: "删除此工作区？此操作无法撤销。"
+type: sentence
+emotion: [serious]
+status: initial
+context: "Confirmation dialog shown before permanently removing a project environment."
+
+<close-dialog>
+source: "Close dialog"
+target: "关闭对话框"
+type: accessibility-cue
+status: initial
+context: "Screen-reader cue announcing the action bound to the Escape key."
+
+CLIFF 1.1
+namespace: clarion
+clan: ui-console-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "Harborline Console terminology"
+info: "Term decisions made while translating the Harborline Console interface strings into zh-CN; the renderings recorded here are the ones used in ui-console.zh-CN.cliff."
+
+[terms]
+context: "Terminology for the Harborline Console interface."
+type: noun
+emotion: [objective]
+
+<workspace>
+source: "Workspace"
+target: "工作区"
+type: noun
+status: final
+context: "Isolated project environment; used for the sidebar link, the list caption and every workspace-related action."
+
+<streaming>
+source: "Streaming"
+target: "直播"
+type: noun
+status: final
+context: "Live stream management; kept as 直播 everywhere instead of 串流 or 推流, to stay plain and short."
+
+<stream-key>
+source: "Stream key"
+target: "直播密钥"
+type: noun
+status: final
+context: "Secret value the encoder sends; 直播 matches the section term and 密钥 marks it as a credential."
+
+<billing>
+source: "Billing"
+target: "账单"
+type: noun
+status: final
+context: "The screen opens invoices and payment, so 账单 fits the invoice summary better than 计费."
+
+<billing-rate>
+source: "Billing rate"
+target: "计费费率"
+type: noun
+status: final
+context: "Price charged per gigabyte; 费率 is the rate, 计费 keeps it apart from the 账单 screen name."
+
+<frame-rate>
+source: "Frame rate"
+target: "帧率"
+type: noun
+status: final
+context: "Frames per second selector; 帧率 is the standard rendering in Chinese video tooling."
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+type: noun
+status: final
+context: "Project rule; 解析度 is not used."
+
+<latency>
+source: "Latency"
+target: "延迟"
+type: noun
+status: final
+context: "Round-trip time in milliseconds; project rule keeps 延迟 and rejects 时延."
+
+<cache>
+source: "Cache"
+target: "缓存"
+type: noun
+status: final
+context: "Stored responses; project rule keeps 缓存 and rejects 高速缓存."
+
+<token>
+source: "Token"
+target: "Token"
+type: noun
+status: final
+context: "Credential sent with programmatic calls; kept in Latin script per the project rule, so API token renders as API Token."
+
+<region>
+source: "Region"
+target: "区域"
+type: noun
+status: final
+context: "Geographic deployment unit shown in the status line and in the stream summary."
+
+<origin>
+source: "Origin"
+target: "源站"
+type: noun
+status: final
+context: "The upstream source a request reaches once the cache is cleared; 源站 is the standard content-delivery term."
+
+<request-rate-limit>
+source: "Request rate limit"
+target: "请求限速"
+type: noun
+status: final
+context: "Throttling field with a 8-cell budget; the four-character form fits while naming both the request and the limit."
+
+<restore-defaults>
+source: "Restore defaults"
+target: "恢复默认"
+type: fixed-phrase
+status: final
+context: "Reset button with a 8-cell budget; 恢复默认 fits exactly, 恢复默认值 would overflow."

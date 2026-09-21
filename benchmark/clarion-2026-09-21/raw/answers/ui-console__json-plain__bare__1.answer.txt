@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "billing": "计费",
+    "streaming": "直播",
+    "workspaces": "工作区"
+  },
+  "billing": {
+    "billing-rate": "计费费率",
+    "no-invoices": "暂无发票",
+    "payment-failed": "支付失败"
+  },
+  "streaming": {
+    "stream-key": "直播密钥",
+    "frame-rate": "帧率",
+    "resolution": "分辨率",
+    "add-to-workspace": "添加到工作区",
+    "stream-failed": "直播启动失败",
+    "stream-summary": "{count, plural, other {# 个直播流}}，覆盖 {regions, plural, other {# 个区域}}"
+  },
+  "settings": {
+    "restore-defaults": "恢复默认值",
+    "clear-cache": "清除缓存",
+    "latency": "延迟",
+    "api-token": "API Token",
+    "request-rate-limit": "请求速率限制",
+    "status-line": "区域：%s",
+    "cache-description": "缓存响应会保留 24 小时，并在过期前持续返回。清除缓存可将每个请求重新发送回源站。"
+  },
+  "onboarding": {
+    "create-workspace": "新建工作区",
+    "welcome-back": "欢迎回到 Harborline，{name}",
+    "workspace-count": "{count, plural, one {# 个工作区} other {# 个工作区}}",
+    "delete-confirm": "要删除此工作区吗？此操作无法撤销。",
+    "close-dialog": "关闭对话框"
+  }
+}

@@ -1,0 +1,190 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an iOS Localizable.strings resource of "key" = "value"; lines.
+Replace every value with its translation and keep every key and comment.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* The empty auditorium an hour before the final performance. A single work lamp is lit. Opening stage direction of the scene; sets the empty theatre before anyone speaks.
+cliff:source: The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.
+cliff:type: description
+cliff:emotion: calm
+cliff:status: initial */
+"open-house-lights" = "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.";
+/* The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian speaks his first line as he walks in from the wings after ten years away.
+cliff:source: I could find this stage in my sleep.
+cliff:type: dialogue
+cliff:emotion: nostalgic|calm
+cliff:status: initial */
+"enter-cassian" = "I could find this stage in my sleep.";
+/* The empty auditorium an hour before the final performance. A single work lamp is lit. Odette says this when she is genuinely glad to see him; she has hoped for this for years.
+cliff:source: You came back.
+cliff:type: dialogue
+cliff:emotion: joyful|grateful
+cliff:status: initial */
+"lit-01a" = "You came back.";
+/* The empty auditorium an hour before the final performance. A single work lamp is lit. The same words later in the scene, said as a reproach after he admits why he left.
+cliff:source: You came back.
+cliff:type: dialogue
+cliff:emotion: angry|sad
+cliff:status: initial */
+"lit-01b" = "You came back.";
+/* The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian deflects with a small joke about the backstage notice board.
+cliff:source: The call board still has my name spelled wrong.
+cliff:type: dialogue
+cliff:emotion: playful
+cliff:status: initial */
+"reply-cassian" = "The call board still has my name spelled wrong.";
+/* They circle the argument they have avoided for ten years. Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry.
+cliff:source: This theatre kept its promises. People did not.
+cliff:type: dialogue
+cliff:emotion: serious|sad
+cliff:status: initial */
+"motif-promise" = "This theatre kept its promises. People did not.";
+/* They circle the argument they have avoided for ten years. Said when the missing lighting board key is finally found; she means it.
+cliff:source: Wonderful. Just wonderful.
+cliff:type: dialogue
+cliff:emotion: joyful
+cliff:status: initial */
+"lit-02a" = "Wonderful. Just wonderful.";
+/* They circle the argument they have avoided for ten years. The same words after the fuse blows for the second time; bitter irony, not praise.
+cliff:source: Wonderful. Just wonderful.
+cliff:type: dialogue
+cliff:emotion: angry|playful
+cliff:status: initial */
+"lit-02b" = "Wonderful. Just wonderful.";
+/* They circle the argument they have avoided for ten years. Cassian quotes Odette's earlier line back at her; it must read as the same line returning.
+cliff:source: You said the theatre kept its promises.
+cliff:type: dialogue
+cliff:emotion: serious
+cliff:status: initial */
+"callback-promise" = "You said the theatre kept its promises.";
+/* They circle the argument they have avoided for ten years. Early in the scene Odette keeps him at the distance of a surname and a title.
+cliff:source: Mr. Vale, the call is in five minutes.
+cliff:type: dialogue
+cliff:emotion: formal|polite
+cliff:status: initial */
+"address-early" = "Mr. Vale, the call is in five minutes.";
+/* They circle the argument they have avoided for ten years. Late in the scene the distance drops and she uses his given name for the first time.
+cliff:source: Cassian. Please. Sit down.
+cliff:type: dialogue
+cliff:emotion: calm|sad
+cliff:status: initial */
+"address-late" = "Cassian. Please. Sit down.";
+/* They circle the argument they have avoided for ten years. A stage direction: terse narrative register, describing the action for the crew.
+cliff:source: She turns the lamp toward him.
+cliff:type: description
+cliff:emotion: objective
+cliff:status: initial */
+"lit-03a" = "She turns the lamp toward him.";
+/* They circle the argument they have avoided for ten years. A line of dialogue: an actor describing the blocking aloud during a run-through, in speech.
+cliff:source: She turns the lamp toward him.
+cliff:type: dialogue
+cliff:emotion: playful
+cliff:status: initial */
+"lit-03b" = "She turns the lamp toward him.";
+/* Practical talk about the building itself while they avoid each other's eyes. Odette lists what the building needs; the year is a fact and must survive.
+cliff:source: The roof has not been touched since 1974.
+cliff:type: dialogue
+cliff:emotion: neutral
+cliff:status: initial */
+"roof-year" = "The roof has not been touched since 1974.";
+/* Practical talk about the building itself while they avoid each other's eyes. Cassian counts what is still working in the grid.
+cliff:source: Two 500-watt lamps, and a fuse box older than both of us.
+cliff:type: dialogue
+cliff:emotion: neutral
+cliff:status: initial */
+"lamp-count" = "Two 500-watt lamps, and a fuse box older than both of us.";
+/* Practical talk about the building itself while they avoid each other's eyes. The venue name is the company's mark and is used untranslated in all materials.
+cliff:source: The Halloway does not close tonight. It closes when the last person leaves.
+cliff:type: dialogue
+cliff:emotion: neutral
+cliff:status: initial */
+"venue-name" = "The Halloway does not close tonight. It closes when the last person leaves.";
+/* Practical talk about the building itself while they avoid each other's eyes. A technical instruction to the operator about the lighting board.
+cliff:source: Use the default setting on the board and do not touch anything else.
+cliff:type: dialogue
+cliff:emotion: neutral
+cliff:status: initial */
+"board-default" = "Use the default setting on the board and do not touch anything else.";
+/* Practical talk about the building itself while they avoid each other's eyes. Cassian reacts to her telling him the building is already sold.
+cliff:source: Are you serious? Now? After everything?
+cliff:type: dialogue
+cliff:emotion: surprised|angry
+cliff:status: initial */
+"disbelief" = "Are you serious? Now? After everything?";
+/* Odette alone in the work light after Cassian goes to change. The first half of her monologue, alone on stage; long-form literary prose, not conversational.
+cliff:source: I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.
+cliff:type: monologue
+cliff:emotion: nostalgic
+cliff:status: initial */
+"monologue-open" = "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.";
+/* Odette alone in the work light after Cassian goes to change. The turn in the monologue where the comfort collapses.
+cliff:source: And then one night the lights do not come up, and it turns out the building never learned anything at all.
+cliff:type: monologue
+cliff:emotion: nostalgic
+cliff:status: initial */
+"monologue-turn" = "And then one night the lights do not come up, and it turns out the building never learned anything at all.";
+/* The company's traditional closing couplet, spoken to the empty house at the end of a run. First line of the closing couplet; the two lines are parallel in structure and must stay parallel.
+cliff:source: The lamps go dark, the boards remain.
+cliff:type: narration
+cliff:emotion: serious|nostalgic
+cliff:status: initial */
+"verse-01" = "The lamps go dark, the boards remain.";
+/* The company's traditional closing couplet, spoken to the empty house at the end of a run. Second line of the couplet, mirroring the first line word for word in structure.
+cliff:source: The players go, the play remains.
+cliff:type: narration
+cliff:emotion: serious|nostalgic
+cliff:status: initial */
+"verse-02" = "The players go, the play remains.";
+/* The company's traditional closing couplet, spoken to the empty house at the end of a run. The closing stage direction of the scene.
+cliff:source: She reaches up and switches off the work lamp. Darkness, and then the house door closing.
+cliff:type: description
+cliff:emotion: calm
+cliff:status: initial */
+"final-direction" = "She reaches up and switches off the work lamp. Darkness, and then the house door closing.";

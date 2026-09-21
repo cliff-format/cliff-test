@@ -1,0 +1,358 @@
+CLIFF 1.1
+namespace: clarion
+clan: game-quest
+source-language: en-US
+target-language: zh-CN
+
+[quest.brief]
+
+<brief-tide-run>
+source: "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+target: "潮水一天涨落两次，港口也一天两次忘记谁欠了谁。赶在水涨起来之前，把密封货单送到军需官手里，账簿就还能再多诚实一夜。"
+type: sentence
+status: initial
+
+<brief-ninth-light>
+source: "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+target: "九盏灯环着内港的水面。其中八盏由港口公会照看；最后一盏立在一块公会展作没看见的礁石上，而它从未熄灭过一次。"
+type: sentence
+status: initial
+
+<quest-title-last-watch>
+source: "Willow's Last Watch"
+target: "薇洛的最后一班守望"
+type: sentence
+status: initial
+
+<journal-note-order>
+source: "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+target: "马罗会先看货单再开门，所以在目标 1 确认完成之前，目标 2 一直处于锁定状态。"
+type: sentence
+status: initial
+
+<brief-warning-fog>
+source: "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+target: "西边的雾说来就来，毫无预兆。如果你看不见下一盏灯，就停下桨等着：这里的水流有的是耐心，迟早会把你送回栈桥。"
+type: sentence
+status: initial
+
+[quest.objectives]
+
+<objective-03a>
+source: "Deliver the Sealed Manifest to Marrow"
+target: "把密封货单交给马罗"
+type: sentence
+status: initial
+
+<objective-03b>
+source: "Deliver the Sealed Manifest to Marrow"
+target: "把密封货单交给马罗"
+type: sentence
+status: initial
+
+<objective-04a>
+source: "Restore Power to the Tide Gate"
+target: "恢复潮闸的供能"
+type: sentence
+status: initial
+
+<objective-04b>
+source: "Restore Power to the Tide Gate"
+target: "恢复潮闸的供能"
+type: sentence
+status: initial
+
+<objective-relight>
+source: "Relight the Ninth Light before the ebb"
+target: "在退潮前重新点亮第九盏灯"
+type: sentence
+status: initial
+
+<objective-count-crates>
+source: "{secured, plural, one {# crate secured} other {# crates secured}}"
+target: "{secured, plural, one {已固定 # 个木箱} other {已固定 # 个木箱}}"
+type: sentence
+status: initial
+
+<objective-check-lines>
+source: "Check the mooring lines on the east pier"
+target: "检查东侧栈桥的系泊缆绳"
+type: sentence
+status: initial
+
+[quest.dialogue]
+
+<hail-01a>
+source: "Hand me the lantern, friend."
+target: "把提灯递给我，朋友。"
+type: sentence
+status: initial
+
+<hail-01b>
+source: "Hand me the lantern, friend."
+target: "把提灯递给我，朋友。"
+type: sentence
+status: initial
+
+<hail-02a>
+source: "Marrow says the dock is open to you."
+target: "马罗说了，码头对你开放。"
+type: sentence
+status: initial
+
+<hail-02b>
+source: "Marrow says the dock is open to you."
+target: "马罗说了，码头对你开放。"
+type: sentence
+status: initial
+
+<dialogue-willow-keeps>
+source: "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+target: "薇洛让第九盏灯亮了十一个冬天，却从没向公会要过一滴油。"
+type: sentence
+status: initial
+
+<dialogue-burn-it>
+source: "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+target: "在马罗的船靠上栈桥之前，把它烧掉。冷透的灰烬什么也说明不了。"
+type: sentence
+status: initial
+
+<success-echo>
+source: "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+target: "第九盏灯现在归你守了。别让我为这次交接后悔。"
+type: sentence
+status: initial
+
+<line-success-tide>
+source: "The gate holds. Whatever you did down there, the water is going where it should."
+target: "闸门撑住了。不管你在下面做了什么，水总算流向了该去的地方。"
+type: sentence
+status: initial
+
+<line-failure-tide>
+source: "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+target: "闸门卡住了，栈桥也淹在水下。等退潮了再回来，我们再试一次。"
+type: sentence
+status: initial
+
+[items.rewards]
+
+<item-relay-grid-desc>
+source: "The relay grid is robust: one failed beacon does not break the chain."
+target: "中继网很健壮：一座信标失灵，也不会断掉整条链路。"
+type: sentence
+status: initial
+
+<item-lamp-oil-desc>
+source: "One flask feeds the lamp for 30 minutes at the default wick height."
+target: "在默认灯芯高度下，一瓶灯油能让灯烧 30 分钟。"
+type: sentence
+status: initial
+
+<item-fog-lamp-desc>
+source: "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+target: "一盏矮墩墩的黄铜灯，蓝色的遮光片上满是划痕。它发出的光很弱，可在雾里，弱光比强光散射得更少。"
+type: sentence
+status: initial
+
+<achv-marrow-debt>
+source: "Marrow's Debt"
+target: "马罗的债"
+type: sentence
+status: initial
+
+<achv-nine-nights>
+source: "Nine Nights, Nine Lights"
+target: "九夜九灯"
+type: sentence
+status: initial
+
+[system.messages]
+
+<system-welcome-runner>
+source: "Fair tide, {playerName}. Your last run ended 3 days ago."
+target: "顺潮，{playerName}。你上一次跑船在 3 天前结束。"
+type: sentence
+status: initial
+
+<system-keybind-lantern>
+source: "Hold [E] to raise the lantern; press [Q] to signal."
+target: "按住 [E] 举起提灯；按 [Q] 发信号。"
+type: sentence
+status: initial
+
+<system-signal-range>
+source: "Signal range: 120 m in fog, 400 m in clear air."
+target: "信号范围：雾中 120 米，能见度良好时 400 米。"
+type: sentence
+status: initial
+
+<system-quest-state>
+source: "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+target: "{state, select, updated {任务已更新} complete {任务已完成} other {任务失败}}"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: game-quest-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+
+[terms]
+
+<term-tide>
+source: "tide"
+target: "潮水"
+type: noun
+status: final
+context: "全篇统一。涨落本身译作「潮水」（如 brief-tide-run 的「潮水一天涨落两次」）；问候语 Fair tide 依语境译作「顺潮」；退潮处用「退潮」，与 ebb 一致。"
+
+<term-harbor>
+source: "harbor"
+target: "港口"
+type: noun
+status: final
+context: "「港口」涵盖正文中的水域与码头区域；harbor guild 统一作「港口公会」。不用「海港」「港湾」，以免与内港（inner water）混淆。"
+
+<term-sealed-manifest>
+source: "sealed manifest"
+target: "密封货单"
+type: noun-phrase
+status: final
+context: "任务核心道具，objective-03a/03b 与 brief-tide-run 均沿用，保证目标文本与任务简报一致。不用「舱单」，以免偏向海关语境。"
+
+<term-quartermaster>
+source: "quartermaster"
+target: "军需官"
+type: noun
+status: final
+context: "指港口公会掌管货单与账簿的管事。取「军需官」的物资掌管控含义，与 ledger（账簿）、manifest（货单）同场景。"
+
+<term-ledger>
+source: "ledger"
+target: "账簿"
+type: noun
+status: final
+context: "brief-tide-run 中的「诚实」梗依赖账簿意象，故用「账簿」而非「账目」，保留可被人格化的物件感。"
+
+<term-pier>
+source: "pier"
+target: "栈桥"
+type: noun
+status: final
+context: "与 dock 区分：pier 指伸入水中的具体结构，译「栈桥」；dock 指可通行的码头区域，译「码头」。二者在正文中同时出现（如 line-failure-tide 与 hail-02a）。"
+
+<term-dock>
+source: "dock"
+target: "码头"
+type: noun
+status: final
+context: "见 pier 条目。hail-02a/02b 的「the dock is open to you」译「码头对你开放」，保留公会放行的意味。"
+
+<term-tide-gate>
+source: "tide gate"
+target: "潮闸"
+type: noun
+status: final
+context: "objective-04a/04b 与 line-success-tide、line-failure-tide 统一使用，作机关名称而非普通名词，故不译「潮汐闸门」。"
+
+<term-ninth-light>
+source: "the Ninth Light"
+target: "第九盏灯"
+type: proper-noun
+status: final
+context: "地名兼灯火名，全篇（brief-ninth-light、objective-relight、dialogue-willow-keeps、success-echo）统一大写含义，用「第九盏灯」。不用「第九光」。"
+
+<term-willow>
+source: "Willow"
+target: "薇洛"
+type: proper-noun
+status: final
+context: "人名，采用常见音译「薇洛」，与「柳」的字面义脱钩，避免与柳树意象混淆。"
+
+<term-marrow>
+source: "Marrow"
+target: "马罗"
+type: proper-noun
+status: final
+context: "人名，音译「马罗」；与 Willow 同为守灯相关人物，两条 id（achv-marrow-debt、objective-03a/b）保持一致。"
+
+<term-lantern>
+source: "lantern"
+target: "提灯"
+type: noun
+status: final
+context: "可手持的灯具，故用「提灯」（hail-01a/01b、system-keybind-lantern），与固定悬挂的 lamp 区分。"
+
+<term-lamp-oil-wick>
+source: "lamp oil / wick"
+target: "灯油 / 灯芯"
+type: noun
+status: final
+context: "item-lamp-oil-desc 中两项同现，保留实物感；wick height 译「灯芯高度」。"
+
+<term-beacon>
+source: "beacon"
+target: "信标"
+type: noun
+status: final
+context: "item-relay-grid-desc 中指中继网上的发光节点，译「信标」；不用「灯塔」，以免与 Ninth Light 的灯火混淆。"
+
+<term-relay-grid>
+source: "relay grid"
+target: "中继网"
+type: noun
+status: final
+context: "奖励道具名，取网状结构义译「中继网」，与同一句的「链路」（chain）语义呼应。"
+
+<term-default>
+source: "default"
+target: "默认"
+type: adjective
+status: final
+context: "项目术语规则：统一用「默认」，禁用「缺省」。见 item-lamp-oil-desc 的 default wick height。"
+
+<term-robust>
+source: "robust"
+target: "健壮"
+type: adjective
+status: final
+context: "项目术语规则：统一用「健壮」，禁用「鲁棒」。见 item-relay-grid-desc。"
+
+<term-crate>
+source: "crate"
+target: "木箱"
+type: noun
+status: final
+context: "objective-count-crates 的计数对象，全称量词句统一用「已固定 # 个木箱」。"
+
+<term-objective>
+source: "objective"
+target: "目标"
+type: noun
+status: final
+context: "任务目标条目（objective-*）与 journal-note-order 中的编号引用统一用「目标 N」，编号保留阿拉伯数字。"
+
+<term-mooring-lines>
+source: "mooring lines"
+target: "系泊缆绳"
+type: noun-phrase
+status: final
+context: "objective-check-lines 中的航海术语，用标准译名「系泊缆绳」，不作「缆绳」简写以保证目标列表清晰。"
+
+<term-ebb>
+source: "ebb"
+target: "退潮"
+type: noun
+status: final
+context: "objective-relight 的时限条件译「在退潮前」；line-failure-tide 的 the tide drops 亦统一作「退潮」。"
+
+<term-run>
+source: "run"
+target: "跑船"
+type: noun
+status: final
+context: "system-welcome-runner 中指引玩家上一次出航跑单，口语化作「跑船」，贴合 NPC 对玩家的招呼语气。"

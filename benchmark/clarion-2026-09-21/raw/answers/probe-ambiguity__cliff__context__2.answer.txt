@@ -1,0 +1,275 @@
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity
+source-language: en-US
+target-language: zh-CN
+title: "最小对立诊断集：简报决定译法"
+info: "探针层检验的是翻译简报的价值：条目成最小对出现，源文相同或几乎相同，只靠一项 CLIFF 字段（emotion、type、context 或 max-width）才能把两条区分开。忽略该字段的译文，必然在其中一条上失手。所有条目均为 CLARION 原创文本，取材于通用软件、交通、舞台、仓储与客服场景。"
+standard: "汉字与拉丁字母或数字之间加一个空格，汉语句子内部使用全角标点。把情绪标签体现在措辞、语气助词和标点中，绝不译成中性的释义。遵守 type 字段的语域：label 保持为不带修饰的名词，sentence 是完整的指令，idiom 是地道的祝愿，proper-noun 是地名。选择 context 行所指的义项。译文要符合声明的 max-width 显示格数：拉丁字母和数字算一格，汉字或全角字符算两格。不要用教科书式的行话。"
+
+[emotion.reading]
+context: "成对出现的口语台词；决定语气的是情绪标签，而不是文字本身。"
+type: dialogue
+
+<probe-01a>
+source: "Oh, that's just wonderful."
+target: "哦，这真是太好了！"
+emotion: [joyful, grateful]
+status: initial
+context: "说话人刚拆开录取通知书，这句夸赞是真心实意的。"
+
+<probe-01b>
+source: "Oh, that's just wonderful."
+target: "呵，这可真是太好了。"
+emotion: [angry, playful]
+status: initial
+context: "说话人刚眼看着计划泡汤；这句话是苦涩的反话。"
+
+<probe-02a>
+source: "After you."
+target: "您先请。"
+emotion: [polite, calm]
+status: initial
+context: "咖啡馆里的顾客扶着门，真心让对方先走。"
+
+<probe-02b>
+source: "After you."
+target: "您先请吧。"
+emotion: [polite, angry]
+status: initial
+context: "说话人指向没开灯的楼梯间；这句客气其实是在命令对方先走。"
+
+<probe-03a>
+source: "Well, here we go again."
+target: "好啊，又来了！"
+emotion: [joyful, playful]
+status: initial
+context: "两个朋友排队再战一局桌游；说这话时咧嘴笑着。"
+
+<probe-03b>
+source: "Well, here we go again."
+target: "唉，又来了。"
+emotion: [sad, calm]
+status: initial
+context: "维修工第三次回到同一台机器前；说这话时叹了口气。"
+
+<probe-04a>
+source: "Just relax."
+target: "放松，别紧张。"
+emotion: [calm, hopeful]
+status: initial
+context: "护士在做常规操作前安抚病人。"
+
+<probe-04b>
+source: "Just relax."
+target: "放松点，别乱动。"
+emotion: [serious, angry]
+status: initial
+context: "警卫让被逼到角落的闯入者别再动；语气平稳，并不和气。"
+
+[type.register]
+context: "同一个英文串因 type 而改变译法的成对条目；遵循 type 所暗示的语域。"
+
+<probe-05a>
+source: "Save"
+target: "保存"
+type: label
+emotion: [objective]
+status: initial
+context: "工具栏按钮，把当前打开的文档写入磁盘。"
+
+<probe-05b>
+source: "Save"
+target: "关闭前先将会话保存到磁盘。"
+type: sentence
+emotion: [objective]
+status: initial
+context: "关机检查清单中的一步，提示操作员在关闭之前把会话写入磁盘。"
+
+<probe-06a>
+source: "Forge"
+target: "锻炉区"
+type: proper-noun
+emotion: [objective]
+status: initial
+context: "交通图上的街区名，取自当地曾经的铸造厂。"
+
+<probe-06b>
+source: "Forge"
+target: "锻造"
+type: verb
+emotion: [objective]
+status: initial
+context: "铁匠工作台菜单上的单字任务：开始锻打加热后的金属。"
+
+<probe-07a>
+source: "Break a leg!"
+target: "祝你旗开得胜！"
+type: idiom
+emotion: [objective]
+status: initial
+context: "演员登台前得到的祝愿。"
+
+<probe-07b>
+source: "Break a leg!"
+target: "小心地滑，别摔断腿！"
+type: sentence
+emotion: [objective]
+status: initial
+context: "仓库里的安全提示：注意地面湿滑，别滑倒伤了自己。"
+
+[context.referent]
+context: "context 行指明所指对象的成对条目；选出场景要求的那一个词。"
+
+<probe-08a>
+source: "Rate"
+target: "费率"
+type: label
+emotion: [objective]
+status: initial
+context: "发票上的列头；每工作小时收取的金额。"
+
+<probe-08b>
+source: "Rate"
+target: "帧率"
+type: label
+emotion: [objective]
+status: initial
+context: "视频编辑器播放面板中的设置；每秒绘制多少帧。"
+
+<probe-09a>
+source: "Seal"
+target: "海豹"
+type: label
+emotion: [objective]
+status: initial
+context: "儿童套装里海洋动物图卡上的说明文字。"
+
+<probe-09b>
+source: "Seal"
+target: "印章"
+type: label
+emotion: [objective]
+status: initial
+context: "办公用品抽屉上的标签；用来封缄文件的蜡章。"
+
+<probe-10a>
+source: "It won't start."
+target: "车打不着火。"
+type: sentence
+emotion: [objective]
+status: initial
+context: "路边求助电话：司机说的是汽车发动机，怎么也发动不起来。"
+
+<probe-10b>
+source: "It won't start."
+target: "程序启动不了。"
+type: sentence
+emotion: [objective]
+status: initial
+context: "客服来电：用户说的是桌面应用程序，怎么也打不开。"
+
+[width.budget]
+context: "宽度预算迫使译文更短的成对条目；不要超出声明的格数。"
+type: label
+
+<probe-11a>
+source: "Restore Default Settings"
+target: "恢复默认设置"
+emotion: [objective]
+status: initial
+context: "设置界面上的按钮，放得下完整措辞。"
+max-width: 14
+
+<probe-11b>
+source: "Restore Default Settings"
+target: "恢复默认"
+emotion: [objective]
+status: initial
+context: "窄屏手机设置栏上的按钮，空间紧张。"
+max-width: 8
+
+<probe-12a>
+source: "View Frequently Asked Questions"
+target: "查看常见问题解答"
+emotion: [objective]
+status: initial
+context: "桌面端帮助界面上的菜单项，放得下完整措辞。"
+max-width: 16
+
+<probe-12b>
+source: "View Frequently Asked Questions"
+target: "常见问题"
+emotion: [objective]
+status: initial
+context: "窄屏手机页面底部的链接，空间紧张。"
+max-width: 8
+
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "probe-ambiguity 术语表"
+info: "本次译文所确定的术语，供同一 clan 的后续条目沿用。"
+standard: "项目术语政策：默认不用缺省；视频不用视讯；软件不用软体；光标不用游标；分辨率不用解析度；Token、Prompt、API、SDK 等保持拉丁文原形。"
+
+[terms]
+context: "一条术语一个条目，记录本次译文实际采用的译法及其理由。"
+
+<save>
+source: "Save"
+target: "保存"
+type: verb
+status: final
+context: "工具栏按钮与关机清单指令统一用“保存”，对应把数据写入磁盘的动作。"
+
+<default>
+source: "Default"
+target: "默认"
+type: adjective
+status: final
+context: "项目术语政策规定一律用“默认／默认值”，不得使用“缺省”。"
+
+<rate-hourly>
+source: "Rate (invoice column)"
+target: "费率"
+type: noun
+status: final
+context: "发票列头，指每工作小时的收费金额；与播放面板的“帧率”区分。"
+
+<rate-frames>
+source: "Rate (playback panel)"
+target: "帧率"
+type: noun
+status: final
+context: "视频编辑器播放面板设置，指每秒绘制的帧数；不用“速率”。"
+
+<seal-animal>
+source: "Seal (marine animal)"
+target: "海豹"
+type: noun
+status: final
+context: "儿童图卡上的海洋动物名称，取动物义项。"
+
+<seal-stamp>
+source: "Seal (wax stamp)"
+target: "印章"
+type: noun
+status: final
+context: "办公用品抽屉标签，指封缄文件用的蜡章，取印章义项。"
+
+<forge-place>
+source: "Forge (place name)"
+target: "锻炉区"
+type: proper-noun
+status: final
+context: "交通图上的街区名，源自旧日铸造厂；按地名处理，带“区”字以表明是地名而非动词。"
+
+<forge-verb>
+source: "Forge (verb)"
+target: "锻造"
+type: verb
+status: final
+context: "铁匠工作台菜单上的单字任务，指开始锻打加热后的金属，取动词义项。"

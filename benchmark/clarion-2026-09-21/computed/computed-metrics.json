@@ -1,0 +1,890 @@
+{
+ "run": "clarion-deepseek-flash",
+ "model": "deepseek-flash",
+ "provider_kind": "openai",
+ "tokenizer": "o200k_base",
+ "corpus": "clarion-core (16 files, 392 entries)",
+ "translations": 960,
+ "robustness_chains": 60,
+ "format_order": [
+  "android",
+  "cliff",
+  "csv",
+  "fluent",
+  "ios",
+  "json-cliff",
+  "json-plain",
+  "po",
+  "xliff-2.1",
+  "yaml-cliff"
+ ],
+ "arms": [
+  "bare",
+  "context"
+ ],
+ "tokens": {
+  "android": {
+   "bare": {
+    "document": 41228,
+    "document_48runs": 123684,
+    "prompt": 50710,
+    "prompt_48runs": 152130,
+    "prompt_without_instructions": 50054,
+    "document_per_entry": 105.1734693877551
+   },
+   "context": {
+    "document": 77805,
+    "document_48runs": 233415,
+    "prompt": 88231,
+    "prompt_48runs": 264693,
+    "prompt_without_instructions": 87575,
+    "document_per_entry": 198.48214285714286
+   }
+  },
+  "cliff": {
+   "bare": {
+    "document": 24322,
+    "document_48runs": 72966,
+    "prompt": 81455,
+    "prompt_48runs": 244365,
+    "prompt_without_instructions": 34655,
+    "document_per_entry": 62.045918367346935
+   },
+   "context": {
+    "document": 47499,
+    "document_48runs": 142497,
+    "prompt": 105576,
+    "prompt_48runs": 316728,
+    "prompt_without_instructions": 58776,
+    "document_per_entry": 121.17091836734694
+   }
+  },
+  "csv": {
+   "bare": {
+    "document": 28908,
+    "document_48runs": 86724,
+    "prompt": 38073,
+    "prompt_48runs": 114219,
+    "prompt_without_instructions": 37577,
+    "document_per_entry": 73.74489795918367
+   },
+   "context": {
+    "document": 140693,
+    "document_48runs": 422079,
+    "prompt": 150802,
+    "prompt_48runs": 452406,
+    "prompt_without_instructions": 150306,
+    "document_per_entry": 358.9107142857143
+   }
+  },
+  "fluent": {
+   "bare": {
+    "document": 37099,
+    "document_48runs": 111297,
+    "prompt": 46421,
+    "prompt_48runs": 139263,
+    "prompt_without_instructions": 45925,
+    "document_per_entry": 94.64030612244898
+   },
+   "context": {
+    "document": 74341,
+    "document_48runs": 223023,
+    "prompt": 84607,
+    "prompt_48runs": 253821,
+    "prompt_without_instructions": 84111,
+    "document_per_entry": 189.6454081632653
+   }
+  },
+  "ios": {
+   "bare": {
+    "document": 38794,
+    "document_48runs": 116382,
+    "prompt": 48164,
+    "prompt_48runs": 144492,
+    "prompt_without_instructions": 47620,
+    "document_per_entry": 98.96428571428571
+   },
+   "context": {
+    "document": 75766,
+    "document_48runs": 227298,
+    "prompt": 86080,
+    "prompt_48runs": 258240,
+    "prompt_without_instructions": 85536,
+    "document_per_entry": 193.28061224489795
+   }
+  },
+  "json-cliff": {
+   "bare": {
+    "document": 26388,
+    "document_48runs": 79164,
+    "prompt": 35537,
+    "prompt_48runs": 106611,
+    "prompt_without_instructions": 35057,
+    "document_per_entry": 67.31632653061224
+   },
+   "context": {
+    "document": 57696,
+    "document_48runs": 173088,
+    "prompt": 67789,
+    "prompt_48runs": 203367,
+    "prompt_without_instructions": 67309,
+    "document_per_entry": 147.18367346938774
+   }
+  },
+  "json-plain": {
+   "bare": {
+    "document": 20647,
+    "document_48runs": 61941,
+    "prompt": 30177,
+    "prompt_48runs": 90531,
+    "prompt_without_instructions": 29473,
+    "document_per_entry": 52.670918367346935
+   },
+   "context": {
+    "document": 61805,
+    "document_48runs": 185415,
+    "prompt": 72279,
+    "prompt_48runs": 216837,
+    "prompt_without_instructions": 71575,
+    "document_per_entry": 157.6658163265306
+   }
+  },
+  "po": {
+   "bare": {
+    "document": 24218,
+    "document_48runs": 72654,
+    "prompt": 33303,
+    "prompt_48runs": 99909,
+    "prompt_without_instructions": 32887,
+    "document_per_entry": 61.78061224489796
+   },
+   "context": {
+    "document": 61309,
+    "document_48runs": 183927,
+    "prompt": 71338,
+    "prompt_48runs": 214014,
+    "prompt_without_instructions": 70922,
+    "document_per_entry": 156.40051020408163
+   }
+  },
+  "xliff-2.1": {
+   "bare": {
+    "document": 29848,
+    "document_48runs": 89544,
+    "prompt": 39205,
+    "prompt_48runs": 117615,
+    "prompt_without_instructions": 38517,
+    "document_per_entry": 76.14285714285714
+   },
+   "context": {
+    "document": 106156,
+    "document_48runs": 318468,
+    "prompt": 116457,
+    "prompt_48runs": 349371,
+    "prompt_without_instructions": 115769,
+    "document_per_entry": 270.8061224489796
+   }
+  },
+  "yaml-cliff": {
+   "bare": {
+    "document": 23492,
+    "document_48runs": 70476,
+    "prompt": 32641,
+    "prompt_48runs": 97923,
+    "prompt_without_instructions": 32161,
+    "document_per_entry": 59.92857142857143
+   },
+   "context": {
+    "document": 52753,
+    "document_48runs": 158259,
+    "prompt": 62846,
+    "prompt_48runs": 188538,
+    "prompt_without_instructions": 62366,
+    "document_per_entry": 134.57397959183675
+   }
+  }
+ },
+ "quality": {
+  "android": {
+   "bare": {
+    "chrf_recorded": 51.76865624999999,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 54.02105833333332,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "cliff": {
+   "bare": {
+    "chrf_recorded": 46.47327916666668,
+    "failed": 4,
+    "runs": 48,
+    "real_translation_pct": 0.9166666666666666,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 49.31227291666665,
+    "failed": 4,
+    "runs": 48,
+    "real_translation_pct": 0.9166666666666666,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "csv": {
+   "bare": {
+    "chrf_recorded": 46.379587500000014,
+    "failed": 5,
+    "runs": 48,
+    "real_translation_pct": 0.8541666666666666,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 41.75708125,
+    "failed": 12,
+    "runs": 48,
+    "real_translation_pct": 0.8241000645891949,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "fluent": {
+   "bare": {
+    "chrf_recorded": 50.92349375000001,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 53.53590208333332,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "ios": {
+   "bare": {
+    "chrf_recorded": 50.33762291666665,
+    "failed": 1,
+    "runs": 48,
+    "real_translation_pct": 0.9981060625000001,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 52.500831250000005,
+    "failed": 2,
+    "runs": 48,
+    "real_translation_pct": 0.996212125,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "json-cliff": {
+   "bare": {
+    "chrf_recorded": 50.58927291666669,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 55.11499791666668,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "json-plain": {
+   "bare": {
+    "chrf_recorded": 50.372875000000015,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 53.39321666666667,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "po": {
+   "bare": {
+    "chrf_recorded": 50.581781250000006,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 53.526887499999994,
+    "failed": 1,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "xliff-2.1": {
+   "bare": {
+    "chrf_recorded": 50.753406250000005,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 42.2132625,
+    "failed": 10,
+    "runs": 48,
+    "real_translation_pct": 0.7916666666666666,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  },
+  "yaml-cliff": {
+   "bare": {
+    "chrf_recorded": 50.69394583333335,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   },
+   "context": {
+    "chrf_recorded": 55.00444166666666,
+    "failed": 0,
+    "runs": 48,
+    "real_translation_pct": 1,
+    "qe": {
+     "n": 0,
+     "mean": 0
+    }
+   }
+  }
+ },
+ "latency": {
+  "android": {
+   "bare": {
+    "ms": 49277.24033333332,
+    "output_tokens": 6286.083333333333
+   },
+   "context": {
+    "ms": 78928.67031249999,
+    "output_tokens": 11037.916666666666
+   }
+  },
+  "cliff": {
+   "bare": {
+    "ms": 78419.71135416666,
+    "output_tokens": 12072.791666666666
+   },
+   "context": {
+    "ms": 112515.9346875,
+    "output_tokens": 17704.458333333332
+   }
+  },
+  "csv": {
+   "bare": {
+    "ms": 100184.19166666664,
+    "output_tokens": 16280.583333333334
+   },
+   "context": {
+    "ms": 161885.79789583336,
+    "output_tokens": 26866.25
+   }
+  },
+  "fluent": {
+   "bare": {
+    "ms": 39347.28927083333,
+    "output_tokens": 6035.270833333333
+   },
+   "context": {
+    "ms": 69383.01339583333,
+    "output_tokens": 10127.270833333334
+   }
+  },
+  "ios": {
+   "bare": {
+    "ms": 64724.798500000004,
+    "output_tokens": 7949.270833333333
+   },
+   "context": {
+    "ms": 84751.46639583333,
+    "output_tokens": 12198.791666666666
+   }
+  },
+  "json-cliff": {
+   "bare": {
+    "ms": 62041.663708333355,
+    "output_tokens": 9722.645833333334
+   },
+   "context": {
+    "ms": 102469.7448958333,
+    "output_tokens": 14462
+   }
+  },
+  "json-plain": {
+   "bare": {
+    "ms": 53266.29239583333,
+    "output_tokens": 7769.645833333333
+   },
+   "context": {
+    "ms": 63522.64591666667,
+    "output_tokens": 10643.875
+   }
+  },
+  "po": {
+   "bare": {
+    "ms": 50312.49422916668,
+    "output_tokens": 7791
+   },
+   "context": {
+    "ms": 74500.42558333334,
+    "output_tokens": 11149.416666666666
+   }
+  },
+  "xliff-2.1": {
+   "bare": {
+    "ms": 57297.59072916667,
+    "output_tokens": 8849.145833333334
+   },
+   "context": {
+    "ms": 95179.84291666665,
+    "output_tokens": 15000.604166666666
+   }
+  },
+  "yaml-cliff": {
+   "bare": {
+    "ms": 79644.67852083336,
+    "output_tokens": 11947.604166666666
+   },
+   "context": {
+    "ms": 99281.86824999998,
+    "output_tokens": 15725.3125
+   }
+  }
+ },
+ "validity": {
+  "android": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 82.32323333333333
+   }
+  },
+  "cliff": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 95.23809999999999
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 86.11113333333333,
+    "intent_pct": 86.11113333333333
+   }
+  },
+  "csv": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 94.44443333333334,
+    "intent_pct": 88.88889999999999
+   }
+  },
+  "fluent": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 96.96969999999999,
+    "intent_pct": 69.9495
+   }
+  },
+  "ios": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 88.13133333333333
+   }
+  },
+  "json-cliff": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 86.11113333333333
+   }
+  },
+  "json-plain": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 91.6667
+   }
+  },
+  "po": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 80.55553333333334
+   }
+  },
+  "xliff-2.1": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 71.4286,
+    "intent_pct": 71.4286
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 77.7778,
+    "intent_pct": 69.44443333333334
+   }
+  },
+  "yaml-cliff": {
+   "bare": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 100
+   },
+   "context": {
+    "chains": 3,
+    "still_valid_pct": 100,
+    "intent_pct": 86.11113333333333
+   }
+  }
+ },
+ "significance": {
+  "bare": {
+   "android": {
+    "n": 48,
+    "diff": -5.295377083333333,
+    "ci_low": -10.080245833333333,
+    "ci_high": -1.5556416666666666,
+    "p_bootstrap": 0.00039996000399960006,
+    "p_permutation": 0.0024,
+    "p_holm": 0.0035996400359964006
+   },
+   "csv": {
+    "n": 48,
+    "diff": 4.073589583333333,
+    "ci_low": -2.6157708333333356,
+    "ci_high": 10.681110416666668,
+    "p_bootstrap": 0.22877712228777122,
+    "p_permutation": 0.2564,
+    "p_holm": 0.22877712228777122
+   },
+   "fluent": {
+    "n": 48,
+    "diff": -4.450214583333332,
+    "ci_low": -9.051408333333335,
+    "ci_high": -0.7955187499999994,
+    "p_bootstrap": 0.007799220077992201,
+    "p_permutation": 0.0294,
+    "p_holm": 0.06239376062393761
+   },
+   "ios": {
+    "n": 48,
+    "diff": -3.86434375,
+    "ci_low": -8.64767916666667,
+    "ci_high": -0.2558166666666664,
+    "p_bootstrap": 0.022997700229977002,
+    "p_permutation": 0.0659,
+    "p_holm": 0.137986201379862
+   },
+   "json-cliff": {
+    "n": 48,
+    "diff": -4.1159937499999995,
+    "ci_low": -8.826735416666663,
+    "ci_high": -0.37722083333333406,
+    "p_bootstrap": 0.029397060293970604,
+    "p_permutation": 0.0658,
+    "p_holm": 0.137986201379862
+   },
+   "json-plain": {
+    "n": 48,
+    "diff": -3.8995958333333323,
+    "ci_low": -8.728841666666668,
+    "ci_high": -0.07802708333333268,
+    "p_bootstrap": 0.0435956404359564,
+    "p_permutation": 0.0964,
+    "p_holm": 0.137986201379862
+   },
+   "po": {
+    "n": 48,
+    "diff": -4.108502083333332,
+    "ci_low": -8.867199999999997,
+    "ci_high": -0.3553833333333323,
+    "p_bootstrap": 0.025197480251974803,
+    "p_permutation": 0.0721,
+    "p_holm": 0.137986201379862
+   },
+   "xliff-2.1": {
+    "n": 48,
+    "diff": -4.280127083333334,
+    "ci_low": -8.958408333333338,
+    "ci_high": -0.5605729166666659,
+    "p_bootstrap": 0.012398760123987601,
+    "p_permutation": 0.0442,
+    "p_holm": 0.0867913208679132
+   },
+   "yaml-cliff": {
+    "n": 48,
+    "diff": -4.220666666666666,
+    "ci_low": -9.032200000000001,
+    "ci_high": -0.39651041666666614,
+    "p_bootstrap": 0.024997500249975,
+    "p_permutation": 0.0624,
+    "p_holm": 0.137986201379862
+   }
+  },
+  "context": {
+   "android": {
+    "n": 48,
+    "diff": -4.708785416666665,
+    "ci_low": -9.872185416666666,
+    "ci_high": -0.34441458333333336,
+    "p_bootstrap": 0.0321967803219678,
+    "p_permutation": 0.0667,
+    "p_holm": 0.19318068193180682
+   },
+   "csv": {
+    "n": 48,
+    "diff": 13.824529905239686,
+    "ci_low": 4.866044697603121,
+    "ci_high": 22.754339325529532,
+    "p_bootstrap": 0.0033996600339966003,
+    "p_permutation": 0.0055,
+    "p_holm": 0.027197280271972803
+   },
+   "fluent": {
+    "n": 48,
+    "diff": -4.223629166666667,
+    "ci_low": -9.518558333333333,
+    "ci_high": 0.24617916666666603,
+    "p_bootstrap": 0.0665933406659334,
+    "p_permutation": 0.1049,
+    "p_holm": 0.33296670332966705
+   },
+   "ios": {
+    "n": 48,
+    "diff": -3.188558333333333,
+    "ci_low": -8.612341666666667,
+    "ci_high": 1.6706791666666678,
+    "p_bootstrap": 0.22477752224777522,
+    "p_permutation": 0.254,
+    "p_holm": 0.33296670332966705
+   },
+   "json-cliff": {
+    "n": 48,
+    "diff": -5.8027250000000015,
+    "ci_low": -10.890810416666667,
+    "ci_high": -1.5249812500000013,
+    "p_bootstrap": 0.0025997400259974,
+    "p_permutation": 0.0148,
+    "p_holm": 0.023397660233976603
+   },
+   "json-plain": {
+    "n": 48,
+    "diff": -4.08094375,
+    "ci_low": -9.42179791666667,
+    "ci_high": 0.4016875,
+    "p_bootstrap": 0.0805919408059194,
+    "p_permutation": 0.1199,
+    "p_holm": 0.33296670332966705
+   },
+   "po": {
+    "n": 48,
+    "diff": -4.214614583333334,
+    "ci_low": -9.40298125,
+    "ci_high": 0.3036458333333331,
+    "p_bootstrap": 0.07479252074792521,
+    "p_permutation": 0.1161,
+    "p_holm": 0.33296670332966705
+   },
+   "xliff-2.1": {
+    "n": 48,
+    "diff": 7.099010416666666,
+    "ci_low": -2.499383333333332,
+    "ci_high": 17.05859791666666,
+    "p_bootstrap": 0.14758524147585242,
+    "p_permutation": 0.1651,
+    "p_holm": 0.33296670332966705
+   },
+   "yaml-cliff": {
+    "n": 48,
+    "diff": -5.6921687499999996,
+    "ci_low": -10.98181875,
+    "ci_high": -1.243918749999999,
+    "p_bootstrap": 0.006999300069993001,
+    "p_permutation": 0.0285,
+    "p_holm": 0.04899510048995101
+   }
+  }
+ },
+ "workflow_chrf": {},
+ "fidelity": {
+  "cliff": {
+   "facts": 2464,
+   "kept": 2464,
+   "retention": 1
+  },
+  "xliff-2.1": {
+   "facts": 2464,
+   "kept": 2464,
+   "retention": 1
+  },
+  "po": {
+   "facts": 2464,
+   "kept": 2414,
+   "retention": 0.9797077922077922
+  },
+  "fluent": {
+   "facts": 2464,
+   "kept": 2414,
+   "retention": 0.9797077922077922
+  },
+  "json-cliff": {
+   "facts": 2464,
+   "kept": 2464,
+   "retention": 1
+  },
+  "json-plain": {
+   "facts": 2464,
+   "kept": 1709,
+   "retention": 0.6935876623376623
+  },
+  "yaml-cliff": {
+   "facts": 2464,
+   "kept": 2464,
+   "retention": 1
+  },
+  "csv": {
+   "facts": 2464,
+   "kept": 2464,
+   "retention": 1
+  },
+  "android": {
+   "facts": 2464,
+   "kept": 2414,
+   "retention": 0.9797077922077922
+  },
+  "ios": {
+   "facts": 2464,
+   "kept": 2414,
+   "retention": 0.9797077922077922
+  }
+ },
+ "qe": {
+  "byFormatArm": {},
+  "byOrigin": {}
+ },
+ "checkers": {
+  "cliff": "strict CLIFF validator (cliff-python)",
+  "xliff": "XML well-formedness + structural",
+  "po": "msgid/msgstr grammar",
+  "fluent": "identifier grammar",
+  "json-cliff": "strict JSON parse",
+  "json-plain": "strict JSON parse",
+  "yaml-cliff": "strict YAML parse",
+  "csv": "strict CSV parse",
+  "android": "XML well-formedness",
+  "ios": "quoted-assignment grammar"
+ }
+}

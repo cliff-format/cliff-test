@@ -1,0 +1,71 @@
+{
+  "run": "clarion-deepseek-flash",
+  "finished": "2026-09-21T22:08:02+00:00",
+  "cliff-python": "0.2.0",
+  "model": "openai:deepseek-flash",
+  "reasoning": "low",
+  "records": 1180,
+  "prompt_fingerprint": "6ef59ba44d454294",
+  "revision": "b81d3e6",
+  "stages": [
+    {
+      "stage": "secrets",
+      "ok": true,
+      "detail": "key loaded, 0 credential-looking strings in the tree",
+      "seconds": 2.63,
+      "data": {
+        "findings": []
+      }
+    },
+    {
+      "stage": "validate",
+      "ok": true,
+      "detail": "16 files, 392 entries, 0 problems",
+      "seconds": 0.15,
+      "data": {
+        "problems": []
+      }
+    },
+    {
+      "stage": "licence",
+      "ok": true,
+      "detail": "0 problems",
+      "seconds": 0.01,
+      "data": {
+        "problems": []
+      }
+    },
+    {
+      "stage": "tokens",
+      "ok": true,
+      "detail": "320 cells",
+      "seconds": 1.14,
+      "data": {}
+    },
+    {
+      "stage": "fidelity",
+      "ok": true,
+      "detail": "160 conversions, mean retention 95.8%",
+      "seconds": 0.78,
+      "data": {}
+    },
+    {
+      "stage": "translate",
+      "ok": true,
+      "detail": "960 runs, 1 failed, 3993022 prompt + 11501757 output tokens billed",
+      "seconds": 2805.97,
+      "data": {
+        "failed": [
+          "ReadError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。"
+        ]
+      }
+    },
+    {
+      "stage": "robustness",
+      "ok": true,
+      "detail": "60 format/arm chains, mean validity 96.3%",
+      "seconds": 640.43,
+      "data": {}
+    }
+  ]
+}

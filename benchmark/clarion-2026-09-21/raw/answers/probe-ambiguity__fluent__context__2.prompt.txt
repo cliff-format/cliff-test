@@ -1,0 +1,223 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a Fluent (FTL) resource. Each line is identifier = value.
+Replace the value with the translation and keep the identifier and comments.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just opened an acceptance letter and means the compliment warmly.
+# cliff:source = Oh, that's just wonderful.
+# cliff:type = dialogue
+# cliff:emotion = joyful|grateful
+# cliff:status = initial
+probe-01a = Oh, that's just wonderful.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker has just watched the plan fall apart; the line is bitter irony.
+# cliff:source = Oh, that's just wonderful.
+# cliff:type = dialogue
+# cliff:emotion = angry|playful
+# cliff:status = initial
+probe-01b = Oh, that's just wonderful.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A cafe customer holds the door open and genuinely lets the other person go first.
+# cliff:source = After you.
+# cliff:type = dialogue
+# cliff:emotion = polite|calm
+# cliff:status = initial
+probe-02a = After you.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. The speaker gestures toward the unlit stairwell; the courtesy is really an order to go first.
+# cliff:source = After you.
+# cliff:type = dialogue
+# cliff:emotion = polite|angry
+# cliff:status = initial
+probe-02b = After you.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. Two friends line up for another round of the board game; said with a grin.
+# cliff:source = Well, here we go again.
+# cliff:type = dialogue
+# cliff:emotion = joyful|playful
+# cliff:status = initial
+probe-03a = Well, here we go again.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A repair worker returns to the same machine for the third time; said with a sigh.
+# cliff:source = Well, here we go again.
+# cliff:type = dialogue
+# cliff:emotion = sad|calm
+# cliff:status = initial
+probe-03b = Well, here we go again.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A nurse reassures a patient before a routine procedure.
+# cliff:source = Just relax.
+# cliff:type = dialogue
+# cliff:emotion = calm|hopeful
+# cliff:status = initial
+probe-04a = Just relax.
+
+# Spoken lines that come in pairs; the emotion tag, not the words, decides how the line should sound. A guard tells a cornered intruder to stop moving; the tone is steady, not warm.
+# cliff:source = Just relax.
+# cliff:type = dialogue
+# cliff:emotion = serious|angry
+# cliff:status = initial
+probe-04b = Just relax.
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Toolbar button that writes the open document to disk.
+# cliff:source = Save
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+probe-05a = Save
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Step in the shutdown checklist telling the operator to write the session to disk before closing.
+# cliff:source = Save
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+probe-05b = Save
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Neighborhood name on the transit map, after the foundry that once stood there.
+# cliff:source = Forge
+# cliff:type = proper-noun
+# cliff:emotion = objective
+# cliff:status = initial
+probe-06a = Forge
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Single-word task on the smith's workbench menu: begin shaping the heated metal.
+# cliff:source = Forge
+# cliff:type = verb
+# cliff:emotion = objective
+# cliff:status = initial
+probe-06b = Forge
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Wished to a performer just before they walk on stage.
+# cliff:source = Break a leg!
+# cliff:type = idiom
+# cliff:emotion = objective
+# cliff:status = initial
+probe-07a = Break a leg!
+
+# Pairs where the same English string changes rendering with its type; honor the register the type implies. Safety notice in the warehouse: watch the wet floor, do not slip and hurt yourself.
+# cliff:source = Break a leg!
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+probe-07b = Break a leg!
+
+# Pairs where the context line names the referent; choose the word the scene requires. Column header on the invoice; the amount charged per hour of work.
+# cliff:source = Rate
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+probe-08a = Rate
+
+# Pairs where the context line names the referent; choose the word the scene requires. Setting in the video editor's playback panel; how many frames are drawn each second.
+# cliff:source = Rate
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+probe-08b = Rate
+
+# Pairs where the context line names the referent; choose the word the scene requires. Caption on the marine-animals picture card in the children's set.
+# cliff:source = Seal
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+probe-09a = Seal
+
+# Pairs where the context line names the referent; choose the word the scene requires. Label on the office-supplies drawer; the wax stamp used to close documents.
+# cliff:source = Seal
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+probe-09b = Seal
+
+# Pairs where the context line names the referent; choose the word the scene requires. Roadside call: the driver means the car engine, which will not turn over.
+# cliff:source = It won't start.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+probe-10a = It won't start.
+
+# Pairs where the context line names the referent; choose the word the scene requires. Support call: the user means the desktop application, which will not launch.
+# cliff:source = It won't start.
+# cliff:type = sentence
+# cliff:emotion = objective
+# cliff:status = initial
+probe-10b = It won't start.
+
+# Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the settings screen, with room for the full wording.
+# cliff:source = Restore Default Settings
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+# cliff:max-width = 14
+probe-11a = Restore Default Settings
+
+# Pairs where the width budget forces a shorter wording; stay within the declared cells. Button on the narrow mobile settings bar, where space is tight.
+# cliff:source = Restore Default Settings
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+# cliff:max-width = 8
+probe-11b = Restore Default Settings
+
+# Pairs where the width budget forces a shorter wording; stay within the declared cells. Menu item on the desktop help screen, with room for the full wording.
+# cliff:source = View Frequently Asked Questions
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+# cliff:max-width = 16
+probe-12a = View Frequently Asked Questions
+
+# Pairs where the width budget forces a shorter wording; stay within the declared cells. Footer link on the narrow mobile page, where space is tight.
+# cliff:source = View Frequently Asked Questions
+# cliff:type = label
+# cliff:emotion = objective
+# cliff:status = initial
+# cliff:max-width = 8
+probe-12b = View Frequently Asked Questions

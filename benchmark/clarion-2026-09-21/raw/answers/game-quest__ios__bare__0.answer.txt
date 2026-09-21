@@ -1,0 +1,60 @@
+/* cliff:source: The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night. */
+"brief-tide-run" = "潮水一天涨落两次，港口也一天两次忘记谁欠了谁。趁水还没涨起来，把封好的货单送到军需官手上，账本就能再多干净一晚。";
+/* cliff:source: Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark. */
+"brief-ninth-light" = "九盏灯环绕着内湾。其中八盏由港口公会照看；最后一盏立在一块公会假装看不见的礁石上，而它从未熄灭过一次。";
+/* cliff:source: Willow's Last Watch */
+"quest-title-last-watch" = "薇洛的最后守望";
+/* cliff:source: Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off. */
+"journal-note-order" = "马罗要先看过货单才肯开闸门，所以在目标 1 完成验收之前，目标 2 一直是锁定的。";
+/* cliff:source: Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier. */
+"brief-warning-fog" = "雾会毫无预兆地从西边涌来。如果你看不见下一盏灯，就停下桨等着：这里的水流很有耐心，迟早会把你带回栈桥。";
+/* cliff:source: Deliver the Sealed Manifest to Marrow */
+"objective-03a" = "把密封货单交给马罗";
+/* cliff:source: Deliver the Sealed Manifest to Marrow */
+"objective-03b" = "把密封货单交给马罗";
+/* cliff:source: Restore Power to the Tide Gate */
+"objective-04a" = "恢复潮汐闸门的动力";
+/* cliff:source: Restore Power to the Tide Gate */
+"objective-04b" = "恢复潮汐闸门的动力";
+/* cliff:source: Relight the Ninth Light before the ebb */
+"objective-relight" = "在退潮前重新点亮第九盏灯";
+/* cliff:source: {secured, plural, one {# crate secured} other {# crates secured}} */
+"objective-count-crates" = "{secured, plural, one {已固定 # 个板条箱} other {已固定 # 个板条箱}}";
+/* cliff:source: Check the mooring lines on the east pier */
+"objective-check-lines" = "检查东码头的系泊缆绳";
+/* cliff:source: Hand me the lantern, friend. */
+"hail-01a" = "把提灯递给我，朋友。";
+/* cliff:source: Hand me the lantern, friend. */
+"hail-01b" = "把提灯递给我，朋友。";
+/* cliff:source: Marrow says the dock is open to you. */
+"hail-02a" = "马罗说了，码头对你开放。";
+/* cliff:source: Marrow says the dock is open to you. */
+"hail-02b" = "马罗说了，码头对你开放。";
+/* cliff:source: Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil. */
+"dialogue-willow-keeps" = "薇洛让第九盏灯亮了十一个冬天，却一次也没向公会讨过灯油。";
+/* cliff:source: Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing. */
+"dialogue-burn-it" = "在马罗的船靠上码头之前把它烧掉。冷掉的灰烬什么也告诉不了他。";
+/* cliff:source: The Ninth Light is yours to keep now. Do not make me regret the hand-over. */
+"success-echo" = "第九盏灯现在归你守了。别让我为这次交接后悔。";
+/* cliff:source: The gate holds. Whatever you did down there, the water is going where it should. */
+"line-success-tide" = "闸门撑住了。不管你在下面做了什么，水正流往它该去的地方。";
+/* cliff:source: The gate is jammed and the pier is under water. Come back when the tide drops and we will try again. */
+"line-failure-tide" = "闸门卡住了，码头也淹在水下。等退潮了再回来，我们重试一次。";
+/* cliff:source: The relay grid is robust: one failed beacon does not break the chain. */
+"item-relay-grid-desc" = "中继网十分健壮：一座信标失效，也不会断开整条链。";
+/* cliff:source: One flask feeds the lamp for 30 minutes at the default wick height. */
+"item-lamp-oil-desc" = "在默认灯芯高度下，一瓶油可供灯燃烧 30 分钟。";
+/* cliff:source: A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one. */
+"item-fog-lamp-desc" = "一盏矮胖的黄铜灯，蓝色灯罩上满是划痕。它投出的光很弱，但在雾里，弱光比强光散射得更少。";
+/* cliff:source: Marrow's Debt */
+"achv-marrow-debt" = "马罗的债";
+/* cliff:source: Nine Nights, Nine Lights */
+"achv-nine-nights" = "九夜九灯";
+/* cliff:source: Fair tide, {playerName}. Your last run ended 3 days ago. */
+"system-welcome-runner" = "顺潮啊，{playerName}。你上一趟活是 3 天前收的尾。";
+/* cliff:source: Hold [E] to raise the lantern; press [Q] to signal. */
+"system-keybind-lantern" = "按住 [E] 举起提灯；按 [Q] 发出信号。";
+/* cliff:source: Signal range: 120 m in fog, 400 m in clear air. */
+"system-signal-range" = "信号范围：雾中 120 米，视野清晰时 400 米。";
+/* cliff:source: {state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}} */
+"system-quest-state" = "{state, select, updated {任务已更新} complete {任务已完成} other {任务已失败}}";

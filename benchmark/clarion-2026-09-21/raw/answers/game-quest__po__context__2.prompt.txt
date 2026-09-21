@@ -1,0 +1,299 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is a gettext PO catalogue. Fill msgstr for every msgid.
+Keep msgctxt and every comment line unchanged.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete. Opening page of the quest journal, read after the quest is accepted. Plain narration, no character voice.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.brief.brief-tide-run"
+msgid "The tide turns twice a day, and twice a day the harbor forgets who owes whom. Carry the sealed manifest to the quartermaster before the water rises, and the ledger stays honest for one more night."
+msgstr ""
+
+#. Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete. Second journal page, giving the player the background of the lights before the first run.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.brief.brief-ninth-light"
+msgid "Nine lights ring the inner water. Eight are tended by the harbor guild; the last one stands on a rock the guild pretends not to see, and it has never once gone dark."
+msgstr ""
+
+#. Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete. Quest title shown at the top of the journal page and in the quest-accepted banner. It names the keeper of the ninth light, who is taking her final shift.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.brief.quest-title-last-watch"
+msgid "Willow's Last Watch"
+msgstr ""
+
+#. Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete. Note printed under the objective list on the journal page. On that list the manifest delivery is the first objective and the tide gate is the second, and the numbers here must match that order.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.brief.journal-note-order"
+msgid "Marrow reads the manifest before he opens the gate, so objective 2 stays locked until objective 1 is signed off."
+msgstr ""
+
+#. Quest journal pages for the quest line 'The Ninth Light'. The player reads them between runs, so the register is unhurried and the sentences are complete. Safety paragraph on the journal page, written in the voice of the harbor handbook.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.brief.brief-warning-fog"
+msgid "Fog comes in from the west without warning. If you cannot see the next light, stop rowing and wait: the current here is patient, and sooner or later it will carry you back to the pier."
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. Objective as it appears on the wide journal page, where the full wording fits.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 24
+msgctxt "quest.objectives.objective-03a"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. The same objective in the narrow on-screen tracker, where the slot is less than half as wide.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 10
+msgctxt "quest.objectives.objective-03b"
+msgid "Deliver the Sealed Manifest to Marrow"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. Objective as it appears on the wide journal page, where the full wording fits.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 24
+msgctxt "quest.objectives.objective-04a"
+msgid "Restore Power to the Tide Gate"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. The same objective in the narrow on-screen tracker, where only a few cells are left after the checkbox.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+#. cliff:max-width: 10
+msgctxt "quest.objectives.objective-04b"
+msgid "Restore Power to the Tide Gate"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. Final objective of the quest line. The lamp it names is the one the keeper and the dockhand talk about elsewhere in this file, and it must read the same way in all of them.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.objectives.objective-relight"
+msgid "Relight the Ninth Light before the ebb"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. Counter under the cargo objective; the engine substitutes the number of crates already lashed down.
+#. cliff:type: sentence
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "quest.objectives.objective-count-crates"
+msgid "{secured, plural, one {# crate secured} other {# crates secured}}"
+msgstr ""
+
+#. Objective lines for the same quest line. Every objective is written twice: once for the wide journal page and once for the narrow tracker at the edge of the screen, which is why several of them carry a width budget. Side objective on the journal page; nothing is abbreviated here.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "quest.objectives.objective-check-lines"
+msgid "Check the mooring lines on the east pier"
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. The quartermaster reaches out to carry the lantern up the stair for the player; he means the offer kindly.
+#. cliff:type: dialogue
+#. cliff:emotion: polite|calm
+#. cliff:status: initial
+msgctxt "quest.dialogue.hail-01a"
+msgid "Hand me the lantern, friend."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. The same words at the top of the stair, where two of his dockhands have closed off the way back; the courtesy is a demand.
+#. cliff:type: dialogue
+#. cliff:emotion: rude|angry
+#. cliff:status: initial
+msgctxt "quest.dialogue.hail-01b"
+msgid "Hand me the lantern, friend."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. A dockhand passes on the quartermaster's word once the manifest has been signed; the message is a genuine welcome.
+#. cliff:type: dialogue
+#. cliff:emotion: calm|hopeful
+#. cliff:status: initial
+msgctxt "quest.dialogue.hail-02a"
+msgid "Marrow says the dock is open to you."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. The same sentence delivered after the player has cheated him, with two dockhands waiting at the ramp; the welcome is a warning.
+#. cliff:type: dialogue
+#. cliff:emotion: rude|serious
+#. cliff:status: initial
+msgctxt "quest.dialogue.hail-02b"
+msgid "Marrow says the dock is open to you."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. A dockhand tells the player about the keeper while they wait for the tide. The lamp he names is the one the final objective sends the player back to.
+#. cliff:type: dialogue
+#. cliff:emotion: calm|nostalgic
+#. cliff:status: initial
+msgctxt "quest.dialogue.dialogue-willow-keeps"
+msgid "Willow has kept the Ninth Light burning for eleven winters, and she has never once asked the guild for oil."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. Whispered by the keeper the moment the quartermaster's boat is sighted. What must be burned is the object the delivery objective puts in the player's hands, not the lamp she is standing next to.
+#. cliff:type: dialogue
+#. cliff:emotion: urgent|anxious
+#. cliff:status: initial
+msgctxt "quest.dialogue.dialogue-burn-it"
+msgid "Burn it before Marrow's boat reaches the pier. Cold cinders tell him nothing."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. The keeper's last line, spoken when the quest line is completed. It answers the sentence the dockhand used earlier about how long she kept the lamp, and should reuse that verb.
+#. cliff:type: dialogue
+#. cliff:emotion: serious|hopeful
+#. cliff:status: initial
+msgctxt "quest.dialogue.success-echo"
+msgid "The Ninth Light is yours to keep now. Do not make me regret the hand-over."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. Spoken by the gate warden when the tide-gate objective succeeds.
+#. cliff:type: dialogue
+#. cliff:emotion: calm|hopeful
+#. cliff:status: initial
+msgctxt "quest.dialogue.line-success-tide"
+msgid "The gate holds. Whatever you did down there, the water is going where it should."
+msgstr ""
+
+#. Voiced lines from the quest line. The keeper of the ninth light speaks slowly and plainly; the harbor quartermaster speaks in short transactional sentences. Every line is acted, so the emotion tag decides the delivery. Spoken by the same warden when the tide-gate objective fails and the player has to retry.
+#. cliff:type: dialogue
+#. cliff:emotion: sad|calm
+#. cliff:status: initial
+msgctxt "quest.dialogue.line-failure-tide"
+msgid "The gate is jammed and the pier is under water. Come back when the tide drops and we will try again."
+msgstr ""
+
+#. Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list. Bag description of the relay chart, read by players who never open an engineering manual.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "items.rewards.item-relay-grid-desc"
+msgid "The relay grid is robust: one failed beacon does not break the chain."
+msgstr ""
+
+#. Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list. Bag description of the oil flask. The wick height is the setting the lamp starts with when the player has never touched it.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "items.rewards.item-lamp-oil-desc"
+msgid "One flask feeds the lamp for 30 minutes at the default wick height."
+msgstr ""
+
+#. Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list. Bag description of the fog lamp the player is given before the first run.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "items.rewards.item-fog-lamp-desc"
+msgid "A squat brass lamp with a scratched blue shutter. The light it throws is weak, but in fog a weak light scatters less than a bright one."
+msgstr ""
+
+#. Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list. Achievement name shown in the banner when the player clears the quartermaster's account. What he owes is a favour, not money.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "items.rewards.achv-marrow-debt"
+msgid "Marrow's Debt"
+msgstr ""
+
+#. Item names, bag descriptions and achievement names earned along the quest line. Descriptions are read in the bag panel; achievement names appear in a banner and in the profile list. Achievement name for visiting every lighthouse on nine consecutive in-game nights.
+#. cliff:type: label
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "items.rewards.achv-nine-nights"
+msgid "Nine Nights, Nine Lights"
+msgstr ""
+
+#. System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written. Greeting on the loading screen after a save is opened; the placeholder carries the player's profile name.
+#. cliff:type: sentence
+#. cliff:emotion: calm
+#. cliff:status: initial
+msgctxt "system.messages.system-welcome-runner"
+msgid "Fair tide, {playerName}. Your last run ended 3 days ago."
+msgstr ""
+
+#. System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written. Input hint over the lantern hook. The bracketed keys are filled in from the player's own bindings and must stay exactly as they are.
+#. cliff:type: prompt
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "system.messages.system-keybind-lantern"
+msgid "Hold [E] to raise the lantern; press [Q] to signal."
+msgstr ""
+
+#. System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written. Status readout on the lamp panel; both distances are shown to the player as plain numbers.
+#. cliff:type: sentence
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "system.messages.system-signal-range"
+msgid "Signal range: 120 m in fog, 400 m in clear air."
+msgstr ""
+
+#. System strings shown outside the story: the loading greeting, an input hint, a status readout and the quest-state banner. Engine placeholders, ICU MessageFormat structure and key hints must survive exactly as written. Banner shown at the top of the screen whenever the quest state changes; the engine passes the state name.
+#. cliff:type: sentence
+#. cliff:emotion: mechanical
+#. cliff:status: initial
+msgctxt "system.messages.system-quest-state"
+msgid "{state, select, updated {Quest updated} complete {Quest complete} other {Quest failed}}"
+msgstr ""

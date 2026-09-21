@@ -1,0 +1,231 @@
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity
+source-language: en-US
+target-language: zh-CN
+
+[emotion.reading]
+
+<probe-01a>
+source: "Oh, that's just wonderful."
+target: "哦，那真是太好了。"
+type: sentence
+status: initial
+
+<probe-01b>
+source: "Oh, that's just wonderful."
+target: "哦，那真是太好了。"
+type: sentence
+status: initial
+
+<probe-02a>
+source: "After you."
+target: "您先请。"
+type: sentence
+status: initial
+
+<probe-02b>
+source: "After you."
+target: "您先请。"
+type: sentence
+status: initial
+
+<probe-03a>
+source: "Well, here we go again."
+target: "唉，又来了。"
+type: sentence
+status: initial
+
+<probe-03b>
+source: "Well, here we go again."
+target: "唉，又来了。"
+type: sentence
+status: initial
+
+<probe-04a>
+source: "Just relax."
+target: "放松点。"
+type: sentence
+status: initial
+
+<probe-04b>
+source: "Just relax."
+target: "放松点。"
+type: sentence
+status: initial
+
+[type.register]
+
+<probe-05a>
+source: "Save"
+target: "保存"
+type: sentence
+status: initial
+
+<probe-05b>
+source: "Save"
+target: "保存"
+type: sentence
+status: initial
+
+<probe-06a>
+source: "Forge"
+target: "锻造"
+type: sentence
+status: initial
+
+<probe-06b>
+source: "Forge"
+target: "锻造"
+type: sentence
+status: initial
+
+<probe-07a>
+source: "Break a leg!"
+target: "祝你好运！"
+type: sentence
+status: initial
+
+<probe-07b>
+source: "Break a leg!"
+target: "祝你好运！"
+type: sentence
+status: initial
+
+[context.referent]
+
+<probe-08a>
+source: "Rate"
+target: "评分"
+type: sentence
+status: initial
+
+<probe-08b>
+source: "Rate"
+target: "评分"
+type: sentence
+status: initial
+
+<probe-09a>
+source: "Seal"
+target: "密封"
+type: sentence
+status: initial
+
+<probe-09b>
+source: "Seal"
+target: "密封"
+type: sentence
+status: initial
+
+<probe-10a>
+source: "It won't start."
+target: "它无法启动。"
+type: sentence
+status: initial
+
+<probe-10b>
+source: "It won't start."
+target: "它无法启动。"
+type: sentence
+status: initial
+
+[width.budget]
+
+<probe-11a>
+source: "Restore Default Settings"
+target: "恢复默认设置"
+type: sentence
+status: initial
+
+<probe-11b>
+source: "Restore Default Settings"
+target: "恢复默认设置"
+type: sentence
+status: initial
+
+<probe-12a>
+source: "View Frequently Asked Questions"
+target: "查看常见问题"
+type: sentence
+status: initial
+
+<probe-12b>
+source: "View Frequently Asked Questions"
+target: "查看常见问题"
+type: sentence
+status: initial
+
+CLIFF 1.1
+namespace: clarion
+clan: probe-ambiguity-terms
+source-language: en-US
+target-language: zh-CN
+variant: glossary
+title: "probe-ambiguity 术语表"
+info: "记录本次翻译中无上下文歧义项的取舍；同一 source 在全文中使用同一 target，避免 a/b 探针出现不一致。"
+
+[terms]
+
+<save>
+source: "Save"
+target: "保存"
+type: verb
+status: final
+context: "作为 UI 命令标签取动词义“保存”；不使用“存储”，以免与“storage/存储”混淆。"
+
+<forge>
+source: "Forge"
+target: "锻造"
+type: verb
+status: final
+context: "无上下文时取最常用的动词义“锻造/打造”。若该串实指场景地点，应改译为“熔炉”或“锻造坊”，并同步更新全部出现处。"
+
+<break-a-leg>
+source: "Break a leg!"
+target: "祝你好运！"
+type: fixed-phrase
+status: final
+context: "英语习语，用于祝人演出或行动成功；直译“断条腿”在中文中会造成严重误解，故用意译。语域为轻松口语。"
+
+<rate>
+source: "Rate"
+target: "评分"
+type: noun
+status: final
+context: "无上下文时取“评分/费率/速率”中最常见的 UI 义“评分”。若指播放速率或汇率，应改译为“速率”或“汇率”。"
+
+<seal>
+source: "Seal"
+target: "密封"
+type: verb
+status: final
+context: "取功能义“密封/封闭”（如封口、密封件）。若指印章或印章图案，应改译为“印章”；若指海豹，应改译为“海豹”。"
+
+<it-wont-start>
+source: "It won't start."
+target: "它无法启动。"
+type: sentence
+status: final
+context: "用于机械、设备或软件无法启动的报错提示，语域中性、简洁，可复用于句首或句末。"
+
+<restore-default-settings>
+source: "Restore Default Settings"
+target: "恢复默认设置"
+type: fixed-phrase
+status: final
+context: "受宽度预算约束，采用 6 字紧凑译法，保证按钮宽度不溢出；default 统一译作“默认”。"
+
+<frequently-asked-questions>
+source: "Frequently Asked Questions"
+target: "常见问题"
+type: fixed-phrase
+status: final
+context: "“查看常见问题”为导航/链接标签的惯用译法；受宽度预算约束不加“解答”，若空间允许可用“常见问题解答”。"
+
+<default>
+source: "Default"
+target: "默认"
+type: noun
+status: final
+context: "项目术语政策指定用“默认/默认值”，禁用“缺省”。"

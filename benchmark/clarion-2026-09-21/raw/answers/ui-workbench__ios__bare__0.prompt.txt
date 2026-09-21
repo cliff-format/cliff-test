@@ -1,0 +1,111 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an iOS Localizable.strings resource of "key" = "value"; lines.
+Replace every value with its translation and keep every key and comment.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* cliff:source: Scratch tables */
+"nav-scratch-tables" = "Scratch tables";
+/* cliff:source: Quarry */
+"mode-01a" = "Quarry";
+/* cliff:source: Quarry */
+"mode-01b" = "Quarry";
+/* cliff:source: Volume */
+"term-02a" = "Volume";
+/* cliff:source: Volume */
+"term-02b" = "Volume";
+/* cliff:source: Scale */
+"term-03a" = "Scale";
+/* cliff:source: Scale */
+"term-03b" = "Scale";
+/* cliff:source: Refresh the sample */
+"mode-04a" = "Refresh the sample";
+/* cliff:source: Refresh the sample */
+"mode-04b" = "Refresh the sample";
+/* cliff:source: Save the current view as a preset */
+"slot-05a" = "Save the current view as a preset";
+/* cliff:source: Save the current view as a preset */
+"slot-05b" = "Save the current view as a preset";
+/* cliff:source: Compare with the previous run */
+"slot-06a" = "Compare with the previous run";
+/* cliff:source: Compare with the previous run */
+"slot-06b" = "Compare with the previous run";
+/* cliff:source: Step 3 sets the row limit, so do not raise it before you have run step 2 at least once. */
+"note-step-order" = "Step 3 sets the row limit, so do not raise it before you have run step 2 at least once.";
+/* cliff:source: {rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}} */
+"msg-row-count" = "{rows, plural, one {# row copied to the scratch table} other {# rows copied to the scratch table}}";
+/* cliff:source: {state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}} */
+"msg-table-state" = "{state, select, ready {Scratch table ready} building {Building the scratch table} other {Scratch table failed}}";
+/* cliff:source: Welcome back, {name}. Your last run took 12 minutes. */
+"msg-welcome-back" = "Welcome back, {name}. Your last run took 12 minutes.";
+/* cliff:source: {state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}} */
+"msg-job-outcome" = "{state, select, running {The job is still running} done {The job finished} failed {The job failed} other {The job state is unknown}}";
+/* cliff:source: The scratch table could not be created because the sample is still loading. */
+"msg-sample-loading" = "The scratch table could not be created because the sample is still loading.";
+/* cliff:source: Nothing is pinned to this board yet. Open a chart and pin it here. */
+"msg-board-empty" = "Nothing is pinned to this board yet. Open a chart and pin it here.";
+/* cliff:source: Chart updated */
+"cue-chart-updated" = "Chart updated";
+/* cliff:source: A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out. */
+"help-scratch-table" = "A scratch table is your own copy of a result set. It lives in this browser tab, it is never shared with the team, and it is thrown away when you sign out.";
+/* cliff:source: Empty it before you leave the page, or the next run starts from rows that are already stale. */
+"help-empty-before-run" = "Empty it before you leave the page, or the next run starts from rows that are already stale.";
+/* cliff:source: Once it is pinned, the chart stays on the board until someone takes it down. */
+"help-board-pin" = "Once it is pinned, the chart stays on the board until someone takes it down.";
+/* cliff:source: Press the up and down arrows to move through the rows without taking your hands off the keyboard. */
+"help-keyboard-rows" = "Press the up and down arrows to move through the rows without taking your hands off the keyboard.";
+/* cliff:source: A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back. */
+"help-archive" = "A chart you have not opened for a month moves to the archive page on its own. Nothing is deleted, and opening it again brings it back.";
+/* cliff:source: New charts open with the default time window until you pin one of your own. */
+"set-time-window" = "New charts open with the default time window until you pin one of your own.";
+/* cliff:source: Charts are exported at the screen resolution, or at 2x for print. */
+"set-export-resolution" = "Charts are exported at the screen resolution, or at 2x for print.";
+/* cliff:source: Charts read from the cache first, which keeps latency under half a second on a normal connection. */
+"set-cache-latency" = "Charts read from the cache first, which keeps latency under half a second on a normal connection.";
+/* cliff:source: Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory. */
+"set-throughput" = "Throughput is about 1,200 rows per second, and the cluster keeps 30 GB of them in memory.";
+/* cliff:source: Scratch tables are kept for 7 days and are then removed without a warning. */
+"set-retention" = "Scratch tables are kept for 7 days and are then removed without a warning.";
+/* cliff:source: Times on this page follow the workspace time zone, not the time zone of your browser. */
+"set-timezone" = "Times on this page follow the workspace time zone, not the time zone of your browser.";

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Billing-->
+    <string name="billing">计费</string>
+    <!--cliff:source: Streaming-->
+    <string name="streaming">流媒体</string>
+    <!--cliff:source: Workspaces-->
+    <string name="workspaces">工作区</string>
+    <!--cliff:source: Billing rate-->
+    <string name="billing-rate">计费费率</string>
+    <!--cliff:source: No invoices yet-->
+    <string name="no-invoices">暂无账单</string>
+    <!--cliff:source: Payment failed-->
+    <string name="payment-failed">支付失败</string>
+    <!--cliff:source: Stream key-->
+    <string name="stream-key">推流密钥</string>
+    <!--cliff:source: Frame rate-->
+    <string name="frame-rate">帧率</string>
+    <!--cliff:source: Resolution-->
+    <string name="resolution">分辨率</string>
+    <!--cliff:source: Add to workspace-->
+    <string name="add-to-workspace">添加到工作区</string>
+    <!--cliff:source: Stream failed to start-->
+    <string name="stream-failed">推流启动失败</string>
+    <!--cliff:source: {count, plural, other {# streams}} across {regions, plural, other {# regions}}-->
+    <string name="stream-summary">{count, plural, other {# 个流}}，覆盖 {regions, plural, other {# 个区域}}</string>
+    <!--cliff:source: Restore defaults-->
+    <string name="restore-defaults">恢复默认值</string>
+    <!--cliff:source: Clear cache-->
+    <string name="clear-cache">清除缓存</string>
+    <!--cliff:source: Latency-->
+    <string name="latency">延迟</string>
+    <!--cliff:source: API token-->
+    <string name="api-token">API Token</string>
+    <!--cliff:source: Request rate limit-->
+    <string name="request-rate-limit">请求速率限制</string>
+    <!--cliff:source: Region: %s-->
+    <string name="status-line">区域：%s</string>
+    <!--cliff:source: Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.-->
+    <string name="cache-description">缓存响应会保留 24 小时，在过期前会被继续复用。清除缓存后，每个请求都会重新回源到源站。</string>
+    <!--cliff:source: Create new workspace-->
+    <string name="create-workspace">新建工作区</string>
+    <!--cliff:source: Welcome back to Harborline, {name}-->
+    <string name="welcome-back">欢迎回到 Harborline，{name}</string>
+    <!--cliff:source: {count, plural, one {# workspace} other {# workspaces}}-->
+    <string name="workspace-count">{count, plural, one {# 个工作区} other {# 个工作区}}</string>
+    <!--cliff:source: Delete this workspace? This cannot be undone.-->
+    <string name="delete-confirm">要删除此工作区吗？此操作无法撤销。</string>
+    <!--cliff:source: Close dialog-->
+    <string name="close-dialog">关闭对话框</string>
+</resources>

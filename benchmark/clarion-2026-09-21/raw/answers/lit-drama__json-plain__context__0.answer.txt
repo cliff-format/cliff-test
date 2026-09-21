@@ -1,0 +1,94 @@
+{
+  "scene.arrival.open-house-lights": {
+    "message": "观众席的灯全熄了。一盏工作灯在舞台前区亮着，尘埃在它的光束里缓缓翻卷。",
+    "description": "The empty auditorium an hour before the final performance. A single work lamp is lit. Opening stage direction of the scene; sets the empty theatre before anyone speaks. | cliff:type: description | cliff:emotion: calm | cliff:status: initial"
+  },
+  "scene.arrival.enter-cassian": {
+    "message": "我闭着眼都能找到这个舞台。",
+    "description": "The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian speaks his first line as he walks in from the wings after ten years away. | cliff:type: dialogue | cliff:emotion: nostalgic|calm | cliff:status: initial"
+  },
+  "scene.arrival.lit-01a": {
+    "message": "你回来了。",
+    "description": "The empty auditorium an hour before the final performance. A single work lamp is lit. Odette says this when she is genuinely glad to see him; she has hoped for this for years. | cliff:type: dialogue | cliff:emotion: joyful|grateful | cliff:status: initial"
+  },
+  "scene.arrival.lit-01b": {
+    "message": "你回来了。",
+    "description": "The empty auditorium an hour before the final performance. A single work lamp is lit. The same words later in the scene, said as a reproach after he admits why he left. | cliff:type: dialogue | cliff:emotion: angry|sad | cliff:status: initial"
+  },
+  "scene.arrival.reply-cassian": {
+    "message": "通告栏上我的名字还是拼错了。",
+    "description": "The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian deflects with a small joke about the backstage notice board. | cliff:type: dialogue | cliff:emotion: playful | cliff:status: initial"
+  },
+  "scene.confrontation.motif-promise": {
+    "message": "这家剧院信守承诺。人却没有。",
+    "description": "They circle the argument they have avoided for ten years. Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry. | cliff:type: dialogue | cliff:emotion: serious|sad | cliff:status: initial"
+  },
+  "scene.confrontation.lit-02a": {
+    "message": "好极了。真是好极了。",
+    "description": "They circle the argument they have avoided for ten years. Said when the missing lighting board key is finally found; she means it. | cliff:type: dialogue | cliff:emotion: joyful | cliff:status: initial"
+  },
+  "scene.confrontation.lit-02b": {
+    "message": "好极了。真是好极了。",
+    "description": "They circle the argument they have avoided for ten years. The same words after the fuse blows for the second time; bitter irony, not praise. | cliff:type: dialogue | cliff:emotion: angry|playful | cliff:status: initial"
+  },
+  "scene.confrontation.callback-promise": {
+    "message": "你说过，这家剧院信守承诺。",
+    "description": "They circle the argument they have avoided for ten years. Cassian quotes Odette's earlier line back at her; it must read as the same line returning. | cliff:type: dialogue | cliff:emotion: serious | cliff:status: initial"
+  },
+  "scene.confrontation.address-early": {
+    "message": "Vale先生，五分钟后开演。",
+    "description": "They circle the argument they have avoided for ten years. Early in the scene Odette keeps him at the distance of a surname and a title. | cliff:type: dialogue | cliff:emotion: formal|polite | cliff:status: initial"
+  },
+  "scene.confrontation.address-late": {
+    "message": "Cassian，拜托，坐下吧。",
+    "description": "They circle the argument they have avoided for ten years. Late in the scene the distance drops and she uses his given name for the first time. | cliff:type: dialogue | cliff:emotion: calm|sad | cliff:status: initial"
+  },
+  "scene.confrontation.lit-03a": {
+    "message": "她把灯转向他。",
+    "description": "They circle the argument they have avoided for ten years. A stage direction: terse narrative register, describing the action for the crew. | cliff:type: description | cliff:emotion: objective | cliff:status: initial"
+  },
+  "scene.confrontation.lit-03b": {
+    "message": "她把灯转向他。",
+    "description": "They circle the argument they have avoided for ten years. A line of dialogue: an actor describing the blocking aloud during a run-through, in speech. | cliff:type: dialogue | cliff:emotion: playful | cliff:status: initial"
+  },
+  "scene.house.roof-year": {
+    "message": "屋顶自1974年以来就没被动过。",
+    "description": "Practical talk about the building itself while they avoid each other's eyes. Odette lists what the building needs; the year is a fact and must survive. | cliff:type: dialogue | cliff:emotion: neutral | cliff:status: initial"
+  },
+  "scene.house.lamp-count": {
+    "message": "两盏500瓦的灯，外加一个比我们俩年纪都大的保险丝盒。",
+    "description": "Practical talk about the building itself while they avoid each other's eyes. Cassian counts what is still working in the grid. | cliff:type: dialogue | cliff:emotion: neutral | cliff:status: initial"
+  },
+  "scene.house.venue-name": {
+    "message": "The Halloway 今晚不关门。它只在最后一个人离开时才关门。",
+    "description": "Practical talk about the building itself while they avoid each other's eyes. The venue name is the company's mark and is used untranslated in all materials. | cliff:type: dialogue | cliff:emotion: neutral | cliff:status: initial"
+  },
+  "scene.house.board-default": {
+    "message": "使用灯光控制台上的默认设置，其他任何东西都不要碰。",
+    "description": "Practical talk about the building itself while they avoid each other's eyes. A technical instruction to the operator about the lighting board. | cliff:type: dialogue | cliff:emotion: neutral | cliff:status: initial"
+  },
+  "scene.house.disbelief": {
+    "message": "你是认真的吗？现在？在经历了这一切之后？",
+    "description": "Practical talk about the building itself while they avoid each other's eyes. Cassian reacts to her telling him the building is already sold. | cliff:type: dialogue | cliff:emotion: surprised|angry | cliff:status: initial"
+  },
+  "scene.monologue.monologue-open": {
+    "message": "我扫这块地板的次数，比我在自己床上睡觉的次数还多。我知道哪块台板会在身子重的演员脚下吱呀作响，哪块又会在身子轻的演员脚下凹陷。一座建筑会记住你，只要你待得够久。",
+    "description": "Odette alone in the work light after Cassian goes to change. The first half of her monologue, alone on stage; long-form literary prose, not conversational. | cliff:type: monologue | cliff:emotion: nostalgic | cliff:status: initial"
+  },
+  "scene.monologue.monologue-turn": {
+    "message": "然后，某天晚上灯没有再亮起来，结果发现，这栋建筑其实什么也没记住。",
+    "description": "Odette alone in the work light after Cassian goes to change. The turn in the monologue where the comfort collapses. | cliff:type: monologue | cliff:emotion: nostalgic | cliff:status: initial"
+  },
+  "scene.verse.verse-01": {
+    "message": "灯暗了，台板还在。",
+    "description": "The company's traditional closing couplet, spoken to the empty house at the end of a run. First line of the closing couplet; the two lines are parallel in structure and must stay parallel. | cliff:type: narration | cliff:emotion: serious|nostalgic | cliff:status: initial"
+  },
+  "scene.verse.verse-02": {
+    "message": "演员走了，戏还在。",
+    "description": "The company's traditional closing couplet, spoken to the empty house at the end of a run. Second line of the couplet, mirroring the first line word for word in structure. | cliff:type: narration | cliff:emotion: serious|nostalgic | cliff:status: initial"
+  },
+  "scene.verse.final-direction": {
+    "message": "她抬手关掉工作灯。黑暗，接着是观众席门关上的声音。",
+    "description": "The company's traditional closing couplet, spoken to the empty house at the end of a run. The closing stage direction of the scene. | cliff:type: description | cliff:emotion: calm | cliff:status: initial"
+  }
+}

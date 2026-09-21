@@ -1,0 +1,94 @@
+Here is the translated file, complete and structurally identical to the source (keys, comments and XML structure untouched):
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: OK-->
+    <string name="ok">OK</string>
+    <!--cliff:source: Failed-->
+    <string name="failed">失败</string>
+    <!--cliff:source: Unavailable-->
+    <string name="unavailable">不可用</string>
+    <!--cliff:source: Unconfigured-->
+    <string name="unconfigured">未配置</string>
+    <!--cliff:source: Unauthorized-->
+    <string name="unauthorized">未授权</string>
+    <!--cliff:source: Parameter out of range-->
+    <string name="parameter-out-of-range">参数超出范围</string>
+    <!--cliff:source: Out of memory-->
+    <string name="out-of-memory">内存不足</string>
+    <!--cliff:source: File not found-->
+    <string name="file-not-found">文件未找到</string>
+    <!--cliff:source: File: Bad drive-->
+    <string name="file-bad-drive">文件：驱动器错误</string>
+    <!--cliff:source: File: Bad path-->
+    <string name="file-bad-path">文件：路径错误</string>
+    <!--cliff:source: File: Permission denied-->
+    <string name="file-permission-denied">文件：权限被拒绝</string>
+    <!--cliff:source: File already in use-->
+    <string name="file-already-in-use">文件已在使用中</string>
+    <!--cliff:source: Can't open file-->
+    <string name="can-t-open-file">无法打开文件</string>
+    <!--cliff:source: Can't write file-->
+    <string name="can-t-write-file">无法写入文件</string>
+    <!--cliff:source: Can't read file-->
+    <string name="can-t-read-file">无法读取文件</string>
+    <!--cliff:source: File unrecognized-->
+    <string name="file-unrecognized">文件无法识别</string>
+    <!--cliff:source: File corrupt-->
+    <string name="file-corrupt">文件已损坏</string>
+    <!--cliff:source: Missing dependencies for file-->
+    <string name="missing-dependencies-for-file">文件缺少依赖项</string>
+    <!--cliff:source: End of file-->
+    <string name="end-of-file">文件结尾</string>
+    <!--cliff:source: Can't open-->
+    <string name="can-t-open">无法打开</string>
+    <!--cliff:source: Can't create-->
+    <string name="can-t-create">无法创建</string>
+    <!--cliff:source: Query failed-->
+    <string name="query-failed">查询失败</string>
+    <!--cliff:source: Already in use-->
+    <string name="already-in-use">已在使用中</string>
+    <!--cliff:source: Locked-->
+    <string name="locked">已锁定</string>
+    <!--cliff:source: Timeout-->
+    <string name="timeout">超时</string>
+    <!--cliff:source: Can't connect-->
+    <string name="can-t-connect">无法连接</string>
+    <!--cliff:source: Can't resolve-->
+    <string name="can-t-resolve">无法解析</string>
+    <!--cliff:source: Connection error-->
+    <string name="connection-error">连接错误</string>
+    <!--cliff:source: Can't acquire resource-->
+    <string name="can-t-acquire-resource">无法获取资源</string>
+    <!--cliff:source: Can't fork-->
+    <string name="can-t-fork">无法派生进程</string>
+    <!--cliff:source: Invalid data-->
+    <string name="invalid-data">数据无效</string>
+    <!--cliff:source: Invalid parameter-->
+    <string name="invalid-parameter">参数无效</string>
+    <!--cliff:source: Already exists-->
+    <string name="already-exists">已存在</string>
+    <!--cliff:source: Does not exist-->
+    <string name="does-not-exist">不存在</string>
+    <!--cliff:source: Can't read database-->
+    <string name="can-t-read-database">无法读取数据库</string>
+    <!--cliff:source: Can't write database-->
+    <string name="can-t-write-database">无法写入数据库</string>
+    <!--cliff:source: Compilation failed-->
+    <string name="compilation-failed">编译失败</string>
+    <!--cliff:source: Method not found-->
+    <string name="method-not-found">未找到方法</string>
+    <!--cliff:source: Link failed-->
+    <string name="link-failed">链接失败</string>
+    <!--cliff:source: Script failed-->
+    <string name="script-failed">脚本失败</string>
+</resources>
+```
+
+Translation notes:
+
+- **`ok`** is kept as `OK` — it is a universal status token in zh-CN UIs and appears as such in the English source.
+- **`file-bad-drive` / `file-bad-path` / `file-permission-denied`** keep the `File:` prefix pattern, rendered as the full-width Chinese colon `：` in keeping with zh-CN typography.
+- **`can-t-fork`** is rendered as `无法派生进程` rather than a bare transliteration of "fork", matching the terse, non-technical register of the surrounding "无法…" errors.
+- No string in this file contains placeholders, ICU MessageFormat constructs or markup, so no payloads needed preserving. All translations are apostrophe-free, so no `\'` escaping was required.

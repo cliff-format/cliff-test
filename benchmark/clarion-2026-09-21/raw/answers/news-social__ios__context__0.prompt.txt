@@ -1,0 +1,220 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an iOS Localizable.strings resource of "key" = "value"; lines.
+Replace every value with its translation and keep every key and comment.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by the volunteer coordinator after the crew finished the depot mural two days ahead of schedule; the thanks are meant plainly.
+cliff:source: Great work today, everyone. Really.
+cliff:type: sentence
+cliff:emotion: grateful|joyful
+cliff:status: initial */
+"news-01a" = "Great work today, everyone. Really.";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted by a commuter twenty minutes after the third service alert of the morning; the compliment is bitter and means the opposite.
+cliff:source: Great work today, everyone. Really.
+cliff:type: sentence
+cliff:emotion: angry|playful
+cliff:status: initial */
+"news-01b" = "Great work today, everyone. Really.";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted from the opening ceremony on Marrow Street by a resident who is glad the work is finished at last.
+cliff:source: Six months of roadworks and here we are.
+cliff:type: sentence
+cliff:emotion: joyful|hopeful
+cliff:status: initial */
+"news-02a" = "Six months of roadworks and here we are.";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. Posted a week later by a resident standing in front of a fresh set of barriers on the same street.
+cliff:source: Six months of roadworks and here we are.
+cliff:type: sentence
+cliff:emotion: angry|playful
+cliff:status: initial */
+"news-02b" = "Six months of roadworks and here we are.";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply to a friend who has just posted that she will take the new line home during tonight's storm warning; the writer is worried about her.
+cliff:source: You are really going to ride that thing?
+cliff:type: sentence
+cliff:emotion: anxious|polite
+cliff:status: initial */
+"news-03a" = "You are really going to ride that thing?";
+/* Posts written within the same hour of the same day. Each wording appears twice in the feed; the note on each post says who wrote it and what had just happened. A reply from an account that has spent the week mocking the project; the writer thinks the vehicle is junk and is daring the other user.
+cliff:source: You are really going to ride that thing?
+cliff:type: sentence
+cliff:emotion: rude|playful
+cliff:status: initial */
+"news-03b" = "You are really going to ride that thing?";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a follower's photograph of the first tram crossing the river at sunrise.
+cliff:source: Nice shot.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial */
+"news-04a" = "Nice shot.";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a clip from the depot charity basketball match, posted the moment a player scores from the halfway line.
+cliff:source: Nice shot.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial */
+"news-04b" = "Nice shot.";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under the notice that service resumed after the storm; the writer means the tram line itself.
+cliff:source: It is back.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial */
+"news-05a" = "It is back.";
+/* Short replies whose wording is identical. The note on each one says what the writer was looking at when it was posted. Comment under a photograph of the construction barrier standing again on Marrow Street; the writer means the barrier.
+cliff:source: It is back.
+cliff:type: sentence
+cliff:emotion: sad|informal
+cliff:status: initial */
+"news-05b" = "It is back.";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider thanking a local cafe. The handle and the tag are how other users find the cafe and the day's posts.
+cliff:source: Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay
+cliff:type: sentence
+cliff:emotion: grateful|informal
+cliff:status: initial */
+"news-06" = "Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a rider who spent the afternoon on the line for fun. The two emoji sit between the two halves of the sentence and carry the mood.
+cliff:source: Rode the whole loop this afternoon just because I could 🚋💚 no regrets
+cliff:type: sentence
+cliff:emotion: joyful|playful
+cliff:status: initial */
+"news-07" = "Rode the whole loop this afternoon just because I could 🚋💚 no regrets";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post praising the mural at the tram depot. Both sentences are current slang for an outstanding piece of work; nothing is eaten in this scene.
+cliff:source: The new depot mural absolutely ate. No crumbs left.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial */
+"news-08" = "The new depot mural absolutely ate. No crumbs left.";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification in the activity list when a photo is reposted. The argument chooses the plural form and the number is printed where the hash sign stands.
+cliff:source: {count, plural, one {# person} other {# people}} reposted your photo.
+cliff:type: prompt
+cliff:emotion: mechanical|objective
+cliff:status: initial */
+"news-09" = "{count, plural, one {# person} other {# people}} reposted your photo.";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. In-app notification for likes. The first argument is a display name and the second counts everyone else who reacted.
+cliff:source: {name} and {others, plural, one {# other} other {# others}} liked your post.
+cliff:type: prompt
+cliff:emotion: mechanical|objective
+cliff:status: initial */
+"news-10" = "{name} and {others, plural, one {# other} other {# others}} liked your post.";
+/* Posts and in-app notifications from the platform itself. Handles, hashtags, emoji and message arguments are part of the text a user sees. Post from a commuter counting the time the new line saves. The closing phrase is a rating, not a fraction.
+cliff:source: Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.
+cliff:type: sentence
+cliff:emotion: joyful|informal
+cliff:status: initial */
+"news-11" = "Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. First message in the thread: a rider puts a question to the transit account.
+cliff:source: @SablewickTransit Will the Riverside Loop run on the holiday Monday?
+cliff:type: sentence
+cliff:emotion: curious|polite
+cliff:status: initial */
+"news-12" = "@SablewickTransit Will the Riverside Loop run on the holiday Monday?";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. Reply from the transit account to the question directly above. The sentence carries no verb of its own and has to borrow one from that question.
+cliff:source: Yes, on a Sunday timetable.
+cliff:type: sentence
+cliff:emotion: polite|objective
+cliff:status: initial */
+"news-13" = "Yes, on a Sunday timetable.";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider follows up in the same thread. The bare noun phrase stands for the final departure of the service just confirmed, on the return direction.
+cliff:source: And the last one back?
+cliff:type: sentence
+cliff:emotion: curious|informal
+cliff:status: initial */
+"news-14" = "And the last one back?";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The transit account answers the follow-up. The time is the evening departure the rider asked about, and the verb again comes from the message above.
+cliff:source: Eleven forty, from the north end.
+cliff:type: sentence
+cliff:emotion: polite|objective
+cliff:status: initial */
+"news-15" = "Eleven forty, from the north end.";
+/* One comment thread under the service announcement, in posting order. Every reply continues the message directly above it and leaves out what that message has already said. The rider closes the thread. What is being forwarded is the departure information just given, not the tram and not the account.
+cliff:source: Perfect, thank you! Adding it to the group chat now.
+cliff:type: sentence
+cliff:emotion: grateful|informal
+cliff:status: initial */
+"news-16" = "Perfect, thank you! Adding it to the group chat now.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Scheduled post from the transit account announcing the new frequency on the line.
+cliff:source: Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.
+cliff:type: sentence
+cliff:emotion: objective|formal
+cliff:status: initial */
+"news-17" = "Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post announcing the open day at the tram depot.
+cliff:source: The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"news-18" = "The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post summarizing the first week's ridership figure released by the operator.
+cliff:source: Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"news-19" = "Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment describing an ordinary commute on the line.
+cliff:source: I take the first tram most mornings and the seats are comfortable enough for the whole ride.
+cliff:type: sentence
+cliff:emotion: neutral|informal
+cliff:status: initial */
+"news-20" = "I take the first tram most mornings and the seats are comfortable enough for the whole ride.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment asking a practical question about the ticket machine at the northern terminus.
+cliff:source: Does anyone know whether the ticket machine at the north end takes cards?
+cliff:type: sentence
+cliff:emotion: curious|informal
+cliff:status: initial */
+"news-21" = "Does anyone know whether the ticket machine at the north end takes cards?";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Reader comment on the weather during the opening ceremony.
+cliff:source: The rain held off for the ceremony, which was lucky for everyone standing on the platform.
+cliff:type: sentence
+cliff:emotion: neutral
+cliff:status: initial */
+"news-22" = "The rain held off for the ceremony, which was lucky for everyone standing on the platform.";
+/* Routine posts from the transit account and matter-of-fact reader comments from the same day. Post from the transit account listing the fares on the new line.
+cliff:source: A single journey costs one euro fifty and a day pass costs four euros.
+cliff:type: sentence
+cliff:emotion: objective
+cliff:status: initial */
+"news-23" = "A single journey costs one euro fifty and a day pass costs four euros.";

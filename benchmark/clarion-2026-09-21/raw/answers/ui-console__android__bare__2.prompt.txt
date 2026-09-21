@@ -1,0 +1,99 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an Android strings.xml resource. Replace the text of every
+string element with its translation and keep the name attribute and the
+comments unchanged. Escape apostrophes as \' as Android requires.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--cliff:source: Billing-->
+    <string name="billing">Billing</string>
+    <!--cliff:source: Streaming-->
+    <string name="streaming">Streaming</string>
+    <!--cliff:source: Workspaces-->
+    <string name="workspaces">Workspaces</string>
+    <!--cliff:source: Billing rate-->
+    <string name="billing-rate">Billing rate</string>
+    <!--cliff:source: No invoices yet-->
+    <string name="no-invoices">No invoices yet</string>
+    <!--cliff:source: Payment failed-->
+    <string name="payment-failed">Payment failed</string>
+    <!--cliff:source: Stream key-->
+    <string name="stream-key">Stream key</string>
+    <!--cliff:source: Frame rate-->
+    <string name="frame-rate">Frame rate</string>
+    <!--cliff:source: Resolution-->
+    <string name="resolution">Resolution</string>
+    <!--cliff:source: Add to workspace-->
+    <string name="add-to-workspace">Add to workspace</string>
+    <!--cliff:source: Stream failed to start-->
+    <string name="stream-failed">Stream failed to start</string>
+    <!--cliff:source: {count, plural, other {# streams}} across {regions, plural, other {# regions}}-->
+    <string name="stream-summary">{count, plural, other {# streams}} across {regions, plural, other {# regions}}</string>
+    <!--cliff:source: Restore defaults-->
+    <string name="restore-defaults">Restore defaults</string>
+    <!--cliff:source: Clear cache-->
+    <string name="clear-cache">Clear cache</string>
+    <!--cliff:source: Latency-->
+    <string name="latency">Latency</string>
+    <!--cliff:source: API token-->
+    <string name="api-token">API token</string>
+    <!--cliff:source: Request rate limit-->
+    <string name="request-rate-limit">Request rate limit</string>
+    <!--cliff:source: Region: %s-->
+    <string name="status-line">Region: %s</string>
+    <!--cliff:source: Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.-->
+    <string name="cache-description">Cached responses are kept for 24 hours and served again until they expire. Clear the cache to send every request back to the origin.</string>
+    <!--cliff:source: Create new workspace-->
+    <string name="create-workspace">Create new workspace</string>
+    <!--cliff:source: Welcome back to Harborline, {name}-->
+    <string name="welcome-back">Welcome back to Harborline, {name}</string>
+    <!--cliff:source: {count, plural, one {# workspace} other {# workspaces}}-->
+    <string name="workspace-count">{count, plural, one {# workspace} other {# workspaces}}</string>
+    <!--cliff:source: Delete this workspace? This cannot be undone.-->
+    <string name="delete-confirm">Delete this workspace? This cannot be undone.</string>
+    <!--cliff:source: Close dialog-->
+    <string name="close-dialog">Close dialog</string>
+</resources>

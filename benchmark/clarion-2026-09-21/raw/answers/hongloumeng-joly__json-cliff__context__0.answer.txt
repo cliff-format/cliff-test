@@ -1,0 +1,198 @@
+{
+  "header": {
+    "namespace": "clarion",
+    "clan": "hongloumeng-joly",
+    "source-language": "zh-CN",
+    "target-language": "en-US",
+    "title": "Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation",
+    "info": "This is the opening chapter of the 18th-century Chinese novel 'Hung Lou Meng' (Dream of the Red Chamber), presented alongside H. Bencraft Joly's 1892 English translation. The content includes the author's framing preface, a mythological creation story, and the beginning of the main narrative introducing characters such as Zhen Shiyin and Jia Yucun. The target audience is English-speaking readers of classical Chinese literature, likely in an academic or literary context. Translators should be aware that this is a bilingual edition pairing the classical Chinese source with a Victorian-era translation, so the English text may reflect 19th-century stylistic conventions rather than modern usage.",
+    "standard": "Maintain a formal, literary register appropriate to classical Chinese fiction. Romanize Chinese names using the pinyin system as established in the source edition; do not translate personal names, place names, or book titles that have established romanizations. Preserve the original paragraph and segment structure. Keep untranslated any terms that are proper nouns, official titles, or culturally specific references where the source edition retains romanization. Use standard English punctuation and spacing conventions. Do not modernize archaic English phrasing if it appears in the source translation."
+  },
+  "groups": [
+    {
+      "path": "chapter-1",
+      "context": "Imported from Hung Lou Meng (Dream of the Red Chamber), Chinese original with Joly's 1892 translation. Document 'chapter-1', 14 segments in their original order; translate them as one continuous document, not as isolated sentences.",
+      "entries": [
+        {
+          "id": "chapter-1-001",
+          "source": "此開卷第一回也．作者自云：因曾歷過一番夢幻之后，故將真事隱去， 而借\"通靈\"之說，撰此《石頭記》一書也．故曰\"甄士隱\"云云．但書中所記 何事何人？自又云：“今風塵碌碌，一事無成，忽念及當日所有之女子，一 一細考較去，覺其行止見識，皆出于我之上．何我堂堂須眉，誠不若彼裙釵 哉？實愧則有余，悔又無益之大無可如何之日也！當此，則自欲將已往所賴 天恩祖德，錦衣紈褲之時，飫甘饜肥之日，背父兄教育之恩，負師友規談之 德，以至今日一技無成，半生潦倒之罪，編述一集，以告天下人：我之罪固 不免，然閨閣中本自歷歷有人，万不可因我之不肖，自護己短，一并使其泯 滅也．雖今日之茅椽蓬牖，瓦灶繩床，其晨夕風露，階柳庭花，亦未有妨我 之襟怀筆墨者．雖我未學，下筆無文，又何妨用假語村言，敷演出一段故事 來，亦可使閨閣昭傳，复可悅世之目，破人愁悶，不亦宜乎？\"故曰\"賈雨村 \"云云．",
+          "target": "This is the opening of the first chapter. The author says of himself: having once passed through a dream and an illusion, he therefore concealed the true facts, and, borrowing the tale of \"spiritual perception,\" wrote this book, the Story of the Stone. Hence he is called \"Zhen Shiyin\" (the true facts hidden), and so forth. But what affairs and what persons are recorded in the book? He speaks again in his own words: \"Now, in the dust and bustle of the world, I have accomplished nothing; suddenly I call to mind all the girls of former days, and, examining them one by one with care, I feel that their conduct and understanding are all above mine. Why is it that I, a full-grown man with beard and brows, am truly not the equal of those girls in petticoats? Shame I have in abundance, yet repentance is of no avail—a day of utter helplessness! Wherefore I would myself set down in a volume the times when I leaned upon Heaven's grace and my ancestors' virtue, when I wore brocade and silk and fed on sweet and rich fare; and my sin in turning my back on the kindness of a father's and brother's teaching and betraying the virtue of my teachers' and friends' admonitions, so that today I have not one skill to my name and half my life is spent in failure—and make it known to all men under heaven: my guilt is indeed not to be escaped; yet in the women's apartments there have always been, clear and bright, persons of worth, and by no means may I, because of my own unworthiness, shield my own shortcomings and let them all be blotted out as well. Though today my rafters are of thatch and my windows of mugwort, my stove of clay and my bed of rope, still the wind and dew of morning and evening, the willows by the steps and the flowers in the court, have in no way hindered my breast or my brush. And though I am without learning, and my pen has no elegance, what does it matter if I use feigned words and rustic speech to unfold a tale? It may cause the women's chambers to be made known, and may gladden men's eyes and break their gloom—is that not fitting?\" Hence he is called \"Jia Yucun\" (false words and rustic speech), and so forth.",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "serious",
+            "nostalgic"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 1 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Following segment: 此回中凡用“夢”用“幻”等字，是提醒閱者眼目，亦是此書立意本旨 ．"
+        },
+        {
+          "id": "chapter-1-002",
+          "source": "此回中凡用“夢”用“幻”等字，是提醒閱者眼目，亦是此書立意本旨 ．",
+          "target": "Throughout this chapter, the use of the words \"dream\" and \"illusion\" is meant to catch the reader's eye, and is likewise the fundamental purport of this book.",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 2 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 此開卷第一回也．作者自云：因曾歷過一番夢幻之后，故將真事隱去， 而借\"通靈\"之說，撰此《石頭記》一書也．故曰\"甄士隱\"云云．但書中所記 何事何人？自又云：“今風塵碌碌，一事無成，… Following segment: 原來女媧氏煉石補天之時，于大荒山無稽崖練成高經十二丈，方經二十 四丈頑石三万六千五百零一塊．媧皇氏只用了三万六千五百塊，只單單剩了 一塊未用，便棄在此山青埂峰下．誰知此石自經段煉…"
+        },
+        {
+          "id": "chapter-1-003",
+          "source": "原來女媧氏煉石補天之時，于大荒山無稽崖練成高經十二丈，方經二十 四丈頑石三万六千五百零一塊．媧皇氏只用了三万六千五百塊，只單單剩了 一塊未用，便棄在此山青埂峰下．誰知此石自經段煉之后，靈性已通，因見 眾石俱得補天，獨自己無材不堪入選，遂自怨自歎，日夜悲號慚愧．",
+          "target": "It came about that when Nüwa smelted stones to mend the sky, she smelted, on the Great Fable Mountain, at the Incredible Cliff, blocks of stubborn stone twelve zhang high and twenty-four zhang square, thirty-six thousand five hundred and one in all. The Empress Nüwa used only thirty-six thousand five hundred of them; one single block was left unused and was cast away at the foot of Green Ridge Peak on that mountain. Who could have guessed that this stone, after being smelted, had acquired spiritual understanding, and that, seeing all the other stones chosen to mend the sky while it alone was of no use and unfit to be chosen, it fell to complaining and sighing, and day and night wailed and grieved in shame.",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "sad",
+            "serious"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 3 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 此回中凡用“夢”用“幻”等字，是提醒閱者眼目，亦是此書立意本旨 ． Following segment: 空空道人遂向石頭說道：“石兄，你這一段故事，据你自己說有些趣味 ，故編寫在此，意欲問世傳奇．据我看來，第一件，無朝代年紀可考，第二 件，并無大賢大忠理朝廷治風俗的善政，其中只不過…"
+        },
+        {
+          "id": "chapter-1-004",
+          "source": "空空道人遂向石頭說道：“石兄，你這一段故事，据你自己說有些趣味 ，故編寫在此，意欲問世傳奇．据我看來，第一件，無朝代年紀可考，第二 件，并無大賢大忠理朝廷治風俗的善政，其中只不過几個异樣女子，或情或 痴，或小才微善，亦無班姑，蔡女之德能．我縱抄去，恐世人不愛看呢。” 石頭笑答道：“我師何太痴耶！若云無朝代可考，今我師竟假借漢唐等年紀 添綴，又有何難？但我想，歷來野史，皆蹈一轍，莫如我這不借此套者，反 倒新奇別致，不過只取其事体情理罷了，又何必拘拘于朝代年紀哉！再者， 市井俗人喜看理治之書者甚少，愛适趣閒文者特多．歷來野史，或訕謗君相 ，或貶人妻女，奸淫凶惡，不可胜數．更有一种風月筆墨，其淫穢污臭，屠 毒筆墨，坏人子弟，又不可胜數．至若佳人才子等書，則又千部共出一套， 且其中終不能不涉于淫濫，以致滿紙潘安，子建，西子，文君，不過作者要 寫出自己的那兩首情詩艷賦來，故假擬出男女二人名姓，又必旁出一小人其 間撥亂，亦如劇中之小丑然．且鬟婢開口即者也之乎，非文即理．故逐一看 去，悉皆自相矛盾，大不近情理之話，竟不如我半世親睹親聞的這几個女子 ，雖不敢說強似前代書中所有之人，但事跡原委，亦可以消愁破悶，也有几 首歪詩熟話，可以噴飯供酒．至若离合悲歡，興衰際遇，則又追蹤躡跡，不 敢稍加穿鑿，徒為供人之目而反失其真傳者．今之人，貧者日為衣食所累， 富者又怀不足之心，縱然一時稍閒，又有貪淫戀色，好貨尋愁之事，那里去 有工夫看那理治之書？所以我這一段故事，也不愿世人稱奇道妙，也不定要 世人喜悅檢讀，只愿他們當那醉淫飽臥之時，或避世去愁之際，把此一玩， 豈不省了些壽命筋力？就比那謀虛逐妄，卻也省了口舌是非之害，腿腳奔忙 之．再者，亦令世人換新眼目，不比那些胡牽亂扯，忽离忽遇，滿紙才人 淑女，子建文君紅娘小玉等通共熟套之舊稿．我師意為何如？”",
+          "target": "Whereupon the Taoist of Empty Emptiness said to the stone: \"Brother Stone, this story of yours—by your own account it has some interest, and so it has been written down here, in the hope that it may go out into the world as a tale of wonder. But in my view, first, there is no dynasty or year to be verified; and secondly, there are no great sages or great loyal ministers who governed the court and reformed the manners of the age—no good government at all. There are only a few remarkable girls, some passionate, some foolish, some of small talent and slender virtue; there is not the virtue and ability of a Pan the Learned Lady or a Cai the Female Scholar. Even if I copied it out and carried it away, I fear the world would not care to read it.\" The stone laughed and answered: \"How foolish you are, Master! If you say there is no dynasty to be verified, what difficulty is there in borrowing the years of the Han or the Tang and adding them on? But I think that the unofficial histories of every age have all trodden one and the same path; there is nothing like mine, which borrows none of these conventions and is, on the contrary, new and distinctive. It takes only the essentials of the matter and the principles of human feeling—why must one be bound by dynasty and year? Moreover, of the common folk of the market-place, very few are fond of books about government and good order, while those who love pleasant and amusing writings are especially many. The unofficial histories of every age either slander rulers and ministers or vilify other men's wives and daughters; lewdness, violence and wickedness in them are past counting. There is, besides, a kind of writing of wind and moon, whose obscenity and stench, whose poisonous pen, corrupt the sons of good families—these too are past counting. And as for the books of beauties and gifted scholars, a thousand volumes all come out of the same mould, nor can they in the end avoid touching on lewdness and excess, so that the whole page is filled with Pan An, Zijian, Xi Shi and Wenjun, merely because the author wishes to display his own two love poems and flowery rhapsodies; hence he invents the names of a man and a woman, and must needs bring in a petty villain between them to stir up trouble, just like the clown in a play. And the maids and serving-girls, as soon as they open their mouths, talk of 'this' and 'that,' of 'is' and 'ought'—nothing but pedantry and moralizing. So, looking through them one by one, they are all self-contradictory and utterly unreasonable. They are not to be compared with the few girls I have seen with my own eyes and heard with my own ears in half a lifetime. Though I dare not say that they surpass all the persons in the books of former ages, yet the course and circumstances of their story can also dispel care and break gloom, and there are a few rough poems and common sayings that can make one laugh over wine. As for partings and meetings, sorrow and joy, rise and fall, and the turns of fortune, these I have followed step by step, not daring to add the least embroidery, lest for the sake of pleasing men's eyes I should lose the true record. As for the men of today: the poor are daily burdened with food and clothing, the rich are filled with discontent; and even if for a moment they have leisure, there are again the greed of lust and the love of beauty, the seeking of goods and the courting of sorrow—where should they find time to read those books of government and good order? Therefore I do not wish my tale to be praised by the world for its wonder and excellence, nor do I insist that the world should take delight in reading it. I only wish that when they are drunk with wine or sated with sleep, or when they would escape the world and be rid of care, they may take it up and play with it—will it not save them some years of life and some strength of body? Compared with pursuing emptiness and chasing falsehood, it will also spare them the harm of wagging tongues and quarrels, and the labour of running about on their legs. Moreover, it will let the world see with new eyes, unlike those old manuscripts which pull things in by the head and drag them out by the tail, which are now parted and now met, and are filled with talented scholars and lovely maidens—Zijian and Wenjun, Hongniang and Xiaoyu, and all the rest of the worn-out commonplaces. What does my Master think of it?\"",
+          "type": "dialogue",
+          "emotion": [
+            "formal",
+            "serious",
+            "playful"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 4 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 原來女媧氏煉石補天之時，于大荒山無稽崖練成高經十二丈，方經二十 四丈頑石三万六千五百零一塊．媧皇氏只用了三万六千五百塊，只單單剩了 一塊未用，便棄在此山青埂峰下．誰知此石自經段煉… Following segment: 空空道人听如此說，思忖半晌，將《石頭記》再檢閱一遍，因見上面雖 有些指奸責佞貶惡誅邪之語，亦非傷時罵世之旨，及至君仁臣良父慈子孝， 凡倫常所關之處，皆是稱功頌德，眷眷無窮，實非別…"
+        },
+        {
+          "id": "chapter-1-005",
+          "source": "空空道人听如此說，思忖半晌，將《石頭記》再檢閱一遍，因見上面雖 有些指奸責佞貶惡誅邪之語，亦非傷時罵世之旨，及至君仁臣良父慈子孝， 凡倫常所關之處，皆是稱功頌德，眷眷無窮，實非別書之可比．雖其中大旨 談論，亦不過實錄其事，又非假擬妄稱，一味淫邀艷約，私訂偷盟之可比． 因毫不干涉時世，方從頭至尾抄錄回來，問世傳奇．從此空空道人因空見色 ，由色生情，傳情入色，自色悟空，遂易名為情僧，改《石頭記》為《情僧 錄》．東魯孔梅溪則題曰《風月寶鑒》．后因曹雪芹于悼紅軒中披閱十載， 增刪五次，纂成目錄，分出章回，則題曰《金陵十二釵》．并題一絕云：",
+          "target": "When the Taoist of Empty Emptiness heard this, he pondered for a long while, and once more looked the Story of the Stone over from beginning to end. Seeing that, although it contained some words pointing out villainy, rebuking flattery, condemning evil and punishing wickedness, it was not meant to wound the times or revile the world; and that, wherever it touched upon the kindness of rulers, the goodness of ministers, the affection of fathers and the filial piety of sons—wherever the relations of human life were concerned—it gave praise and sang of virtue, with unending devotion, so that it truly could not be compared with other books; and that, though its main burden was talk and discussion, it did no more than record events truthfully and was not to be likened to false inventions and wild assertions, to empty invitations of lust and secret trysts of stolen vows: for these reasons, since it meddled in no way with the times and the world, he copied it out from first to last and took it away with him, to go out into the world as a tale of wonder. From this time forth the Taoist of Empty Emptiness, beholding form through emptiness, and from form engendering passion, passing from passion into form and from form awakening to emptiness, changed his name to the Passionate Monk, and changed the Story of the Stone into the Record of the Passionate Monk. Kong Meixi of Eastern Lu then inscribed it as the Precious Mirror of Wind and Moon. And afterwards, because Cao Xueqin, in the Mourning-the-Red Studio, read it over for ten years, added and deleted five times, drew up a table of contents and divided it into chapters and sections, he titled it the Twelve Beauties of Jinling. And he also wrote this quatrain:",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "objective"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 5 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 空空道人遂向石頭說道：“石兄，你這一段故事，据你自己說有些趣味 ，故編寫在此，意欲問世傳奇．据我看來，第一件，無朝代年紀可考，第二 件，并無大賢大忠理朝廷治風俗的善政，其中只不過… Following segment: 當日地陷東南，這東南一隅有處曰姑蘇，有城曰閶門者，最是紅塵中一 二等富貴風流之地．這閶門外有個十里街，街內有個仁清巷，巷內有個古廟 ，因地方窄狹，人皆呼作葫蘆廟．廟旁住著一家鄉宦…"
+        },
+        {
+          "id": "chapter-1-006",
+          "source": "當日地陷東南，這東南一隅有處曰姑蘇，有城曰閶門者，最是紅塵中一 二等富貴風流之地．這閶門外有個十里街，街內有個仁清巷，巷內有個古廟 ，因地方窄狹，人皆呼作葫蘆廟．廟旁住著一家鄉宦，姓甄，名費，字士隱 ．嫡妻封氏，情性賢淑，深明禮義．家中雖不甚富貴，然本地便也推他為望 族了．因這甄士隱稟性恬淡，不以功名為念，每日只以觀花修竹，酌酒吟詩 為樂，倒是神仙一流人品．只是一件不足：如今年已半百，膝下無儿，只有 一女，乳名喚作英蓮，年方三歲．",
+          "target": "In those days the earth sank in the southeast, and in that southeastern corner there was a place called Gusu, and in it a city called Changmen, the very first or second of the rich and fashionable spots of the dusty world. Outside the Changmen gate ran a Ten-Li Street; within the street was a Renqing Lane; within the lane stood an old temple, which, because the ground was narrow and cramped, everyone called the Gourd Temple. Beside the temple lived a country gentleman whose surname was Zhen and whose given name was Fei, his courtesy name being Shiyin. His wife, of the Feng family, was virtuous and gentle and deeply versed in propriety. Though the household was not greatly rich or noble, he was reckoned in that place a leading family. For this Zhen Shiyin was by nature quiet and indifferent, taking no thought of rank or fame; his daily pleasure was to look at flowers and trim bamboos, to pour wine and chant poems—truly a man of immortal stamp. Only there was one lack: he was now past fifty, with no son at his knee, but only one daughter, whose baby name was Yinglian, just three years old.",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "calm"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 6 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 空空道人听如此說，思忖半晌，將《石頭記》再檢閱一遍，因見上面雖 有些指奸責佞貶惡誅邪之語，亦非傷時罵世之旨，及至君仁臣良父慈子孝， 凡倫常所關之處，皆是稱功頌德，眷眷無窮，實非別… Following segment: 一日，炎夏永晝，士隱于書房閒坐，至手倦拋書，伏几少憩，不覺朦朧 睡去．夢至一處，不辨是何地方．忽見那廂來了一僧一道，且行且談．只听 道人問道：“你攜了這蠢物，意欲何往？\"那僧笑道…"
+        },
+        {
+          "id": "chapter-1-007",
+          "source": "一日，炎夏永晝，士隱于書房閒坐，至手倦拋書，伏几少憩，不覺朦朧 睡去．夢至一處，不辨是何地方．忽見那廂來了一僧一道，且行且談．只听 道人問道：“你攜了這蠢物，意欲何往？\"那僧笑道：“你放心，如今現有 一段風流公案正該了結，這一干風流冤家，尚未投胎入世．趁此机會，就將 此蠢物夾帶于中，使他去經歷經歷。”那道人道：“原來近日風流冤孽又將 造劫歷世去不成？但不知落于何方何處？\"那僧笑道：“此事說來好笑，竟 是千古未聞的罕事．只因西方靈河岸上三生石畔，有絳珠草一株，時有赤瑕 宮神瑛侍者，日以甘露灌溉，這絳珠草始得久延歲月．后來既受天地精華， 复得雨露滋養，遂得脫卻草胎木質，得換人形，僅修成個女体，終日游于离 恨天外，饑則食蜜青果為膳，渴則飲灌愁海水為湯．只因尚未酬報灌溉之德 ，故其五內便郁結著一段纏綿不盡之意．恰近日這神瑛侍者凡心偶熾，乘此 昌明太平朝世，意欲下凡造歷幻緣，已在警幻仙子案前挂了號．警幻亦曾問 及，灌溉之情未償，趁此倒可了結的．那絳珠仙子道：`他是甘露之惠，我 并無此水可還．他既下世為人，我也去下世為人，但把我一生所有的眼淚還 他，也償還得過他了．'因此一事，就勾出多少風流冤家來，陪他們去了結 此案。”那道人道：“果是罕聞．實未聞有還淚之說．想來這一段故事，比 歷來風月事故更加瑣碎細膩了。”那僧道：“歷來几個風流人物，不過傳其 大概以及詩詞篇章而已，至家庭閨閣中一飲一食，總未述記．再者，大半風 月故事，不過偷香竊玉，暗約私奔而已，并不曾將儿女之真情發泄一二．想 這一干人入世，其情痴色鬼，賢愚不肖者，悉与前人傳述不同矣。”那道人 道：“趁此何不你我也去下世度脫几個，豈不是一場功德？\"那僧道：“正 合吾意，你且同我到警幻仙子宮中，將蠢物交割清楚，待這一干風流孽鬼下 世已完，你我再去．如今雖已有一半落塵，然猶未全集。”道人道：“既如 此，便隨你去來。”",
+          "target": "One day, in the long daylight of midsummer, Shiyin was sitting at leisure in his study until, his hands grown tired, he threw down his book and, leaning on the table for a little rest, unwittingly fell into a dim sleep. He dreamt that he came to a place, and could not tell what place it was. Suddenly he saw coming from that side a monk and a Taoist, walking and talking together. He heard the Taoist ask: \"What do you mean to do with that stupid thing you are carrying?\" The monk laughed: \"Set your mind at ease. There is at present a case of love that ought to be wound up, and this company of amorous creditors have not yet been born into the world. I will take this chance to slip this stupid thing in among them and let it go and taste something of life.\" The Taoist said: \"So the amorous debt of late is to go once more into the world and bring calamity upon it? But I wonder in what place it is to fall?\" The monk laughed: \"The telling of this matter is truly laughable; it is the rarest thing unheard of in a thousand ages. It is only that on the bank of the Spiritual River in the West, beside the Stone of Three Lives, there grew a plant of Crimson Pearl Grass, and that there was then a Divine Attendant of the Palace of Red Jade who daily watered it with sweet dew, so that this Crimson Pearl Grass was able to prolong its years. Afterwards, having received the essence of Heaven and Earth and been nourished by rain and dew, it was able to cast off its grass nature and woody substance and change into human form, and it cultivated itself into the body of a girl. All day long she roamed beyond the Heaven of Parting Sorrow; when hungry she ate the fruit of honey-green as her food; when thirsty she drank the waters of the Sea of Pouring Sorrow as her drink. Only because she had not yet repaid the kindness of the watering, there was bound up in her breast a knot of endless, lingering feeling. Just now this Divine Attendant's earthly heart suddenly kindled, and, taking advantage of this bright and peaceful age, he wished to descend into the world and pass through a dreamlike destiny; and he has already put his name down before the Fairy of Waking Illusion. The Fairy also asked about it: since the debt of the watering was unpaid, it might as well be settled on this occasion. The Crimson Pearl Fairy said: 'It was he who gave me the grace of sweet dew, and I have no such water to repay him with. Since he is to go down into the world and be a man, I too will go down into the world and be a woman; but I will give him back all the tears of my whole life, and that will be repayment enough for him.' And from this one matter how many amorous foes have been drawn out, to go with them and bring the case to a close!\" The Taoist said: \"It is indeed rarely heard; truly I have never heard of repaying tears. I think this story is more minute and delicate than any of the affairs of love in ages past.\" The monk said: \"The few amorous persons of past ages have only had their general outline and their poems and verses handed down; of the eating and drinking in the women's apartments nothing has ever been recorded. Moreover, most love stories are no more than the stealing of fragrance and the snatching of jade, secret assignations and elopements, and never once give vent to a single touch of true feeling between man and woman. Think how these people, when they enter the world—their lovesick fools and lechers, the wise and the foolish, the worthy and the unworthy—will all be unlike what former men have told.\" The Taoist said: \"Why not take this chance, then, for you and me to go down into the world too and save a few souls? Would it not be a deed of merit?\" The monk said: \"That suits my own mind. Do you come with me first to the palace of the Fairy of Waking Illusion and deliver up this stupid thing clearly; and when this company of amorous ghosts has finished its descent into the world, then you and I will go too. As it is, though half of them have already fallen into the dust, the whole number is not yet complete.\" The Taoist said: \"If that be so, then let me go with you.\"",
+          "type": "dialogue",
+          "emotion": [
+            "formal",
+            "serious",
+            "romantic"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 7 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 當日地陷東南，這東南一隅有處曰姑蘇，有城曰閶門者，最是紅塵中一 二等富貴風流之地．這閶門外有個十里街，街內有個仁清巷，巷內有個古廟 ，因地方窄狹，人皆呼作葫蘆廟．廟旁住著一家鄉宦… Following segment: 卻說甄士隱俱听得明白，但不知所云\"蠢物\"系何東西．遂不禁上前施禮 ，笑問道：“二仙師請了。”那僧道也忙答禮相問．士隱因說道：“适聞仙 師所談因果，實人世罕聞者．但弟子愚濁，不能洞…"
+        },
+        {
+          "id": "chapter-1-008",
+          "source": "卻說甄士隱俱听得明白，但不知所云\"蠢物\"系何東西．遂不禁上前施禮 ，笑問道：“二仙師請了。”那僧道也忙答禮相問．士隱因說道：“适聞仙 師所談因果，實人世罕聞者．但弟子愚濁，不能洞悉明白，若蒙大開痴頑， 備細一聞，弟子則洗耳諦听，稍能警省，亦可免沉倫之苦。”二仙笑道：“ 此乃玄机不可預泄者．到那時不要忘我二人，便可跳出火坑矣。”士隱听了 ，不便再問．因笑道：“玄机不可預泄，但适云`蠢物'，不知為何，或可一 見否？\"那僧道：“若問此物，倒有一面之緣。”說著，取出遞与士隱．士 隱接了看時，原來是塊鮮明美玉，上面字跡分明，鐫著\"通靈寶玉\"四字，后 面還有几行小字．正欲細看時，那僧便說已到幻境，便強從手中奪了去，与 道人竟過一大石牌坊，上書四個大字，乃是\"太虛幻境\"．兩邊又有一幅對聯 ，道是：",
+          "target": "Now let us tell how Zhen Shiyin heard all of this clearly, but did not know what the \"stupid thing\" spoken of might be. He could not refrain from stepping forward, making his salute, and asking with a smile: \"Greetings to you both, immortal masters.\" The monk and the Taoist hastened to return his salute and to inquire in their turn. Shiyin then said: \"I have just heard the immortal masters speak of cause and effect—a thing seldom heard in the world of men. But your disciple is dull and muddled and cannot understand it clearly. If you would be so kind as to open wide my foolish understanding and let me hear it all in full, your disciple will wash his ears and listen closely; and if he can be in the least awakened, he may also escape the misery of sinking into perdition.\" The two immortals laughed: \"This is a mystery that may not be revealed beforehand. Only, when that time comes, do not forget the two of us, and you may leap out of the fiery pit.\" When Shiyin heard this, he did not think it proper to ask again. So he smiled and said: \"Since the mystery may not be revealed beforehand, I will not press; but just now you spoke of a 'stupid thing'—I do not know what it is; might I perhaps have a look at it?\" The monk said: \"As for this thing, it happens that you and it have a bond of one meeting.\" So saying, he brought it out and handed it to Shiyin. Shiyin took it and looked: it was, in truth, a piece of bright and lovely jade, with clear characters engraved upon it, the four words \"Precious Jade of Spiritual Perception,\" and behind them several lines of small characters. He was just about to examine it closely when the monk said that they had already reached the Realm of Illusion, and, snatching it forcibly from his hand, passed straight through a great stone archway with the Taoist. On the archway were written four large characters: \"The Illusory Realm of the Great Void.\" On either side there was also a pair of couplets, which ran:",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "curious",
+            "serious"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 8 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 一日，炎夏永晝，士隱于書房閒坐，至手倦拋書，伏几少憩，不覺朦朧 睡去．夢至一處，不辨是何地方．忽見那廂來了一僧一道，且行且談．只听 道人問道：“你攜了這蠢物，意欲何往？\"那僧笑道… Following segment: 這士隱正痴想，忽見隔壁葫蘆廟內寄居的一個窮儒-姓賈名化，表字時 飛，別號雨行者走了出來．這賈雨村原系胡州人氏，也是詩書仕宦之族，因 他生于末世，父母祖宗根基已盡，人口衰喪，只剩得…"
+        },
+        {
+          "id": "chapter-1-009",
+          "source": "這士隱正痴想，忽見隔壁葫蘆廟內寄居的一個窮儒-姓賈名化，表字時 飛，別號雨行者走了出來．這賈雨村原系胡州人氏，也是詩書仕宦之族，因 他生于末世，父母祖宗根基已盡，人口衰喪，只剩得他一身一口，在家鄉無 益，因進京求取功名，再整基業．自前歲來此，又淹蹇住了，暫寄廟中安身 ，每日賣字作文為生，故士隱常与他交接．當下雨村見了士隱，忙施禮陪笑 道：“老先生倚門佇望，敢是街市上有甚新聞否？\"士隱笑道：“非也．适 因小女啼哭，引他出來作耍，正是無聊之甚，兄來得正妙，請入小齋一談， 彼此皆可消此永晝。”說著，便令人送女儿進去，自与雨村攜手來至書房中 ．小童獻茶．方談得三五句話，忽家人飛報：“嚴老爺來拜。”士隱慌的忙 起身謝罪道：“恕誑駕之罪，略坐，弟即來陪。”雨村忙起身亦讓道：“老 先生請便．晚生乃常造之客，稍候何妨。”說著，士隱已出前廳去了．",
+          "target": "While Shiyin was thus lost in foolish musing, he saw a poor scholar who lodged in the Gourd Temple next door come walking out—one whose surname was Jia, whose name was Hua, whose courtesy name was Shifei, and whose other style was Yucun. This Jia Yucun was originally a native of Huzhou, and of a family of scholars and officials; but because he was born in a declining age, his parents' and forefathers' foundations were all exhausted and the family had dwindled away, leaving him one body and one mouth only. Having no prospect in his native place, he had gone to the capital to seek rank and fame and to set his house in order again. He had come here the year before, and had been detained by ill luck, lodging for the time being in the temple for shelter, where he sold his calligraphy and wrote essays for a living; and so Shiyin often had dealings with him. Now when Yucun saw Shiyin, he made haste to salute him and, with a smile, said: \"Sir, you are leaning at your gate and gazing out—can there be some news in the street?\" Shiyin laughed: \"No, indeed. Just now my little daughter was crying, and I brought her out to play; it is truly a weariness past bearing, and your coming is most timely. Pray come into my little study and talk, and we may both while away this long day.\" So saying, he told a servant to take his daughter inside, and, taking Yucun's hand, led him into the study. A young servant offered tea. They had talked but three or five sentences when a servant came flying in with the report: \"Master Yan has come to call.\" Shiyin started up in confusion and made his apologies: \"Pardon the offence of keeping you waiting; sit a little while, and I will come and keep you company.\" Yucun also rose hastily and said: \"Pray, sir, go at your ease; I am a frequent visitor, and what harm is there in waiting a little?\" As he spoke, Shiyin had already gone out to the front hall.",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "neutral"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 9 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 卻說甄士隱俱听得明白，但不知所云\"蠢物\"系何東西．遂不禁上前施禮 ，笑問道：“二仙師請了。”那僧道也忙答禮相問．士隱因說道：“适聞仙 師所談因果，實人世罕聞者．但弟子愚濁，不能洞… Following segment: 一日，早又中秋佳節．士隱家宴已畢，乃又另具一席于書房，卻自己步 月至廟中來邀雨村．原來雨村自那日見了甄家之婢曾回顧他兩次，自為是個 知己，便時刻放在心上．今又正值中秋，不免對月有…"
+        },
+        {
+          "id": "chapter-1-010",
+          "source": "一日，早又中秋佳節．士隱家宴已畢，乃又另具一席于書房，卻自己步 月至廟中來邀雨村．原來雨村自那日見了甄家之婢曾回顧他兩次，自為是個 知己，便時刻放在心上．今又正值中秋，不免對月有怀，因而口占五言一律 云：",
+          "target": "One day it was again the Mid-Autumn Festival. When Shiyin's family feast was over, he had a separate table laid in his study, and himself walked by moonlight to the temple to invite Yucun. It turned out that Yucun, ever since that day when he saw the Zhen family's maid turn back and look at him twice, had taken her for one who understood him and had kept her constantly in his heart. Now that it was again the Mid-Autumn, he could not but feel stirred as he faced the moon, and so he recited offhand a regulated verse of five characters to the line:",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "romantic",
+            "nostalgic"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 10 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 這士隱正痴想，忽見隔壁葫蘆廟內寄居的一個窮儒-姓賈名化，表字時 飛，別號雨行者走了出來．這賈雨村原系胡州人氏，也是詩書仕宦之族，因 他生于末世，父母祖宗根基已盡，人口衰喪，只剩得… Following segment: 蟾光如有意，先上玉人樓．雨村吟罷，因又思及平生抱負，苦未逢時， 乃又搔首對天長歎，复高吟一聯曰："
+        },
+        {
+          "id": "chapter-1-011",
+          "source": "蟾光如有意，先上玉人樓．雨村吟罷，因又思及平生抱負，苦未逢時， 乃又搔首對天長歎，复高吟一聯曰：",
+          "target": "\"If the toad-light has any feeling, let it first mount the jade maiden's tower.\" When Yucun had finished chanting, he thought again of the ambitions of his life and the bitterness of never having met his time; so he scratched his head, sighed long and deeply at the sky, and chanted aloud a couplet:",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "sad",
+            "anxious"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 11 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 一日，早又中秋佳節．士隱家宴已畢，乃又另具一席于書房，卻自己步 月至廟中來邀雨村．原來雨村自那日見了甄家之婢曾回顧他兩次，自為是個 知己，便時刻放在心上．今又正值中秋，不免對月有… Following segment: 可巧這日拄了拐杖掙挫到街前散散心時，忽見那邊來了一個跛足道人， 瘋癲落脫，麻屣鶉衣，口內念著几句言詞，道是："
+        },
+        {
+          "id": "chapter-1-012",
+          "source": "可巧這日拄了拐杖掙挫到街前散散心時，忽見那邊來了一個跛足道人， 瘋癲落脫，麻屣鶉衣，口內念著几句言詞，道是：",
+          "target": "It happened that on this very day, leaning on a staff and struggling along to the street to take a little air, he suddenly saw coming from that direction a lame Taoist, crazed and slovenly, in hemp sandals and a coat of quail-patch rags, muttering a few words as he came, which ran:",
+          "type": "narration",
+          "emotion": [
+            "formal",
+            "curious",
+            "serious"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 12 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 蟾光如有意，先上玉人樓．雨村吟罷，因又思及平生抱負，苦未逢時， 乃又搔首對天長歎，复高吟一聯曰： Following segment: 痴心父母古來多，孝順儿孫誰見了？士隱听了，便迎上來道：“你滿口 說些什么？只听見些`好'`了'`好'`了'．那道人笑道：“你若果听見`好'` 了'二字，還算你明白．可知世上万般，…"
+        },
+        {
+          "id": "chapter-1-013",
+          "source": "痴心父母古來多，孝順儿孫誰見了？士隱听了，便迎上來道：“你滿口 說些什么？只听見些`好'`了'`好'`了'．那道人笑道：“你若果听見`好'` 了'二字，還算你明白．可知世上万般，好便是了，了便是好．若不了，便 不好，若要好，須是了．我這歌儿，便名《好了歌》\"士隱本是有宿慧的， 一聞此言，心中早已徹悟．因笑道：“且住！待我將你這《好了歌》解注出 來何如？\"道人笑道：“你解，你解。”士隱乃說道：",
+          "target": "\"Doting parents have been many since olden times; who has ever seen a filial son or grandson?\" When Shiyin heard this, he went up to him and said: \"What are you muttering? I heard only 'won' and 'done,' 'won' and 'done.'\" The Taoist laughed: \"If you truly heard the two words 'won' and 'done,' then you may still be reckoned a man of understanding. Know that of all things in the world, when a thing is won it is done, and when it is done it is won. If it is not done, then it is not won; and if you would be won, you must be done. This song of mine is therefore called the Won-Done Song.\" Shiyin was a man with wisdom from a former life, and at the first hearing of these words his heart was already wholly enlightened. So he laughed and said: \"Stay! Let me make a commentary on your Won-Done Song—how would that be?\" The Taoist laughed: \"You explain it, you explain it.\" Then Shiyin said:",
+          "type": "dialogue",
+          "emotion": [
+            "curious",
+            "serious",
+            "formal"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 13 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 可巧這日拄了拐杖掙挫到街前散散心時，忽見那邊來了一個跛足道人， 瘋癲落脫，麻屣鶉衣，口內念著几句言詞，道是： Following segment: 陋室空堂，當年笏滿床，衰草枯楊，曾為歌舞場．蛛絲儿結滿雕梁，綠 紗今又糊在蓬窗上．說什么脂正濃，粉正香，如何兩鬢又成霜？昨日黃土隴 頭送白骨，今宵紅燈帳底臥鴛鴦．金滿箱，銀滿箱，…"
+        },
+        {
+          "id": "chapter-1-014",
+          "source": "陋室空堂，當年笏滿床，衰草枯楊，曾為歌舞場．蛛絲儿結滿雕梁，綠 紗今又糊在蓬窗上．說什么脂正濃，粉正香，如何兩鬢又成霜？昨日黃土隴 頭送白骨，今宵紅燈帳底臥鴛鴦．金滿箱，銀滿箱，展眼乞丐人皆謗．正歎 他人命不長，那知自己歸來喪！訓有方，保不定日后作強梁．擇膏粱，誰承 望流落在煙花巷！因嫌紗帽小，致使鎖枷杠，昨怜破襖寒，今嫌紫蟒長：亂 烘烘你方唱罷我登場，反認他鄉是故鄉．甚荒唐，到頭來都是為他人作嫁衣 裳！那瘋跛道人听了，拍掌笑道：“解得切，解得切！\"士隱便說一聲\"走罷 ！\"將道人肩上褡褳搶了過來背著，竟不回家，同了瘋道人飄飄而去．當下 烘動街坊，眾人當作一件新聞傳說．封氏聞得此信，哭個死去活來，只得与 父親商議，遣人各處訪尋，那討音信？無奈何，少不得依靠著他父母度日． 幸而身邊還有兩個舊日的丫鬟伏侍，主仆三人，日夜作些針線發賣，幫著父 親用度．那封肅雖然日日抱怨，也無可奈何了．",
+          "target": "\"Mean rooms and empty halls—in their day the tablets of office filled the couch; withered grass and dead willows—once a place of song and dance. Spider's webs hang thick upon the carved beams, and green silk is pasted now over the thatch-hung window. What use to say that rouge is thick and powder fragrant, when the hair at the temples has turned to frost? Yesterday bones were carried to the yellow-earth mound; tonight the love-birds lie beneath the red lamp under the curtain. Gold fills the chests, silver fills the chests—in the twinkling of an eye a beggar is reviled by all. One sighs that another's life is short, not knowing that one's own home-coming is a funeral. Bring up your sons with all correctness, and who can be sure they will not turn to bandits? Marry into the wealthiest house, and who would expect to end in a lane of flowers? Because a gauze cap seemed too small, one comes to the cangue and the chains; yesterday one pitied a ragged coat for its cold, today one complains the purple python is too long. In noisy confusion, you have scarce finished singing when I step upon the stage, and men take a foreign land for their own. How absurd it all is: in the end, all is but making wedding clothes for other men.\" When the frenzied lame Taoist heard this, he clapped his hands and laughed: \"You have explained it to the point, to the point!\" Then Shiyin said, \"Let us be off!\" and, snatching the wallet from the Taoist's shoulder, he slung it on his own back and, without going home at all, went off floating and fluttering with the mad Taoist. At once the whole neighbourhood was in a stir, and everyone told it about as a piece of news. When Lady Feng heard the tidings, she wept until she was half dead, and could only take counsel with her father and send people to search everywhere; but what news could they get? There was nothing for it but to depend upon her parents for her daily bread. Happily she still had two old maids to serve her, and the three of them, mistress and servants, sewed and stitched day and night to sell, helping to meet her father's expenses. And though that Feng Su grumbled every day, he could do nothing about it.",
+          "type": "monologue",
+          "emotion": [
+            "sad",
+            "serious",
+            "nostalgic",
+            "formal"
+          ],
+          "status": "initial",
+          "context": "第一回 甄士隱夢幻識通靈 賈雨村風塵怀閨秀 / chapter 1. Paragraph 14 of the chapter, aligned by index and verified (14 of 27 proposals accepted). Preceding segment: 痴心父母古來多，孝順儿孫誰見了？士隱听了，便迎上來道：“你滿口 說些什么？只听見些`好'`了'`好'`了'．那道人笑道：“你若果听見`好'` 了'二字，還算你明白．可知世上万般，…"
+        }
+      ]
+    }
+  ]
+}

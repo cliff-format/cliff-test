@@ -1,0 +1,378 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is XLIFF 2.1. Each translation unit is a unit element with a
+segment containing source and target. Add or fill the target element of every
+segment and set state to translated.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+Fill in the translation for every entry, in the field this format uses
+for the target text; the source field keeps the source text as it is.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:mda="urn:oasis:names:tc:xliff:metadata:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.news-wire" original="clarion.news-wire">
+    <mda:metadata>
+      <mda:metaGroup category="cliff">
+        <mda:meta type="title">An invented harbor-bridge news day: wire report, feature, social posts and reader comments</mda:meta>
+        <mda:meta type="info">A fictional 14 March news day in a harbor city. Audience: general readers of a local news site. The text spans hard-news wire copy, a human-interest feature, casual social posts and reader comments.</mda:meta>
+        <mda:meta type="standard">zh-CN house style: one space between Han and Latin or digits, fullwidth punctuation in Han sentences, no textbook jargon. Keep the headline verbless. Render Meridian Harbor Authority semantically as 子午港务局 and transliterate Corin Ashwell as 科林·阿什维尔.</mda:meta>
+      </mda:metaGroup>
+    </mda:metadata>
+    <group id="wire">
+      <unit id="headline">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">noun-phrase</mda:meta>
+            <mda:meta type="context">Front-page headline. Keep compressed, verbless headline register; do not expand it into a full sentence.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Front-page headline. Keep compressed, verbless headline register; do not expand it into a full sentence.</note>
+        </notes>
+        <segment state="initial">
+          <source>Harbor bridge: third night closed, tens of thousands rerouted</source>
+        </segment>
+      </unit>
+      <unit id="subhead">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="context">Standfirst directly under the headline.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Standfirst directly under the headline.</note>
+        </notes>
+        <segment state="initial">
+          <source>Engineers race the weather to certify the last of 214 cables</source>
+        </segment>
+      </unit>
+      <unit id="lede">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="context">Opening paragraph of the wire report.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Opening paragraph of the wire report.</note>
+        </notes>
+        <segment state="initial">
+          <source>The Meridian Harbor Bridge stayed shut for a third straight night on 14 March as crews worked through heavy rain to replace three suspension cables snapped in last week's storm, forcing tens of thousands of commuters onto two temporary ferry shuttles that carry only a fraction of the usual traffic.</source>
+        </segment>
+      </unit>
+      <unit id="body-1">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">narration</mda:meta>
+            <mda:meta type="context">Second paragraph of the wire report.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Second paragraph of the wire report.</note>
+        </notes>
+        <segment state="initial">
+          <source>Meridian Harbor Authority officials said on Tuesday that reopening depends on a full safety review, and that 78% of the bridge's 214 suspension cables have passed inspection while the rest are still being tensioned and measured. The authority has already pushed back three earlier reopening estimates, and its director, Corin Ashwell, warned that any wind above 40 kilometres per hour would halt the crane work and push the schedule back again.</source>
+        </segment>
+      </unit>
+      <unit id="body-2">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">narration</mda:meta>
+            <mda:meta type="context">Third paragraph of the wire report.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Third paragraph of the wire report.</note>
+        </notes>
+        <segment state="initial">
+          <source>The closure has rippled across the city's road network. Detour signs push drivers onto a single ring road that is already carrying double its design load, and tailbacks at peak hour now stretch for more than 12 kilometres along the north bank. Ferry staff added two extra crossings after 6 a.m., but queues at the east pier still wrapped around the block by mid-morning, with some commuters reporting waits of over an hour just to reach the ticket hall.</source>
+        </segment>
+      </unit>
+      <unit id="quote">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">dialogue</mda:meta>
+            <mda:meta type="context">Direct quotation from the authority director; keep the attribution before the quote and use fullwidth quotation marks.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Direct quotation from the authority director; keep the attribution before the quote and use fullwidth quotation marks.</note>
+        </notes>
+        <segment state="initial">
+          <source>Meridian Harbor Authority director Corin Ashwell told reporters the bridge would reopen “only once every cable passes inspection — not a minute earlier.”</source>
+        </segment>
+      </unit>
+      <unit id="photo-caption">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">subtitle</mda:meta>
+            <mda:meta type="context">Photo caption under the lead image.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Photo caption under the lead image.</note>
+        </notes>
+        <segment state="initial">
+          <source>Commuters queue for the ferry shuttle at the harbor's east pier on the third morning of the closure.</source>
+        </segment>
+      </unit>
+      <unit id="news-alert">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">urgent</mda:meta>
+            <mda:meta type="context">Breaking-news push alert sent to readers who follow this story.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Breaking-news push alert sent to readers who follow this story.</note>
+        </notes>
+        <segment state="initial">
+          <source>Bridge closure: expect delays of up to 90 minutes on all harbor crossings.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="feature">
+      <unit id="feature-headline">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">noun-phrase</mda:meta>
+            <mda:meta type="context">Headline of the feature article.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Headline of the feature article.</note>
+        </notes>
+        <segment state="initial">
+          <source>The harbor's quiet ferry revival</source>
+        </segment>
+      </unit>
+      <unit id="feature-lede">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="context">Opening of the feature article.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Opening of the feature article.</note>
+        </notes>
+        <segment state="initial">
+          <source>For decades the harbor ferries were a curiosity — a slow, scenic way to cross the water that most commuters forgot existed. Three closed nights have made them essential.</source>
+        </segment>
+      </unit>
+      <unit id="feature-body-1">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">narration</mda:meta>
+            <mda:meta type="context">Body of the feature article.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Body of the feature article.</note>
+        </notes>
+        <segment state="initial">
+          <source>The morning boat from the east pier is now the only reason many people reach the office before ten. Its crew of three knows the regulars by name and by order: the woman with the folding bicycle, the teacher who grades papers against the rail, the chef who rides across with a crate of sourdough. What began as an emergency measure has quietly become a small community, complete with its own running jokes and a captain who narrates the crossing like a tour guide.</source>
+        </segment>
+      </unit>
+      <unit id="feature-body-2">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">narration</mda:meta>
+            <mda:meta type="context">Second paragraph of the feature article.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Second paragraph of the feature article.</note>
+        </notes>
+        <segment state="initial">
+          <source>Not everyone is nostalgic. Shopkeepers on the far side say the detour has cut their weekday trade by nearly a fifth, and the ferry's single fare of 2 euros adds up for anyone crossing twice a day. The authority has promised a rebate scheme, but the details are still being drafted, and a petition asking for a temporary footbridge has gathered eleven thousand signatures in three days.</source>
+        </segment>
+      </unit>
+      <unit id="feature-quote">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">dialogue</mda:meta>
+            <mda:meta type="emotion">informal</mda:meta>
+            <mda:meta type="context">Pull quote from the feature; spoken, lightly colloquial register.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Pull quote from the feature; spoken, lightly colloquial register.</note>
+        </notes>
+        <segment state="initial">
+          <source>Captain Dea Prowse, at the helm of the morning shuttle, put it plainly: “Nobody planned for this. We just showed up and started carrying people.”</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="social">
+      <unit id="post-sarcastic">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">angry|informal</mda:meta>
+            <mda:meta type="context">Sarcastic social post. The praise is ironic: the author is a frustrated commuter stuck in the bridge-closure traffic and means the opposite of what the words say. Preserve the irony; do not soften it into sincerity.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sarcastic social post. The praise is ironic: the author is a frustrated commuter stuck in the bridge-closure traffic and means the opposite of what the words say. Preserve the irony; do not soften it into sincerity.</note>
+        </notes>
+        <segment state="initial">
+          <source>Oh wonderful. A third evening inching home at walking pace. Truly top-class bridge management, folks.</source>
+        </segment>
+      </unit>
+      <unit id="post-enthusiastic">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">joyful|hopeful</mda:meta>
+            <mda:meta type="context">Enthusiastic social post praising the shuttle ferry. The hashtag and emoji are part of the message and must survive exactly.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Enthusiastic social post praising the shuttle ferry. The hashtag and emoji are part of the message and must survive exactly.</note>
+        </notes>
+        <segment state="initial">
+          <source>The free shuttle ferry is a lifesaver — smooth sailing and a view to boot! #MeridianFerry 🚢</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="comments">
+      <unit id="comment-1">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">anxious|informal</mda:meta>
+            <mda:meta type="context">Reader comment under the wire story; casual, frustrated register. The idiom must be localized, not translated literally.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Reader comment under the wire story; casual, frustrated register. The idiom must be localized, not translated literally.</note>
+        </notes>
+        <segment state="initial">
+          <source>Three days stuck on the wrong side of the water and I'm tearing my hair out. Sort it out, city hall.</source>
+        </segment>
+      </unit>
+      <unit id="comment-2">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">informal</mda:meta>
+            <mda:meta type="context">Reader comment; casual register with clock times.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Reader comment; casual register with clock times.</note>
+        </notes>
+        <segment state="initial">
+          <source>Left for work at 6 a.m., reached the office at 8:50. Someone owes me two hours.</source>
+        </segment>
+      </unit>
+      <unit id="comment-3">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">sentence</mda:meta>
+            <mda:meta type="emotion">informal</mda:meta>
+            <mda:meta type="context">Reader comment; casual, resigned register.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Reader comment; casual, resigned register.</note>
+        </notes>
+        <segment state="initial">
+          <source>My neighbor's already trying to sell his car. Says the bridge can stay shut for all he cares.</source>
+        </segment>
+      </unit>
+    </group>
+    <group id="editors-note">
+      <unit id="editors-note">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="emotion">formal|objective</mda:meta>
+            <mda:meta type="context">Editor's note appended to the wire report; formal, impersonal register.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Editor's note appended to the wire report; formal, impersonal register.</note>
+        </notes>
+        <segment state="initial">
+          <source>This editor's note accompanies the report because the reopening timeline quoted on Tuesday has already changed twice. We will update the figures in this article as the authority publishes new information, and we will correct any error in them without delay.</source>
+        </segment>
+      </unit>
+      <unit id="editors-note-correction">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">description</mda:meta>
+            <mda:meta type="emotion">formal|objective</mda:meta>
+            <mda:meta type="context">Formal correction notice appended to the wire report.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Formal correction notice appended to the wire report.</note>
+        </notes>
+        <segment state="initial">
+          <source>An earlier version of this article stated that the east pier shuttle ran every 30 minutes. It runs every 20 minutes at peak hours.</source>
+        </segment>
+      </unit>
+      <unit id="editors-note-signoff">
+        <mda:metadata>
+          <mda:metaGroup category="cliff">
+            <mda:meta type="type">label</mda:meta>
+            <mda:meta type="emotion">formal</mda:meta>
+            <mda:meta type="context">Sign-off line at the end of the editor's note.</mda:meta>
+          </mda:metaGroup>
+        </mda:metadata>
+        <notes>
+          <note>Sign-off line at the end of the editor's note.</note>
+        </notes>
+        <segment state="initial">
+          <source>— The Editors</source>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

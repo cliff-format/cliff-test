@@ -46,6 +46,9 @@ function corpusIndex() {
   return out;
 }
 const corpus = corpusIndex();
+// The corpus size, used by the provenance line and by the per-entry token column.
+// Declared here rather than beside its first use: the token block runs earlier.
+const corpusEntries = Object.values(corpus).reduce((n, c) => n + c.ids.length, 0);
 
 function wilson(successes, trials) {
   if (!trials) return { est: 0, low: 0, high: 0 };
@@ -264,9 +267,9 @@ w("");
 
 w("## 1. Corrected failure accounting");
 w("");
-w("The run summary reports 960 runs, 0 failed (pipeline-level gate). This table counts **record-level** failures (outcome != ok: parse-error / invalid / incomplete / degenerate / gold-leak) with Wilson 95% intervals. The real translation % column is the audit-recomputed share of entries that actually carry a non-empty translation (see section 2).");
+w("The run summary reports the pipeline-level gate, which counts only runs whose provider call failed. This table counts **record-level** failures (outcome != ok: parse-error / invalid / incomplete / degenerate / gold-leak) with Wilson 95% intervals, and beside them the share of runs that survived - the interval is on the *survivors*, which is the number a reader compares with a threshold. The real translation % column is the audit-recomputed share of entries that actually carry a non-empty translation (see section 2).");
 w("");
-w("| format | arm | runs | failed | failed % (95% CI) | recorded coverage % | real translation % |");
+w("| format | arm | runs | failed | still valid % (95% CI) | recorded coverage % | real translation % |");
 w("| --- | --- | ---: | ---: | --- | ---: | ---: |");
 for (const row of failureTable()) {
   w("| " + row.f + " | " + row.a + " | " + row.n + " | " + row.failed + " | " + pct(row.iv.est) + " (" + pct(row.iv.low) + "-" + pct(row.iv.high) + ") | " + pct(row.cov) + " | " + pct(row.real) + " |");
@@ -309,7 +312,14 @@ for (const row of breakdownOrigin()) {
   w("| " + row.f + " | " + row.o + " | " + row.n + " | " + row.chrf.toFixed(2) + " | " + pct(row.failed / row.n) + " |");
 }
 w("");
-w("> **annotated** context was written by deepseek-v4-pro (annotation pass, no human sign-off); **native** means the upstream project shipped it (here: Godot PO only). A context-arm gain measured on annotated context is a weaker claim than one measured on native context.");
+// The annotator is read from the run's own configuration. The note used to name one
+// particular model, which was true of the run it was written for and false of every
+// run since - and it is the one sentence in this report that says who wrote the
+// context the context arm is measured against.
+const annotators = [...new Set(((config.pipeline && config.pipeline.fetch) || [])
+  .map(s => s.annotator_model).filter(Boolean))];
+w("> **annotated** context was written by " + (annotators.length ? annotators.join(", ") : "the annotator named in the run configuration")
+  + " (annotation pass, no human sign-off); **native** means the upstream project shipped it (here: Godot PO only). A context-arm gain measured on annotated context is a weaker claim than one measured on native context.");
 w("");
 
 w("## 5. Breakdown by language direction");
@@ -661,7 +671,12 @@ for (const f of formats) {
       prompt: rs.reduce((s, r) => s + r.tokens.prompt, 0) / repeats,
       prompt_48runs: rs.reduce((s, r) => s + r.tokens.prompt, 0),
       prompt_without_instructions: rs.reduce((s, r) => s + r.tokens.prompt_without_instructions, 0) / repeats,
-      document_per_entry: rs.reduce((s, r) => s + r.tokens.document, 0) / rs.reduce((s, r) => s + r.structure.expected_entries, 0),
+      // Per entry of the corpus, which is the denominator the D1/D2 tables use. This
+      // used to be `sum(tokens.document) / sum(structure.expected_entries)` over the
+      // runs in the cell, which is a different and unstable statistic: one csv/context
+      // answer failed at the provider and carries an empty structure, so the whole
+      // column came out `NaN` - a published per-entry cost that is not a number.
+      document_per_entry: (docSum / repeats) / (corpusEntries || 1),
     };
     computed.quality[f][a] = {
       chrf_recorded: mean(rs.map(x => (x.failed ? 0 : x.quality.chrf))),
@@ -705,7 +720,6 @@ iw("");
 // string a reader checks first, wrong in the one place nobody re-reads.
 const runId = path.basename(path.resolve(runDir));
 const corpusFiles = Object.keys(corpus).length;
-const corpusEntries = Object.values(corpus).reduce((n, c) => n + c.ids.length, 0);
 iw("Source: run " + runId + " (" + formats.length + " formats, " + corpusFiles + " corpus files, "
   + corpusEntries + " entries, " + translations.length + " translation runs). All numbers below come from tools/audit_report.mjs; nothing is hand-written.");
 iw("");
@@ -741,23 +755,50 @@ for (const f of formats) {
 iw("");
 iw("## 3. Quality - plain form");
 iw("");
-iw("| format | chrF++ (all, failures=0) | failed runs | QE error (lower better, n) |");
-iw("| --- | ---: | ---: | ---: |");
+// The QE column appears only when a QE pass was run. It used to be printed
+// unconditionally, and with no `qe_scores.jsonl` every row read "0.00 (0)" - a
+// missing measurement presented as a perfect score, in the one table a reader is
+// most likely to quote.
+const hasQe = Object.keys(computed.qe.byFormatArm).length > 0;
+if (hasQe) {
+  iw("| format | chrF++ (all, failures=0) | failed runs | QE error (lower better, n) |");
+  iw("| --- | ---: | ---: | ---: |");
+} else {
+  iw("| format | chrF++ (all, failures=0) | failed runs |");
+  iw("| --- | ---: | ---: |");
+}
 for (const f of formats) {
   const q = computed.quality[f].bare;
-  iw("| " + f + " | " + q.chrf_recorded.toFixed(2) + " | " + q.failed + " | " + q.qe.mean.toFixed(2) + " (" + q.qe.n + ") |");
+  iw("| " + f + " | " + q.chrf_recorded.toFixed(2) + " | " + q.failed + " |"
+    + (hasQe ? " " + q.qe.mean.toFixed(2) + " (" + q.qe.n + ") |" : ""));
 }
 iw("");
 iw("## 4. Quality - same context payload carried (context form)");
 iw("");
-iw("| format | chrF++ (all) | failed runs | real translation % | QE error (n) |");
-iw("| --- | ---: | ---: | ---: | ---: |");
+if (hasQe) {
+  iw("| format | chrF++ (all) | failed runs | real translation % | QE error (n) |");
+  iw("| --- | ---: | ---: | ---: | ---: |");
+} else {
+  iw("| format | chrF++ (all) | failed runs | real translation % |");
+  iw("| --- | ---: | ---: | ---: |");
+}
 for (const f of formats) {
   const q = computed.quality[f].context;
-  iw("| " + f + " | " + q.chrf_recorded.toFixed(2) + " | " + q.failed + " | " + pctv(q.real_translation_pct) + " | " + q.qe.mean.toFixed(2) + " (" + q.qe.n + ") |");
+  iw("| " + f + " | " + q.chrf_recorded.toFixed(2) + " | " + q.failed + " | " + pctv(q.real_translation_pct) + " |"
+    + (hasQe ? " " + q.qe.mean.toFixed(2) + " (" + q.qe.n + ") |" : ""));
 }
 iw("");
-iw("Note: strict reading is applied - an answer the official parser reads back without a translation scores 0; no repair loop and no permissive parsing. Shared-segment QE differences are <= 0.12 error points (noise): the format does not change translation quality, it changes delivery reliability and cost (see report.audited.md sections 9-10).");
+iw("Note: the reading is the one the run configuration declares (`read_mode`); an answer the reader cannot"
+  + " read back without a translation scores 0, and a repair is reported as a cost rather than a failure.");
+if (hasQe) {
+  iw("Shared-segment QE differences are <= 0.12 error points (noise): the format does not change translation"
+    + " quality, it changes delivery reliability and cost (see report.audited.md sections 9-10).");
+} else {
+  iw("**No QE pass was run for this bundle** (the reference-free MetricX-23-QE scoring needs `unbabel-comet`"
+    + " and its model weights, which were not available where this run was produced), so no QE column appears"
+    + " here and no reference-free quality figure is claimed. `python tools/qe_score.py <run-dir>` adds one to"
+    + " the run directory; re-running `tools/audit_report.mjs` then adds the column.");
+}
 iw("");
 iw("## 5. Latency - plain form");
 iw("");

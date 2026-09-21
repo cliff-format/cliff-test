@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.lit-drama" original="clarion.lit-drama">
+    <group id="scene.arrival">
+      <unit id="open-house-lights">
+        <segment>
+          <source>The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam.</source>
+          <target state="translated">观众席的灯全灭了。一盏工作灯在舞台前区亮着，尘埃在它的光束里缓缓翻飞。</target>
+        </segment>
+      </unit>
+      <unit id="enter-cassian">
+        <segment>
+          <source>I could find this stage in my sleep.</source>
+          <target state="translated">我闭着眼睛都能找到这座舞台。</target>
+        </segment>
+      </unit>
+      <unit id="lit-01a">
+        <segment>
+          <source>You came back.</source>
+          <target state="translated">你回来了。</target>
+        </segment>
+      </unit>
+      <unit id="lit-01b">
+        <segment>
+          <source>You came back.</source>
+          <target state="translated">你回来了。</target>
+        </segment>
+      </unit>
+      <unit id="reply-cassian">
+        <segment>
+          <source>The call board still has my name spelled wrong.</source>
+          <target state="translated">后台公告板上，我的名字还是拼错的。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.confrontation">
+      <unit id="motif-promise">
+        <segment>
+          <source>This theatre kept its promises. People did not.</source>
+          <target state="translated">这座剧院信守承诺。人却没有。</target>
+        </segment>
+      </unit>
+      <unit id="lit-02a">
+        <segment>
+          <source>Wonderful. Just wonderful.</source>
+          <target state="translated">好极了。真是好极了。</target>
+        </segment>
+      </unit>
+      <unit id="lit-02b">
+        <segment>
+          <source>Wonderful. Just wonderful.</source>
+          <target state="translated">好极了。真是好极了。</target>
+        </segment>
+      </unit>
+      <unit id="callback-promise">
+        <segment>
+          <source>You said the theatre kept its promises.</source>
+          <target state="translated">你说过，剧院是信守承诺的。</target>
+        </segment>
+      </unit>
+      <unit id="address-early">
+        <segment>
+          <source>Mr. Vale, the call is in five minutes.</source>
+          <target state="translated">Vale 先生，还有五分钟就到集合时间了。</target>
+        </segment>
+      </unit>
+      <unit id="address-late">
+        <segment>
+          <source>Cassian. Please. Sit down.</source>
+          <target state="translated">Cassian。拜托。坐下。</target>
+        </segment>
+      </unit>
+      <unit id="lit-03a">
+        <segment>
+          <source>She turns the lamp toward him.</source>
+          <target state="translated">她把灯转向他。</target>
+        </segment>
+      </unit>
+      <unit id="lit-03b">
+        <segment>
+          <source>She turns the lamp toward him.</source>
+          <target state="translated">她把灯转向他。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.house">
+      <unit id="roof-year">
+        <segment>
+          <source>The roof has not been touched since 1974.</source>
+          <target state="translated">屋顶自 1974 年以来就没动过。</target>
+        </segment>
+      </unit>
+      <unit id="lamp-count">
+        <segment>
+          <source>Two 500-watt lamps, and a fuse box older than both of us.</source>
+          <target state="translated">两盏 500 瓦的灯，还有一个比我们俩都老的保险丝盒。</target>
+        </segment>
+      </unit>
+      <unit id="venue-name">
+        <segment>
+          <source>The Halloway does not close tonight. It closes when the last person leaves.</source>
+          <target state="translated">Halloway 今晚不会关门。它要等到最后一个人离开时才关门。</target>
+        </segment>
+      </unit>
+      <unit id="board-default">
+        <segment>
+          <source>Use the default setting on the board and do not touch anything else.</source>
+          <target state="translated">用控制台上的默认设置，别碰其他任何东西。</target>
+        </segment>
+      </unit>
+      <unit id="disbelief">
+        <segment>
+          <source>Are you serious? Now? After everything?</source>
+          <target state="translated">你是认真的？现在？在经历了这一切之后？</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.monologue">
+      <unit id="monologue-open">
+        <segment>
+          <source>I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough.</source>
+          <target state="translated">我扫这片地板的次数，比我在自己床上睡觉的次数还多。我知道哪块地板被体重大的演员踩上去会咯吱响，哪块会被体重轻的踩塌。只要你待得够久，一栋建筑就会读懂你。</target>
+        </segment>
+      </unit>
+      <unit id="monologue-turn">
+        <segment>
+          <source>And then one night the lights do not come up, and it turns out the building never learned anything at all.</source>
+          <target state="translated">然后有一天晚上，灯没有亮起来，结果发现这栋建筑其实什么也没学会。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="scene.verse">
+      <unit id="verse-01">
+        <segment>
+          <source>The lamps go dark, the boards remain.</source>
+          <target state="translated">灯熄了，木板还在。</target>
+        </segment>
+      </unit>
+      <unit id="verse-02">
+        <segment>
+          <source>The players go, the play remains.</source>
+          <target state="translated">演员走了，戏还在。</target>
+        </segment>
+      </unit>
+      <unit id="final-direction">
+        <segment>
+          <source>She reaches up and switches off the work lamp. Darkness, and then the house door closing.</source>
+          <target state="translated">她抬手关掉工作灯。黑暗，随后是观众席大门关上的声音。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Language: zh-CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. The empty auditorium an hour before the final performance. A single work lamp is lit. Opening stage direction of the scene; sets the empty theatre before anyone speaks.
+#. cliff:type: description
+#. cliff:emotion: calm
+#. cliff:status: initial
+msgctxt "scene.arrival.open-house-lights"
+msgid "The house lights are dead. One work lamp burns downstage, and the dust turns slowly in its beam."
+msgstr "场灯全灭。一盏工作灯在舞台前区亮着，尘埃在它的光束中缓缓翻卷。"
+
+#. The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian speaks his first line as he walks in from the wings after ten years away.
+#. cliff:type: dialogue
+#. cliff:emotion: nostalgic|calm
+#. cliff:status: initial
+msgctxt "scene.arrival.enter-cassian"
+msgid "I could find this stage in my sleep."
+msgstr "我闭着眼都能找到这个舞台。"
+
+#. The empty auditorium an hour before the final performance. A single work lamp is lit. Odette says this when she is genuinely glad to see him; she has hoped for this for years.
+#. cliff:type: dialogue
+#. cliff:emotion: joyful|grateful
+#. cliff:status: initial
+msgctxt "scene.arrival.lit-01a"
+msgid "You came back."
+msgstr "你回来了。"
+
+#. The empty auditorium an hour before the final performance. A single work lamp is lit. The same words later in the scene, said as a reproach after he admits why he left.
+#. cliff:type: dialogue
+#. cliff:emotion: angry|sad
+#. cliff:status: initial
+msgctxt "scene.arrival.lit-01b"
+msgid "You came back."
+msgstr "你回来了。"
+
+#. The empty auditorium an hour before the final performance. A single work lamp is lit. Cassian deflects with a small joke about the backstage notice board.
+#. cliff:type: dialogue
+#. cliff:emotion: playful
+#. cliff:status: initial
+msgctxt "scene.arrival.reply-cassian"
+msgid "The call board still has my name spelled wrong."
+msgstr "后台通告板上，我的名字还是拼错了。"
+
+#. They circle the argument they have avoided for ten years. Odette's central line. It is quoted back by Cassian later in the scene, so the wording matters beyond this entry.
+#. cliff:type: dialogue
+#. cliff:emotion: serious|sad
+#. cliff:status: initial
+msgctxt "scene.confrontation.motif-promise"
+msgid "This theatre kept its promises. People did not."
+msgstr "这座剧院守住了它的承诺。人却没有。"
+
+#. They circle the argument they have avoided for ten years. Said when the missing lighting board key is finally found; she means it.
+#. cliff:type: dialogue
+#. cliff:emotion: joyful
+#. cliff:status: initial
+msgctxt "scene.confrontation.lit-02a"
+msgid "Wonderful. Just wonderful."
+msgstr "好极了。真是好极了。"
+
+#. They circle the argument they have avoided for ten years. The same words after the fuse blows for the second time; bitter irony, not praise.
+#. cliff:type: dialogue
+#. cliff:emotion: angry|playful
+#. cliff:status: initial
+msgctxt "scene.confrontation.lit-02b"
+msgid "Wonderful. Just wonderful."
+msgstr "好极了。真是好极了。"
+
+#. They circle the argument they have avoided for ten years. Cassian quotes Odette's earlier line back at her; it must read as the same line returning.
+#. cliff:type: dialogue
+#. cliff:emotion: serious
+#. cliff:status: initial
+msgctxt "scene.confrontation.callback-promise"
+msgid "You said the theatre kept its promises."
+msgstr "你说过，这座剧院守住了它的承诺。"
+
+#. They circle the argument they have avoided for ten years. Early in the scene Odette keeps him at the distance of a surname and a title.
+#. cliff:type: dialogue
+#. cliff:emotion: formal|polite
+#. cliff:status: initial
+msgctxt "scene.confrontation.address-early"
+msgid "Mr. Vale, the call is in five minutes."
+msgstr "维尔先生，五分钟后开演。"
+
+#. They circle the argument they have avoided for ten years. Late in the scene the distance drops and she uses his given name for the first time.
+#. cliff:type: dialogue
+#. cliff:emotion: calm|sad
+#. cliff:status: initial
+msgctxt "scene.confrontation.address-late"
+msgid "Cassian. Please. Sit down."
+msgstr "卡西安。拜托，坐下吧。"
+
+#. They circle the argument they have avoided for ten years. A stage direction: terse narrative register, describing the action for the crew.
+#. cliff:type: description
+#. cliff:emotion: objective
+#. cliff:status: initial
+msgctxt "scene.confrontation.lit-03a"
+msgid "She turns the lamp toward him."
+msgstr "她把灯转向他。"
+
+#. They circle the argument they have avoided for ten years. A line of dialogue: an actor describing the blocking aloud during a run-through, in speech.
+#. cliff:type: dialogue
+#. cliff:emotion: playful
+#. cliff:status: initial
+msgctxt "scene.confrontation.lit-03b"
+msgid "She turns the lamp toward him."
+msgstr "她把灯转向他。"
+
+#. Practical talk about the building itself while they avoid each other's eyes. Odette lists what the building needs; the year is a fact and must survive.
+#. cliff:type: dialogue
+#. cliff:emotion: neutral
+#. cliff:status: initial
+msgctxt "scene.house.roof-year"
+msgid "The roof has not been touched since 1974."
+msgstr "屋顶自1974年以来就没动过。"
+
+#. Practical talk about the building itself while they avoid each other's eyes. Cassian counts what is still working in the grid.
+#. cliff:type: dialogue
+#. cliff:emotion: neutral
+#. cliff:status: initial
+msgctxt "scene.house.lamp-count"
+msgid "Two 500-watt lamps, and a fuse box older than both of us."
+msgstr "两盏 500 瓦的灯，还有一个比我们俩都老的保险丝盒。"
+
+#. Practical talk about the building itself while they avoid each other's eyes. The venue name is the company's mark and is used untranslated in all materials.
+#. cliff:type: dialogue
+#. cliff:emotion: neutral
+#. cliff:status: initial
+msgctxt "scene.house.venue-name"
+msgid "The Halloway does not close tonight. It closes when the last person leaves."
+msgstr "The Halloway 今晚不关门。它要等到最后一个人离开时才关。"
+
+#. Practical talk about the building itself while they avoid each other's eyes. A technical instruction to the operator about the lighting board.
+#. cliff:type: dialogue
+#. cliff:emotion: neutral
+#. cliff:status: initial
+msgctxt "scene.house.board-default"
+msgid "Use the default setting on the board and do not touch anything else."
+msgstr "使用灯光控制台上的默认设置，其他什么都不要碰。"
+
+#. Practical talk about the building itself while they avoid each other's eyes. Cassian reacts to her telling him the building is already sold.
+#. cliff:type: dialogue
+#. cliff:emotion: surprised|angry
+#. cliff:status: initial
+msgctxt "scene.house.disbelief"
+msgid "Are you serious? Now? After everything?"
+msgstr "你是认真的吗？现在？在这一切之后？"
+
+#. Odette alone in the work light after Cassian goes to change. The first half of her monologue, alone on stage; long-form literary prose, not conversational.
+#. cliff:type: monologue
+#. cliff:emotion: nostalgic
+#. cliff:status: initial
+msgctxt "scene.monologue.monologue-open"
+msgid "I have swept this floor more times than I have slept in my own bed. I know which board creaks under a heavy actor and which one gives way under a light one. A building learns you, if you stay long enough."
+msgstr "我扫这块地板的次数，比在自己床上睡觉的次数还多。我知道哪块木板会在体重大的演员脚下吱呀作响，哪块又会在体重轻的演员脚下塌陷。只要你待得够久，一座建筑就会认识你。"
+
+#. Odette alone in the work light after Cassian goes to change. The turn in the monologue where the comfort collapses.
+#. cliff:type: monologue
+#. cliff:emotion: nostalgic
+#. cliff:status: initial
+msgctxt "scene.monologue.monologue-turn"
+msgid "And then one night the lights do not come up, and it turns out the building never learned anything at all."
+msgstr "然后有一天晚上，灯光没有亮起，结果发现这座建筑其实什么都没学会。"
+
+#. The company's traditional closing couplet, spoken to the empty house at the end of a run. First line of the closing couplet; the two lines are parallel in structure and must stay parallel.
+#. cliff:type: narration
+#. cliff:emotion: serious|nostalgic
+#. cliff:status: initial
+msgctxt "scene.verse.verse-01"
+msgid "The lamps go dark, the boards remain."
+msgstr "灯光熄灭，台板仍在。"
+
+#. The company's traditional closing couplet, spoken to the empty house at the end of a run. Second line of the couplet, mirroring the first line word for word in structure.
+#. cliff:type: narration
+#. cliff:emotion: serious|nostalgic
+#. cliff:status: initial
+msgctxt "scene.verse.verse-02"
+msgid "The players go, the play remains."
+msgstr "演员离去，戏仍在。"
+
+#. The company's traditional closing couplet, spoken to the empty house at the end of a run. The closing stage direction of the scene.
+#. cliff:type: description
+#. cliff:emotion: calm
+#. cliff:status: initial
+msgctxt "scene.verse.final-direction"
+msgid "She reaches up and switches off the work lamp. Darkness, and then the house door closing."
+msgstr "她伸手关掉工作灯。黑暗，接着是观众席门关上的声音。"

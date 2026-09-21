@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.1" srcLang="en-US" trgLang="zh-CN">
+  <file id="clarion.news-social" original="clarion.news-social">
+    <group id="posts.reactions">
+      <unit id="news-01a">
+        <segment state="translated">
+          <source>Great work today, everyone. Really.</source>
+          <target>今天大家都干得漂亮。真的。</target>
+        </segment>
+      </unit>
+      <unit id="news-01b">
+        <segment state="translated">
+          <source>Great work today, everyone. Really.</source>
+          <target>今天大家都干得漂亮。真的。</target>
+        </segment>
+      </unit>
+      <unit id="news-02a">
+        <segment state="translated">
+          <source>Six months of roadworks and here we are.</source>
+          <target>六个月的施工，我们总算等到这一天了。</target>
+        </segment>
+      </unit>
+      <unit id="news-02b">
+        <segment state="translated">
+          <source>Six months of roadworks and here we are.</source>
+          <target>六个月的施工，我们总算等到这一天了。</target>
+        </segment>
+      </unit>
+      <unit id="news-03a">
+        <segment state="translated">
+          <source>You are really going to ride that thing?</source>
+          <target>你真打算骑那玩意儿？</target>
+        </segment>
+      </unit>
+      <unit id="news-03b">
+        <segment state="translated">
+          <source>You are really going to ride that thing?</source>
+          <target>你真打算骑那玩意儿？</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="posts.referents">
+      <unit id="news-04a">
+        <segment state="translated">
+          <source>Nice shot.</source>
+          <target>拍得好。</target>
+        </segment>
+      </unit>
+      <unit id="news-04b">
+        <segment state="translated">
+          <source>Nice shot.</source>
+          <target>拍得好。</target>
+        </segment>
+      </unit>
+      <unit id="news-05a">
+        <segment state="translated">
+          <source>It is back.</source>
+          <target>它回来了。</target>
+        </segment>
+      </unit>
+      <unit id="news-05b">
+        <segment state="translated">
+          <source>It is back.</source>
+          <target>它回来了。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="platform.conventions">
+      <unit id="news-06">
+        <segment state="translated">
+          <source>Huge thanks to @HollowPineCafe for handing out free coffee at the depot gate this morning. #TramDay</source>
+          <target>非常感谢 @HollowPineCafe 今天早上在车厂门口免费派发咖啡。#TramDay</target>
+        </segment>
+      </unit>
+      <unit id="news-07">
+        <segment state="translated">
+          <source>Rode the whole loop this afternoon just because I could 🚋💚 no regrets</source>
+          <target>今天下午把整条环线坐了个遍，纯粹因为想坐 🚋💚 一点不后悔</target>
+        </segment>
+      </unit>
+      <unit id="news-08">
+        <segment state="translated">
+          <source>The new depot mural absolutely ate. No crumbs left.</source>
+          <target>车厂的新壁画简直绝了。一点渣都不剩。</target>
+        </segment>
+      </unit>
+      <unit id="news-09">
+        <segment state="translated">
+          <source>{count, plural, one {# person} other {# people}} reposted your photo.</source>
+          <target>{count, plural, one {# 人} other {# 人}}转发了你的照片。</target>
+        </segment>
+      </unit>
+      <unit id="news-10">
+        <segment state="translated">
+          <source>{name} and {others, plural, one {# other} other {# others}} liked your post.</source>
+          <target>{name} 和{others, plural, one {另外 # 人} other {另外 # 人}}赞了你的帖子。</target>
+        </segment>
+      </unit>
+      <unit id="news-11">
+        <segment state="translated">
+          <source>Day 3 on the Riverside Loop and I have saved 40 minutes each way. 10 out of 10, would ride again.</source>
+          <target>坐河畔环线的第 3 天，单程就省下了 40 分钟。满分 10 分，还会再坐。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="thread.replies">
+      <unit id="news-12">
+        <segment state="translated">
+          <source>@SablewickTransit Will the Riverside Loop run on the holiday Monday?</source>
+          <target>@SablewickTransit 河畔环线在下周一的公共假日会运行吗？</target>
+        </segment>
+      </unit>
+      <unit id="news-13">
+        <segment state="translated">
+          <source>Yes, on a Sunday timetable.</source>
+          <target>会的，按周日时刻表运行。</target>
+        </segment>
+      </unit>
+      <unit id="news-14">
+        <segment state="translated">
+          <source>And the last one back?</source>
+          <target>那末班回程车呢？</target>
+        </segment>
+      </unit>
+      <unit id="news-15">
+        <segment state="translated">
+          <source>Eleven forty, from the north end.</source>
+          <target>11 点 40 分，从北端发车。</target>
+        </segment>
+      </unit>
+      <unit id="news-16">
+        <segment state="translated">
+          <source>Perfect, thank you! Adding it to the group chat now.</source>
+          <target>太好了，谢谢你！我这就发到群里。</target>
+        </segment>
+      </unit>
+    </group>
+    <group id="feed.updates">
+      <unit id="news-17">
+        <segment state="translated">
+          <source>Service update: from Monday the Riverside Loop runs every eight minutes, with the last departure at 11:40 pm.</source>
+          <target>运营更新：从周一起，河畔环线每八分钟一班，末班车 23:40 发车。</target>
+        </segment>
+      </unit>
+      <unit id="news-18">
+        <segment state="translated">
+          <source>The depot open day starts at ten on Saturday morning and the workshop tour is free for everyone.</source>
+          <target>车厂开放日周六上午十点开始，车间参观对所有人免费。</target>
+        </segment>
+      </unit>
+      <unit id="news-19">
+        <segment state="translated">
+          <source>Ridership on the Riverside Loop reached twenty-one thousand journeys in its first week, the operator said.</source>
+          <target>运营方表示，河畔环线首周客流量达到两万一千人次。</target>
+        </segment>
+      </unit>
+      <unit id="news-20">
+        <segment state="translated">
+          <source>I take the first tram most mornings and the seats are comfortable enough for the whole ride.</source>
+          <target>大多数早上我都坐首班电车，座位挺舒服，一路坐到底也没问题。</target>
+        </segment>
+      </unit>
+      <unit id="news-21">
+        <segment state="translated">
+          <source>Does anyone know whether the ticket machine at the north end takes cards?</source>
+          <target>有人知道北端的售票机支持刷卡吗？</target>
+        </segment>
+      </unit>
+      <unit id="news-22">
+        <segment state="translated">
+          <source>The rain held off for the ceremony, which was lucky for everyone standing on the platform.</source>
+          <target>仪式期间雨没下起来，站在站台上的所有人都算走运。</target>
+        </segment>
+      </unit>
+      <unit id="news-23">
+        <segment state="translated">
+          <source>A single journey costs one euro fifty and a day pass costs four euros.</source>
+          <target>单程票价一欧五十，日票四欧元。</target>
+        </segment>
+      </unit>
+    </group>
+  </file>
+</xliff>

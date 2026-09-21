@@ -1,0 +1,196 @@
+You are a professional localization translator and localization engineer.
+You translate product, literary, legal and game content between languages, and you
+edit localization resource files without breaking their structure.
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact.
+
+This file is an iOS Localizable.strings resource of "key" = "value"; lines.
+Replace every value with its translation and keep every key and comment.
+
+Translate the localization file below from en-US into zh-CN.
+
+WHAT WE NEED
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {count, plural, ...}, {name}, %s, %1$s, {{...}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in zh-CN.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written.
+
+This file is a resource file in the source language: each key maps to
+its source text. Return the same file with every value replaced by its
+zh-CN translation, keeping every key unchanged.
+
+Terminology policy (project rules override training habits):
+- default: use 默认 / 默认值; do not use 缺省.
+- robust / robustness: use 健壮 / 稳健 / 抗干扰; do not use 鲁棒.
+- token: use Token / 令牌; do not use 词元.
+- cache: use 缓存; do not use 高速缓存.
+- latency: use 延迟; do not use 时延.
+- throughput: use 吞吐量; do not use 吞吐率.
+- internet: use 互联网; do not use 因特网.
+- web / world wide web: use Web / 网页 / 互联网; do not use 万维网.
+- cursor: use 光标; do not use 游标.
+- resolution: use 分辨率; do not use 解析度.
+- video: use 视频; do not use 视讯.
+- software / program: use 软件; do not use 软体.
+- Keep these in Latin script: Token, Prompt, Embedding, API, SDK, CLI, GPU, Cookie, Wi-Fi, Bug.
+
+The file carries a translation brief: family information, translation
+standards, group context and per-entry context, content type, emotion, and
+maximum display width in cells (Latin and digits count 1 cell, CJK and
+fullwidth characters count 2). Follow all of it.
+
+===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE =====
+
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash teases Flint at the forge door; friendly, not hostile.
+cliff:source: Flint, you still owe me a proper blade.
+cliff:type: dialogue
+cliff:emotion: playful
+cliff:status: initial */
+"ash-greets-flint" = "Flint, you still owe me a proper blade.";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint answers with affection disguised as an insult.
+cliff:source: Ash, you could not hold a whetstone straight if the forge froze over.
+cliff:type: dialogue
+cliff:emotion: playful|rude
+cliff:status: initial */
+"flint-replies-ash" = "Ash, you could not hold a whetstone straight if the forge froze over.";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash reports the unnatural cold at the palisade; she is genuinely afraid.
+cliff:source: Flint, the frost is moving. I saw it breathe.
+cliff:type: dialogue
+cliff:emotion: fearful
+cliff:status: initial */
+"ash-fearful" = "Flint, the frost is moving. I saw it breathe.";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint blames Ash for the spreading fire; real anger, not banter.
+cliff:source: You lit that spark, Ash, and now the whole valley pays for it.
+cliff:type: dialogue
+cliff:emotion: angry
+cliff:status: initial */
+"flint-angry" = "You lit that spark, Ash, and now the whole valley pays for it.";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint shouts a warning as the frost breaches the palisade.
+cliff:source: Ash! Get away from the wall — it is coming through!
+cliff:type: dialogue
+cliff:emotion: urgent|fearful
+cliff:status: initial */
+"flint-calls-ash" = "Ash! Get away from the wall — it is coming through!";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Ash thanks Flint for taking her in; the single soft beat in the scene.
+cliff:source: Flint, you forged me a name when no one else would. Thank you.
+cliff:type: dialogue
+cliff:emotion: grateful
+cliff:status: initial */
+"ash-grateful" = "Flint, you forged me a name when no one else would. Thank you.";
+/* Voiced dialogue between Ash, a fire-blooded orphan, and Flint, a plain-spoken forgehand, in Chapter One. Each line is acted; keep the two registers distinct. Flint speaks to a rival who just failed to cheat him. The words are courteous but the intent is a threat: surface meaning polite, subtext menacing.
+cliff:source: You are, of course, welcome to try again. I will even hold the door for you.
+cliff:type: dialogue
+cliff:emotion: polite
+cliff:status: initial */
+"flint-polite-threat" = "You are, of course, welcome to try again. I will even hold the door for you.";
+/* Ash's interior voice, heard during quiet story beats. Register is more formal and image-driven than her spoken lines. Ash reasons through the fire-spirit's dread; literary and slower than her speech.
+cliff:source: The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.
+cliff:type: monologue
+cliff:emotion: anxious
+cliff:status: initial */
+"monologue-ash-fire" = "The fire in my chest has a memory of its own. It knows the cold before the cold arrives, and it is afraid.";
+/* Ash's interior voice, heard during quiet story beats. Register is more formal and image-driven than her spoken lines. Ash reflects on the weight of the name she chose.
+cliff:source: Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.
+cliff:type: monologue
+cliff:emotion: calm|hopeful
+cliff:status: initial */
+"monologue-ash-name" = "Flint says a name is a handle, not a mirror. But a name can still be a promise you make to yourself.";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Fire skill on the hotbar; keep within the 6-cell slot.
+cliff:source: Ember Burst
+cliff:type: noun-phrase
+cliff:status: initial
+cliff:max-width: 6 */
+"skill-ember-burst" = "Ember Burst";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Ice skill on the hotbar; keep within the 6-cell slot.
+cliff:source: Frost Whip
+cliff:type: noun-phrase
+cliff:status: initial
+cliff:max-width: 6 */
+"skill-frost-whip" = "Frost Whip";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Mobility skill on the hotbar; keep within the 6-cell slot.
+cliff:source: Cinder Sidestep
+cliff:type: noun-phrase
+cliff:status: initial
+cliff:max-width: 6 */
+"skill-cinder-sidestep" = "Cinder Sidestep";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Crowd-control skill on the hotbar; keep within the 6-cell slot.
+cliff:source: Thorn Snare
+cliff:type: noun-phrase
+cliff:status: initial
+cliff:max-width: 6 */
+"skill-thorn-snare" = "Thorn Snare";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Consumable in the bag grid; keep within the 8-cell slot.
+cliff:source: Emberbloom Tonic
+cliff:type: noun-phrase
+cliff:status: initial
+cliff:max-width: 8 */
+"item-emberbloom-tonic" = "Emberbloom Tonic";
+/* Skill-bar and inventory strings. Skill and item names must fit the width budget shown on the hotbar and in the bag grid. Inventory flavor text for the greataxe 'Splitting Headache'. The phrase is a pun that must be recreated in Chinese, not translated literally.
+cliff:source: This greataxe is a real splitting headache — swing once and the argument is over.
+cliff:type: description
+cliff:status: initial */
+"item-axe-pun-desc" = "This greataxe is a real splitting headache — swing once and the argument is over.";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Tutorial hint over the first lootable body. The keybind [F] must read exactly as configured by the player.
+cliff:source: Press [F] to loot.
+cliff:type: prompt
+cliff:emotion: mechanical
+cliff:status: initial */
+"tutorial-loot" = "Press [F] to loot.";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Combat log entry shown each time a hit lands.
+cliff:source: {count, plural, one {# point of damage} other {# points of damage}}
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"combat-log-damage" = "{count, plural, one {# point of damage} other {# points of damage}}";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Faction choice result shown after the player picks a side at the end of the prologue.
+cliff:source: {faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"faction-claim" = "{faction, select, emberborn {The Emberborn claim your name.} frostward {The Frostward claim your name.} other {No faction claims your name.}}";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Floating combat text when the player is hit; {damage} is an engine value that must survive unchanged.
+cliff:source: You take {damage} damage from the frost.
+cliff:type: sentence
+cliff:emotion: mechanical
+cliff:status: initial */
+"hit-taken" = "You take {damage} damage from the frost.";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Main-menu greeting after loading a save; {playerName} is the player's profile name.
+cliff:source: Welcome back, {playerName}.
+cliff:type: sentence
+cliff:emotion: calm
+cliff:status: initial */
+"welcome-name" = "Welcome back, {playerName}.";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Button on the system options screen that resets cached data and preferences.
+cliff:source: Clear cache and restore default settings
+cliff:type: label
+cliff:emotion: objective
+cliff:status: initial */
+"settings-cache" = "Clear cache and restore default settings";
+/* Tutorial cards, system prompts and combat log strings shown on screen during the prologue. Tooltip over the tonic's hotbar slot; keep the spacing between Han text and the numbers and Latin letters.
+cliff:source: Drink to restore 40 HP over 10 seconds.
+cliff:type: prompt
+cliff:emotion: mechanical
+cliff:status: initial */
+"tutorial-regen" = "Drink to restore 40 HP over 10 seconds.";
+/* Cutscene subtitles and closed-caption cues for the prologue cinematic. Subtitle lines are timed; keep them within the reading-speed width. Spoken slowly over roughly three seconds; the width is the reading-speed budget for one subtitle line.
+cliff:source: The frost does not forgive.
+cliff:type: subtitle
+cliff:emotion: serious
+cliff:status: initial
+cliff:max-width: 14 */
+"subtitle-frost" = "The frost does not forgive.";
+/* Cutscene subtitles and closed-caption cues for the prologue cinematic. Subtitle lines are timed; keep them within the reading-speed width. Closed-caption sound cue for a campfire scene. Style cues in this corner-bracket form.
+cliff:source: [Soft ember crackle]
+cliff:type: accessibility-cue
+cliff:emotion: calm
+cliff:status: initial */
+"sfx-ember-crackle" = "[Soft ember crackle]";
