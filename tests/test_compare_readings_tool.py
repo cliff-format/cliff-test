@@ -24,8 +24,15 @@ TOOL = ROOT / "tools" / "compare_readings.py"
 #: The run the acceptance criteria quote, and the figures it quotes from it.
 RECORDED = ROOT / "results" / "clarion-deepseek-flash-20260920T114819+0000-6a5259"
 PUBLISHED = {
-    "bare": {"strict": 89.6, "tolerant": 93.8, "repairs": 3},
-    "context": {"strict": 83.3, "tolerant": 89.6, "repairs": 6},
+    # The repair counts fell by one (bare) and two (context) when Appendix C.2.5 was
+    # clarified: two answers in this run end with marker-shaped markup, and the
+    # reading used to normalize the tag name into an entry and report a
+    # `name-normalized` repair for it (plus an `id-collision` where the name already
+    # existed). Those answers were failing before the clarification and still are, so
+    # only the repair column moved - the two rates are unchanged, which is what this
+    # test exists to hold.
+    "bare": {"strict": 89.6, "tolerant": 93.8, "repairs": 2},
+    "context": {"strict": 83.3, "tolerant": 89.6, "repairs": 4},
 }
 
 
@@ -90,5 +97,5 @@ def test_the_tool_reports_the_same_numbers_as_the_test(capsys) -> None:
     out = capsys.readouterr().out
     assert "strict   valid: 43/48 = 89.6%" in out, out
     assert "tolerant valid: 45/48 = 93.8%" in out, out
-    assert "repairs made  : 3 (0.06 per answer)" in out, out
+    assert "repairs made  : 2 (0.04 per answer)" in out, out
     assert "strict   valid: 40/48 = 83.3%" in out, out

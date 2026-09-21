@@ -1,0 +1,31 @@
+# Tolerant fixture that must be REFUSED (Appendix C.5): markup is not an entry.
+#
+# `</terms>` closes a section in XML and means nothing in CLIFF. The tolerant
+# reading of C.2.5 applies to an *identifier* that begins with a name character,
+# and `/terms` begins with neither a name character nor a quote, so the line is not
+# an entry marker at all and C.5 rejects it.
+#
+# Without that limit the reading normalized `/terms` into `terms` - C.3 step 4
+# replaces the slash with `-` and step 6 strips it - and the document then failed on
+# `entry 'terms' is missing required field 'source'`: an entry this file does not
+# contain. Manufacturing data out of markup is the guessing C.5 forbids, and it also
+# hid the real problem, which is a stray closing line after the last field.
+#
+# Expected: refused in BOTH readings. Strict reports `invalid entry id '/terms'` (the
+# marker must hold a name); tolerant reports that the line is neither a field, a
+# section nor an entry marker. `tests/run_all.py` lists this file in UNREPAIRABLE,
+# and `tests/clarion/test_read_modes.py` pins that no entry is produced.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-refusal
+source-language: en-US
+target-language: zh-CN
+
+[terms]
+type: noun
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final
+</terms>

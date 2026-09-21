@@ -170,6 +170,27 @@ def test_tolerant_reading_still_refuses_what_appendix_c5_forbids() -> None:
         assert not tolerant.ok, f"tolerant parsing must refuse {label}"
 
 
+def test_markup_is_refused_rather_than_read_as_an_entry() -> None:
+    """The C.2.5 boundary, pinned by the fixture that found it.
+
+    A model that closes what it opens writes `</terms>` after its glossary. The
+    identifier relaxation of C.2.5 applies to an identifier that begins with a name
+    character, so the line is not an entry marker; before that limit was stated, the
+    reading normalized `/terms` into `terms` (C.3 strips the slash) and failed the
+    document on an entry it had just invented. The assertion is on *both* halves: the
+    document is refused, and no entry comes out of it.
+    """
+    text = (FIXTURES / "closing-tag.zh-CN.cliff").read_text(encoding="utf-8")
+    parsed = parse_back(text, "cliff", read_mode="tolerant")
+    assert not parsed.ok, "a closing tag must not be accepted"
+    assert parsed.document is None or not [
+        entry for group in parsed.document.groups for entry in group.entries
+    ], "the reading manufactured an entry out of markup"
+    assert parsed.repairs == 0, "markup is not a repair"
+    listed = (FIXTURES / "closing-tag.zh-CN.cliff").read_text(encoding="utf-8")
+    assert "UNREPAIRABLE" in listed, "the fixture must say it is a refusal, not a repair"
+
+
 def test_split_cliff_documents_recognises_both_version_lines() -> None:
     """An answer may carry a translated file plus a glossary; both are 1.0 or 1.1.
 

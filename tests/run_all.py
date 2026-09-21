@@ -35,7 +35,20 @@ SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples"
 #: *after* the quoted-key relaxation of C.2.7 has applied: the quotes come off and
 #: the word inside is still not a legal key, which is the boundary that keeps the
 #: relaxation from widening the key sets.
-UNREPAIRABLE = {"unrepairable.zh-CN.cliff", "quoted-unknown-key.zh-CN.cliff"}
+#: Tolerant fixtures that must still be REFUSED, with the reason each is a boundary
+#: rather than a repairable shape:
+#:
+#:   unrepairable.zh-CN.cliff        an unquoted value has no determinate end (C.5).
+#:   quoted-unknown-key.zh-CN.cliff  C.2.7 removes quotes; it does not widen the key
+#:                                   sets, so the word inside is still not a legal key.
+#:   closing-tag.zh-CN.cliff         C.2.5 applies to an identifier, and `</terms>` is
+#:                                   markup: reading it as an entry manufactured an
+#:                                   entry the file does not contain.
+UNREPAIRABLE = {
+    "unrepairable.zh-CN.cliff",
+    "quoted-unknown-key.zh-CN.cliff",
+    "closing-tag.zh-CN.cliff",
+}
 
 #: Answers that hold more than one CLIFF document - a translated file plus the
 #: glossary the terminology workflow produced. Splitting them is part of reading

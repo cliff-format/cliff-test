@@ -253,7 +253,7 @@ fixture still passes, and the checks below answer the 1.1 questions.
     executes the previous revision and reads the attribute, and
     `tests/test_prompt_cost_tool.py` holds both ends together.
     The prompt-cost table in `docs/clarion-prompt-design.md` is re-measured through
-    the assembly path and reads **21 092 → 2 410** tokens for the `ui-console` plain
+    the assembly path and reads **21 373 → 2 410** tokens for the `ui-console` plain
     cell (the older 20 739 / 2 630 figures are superseded; the specification text
     alone grew from 16 316 to 16 656 tokens).
   - The rule is held by
@@ -598,6 +598,43 @@ fixture still passes, and the checks below answer the 1.1 questions.
     containing only `.`, and one answer whose first line was the prompt's own
     `===== FILE TO TRANSLATE, RETURNED COMPLETE =====`), against 45/48 before it —
     a difference of two answers out of 48, which is noise.
+
+### Changed
+
+- **Appendix C.2.5 clarified: markup is not an identifier, so the reading no longer
+  manufactures entries.** The relaxation applies to an identifier that begins with a
+  name character (or the quoted form of C.2.4); a stray closing tag `</terms>` is
+  **not an entry marker**, and C.5 rejects the line. Found by measurement: the model
+  closes what it opens, so answers arrive with `</terms>`, `</result>`, `</preset>`
+  after the glossary, and the reading normalized `/terms` into the entry `terms`
+  (C.3 step 4 replaces the slash, step 6 strips it) and then failed the document on
+  `entry 'terms' is missing required field 'source'` — an entry the answer never had.
+  The diagnostic pointed at the invented entry instead of at the stray line, and
+  manufacturing data out of markup is what C.5 forbids.
+  - Synced across the three repositories: the specification's C.2.5, its ABNF
+    semantic-constraint block (which reaches a prompt that injects that block), the
+    `cliff.zh-CN` mirrors of both, the Python parser
+    (`_marker_begins_with_identifier`, with the same test for a group path's first
+    segment), the parser's README table, and this suite.
+  - New fixture `tests/fixtures/tolerant/closing-tag.zh-CN.cliff`, listed in
+    `UNREPAIRABLE`: refused in both readings, strict reporting `invalid entry id
+    '/terms'` and tolerant reporting that the line is neither a field, a section nor
+    an entry marker. `tests/clarion/test_read_modes.py` asserts both halves — refused,
+    and **no entry produced**. `cliff-python` gained three tests covering the same
+    boundary plus the two cases that must keep working (`<  resolution  >` still
+    normalizes; an empty marker still takes C.3's fallback name).
+  - **No validity number changed.** Re-reading the stored answers of the three cells
+    that carried markup gives exactly the same rates (43/48, 45/48, 44/48): those
+    answers really do contain an invalid line, and now they fail *at it*.
+  - The published repair counts did change, because the reading no longer reports a
+    repair for a line it rejects: the two-readings table of the recorded run 6a5259
+    moves from 3 to 2 repairs in the bare arm (0.04 per answer) and from 6 to 4 in
+    the context arm, with both validity rates unchanged. `tests/test_compare_readings_tool.py`
+    carries the reason next to the numbers.
+  - The prompt-cost table moved with the specification text: the digest-style cell is
+    **21 373** tokens (was 21 092, the ABNF constraint block grew), the per-cell
+    saving from the example-driven style is **18 963** (was 18 682, so 75 852 over
+    the four pilot files), and the compressed `spec` block is **2 834** (was 2 700).
 
 ### Fixed
 

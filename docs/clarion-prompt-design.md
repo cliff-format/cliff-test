@@ -34,7 +34,7 @@ totals and that each column adds up to its own total.
 | terminology policy | 236 | 236 |
 | glossary workflow | 231 | 231 |
 | the document itself | 571 | 571 |
-| **one cell, `ui-console` plain arm** | **21 092** | **2 410** |
+| **one cell, `ui-console` plain arm** | **21 373** | **2 410** |
 
 The rows are the measured blocks of one cell; each column adds up to its total. The
 specification text was 16 316 tokens when the recorded run priced it and is 16 656
@@ -46,12 +46,12 @@ tokens: two of the 1.3 edit run's four invalid answers were a text value written
 without quotes, which is the one shape error no reading repairs (Appendix C.5). The
 specification text it replaced cost 16 691.
 
-Across the four pilot files the saving is **74 728 tokens**, which is
-**−84.6 %** of the prompts in the plain arm and −78.5 % in the context arm
-(`python tools/prompt_cost.py --pilot`). The saving is the same 18 682 tokens per
+Across the four pilot files the saving is **75 852 tokens**, which is
+**−84.8 %** of the prompts in the plain arm and −78.7 % in the context arm
+(`python tools/prompt_cost.py --pilot`). The saving is the same 18 963 tokens per
 cell on every file and in both arms — the redesign swaps fixed-size instruction
 blocks for fixed-size instruction blocks — so only the percentage moves with the
-document: −75.9 % (`wmt24pp`, the longest file) to −88.7 % (`probe-ambiguity`) in
+document: −76.1 % (`wmt24pp`, the longest file) to −88.8 % (`probe-ambiguity`) in
 the plain arm. `tests/test_prompt_cost_tool.py` asserts that constancy, because a
 change that made the saving document-dependent would be a different claim.
 
@@ -82,8 +82,8 @@ It carries
 | what one CLIFF cell carries | tokens |
 | --- | ---: |
 | the full specification text (the `digest` style) | 16 656 |
-| the old hand-written digest plus that text | 21 092 |
-| **`spec`: the specification compressed to its rules** | **2 568** |
+| the old hand-written digest plus that text | 21 373 |
+| **`spec`: the specification compressed to its rules** | **2 834** |
 | `examples`: our hand-written facts plus two conforming files | 1 029 |
 
 The compressed block decomposes as the ABNF (613), the ABNF's semantic-constraint
