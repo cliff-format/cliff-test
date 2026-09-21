@@ -226,11 +226,15 @@ Seven of 171 edits failed, and the stored answers attribute each one
   `计费(修订)`; the model wrote `Billing (revised)`. It invented a value instead of
   copying the one it was given.
 - `rename-entry` on `billing`: the model renamed the **group** `billing` to
-  `billing-v2` and left the entry id alone. Contributing factor, and a property of
-  the generated sequence rather than of the model: task 7 moves entry `billing`
-  *into* the group `billing` (the file has a group with the same name as the
-  entry), so by task 8 the instruction "rename the entry 'billing'" is ambiguous
-  between an entry and a group that now share a name.
+  `billing-v2` and left the entry id alone. The reference resolver is not
+  ambiguous - it looks at entries only - and the instruction does say "the entry",
+  so the harness's own answer is well defined. What the file supplies is a
+  referential hazard: `ui-console` contains a group `[billing]` *and* an entry
+  `<billing>` (in `[nav]`) from the start, and task 7's `move-entry` then places
+  that entry *inside* the group of its own name, so by task 8 a single name denotes
+  both a group and a member entry. The collision is a property of the corpus file
+  and the generated sequence, not of the model, which is why it is recorded here
+  rather than treated as a plain instruction-following failure.
 
 **The one prompt gap this found.** The design states "an unquoted string" is
 unrepairable and therefore must be in the prompt, but the prompt text never says
