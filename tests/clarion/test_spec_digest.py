@@ -166,7 +166,7 @@ def test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production() -> No
     paragraph is the fix, and it has to name the trap as well: those values mix CJK
     curly quotes (which take no backslash) with ASCII ones (which do).
     """
-    digest = cliff_rules.build_normative_rules()
+    digest = " ".join(cliff_rules.build_normative_rules().split())
     assert "ESCAPING" in digest
     # The rule is named as a convention the model already has, not spelled out as a
     # list to memorise: that rewording took the three escape failures of the previous

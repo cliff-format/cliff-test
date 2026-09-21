@@ -23,6 +23,7 @@ from dataclasses import dataclass, field
 
 from ..paths import ensure_cliff_format
 from .parse import unwrap
+from .provider_artifacts import strip_provider_markup
 from .read_mode import DEFAULT_READ_MODE, STRICT, TOLERANT
 from .registry import get_format
 
@@ -360,9 +361,18 @@ def check_validity(
         return report
     checker = _CHECKERS[format_id]
     repairs = 0
+    leaked_fragments = 0
+    if tolerant and format_id == "cliff":
+        # Vendor markup that leaked into the content is stripped here too, so this path
+        # and `parse_back` read the same bytes. Without it the two disagree: the parser
+        # accepted an answer the validity check still failed on the leaked line, which
+        # is exactly the kind of split that makes a report unexplainable.
+        body, fragments = strip_provider_markup(body)
+        leaked_fragments = len(fragments)
     try:
         if format_id == "cliff":
             errors, warnings, repairs = _check_cliff(body, tolerant=tolerant)
+            repairs += leaked_fragments
         else:
             # Every other format has exactly one reading, so nothing to repair.
             errors, warnings = checker(body)

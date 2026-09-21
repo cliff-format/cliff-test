@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING
 
 from ..paths import ensure_cliff_format
 from .plain import parse_json_plain, parse_yaml_plain
+from .provider_artifacts import strip_provider_markup
 from .read_mode import DEFAULT_READ_MODE, READ_MODES, is_tolerant
 from .registry import get_format
 
@@ -112,9 +113,18 @@ def parse_back(text: str, format_id: str, *, read_mode: str = DEFAULT_READ_MODE)
 
     spec = get_format(format_id)
     body, unwrapped = unwrap(text)
+    # Vendor markup that leaked into the content - the DeepSeek tool-call delimiter and
+    # whatever the model attached to it - is stripped here, before anything reads the
+    # answer, and reported under its own category. It is an environment artifact and
+    # not a CLIFF deviation, so it is not confusable with an Appendix C repair; and it
+    # is stripped only in the tolerant reading, because the strict reading is the
+    # reference toolchain's and a fragment that is not CLIFF is an error there.
+    provider_markup: list[tuple[int, list[str]]] = []
+    if tolerant and spec.id == "cliff":
+        body, provider_markup = strip_provider_markup(body)
     glossary: CliffDocument | None = None
     extra = 0
-    repairs = 0
+    repairs = len(provider_markup)
     try:
         if spec.id == "cliff":
             parts = split_cliff_documents(body)
