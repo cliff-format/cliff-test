@@ -107,6 +107,7 @@ project might ship", using one corpus and one generation path. Protocol:
 | C6.10 | Harness self-verification: a perfect answer scores perfectly, a damaged answer is detected, degenerate controls stay below a real answer, deterministic edits keep every format valid | `python -m clarion selfcheck` | no |
 | C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python -m clarion translate --read-mode tolerant` vs `--read-mode strict`; `read_mode` and `repairs` columns in the D3/D4/D7 tables | yes |
 | C6.12 | **Modification correctness of a single-pass rewrite**: `valid %`, `ids kept %`, `coverage %`, `source kept %`, `repairs/answer`, and the extra / missing / drifted / untranslated identifier counts, per format and arm | the `D3/D4 - structural integrity of the rewrite` table of `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch` (`clarion/report.py` `structure_report`) | yes |
+| C6.12 | **measured at the deployment settings** (1.3, example-driven prompt, all ten formats) | **CLIFF bare 58.3% valid / 75.0% ids kept / 75.0% coverage; context 70.8% / 72.9% / 72.9%** — CLIFF is the least surviving of the ten and the best on the answers that survive (chrF++ 53.3) | see the run entry in [CHANGELOG.md](../CHANGELOG.md) |
 
 ### C6.12 is the modification-correctness number; C4 and C6.8 are not
 

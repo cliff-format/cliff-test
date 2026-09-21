@@ -201,6 +201,10 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
             "the modification-correctness table is the point of this run"
         )
         assert (run_dir / "records.jsonl").is_file()
+        # The header has to name the regime that produced the numbers. It said
+        # "production digest" for every run, including this one, whose
+        # configuration - and whose prompts - are the example-driven style.
+        assert "- CLIFF specification injection: examples" in report, report[:400]
     finally:
         if sandbox.exists():
             shutil.rmtree(sandbox)

@@ -9,6 +9,46 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
+- **The deployment-settings run: 1.3, the example-driven prompt, all ten formats.**
+  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
+  run `results/clarion-deepseek-flash-20260921T142211+0000-904a70`: 1 180 records
+  (960 translation + 60 robustness chains + 160 fidelity), exit 0, 3 831 306 prompt
+  + 3 813 836 output tokens, 34 minutes, **no truncated run**. This is the first
+  translation measurement taken with the settings the pipeline actually ships, and
+  the first in which the configuration's `prompt_style` reached the wire at all.
+  - **C6.12, the modification-correctness number.** CLIFF, single-pass rewrite:
+    bare **58.3 % valid, 75.0 % ids kept, 75.0 % coverage, 75.0 % source kept,
+    0.38 repairs/answer, 41.7 % failed**; context **70.8 % / 72.9 % / 72.9 % /
+    72.2 %, 0.79 repairs, 29.2 % failed**. The other nine formats' rows are in the
+    report; CLIFF is the **least surviving** of the ten (android 91.7, fluent 91.7,
+    json-cliff 91.7, json-plain 91.7, xliff-2.1 97.9, ios 89.6, po 89.6,
+    yaml-cliff 85.4, csv 83.3) and, on the answers that do survive, the **best**
+    (chrF++ 53.3, the highest of the ten).
+  - **Why it fails, from the stored answers** rather than from the rate: the
+    dominant error is `status 'translated' requires a target field` — the model
+    drops entries or their `target` lines and leaves the status behind, which is
+    also what the 252 (bare) and 333 (context) missing identifiers count. Then the
+    1.3 quoting degradation (`expected a quoted string`, `unterminated string`,
+    `expected 'key: value' or 'key = value' field`). Failures cluster **by file**,
+    all three repeats together, on the files whose values are longest
+    (`hongloumeng-joly` emits 6–20 k output tokens for 14 entries). **Not an output
+    budget problem**: 0 runs hit the ceiling.
+  - **D7 at the same settings**: CLIFF bare **100.0 % still valid / 95.2 % intent
+    applied**, context **100.0 % / 94.4 %**; xliff-2.1 bare 47.6 %, the only format
+    below 97 %. Editing and translating are different tasks, and the format that is
+    most robust to being edited is not the one that survives being rewritten.
+  - Round-trip fidelity: CLIFF **100 %** retention, csv/json-cliff/yaml-cliff/
+    xliff-2.1 100 %, android/fluent/ios/po 97.6 % (header fields only), json-plain
+    67.3 %.
+  - **Not comparable to the 0.0/digest run.** Two variables changed at once
+    (temperature and prompt style), so the difference between 89.6 % and 70.8 %
+    cannot be attributed to either. The 1.3 pilot that varied the prompt style
+    alone measured 61.5 % (digest) and 65.4 % (examples) on the same files, which
+    places this run in the temperature regime rather than the prompt regime.
+  - **One caveat on the cross-format comparison**: only CLIFF's prompt changed in
+    the redesign, so in this run CLIFF is measured on the example-driven prompt
+    while the other nine still carry their established instructions. A format
+    ranking that mixes the two protocols is not a like-for-like claim.
 - **The CLIFF edit baseline at the shipped temperature 1.3**, which no earlier
   D7 number could be: `python .tools/d7_cliff_13.py --passes 3`, CLIFF only, the
   `ui` stratum, the same 12 edits, 171 applicable edits, every answer kept

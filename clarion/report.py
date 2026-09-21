@@ -480,8 +480,8 @@ def build_report(
         f"- Tokenizer: {config.get('tokenizer')}",
         f"- Model: {provider.get('kind')}:{provider.get('model')} "
         f"(reasoning {provider.get('reasoning')}, temperature {provider.get('temperature')})",
-        f"- CLIFF specification injection: production digest, "
-          f"{config.get('spec_location', 'split')}",
+        f"- CLIFF specification injection: {config.get('prompt_style', 'digest')} "
+        f"({config.get('spec_location', 'split')})",
         f"- Answer read mode: {config.get('read_mode', 'tolerant')}",
         f"- Repeats per cell: {config.get('repeats')}",
         "",
