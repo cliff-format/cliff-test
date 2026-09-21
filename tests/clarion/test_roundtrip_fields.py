@@ -41,9 +41,10 @@ PROBES: dict[str, dict[str, object]] = {
 #: means a fix makes this suite fail until the entry is deleted.
 KNOWN_LOSSES: dict[tuple[str, str], str] = {
     ("json-plain", "list-two"): (
-        "plain.py joins a list value with '|' and also separates its fields with '|', "
-        "so every element after the first is read back as context; see "
-        "docs/clarion-prompt-design.md and .tools/probe_plain_codec.py"
+        "plain.py joins a list value with '|' and also separates its fields with '|', so "
+        "every element after the first is read back as context; the codec is "
+        "clarion/formats/plain.py (_description / _parse_description), and "
+        "docs/clarion-prompt-design.md records the measurement"
     ),
     ("json-plain", "emotion-two"): (
         "the same '|' collision: 'serious|urgent' is split into a one-item list plus "

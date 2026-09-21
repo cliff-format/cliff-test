@@ -45,7 +45,9 @@ MULTI_DOCUMENT = FIXTURES / "tolerant" / "two-documents.txt"
 
 
 def run(cmd: list[str]) -> tuple[int, str]:
-    proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    proc = subprocess.run(
+        cmd, cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace"
+    )
     return proc.returncode, (proc.stdout + proc.stderr)
 
 

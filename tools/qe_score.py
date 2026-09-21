@@ -141,14 +141,21 @@ def main() -> None:
             texts = ["candidate: " + c["hypothesis"] + " source: " + c["source"] for c in chunk]
             enc = tokenizer(texts, max_length=MAX_LEN, truncation=True, padding=False)
             seqs = [list(ids[:-1]) if len(ids) > 1 else list(ids) for ids in enc["input_ids"]]
-            input_ids = torch.nn.utils.rnn.pad_sequence([torch.tensor(s, dtype=torch.long) for s in seqs], batch_first=True, padding_value=0)
+            input_ids = torch.nn.utils.rnn.pad_sequence(
+                [torch.tensor(s, dtype=torch.long) for s in seqs],
+                batch_first=True,
+                padding_value=0,
+            )
             att = (input_ids != 0).long()
             decoder_ids = torch.full((input_ids.size(0), 1), 0, dtype=torch.long)
             outputs = model(input_ids=input_ids, attention_mask=att, decoder_input_ids=decoder_ids)
             preds = torch.clamp(outputs.logits[:, 0, LABEL_ID], 0.0, 25.0).tolist()
-            for c, pr in zip(chunk, preds):
-                rec = dict(c)
-                rec["qe"] = pr
+            # One score per input, positionally: a length mismatch would mean a
+            # record silently went unscored, so it is an error rather than a zip
+            # that truncates to the shorter side.
+            for candidate, score in zip(chunk, preds, strict=True):
+                rec = dict(candidate)
+                rec["qe"] = score
                 out.write(json.dumps(rec, ensure_ascii=False) + "\n")
                 mem_lines.append(rec)
             if (start // batch) % 5 == 0:
@@ -159,10 +166,11 @@ def main() -> None:
 
     lines = mem_lines
     summary = {}
-    for key in sorted({(l["format"], l["arm"]) for l in lines}):
-        vals = [l["qe"] for l in lines if (l["format"], l["arm"]) == key]
+    for key in sorted({(row["format"], row["arm"]) for row in lines}):
+        vals = [row["qe"] for row in lines if (row["format"], row["arm"]) == key]
         summary[f"{key[0]}::{key[1]}"] = {"n": len(vals), "mean_qe": sum(vals) / len(vals)}
-    json.dump(summary, open(run_dir / "qe_summary.json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+    with open(run_dir / "qe_summary.json", "w", encoding="utf-8") as handle:
+        json.dump(summary, handle, indent=1, ensure_ascii=False)
     print("wrote qe_summary.json")
 
 

@@ -13,7 +13,6 @@ Usage: python tools/package_benchmark.py results/<run-id>
 
 from __future__ import annotations
 
-import json
 import shutil
 import sys
 from pathlib import Path

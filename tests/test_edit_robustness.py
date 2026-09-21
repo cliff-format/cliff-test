@@ -129,20 +129,16 @@ def test_an_edit_lands_on_the_entry_it_names(driver, tasks: list[dict]) -> None:
     lines = (EDIT_DIR / "base.cliff").read_text(encoding="utf-8").splitlines()
     first = next(t for t in tasks if t["op"] == "set-target")
     other = "vsync"
-    before = "\n".join(
-        lines[driver.find_entry(lines, other) : driver.entry_block_end(lines, driver.find_entry(lines, other))]
-    )
+
+    def block_of(entry_id: str) -> str:
+        start = driver.find_entry(lines, entry_id)
+        return "\n".join(lines[start : driver.entry_block_end(lines, start)])
+
+    before = block_of(other)
     driver.process_task(lines, first)
     for entry_id in ("resolution", other):
-        start = driver.find_entry(lines, entry_id)
-        block = lines[start : driver.entry_block_end(lines, start)]
-        assert any(line.startswith("source:") for line in block), (
-            f"{entry_id} lost its source field"
-        )
-    untouched = "\n".join(
-        lines[driver.find_entry(lines, other) : driver.entry_block_end(lines, driver.find_entry(lines, other))]
-    )
-    assert untouched == before, "a task must not touch another entry"
+        assert "source:" in block_of(entry_id), f"{entry_id} lost its source field"
+    assert block_of(other) == before, "a task must not touch another entry"
 
 
 def test_reference_paths_merge_instead_of_repeating_the_key(driver) -> None:

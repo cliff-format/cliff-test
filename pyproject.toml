@@ -50,6 +50,10 @@ include = ["clarion*"]
 testpaths = ["tests"]
 # The harness runs under a file sandbox that only allows writes inside the
 # workspace, so pytest's temporary root and cache are kept in the repository.
+# Note that `tmp_path` is unusable in that sandbox: it resolves to the system
+# temporary directory, which is denied. Tests that need scratch space write it
+# inside `tests/clarion/_*/` and remove it afterwards, and `.gitignore` covers
+# those names; `conftest.py` does the same for its fixture corpus.
 addopts = "-q -p no:cacheprovider"
 
 [tool.ruff]
@@ -58,6 +62,17 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# `readme_lines` is one list literal whose every element is a line of the README
+# this script ships inside a benchmark bundle. Wrapping it would obscure which
+# bytes are published, which is the one thing the file has to get exactly right, so
+# the line stays as it is and the length rule is waived for this file alone.
+"tools/package_benchmark.py" = ["E501"]
+# The 100-edit task table: one dict per edit, each carrying the natural-language
+# instruction that is the instrument. The instructions are the data under test, and
+# wrapping them would make the table unreadable without changing a byte of it.
+"tests/edit-robustness/apply_edits.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.11"

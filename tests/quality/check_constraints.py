@@ -8,7 +8,6 @@ correct translation must satisfy.
 
 from __future__ import annotations
 
-import re
 import sys
 import unicodedata
 from pathlib import Path

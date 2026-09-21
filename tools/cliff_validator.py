@@ -551,14 +551,12 @@ class Document:
         if data.startswith("\ufeff"):
             data = data[1:]
         if "\r" in data:
-            # A CRLF is a line ending; a bare CR is invalid.
-            bad_bare_cr = False
+            # A CRLF is a line ending; a bare CR is invalid. The issue is reported
+            # where it is found, so no flag is carried out of the loop.
             for i, ch in enumerate(data):
-                if ch == "\r":
-                    if i + 1 >= len(data) or data[i + 1] != "\n":
-                        bad_bare_cr = True
-                        self.issue(0, "syntax", "bare CR is not a valid line ending")
-                        break
+                if ch == "\r" and (i + 1 >= len(data) or data[i + 1] != "\n"):
+                    self.issue(0, "syntax", "bare CR is not a valid line ending")
+                    break
             data = data.replace("\r\n", "\n")
         self.raw_lines = data.split("\n")
         self.lines = [line.rstrip() for line in self.raw_lines]
@@ -674,8 +672,9 @@ class Document:
                 if last_key in LIST_KEYS and stripped.startswith("["):
                     fragment, err = parse_value(stripped, last_key, idx)
                     if err is not None or not isinstance(fragment, list):
+                        detail = err or "expected a single-line list"
                         self.issue(idx, "syntax",
-                                   f"invalid list continuation: {err or 'expected a single-line list'}",
+                                   f"invalid list continuation: {detail}",
                                    raw)
                     else:
                         if last_key == "emotion":
@@ -739,7 +738,8 @@ class Document:
     def _store_header(self, idx: int, key: str, value: str, raw: str) -> None:
         if key in self.header:
             self.issue(idx, "semantic",
-                       f"header field '{key}' may appear at most once (CLIFF has no repeatable fields)",
+                       f"header field '{key}' may appear at most once "
+                       "(CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -794,7 +794,8 @@ class Document:
     def _store_group(self, section: Section, idx: int, key: str, value: str, raw: str) -> None:
         if key in section.group_fields:
             self.issue(idx, "semantic",
-                       f"group field '{key}' may appear at most once (CLIFF has no repeatable fields)",
+                       f"group field '{key}' may appear at most once "
+                       "(CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -846,7 +847,8 @@ class Document:
     def _store_entry(self, entry: Entry, idx: int, key: str, value: str, raw: str) -> None:
         if key in entry.fields:
             self.issue(idx, "semantic",
-                       f"entry field '{key}' may appear at most once (CLIFF has no repeatable fields)",
+                       f"entry field '{key}' may appear at most once "
+                       "(CLIFF has no repeatable fields)",
                        raw)
             return
         if key.startswith("x-"):
@@ -946,8 +948,10 @@ class Document:
                 self.target_language = lang
         for key in HEADER_SINGLE_KEYS:
             if key in self.header and len(self.header[key]) != 1:
+                count = len(self.header[key])
                 self.issue(self.header[key][0][0], "semantic",
-                           f"header field '{key}' is single-valued but appears {len(self.header[key])} times")
+                           f"header field '{key}' is single-valued but appears "
+                           f"{count} times")
         for key in HEADER_REPEATABLE_KEYS:
             if key in self.header:
                 for _, val, raw in self.header[key]:
@@ -1067,7 +1071,7 @@ class Document:
                 self.issue(section.line, "id",
                            f"invalid group path '[{path}]'; segments must be names "
                            "(one or more of A-Z a-z 0-9 _ -)",
-                           "[{}]".format(path))
+                           f"[{path}]")
             if path in seen_paths:
                 self.issue(section.line, "id", f"duplicate section path '[{path}]'")
             seen_paths.add(path)
@@ -1106,7 +1110,8 @@ class Document:
 
             section = self._find_section(entry.section_path)
             if section is None:
-                self.issue(entry.line, "syntax", f"entry '{entry.entry_id}' is not inside a known section")
+                self.issue(entry.line, "syntax",
+                           f"entry '{entry.entry_id}' is not inside a known section")
                 continue
 
             canonical = self._canonical_id(entry)
@@ -1114,13 +1119,18 @@ class Document:
                 self.issue(entry.line, "id", f"duplicate canonical id '{canonical}'")
             seen_canonical.add(canonical)
 
-            if "source" not in entry.fields:
-                self.issue(entry.line, "semantic", f"entry '{entry.entry_id}' is missing required field 'source'")
-            if "status" not in entry.fields:
-                self.issue(entry.line, "semantic", f"entry '{entry.entry_id}' is missing required field 'status'")
+            missing = [
+                field
+                for field in ("source", "status")
+                if field not in entry.fields
+            ]
+            for field in missing:
+                self.issue(entry.line, "semantic",
+                           f"entry '{entry.entry_id}' is missing required field '{field}'")
             if "type" not in entry.fields and "type" not in section.group_fields:
                 self.issue(entry.line, "semantic",
-                           f"entry '{entry.entry_id}' is missing required field 'type' and the group has no type")
+                           f"entry '{entry.entry_id}' is missing required field 'type' "
+                           "and the group has no type")
 
             for key in ENTRY_SINGLE_KEYS:
                 if key in entry.fields and len(entry.fields[key]) != 1:
@@ -1209,7 +1219,9 @@ class Document:
             out.append({
                 "entry": e.entry_id,
                 "group": e.section_path,
-                "canonical_id": ".".join([self.namespace or "", self.clan or "", e.section_path, e.entry_id]),
+                "canonical_id": ".".join(
+                    [self.namespace or "", self.clan or "", e.section_path, e.entry_id]
+                ),
                 "emotion": emotion,
             })
         return out
@@ -1398,7 +1410,11 @@ def validate_file(
         doc.issues = [i for i in doc.issues if i.cls in ADVISORY_CLASSES]
         doc.issues.extend(tolerant_issues(text))
     if not check_width:
-        doc.issues = [i for i in doc.issues if not (i.cls == "warning" and "display width" in i.message)]
+        doc.issues = [
+            issue
+            for issue in doc.issues
+            if not (issue.cls == "warning" and "display width" in issue.message)
+        ]
     errors = [i for i in doc.issues if i.cls not in ADVISORY_CLASSES]
     return doc, len(errors) == 0
 
@@ -1407,7 +1423,11 @@ def format_issues(doc: Document) -> str:
     lines: list[str] = []
     for issue in doc.issues:
         cls = issue.cls.upper()
-        where = f"{doc.path}:{issue.line}" if issue.line and doc.path is not None else str(doc.path)
+        where = (
+            f"{doc.path}:{issue.line}"
+            if issue.line and doc.path is not None
+            else str(doc.path)
+        )
         lines.append(f"{where}: [{cls}] {issue.message}")
         if issue.text:
             lines.append(f"    | {issue.text}")
@@ -1425,7 +1445,9 @@ def main(argv: list[str] | None = None) -> int:
         ),
     )
     ap.add_argument("paths", nargs="*", help=".cliff files or directories (with --suite)")
-    ap.add_argument("--suite", action="store_true", help="treat paths as directories of .cliff files")
+    ap.add_argument(
+        "--suite", action="store_true", help="treat paths as directories of .cliff files"
+    )
     ap.add_argument("--check-width", action="store_true", help="report max-width overflow warnings")
     ap.add_argument(
         "--check-layout",
@@ -1476,7 +1498,11 @@ def main(argv: list[str] | None = None) -> int:
             tolerant=args.tolerant,
             multi_document=args.multi_document,
         )
-        results.append({"path": str(path), "valid": ok, "issues": [dataclasses.asdict(i) for i in doc.issues]})
+        results.append({
+            "path": str(path),
+            "valid": ok,
+            "issues": [dataclasses.asdict(issue) for issue in doc.issues],
+        })
         if not ok:
             exit_code = 1
         if args.json:
@@ -1486,12 +1512,16 @@ def main(argv: list[str] | None = None) -> int:
             print(text)
         if args.ids:
             for cid in doc.canonical_ids():
-                emotion = ",".join(cid["emotion"]) if isinstance(cid["emotion"], list) else str(cid["emotion"])
+                emotions = cid["emotion"]
+                emotion = (
+                    ",".join(emotions) if isinstance(emotions, list) else str(emotions)
+                )
                 print(f"{path}: {cid['canonical_id']} [{emotion}]")
-        errors = sum(1 for i in doc.issues if i.cls not in ADVISORY_CLASSES)
-        advisories = sum(1 for i in doc.issues if i.cls in ADVISORY_CLASSES)
+        errors = sum(1 for issue in doc.issues if issue.cls not in ADVISORY_CLASSES)
+        advisories = sum(1 for issue in doc.issues if issue.cls in ADVISORY_CLASSES)
         if args.multi_document:
-            scope = f"{len(split_count(text))} documents" if (text := path.read_text(encoding="utf-8", errors="replace")) else "0 documents"
+            body = path.read_text(encoding="utf-8", errors="replace")
+            scope = f"{len(split_count(body))} documents" if body else "0 documents"
         else:
             scope = f"{len(doc.sections)} sections, {len(doc.entries)} entries"
         print(f"{path}: {'VALID' if ok else 'INVALID'} "

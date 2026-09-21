@@ -6,9 +6,10 @@
 check:
 	python tests/run_all.py
 	python tools/corpus_version.py
-	ruff check clarion tests/clarion
+	ruff check .
 	pytest
 	python -m clarion selfcheck
+	python -m clarion secret-scan
 
 test:
 	python tests/run_all.py

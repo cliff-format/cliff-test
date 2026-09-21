@@ -162,8 +162,23 @@ fixture still passes, and the checks below answer the 1.1 questions.
   C4 (100 sequential edits) and C6.8 (twelve sequential edits) are *not* that
   number: they measure whether a file survives being edited repeatedly, which
   production never asks for, so the two must not be quoted for each other.
-- **The three modules an AST audit found untested**, and the audit is in
-  `.tools/coverage_audit.py`:
+- **`tests/clarion/test_gutenberg.py`** (12 tests): the last module no test
+  touched. `download` needs the network and is not exercised; everything downstream
+  is pure text work and is, which matters because the licence header is cut at a
+  marker pair — an error there shifts every aligned paragraph in the corpus. The
+  suite pins the marker cut, the CRLF normalisation, both heading forms (`CHAPTER
+  <roman>` and `第N回`), the two paragraph layouts (blank lines, and hard-wrapped
+  lines where a new paragraph starts with an ideographic space), and the minimum
+  length filter. It also **pins a real inconsistency** rather than asserting it
+  away: `_EN_CHAPTER` begins with `^\s*` and `\s` matches newlines, so a heading
+  preceded by a blank line makes the chapter's block begin with `\n`,
+  `split_chapters` then takes the `chapter N` fallback title, and the heading text
+  is lost as a title. The corpus already carries that form in its context strings,
+  and the paragraphs (what alignment consumes) are unaffected.
+- **`tests/clarion/test_cli.py`, `test_openai_compat.py`, `test_pipeline_module.py`** —
+  three modules a quarter of the harness by size that no test imported, found by
+  `tools/coverage_audit.py`, which now reports **53 of 53** modules under `clarion/`
+  reachable from the suite:
   - `tests/clarion/test_cli.py` — the command surface: every top-level command
     answers `--help`, the command list is compared against a written-down set so
     adding one is deliberate, and `corpus validate`, `corpus stats`, `secret-scan`
@@ -178,6 +193,23 @@ fixture still passes, and the checks below answer the 1.1 questions.
     report and summary, a skipped stage does not run, a failing stage reaches the
     exit code instead of only the log, and the report is still written when a stage
     fails.
+- **`ruff check .` passes over the whole repository.** The lint gate had only ever
+  been run over `clarion` and `tests/clarion`, because the rest of the tree carried
+  148 findings — 26 in `tools/` and ~90 in the edit-robustness task table. The code
+  findings are fixed (an unused variable, an unused import, `.format` in an
+  f-string context, two f-strings with no placeholders, `zip()` without `strict`,
+  two ambiguous `l` names, and ~30 long lines wrapped); the two that remain are
+  **embedded documents** — the README a benchmark bundle ships and the 100-edit task
+  table — and are waived per file in `pyproject.toml` with the reason written down,
+  because wrapping them would obscure the bytes under test without changing one.
+  CI and `make check` now run `ruff check .` rather than a subset.
+- **`make check` and CI now run the same six steps**, in the same order, including
+  the credential scan: a key pasted into a test can no longer reach a commit
+  unnoticed.
+- **`tools/coverage_audit.py`** — the reachability audit, in the repository rather
+  than beside it, so the claim "no module is untested" is checkable by whoever reads
+  it. It resolves relative imports and walks the graph, because a text search reports
+  the eight modules a package re-exports as phantom gaps.
 - **`--check-layout`**, **`--style`**, and **`--tolerant`** modes, each with its
   own fixture suite: `tests/fixtures/layout/`, `style/`, `tolerant/`.
 - **Optional line terminator** support (`CLIFF 1.1` §5.6) in the strict parser,

@@ -57,7 +57,7 @@ jobs:
 
       - name: Lint
         working-directory: cliff-test
-        run: ruff check clarion tests/clarion
+        run: ruff check .
 
       - name: Test
         working-directory: cliff-test
@@ -70,3 +70,10 @@ jobs:
       - name: Offline end-to-end self-check
         working-directory: cliff-test
         run: python -m clarion selfcheck
+
+      # The credential scan is a gate the project runs by hand before a push; here
+      # it runs on every push instead, so a key pasted into a test cannot reach a
+      # commit unnoticed.
+      - name: Credential scan
+        working-directory: cliff-test
+        run: python -m clarion secret-scan

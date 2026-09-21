@@ -24,6 +24,13 @@ FIXTURES = OUT_DIR / "fixtures"
 #: specification the emitter actually writes on the version line.
 CLIFF_LABEL = "CLIFF 1.1"
 
+#: Character classes for the deterministic fallback tokenizer, used when tiktoken
+#: is not installed. Named rather than inlined because the same class appears twice
+#: and a drift between the two copies would silently change the fallback count.
+CJK_CLASS = r"\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\u3040-\u30FF\uAC00-\uD7AF"
+CJK_RE = f"[{CJK_CLASS}]"
+NON_WORD_RE = f"[^\\sA-Za-z0-9{CJK_CLASS}]"
+
 SAMPLE = {
     "namespace": "ironforge-rpg",
     "clan": "game",
@@ -32,7 +39,9 @@ SAMPLE = {
     "title": "IronForge RPG - Act 3 dialog",
     "info": [
         "The mountain city of IronForge, one week after the siege.",
-        "Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in public, warm to friends. The player returns to the blacksmith to reclaim a repaired sword.",
+        "Anvil is a warm, plain-spoken dwarf blacksmith; Captain Mei is formal in "
+        "public, warm to friends. The player returns to the blacksmith to reclaim "
+        "a repaired sword.",
     ],
     "standard": [
         "Preserve proper nouns; localize idioms for humor.",
@@ -107,8 +116,14 @@ SAMPLE = {
                 },
                 {
                     "id": "ask-companion",
-                    "source": "{name}，{gender, select, male {他} female {她} other {他们}} 是你的同伴吗？",
-                    "target": "{name}, is {gender, select, male {he} female {she} other {they}} your companion?",
+                    "source": (
+                        "{name}，{gender, select, male {他} female {她} other {他们}} "
+                        "是你的同伴吗？"
+                    ),
+                    "target": (
+                        "{name}, is {gender, select, male {he} female {she} "
+                        "other {they}} your companion?"
+                    ),
                     "type": "sentence",
                     "emotion": ["surprised", "playful"],
                     "status": "reviewed",
@@ -146,7 +161,10 @@ SAMPLE = {
                 {
                     "id": "farewell-pun",
                     "source": "剑客无剑，如鱼无水——改天我请你“剑”面！",
-                    "target": "A swordsman without a sword is a fish out of water - let's have a re-\"blade\" meeting soon!",
+                    "target": (
+                        "A swordsman without a sword is a fish out of water - let's "
+                        'have a re-"blade" meeting soon!'
+                    ),
                     "type": "dialogue",
                     "status": "reviewed",
                     "context": "Anvil winks; the pun is on 见/剑.",
@@ -207,9 +225,9 @@ def tokenizer():
         return lambda text: len(enc.encode(text)), "tiktoken cl100k_base"
     except Exception:
         def fallback(text: str) -> int:
-            cjk = len(re.findall(r"[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\u3040-\u30FF\uAC00-\uD7AF]", text))
+            cjk = len(re.findall(CJK_RE, text))
             ascii_words = len(re.findall(r"[A-Za-z0-9]+", text))
-            punct = len(re.findall(r"[^\sA-Za-z0-9\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF\u3040-\u30FF\uAC00-\uD7AF]", text))
+            punct = len(re.findall(NON_WORD_RE, text))
             return cjk + ascii_words + punct
         return fallback, "deterministic fallback"
 
@@ -281,7 +299,7 @@ def emit_cliff_main(s: dict) -> str:
     ]
     lines.append("info: " + " ".join(q(info) for info in s["info"]))
     lines.append("standard: " + " ".join(q(std) for std in s["standard"]))
-    lines.append(f"dependency: [" + ",".join(q(dep) for dep in s['dependency']) + "]")
+    lines.append("dependency: [" + ",".join(q(dep) for dep in s['dependency']) + "]")
     for g in s["groups"]:
         lines.append("")
         lines.append(f'[{g["path"]}]')
@@ -380,16 +398,22 @@ def emit_xliff(s: dict) -> str:
             if "reference" in e or "context" in e:
                 lines.append("      <notes>")
                 if "context" in e:
-                    lines.append(f'        <note category="context">{esc_xml(e["context"])}</note>')
+                    lines.append(
+                        f'        <note category="context">{esc_xml(e["context"])}</note>'
+                    )
                 if "reference" in e:
-                    lines.append(f'        <note category="reference">{esc_xml(" ".join(e["reference"]))}</note>')
+                    joined = esc_xml(" ".join(e["reference"]))
+                    lines.append(f'        <note category="reference">{joined}</note>')
                 lines.append("      </notes>")
             lines.append(f"      <segment><source>{esc_xml(e['source'])}</source>"
                          f"<target>{esc_xml(e['target'])}</target></segment>")
             lines.append("      <metadata>")
             lines.append(f'        <metaGroup category="type">{e["type"]}</metaGroup>')
             if "emotion" in e or "emotion" not in g:
-                lines.append(f'        <metaGroup category="emotion">{esc_xml(" ".join(effective_emotion(e, g)))}</metaGroup>')
+                emotion = esc_xml(" ".join(effective_emotion(e, g)))
+                lines.append(
+                    f'        <metaGroup category="emotion">{emotion}</metaGroup>'
+                )
             lines.append(f'        <metaGroup category="state">{e["status"]}</metaGroup>')
             if "max-width" in e:
                 lines.append(f'        <metaGroup category="maxWidth">{e["max-width"]}</metaGroup>')
@@ -655,7 +679,7 @@ def emit_yaml(s: dict) -> str:
             if "max-width" in e:
                 lines.append(f"        max_width: {e['max-width']}")
             if "reference" in e:
-                lines.append(f"        reference:")
+                lines.append("        reference:")
                 for ref in e["reference"]:
                     lines.append(f"          - {q(ref)}")
     return "\n".join(lines) + "\n"
@@ -738,7 +762,8 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
         f"{len(SAMPLE['groups'])} groups, with family info, standards, dependencies, glossary, "
         "per-entry type/emotion/status/max-width/context/reference, and ICU payloads.",
         f"- Tokenizer: {engine}.",
-        f"- CLIFF token count = {CLIFF_LABEL} standard main file + the separate `variant: glossary` "
+        f"- CLIFF token count = {CLIFF_LABEL} standard main file + the separate "
+        "`variant: glossary` "
         "dependency file. The glossary is semantically part of the CLIFF corpus and is counted "
         "as CLIFF's true single-workflow cost; every other format inlines the same three terms "
         "in its native syntax.",
@@ -755,7 +780,8 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
         f"other seven formats is **{avg:.1f}** tokens. CLIFF saves **{savings:.1f}%** "
         "against that average.",
         "",
-        f"**Result: {verdict}** (threshold is at least 30% average savings vs the other 7 formats).",
+        f"**Result: {verdict}** (threshold is at least 30% average savings vs the "
+        "other 7 formats).",
         "",
         "Fixture files written to `tests/benchmark/fixtures/` for fairness review:",
         "",
