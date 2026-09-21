@@ -1,7 +1,8 @@
-# Tolerant fixture: a quoted key (Appendix C.2.7). A key is a bare name (6.1), so
-# quoting one is a validity error under the strict grammar; the tolerant reader
-# removes the quotes, reports a `name-quote` repair, and then applies the ordinary
-# key rules unchanged.
+# Tolerant fixture: a quoted key (Appendix C.2.7). The grammar already rejects it
+# - `key = name` (5.5) and a name cannot contain a quote, so this is a syntax
+# error and not a semantic rule 6.1 has to state - and the tolerant reader removes
+# the quotes, reports a `name-quote` repair, and then applies the ordinary key
+# rules unchanged.
 #
 # The three spellings are deliberate: double quotes, single quotes, and the `=`
 # separator. What the relaxation must NOT do is widen anything - the word between
