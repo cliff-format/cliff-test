@@ -106,7 +106,7 @@ project might ship", using one corpus and one generation path. Protocol:
 | C6.9 | Round-trip context fidelity per format | `python -m clarion fidelity` | no |
 | C6.10 | Harness self-verification: a perfect answer scores perfectly, a damaged answer is detected, degenerate controls stay below a real answer, deterministic edits keep every format valid | `python -m clarion selfcheck` | no |
 | C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python -m clarion translate --read-mode tolerant` vs `--read-mode strict`; `read_mode` and `repairs` columns in the D3/D4/D7 tables | yes |
-| C6.12 | **Modification correctness of a single-pass rewrite**: `valid %`, `ids kept %`, `coverage %`, `source kept %`, `repairs/answer`, and the extra / missing / drifted / untranslated identifier counts, per format and arm | the `D3/D4 - structural integrity of the rewrite` table every report carries (`clarion/report.py` `structure_report`) | yes |
+| C6.12 | **Modification correctness of a single-pass rewrite**: `valid %`, `ids kept %`, `coverage %`, `source kept %`, `repairs/answer`, and the extra / missing / drifted / untranslated identifier counts, per format and arm | the `D3/D4 - structural integrity of the rewrite` table of `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch` (`clarion/report.py` `structure_report`) | yes |
 
 ### C6.12 is the modification-correctness number; C4 and C6.8 are not
 
@@ -116,6 +116,14 @@ that task, so it answers "how correctly does the model modify a CLIFF file" with
 the columns that decide it — an answer can be a perfectly valid file and still be
 the wrong document, which is why `ids kept %` and `coverage %` sit beside
 `valid %`.
+
+**One protocol, every format.** C6.12 is reported for all ten formats of the
+configured run, not for CLIFF alone: the same single-pass task, the same
+temperature (`1.3`, the value the production plugin uses and the configuration
+carries) and the same prompt style (`examples`) for every row, so the rows differ
+only in the format. A per-format override - `--formats cliff` - narrows a run, and
+then the table says which formats it covers, because a number quoted out of a
+narrowed run is not the benchmark's.
 
 C4 (100 sequential edits) and C6.8 (twelve sequential edits per file, each applied
 to the previous answer) measure something else: whether a file **survives being
@@ -224,7 +232,7 @@ not the output budget.
 
 **The two readings, on the same answers.** Re-scoring the 96 stored CLIFF
 answers of this run under both readings, with no model call
-(`python .tools/compare_readings.py <run-dir>`):
+(`python tools/compare_readings.py <run-dir>`):
 
 | Arm | strict valid | tolerant valid | repairs | salvaged only by tolerance |
 | --- | ---: | ---: | ---: | --- |

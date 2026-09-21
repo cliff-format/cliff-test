@@ -22,9 +22,15 @@ teaches the rest with two conforming documents:
 | specification text | 16 316 | — |
 | specification digest | 513 | — |
 | stated facts (keys, scopes, vocabularies) | — | 390 |
+| quoting rule | — | 120 |
 | edit-safety reminder | 116 | — |
 | examples | — | 425 |
-| **one cell, `ui-console` plain arm** | **20 739** | **2 510** |
+| **one cell, `ui-console` plain arm** | **20 739** | **2 630** |
+
+The quoting rule was added after the 1.3 edit run, and the total moved from 2 510 to
+2 630 because of it: two of that run's four invalid answers were a text value written
+without quotes, which is the one shape error no reading repairs (Appendix C.5). It
+costs 120 tokens per call; the specification text it replaced cost 16 316.
 
 Across the four pilot files the saving is **72 916 tokens (−77.7 %)**; measured
 per file it ranges from −64.5 % (the longest file) to −85.4 %.
@@ -245,15 +251,18 @@ Seven of 171 edits failed, and the stored answers attribute each one
   and the generated sequence, not of the model, which is why it is recorded here
   rather than treated as a plain instruction-following failure.
 
-**The one prompt gap this found.** The design states "an unquoted string" is
-unrepairable and therefore must be in the prompt, but the prompt text never says
-it: quoting is taught only by the examples (`context: "..."`,
-`dependency: ["..."]`). Two of the four invalid answers are exactly that gap. The
-rule to add is narrow and does not touch the repairable shapes: *a text value is
-one quoted string, with nothing outside the closing quote; a list holds quoted
-strings and bare tags*. It must not read as "tags are never quoted" or "lists
-always need brackets", which are repairs the reader already performs and which
-`tests/clarion/test_prompt_v2.py` deliberately forbids re-adding.
+**The one prompt gap this found, and the rule it added.** The design states "an
+unquoted string" is unrepairable and therefore must be in the prompt, but the prompt
+text never said it: quoting was taught only by the examples (`context: "..."`,
+`dependency: ["..."]`). Two of the four invalid answers were exactly that gap.
+
+`CLIFF_TASK_RULES` rule 5 now states it, and only it: *a text value is one quoted
+string with its final punctuation inside, and the same holds inside a list; an
+unquoted text value is the one shape error nothing downstream can repair.* It says
+nothing about tags or brackets, because those are repairs the reader already
+performs (C.2.3, C.2.1) and `tests/clarion/test_prompt_v2.py` deliberately forbids
+re-adding. The test that guards the boundary now checks both directions: the
+unrepairable fact is present, and the repairable phrasings are absent.
 
 Repairs introduced by the model were again confined to the two operations that
 require creating a field that is not on the page: 7 in total, `add-reference` 5

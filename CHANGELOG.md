@@ -101,8 +101,7 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Added
 
-- **A quoted key is now a repaired deviation (specification Appendix C.2.7).**
-  The specification gained the relaxation, so this suite gained the fixtures that
+- **A quoted key is now a repaired deviation (specification Appendix C.2.7).**  The specification gained the relaxation, so this suite gained the fixtures that
   decide it: `tests/fixtures/tolerant/quoted-key.zh-CN.cliff` carries the three
   spellings (double quotes, single quotes, `=`) in header, group and entry scope
   and is repaired as three `name-quote` repairs, and
@@ -116,6 +115,17 @@ fixture still passes, and the checks below answer the 1.1 questions.
   legalize a word, the prompt still spends no token on it, and
   `tests/clarion/test_prompt_v2.py` now rejects the phrasings a helpful edit
   would add back ("quote a key", "unquoted key", "keys are bare").
+- **`CLIFF_TASK_RULES` rule 5: the quoting rule the prompt was missing.** The
+  design table has always listed "an unquoted string" as unrepairable and therefore
+  as something the prompt must state, and the prompt taught quoting by example only.
+  Two of the four invalid answers in the 1.3 edit run were exactly that. The rule
+  states the unrepairable fact and nothing else — a text value is one quoted string
+  with its final punctuation inside, and the same holds inside a list — so it says
+  nothing about tags or brackets, which a tolerant read repairs (C.2.3, C.2.1).
+  `tests/clarion/test_prompt_v2.py` now guards both directions: the fact is present,
+  the repairable phrasings are absent. Cost **+120 tokens per call**; the prompt cost
+  table in docs/clarion-prompt-design.md moves from 2 510 to **2 630** per cell, and
+  the specification text the redesign replaced was 16 316.
 - **The modification-correctness table the benchmark quotes**:
   `clarion/report.py` gained `structure_report`, rendered between D4 and latency.
   Per format and arm it prints `valid %`, `ids kept %`, `coverage %`,
@@ -276,6 +286,23 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Fixed
 
+- **The translation path ignored `prompt_style`.** `run_translation_task` called
+  `build_translation_prompt` without the argument, so the dimension silently used
+  `DEFAULT_PROMPT_STYLE` whatever the configuration said: a run whose config, run
+  directory and report header all named `examples` actually sent the digest. Every
+  translation number recorded so far, and every D3/D4 row, was measured on the
+  digest prompt. `token_matrix` had the same omission, so the D1/D2 prompt-cost
+  columns priced the digest too. This is the third instance of one shape — a setting
+  the configuration carries, a code path that builds its own prompt and never reads
+  it, and a run directory that records the configuration so nothing looks wrong. The
+  first two were the edit path's temperature and the D1/D2 glossary arguments.
+  - **Why the parity test did not catch it.** It rebuilt the prompt's argument list
+    by hand and compared token counts, so it reproduced whatever the code omitted:
+    both sides left out `prompt_style` and agreed. It now compares the matrix against
+    a **real run** through a recording provider, and asserts that the style the
+    configuration names is the style in the system message the run sends. The
+    dry-run test for the final measurement (`test_cli.py`) does the same for the path
+    the paid run takes.
 - **A 4xx that is not a rate limit was retried like a transient failure.**
   `openai_compat.complete` catches `Exception` around `raise_for_status()`, so a
   401 or a 400 — a rejection that cannot change — was resent `max_retries` times,
