@@ -152,6 +152,53 @@ def test_a_represented_normative_section_really_is_in_the_digest() -> None:
     assert "the specification's own quick example" in digest  # section 3
 
 
+def test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production() -> None:
+    """The rule the two long-line failures violated, and it was implicit.
+
+    Two answers failed on a missing backslash in a very long value. The `spec` style
+    stated the escape set only inside the grammar (`double-escape = "\\" ( DQUOTE /
+    "\\" / "n" / "r" / "t" )`), which a model has to notice and apply; hongloumeng
+    escaped two of three inner ASCII quotes and sanguo escaped none of two. The
+    paragraph is the fix, and it has to name the trap as well: those values mix CJK
+    curly quotes (which take no backslash) with ASCII ones (which do).
+    """
+    digest = cliff_rules.build_normative_rules()
+    assert "ESCAPING" in digest
+    assert "Every ASCII double quote inside a value is" in digest
+    assert "curly quotes" in digest and "no backslash" in digest
+    # The escape set is the grammar's, not a wider one a helpful edit might invent.
+    for escape in ("\\n", "\\r", "\\t", "\\\\"):
+        assert escape in digest
+
+
+def test_the_two_document_boundary_is_stated_where_the_glossary_is() -> None:
+    """The trigger alone produced a Markdown banner and destroyed ten answers.
+
+    Cell A of the glossary ablation (see docs/clarion-prompt-design.md) sent the
+    deliverable statement with no shape and no boundary: eleven answers emitted a
+    glossary, ten of them introduced by a line like
+    `===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY =====`, which the parser reads as an
+    invalid field name and which fails the whole answer. A second document is
+    recognised by its own version line, so the statement has to say so.
+    """
+    digest = " ".join(cliff_rules.build_normative_rules().split())
+    assert "recognised by its own version line" in digest
+    assert "begins with its own CLIFF 1.1 line placed immediately" in digest
+    # The shape, so the model does not have to invent the header.
+    assert "-terms" in digest and "[terms]" in digest
+    assert "13.2.1" in digest and "13.2.2" in digest
+    # Stated affirmatively: a sentence that lists what must not be written is a
+    # sentence that describes a banner, and a banner is what destroyed ten answers.
+    # Scoped to this paragraph: the specification's own constraints carry factual
+    # negations ("lists do not merge") that are not fences on how to write.
+    boundary = " ".join(digest[digest.find("Two documents are then one answer"):].split())
+    for prohibition in ("no heading", "no separator", "do not", "nothing else"):
+        assert prohibition not in boundary.lower(), (
+            f"the boundary is stated as a prohibition ('{prohibition}'); the failure "
+            "mode it is meant to prevent is a separator line, and naming it suggests it"
+        )
+
+
 def test_the_digest_stays_under_its_token_ceiling() -> None:
     tokenizer = get_tokenizer("o200k_base")
     cost = cliff_rules.normative_rule_tokens(tokenizer)

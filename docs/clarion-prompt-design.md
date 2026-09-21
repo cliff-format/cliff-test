@@ -83,14 +83,14 @@ It carries
 | --- | ---: |
 | the full specification text (the `digest` style) | 16 656 |
 | the old hand-written digest plus that text | 21 092 |
-| **`spec`: the specification compressed to its rules** | **2 252** |
+| **`spec`: the specification compressed to its rules** | **2 568** |
 | `examples`: our hand-written facts plus two conforming files | 1 029 |
 
 The compressed block decomposes as the ABNF (613), the ABNF's semantic-constraint
-block (794), the field tables of sections 7-9 (258), the vocabularies and the lines
-that frame them (414) and the specification's own example (173) —
-`python -c "from clarion.prompts import cliff_rules; ..."` or
-`tests/clarion/test_spec_digest.py` reproduces each of them.
+block (794), the field tables of sections 7-9 (258), the specification's own example
+(173), the escape rule (136) and the glossary section (307), with the closed
+vocabularies and the lines that frame them at 287 — `tests/clarion/test_spec_digest.py`
+reproduces each of them.
 
 Three guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
 compared against the key sets the parser actually accepts, every section of the
@@ -164,6 +164,82 @@ specification text, so the −35 points between them were being charged to a var
 that was never varied alone. What the same-cell comparisons now show is that the
 *decoder regime* is what the single-pass number responds to, and `--temperature` and
 `--reasoning` exist so the two can be told apart from here on.
+
+## The escaping and glossary ablations: two rules the compression dropped
+
+Compressing the specification is a lossy operation, and two losses were found the
+hard way — by reading the two remaining failures line by line, and by noticing that
+a measured delivery had stopped happening.
+
+**One: the escape rule was only implied.** The `spec` style stated the escape set
+only inside the grammar, as `double-escape = "\" ( DQUOTE / "\" / "n" / "r" / "t" )`,
+and nothing in prose said *every* ASCII double quote inside a value is written `\"`.
+Two answers failed on exactly that, and the character-level read is unambiguous:
+
+- `hongloumeng-joly`, an 801-character `source` value of classical Chinese: the
+  model escaped two of the three inner ASCII quotes and missed the third, so the
+  value closed early. The trap is that the same value also contains CJK curly quotes
+  (`“ ”`), which are ordinary characters.
+- `sanguo-brewitt-taylor`, a 933-character `target`: the model wrote both inner
+  English dialogue quotes raw.
+
+A paragraph stating the escape set, plus the CJK note, costs 136 tokens. In the next
+run the `sanguo` answer was valid and the `hongloumeng` answer parsed (its remaining
+failure is a duplicated entry), and no answer has failed on a missing escape since.
+`test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds it.
+
+**Two: the glossary lost its trigger and its shape, and the trigger alone is worse
+than neither.** `glossary emitted` went from 41/96 in the recorded run to **0/16**
+once the `spec` style replaced the hand-written workflow blocks. Reading what the
+style actually sent: it stated what a glossary *is* and when one is warranted
+(section 13.2.2's criterion) and never said that this task expects one. So the
+ablation ran in the same cell, one repeat, `reasoning: low` throughout:
+
+| cell — CLIFF, bare, 16 files, one repeat | valid | answers with a 2nd document | separator banners written | chrF++ all | instruction % |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| no trigger (the state that measured 0/16) | 14/16 | 0/16 | 0/16 | 46.9 | 70.9 |
+| **A: trigger only** | **5/16** | 10/16 | **9/16** | 15.5 | **22.0** |
+| B: trigger + shape + boundary | 14/16 | 13/16 | 0/16 | 49.0 | 70.6 |
+| **B2: the same, stated affirmatively** | **16/16** | 10/16 | 0/16 | 49.0 | 70.0 |
+
+- **The trigger was the missing piece** for emission: the criterion sentence was
+  already there and produced nothing, because nothing said the glossary was wanted
+  *here*. One task-level sentence — the deliverable statement the other styles have
+  always carried — took it from 0/16 to 10/16.
+- **But the trigger alone is the worst cell in this document.** Nine of the sixteen
+  answers introduced their own separator between the two documents —
+
+  ```
+  ===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY (variant: glossary) =====
+  ----- OPTIONAL DELIVERABLE: GLOSSARY (CLIFF, variant: glossary) -----
+  ===== OPTIONAL SECOND FILE: GLOSSARY (separate deliverable) =====
+  ```
+
+  — and the parser reads each as an invalid field name, so the whole answer fails:
+  5/16 valid, instruction % 22, chrF++ 15.5. The model had been told there were two
+  deliverables and had not been told how a second document is recognised. The
+  removed workflow block had said it in passing (*"add a CLIFF document after the
+  translated file:"*), and dropping it removed the boundary with it.
+- **So the answer to "is the sentence too weak or is the trigger missing" is both,
+  in that order of danger.** The trigger was absent; the statement of how the second
+  document attaches was absent too, and its absence is the one that costs ten
+  answers. Both are now in the specification block — the shape from section 13.2.1
+  (the `-terms` clan suffix, the `[terms]` section, one entry per term with `source`,
+  `target`, `type`, `status`, `context`) and the boundary as section 13.2.2 states
+  it (a second document is recognised by its own version line, so the glossary
+  begins with its own `CLIFF 1.1` line placed immediately after the last field of
+  the translated file). Stated affirmatively: the first attempt phrased it as *"no
+  heading, no separator, no line of explanation"*, which names the banner it was
+  meant to prevent; the affirmative version is the one that scored 16/16.
+
+**What this round establishes about the prompt as a whole.** With `reasoning: low`
+and the specification block carrying the escape rule, the glossary trigger, its
+shape and the two-document boundary, this cell is at **16/16 valid** — the first
+time any CLIFF cell has been clean. The remaining failures are not format failures:
+they are the corpus's own content rules (`instruction %` 70 — `require` 61, `forbid`
+21, `max-width` 13, `name-policy` 10, `cjk-latin-space` 9, `regex` 7, `term` 6,
+`keep-verbatim` 2, `length-ratio` 1 across fourteen files), which no parser can see
+and which the model does not check.
 
 ## What the prompt may constrain: the specification and the deliverable
 

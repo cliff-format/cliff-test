@@ -529,6 +529,39 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Fixed
 
+- **Two rules the specification compression had dropped, found from failures and
+  from a measurement that had silently stopped happening. With `reasoning: low` and
+  both fixed, the CLIFF cell is clean for the first time: 16/16 valid.**
+  - **The escape rule was only implied.** The `spec` style stated the escape set
+    only as the grammar's `double-escape` production. Two answers failed on exactly
+    that, and the character-level read is unambiguous: an 801-character
+    classical-Chinese `source` value in which the model escaped two of the three
+    inner ASCII quotes and missed the third (the same value also carries CJK curly
+    quotes, which take no backslash), and a 933-character `target` in which it
+    escaped none of two. A 136-token paragraph now states the escape set and the
+    curly-quote case; in the next run the `sanguo` answer was valid and the
+    `hongloumeng` answer parsed, and no answer has failed on an escape since.
+    `test_the_escape_rule_is_stated_as_prose_and_not_only_as_a_production` holds it.
+  - **The glossary lost its trigger and its shape, and the trigger alone is worse
+    than neither.** `glossary emitted` fell from 41/96 in the recorded run to
+    **0/16** when the `spec` style replaced the hand-written workflow blocks: the
+    block stated what a glossary *is* and when one is warranted, and never said this
+    task expects one. The ablation, same cell, one repeat, `reasoning: low`:
+    no trigger 14/16 valid and 0/16 glossaries; **trigger only 5/16 valid** with
+    10/16 answers appending a glossary and **9/16 writing their own separator line**
+    (`===== OPTIONAL DELIVERABLE: CLIFF GLOSSARY (variant: glossary) =====` and two
+    other spellings), which the parser reads as an invalid field name and which
+    fails the whole answer, instruction % 22, chrF++ 15.5; trigger plus the shape of
+    13.2.1 plus the two-document boundary of 13.2.2 14/16 valid and 0 banners; the
+    same, stated affirmatively, **16/16 valid**.
+  - The boundary statement had to be phrased affirmatively too: the first version
+    read *"no heading, no separator, no line of explanation"*, which names the
+    banner it was meant to prevent. The affirmative version is the one that scored
+    16/16, and `test_the_two_document_boundary_is_stated_where_the_glossary_is`
+    rejects the prohibitions.
+  - The compressed block is now **2 568 tokens** (from 2 252), still a 6.5x
+    compression of the 16 656-token specification text, and the design document
+    carries the decomposition and the ablation table.
 - **The Fisher exact test in the prompt-analysis scripts was wrong, and three
   published p-values were corrected.** `clarion.metrics.stats` had bootstrap,
   permutation, McNemar and Wilson but no Fisher test, so the two working-copy

@@ -195,20 +195,26 @@ def build_translation_prompt(
     # one message. A composed prompt is read by a model, not by a diff, and a
     # repetition reads as emphasis nobody asked for while costing tokens on every
     # call. `tests/clarion/test_tools.py` asserts no paragraph repeats.
-    workflow_enabled = format_id == "cliff" and allow_glossary_output and not spec_driven
+    workflow_enabled = format_id == "cliff" and allow_glossary_output
     workflow_block = ""
-    if workflow_enabled:
+    if workflow_enabled and not spec_driven:
         # The `spec` style states the glossary rules inside the specification block
         # (section 13.2), so the hand-written workflow would be a second statement of
         # the same rules - and the one that can go stale.
         workflow_block = templates.GLOSSARY_WORKFLOW
+    # The *deliverable* statement is a statement about this task, not a rule of the
+    # format: it is what tells the model that the glossary is expected of the run it
+    # is in, where the specification block only says what a glossary is. Cell A of
+    # the glossary ablation (see docs/clarion-prompt-design.md) is exactly this line
+    # switched on with no shape given, which is how the two are told apart.
+    deliverable_enabled = workflow_enabled
 
     rules_block = f"{rules}\n\n{output_rules}"
     if example_driven:
         # The generic task rules still apply (output shape, placeholders, register);
         # these verbs are added because CLIFF's `target`/`status` work is specific.
         rules_block = f"{rules_block}\n\n{cliff_prompt_v2.CLIFF_TASK_RULES}"
-    if workflow_block and workflow_style in {"deliverable", "front"}:
+    if deliverable_enabled and workflow_style in {"deliverable", "front"}:
         rules_block = f"{rules_block}\n\n{templates.GLOSSARY_DELIVERABLE}"
     if format_id == "cliff" and document is not None:
         entry_count = sum(len(group.entries) for group in document.groups)

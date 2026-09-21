@@ -62,7 +62,9 @@ SECTION_COVERAGE: dict[str, str] = {
     "10": "abnf - identifier rules are in the semantic constraints",
     "11": "excluded - file layout and naming are packaging, not file content",
     "12": "vocab - the closed sets, read from the reference tables",
-    "13": "table - the glossary variant is the same grammar with variant: glossary",
+    "13": "table - the variant, its shape (13.2.1) and the two-document boundary "
+    "(13.2.2.2) are all stated; the glossary ablation in the design document is why "
+    "the boundary is spelled out rather than implied",
     "14": "abnf - ICU is payload; brace balance is in the semantic constraints",
     "15": "table - max-width is an entry and group field",
     "16": "table - dependency is a header field",
@@ -219,6 +221,15 @@ A CONFORMING FILE (the specification's own quick example, section 3)
 
 {quick_example()}
 
+ESCAPING (sections 5.7 and 6.2, stated as a rule the grammar only implies)
+
+  Inside a double-quoted value, exactly five characters are written with a
+  backslash: the double quote (\\"), the backslash itself (\\\\), newline (\\n),
+  carriage return (\\r) and tab (\\t). Every ASCII double quote inside a value is
+  therefore written \\" - in source, target, context and reference alike, and in a
+  value of any length. Chinese, Japanese and Korean curly quotes (\u201c \u201d \u300c \u300d) are
+  ordinary characters: they are written as they are, with no backslash.
+
 VARIANT: glossary (section 13)
 
 A glossary is the same grammar with variant: glossary: one term per entry, unique
@@ -227,7 +238,19 @@ translation as well as an input, so a term decided while translating is recorded
 one. Section 13.2.2 states the criterion: add the document when the brief asks for
 terminology consistency or a naming policy, when a term recurs across entries, or
 when a naming judgement would otherwise be re-made differently. The rendering
-recorded is the rendering used in the translated file."""
+recorded is the rendering used in the translated file.
+
+Its shape, from section 13.2.1: the header carries variant: glossary, and the clan
+of the glossary is the clan it serves with the suffix -terms (settings becomes
+settings-terms; a glossary shared by a whole project uses the clan terms). The
+entries sit in a section, by convention [terms], one term per entry, each carrying
+source (the term), target (the rendering used), type (a term-level tag from the
+closed set above), status, and context saying why that rendering was chosen.
+
+Two documents are then one answer. A second document is recognised by its own
+version line, so the glossary begins with its own CLIFF 1.1 line placed immediately
+after the last field of the translated file, and each document is complete in
+itself: the translated file is the first, the glossary is the second."""
 
 
 def normative_rule_tokens(tokenizer) -> int:
