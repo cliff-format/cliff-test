@@ -130,7 +130,7 @@ fixture still passes, and the checks below answer the 1.1 questions.
   - `CLIFF_EDIT_SAFETY` (the `digest` style's reminder) states the same facts as
     properties rather than as a *"copy exactly as written"* imperative.
   - **Priced, because these blocks reach every call of every format**:
-    `.tools/prompt_block_delta.py` prints the delta per block against the last
+    `tools/prompt_block_delta.py` prints the delta per block against the last
     commit. CLIFF facts **+115** (the orientation paragraph), CLIFF task rules
     **−91**, shared task rules **−29**, system role **+13**, glossary workflow
     **+17**, output shape **+5**, edit safety **+1** — net **+24 tokens per call**.
@@ -198,6 +198,19 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Added
 
+- **`tools/prompt_cost.py` and `tools/prompt_block_delta.py`, with
+  `tests/test_prompt_cost_tool.py`.** The prompt-cost table in
+  `docs/clarion-prompt-design.md` is quoted in this changelog and in the acceptance
+  criteria, and until now the instrument that produced it lived in the working-copy
+  `.tools/` directory outside the repository — a number a reader cannot reproduce is
+  a number they have to take on trust. `prompt_cost.py` prints the per-component
+  table for one cell (`--pilot` for the four pilot files, `--block-delta` for the
+  per-block token delta against the last commit, which `prompt_block_delta.py` also
+  does on its own). Both styles are assembled through `build_translation_prompt`,
+  the call path a run uses; the earlier measurement projected the example-driven
+  side arithmetically and drifted the moment the assembly changed. The test pins
+  what the document publishes, and checks the invariant that catches this table's
+  own failure mode: every column's rows sum to that column's total.
 - **A quoted key is now a repaired deviation (specification Appendix C.2.7).**  The specification gained the relaxation, so this suite gained the fixtures that
   decide it: `tests/fixtures/tolerant/quoted-key.zh-CN.cliff` carries the three
   spellings (double quotes, single quotes, `=`) in header, group and entry scope

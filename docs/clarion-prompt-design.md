@@ -16,8 +16,10 @@ arm CLIFF's instructions cost more than twice the document they describe.
 The replacement (`clarion/prompts/cliff_prompt_v2.py`, selected with
 `prompt_style: examples`) states only what a tolerant reader cannot repair, and
 teaches the rest with two conforming documents. Every number below is measured,
-not estimated: `.tools/price_prompt.py ui-console bare` assembles both styles
-through the same `build_translation_prompt` the run uses and prints these rows.
+not estimated: `python tools/prompt_cost.py` assembles both styles through the same
+`build_translation_prompt` the run uses and prints these rows, and
+`tests/test_prompt_cost_tool.py` checks that the tool reproduces the published
+totals and that each column adds up to its own total.
 
 | | current (`digest`) | example-driven (`examples`) |
 | --- | ---: | ---: |
@@ -44,10 +46,14 @@ tokens: two of the 1.3 edit run's four invalid answers were a text value written
 without quotes, which is the one shape error no reading repairs (Appendix C.5). The
 specification text it replaced cost 16 691.
 
-Across the four pilot files the saving is **74 728 tokens (−78.5 %)**; measured
-per file it ranges from −65.3 % (`wmt24pp`, the longest file) to −86.1 %
-(`ui-console`). `.tools/price_pilot.py` prints that table through the same
-assembly path.
+Across the four pilot files the saving is **74 728 tokens**, which is
+**−84.6 %** of the prompts in the plain arm and −78.5 % in the context arm
+(`python tools/prompt_cost.py --pilot`). The saving is the same 18 682 tokens per
+cell on every file and in both arms — the redesign swaps fixed-size instruction
+blocks for fixed-size instruction blocks — so only the percentage moves with the
+document: −75.9 % (`wmt24pp`, the longest file) to −88.7 % (`probe-ambiguity`) in
+the plain arm. `tests/test_prompt_cost_tool.py` asserts that constancy, because a
+change that made the saving document-dependent would be a different claim.
 
 ## What the prompt may constrain: the specification and the deliverable
 
@@ -91,7 +97,7 @@ the quoting rule and the `status`/`target` dependency, because the specification
 and the validator require those of the file; they no longer state anything the
 specification does not.
 
-The change is priced: `.tools/prompt_block_delta.py` prints the token delta of
+The change is priced: `python tools/prompt_block_delta.py` prints the token delta of
 every block against the last commit. Across this rewrite the CLIFF facts block grew
 (+115, the orientation paragraph), the CLIFF task rules shrank (−91, the imperatives
 and the frames around them), and the net for the whole prompt is **+24 tokens per
