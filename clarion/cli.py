@@ -62,6 +62,12 @@ def _config_from_args(args: argparse.Namespace) -> RunConfig:
         # was started with, so an override here is what keeps two styles comparable
         # within one session. The run still records the value it used.
         overrides["prompt_style"] = args.prompt_style
+    if getattr(args, "temperature", None) is not None:
+        # Same reason, and it is the variable that has to be separated from the
+        # prompt content: every run recorded before this flag existed changed both
+        # at once (0.0 always came with the full specification text), so a
+        # temperature claim could not be tested against them.
+        overrides["provider"] = {"temperature": args.temperature}
     return load_config(getattr(args, "config", None), **overrides)
 
 
@@ -491,6 +497,16 @@ def build_parser() -> argparse.ArgumentParser:
                 "with two conforming files, 'spec' carries the specification "
                 "compressed to its normative content (ABNF, constraints, field "
                 "tables, vocabularies). Defaults to the configuration's value."
+            ),
+        )
+        target.add_argument(
+            "--temperature",
+            type=float,
+            default=None,
+            help=(
+                "decoder temperature for this run, overriding the configuration. Use "
+                "it to vary one variable at a time: the recorded runs did not, so "
+                "their 0.0 conditions also carried a different prompt."
             ),
         )
 

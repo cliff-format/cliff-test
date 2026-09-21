@@ -214,3 +214,40 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
     finally:
         if sandbox.exists():
             shutil.rmtree(sandbox)
+
+
+def test_one_variable_can_be_overridden_without_editing_a_configuration() -> None:
+    """`--prompt-style` and `--temperature` exist to separate confounded variables.
+
+    Every run recorded before these flags existed changed temperature and prompt
+    content together - each 0.0 condition also carried the full specification text -
+    so no temperature claim could be tested against them. Switching one variable
+    meant writing a new configuration file, and a run directory records the file it
+    was started with, so two conditions could not be shown to differ in one thing.
+    """
+    from clarion.cli import _config_from_args, build_parser
+
+    parser = build_parser()
+    base = parser.parse_args(["pipeline", "--config", "configs/deepseek-flash.json"])
+    baseline = _config_from_args(base)
+    assert baseline.provider.temperature == 1.3  # what the shipped config names
+    assert baseline.prompt_style == "examples"
+
+    args = parser.parse_args(
+        [
+            "pipeline",
+            "--config",
+            "configs/deepseek-flash.json",
+            "--prompt-style",
+            "spec",
+            "--temperature",
+            "0.0",
+        ]
+    )
+    overridden = _config_from_args(args)
+    assert overridden.prompt_style == "spec"
+    assert overridden.provider.temperature == 0.0
+    # One variable at a time means the rest of the provider block survives.
+    assert overridden.provider.model == baseline.provider.model
+    assert overridden.provider.max_output_tokens == baseline.provider.max_output_tokens
+    assert overridden.formats == baseline.formats
