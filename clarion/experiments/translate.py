@@ -247,7 +247,10 @@ def run_translation_task(
     completion = provider.complete(request)
     measured_ms = (time.perf_counter() - started) * 1000.0
     result.answer_text = completion.text
-    result.prompt_text = bundle.user
+    # The whole prompt, not just the user message. The run keeps this as evidence,
+    # and for CLIFF the half that was missing is the half the prompt design is
+    # about: the field table and the closed vocabularies live in the system message.
+    result.prompt_text = request.prompt_text()
 
     result.provider = completion.provider
     result.model = completion.model

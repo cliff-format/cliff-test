@@ -102,6 +102,53 @@ def test_every_stated_tag_reaches_the_rendered_prompt() -> None:
             assert value in RENDERED, f"{label} value '{value}' is not in the prompt text"
 
 
+def test_the_rendered_key_table_lists_every_key_of_each_scope() -> None:
+    """Check what the prompt *prints*, not only the data behind it.
+
+    The test above compares ``KEYS_BY_SCOPE`` against the parser, which is not the
+    same claim: the renderer built the `<entry>` row from the optional keys alone,
+    so the one table that says "any other name, in any scope, makes the file
+    invalid" left out `source` and `status` while the header row listed its required
+    keys. The data was right and the prompt was wrong, which is the shape of defect
+    a data-level assertion cannot see.
+    """
+    from cliff_format.parser import ENTRY_KEYS, GROUP_KEYS, HEADER_KEYS
+
+    rows: dict[str, set[str]] = {}
+    for line in v2.CLIFF_FACTS.splitlines():
+        for label in ("header", "[group]", "<entry>"):
+            if line.startswith(f"  {label}"):
+                body = line.split(label, 1)[1]
+                rows[label] = {part.strip() for part in body.split(",") if part.strip()}
+    assert set(rows) == {"header", "[group]", "<entry>"}, rows
+
+    for label, keys in (
+        ("header", HEADER_KEYS),
+        ("[group]", GROUP_KEYS),
+        ("<entry>", ENTRY_KEYS),
+    ):
+        missing = sorted(set(keys) - rows[label])
+        assert missing == [], f"the rendered {label} row omits {missing}"
+        extra = sorted(rows[label] - set(keys))
+        assert extra == [], f"the rendered {label} row offers keys the parser rejects: {extra}"
+
+
+def test_the_rendered_task_rules_stay_numbered_and_short() -> None:
+    """A rule list that grows without bound is the failure this design avoids.
+
+    The boundary probe says every stated rule must be one a tolerant read cannot
+    repair, and the cheapest way to violate that is to keep appending rules. Five is
+    the count the design table justifies; a sixth needs a boundary case behind it.
+    """
+    numbered = [
+        line for line in v2.CLIFF_TASK_RULES.splitlines() if line[:2].strip().rstrip(".").isdigit()
+    ]
+    assert len(numbered) == 5, (
+        f"CLIFF_TASK_RULES has {len(numbered)} numbered rules; each one must be a fact "
+        "the tolerant read refuses, and each costs tokens on every call"
+    )
+
+
 def test_the_prompt_states_every_unrepairable_fact() -> None:
     """The other half of the boundary: what a repair cannot save must be said.
 

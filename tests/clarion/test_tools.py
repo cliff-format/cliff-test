@@ -155,6 +155,16 @@ def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
     assert v2.CLIFF_FACTS in system
     assert "spec.reference" not in system
 
+    # The run keeps the prompt it sent as evidence, and that evidence has to be the
+    # whole prompt: for CLIFF the system message is where the field table lives, so a
+    # file that holds only the user message cannot show what the prompt said.
+    assert result.prompt_text.startswith(system), (
+        "the stored prompt must begin with the system message"
+    )
+    assert "FILE TO TRANSLATE" in result.prompt_text, (
+        "the stored prompt must also carry the user message with the document"
+    )
+
 
 def test_glossary_candidates_and_merge(sample_document, sample_glossary) -> None:
     candidates = extract_candidates(sample_document, min_count=1)

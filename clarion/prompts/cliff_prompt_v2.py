@@ -148,7 +148,7 @@ another scope.
 
 {_row("header", KEYS_BY_SCOPE["header"]["required"] + KEYS_BY_SCOPE["header"]["optional"])}
 {_row("[group]", KEYS_BY_SCOPE["group"]["optional"])}
-{_row("<entry>", KEYS_BY_SCOPE["entry"]["optional"])}
+{_row("<entry>", KEYS_BY_SCOPE["entry"]["required"] + KEYS_BY_SCOPE["entry"]["optional"])}
 
 Required: `namespace`, `clan`, `source-language`, `target-language` in the
 header; `source` and `status` on every entry, plus `type` either on the entry or
