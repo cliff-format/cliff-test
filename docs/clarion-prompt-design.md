@@ -173,16 +173,79 @@ Two consequences worth separating:
   every format except CLIFF the two runs sent byte-identical requests. CLIFF's
   movement (validity 83.3 % → 100.0 %, intent 77.8 % → 98.6 % in the context arm)
   is attributable to the prompt change, because that is the only input that
-  differed. What is *not* supported is any claim about behaviour at 1.3: that
-  regime had never been sampled.
+  differed. What that comparison cannot support is a claim about behaviour at
+  1.3: at the time it was written that regime had never been sampled, and it is
+  measured separately below.
 
 The defect is fixed by making the temperature a parameter of `run_robustness` and
 forwarding `provider.temperature` from `run_robustness_matrix`, with
 `tests/clarion/test_edit_request.py` as the guard: it fails with
 `{0.0} == {1.3}` if the forward is dropped, so the two cannot drift apart again.
-The first 1.3 measurement of D7 is therefore still owed, and until it exists the
-honest statement is "100 % valid / 98.6 % intent at 0.0", not at the settings the
-pipeline ships.
+The 1.3 baseline it made possible is below.
+
+## The CLIFF edit baseline at 1.3, and what the failures are
+
+CLIFF only - the format under test. Three passes over the same `ui` stratum and
+the same 12 edits, `python .tools/d7_cliff_13.py --passes 3`, 171 applicable
+edits, every answer kept (`results/d7-cliff-13/`):
+
+| temperature | still valid | intent applied | per-pass intent |
+| --- | ---: | ---: | --- |
+| 0.0 (every earlier number) | 100.0 % | 100.0 % / 98.6 % | repeats byte-identical |
+| **1.3 (deployment)** | **97.7 %** | **95.9 %** | 96.5 / 93.0 / 98.2 |
+
+The honest headline: **at the temperature the pipeline ships, CLIFF edits are
+97.7 % valid and 95.9 % intent-applied**, with about 1 point of pass-to-pass
+spread on validity and 2.7 on intent. The earlier 100 % was real but it was a 0.0
+number, and the difference between the two rows is the decoder.
+
+Seven of 171 edits failed, and the stored answers attribute each one
+(`.tools/d7_cliff_forensics.py`):
+
+**Four answers were not CLIFF at all** (the tolerant reader cannot save a value):
+
+- `context: Reviewed in the 2026 audit.` - a text value with no quotes. Appendix
+  C.5 forbids repairing a value, and C.2.1's list relaxation does not cover an
+  unquoted string either, so the refusal is correct behaviour.
+- `context: "Line under the time zone option on the settings page.".;` - a
+  sentence-final period written *outside* the closing quote.
+- `reference: src/ui/panel.cpp:42` - an unquoted string as a list value. C.2.1
+  repairs a bare *tag*, a *quoted* scalar, or a comma-separated series; this is
+  none of the three, and the value has no determinate end, so it is refused.
+- a **32-byte stub**, `<support>...invalid...</support>`, in place of the file. This
+  is not a format deviation but a degenerate answer, and it is the most severe
+  shape available: nothing in it is usable. Rate 1/171.
+
+**Three answers were valid but did not apply the instruction:**
+
+- `set-emotion` on `billing` (`ui-console`): the entry is **byte-identical before
+  and after** - the model did nothing. The same edit, on the same entry, was also
+  the single gap in the 0.0 run, so this is a reproducible no-op rather than
+  sampling noise.
+- `set-target` on `billing` (bare arm): the instruction gives the value
+  `计费(修订)`; the model wrote `Billing (revised)`. It invented a value instead of
+  copying the one it was given.
+- `rename-entry` on `billing`: the model renamed the **group** `billing` to
+  `billing-v2` and left the entry id alone. Contributing factor, and a property of
+  the generated sequence rather than of the model: task 7 moves entry `billing`
+  *into* the group `billing` (the file has a group with the same name as the
+  entry), so by task 8 the instruction "rename the entry 'billing'" is ambiguous
+  between an entry and a group that now share a name.
+
+**The one prompt gap this found.** The design states "an unquoted string" is
+unrepairable and therefore must be in the prompt, but the prompt text never says
+it: quoting is taught only by the examples (`context: "..."`,
+`dependency: ["..."]`). Two of the four invalid answers are exactly that gap. The
+rule to add is narrow and does not touch the repairable shapes: *a text value is
+one quoted string, with nothing outside the closing quote; a list holds quoted
+strings and bare tags*. It must not read as "tags are never quoted" or "lists
+always need brackets", which are repairs the reader already performs and which
+`tests/clarion/test_prompt_v2.py` deliberately forbids re-adding.
+
+Repairs introduced by the model were again confined to the two operations that
+require creating a field that is not on the page: 7 in total, `add-reference` 5
+and `set-emotion` 2. Note the count: the per-step sum is 51, because a deviation
+introduced once is re-counted by every later step of the chain.
 
 ## Open decisions for a full re-run
 

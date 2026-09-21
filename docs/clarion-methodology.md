@@ -368,9 +368,10 @@ and the table says which.
   `provider.temperature`, so **every D7 number published so far is a 0.0 number**,
   including the rows labelled as the deployment settings. That is fixed (the
   temperature is now a parameter, forwarded from the configuration, guarded by
-  `tests/clarion/test_edit_request.py`) and the 1.3 measurement of D7 is owed. The
-  two regimes are **not comparable**, and a report must say which one produced its
-  numbers:
+  `tests/clarion/test_edit_request.py`) and D7 has since been measured at 1.3 for
+  CLIFF: **97.7 % valid / 95.9 % intent** over 171 edits in three passes, against
+  100 % / 98.6 % at 0.0. The two regimes are **not comparable**, and a report must
+  say which one produced its numbers:
   - at 0.0 the three repeats of a cell were observed to be **byte-identical**
     (for example the three `wmt24pp` context answers failed on the same line with
     the same message), so "3 repeats" measured internal consistency, not

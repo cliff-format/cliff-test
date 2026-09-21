@@ -9,6 +9,20 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
+- **The CLIFF edit baseline at the shipped temperature 1.3**, which no earlier
+  D7 number could be: `python .tools/d7_cliff_13.py --passes 3`, CLIFF only, the
+  `ui` stratum, the same 12 edits, 171 applicable edits, every answer kept
+  (`results/d7-cliff-13/`). **97.7 % still valid / 95.9 % intent applied**, per
+  pass 96.5 / 93.0 / 98.2 on intent and 1.0 point of standard deviation on
+  validity. Against the 0.0 rows (100 % / 98.6 %) the difference is the decoder.
+  All seven failures are attributed from the stored answers in
+  [docs/clarion-prompt-design.md](docs/clarion-prompt-design.md): four answers were
+  not CLIFF (an unquoted text value, a period outside the closing quote, an
+  unquoted string as a list value, and one 32-byte `<support>...invalid...</support>`
+  stub), three were valid but did not apply the instruction (a reproducible no-op
+  on `set-emotion`, an invented target value, and a rename applied to a group
+  rather than to an entry of the same name). Repairs the model introduced were
+  confined to `add-reference` (5) and `set-emotion` (2).
 - **The first benchmark run on the 1.1 corpus and the current model name**:
   `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
   model `deepseek-flash`, `read_mode: tolerant`, 3 repeats per cell over

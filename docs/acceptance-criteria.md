@@ -145,6 +145,7 @@ exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
 | C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
 | C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
 | C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run with the example prompt (**at temperature 0.0**, see below); was 100.0% / 83.3% |
+| C6.8 | same, at the shipped temperature 1.3 | **97.7% valid / 95.9% intent** | — | CLIFF only, 171 edits over three passes; this is the deployment number |
 | C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
 
 ### C6.8 re-run: the prompt redesign, and what it fixed
@@ -160,9 +161,12 @@ with a hard-coded `temperature=0.0` and ignored the configured value, so the
 column below is a 0.0 comparison — same model, same files, same edits, only the
 CLIFF edit prompt differing. The defect is fixed (the temperature is now a
 parameter forwarded from the configuration, guarded by
-`tests/clarion/test_edit_request.py`) and **a 1.3 measurement of D7 is still
-owed**; see the temperature section of
-[clarion-prompt-design.md](clarion-prompt-design.md).
+`tests/clarion/test_edit_request.py`) and the 1.3 baseline has since been
+measured: CLIFF **97.7 % valid / 95.9 % intent** over 171 edits in three passes,
+against 100 % / 98.6 % here. See
+[clarion-prompt-design.md](clarion-prompt-design.md) for the per-failure
+attribution, and note that **the 1.3 row is the number to quote**: the 0.0 column
+measures a decoder the pipeline does not use.
 
 | format | arm | still valid % | invented-key failures | repairs |
 | --- | --- | ---: | ---: | ---: |
