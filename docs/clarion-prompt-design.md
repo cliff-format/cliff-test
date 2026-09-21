@@ -136,10 +136,34 @@ That is a result, and it is a negative one: at 1.3 the failure rate does not res
 to prompt content. Two levers have now been pulled in this same cell — the rewrite
 (−15 points) and the boundary statement (0 points) — while the compressed
 specification moved it +25 points in one pass, which is why the specification stays
-and the boundary sentence is recorded as insufficient rather than harmful. The
-variable still standing is the decoding regime, and it is the one the stored runs
-cannot separate from prompt content (every 0.0 run also carried the full
-specification text). `--temperature` now exists so that it can be tested directly.
+and the boundary sentence is recorded as insufficient rather than harmful.
+
+**Third measurement: the decoder regime is the lever.** Same cell, same prompt, same
+temperature, one argument different — `--reasoning low`
+(`clarion-deepseek-flash-20260921T171557`):
+
+| cell (CLIFF, bare, 16 files, one repeat) | valid | chrF++ all | chrF++ on survivors | output tokens per call |
+| --- | ---: | ---: | ---: | ---: |
+| `examples`, thinking off | 7/16 = 43.8 % | 25.1 | 47.8 | 3 161 |
+| `spec`, thinking off | 11/16 = 68.8 % | 42.2 | 50.5 | 2 443 |
+| `spec`, thinking off + boundary sentence | 11/16 = 68.8 % | — | — | 2 221 |
+| **`spec`, `reasoning: low`** | **14/16 = 87.5 %** | **46.9** | **53.6** | 9 154 |
+
+The p-value between the two `spec` cells is 0.39 — sixteen answers cannot settle it —
+but the *failure list* changes kind, which is what this sample can support: the notes
+the model wrote into its own answer, the invented wrapper tags, the entry marker
+carrying a comment on the corpus and the duplicated invented entries are all gone,
+leaving two answers whose quoting fails on the longest classical-Chinese lines.
+Quality moves for the first time as well (+4.7 all, +3.1 on survivors), and the cost
+is 4.1× the output tokens and 2.7× the wall clock, because thinking tokens are billed
+as output.
+
+**What this settles about the earlier attribution.** The stored runs could not
+separate temperature from prompt content: every 0.0 run also carried the full
+specification text, so the −35 points between them were being charged to a variable
+that was never varied alone. What the same-cell comparisons now show is that the
+*decoder regime* is what the single-pass number responds to, and `--temperature` and
+`--reasoning` exist so the two can be told apart from here on.
 
 ## What the prompt may constrain: the specification and the deliverable
 

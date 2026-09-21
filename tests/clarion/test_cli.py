@@ -242,12 +242,33 @@ def test_one_variable_can_be_overridden_without_editing_a_configuration() -> Non
             "spec",
             "--temperature",
             "0.0",
+            "--reasoning",
+            "low",
         ]
     )
     overridden = _config_from_args(args)
     assert overridden.prompt_style == "spec"
     assert overridden.provider.temperature == 0.0
+    assert overridden.provider.reasoning == "low"
     # One variable at a time means the rest of the provider block survives.
     assert overridden.provider.model == baseline.provider.model
     assert overridden.provider.max_output_tokens == baseline.provider.max_output_tokens
     assert overridden.formats == baseline.formats
+
+
+def test_the_reasoning_tier_reaches_the_vendor_payload() -> None:
+    """The switch has to become the field DeepSeek understands, not a comment."""
+    from clarion.providers.openai_compat import reasoning_body
+
+    assert reasoning_body("off", "deepseek-flash") == {"thinking": {"type": "disabled"}}
+    assert reasoning_body("low", "deepseek-flash") == {
+        "thinking": {"type": "enabled", "effort": "low"}
+    }
+    assert reasoning_body("medium", "deepseek-flash") == {
+        "thinking": {"type": "enabled", "effort": "medium"}
+    }
+    # Other vendors take an effort field with their own spelling of "none".
+    assert reasoning_body("low", "gpt-5") == {"reasoning_effort": "low"}
+    assert reasoning_body("off", "gpt-5") == {"reasoning_effort": "none"}
+    # "auto" leaves the decision to the endpoint rather than guessing.
+    assert reasoning_body("auto", "deepseek-flash") == {}

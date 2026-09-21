@@ -9,6 +9,36 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
+- **The decoder regime is the lever that moves the single-pass number: `reasoning:
+  low` takes the same cell from 68.8 % to 87.5 %.** Same prompt (`spec`), same
+  sixteen files, same arm (bare), same temperature, one repeat — run
+  `clarion-deepseek-flash-20260921T171557+0000-4ef58c`, command
+  `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
+  robustness --formats cliff --arms bare --repeats 1 --prompt-style spec
+  --reasoning low`.
+  - **14/16 = 87.5 % valid** (95 % Wilson 64–97 %) against 11/16 = 68.8 % with
+    thinking off, and 7/16 = 43.8 % for the `examples` style. Fisher exact
+    p = 0.39 between the two `spec` cells — n = 16 is not enough to call it — but
+    the *failure list* changes kind, which is the part n = 16 can support: the
+    meta-notes written into the file, the invented wrapper tags (`</langkau>`,
+    `</final-direction>`), the entry marker carrying a comment on the corpus and
+    the duplicated invented entries are all **gone**. What remains is two answers
+    whose `expected a quoted string` fails on the longest classical-Chinese lines.
+  - **Quality moves with it**, which no other lever did: chrF++ over all answers
+    42.2 → **46.9**, and over the answers that survive 50.5 → **53.6** (`examples`
+    off: 25.1 / 47.8). The compressed specification moved survival without moving
+    quality; the thinking tier moves both.
+  - **Cost**: output tokens 35 551 → **146 471** (2 221 → 9 154 per call, ~4.1x;
+    thinking tokens are billed as output and are recorded per record, 1 257–12 596
+    here), and wall clock 53 s → 141 s for the cell. A full run at this setting
+    costs about four times its output budget, which is the price of the result.
+  - **The two levers so far, measured in the same cell**: prompt content moved the
+    number by +25 (compressed specification) and 0 (boundary statement) and −15
+    (the affirmative rewrite); the decoder regime moved it +18.7 and moved quality
+    for the first time. The stored runs could not have shown this: every 0.0 run
+    also carried the full specification text, so temperature and prompt content were
+    confounded, which is why `--temperature` and `--reasoning` now exist as
+    per-run arguments.
 - **Partial re-measurement of the affirmative prompt: CLIFF, both arms.**
   `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
   robustness --formats cliff --repeats 3` in two passes, one arm each: run

@@ -62,12 +62,20 @@ def _config_from_args(args: argparse.Namespace) -> RunConfig:
         # was started with, so an override here is what keeps two styles comparable
         # within one session. The run still records the value it used.
         overrides["prompt_style"] = args.prompt_style
+    provider_override: dict[str, Any] = {}
     if getattr(args, "temperature", None) is not None:
         # Same reason, and it is the variable that has to be separated from the
         # prompt content: every run recorded before this flag existed changed both
         # at once (0.0 always came with the full specification text), so a
         # temperature claim could not be tested against them.
-        overrides["provider"] = {"temperature": args.temperature}
+        provider_override["temperature"] = args.temperature
+    if getattr(args, "reasoning", None):
+        # The decoder regime as a whole: with a thinking tier selected the vendor
+        # controls sampling itself, so this is the lever that is left when prompt
+        # content and temperature have both been shown not to move a number.
+        provider_override["reasoning"] = args.reasoning
+    if provider_override:
+        overrides["provider"] = provider_override
     return load_config(getattr(args, "config", None), **overrides)
 
 
@@ -507,6 +515,18 @@ def build_parser() -> argparse.ArgumentParser:
                 "decoder temperature for this run, overriding the configuration. Use "
                 "it to vary one variable at a time: the recorded runs did not, so "
                 "their 0.0 conditions also carried a different prompt."
+            ),
+        )
+        target.add_argument(
+            "--reasoning",
+            choices=("off", "low", "medium", "high"),
+            default=None,
+            help=(
+                "thinking tier for this run, overriding the configuration: 'off' "
+                "disables reasoning tokens, the others select an effort tier the "
+                "vendor maps onto its own switch. With a tier selected the vendor "
+                "controls sampling itself, so temperature stops being the variable "
+                "that decides the output."
             ),
         )
 
