@@ -50,10 +50,16 @@ include = ["clarion*"]
 testpaths = ["tests"]
 # The harness runs under a file sandbox that only allows writes inside the
 # workspace, so pytest's temporary root and cache are kept in the repository.
-# Note that `tmp_path` is unusable in that sandbox: it resolves to the system
-# temporary directory, which is denied. Tests that need scratch space write it
-# inside `tests/clarion/_*/` and remove it afterwards, and `.gitignore` covers
-# those names; `conftest.py` does the same for its fixture corpus.
+# Note what actually fails there, measured rather than assumed: every
+# `tempfile`-based mechanism is denied, and the denial is a `PermissionError:
+# [WinError 5]` raised by `tempfile`'s own permission reset (`_resetperms` ->
+# `os.chmod`) while it creates or removes a directory under the session temporary
+# root. `tmp_path` fails that way, and so does `tmp_path_factory.mktemp(...)`; a
+# test that merely *requests* `tmp_path_factory` without calling `mktemp` never
+# creates a directory and therefore passes, which is not evidence that the
+# factory works. Tests that need scratch space write it inside `tests/clarion/_*/`
+# and remove it afterwards, and `.gitignore` covers those names; `conftest.py`
+# does the same for its fixture corpus.
 addopts = "-q -p no:cacheprovider"
 
 [tool.ruff]

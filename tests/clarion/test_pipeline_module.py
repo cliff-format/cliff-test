@@ -14,6 +14,7 @@ sandbox denies the system temporary directory.
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -24,7 +25,12 @@ from clarion.config import PipelineConfig, ProviderConfig, RunConfig
 from clarion.pipeline import Pipeline, run_pipeline
 from clarion.runner import RunPaths
 
-SANDBOX = Path(__file__).resolve().parent / "_pipeline_sandbox"
+#: The scratch tree, scoped to this process. A fixed path is shared by every pytest
+#: process pointed at this checkout, so two of them running at once left two run
+#: directories behind and made "exactly one run directory" fail for a reason that has
+#: nothing to do with the pipeline. `.gitignore` covers the parent, so the nested
+#: per-process name is ignored too.
+SANDBOX = Path(__file__).resolve().parent / "_pipeline_sandbox" / f"pid{os.getpid()}"
 
 
 @pytest.fixture(autouse=True)

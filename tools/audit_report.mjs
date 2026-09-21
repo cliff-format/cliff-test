@@ -24,8 +24,14 @@ function corpusIndex() {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name);
       if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith(".cliff") && !e.name.includes("glossary")) {
+      else if (e.name.endsWith(".cliff")) {
         const text = fs.readFileSync(p, "utf8");
+        // The variant decides, not the file name. The filter used to be
+        // `!e.name.includes("glossary")`, and the corpus's two term files are called
+        // `*-terms.*.cliff` - so they were counted as standard documents, which made
+        // the run line this index feeds say 18 files and 414 entries where the corpus
+        // has 16 and 392.
+        if (/^\s*variant:\s*glossary\b/m.test(text)) continue;
         const sl = /source-language:\s*(\S+)/.exec(text)?.[1];
         const tl = /target-language:\s*(\S+)/.exec(text)?.[1];
         const ids = [...text.matchAll(/^<([a-z0-9-]+)>$/gm)].map(m => m[1]);
@@ -693,17 +699,32 @@ const inv = [];
 const iw = (s) => inv.push(s);
 iw("# CLIFF investor data sheet (audited)");
 iw("");
-iw("Source: run clarion-deepseek-v4-flash-20260902T040228+0000-91f21a (10 formats, 16 corpus files, 392 entries, 960 translation runs). All numbers below come from tools/audit_report.mjs; nothing is hand-written.");
+// Every figure in this line is derived from the run being audited. It used to be a
+// hard-coded sentence naming the 2026-09-02 run, which meant auditing a *new* run
+// regenerated this sheet with the *old* run's id in its provenance line: the one
+// string a reader checks first, wrong in the one place nobody re-reads.
+const runId = path.basename(path.resolve(runDir));
+const corpusFiles = Object.keys(corpus).length;
+const corpusEntries = Object.values(corpus).reduce((n, c) => n + c.ids.length, 0);
+iw("Source: run " + runId + " (" + formats.length + " formats, " + corpusFiles + " corpus files, "
+  + corpusEntries + " entries, " + translations.length + " translation runs). All numbers below come from tools/audit_report.mjs; nothing is hand-written.");
 iw("");
 iw("## 1. Token cost - plain (shipped) form");
 iw("");
 iw("| format | doc tokens (corpus) | per entry | vs CLIFF | prompt + CLIFF spec | prompt w/o spec |");
 iw("| --- | ---: | ---: | ---: | ---: | ---: |");
 const pctv = (x) => (x * 100).toFixed(1) + "%";
+// The "vs CLIFF" column is a comparison against the run's own CLIFF row, so a run that
+// did not measure CLIFF has nothing to compare with - it reports "-" rather than
+// throwing. It used to dereference `computed.tokens.cliff` unconditionally, which made
+// the sheet impossible to generate for any run narrowed to other formats.
+const cliffBare = computed.tokens.cliff?.bare?.document;
+const cliffContext = computed.tokens.cliff?.context?.document;
+const vsCliff = (f, d, baseline) => (f === "cliff" || !baseline ? "-" : pctv((d - baseline) / baseline));
 for (const f of formats) {
   const d = computed.tokens[f].bare.document;
   iw("| " + f + " | " + d + " | " + computed.tokens[f].bare.document_per_entry.toFixed(1) + " | "
-    + (f === "cliff" ? "-" : pctv((d - computed.tokens.cliff.bare.document) / computed.tokens.cliff.bare.document)) + " | "
+    + vsCliff(f, d, cliffBare) + " | "
     + computed.tokens[f].bare.prompt + " | " + computed.tokens[f].bare.prompt_without_instructions + " |");
 }
 iw("");
@@ -714,7 +735,7 @@ iw("| --- | ---: | ---: | ---: | ---: | ---: |");
 for (const f of formats) {
   const d = computed.tokens[f].context.document;
   iw("| " + f + " | " + d + " | " + computed.tokens[f].context.document_per_entry.toFixed(1) + " | "
-    + (f === "cliff" ? "-" : pctv((d - computed.tokens.cliff.context.document) / computed.tokens.cliff.context.document)) + " | "
+    + vsCliff(f, d, cliffContext) + " | "
     + computed.tokens[f].context.prompt + " | " + computed.tokens[f].context.prompt_without_instructions + " |");
 }
 iw("");
@@ -754,8 +775,15 @@ iw("");
 iw("| format | ms/run | output tokens | vs CLIFF ms |");
 iw("| --- | ---: | ---: | ---: |");
 for (const f of formats) {
-  const l = computed.latency[f].context;
-  iw("| " + f + " | " + Math.round(l.ms) + " | " + Math.round(l.output_tokens) + " | " + (f === "cliff" ? "-" : pctv((l.ms - computed.latency.cliff.context.ms) / computed.latency.cliff.context.ms)) + " |");
+  // A run that measured only the plain arm has no context latency, and one that did not
+  // measure CLIFF has no baseline to compare against; both report 0 / "-" instead of
+  // throwing. The line used to dereference `computed.latency[f].context` and
+  // `computed.latency.cliff.context` unconditionally, so the sheet could only be
+  // generated from a run holding the complete matrix under the id `cliff`.
+  const l = computed.latency[f]?.context || { ms: 0, output_tokens: 0 };
+  const baseline = computed.latency.cliff?.context?.ms;
+  iw("| " + f + " | " + Math.round(l.ms) + " | " + Math.round(l.output_tokens) + " | "
+    + vsCliff(f, l.ms, baseline) + " |");
 }
 iw("");
 iw("## 7. Post-LLM-edit validity / intent success");

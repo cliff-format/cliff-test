@@ -17,12 +17,12 @@ a regression reports where it broke instead of only how many files failed.
 
 from __future__ import annotations
 
-import importlib.util
 import json
-import sys
 from pathlib import Path
 
 import pytest
+
+from tests._tool_loader import load_module  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 EDIT_DIR = ROOT / "tests" / "edit-robustness"
@@ -30,14 +30,7 @@ EDIT_DIR = ROOT / "tests" / "edit-robustness"
 
 def _load_driver():
     """Import `apply_edits` without running its `main()`."""
-    spec = importlib.util.spec_from_file_location(
-        "cliff_edit_apply_edits", EDIT_DIR / "apply_edits.py"
-    )
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
+    return load_module(EDIT_DIR / "apply_edits.py", "cliff_edit_apply_edits")
 
 
 @pytest.fixture(scope="module")

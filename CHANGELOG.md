@@ -463,8 +463,10 @@ fixture still passes, and the checks below answer the 1.1 questions.
   and the paragraphs (what alignment consumes) are unaffected.
 - **`tests/clarion/test_cli.py`, `test_openai_compat.py`, `test_pipeline_module.py`** —
   three modules a quarter of the harness by size that no test imported, found by
-  `tools/coverage_audit.py`, which now reports **53 of 53** modules under `clarion/`
-  reachable from the suite:
+  `tools/coverage_audit.py`, which reports **55 of 55** modules under `clarion/`
+  reachable from the suite (the count moves with every new module;
+  `tests/clarion/test_coverage_audit.py` reads this claim and asserts the
+  reachability property behind it rather than the pair):
   - `tests/clarion/test_cli.py` — the command surface: every top-level command
     answers `--help`, the command list is compared against a written-down set so
     adding one is deliberate, and `corpus validate`, `corpus stats`, `secret-scan`

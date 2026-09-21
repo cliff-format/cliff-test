@@ -26,9 +26,15 @@ from pathlib import Path
 import pytest
 
 from clarion.paths import CORE_CORPUS_ROOT, ensure_cliff_format
+from tests._siblings import require_directory
+
+#: Collected at import time so the CI switch (`CLIFF_REQUIRE_SIBLINGS=1`) turns a
+#: missing corpus into a failure rather than a silent skip: a benchmark suite that
+#: collects nothing passes for the wrong reason.
+CORPUS_DOCUMENTS = require_directory(CORE_CORPUS_ROOT, "the CLARION-Core corpus")
 
 pytestmark = pytest.mark.skipif(
-    not CORE_CORPUS_ROOT.is_dir(), reason="CLARION-Core is not checked out"
+    not CORPUS_DOCUMENTS, reason="CLARION-Core is not checked out"
 )
 
 #: The documents that carry translatable items, as opposed to the per-stratum

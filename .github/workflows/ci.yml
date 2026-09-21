@@ -49,6 +49,23 @@ jobs:
         working-directory: cliff-test
         run: python tests/run_all.py
 
+      # `run_all.py` rewrites the token-benchmark report and its nine fixtures; this is
+      # what notices when the committed copy and the generator have drifted apart. It is
+      # the counterpart of cliff-python's `regenerate_examples.py --check`, and the same
+      # step sits in `make check` so the local gate and this one cannot disagree.
+      - name: Generated artefacts match their generator
+        working-directory: cliff-test
+        run: python tools/token_benchmark.py --check
+
+      # The specification repository's own check, run against the sibling checkout that
+      # was made above: its examples and its document-style fences are the artefact this
+      # suite is defined against. The `if:` mirrors `continue-on-error` on that checkout,
+      # so a failed spec checkout is reported by the test step rather than here.
+      - name: Specification examples and fences
+        if: hashFiles('cliff/tools/check_examples.py') != ''
+        working-directory: cliff-test
+        run: python ../cliff/tools/check_examples.py
+
       # The corpus is the instrument, so its version line and its gold digests are
       # guarded rather than trusted.
       - name: Corpus version and provenance guard
@@ -77,3 +94,12 @@ jobs:
       - name: Credential scan
         working-directory: cliff-test
         run: python -m clarion secret-scan
+
+      # The two batteries the runner only runs on request, and the reason they are here:
+      # `docs/acceptance-criteria.md` cites them as acceptance checks, and they were
+      # reachable only by hand. The make target generates what they read (the 100 edits
+      # are gitignored, the stored quality translation is removed by `make clean`), so
+      # the same target a developer runs is the one CI runs.
+      - name: Quality constraints and edit robustness
+        working-directory: cliff-test
+        run: make quality robustness

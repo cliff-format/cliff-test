@@ -33,6 +33,12 @@ FIXTURES = Path(__file__).resolve().parents[1] / "fixtures" / "tolerant"
 #: Repairs each tolerant fixture must produce, by category. Pinned so that
 #: "the tolerant parser repaired it" can never quietly become "the tolerant
 #: parser repaired more than it used to".
+#:
+#: Every entry below was measured by reading the fixture through the tolerant
+#: reader, not copied from `tests/fixtures/README.md` - the README names the
+#: Appendix C clause each fixture exercises, and the clause is what these counts
+#: have to agree with. Where the two look like they disagree, the comment says why
+#: they do not.
 EXPECTED_REPAIRS: dict[str, dict[str, int]] = {
     "terminators-and-quoted-tags.zh-CN.cliff": {"tag-quote": 3, "list-shape": 1},
     "quoted-id-and-bare-list.zh-CN.cliff": {"name-quote": 1, "list-shape": 3},
@@ -40,6 +46,31 @@ EXPECTED_REPAIRS: dict[str, dict[str, int]] = {
     # other repair, and the word inside each pair of quotes is a legal key, so the
     # relaxation never has to legalize anything.
     "quoted-key.zh-CN.cliff": {"name-quote": 3},
+    # The six below were pinned nowhere before this: `tests/run_all.py` only checked
+    # that the whole directory exits 0 under `--tolerant`, which stays green when one
+    # relaxation silently becomes another.
+    #
+    # C.2.1 on `dependency`, `emotion` and `reference` - three bare scalars, one
+    # repair each. The README names the same three fields.
+    "bare-list.zh-CN.cliff": {"list-shape": 3},
+    # C.2.2 on `info`, `target` and `reference`; the README's three keys are the
+    # three repairs.
+    "repeated-field.zh-CN.cliff": {"field-repeat": 3},
+    # C.2.3. The README says "`type` / `emotion` / `status` written with quotes",
+    # which reads like three; the reader reports five, and both are right: it counts
+    # *quoted tag words*, and the fixture has five of them - `"label"` and
+    # `["objective"]` in the group, then `"verb"`, `"final"` and `'translated'`. The
+    # list brackets around `objective` are not a repair of their own (C.2.3 applies
+    # inside the list; there is no bare-scalar deviation to repair).
+    "quoted-tags.zh-CN.cliff": {"tag-quote": 5},
+    # C.2.4 + C.2.5: one quoted entry id, and two identifiers carrying a reserved
+    # character (a group path with spaces and `&`).
+    "quoted-and-normalized-ids.zh-CN.cliff": {"name-normalized": 2, "name-quote": 1},
+    # C.2.5 + C.4: two spellings normalize to the same id (`name-normalized` twice),
+    # and the collision is then disambiguated rather than overwritten.
+    "collision.zh-CN.cliff": {"name-normalized": 2, "id-collision": 1},
+    # C.2.6: `cliff 1.1.0` is a spelling of the minor version, one repair.
+    "version-line.zh-CN.cliff": {"version": 1},
 }
 
 

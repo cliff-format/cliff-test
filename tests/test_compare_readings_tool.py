@@ -12,11 +12,12 @@ same convention the sibling-checkout tests use.
 
 from __future__ import annotations
 
-import importlib.util
 import json
 from pathlib import Path
 
 import pytest
+
+from tests._tool_loader import load_module
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOL = ROOT / "tools" / "compare_readings.py"
@@ -37,11 +38,7 @@ PUBLISHED = {
 
 
 def _load_tool():
-    spec = importlib.util.spec_from_file_location("compare_readings", TOOL)
-    assert spec is not None and spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    return load_module(TOOL, "compare_readings")
 
 
 def _records(run: Path) -> list[dict]:

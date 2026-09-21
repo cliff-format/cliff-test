@@ -2,8 +2,8 @@
 """Run the reproducible CLIFF test batteries.
 
    python tests/run_all.py               # validation suites + benchmark
-   python tests/run_all.py --quality     # after translator-output.cliff exists
-   python tests/run_all.py --robustness  # after edits/ exists
+   python tests/run_all.py --quality     # objective constraints on tests/quality/
+   python tests/run_all.py --robustness  # generates the 100 edits, then checks them
 
 Each suite below states the mode it is checked in, because a suite that passes
 under the wrong mode is not evidence of anything:
@@ -25,16 +25,26 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _siblings import ENV_VAR, required  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 VALIDATOR = ROOT / "tools" / "cliff_validator.py"
 FIXTURES = ROOT / "tests" / "fixtures"
 SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples"
 
-#: Tolerant fixtures that must still be *refused* (specification Appendix C.5):
-#: tolerant parsing repairs shape, never content. The second file is refused
-#: *after* the quoted-key relaxation of C.2.7 has applied: the quotes come off and
-#: the word inside is still not a legal key, which is the boundary that keeps the
-#: relaxation from widening the key sets.
+#: The exit code the validator uses for a usage error (no input files, an unknown
+#: flag). It means the check never ran, so it can never be read as "failed as
+#: expected" - an empty file list would otherwise turn a refusal battery into a suite
+#: that passes while testing nothing.
+USAGE_ERROR_EXIT = 2
+
+#: The generator for the 100 sequential edits. The directory it writes is gitignored,
+#: so the robustness battery produces what it reads instead of failing on a fresh
+#: clone.
+EDIT_DRIVER = ROOT / "tests" / "edit-robustness" / "apply_edits.py"
+
 #: Tolerant fixtures that must still be REFUSED, with the reason each is a boundary
 #: rather than a repairable shape:
 #:
@@ -67,27 +77,101 @@ def run(cmd: list[str]) -> tuple[int, str]:
 def run_suite(title: str, args: list[str], *, expect_success: bool, ok: bool) -> bool:
     rc, out = run([sys.executable, str(VALIDATOR), *args])
     print(out)
-    passed = (rc == 0) if expect_success else (rc != 0)
+    # A usage error is not a verdict: the validator never read a file, so a non-zero
+    # expectation must not be satisfied by it.
+    passed = (rc == 0) if expect_success else (rc not in (0, USAGE_ERROR_EXIT))
+    expected = "0" if expect_success else f"non-zero other than {USAGE_ERROR_EXIT}"
     state = "as expected" if passed else "UNEXPECTED"
-    print(f"{title}: exit {rc} ({'0' if expect_success else 'non-zero'} expected) — {state}")
+    print(f"{title}: exit {rc} ({expected} expected) — {state}")
     return ok and passed
 
 
-def main() -> int:
-    argparse.ArgumentParser(description=__doc__).parse_known_args()
+def check_counter_examples(paths: list[Path]) -> bool:
+    """Whether the Appendix C.5 battery has anything to refuse.
+
+    An empty list would hand the validator no input, whose usage error used to read as
+    "failed as expected" - so the refusal battery passed precisely when it tested
+    nothing.
+    """
+    if paths:
+        return True
+    print("FAIL: no tolerant counter-example found; Appendix C.5 is untested")
+    return False
+
+
+def ensure_edits(edits: Path, *, generator: Path | None = None) -> bool:
+    """Generate the robustness edits when they are absent; True when they are there.
+
+    `tests/edit-robustness/edits/` is gitignored, so the documented
+    `python tests/run_all.py --robustness` command would fail on a fresh clone. The
+    driver is a parameter so the generation branch can be exercised without touching
+    the real tree.
+    """
+    if any(edits.rglob("*.cliff")):
+        return True
+    rc, out = run([sys.executable, str(generator or EDIT_DRIVER)])
+    print(out)
+    return rc == 0 and any(edits.rglob("*.cliff"))
+
+
+def check_spec_examples(ok: bool) -> bool:
+    """Check the specification's example suites in the sibling `cliff` checkout.
+
+    Absent, this skips - unless `CLIFF_REQUIRE_SIBLINGS=1`, where it fails, because the
+    examples are the artefact the whole suite is defined against and a green build that
+    never checked them is worse than a red one.
+
+    The policy is spelled out here rather than delegated to `_siblings.require_directory`,
+    which fails by raising: outside pytest that surfaces as a traceback, and a CI log
+    whose last line is a stack trace tells a reader less than one that says FAIL. The
+    two answer the same question and are held by the same tests.
+    """
+    if not SPEC_EXAMPLES.is_dir():
+        if required():
+            print(
+                f"FAIL: {SPEC_EXAMPLES} not found and {ENV_VAR}=1 is set; the specification's "
+                "examples are what this suite is defined against, so this is a failure and "
+                "not a skip"
+            )
+            return False
+        print(f"skipped: {SPEC_EXAMPLES} not found (set {ENV_VAR}=1 to require it)")
+        return ok
+    suites = sorted(path for path in SPEC_EXAMPLES.iterdir() if path.is_dir())
+    if not suites:
+        print(f"FAIL: {SPEC_EXAMPLES} holds no example suite; nothing was checked")
+        return False
+    for suite in suites:
+        ok = run_suite(
+            f"spec examples {suite.name}",
+            ["--suite", str(suite)],
+            expect_success=True,
+            ok=ok,
+        )
+    return ok
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """The two extra batteries, declared so a typo is an error instead of a no-op."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--quality",
+        action="store_true",
+        help="also run the quality objective constraints on tests/quality/",
+    )
+    parser.add_argument(
+        "--robustness",
+        action="store_true",
+        help="also run the 100 sequential edits from tests/edit-robustness/",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
     ok = True
 
     print("== spec examples (sibling cliff repository) ==")
-    if SPEC_EXAMPLES.exists():
-        for version in sorted(p.name for p in SPEC_EXAMPLES.iterdir() if p.is_dir()):
-            ok = run_suite(
-                f"spec examples {version}",
-                ["--suite", str(SPEC_EXAMPLES / version)],
-                expect_success=True,
-                ok=ok,
-            )
-    else:
-        print(f"skipped: {SPEC_EXAMPLES} not found")
+    ok = check_spec_examples(ok)
 
     print("== valid fixtures ==")
     ok = run_suite("valid", ["--suite", str(FIXTURES / "valid")], expect_success=True, ok=ok)
@@ -130,8 +214,8 @@ def main() -> int:
         expect_success=False,
         ok=ok,
     )
-    if not unrepairable:
-        print("WARNING: no tolerant counter-example found; Appendix C.5 is untested")
+    if not check_counter_examples(unrepairable):
+        ok = False
 
     print("== an answer holding two documents (translation + glossary) ==")
     if MULTI_DOCUMENT.exists():
@@ -150,25 +234,25 @@ def main() -> int:
     print(out)
     ok &= rc == 0
 
-    if "--quality" in sys.argv:
+    if args.quality:
         print("== quality objective constraints ==")
         rc, out = run([sys.executable, str(ROOT / "tests/quality/check_constraints.py")])
         print(out)
         ok &= rc == 0
 
-    if "--robustness" in sys.argv:
+    if args.robustness:
         print("== edit robustness ==")
         edits = ROOT / "tests/edit-robustness/edits"
-        if edits.exists():
+        if not ensure_edits(edits):
+            print(f"FAIL: {edits} is missing and {EDIT_DRIVER.name} could not generate it")
+            ok = False
+        else:
             files = sorted(edits.rglob("*.cliff"))
             rc, out = run([sys.executable, str(VALIDATOR), "--suite", str(edits)])
             print(out)
             valid = out.count(": VALID")
             print(f"valid edits: {valid}/{len(files)}")
-            ok &= valid == len(files)
-        else:
-            print("tests/edit-robustness/edits does not exist")
-            ok = False
+            ok &= bool(files) and valid == len(files)
 
     print("ALL PASS" if ok else "FAILURES PRESENT")
     return 0 if ok else 1

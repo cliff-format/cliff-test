@@ -12,11 +12,11 @@ valid documents is not one valid document.
 
 from __future__ import annotations
 
-import importlib.util
-import sys
 from pathlib import Path
 
 import pytest
+
+from tests._tool_loader import load_module  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
@@ -25,14 +25,7 @@ FIXTURES = ROOT / "tests" / "fixtures"
 
 def _load_validator():
     """Import `cliff_validator` without running its `main()`."""
-    spec = importlib.util.spec_from_file_location(
-        "cliff_cliff_validator", TOOLS / "cliff_validator.py"
-    )
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
+    return load_module(TOOLS / "cliff_validator.py", "cliff_cliff_validator")
 
 
 @pytest.fixture(scope="module")

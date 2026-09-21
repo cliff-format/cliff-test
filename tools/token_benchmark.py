@@ -8,6 +8,7 @@ tests/benchmark/report.zh-CN.md plus fixtures for manual fairness review.
 """
 from __future__ import annotations
 
+import argparse
 import csv
 import io
 import json
@@ -742,8 +743,10 @@ def emit_toml(s: dict) -> str:
 # Reporting
 # ---------------------------------------------------------------------------
 
-def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
-                  fixtures_paths: list) -> None:
+def build_report_texts(results: dict, engine: str, cliff_tokens: int, order: list,
+                       fixtures_paths: list) -> tuple[str, str]:
+    """The two reports, as text. No writes, so `--check` can render without touching
+    the tracked files."""
     others = [name for name in order if name != CLIFF_LABEL]
     avg = sum(results[name]["tokens"] for name in others) / len(others)
     savings = (1 - cliff_tokens / avg) * 100
@@ -823,12 +826,28 @@ def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
     zh_lines.append("")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "report.md").write_text("\n".join(en_lines), encoding="utf-8")
-    (OUT_DIR / "report.zh-CN.md").write_text("\n".join(zh_lines), encoding="utf-8")
-    print("\n".join(en_lines))
+    return "\n".join(en_lines), "\n".join(zh_lines)
 
 
-def main() -> int:
+def write_reports(results: dict, engine: str, cliff_tokens: int, order: list,
+                  fixtures_paths: list) -> None:
+    """Write the two reports (and print the English one, as the tool always has)."""
+    english, chinese = build_report_texts(results, engine, cliff_tokens, order, fixtures_paths)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    (OUT_DIR / "report.md").write_text(english, encoding="utf-8", newline="\n")
+    (OUT_DIR / "report.zh-CN.md").write_text(chinese, encoding="utf-8", newline="\n")
+    print(english)
+
+
+def render_artefacts() -> dict[Path, str]:
+    """Every file this tool writes, rendered in memory and keyed by its path.
+
+    The suite commits these nine artefacts - two reports and seven fixture files - and
+    regenerates them, so a code change can leave the committed copy stale with nothing
+    failing. `--check` compares this mapping against the tracked files; the writer
+    below writes it. One function renders, so the two can never disagree about what the
+    output is.
+    """
     count, engine = tokenizer()
     cliff_main_text = emit_cliff_main(SAMPLE)
     cliff_glossary_text = emit_cliff_glossary(SAMPLE)
@@ -864,15 +883,74 @@ def main() -> int:
         "data.yaml": emit_yaml(SAMPLE),
         "data.toml": emit_toml(SAMPLE),
     }
-    FIXTURES.mkdir(parents=True, exist_ok=True)
-    for filename, text in fixture_texts.items():
-        (FIXTURES / filename).write_text(text, encoding="utf-8")
 
     cliff_tokens = results[CLIFF_LABEL]["tokens"]
     order = list(emitters.keys())
-    write_reports(results, engine, cliff_tokens, order, list(fixture_texts.keys()))
+    english, chinese = build_report_texts(
+        results, engine, cliff_tokens, order, list(fixture_texts.keys())
+    )
+    artefacts = {
+        OUT_DIR / "report.md": english,
+        OUT_DIR / "report.zh-CN.md": chinese,
+    }
+    artefacts.update({FIXTURES / filename: text for filename, text in fixture_texts.items()})
+    return artefacts
+
+
+def first_difference(expected: str, actual: str) -> str:
+    """A readable one-line summary of where two texts diverge."""
+    expected_lines, actual_lines = expected.splitlines(), actual.splitlines()
+    for index in range(max(len(expected_lines), len(actual_lines))):
+        want = expected_lines[index] if index < len(expected_lines) else "<end of file>"
+        got = actual_lines[index] if index < len(actual_lines) else "<end of file>"
+        if want != got:
+            return f"line {index + 1}:\n      tracked: {want}\n      rendered: {got}"
+    return "the texts differ only in trailing whitespace"
+
+
+def check() -> int:
+    """Compare every rendered artefact with the tracked file. 0 when they match."""
+    stale: list[str] = []
+    for path, expected in sorted(render_artefacts().items()):
+        relative = path.relative_to(ROOT).as_posix()
+        if not path.is_file():
+            stale.append(f"{relative}: missing (the tool would create it)")
+            continue
+        actual = path.read_text(encoding="utf-8")
+        if actual != expected:
+            stale.append(f"{relative}: {first_difference(expected, actual)}")
+    if not stale:
+        print("token benchmark: every tracked artefact matches what the tool renders")
+        return 0
+    print("token benchmark: tracked artefacts are stale")
+    for entry in stale:
+        print(f"  - {entry}")
+    print("\nregenerate with: python tools/token_benchmark.py")
+    return 1
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="render every artefact in memory and compare it with the tracked file",
+    )
+    args = parser.parse_args(argv)
+    if args.check:
+        return check()
+
+    artefacts = render_artefacts()
+    for path, text in artefacts.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        # LF explicitly: `.gitattributes` pins `eol=lf`, and the default text-mode write
+        # on Windows turns every newline into CRLF, which leaves the tracked reports
+        # looking modified after every run and makes the committed bytes platform
+        # dependent. `check()` reads with universal newlines, so it could not see it.
+        path.write_text(text, encoding="utf-8", newline="\n")
+    print(artefacts[OUT_DIR / "report.md"])
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

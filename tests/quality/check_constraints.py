@@ -9,12 +9,17 @@ correct translation must satisfy.
 from __future__ import annotations
 
 import sys
-import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 import cliff_validator as cv  # noqa: E402
+
+# Display cells (§15) come from the validator that owns the rule - `cv.display_cells`,
+# the same function it applies to its own `max-width` diagnostic. This file used to
+# carry its own copy, which made two implementations of a metric that the quality
+# report compares against the specification. `tests/test_width_agreement.py` holds the
+# remaining copies to each other.
 
 CORPUS = ROOT / "tests" / "quality" / "corpus.cliff"
 OUTPUT = ROOT / "tests" / "quality" / "translator-output.cliff"
@@ -31,15 +36,6 @@ BANNED = {
     "kick-bucket": ["水桶", "桶"],
     "cats-dogs": ["猫", "狗"],
 }
-
-
-def display_cells(text: str) -> int:
-    total = 0
-    for ch in text:
-        if unicodedata.combining(ch):
-            continue
-        total += 2 if unicodedata.east_asian_width(ch) in ("W", "F") else 1
-    return total
 
 
 def fields(doc: cv.Document):
@@ -93,7 +89,8 @@ def main() -> int:
         checks.append((not any(b in t for b in bad), f"{eid}: no banned literal '{'/'.join(bad)}'"))
 
     short = trg.get("accept-short", {}).get("target", "")
-    checks.append((display_cells(short) <= 6, f"accept-short: {display_cells(short)} cells <= 6"))
+    cells = cv.display_cells(short)
+    checks.append((cells <= 6, f"accept-short: {cells} cells <= 6"))
 
     passed = sum(1 for okk, _ in checks if okk)
     total = len(checks)
