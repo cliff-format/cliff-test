@@ -384,3 +384,42 @@ redesign, so in that run CLIFF is measured on the example-driven prompt while th
 other nine still carry their established instructions. CLIFF is the least surviving
 of the ten there and the best on the answers that survive (chrF++ 53.3), which is a
 statement about this protocol, not a like-for-like format ranking.
+
+### Why CLIFF's row is the weakest, and what it is not
+
+The obvious explanations do not survive the controls, which is worth recording
+because each one is the first thing a reader reaches for.
+
+- **Not the values.** `json-cliff` carries exactly the same strings, the same
+  escaping needs and the same required `status`/`target` fields — it is the same
+  data model in JSON — and it scores **91.7 %** against CLIFF's **58.3 %** in the
+  bare arm.
+- **Not the size.** CLIFF's rendered document is the *second smallest* of the ten
+  (24 322 tokens over the sixteen files, against android's 41 228), and `json-cliff`'s
+  rendering of the same file is 56 % *longer* in characters. A longer file is not the
+  problem; the two largest outputs in the run are `wmt24pp` and `hongloumeng-joly`,
+  and both fail in both formats' CLIFF-like arms only.
+- **Not the prompt content.** The 1.3 pilot's `digest` condition carried the full
+  16 316-token specification text and scored **61.5 %** — the same band as this run.
+  Telling the model more about CLIFF did not make it survive.
+- **Not the temperature alone.** Every format in this run is at 1.3, and CLIFF is 25
+  points below the next-weakest bare arm (csv, 83.3 %).
+
+What is left is the property the format chose deliberately: **CLIFF has no
+delimiters.** Structure is positional — an entry runs from its `<id>` to the next
+`<id>` or `[group]` — so there is nothing that contains a slip.
+
+- A **dropped `target:` line is invisible**: the document still parses, the entry is
+  simply one line shorter, and only the required-field rule rejects it, as
+  `status 'translated' requires a target field`. That is 8 of CLIFF's 20 bare
+  failures.
+- A **lost closing quote is a cascade**: the next line begins with a quote, which is
+  the documented adjacent-string continuation, so it is absorbed into the broken
+  string and the parser reports a failure far from its cause. That is most of the
+  other 12.
+
+So the format is robust to *structural* damage and fragile to *semantic* damage —
+exactly the trade its design makes, and the reason "deleting a line cannot unbalance
+the document" is a true statement that is not the same as "a deleted line is
+harmless". A format with braces or closing tags contains the same slip locally, and
+the model's prior for those syntaxes is larger; both effects point the same way.
