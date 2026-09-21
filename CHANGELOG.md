@@ -9,42 +9,53 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Recorded
 
-- **Partial re-measurement of the affirmative prompt: CLIFF, bare arm, one cell.**
+- **Partial re-measurement of the affirmative prompt: CLIFF, both arms.**
   `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch
-  robustness --formats cliff --arms bare --repeats 3`, run
-  `results/clarion-deepseek-flash-20260921T163044+0000-da6d9d` (and the one-repeat
-  first pass, `...-20260921T162803+0000-591dd9`): 48 answers, 0 provider errors,
-  159 669 prompt + 142 225 output tokens, 90 s. **Deliberately partial**:
-  `robustness` and the context arm are skipped, so the D7 and fidelity rows and the
-  context columns in this run are empty by construction, and this is one cell of
-  the ten-format comparison, not a table.
-  - **Result: 23/48 = 47.9 % valid against 28/48 = 58.3 %** for the previous
-    wording at the same settings (temperature 1.3, `prompt_style: examples`, all
-    sixteen files, three repeats). **Not distinguishable**: Fisher exact p = 0.41,
-    95 % Wilson 34.5–61.7 % against 44.3–71.2 %. The honest reading is that this
-    sample cannot see the difference the rewrite might have made.
-  - **Per file, the picture is not worse**: 9 of 16 files failed here against 11 of
-    16 failing in at least one of the three recorded repeats; 7 files fail in both
-    (`game-quest`, `game-shard`, `hongloumeng-joly`, `legal-privacy`,
-    `news-social`, `news-wire`, `wmt24pp`); `lit-drama`, `lit-modern`,
-    `ui-workbench` and `sanguo-brewitt-taylor` failed in the recorded run and are
-    valid here (`sanguo-brewitt-taylor` was 0/3 there); `godot-l10n` and
-    `probe-ambiguity` were 3/3 valid there and fail here.
-  - **The channel requirement survived the rewording.** Dropping *"The answer
-    begins with the first character of that file and ends with its last"* was the
-    risk in removing the fences; all 48 answers begin with `CLIFF 1.1` and none
-    carries commentary outside the file.
-  - **Failure family unchanged**: the same parse degradation of a long generation
-    (`expected 'key: value' or 'key = value' field` 5, `expected a quoted string`
-    5, `unterminated string` 6, other parse 4) plus dropped required fields. Two
-    shapes appeared that the previous wording's 48 answers did not show, recorded
-    because they are the first thing to look for in the next step rather than
-    because one sample decides anything: `hongloumeng-joly`'s answer parses
-    cleanly and has dropped **every `type:` line** (14 entries, one `missing
-    required field 'type'` diagnostic each), and `news-social` wrote an invented
-    tag (`type: finished-registration`) **and narrated the guess inside its
-    `context` field** (*"unsupported by parser, using nearest invented type; add
-    note in translation"*). Both are n = 1.
+  robustness --formats cliff --repeats 3` in two passes, one arm each: run
+  `results/clarion-deepseek-flash-20260921T163044+0000-da6d9d` (bare, 159 669
+  prompt + 142 225 output tokens, 90 s) and
+  `results/clarion-deepseek-flash-20260921T163515+0000-b943b1` (context, 230 772 +
+  211 785, 91 s), plus a one-repeat first pass (`...-20260921T162803+0000-591dd9`).
+  96 answers per wording, 0 provider errors. **Deliberately partial**:
+  `robustness` is skipped, so the D7 rows are empty by construction, and this is
+  the CLIFF cell of the ten-format comparison, not a table.
+  - **Result: 47/96 = 49.0 % valid against 62/96 = 64.6 %** for the previous wording
+    at the same settings (temperature 1.3, `prompt_style: examples`, the same
+    sixteen files, three repeats). Fisher exact **p = 0.041** (Wilson 39.2–58.8 %
+    against 54.6–73.4 %). Bare: 23/48 = 47.9 % against 28/48 = 58.3 %
+    (p = 0.41). Context: 24/48 = 50.0 % against 34/48 = 70.8 % (**p = 0.060**).
+  - **The failure mix names the two sentences that were cut**, which is why this is
+    recorded as a finding rather than a shrug:
+    - **Escaping and quoting**, which is `CLIFF_TASK_RULES` rule 5. Bare quoting
+      failures went 5 → 11 (`unterminated string` 2 → 6, `expected a quoted
+      string` 3 → 5), and the context arm adds `unknown escape sequence \` and
+      `unknown escape sequence \u` plus three answers with an empty field name
+      (`invalid field name ''`). The rewrite kept the positive half of rule 5
+      ("each text value as one quoted string") and dropped the escape facts and
+      the sentence that said the quoting error is the one nothing downstream can
+      repair.
+    - **The extent of the answer**, which is the sentence *"The answer begins with
+      the first character of that file and ends with its last"* in the shared rules.
+      Two context answers put content outside the file — one ends with a Chinese
+      summary of what it did (*"本文已完成术语策略文件…"*), and three end with
+      invented wrapper tags (`</langkau>`, `</params>`, a bare `<`) — and others
+      carried a misplaced key (`unknown group key 'source'`, `unknown entry key
+      'Emotion'`).
+  - **Per file it is a widespread small loss, not a few files collapsing**:
+    `godot-l10n` 3/3 → 1/3 (bare) and 3/3 → 2/3 (context), `lit-classical`
+    3/3 → 1/3, `lit-drama` 2/3 → 1/3, `lit-modern` 2/3 → 1/3, `news-social`
+    2/3 → 1/3, `ui-workbench` (context) 3/3 → 1/3; against improvements on
+    `legal-privacy` (bare) 0/3 → 2/3, `news-wire` 1/3 → 2/3, `ui-console`
+    (context) 2/3 → 3/3 and `wmt24pp` (context) 0/3 → 1/3.
+  - **What this does not establish**: it is a before/after across two runs, not a
+    randomised paired experiment. The provider may not serve the same model
+    snapshot, the arms were run in separate passes, and several comparisons were
+    made while stepping through the measurement, so one p near 0.05 is weaker than
+    it looks. It is enough to justify a controlled re-measurement of the two
+    sentences above, not enough to call the rewrite a regression on its own.
+  - **The channel requirement's other half survived.** All 96 answers begin with
+    `CLIFF 1.1`, so removing the sentence did not invite a preamble; what it cost
+    was the tail and the wrapping.
 - **The deployment-settings run: 1.3, the example-driven prompt, all ten formats.**
   `python -m clarion pipeline --config configs/deepseek-flash.json --skip fetch`,
   run `results/clarion-deepseek-flash-20260921T142211+0000-904a70`: 1 180 records
