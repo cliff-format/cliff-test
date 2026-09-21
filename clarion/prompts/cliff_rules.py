@@ -195,8 +195,10 @@ def build_normative_rules() -> str:
     status = ", ".join(STATUS_TAGS)
     return f"""CLIFF 1.1 - THE SPECIFICATION, COMPRESSED TO ITS RULES
 
-The normative grammar, in ABNF (RFC 5234). It is the definition of the format; the
-constraints after it state the rules a grammar cannot express.
+The normative grammar, in ABNF (RFC 5234). It is the definition of the format, and
+its first production is the whole of what an answer is: one `cliff-file`, from its
+version line to its last field. The constraints after the grammar state the rules
+a grammar cannot express.
 
 --- GRAMMAR ---
 {grammar_only()}

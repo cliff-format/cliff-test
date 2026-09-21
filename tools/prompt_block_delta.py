@@ -42,6 +42,24 @@ def block(source: str, name: str) -> str:
     return match.group(1) if match else ""
 
 
+def rendered(module_source: str, name: str) -> str:
+    """The *value* of a module-level string, with f-string placeholders filled in.
+
+    Reading the source text instead compares a template against a rendered string:
+    ``CLIFF_FACTS`` holds ``{_row(...)}`` calls that the source spells out and the
+    value does not, so the source-text comparison reported a 107-token difference
+    where the rendered difference was zero. Executing the revision is what makes the
+    number the number.
+    """
+    namespace: dict[str, object] = {}
+    try:
+        exec(compile(module_source, "<previous revision>", "exec"), namespace)  # noqa: S102
+    except Exception:  # pragma: no cover - a revision with imports or side effects
+        return block(module_source, name)
+    value = namespace.get(name)
+    return value if isinstance(value, str) else block(module_source, name)
+
+
 def main(argv: list[str]) -> int:
     ref = argv[0] if argv else "HEAD"
     from clarion.metrics.tokens import get_tokenizer
@@ -60,7 +78,7 @@ def main(argv: list[str]) -> int:
             encoding="utf-8",
         ).stdout
         for name in names:
-            before = tokenizer.count(block(previous, name))
+            before = tokenizer.count(rendered(previous, name)) if previous else 0
             after = tokenizer.count(getattr(current, name))
             net += after - before
             marker = "" if before == after else "  <-- changed"

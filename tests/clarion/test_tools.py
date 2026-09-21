@@ -321,6 +321,40 @@ def test_no_prompt_block_fences_the_working_method() -> None:
     )
 
 
+def test_the_answer_boundary_is_stated_in_the_shared_rules() -> None:
+    """The deliverable's *extent*, stated affirmatively.
+
+    Three of the five remaining failures in the best CLIFF run were the model
+    writing its own notes into the answer - a `{"note": ...}` object, `##### Result
+    impossible.`, an entry marker followed by a comment on the corpus - and one was
+    an answer that stopped mid-string. All four are the same missing fact: nothing
+    said that the answer is the file and only the file. The old prompt said it, in
+    two places, and both were removed in one pass: "Your answer is the file that
+    appears under FILE TO TRANSLATE..." (shared rules) and "never a diff and never a
+    commentary" (system role). The second is a prohibition and stays out; the first
+    is the deliverable and belongs in, phrased as what the answer is.
+    """
+    from clarion.prompts import templates
+
+    rules = " ".join(templates.TASK_RULES.split())
+    assert "opening with that file's first line and closing with its last" in rules, (
+        "the rules no longer state where the answer begins and ends, and the failure "
+        "that follows is the model annotating its own output"
+    )
+    lowered = rules.lower()
+    for prohibition in ("never ", "do not", "cannot", "nothing else"):
+        assert prohibition not in lowered, (
+            f"the boundary is stated as a prohibition ('{prohibition}') again; state "
+            "what the answer is"
+        )
+    # And the CLIFF block says the same thing in the format's own terms: the grammar
+    # has one start symbol, and it is what an answer is.
+    from clarion.prompts import cliff_rules
+
+    spec = " ".join(cliff_rules.build_normative_rules().split())
+    assert "one `cliff-file`, from its version line to its last field" in spec
+
+
 def test_the_two_rule_lists_in_one_message_have_different_headings() -> None:
     """One message, two numbered lists, and the headings have to tell them apart.
 

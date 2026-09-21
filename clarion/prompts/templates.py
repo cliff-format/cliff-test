@@ -22,9 +22,10 @@ in the target language and its structure intact."""
 TASK_RULES = """Translate the localization file below from {source_language} into {target_language}.
 
 WHAT WE NEED
-1. The translated file: the file that appears under "FILE TO TRANSLATE", complete
-   and in the format you received it. Reference material such as a glossary is
-   context for your reading.
+1. The translated file, complete: the file that appears under "FILE TO TRANSLATE",
+   in the format you received it, opening with that file's first line and closing
+   with its last. Reference material such as a glossary is context for your
+   reading.
 2. Every identifier, key, group path and structural element of that file, as it
    appears in the file you were given.
 3. The source text verbatim; your work goes into the translation.

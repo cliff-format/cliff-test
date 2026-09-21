@@ -177,14 +177,22 @@ fixture still passes, and the checks below answer the 1.1 questions.
   - `CLIFF_EDIT_SAFETY` (the `digest` style's reminder) states the same facts as
     properties rather than as a *"copy exactly as written"* imperative.
   - **Priced, because these blocks reach every call of every format**:
-    `tools/prompt_block_delta.py` prints the delta per block against the last
-    commit. CLIFF facts **+115** (the orientation paragraph), CLIFF task rules
-    **−91**, shared task rules **−29**, system role **+13**, glossary workflow
-    **+17**, output shape **+5**, edit safety **+1** — net **+24 tokens per call**.
-    The prompt-cost table in `docs/clarion-prompt-design.md` was re-measured
-    through the assembly path and now reads **21 078 → 2 396** tokens for the
-    `ui-console` plain cell (the older 20 739 / 2 630 figures are superseded; the
-    specification text alone grew from 16 316 to 16 656 tokens).
+    `tools/prompt_block_delta.py <ref>` prints the delta per block against a
+    revision. Against the state before the rewrite: CLIFF task rules **−91**, shared
+    task rules **−15**, glossary deliverable **−6**, CLIFF facts **+8** (the
+    orientation paragraph), system role **+13**, output shape **+5**, glossary
+    workflow **+17**, edit safety **+2** — net **−67 tokens per call**. The prompt
+    was *cheaper* after the rewrite, not dearer. The original figures here said
+    "facts **+115** … net **+24**": the tool was comparing each block's template
+    source against the live rendered string, and `CLIFF_FACTS` is an f-string whose
+    `{_row(...)}` calls are long in the source and short in the value, so it
+    invented a 107-token difference in a block that had barely moved. The tool now
+    executes the previous revision and reads the attribute, and
+    `tests/test_prompt_cost_tool.py` holds both ends together.
+    The prompt-cost table in `docs/clarion-prompt-design.md` is re-measured through
+    the assembly path and reads **21 092 → 2 410** tokens for the `ui-console` plain
+    cell (the older 20 739 / 2 630 figures are superseded; the specification text
+    alone grew from 16 316 to 16 656 tokens).
   - The rule is held by
     `tests/clarion/test_tools.py::test_no_prompt_block_fences_the_working_method`,
     which names the phrases an edit would add back,
@@ -249,13 +257,13 @@ fixture still passes, and the checks below answer the 1.1 questions.
   from the specification repository.** The format's own text is 16 656 tokens, of
   which only **2 467 are sentences that state a rule**; the rest is motivation,
   examples, comparisons and migration notes. `clarion/prompts/cliff_rules.py`
-  builds a **2 094-token** prompt block out of the parts that state rules and
-  nothing else: the ABNF with comments stripped, the ABNF's semantic-constraint
-  block (where required fields, the `status`/`target` dependency, the escape rules,
-  brace balance, list-typed fields and identifier case already live), the field
-  tables of sections 7-9 extracted from the specification's own markdown, the closed
-  vocabularies from its reference tables, its own quick example, and the glossary
-  rules of 13.2.
+  builds a **2 252-token** prompt block out of the parts that state rules and
+  nothing else: the ABNF with comments stripped (613), the ABNF's semantic-
+  constraint block (794, where required fields, the `status`/`target` dependency,
+  the escape rules, brace balance, list-typed fields and identifier case already
+  live), the field tables of sections 7-9 (258, extracted from the specification's
+  own markdown), the closed vocabularies and the rules that frame them (414), and
+  the specification's own quick example (173).
   - **Nothing in it is hand-written**, which is the difference between this style
     and `examples`: a hand-maintained restatement is a second source of truth, and
     the second source is the one that goes stale. `tests/clarion/test_spec_digest.py`
@@ -280,6 +288,19 @@ fixture still passes, and the checks below answer the 1.1 questions.
     from a parse failure to valid and two the other way. **Not significant yet**
     (Fisher exact p = 0.25, n = 16 on one side) and recorded as a direction to
     confirm at three repeats, not as a result.
+  - **Second measurement, with the answer boundary stated** (same cell, same
+    settings, run `clarion-deepseek-flash-20260921T171241`, +14 prompt tokens):
+    **11/16 = 68.8 % again.** The number did not move, and the failures are the
+    finding: two files were fixed and two broke, while the behaviour that was
+    supposed to be fixed persisted in new spellings — a bare `[CONTINUATION VIA
+    NOPER])</chapter-1-004>` inside a `target` value, `</final-direction></final-direction>`
+    on its own line, an entry marker whose id is the field name `source`, and the
+    same duplicated entry (`abstract-2`, missing `source` and `status`) that the
+    first run had. **Conclusion: the remaining failures are not a missing
+    instruction.** Two different prompt-content levers have now been tested in the
+    same cell (the rewrite, −15 points; the boundary statement, 0 points) and the
+    failure rate did not respond to either, which leaves the decoding regime as the
+    variable still standing.
 - **`tools/prompt_cost.py` and `tools/prompt_block_delta.py`, with
   `tests/test_prompt_cost_tool.py`.** The prompt-cost table in
   `docs/clarion-prompt-design.md` is quoted in this changelog and in the acceptance

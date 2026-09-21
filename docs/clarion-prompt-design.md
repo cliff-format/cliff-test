@@ -26,7 +26,7 @@ totals and that each column adds up to its own total.
 | specification text, block as sent | 16 691 | — |
 | specification digest, core + supplement | 2 785 | — |
 | stated facts: keys, scopes, vocabularies | — | 402 |
-| task rules (generic + CLIFF + output shape) | 266 | 468 |
+| task rules (generic + CLIFF + output shape) | 280 | 482 |
 | format notes | 117 | — |
 | edit-safety reminder | 118 | — |
 | examples | — | 425 |
@@ -34,14 +34,14 @@ totals and that each column adds up to its own total.
 | terminology policy | 236 | 236 |
 | glossary workflow | 231 | 231 |
 | the document itself | 571 | 571 |
-| **one cell, `ui-console` plain arm** | **21 078** | **2 396** |
+| **one cell, `ui-console` plain arm** | **21 092** | **2 410** |
 
 The rows are the measured blocks of one cell; each column adds up to its total. The
 specification text was 16 316 tokens when the recorded run priced it and is 16 656
 now — the specification itself has grown since (Appendix C.2.7 among the additions),
 which is a second reason a prompt that carries it is expensive to keep current.
 
-The quoting rule is the last of the five CLIFF task rules and costs 66 of those 468
+The quoting rule is the last of the five CLIFF task rules and costs 66 of those 482
 tokens: two of the 1.3 edit run's four invalid answers were a text value written
 without quotes, which is the one shape error no reading repairs (Appendix C.5). The
 specification text it replaced cost 16 691.
@@ -82,9 +82,15 @@ It carries
 | what one CLIFF cell carries | tokens |
 | --- | ---: |
 | the full specification text (the `digest` style) | 16 656 |
-| the old hand-written digest plus that text | 21 078 |
-| **`spec`: the specification compressed to its rules** | **2 094** |
-| `examples`: our hand-written facts plus two conforming files | 1 036 |
+| the old hand-written digest plus that text | 21 092 |
+| **`spec`: the specification compressed to its rules** | **2 252** |
+| `examples`: our hand-written facts plus two conforming files | 1 029 |
+
+The compressed block decomposes as the ABNF (613), the ABNF's semantic-constraint
+block (794), the field tables of sections 7-9 (258), the vocabularies and the lines
+that frame them (414) and the specification's own example (173) —
+`python -c "from clarion.prompts import cliff_rules; ..."` or
+`tests/clarion/test_spec_digest.py` reproduces each of them.
 
 Three guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
 compared against the key sets the parser actually accepts, every section of the
@@ -107,6 +113,33 @@ way, and the difference is **not yet significant** (Fisher exact p = 0.25 agains
 the three-repeat `examples` cell; n = 16 on one side). It is recorded because the
 direction is the one the failure analysis predicted: what the hand-written prompt
 was missing is exactly what the specification states and we had compressed away.
+
+**Second measurement: the answer boundary, stated, changes nothing.** The five
+remaining failures in that run were read line by line and three of them were the
+model writing its own notes into the answer (a `{"note": ...}` object, `##### Result
+impossible.`, an entry marker followed by a comment on the corpus), one was an
+answer that stopped mid-string, and two were invented duplicate entries. That looked
+like one missing fact — nothing said the answer *is* the file — so the shared rules
+gained a sentence stating its extent ("opening with that file's first line and
+closing with its last", +14 tokens, guarded by
+`test_the_answer_boundary_is_stated_in_the_shared_rules`), the CLIFF block gained the
+grammar's own version of it ("one `cliff-file`, from its version line to its last
+field"), and the same cell was re-run (`clarion-deepseek-flash-20260921T171241`).
+
+**11/16 = 68.8 % again.** Two files were fixed, two broke, and the behaviour the
+sentence was for survived in new spellings: `[CONTINUATION VIA NOPER])</chapter-1-004>`
+inside a `target` value, `</final-direction></final-direction>` on a line of its own,
+an entry marker whose id is the field name `source`, and the same duplicated entry
+(`abstract-2`) the previous run had produced.
+
+That is a result, and it is a negative one: at 1.3 the failure rate does not respond
+to prompt content. Two levers have now been pulled in this same cell — the rewrite
+(−15 points) and the boundary statement (0 points) — while the compressed
+specification moved it +25 points in one pass, which is why the specification stays
+and the boundary sentence is recorded as insufficient rather than harmful. The
+variable still standing is the decoding regime, and it is the one the stored runs
+cannot separate from prompt content (every 0.0 run also carried the full
+specification text). `--temperature` now exists so that it can be tested directly.
 
 ## What the prompt may constrain: the specification and the deliverable
 
@@ -150,13 +183,21 @@ the quoting rule and the `status`/`target` dependency, because the specification
 and the validator require those of the file; they no longer state anything the
 specification does not.
 
-The change is priced: `python tools/prompt_block_delta.py` prints the token delta of
-every block against the last commit. Across this rewrite the CLIFF facts block grew
-(+115, the orientation paragraph), the CLIFF task rules shrank (−91, the imperatives
-and the frames around them), and the net for the whole prompt is **+24 tokens per
-call** — the table above already includes it. Every other format's prompt moved by
-the shared blocks only (+13 system role, −29 task rules, +5 output shape), which is
-the same block set for all ten, so the format comparison stays like-for-like.
+The change is priced: `python tools/prompt_block_delta.py <ref>` prints the token
+delta of every block against a revision. Against `778bfdc` (the state before this
+rewrite) the CLIFF task rules fell by 91 tokens, the shared task rules by 15, the
+deliverable block by 6, and the facts block rose by 8 (the orientation paragraph);
+with the system role (+13), the output shape (+5), the glossary workflow (+17) and
+the edit-safety reminder (+2), the net for the whole prompt is **−67 tokens per
+call**. Every other format's prompt moved by the shared blocks only, which is the
+same block set for all ten, so the format comparison stays like-for-like.
+
+**That paragraph read "facts +115 … net +24" until the tool was fixed.** It compared
+each block's *template source* against the live *rendered* string, and `CLIFF_FACTS`
+is an f-string whose `{_row(...)}` calls are long in the source and short in the
+value — so the comparison invented a 107-token difference in a block that had not
+grown. `tools/prompt_block_delta.py` now executes the previous revision and reads
+the attribute, and `tests/test_prompt_cost_tool.py` holds the two ends together.
 
 ## The fact set is bounded by an empirical probe, not by taste
 
