@@ -116,6 +116,39 @@ fixture still passes, and the checks below answer the 1.1 questions.
   legalize a word, the prompt still spends no token on it, and
   `tests/clarion/test_prompt_v2.py` now rejects the phrasings a helpful edit
   would add back ("quote a key", "unquoted key", "keys are bare").
+- **The modification-correctness table the benchmark quotes**:
+  `clarion/report.py` gained `structure_report`, rendered between D4 and latency.
+  Per format and arm it prints `valid %`, `ids kept %`, `coverage %`,
+  `source kept %`, `repairs/answer` and the counts of extra, missing, drifted and
+  untranslated identifiers — the question the quality tables do not answer: did a
+  single-pass rewrite hand back the document it was given. Dimension 7 measures
+  something else (whether a file survives twelve sequential edits) and is
+  deliberately not the source of these numbers. `test_pipeline.py` asserts the
+  discrimination that justifies the table: an answer that is a **valid** CLIFF file
+  while having dropped three of four entries must read as 100 % valid and 25 %
+  coverage, in those columns and no others.
+- **`tests/clarion/test_secrets.py`** (8 tests): `clarion/secrets.py` is the only
+  module that reads an API key and the only one that claims a tree is clean, and it
+  had no test. The suite pins the lookup order, the absent-key return,
+  `install_key`, and that `scan_tree` catches each credential shape it advertises
+  while skipping the places a key is supposed to live.
+- **`tests/clarion/test_roundtrip_fields.py`** (70 cases): every format must read
+  back each field it wrote, in both its single-valued and multi-valued form.
+  `roundtrip_fidelity` answers this in aggregate and the corpus hides the failure —
+  it holds only two entries with a multi-valued list, so a codec that loses the
+  second element of every list still scores 98 %. The two json-plain cases where a
+  `|` separates both list items and fields are pinned with a **strict** xfail, so
+  fixing that codec becomes an XPASS failure rather than passing quietly.
+- **CI runs the whole suite.** The workflow ran `python tests/run_all.py` and
+  nothing else, so the harness tests, the lint gate, the corpus guard and the
+  offline self-check never ran on a push. It now checks out the sibling `cliff` and
+  `cliff-python` repositories and runs `run_all.py`, `tools/corpus_version.py`,
+  `ruff check clarion tests/clarion`, `pytest` and `python -m clarion selfcheck`.
+  `make check` runs the same five steps in the same order.
+- **`testpaths` is `tests/`, not `tests/clarion/`.** A bare `pytest` collected 245
+  tests and silently never collected `tests/test_validator_tool.py` or
+  `tests/test_edit_robustness.py` — eleven tests that existed and did not run. It
+  now collects 334 plus the two pinned xfails.
 - **`--check-layout`**, **`--style`**, and **`--tolerant`** modes, each with its
   own fixture suite: `tests/fixtures/layout/`, `style/`, `tolerant/`.
 - **Optional line terminator** support (`CLIFF 1.1` §5.6) in the strict parser,

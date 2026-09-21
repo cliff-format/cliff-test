@@ -174,3 +174,84 @@ def test_report_renders_from_records(corpus_root: Path) -> None:
     assert "D1 - token cost" in report
     assert "D4 - quality" in report
     assert "cliff" in report
+
+
+def test_structure_report_states_modification_correctness(corpus_root: Path) -> None:
+    """The rewrite's integrity is reported, with the columns that decide it.
+
+    The second half is the reason the table exists: an answer can be a perfectly
+    **valid** CLIFF file and still be the wrong document - the model kept one entry
+    and dropped the rest. Validity alone cannot see that, and every translation
+    memory keyed on the missing ids would miss.
+    """
+    from clarion.providers.base import Completion
+    from clarion.report import structure_report
+
+    class OneEntry:
+        """Returns a valid CLIFF file that has lost three of the four entries."""
+
+        name = "scripted"
+        model = "scripted-1"
+
+        def complete(self, request):  # noqa: ANN001, ANN201 - test double
+            text = (
+                "CLIFF 1.1\n"
+                "namespace: clarion\n"
+                "clan: fixture\n"
+                "source-language: en-US\n"
+                "target-language: zh-CN\n"
+                "\n"
+                "[settings.video]\n"
+                "type: label\n"
+                "\n"
+                "<resolution>\n"
+                'source: "Resolution"\n'
+                'target: "分辨率"\n'
+                "status: final\n"
+            )
+            return Completion(text=text, provider=self.name, model=self.model, latency_ms=1.0)
+
+    corpus = load_corpus("fixture", root=corpus_root)
+    config = _config()
+    tokenizer = get_tokenizer("o200k_base")
+
+    def row(provider) -> dict:  # noqa: ANN001 - test helper
+        result = run_translation_task(
+            corpus.files[0],
+            format_id="cliff",
+            arm=Arm.CONTEXT,
+            provider=provider,
+            tokenizer=tokenizer,
+            config=config,
+            policy=load_policy("zh-CN"),
+        )
+        record = result.as_dict()
+        record["kind"] = "translation"
+        return record
+
+    perfect = structure_report([row(MockProvider(mode="perfect"))])
+    for column in ("ids kept %", "coverage %", "source kept %", "repairs/answer"):
+        assert column in perfect, f"the table lost the '{column}' column"
+    assert "100.0" in perfect, perfect
+
+    partial = structure_report([row(OneEntry())])
+    assert partial != perfect, "a document that lost entries must not read like a perfect one"
+
+    def cells(report: str) -> dict[str, str]:
+        lines = [line for line in report.split("\n") if line.startswith("|")]
+        headers = [cell.strip() for cell in lines[0].strip("|").split("|")]
+        values = [cell.strip() for cell in lines[2].strip("|").split("|")]
+        return dict(zip(headers, values, strict=True))
+
+    kept = cells(perfect)
+    lost = cells(partial)
+    # The discrimination must land in the integrity columns, which is the whole
+    # point: the fixture has four entries, the scripted answer kept one, so the
+    # file is valid and three quarters of the document is gone.
+    assert kept["valid %"] == "100.0" and lost["valid %"] == "100.0"
+    assert kept["ids kept %"] == "100.0" and lost["ids kept %"] == "25.0"
+    assert kept["coverage %"] == "100.0" and lost["coverage %"] == "25.0"
+    assert kept["missing ids"] == "0" and lost["missing ids"] == "3"
+    assert kept["source kept %"] == "100.0" and lost["source kept %"] == "100.0", (
+        "a dropped entry is a coverage failure, not a source rewrite"
+    )

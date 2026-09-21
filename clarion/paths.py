@@ -35,8 +35,9 @@ POLICY_ROOT = CLIFF_TEST_ROOT / "clarion" / "policy"
 
 _PYCLIFF_HINT = (
     "cliff-python is required by CLARION. Either install it "
-    "(pip install -e git+https://github.com/cliff-format/cliff-python.git) or keep the cliff-python checkout next to "
-    "cliff-test so that {src} exists."
+    "(pip install -e "
+    "git+https://github.com/cliff-format/cliff-python.git) or keep the "
+    "cliff-python checkout next to cliff-test so that {src} exists."
 )
 
 

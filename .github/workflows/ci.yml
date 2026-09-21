@@ -8,9 +8,65 @@ jobs:
   cliff-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the suite
+        uses: actions/checkout@v4
+        with:
+          path: cliff-test
+
+      # The suite is defined against the other two repositories: the fixtures and
+      # the token benchmark import the reference implementation, and the
+      # specification examples are checked in place in the sibling cliff checkout.
+      # Without them whole suites would collect nothing, and a suite that collects
+      # nothing passes for the wrong reason - which is why the test step sets
+      # CLIFF_REQUIRE_SIBLINGS below instead of letting pytest skip.
+      - name: Check out the specification
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: ${{ github.repository_owner }}/cliff
+          path: cliff
+
+      - name: Check out the reference implementation
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          repository: ${{ github.repository_owner }}/cliff-python
+          path: cliff-python
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install
+        working-directory: cliff-test
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      # The conformance fixtures and the token benchmark, each suite checked in
+      # the mode it is about (strict, layout, style, tolerant).
       - name: Conformance fixtures and token benchmark
+        working-directory: cliff-test
         run: python tests/run_all.py
+
+      # The corpus is the instrument, so its version line and its gold digests are
+      # guarded rather than trusted.
+      - name: Corpus version and provenance guard
+        working-directory: cliff-test
+        run: python tools/corpus_version.py
+
+      - name: Lint
+        working-directory: cliff-test
+        run: ruff check clarion tests/clarion
+
+      - name: Test
+        working-directory: cliff-test
+        env:
+          CLIFF_REQUIRE_SIBLINGS: ${{ hashFiles('cliff/spec/**') != '' && '1' || '0' }}
+        run: pytest
+
+      # The harness's own end-to-end gate: offline, no model calls, and the only
+      # check that exercises the CLI, the pipeline and the scoring chain together.
+      - name: Offline end-to-end self-check
+        working-directory: cliff-test
+        run: python -m clarion selfcheck

@@ -13,6 +13,7 @@ results/
 tests/clarion/_fixture_corpus/
 tests/clarion/_import_sandbox/
 tests/clarion/_edit_temperature_runs/
+tests/clarion/_secrets_sandbox/
 # Secrets: never commit. The loader also looks outside every repository, in
 # ../.clarion-secrets/, which is the recommended location.
 .secrets/

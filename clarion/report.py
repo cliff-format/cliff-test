@@ -367,6 +367,99 @@ def fidelity_report(records: list[dict[str, Any]]) -> str:
     return "### Round-trip context fidelity\n\n" + _table(headers, rows_out, "right") + note
 
 
+def _structure_mean(items: list[dict[str, Any]], field: str) -> float:
+    """Mean of one structural field, as a percentage, over a group of answers."""
+    values = [
+        float((record.get("structure") or {}).get(field) or 0.0)
+        for record in items
+        if record.get("structure")
+    ]
+    return 100.0 * (mean(values) if values else 0.0)
+
+
+def _structure_count(items: list[dict[str, Any]], field: str) -> int:
+    """Total number of identifiers named by one structural list field."""
+    return sum(len((record.get("structure") or {}).get(field) or []) for record in items)
+
+
+def structure_report(records: list[dict[str, Any]]) -> str:
+    """Did the rewrite hand back the document it was given?
+
+    The quality tables answer "how good is the translation". This answers the
+    question a localization engineer asks first, and the one the format is
+    responsible for: **how correctly did a single-pass rewrite preserve the
+    document** - every identifier still there, the source text untouched, every
+    entry carrying a target, and how much shape untidiness the reader had to
+    absorb on the way.
+
+    This is the modification-correctness table for the task the pipeline actually
+    runs: one clean document in, one complete file out, in one call. Dimension 7
+    asks a different question - whether a file survives being edited twelve times
+    in sequence - so it is deliberately not the source of these numbers.
+    """
+    buckets = _group(records, "translation")
+    if not buckets:
+        return "### D3/D4 - structural integrity of the rewrite\n\n_no data_\n"
+
+    rows_out: list[list[str]] = []
+    for key in sorted(buckets, key=lambda item: (item[0] != BASELINE, item[0], item[1])):
+        items = buckets[key].records
+        if not items:
+            continue
+        failed = sum(1 for record in items if record.get("failed"))
+        repairs = [float(record.get("repairs") or 0) for record in items]
+        read_modes = sorted({str(record.get("read_mode", "tolerant")) for record in items})
+        rows_out.append(
+            [
+                key[0],
+                key[1],
+                "/".join(read_modes),
+                str(len(items)),
+                _fmt(_structure_mean(items, "valid")),
+                _fmt(_structure_mean(items, "id_preservation")),
+                _fmt(_structure_mean(items, "coverage")),
+                _fmt(_structure_mean(items, "source_fidelity")),
+                _fmt(mean(repairs), 2),
+                str(_structure_count(items, "extra_ids")),
+                str(_structure_count(items, "missing_ids")),
+                str(_structure_count(items, "source_drift_ids")),
+                str(_structure_count(items, "untranslated_ids")),
+                _fmt(100.0 * failed / len(items)),
+            ]
+        )
+    headers = [
+        "format",
+        "arm",
+        "read mode",
+        "answers",
+        "valid %",
+        "ids kept %",
+        "coverage %",
+        "source kept %",
+        "repairs/answer",
+        "extra ids",
+        "missing ids",
+        "drifted sources",
+        "untranslated",
+        "failed %",
+    ]
+    note = (
+        "\nA row is one cell of the single-pass translation task - one document in, "
+        "one complete file out. `valid %` uses the reading named in the `read mode` "
+        "column. `ids kept %` is the share of the entries the document had whose "
+        "identifier came back, so a drop means the answer renamed or dropped an entry "
+        "and every translation memory keyed on it would miss. `source kept %` is the "
+        "share of matched entries whose source text was left byte-for-byte alone. "
+        "`repairs/answer` is untidiness the reader absorbed rather than a failure, "
+        "which is why it sits beside the failure columns instead of replacing them.\n"
+    )
+    return (
+        "### D3/D4 - structural integrity of the rewrite\n\n"
+        + _table(headers, rows_out, "right")
+        + note
+    )
+
+
 def build_report(
     *,
     title: str,
@@ -402,6 +495,7 @@ def build_report(
         token_report(token_rows, arm="context", title="D2 - token cost, context-carrying formats"),
         quality_report(records, arm="bare", title="D3 - quality, plain formats"),
         quality_report(records, arm="context", title="D4 - quality, context-carrying formats"),
+        structure_report(records),
         latency_report(records, arm="bare", title="D5 - latency, plain formats"),
         latency_report(records, arm="context", title="D6 - latency, context-carrying formats"),
         robustness_report(records),

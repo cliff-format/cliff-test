@@ -41,7 +41,13 @@ where = ["."]
 include = ["clarion*"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests/clarion"]
+# The whole test tree, not just tests/clarion: with `testpaths = ["tests/clarion"]`
+# a bare `pytest` silently never collected `tests/test_validator_tool.py` or
+# `tests/test_edit_robustness.py` - eleven tests that existed and did not run.
+# Only files matching pytest's `test_*.py` pattern are collected, so the helper
+# scripts beside them (`tests/quality/check_constraints.py`,
+# `tests/edit-robustness/apply_edits.py`) stay out of the suite.
+testpaths = ["tests"]
 # The harness runs under a file sandbox that only allows writes inside the
 # workspace, so pytest's temporary root and cache are kept in the repository.
 addopts = "-q -p no:cacheprovider"
