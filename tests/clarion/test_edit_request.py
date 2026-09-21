@@ -14,6 +14,7 @@ is given, and the matrix gives it the value from the configuration.
 
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
 import pytest
@@ -45,6 +46,19 @@ class RecordingProvider:
 
 def _provider() -> RecordingProvider:
     return RecordingProvider(MockProvider(mode="perfect", model="mock-1"))
+
+
+#: Where the matrix writes its run directory. Inside the repository because the
+#: file sandbox denies the system temporary directory, and removed afterwards so a
+#: test run does not leave a generated tree behind.
+RUN_SANDBOX = Path(__file__).resolve().parent / "_edit_temperature_runs"
+
+
+@pytest.fixture(autouse=True)
+def _clean_run_sandbox():
+    yield
+    if RUN_SANDBOX.exists():
+        shutil.rmtree(RUN_SANDBOX)
 
 
 def _config(temperature: float) -> RunConfig:
@@ -99,13 +113,12 @@ def test_edit_matrix_forwards_the_configured_temperature(
 
     config = _config(temperature=1.3)
     corpus = load_corpus("fixture", root=corpus_root)
-    base = Path(__file__).resolve().parent / "_edit_temperature_runs"
     run_robustness_matrix(
         config,
         corpus,
         edits=2,
         use_model=True,
-        paths=RunPaths.create("edit-temperature", base=base),
+        paths=RunPaths.create("edit-temperature", base=RUN_SANDBOX),
     )
 
     assert provider.requests, "the matrix sent no edit request"

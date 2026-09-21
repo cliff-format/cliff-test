@@ -27,6 +27,14 @@ SECRET_PATTERNS = (
     re.compile(r"AKIA[0-9A-Z]{16}"),
 )
 SKIP_DIRS = {".git", "__pycache__", ".mypy_cache", ".ruff_cache", ".clarion-cache", "results"}
+#: Skipped only in a project-tree scan. Test scratch that is *made* of
+#: credential-shaped strings lives here on purpose - the suite that tests this
+#: scanner writes them - so scanning the tree would otherwise always report the
+#: test that tests the scan, and the pre-push gate could never pass. A caller who
+#: passes an explicit root is asking about that directory and gets it scanned in
+#: full, which is what lets the scanner's own tests plant a credential and watch it
+#: be found.
+GENERATED_DIR_NAMES = {"_secrets_sandbox"}
 
 
 def load_key(env_var: str, *, name: str = "deepseek") -> str:
@@ -53,13 +61,23 @@ def install_key(env_var: str, *, name: str = "deepseek") -> bool:
 
 
 def scan_tree(root: Path | None = None) -> list[tuple[str, int]]:
-    """Find anything that looks like a credential in the working tree."""
+    """Find anything that looks like a credential in the working tree.
+
+    With no ``root`` this is the pre-push gate over the project tree, so generated
+    directories are skipped. With an explicit ``root`` the caller is asking about
+    that directory specifically, and every file in it is read - which is how the
+    scanner's own tests watch a planted credential be found.
+    """
     base = root or CLIFF_TEST_ROOT
+    generated = GENERATED_DIR_NAMES if root is None else set()
     findings: list[tuple[str, int]] = []
     for path in base.rglob("*"):
         if not path.is_file():
             continue
-        if any(part in SKIP_DIRS or part == ".secrets" for part in path.parts):
+        if any(
+            part in SKIP_DIRS or part in generated or part == ".secrets"
+            for part in path.parts
+        ):
             continue
         if path.suffix in {".png", ".jpg", ".webp", ".gif", ".db", ".pyc", ".key"}:
             continue

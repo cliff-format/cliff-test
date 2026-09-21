@@ -110,6 +110,18 @@ class OpenAICompatibleProvider:
                 if response.status_code >= 500 or response.status_code == 429:
                     last_error = f"HTTP {response.status_code}: {response.text[:200]}"
                     raise TransientProviderError(last_error)
+                if 400 <= response.status_code < 500:
+                    # A client error that is not a rate limit will not fix itself,
+                    # and the retry loop below would pay for the same rejection
+                    # again: a 401 leaves with one attempt, not three.
+                    return Completion(
+                        text="",
+                        provider=self.name,
+                        model=self.model,
+                        latency_ms=(time.perf_counter() - started) * 1000.0,
+                        error=f"HTTP {response.status_code}: {response.text[:200]}",
+                        attempts=attempt,
+                    )
                 response.raise_for_status()
                 data = response.json()
             except TransientProviderError:

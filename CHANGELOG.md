@@ -148,7 +148,23 @@ fixture still passes, and the checks below answer the 1.1 questions.
 - **`testpaths` is `tests/`, not `tests/clarion/`.** A bare `pytest` collected 245
   tests and silently never collected `tests/test_validator_tool.py` or
   `tests/test_edit_robustness.py` — eleven tests that existed and did not run. It
-  now collects 334 plus the two pinned xfails.
+  now collects 368 plus the two pinned xfails.
+- **The three modules an AST audit found untested**, and the audit is in
+  `.tools/coverage_audit.py`:
+  - `tests/clarion/test_cli.py` — the command surface: every top-level command
+    answers `--help`, the command list is compared against a written-down set so
+    adding one is deliberate, and `corpus validate`, `corpus stats`, `secret-scan`
+    and `selfcheck` run end to end offline, which also exercises the corpus lint and
+    the credential scan behind them.
+  - `tests/clarion/test_openai_compat.py` — what goes on the wire: the temperature
+    the request carries, `extra_body` precedence, the per-vendor reasoning switch,
+    the endpoint and header, usage and finish reason, and the retry policy in both
+    directions (429 retried, 401 not). `httpx.Client` is scripted, so no socket is
+    opened. It found the retry defect fixed above.
+  - `tests/clarion/test_pipeline_module.py` — the orchestrator: a run reaches its
+    report and summary, a skipped stage does not run, a failing stage reaches the
+    exit code instead of only the log, and the report is still written when a stage
+    fails.
 - **`--check-layout`**, **`--style`**, and **`--tolerant`** modes, each with its
   own fixture suite: `tests/fixtures/layout/`, `style/`, `tolerant/`.
 - **Optional line terminator** support (`CLIFF 1.1` §5.6) in the strict parser,
@@ -214,6 +230,21 @@ fixture still passes, and the checks below answer the 1.1 questions.
   repairs exist, what a terminator is not, and which C.5 refusals hold.
 
 ### Fixed
+
+- **A 4xx that is not a rate limit was retried like a transient failure.**
+  `openai_compat.complete` catches `Exception` around `raise_for_status()`, so a
+  401 or a 400 — a rejection that cannot change — was resent `max_retries` times,
+  paying for the same refusal three times and delaying the failure. Only 5xx and
+  429 are transient now; any other 4xx returns on its first attempt with the status
+  and body in `error`. Found by `tests/clarion/test_openai_compat.py`, which was
+  written to assert the retry policy the docstring already promised.
+- **`scan_tree` had no way to tell generated test scratch from a real leak.** The
+  suite that tests the scanner writes credential-shaped strings on purpose, so a
+  project-tree scan reported the test that tests the scan and the pre-push gate
+  could never pass. `GENERATED_DIR_NAMES` is now skipped in a tree scan while an
+  explicit `root` is still read in full, which is what lets the scanner's own tests
+  watch a planted credential be found. The test literals are assembled at run time
+  so the test files themselves do not trip the scan either.
 
 - **The edit dimension ignored the configured temperature.** `run_robustness`
   built its own `CompletionRequest` with a hard-coded `temperature=0.0`, and
