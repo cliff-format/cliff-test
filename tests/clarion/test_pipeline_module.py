@@ -134,3 +134,39 @@ def test_no_imports_configured_is_not_a_failure() -> None:
     pipeline = Pipeline(config, verbose=False)
     assert pipeline.run_fetch() is True
     assert pipeline.stages[-1].detail == "no imports configured"
+
+
+def test_the_summary_records_the_provenance_of_the_prompt() -> None:
+    """A run's evidence has to name the text its answers were produced under.
+
+    The stored configuration names a *style*; the block can change underneath it, and
+    a later revision can render `spec` into different words with nothing in the run
+    directory to say so. The fingerprint is of the rendered block, and the revision is
+    of the checkout that rendered it, so the two together are what tie a stored answer
+    to a program.
+    """
+    code = run_pipeline(_config(), verbose=False)
+    assert code == 0
+    run_dir = next(path for path in SANDBOX.iterdir() if path.is_dir())
+    summary = json.loads((run_dir / "summary.json").read_text(encoding="utf-8"))
+    assert len(summary["prompt_fingerprint"]) == 16
+    assert summary["revision"], "the run does not record the revision that produced it"
+    # The fingerprint is of the text, not of the style name: two styles that render
+    # different blocks must not share one.
+    assert pipeline_module.prompt_fingerprint("spec") != pipeline_module.prompt_fingerprint(
+        "examples"
+    )
+
+
+def test_the_prompt_fingerprint_follows_the_block(monkeypatch) -> None:
+    """Change the block and the fingerprint changes - that is the whole point.
+
+    A fingerprint that did not move when the prompt moved would be a decorative field
+    in the one place a reader looks to decide whether two runs are comparable.
+    """
+    from clarion.prompts import cliff_rules
+
+    before = pipeline_module.prompt_fingerprint("spec")
+    monkeypatch.setattr(cliff_rules, "INTRO", cliff_rules.INTRO + " One more sentence.")
+    monkeypatch.setattr(cliff_rules, "build_normative_rules", lambda: cliff_rules.INTRO)
+    assert pipeline_module.prompt_fingerprint("spec") != before

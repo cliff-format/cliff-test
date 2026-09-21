@@ -21,6 +21,8 @@ The report and every raw record land in one run directory.
 
 from __future__ import annotations
 
+import hashlib
+import subprocess
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -33,7 +35,7 @@ from .corpus.licensing import license_check
 from .corpus.store import load_corpus
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
-from .paths import ensure_cliff_format, pycliff_version
+from .paths import CLIFF_TEST_ROOT, ensure_cliff_format, pycliff_version
 from .providers import build_provider
 from .report import build_report
 from .runner import (
@@ -45,6 +47,45 @@ from .runner import (
 )
 from .secrets import install_key, scan_tree
 from .util import dump_json, mean, utc_now, write_text
+
+
+def revision() -> str:
+    """The revision of this checkout, or a stated alternative.
+
+    A run directory is evidence, and evidence that cannot be tied to a revision is
+    evidence about an unnamed program. Best effort on purpose: a source tarball has no
+    history, and that is a fact to record rather than a reason to fail a paid run.
+    """
+    try:
+        completed = subprocess.run(
+            ["git", "-C", str(CLIFF_TEST_ROOT), "rev-parse", "--short", "HEAD"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):  # pragma: no cover - no git on the host
+        return "unknown"
+    return completed.stdout.strip() if completed.returncode == 0 else "unknown"
+
+
+def prompt_fingerprint(prompt_style: str) -> str:
+    """A digest of the CLIFF instruction block a run's answers were produced under.
+
+    The stored configuration names a *style*; this names the text. They move
+    independently - the style can stay `spec` while the block changes - and a run
+    whose evidence is a style name cannot be compared with a later one that reads
+    differently. Every style is hashed, so the field is present whichever is shipped.
+    """
+    from .prompts import cliff_prompt_v2, cliff_rules, spec_digest
+
+    material = {
+        "digest": spec_digest.build_grammar_plus,
+        "examples": lambda: cliff_prompt_v2.CLIFF_FACTS + cliff_prompt_v2.EXAMPLES,
+        "spec": cliff_rules.build_normative_rules,
+    }.get(prompt_style)
+    text = material() if material is not None else ""
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
 @dataclass
@@ -296,6 +337,13 @@ class Pipeline:
                 "model": f"{self.config.provider.kind}:{self.config.provider.model}",
                 "reasoning": self.config.provider.reasoning,
                 "records": len(self.records),
+                # Provenance of the *prompt*, not just of the configuration: the two
+                # can move independently, and a run whose stored configuration says
+                # `spec` is not evidence about the block a later revision renders.
+                # A hash of the rendered block is what ties the answers to the text a
+                # model actually read.
+                "prompt_fingerprint": prompt_fingerprint(self.config.prompt_style),
+                "revision": revision(),
                 "stages": [stage.as_dict() for stage in self.stages],
             },
         )
