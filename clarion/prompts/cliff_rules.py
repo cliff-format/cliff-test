@@ -233,6 +233,7 @@ SEMANTIC CONSTRAINTS (normative)
 {field_tables()}
 
 CLOSED VOCABULARIES (section 12; a value outside its set is an error)
+
   type      {types}
   emotion   {emotions}
   status    {status}
