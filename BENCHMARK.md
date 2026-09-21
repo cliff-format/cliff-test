@@ -1,5 +1,14 @@
 # CLIFF Benchmark — measured evidence (CLARION, 2026-09-02)
 
+> **This document is the frozen 2026-09-02 benchmark** — `deepseek-v4-flash`, temperature
+> 0, strict reading — and it stays exactly as measured. The settings the pipeline ships
+> are different now: `deepseek-flash` at temperature **1.3** with the example-driven CLIFF
+> prompt, read back tolerantly. Those numbers live in
+> [CHANGELOG.md](CHANGELOG.md) (the deployment-settings run) and in
+> [docs/acceptance-criteria.md](docs/acceptance-criteria.md) (C6.12). **The two are not
+> comparable**: the model, the temperature, the CLIFF prompt style and the reading all
+> differ, so a row here and a row there answer different questions.
+
 CLIFF (Contextual Localization Integrated File Format) is a line-oriented, context-first working file for
 the whole localization lifecycle — extraction, translation, review, delivery. One lossless file,
 MIT-licensed, with:

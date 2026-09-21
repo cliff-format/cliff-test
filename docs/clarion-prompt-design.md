@@ -347,3 +347,40 @@ question this benchmark now answers, and are listed only so the table is not
 silently truncated: json-plain 21/72, json-cliff 9/72, csv 6/72, against the
 Android / iOS / Fluent bare arms at 0. It is the reason both numbers are always
 reported together.
+
+## The shipped prompt's first translation measurement, and what it confirms
+
+The pilot in this document compared the two prompt styles but the *translation*
+path ignored the setting until the defect above was fixed, so no translation run had
+ever actually sent the example-driven prompt. The deployment-settings run is the
+first one that did (`python -m clarion pipeline --skip fetch`, 1.3, all ten formats,
+run `clarion-deepseek-flash-20260921T142211`):
+
+| CLIFF, single-pass translation | bare | context |
+| --- | ---: | ---: |
+| valid (tolerant) | **58.3 %** | **70.8 %** |
+| identifiers kept | 75.0 % | 72.9 % |
+| coverage | 75.0 % | 72.9 % |
+| chrF++ on the runs that survive | 53.3 | — |
+
+Two things follow, and the first is a confirmation rather than a surprise: the pilot
+measured **61.5 % (digest) and 65.4 % (examples)** valid on the same files at the
+same temperature, so this run sits inside the band the pilot predicted, and the
+difference between the styles is still not measurable at that sample size. The
+specification text was not what made CLIFF survive; the decoder's treatment of a
+long whole-file rewrite is.
+
+The failure is not shape, which is why the tolerant reader cannot help: the dominant
+error is `status 'translated' requires a target field` — entries and targets dropped
+while the status stays — followed by the quoting and escaping degradation of a long
+generation (`expected a quoted string`, `unterminated string`). Failures cluster by
+file, all three repeats together, on the files whose values are longest
+(`hongloumeng-joly` emits 6–20 k output tokens for fourteen entries), and **no run hit
+the output ceiling**. That is the failure mode rule 5 addresses and the failure mode
+no prompt can fully remove: the unit of work is the whole document.
+
+**What this costs the format comparison.** Only CLIFF's prompt changed in this
+redesign, so in that run CLIFF is measured on the example-driven prompt while the
+other nine still carry their established instructions. CLIFF is the least surviving
+of the ten there and the best on the answers that survive (chrF++ 53.3), which is a
+statement about this protocol, not a like-for-like format ranking.
