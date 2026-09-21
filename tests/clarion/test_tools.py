@@ -285,9 +285,15 @@ def test_no_prompt_block_fences_the_working_method() -> None:
     Checked on the blocks themselves rather than on one composed prompt, because
     these templates are shared: SYSTEM_ROLE and TASK_RULES reach all ten formats,
     and the glossary blocks reach every CLIFF run that allows a glossary.
+
+    The scan covers **every** block that can reach a model. It used to hold the
+    templates and `cliff_prompt_v2` only, which left two holes: the `spec` style's
+    block and the digest style's supplement were both unscanned, and the supplement
+    was carrying "Keep the glossary concise." - the exact house cap this table
+    forbids - in a prompt no test could see.
     """
     from clarion.prompts import cliff_prompt_v2 as v2
-    from clarion.prompts import templates
+    from clarion.prompts import cliff_rules, spec_digest, templates
 
     blocks = {
         "SYSTEM_ROLE": templates.SYSTEM_ROLE,
@@ -298,10 +304,17 @@ def test_no_prompt_block_fences_the_working_method() -> None:
         "GLOSSARY_DELIVERABLE": templates.GLOSSARY_DELIVERABLE,
         "GLOSSARY_WORKFLOW": templates.GLOSSARY_WORKFLOW,
         "CLIFF_EDIT_SAFETY": templates.CLIFF_EDIT_SAFETY,
+        "CLIFF_ANSWER_REMINDER": templates.CLIFF_ANSWER_REMINDER,
         "CLIFF_FACTS": v2.CLIFF_FACTS,
         "CLIFF_TASK_RULES": v2.CLIFF_TASK_RULES,
+        "EXAMPLES": v2.EXAMPLES,
+        "SPEC_BLOCK": cliff_rules.build_normative_rules(),
+        "spec_supplement": spec_digest.spec_supplement(),
         **{f"FORMAT_NOTES[{key}]": value for key, value in templates.FORMAT_NOTES.items()},
     }
+    assert all(text.strip() for text in blocks.values()), (
+        "a block under test is empty, so its share of this check proves nothing"
+    )
     for name, text in blocks.items():
         lowered = text.lower()
         for phrase, why in METHOD_FENCES.items():
@@ -347,6 +360,21 @@ def test_the_answer_boundary_is_stated_in_the_shared_rules() -> None:
             f"the boundary is stated as a prohibition ('{prohibition}') again; state "
             "what the answer is"
         )
+    # The CLIFF reminder is in the same message, and it is where this rule is hardest
+    # to keep affirmative: it exists because the model closes what it opens, so the
+    # sentence that describes the failure is always one edit away. It said "nothing in
+    # a CLIFF file is closed" and that half was removed - a prompt that names a
+    # failure shape hands the model the shape - leaving the statement of what a marker
+    # is and how far it runs.
+    reminder = " ".join(templates.CLIFF_ANSWER_REMINDER.split())
+    for prohibition in ("never ", "do not", "cannot", "nothing else", "not closed", "is closed"):
+        assert prohibition not in reminder.lower(), (
+            f"CLIFF_ANSWER_REMINDER names the failure shape ('{prohibition}'); state what a "
+            "marker is and how far its fields run"
+        )
+    assert "stand alone" in reminder and "to the end of the file" in reminder, (
+        "the reminder no longer states the marker rule it is injected for"
+    )
     # And the CLIFF block says the same thing in the format's own terms: the grammar
     # has one start symbol, and it is what an answer is.
     from clarion.prompts import cliff_rules

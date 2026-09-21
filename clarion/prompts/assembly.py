@@ -52,12 +52,20 @@ INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes", "cliff.examples")
 #: ``spec``      the specification itself, compressed to its normative content by
 #:               ``cliff_rules``: the ABNF, the semantic constraints it carries,
 #:               the field tables of sections 7-9 and the closed vocabularies,
-#:               all read from the specification repository at build time. No
-#:               sentence of it is written by hand, which is the difference
-#:               between this style and ``examples``: 2 094 tokens against 16 656
-#:               for the full text, with no second source of truth to go stale.
+#:               read from the specification repository at build time, plus the few
+#:               framing paragraphs that exist only because a *prompt* needs them
+#:               (named in ``cliff_rules.WRITTEN_HERE``). 2 925 tokens against
+#:               16 803 for the full text, and the parts that could go stale are
+#:               the ones a machine reads out of the document, not a hand-kept
+#:               restatement of it.
 PROMPT_STYLES = ("digest", "examples", "spec")
-DEFAULT_PROMPT_STYLE = "digest"
+#: What a configuration that names no style gets. It is the shipped style, because
+#: the alternative is worse than it looks: `digest` renders the 21 393-token legacy
+#: prompt, which carries the very markup vocabulary this project removed from every
+#: other style (the full specification text, which only `digest` still sends). A
+#: default that silently selects the one prompt the design work disowned is a trap,
+#: so the default and the shipped configuration agree.
+DEFAULT_PROMPT_STYLE = "spec"
 
 
 @dataclass

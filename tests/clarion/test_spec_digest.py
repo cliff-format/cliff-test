@@ -26,14 +26,21 @@ from clarion.metrics.tokens import get_tokenizer
 from clarion.paths import SPEC_FILE
 from clarion.prompts import cliff_rules
 
-#: The digest is 2 700 tokens today, and the ceiling is a budget rather than a
-#: description: it is the point at which this style stops being the cheap one. Four
-#: rules were added after the first measurement and each was a *fix* for an observed
-#: failure - the escape set (136), the glossary shape and the two-document boundary
-#: (180), the single-line marker rule (110) - so the ceiling moved with them,
-#: deliberately and in the open. The full specification text is 16 656 tokens and the
-#: old hand-written digest was 2 785, which is the comparison that matters.
+#: The block is 2 925 tokens today, and the ceiling is a budget rather than a
+#: description: it is the point at which this style stops being the cheap one. It is
+#: deliberately loose - 16 % of slack - because it guards against a *doubling*, and
+#: the numbers that are published are pinned exactly elsewhere: the part-by-part
+#: decomposition by `tests/test_prompt_cost_tool.py` (which recomputes the table in
+#: `docs/clarion-prompt-design.md`) and the whole block by
+#: `test_the_digest_stays_under_its_token_ceiling`'s sibling below. A loose ceiling
+#: is how the published decomposition drifted from 2 834 to 2 925 unnoticed, so no
+#: published figure may rely on this constant.
 TOKEN_CEILING = 3_400
+
+#: The kinds a `SECTION_COVERAGE` reason may open with. A closed vocabulary, so a
+#: section cannot be filed under a kind that does not exist - which is what let §13
+#: be labelled a "table" while the block renders it as prose.
+COVERAGE_KINDS = ("abnf", "table", "vocab", "prose", "example", "informative", "excluded")
 
 RULE_WORDS = re.compile(r"\b(MUST|SHOULD|MAY|REQUIRED)\b")
 
@@ -140,6 +147,59 @@ def test_every_normative_section_is_represented_or_excluded_with_a_reason() -> N
     )
     for key, reason in cliff_rules.SECTION_COVERAGE.items():
         assert reason.strip(), f"section {key} has no stated reason"
+        kind = reason.split(" - ", 1)[0].strip()
+        assert kind in COVERAGE_KINDS, (
+            f"section {key} is filed as {kind!r}, which is not one of {COVERAGE_KINDS}; the "
+            "kind is how a reader knows whether a rule is carried, extracted or dropped, so "
+            "an unrecognised one reads as a decision when it is a typo"
+        )
+
+
+def test_every_hand_written_part_of_the_block_is_declared() -> None:
+    """The module names the paragraphs it writes itself, and they are really there.
+
+    `cliff_rules` used to claim that nothing in the block was written by hand. That
+    was false - the marker rule, the intro, the group note, the framing line, the
+    escape paragraph and the glossary section are all prose - and a false claim of
+    extraction is the kind that stops a reader from reviewing the paragraphs that
+    need it. The declaration is now the thing under test: each named part must be in
+    the block, and the docstring must list the same names.
+    """
+    block = cliff_rules.build_normative_rules()
+    docstring = cliff_rules.__doc__ or ""
+    for name, carries in cliff_rules.WRITTEN_HERE.items():
+        assert carries.strip(), f"{name} does not say which rule it carries"
+        readable = name.replace("-", " ")
+        assert readable in docstring, (
+            f"{name} is declared in WRITTEN_HERE but the module docstring does not name it, "
+            "so a reader of the claim cannot find the paragraph it is about"
+        )
+    parts = {
+        "intro": cliff_rules.INTRO,
+        "marker": cliff_rules.MARKER_RULE,
+        "framing": cliff_rules.VOCAB_FRAMING,
+        "group-note": cliff_rules.group_note(),
+        "escaping": cliff_rules.ESCAPE_PARAGRAPH,
+        "glossary": cliff_rules.GLOSSARY_SECTION,
+    }
+    assert set(parts) == set(cliff_rules.WRITTEN_HERE), (
+        "WRITTEN_HERE and the block's own parts disagree: "
+        f"{sorted(set(parts) ^ set(cliff_rules.WRITTEN_HERE))}"
+    )
+    for name, text in parts.items():
+        assert text in block, f"the declared part {name} is not in the block"
+
+
+def test_the_block_is_assembled_from_its_parts() -> None:
+    """The decomposition is exact, so the published per-part table means something."""
+    parts = cliff_rules.block_parts()
+    assert "\n\n".join(text for _, text in parts) == cliff_rules.build_normative_rules()
+    assert [label for label, _ in parts[:2]] == ["title", "marker-rule"]
+    assert parts[-1][0] == "marker-rule-again", (
+        "the marker rule is injected first and last on purpose (primacy and recency); a "
+        "renamed or removed second injection must fail here"
+    )
+    assert parts[1][1] == parts[-1][1] == cliff_rules.MARKER_RULE
 
 
 def test_a_represented_normative_section_really_is_in_the_digest() -> None:

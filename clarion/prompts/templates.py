@@ -95,13 +95,20 @@ DOCUMENT_HEADER = """===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE ====="
 # three is that one statement never held: the model closes what it opens
 # (`</terms>` after a glossary, and in one measured answer a closing line for every
 # entry it had written), in every prompt variant this project has measured. Position
-# and repetition are the untried lever, so the rule is put where primacy and recency
-# both apply. It is deliberately not shared with the other nine formats, where
+# and repetition are the lever, so the rule is put where primacy and recency both
+# apply. It is deliberately not shared with the other nine formats, where
 # closing tags are part of the syntax.
-CLIFF_ANSWER_REMINDER = """The file below already has its structure. Each `<id>` and
-`[group.path]` is one line standing alone, nothing in a CLIFF file is closed, and the
-answer ends after the last field of the last entry - of the translated file, and then
-of the glossary if you append one."""
+#
+# It states the marker rule and nothing else. An earlier version also restated the
+# extent of the answer ("the answer ends after the last field of the last entry") -
+# which `TASK_RULES` item 1 already states in this same message - and named the
+# failure shape ("nothing in a CLIFF file is closed"). A restatement and a named
+# failure are the two things this project's prompt rules forbid, and this block was
+# outside both tests that hold them; it is inside them now
+# (`tests/clarion/test_tools.py`).
+CLIFF_ANSWER_REMINDER = """The file below already has its structure: an `<id>` line and a
+`[group.path]` line each stand alone, and the field lines that follow one - up to the
+next such line, or to the end of the file - are that entry's or that section's."""
 
 CLIFF_EDIT_SAFETY = """CLIFF EDIT SAFETY
 Every entry id and group path is there as written: identifiers may use upper- and

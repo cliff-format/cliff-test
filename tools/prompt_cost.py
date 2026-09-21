@@ -6,11 +6,14 @@ changelog and in the acceptance criteria: a number a reader cannot reproduce is 
 number they have to take on trust. (The pilot's own script stayed in the working
 copy; this one did not, for the same reason `tools/compare_readings.py` moved.)
 
-Both styles are assembled by `build_translation_prompt` - the call path a run
-uses - so what is measured is what would be sent. The earlier version of this
-measurement projected the example-driven side by subtracting component totals and
-adding back the module strings; that silently drifted as soon as the assembly
-changed (dropping `format.notes` for the example-driven style, for instance).
+All three styles are assembled by `build_translation_prompt` - the call path a run
+uses - so what is measured is what would be sent. That includes `spec`, the style
+the shipped configuration selects: a table that priced the two styles the run does
+*not* send was the one gap in this project's rule that every published token
+number comes from an in-repo tool. The earlier version of this measurement
+projected the example-driven side by subtracting component totals and adding back
+the module strings; that silently drifted as soon as the assembly changed
+(dropping `format.notes` for the example-driven style, for instance).
 
 Usage:
     python tools/prompt_cost.py                              # the published cell
@@ -32,7 +35,7 @@ sys.path.insert(0, str(ROOT))
 #: The files the prompt pilots ran over, in the order the pilot documents them.
 PILOT_FILES = ("ui-console", "ui-workbench", "wmt24pp", "probe-ambiguity")
 
-STYLES = ("digest", "examples")
+STYLES = ("digest", "examples", "spec")
 
 
 def build_bundles(file_id: str, arm: str, config_path: Path):
@@ -76,17 +79,17 @@ def build_bundles(file_id: str, arm: str, config_path: Path):
     return tokenizer, bundles
 
 
-def cell_table(file_id: str, arm: str, config_path: Path) -> int:
+def cell_table(file_id: str, arm: str, config_path: Path, styles: tuple[str, ...]) -> int:
     tokenizer, bundles = build_bundles(file_id, arm, config_path)
     print(f"cell: {file_id} / cliff / {arm}   tokenizer: {tokenizer.name}")
-    header = f"{'component':<22}{'role':<8}{'digest':>9}{'examples':>10}"
+    header = f"{'component':<22}{'role':<8}" + "".join(f"{style:>11}" for style in styles)
     print(header)
     print("-" * len(header))
 
     # A component is reported once per role it appears in, so a block that moves
     # between messages (the split digest does) cannot hide behind a merged row.
     rows: list[tuple[str, str]] = []
-    for style in STYLES:
+    for style in styles:
         for component in bundles[style].budget.components:
             key = (component.id, component.role)
             if key not in rows:
@@ -98,15 +101,17 @@ def cell_table(file_id: str, arm: str, config_path: Path) -> int:
         )
 
     for name, role in rows:
-        counts = [count(style, name, role) for style in STYLES]
+        counts = [count(style, name, role) for style in styles]
         if not any(counts):
             continue
-        print(f"{name:<22}{role:<8}{counts[0]:>9}{counts[1]:>10}")
+        print(f"{name:<22}{role:<8}" + "".join(f"{value:>11}" for value in counts))
     print("-" * len(header))
-    totals = [bundles[style].budget.total for style in STYLES]
-    print(f"{'TOTAL':<22}{'':<8}{totals[0]:>9}{totals[1]:>10}")
-    saving = totals[0] - totals[1]
-    print(f"\nsaving per call: {saving} tokens ({100.0 * saving / totals[0]:.1f}% of the prompt)")
+    totals = [bundles[style].budget.total for style in styles]
+    print(f"{'TOTAL':<22}{'':<8}" + "".join(f"{value:>11}" for value in totals))
+    if "digest" in styles and "examples" in styles:
+        saving = totals[styles.index("digest")] - totals[styles.index("examples")]
+        share = 100.0 * saving / totals[0]
+        print(f"\nsaving per call: {saving} tokens ({share:.1f}% of the prompt)")
     print(
         "each column adds up to its total: the rows are the blocks of that one message "
         "pair, not a selection of them."
@@ -114,29 +119,60 @@ def cell_table(file_id: str, arm: str, config_path: Path) -> int:
     return 0
 
 
-def pilot_table(arm: str, config_path: Path) -> int:
-    header = f"{'file':<18}{'digest':>9}{'examples':>10}{'saving':>9}{'%':>7}"
-    print(f"the four pilot files, arm '{arm}', both styles")
+def pilot_table(arm: str, config_path: Path, styles: tuple[str, ...]) -> int:
+    columns = "".join(f"{style:>11}" for style in styles)
+    header = f"{'file':<18}{columns}{'saving':>9}{'%':>7}"
+    print(f"the four pilot files, arm '{arm}', every prompt style")
     print(header)
     print("-" * len(header))
-    totals = dict.fromkeys(STYLES, 0)
+    totals = dict.fromkeys(styles, 0)
     for file_id in PILOT_FILES:
         _, bundles = build_bundles(file_id, arm, config_path)
-        costs = {style: bundles[style].budget.total for style in STYLES}
-        for style in STYLES:
+        costs = {style: bundles[style].budget.total for style in styles}
+        for style in styles:
             totals[style] += costs[style]
         saving = costs["digest"] - costs["examples"]
         print(
-            f"{file_id:<18}{costs['digest']:>9}{costs['examples']:>10}"
-            f"{saving:>9}{100.0 * saving / costs['digest']:>6.1f}%"
+            f"{file_id:<18}"
+            + "".join(f"{costs[style]:>11}" for style in styles)
+            + f"{saving:>9}{100.0 * saving / costs['digest']:>6.1f}%"
         )
     saving = totals["digest"] - totals["examples"]
     print("-" * len(header))
     print(
-        f"{'TOTAL':<18}{totals['digest']:>9}{totals['examples']:>10}"
-        f"{saving:>9}{100.0 * saving / totals['digest']:>6.1f}%"
+        f"{'TOTAL':<18}"
+        + "".join(f"{totals[style]:>11}" for style in styles)
+        + f"{saving:>9}{100.0 * saving / totals['digest']:>6.1f}%"
     )
-    print("\nrepeats add no prompt cost: the prompt is rebuilt per cell, not per sample.")
+    print(
+        "\nthe saving column compares the two styles the redesign replaces; repeats add no "
+        "prompt cost, because the prompt is rebuilt per cell, not per sample."
+    )
+    return 0
+
+
+def decomposition_table(config_path: Path) -> int:
+    """The compressed block, part by part, as the design document publishes it."""
+    from clarion.config import load_config
+    from clarion.metrics.tokens import get_tokenizer
+    from clarion.prompts import cliff_rules
+
+    config = load_config(config_path)
+    tokenizer = get_tokenizer(config.tokenizer)
+    parts = cliff_rules.block_decomposition(tokenizer)
+    block = tokenizer.count(cliff_rules.build_normative_rules())
+    print(f"the `spec` block, per part   tokenizer: {tokenizer.name}")
+    print(f"{'part':<24}{'tokens':>9}")
+    print("-" * 33)
+    for label, cost in parts.items():
+        print(f"{label:<24}{cost:>9}")
+    print("-" * 33)
+    print(f"{'sum of the parts':<24}{sum(parts.values()):>9}")
+    print(f"{'the block as sent':<24}{block:>9}")
+    print(
+        "\neach part is measured on its own, so the parts do not sum to the block: a token "
+        "boundary at a join is shared."
+    )
     return 0
 
 
@@ -147,20 +183,36 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--arm", default="bare")
     parser.add_argument("--pilot", action="store_true", help="per-file saving, four pilot files")
     parser.add_argument(
+        "--decomposition",
+        action="store_true",
+        help="the compressed specification block, part by part",
+    )
+    parser.add_argument(
+        "--styles",
+        default=",".join(STYLES),
+        help=f"comma-separated styles to price (default: {','.join(STYLES)})",
+    )
+    parser.add_argument(
         "--block-delta",
         action="store_true",
-        help="per-block token delta against the last commit (working copy only)",
+        help="per-block token delta against the previous revision in git",
     )
     args = parser.parse_args(argv)
     config_path = ROOT / args.config
+    styles = tuple(part.strip() for part in args.styles.split(",") if part.strip())
+    unknown = [style for style in styles if style not in STYLES]
+    if unknown:
+        parser.error(f"unknown prompt style(s) {', '.join(unknown)}; known: {', '.join(STYLES)}")
 
     if args.block_delta:
         from prompt_block_delta import main as delta_main
 
         return delta_main([])
+    if args.decomposition:
+        return decomposition_table(config_path)
     if args.pilot:
-        return pilot_table(args.arm, config_path)
-    return cell_table(args.file, args.arm, config_path)
+        return pilot_table(args.arm, config_path, styles)
+    return cell_table(args.file, args.arm, config_path, styles)
 
 
 if __name__ == "__main__":

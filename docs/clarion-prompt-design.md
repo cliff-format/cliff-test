@@ -13,61 +13,68 @@ text of `cliff-1.1.0.md`**, injected with the sentence *"Before writing the
 answer, consult the relevant sections of this full specification"*. In the plain
 arm CLIFF's instructions cost more than twice the document they describe.
 
-The replacement (`clarion/prompts/cliff_prompt_v2.py`, selected with
-`prompt_style: examples`) states only what a tolerant reader cannot repair, and
-teaches the rest with two conforming documents. Every number below is measured,
-not estimated: `python tools/prompt_cost.py` assembles both styles through the same
-`build_translation_prompt` the run uses and prints these rows, and
+The replacements are selected with `prompt_style`. `examples`
+(`clarion/prompts/cliff_prompt_v2.py`) states only what a tolerant reader cannot
+repair and teaches the rest with two conforming documents; `spec`
+(`clarion/prompts/cliff_rules.py`) sends the specification's own rules, extracted
+from the specification repository at prompt-build time. Every number below is
+measured, not estimated: `python tools/prompt_cost.py` assembles all three styles
+through the same `build_translation_prompt` the run uses and prints these rows, and
 `tests/test_prompt_cost_tool.py` checks that the tool reproduces the published
 totals and that each column adds up to its own total.
 
-| | current (`digest`) | example-driven (`examples`) |
-| --- | ---: | ---: |
-| specification text, block as sent | 16 691 | — |
-| specification digest, core + supplement | 2 785 | — |
-| stated facts: keys, scopes, vocabularies | — | 402 |
-| task rules (generic + CLIFF + output shape) | 280 | 482 |
-| format notes | 117 | — |
-| edit-safety reminder | 118 | — |
-| examples | — | 425 |
-| system role | 63 | 63 |
-| terminology policy | 236 | 236 |
-| glossary workflow | 231 | 231 |
-| the document itself | 571 | 571 |
-| **one cell, `ui-console` plain arm** | **21 383** | **2 417** |
+| | current (`digest`) | example-driven (`examples`) | compressed (`spec`) |
+| --- | ---: | ---: | ---: |
+| specification text, block as sent | 16 838 | — | — |
+| specification digest, core + supplement | 2 932 | — | — |
+| the specification compressed to its rules | — | — | 2 925 |
+| stated facts: keys, scopes, vocabularies | — | 402 | — |
+| task rules (generic + CLIFF + output shape) | 287 | 489 | 287 |
+| format notes | 117 | — | — |
+| edit-safety reminder | 118 | — | — |
+| answer-boundary reminder | — | — | 60 |
+| examples | — | 425 | — |
+| system role | 63 | 63 | 63 |
+| terminology policy | 236 | 236 | 236 |
+| glossary workflow | 231 | 231 | — |
+| the document itself | 571 | 571 | 571 |
+| **one cell, `ui-console` plain arm** | **21 393** | **2 417** | **4 142** |
 
 The rows are the measured blocks of one cell; each column adds up to its total. The
-specification text was 16 316 tokens when the recorded run priced it and is 16 656
+specification text was 16 316 tokens when the recorded run priced it and is 16 838
 now — the specification itself has grown since (Appendix C.2.7 among the additions),
-which is a second reason a prompt that carries it is expensive to keep current.
+which is a second reason a prompt that carries it is expensive to keep current. The
+`spec` column's glossary workflow is empty because that style states the glossary
+rules inside the specification block, and its answer-boundary reminder is the CLIFF
+answer-extent sentence placed immediately before the file.
 
-The quoting rule is the last of the five CLIFF task rules and costs 66 of those 482
+The quoting rule is the last of the five CLIFF task rules and costs 66 of those 489
 tokens: two of the 1.3 edit run's four invalid answers were a text value written
 without quotes, which is the one shape error no reading repairs (Appendix C.5). The
-specification text it replaced cost 16 691.
+specification text it replaced cost 16 838.
 
-Across the four pilot files the saving is **75 864 tokens**, which is
-**−84.8 %** of the prompts in the plain arm and −78.7 % in the context arm
-(`python tools/prompt_cost.py --pilot`). The saving is the same 18 966 tokens per
-cell on every file and in both arms — the redesign swaps fixed-size instruction
-blocks for fixed-size instruction blocks — so only the percentage moves with the
-document: −76.1 % (`wmt24pp`, the longest file) to −88.8 % (`probe-ambiguity`) in
-the plain arm. `tests/test_prompt_cost_tool.py` asserts that constancy, because a
-change that made the saving document-dependent would be a different claim.
+Against the `digest` prompt the saving is **18 976 tokens per cell**, which is
+**−88.7 %** in the plain arm (`python tools/prompt_cost.py --pilot`); over the four
+pilot files it is **75 904 tokens** and −84.7 %. The saving is the same on every file
+and in both arms — the redesign swaps fixed-size instruction blocks for fixed-size
+instruction blocks — so only the percentage moves with the document: −76.1 %
+(`wmt24pp`, the longest file) to −88.7 % (`probe-ambiguity`) in the plain arm.
+`tests/test_prompt_cost_tool.py` asserts that constancy, because a change that made
+the saving document-dependent would be a different claim.
 
 ## The third style: the specification, compressed to its rules
 
 Both styles above are a choice about how much of the specification to *drop*. The
 question they answer badly is the obvious one: the specification does not have to
-be 16 656 tokens, because **only 2 467 of its tokens are sentences that state a
+be 16 838 tokens, because **only 2 492 of its tokens are sentences that state a
 rule**. Everything else is motivation, worked examples, comparisons with other
 formats, migration notes and design discussion — material a model reproducing a
 file cannot use.
 
 `prompt_style: spec` (`clarion/prompts/cliff_rules.py`) sends the rules and nothing
-else. It is assembled **from the specification repository at prompt-build time**,
-which is the part that matters: there is no hand-written restatement to go stale.
-It carries
+else, and it is the style the shipped configuration selects. Most of it is read
+**out of the specification repository at prompt-build time**, which is the part that
+matters: there is no hand-kept restatement of those parts to go stale. It carries
 
 - the normative ABNF, comments stripped;
 - the ABNF's trailing semantic-constraint block, where the rules a grammar cannot
@@ -76,28 +83,58 @@ It carries
 - the field tables of sections 7, 8 and 9, extracted from the specification's own
   markdown, so the key names, required flags and inheritance cannot drift;
 - the closed vocabularies, read from the specification's reference tables;
-- the specification's own quick example (section 3), not one of ours;
-- the `variant: glossary` rules of section 13.2.
+- the specification's own quick example (section 3), not one of ours.
+
+The paragraphs that are written in the module rather than extracted are named in
+`cliff_rules.WRITTEN_HERE`, each with the section whose rule it carries, so a reader
+knows which parts to review by hand instead of assuming an extraction that does not
+cover them; a test asserts each named part is really in the block. They are the
+marker rule, the intro, the group-inheritance sentence, the framing line of the
+vocabularies, the escape paragraph and the `variant: glossary` section.
 
 | what one CLIFF cell carries | tokens |
 | --- | ---: |
-| the full specification text (the `digest` style) | 16 656 |
-| the old hand-written digest plus that text | 21 383 |
-| **`spec`: the specification compressed to its rules** | **2 834** |
-| `examples`: our hand-written facts plus two conforming files | 1 029 |
+| the full specification text, as the reference block `digest` sends | 16 838 |
+| the old hand-written digest plus that text | 21 393 |
+| **`spec`: the specification compressed to its rules** | **2 925** |
+| `examples`: the three blocks that replace it | 1 316 |
 
-The compressed block decomposes as the ABNF (613), the ABNF's semantic-constraint
-block (794), the field tables of sections 7-9 (258), the specification's own example
-(173), the escape rule (136) and the glossary section (307), with the closed
-vocabularies and the lines that frame them at 287 — `tests/clarion/test_spec_digest.py`
-reproduces each of them.
+The `examples` figure is the stated facts (402), the task rules (489) and the
+examples (425). The task rules are not CLIFF-only — every format's prompt carries
+them — so the CLIFF-specific part of that column is smaller than the total, and the
+comparison that matters is between the two CLIFF specifications: 16 838 tokens of
+specification text against 2 925 tokens of extracted rules.
 
-Three guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
+The block decomposes as `python tools/prompt_cost.py --decomposition` prints it —
+each part measured on its own, which is why the parts sum to 2 922 against a block of
+2 925: a token boundary at a join is shared, and a table that added up by
+construction would be wrong about what the block costs.
+
+| part of the compressed block | tokens |
+| --- | ---: |
+| title line | 17 |
+| marker rule, first injection | 99 |
+| intro | 65 |
+| grammar | 625 |
+| semantic constraints | 941 |
+| field tables | 258 |
+| closed vocabularies | 163 |
+| quick example | 190 |
+| escape paragraph | 158 |
+| glossary section | 307 |
+| marker rule, second injection | 99 |
+| **sum of the parts** | **2 922** |
+| **the block as sent** | **2 925** |
+
+`tests/clarion/test_spec_digest.py` reads both figures out of this document and
+recomputes them, so a part that drifts fails the suite instead of the table.
+
+Four guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
 compared against the key sets the parser actually accepts, every section of the
 specification that states a rule must appear in `SECTION_COVERAGE` with a reason
-(so a compression pass cannot drop a normative section silently), and the token
-ceiling is asserted — a change that doubles the digest fails there rather than in a
-paid run.
+(so a compression pass cannot drop a normative section silently), the published
+decomposition is recomputed, and the token ceiling is asserted — a change that
+doubles the digest fails there rather than in a paid run.
 
 **First measurement, one repeat.** CLIFF, bare arm, the sixteen files, 1.3, one
 repeat per file (16 answers, run `clarion-deepseek-flash-20260921T164514`):

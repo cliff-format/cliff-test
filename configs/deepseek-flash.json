@@ -13,7 +13,7 @@
   "allow_glossary_output": true,
   "workflow_style": "deliverable",
   "read_mode": "tolerant",
-  "prompt_style": "examples",
+  "prompt_style": "spec",
   "seed": 20260101,
   "provider": {
     "kind": "openai",
@@ -25,7 +25,7 @@
     "max_output_tokens": 131072,
     "timeout_s": 1800,
     "max_retries": 3,
-    "reasoning": "off"
+    "reasoning": "low"
   },
   "judge": { "enabled": false },
   "pipeline": {

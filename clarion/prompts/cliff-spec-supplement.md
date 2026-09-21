@@ -29,8 +29,8 @@
 ## Strings
 
 - The whole value stays one quoted string.
-- Escape inner double quotes as `\"`, backslash as `\\`, newline as `\n`, and
-  tab as `\t`.
+- Escape inner double quotes as `\"`, backslash as `\\`, newline as `\n`, carriage
+  return as `\r`, and tab as `\t` - those five are the whole escape set.
 - Apostrophes are ordinary characters inside double-quoted strings.
 - Raw newline and raw tab are invalid inside strings.
 
@@ -44,7 +44,6 @@
 - Use `variant: glossary` and clan `<clan>-terms`.
 - One entry per term; glossary ids follow the same identifier rule and are
   unique.
-- Keep the glossary concise.
 
 ## Serialization
 

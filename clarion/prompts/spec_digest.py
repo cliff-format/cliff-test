@@ -83,13 +83,21 @@ def grammar_only() -> str:
 
 @lru_cache(maxsize=1)
 def semantic_constraints() -> str:
-    """The constraint list the ABNF carries as its trailing comment block."""
+    """The constraint list the ABNF carries as its trailing comment block.
+
+    Raises when the ABNF exists but the marker does not: the block is normative
+    prose a grammar cannot express, and a reworded marker used to return an empty
+    string, which silently dropped it from the prompt rather than failing.
+    """
     if not ABNF_FILE.exists():
         return ""
     text = read_text(ABNF_FILE)
     index = text.find(_SEMANTIC_MARKER)
     if index < 0:
-        return ""
+        raise ValueError(
+            f"{ABNF_FILE} has no {_SEMANTIC_MARKER!r} block; the semantic constraints are "
+            "normative and are injected from it, so a renamed marker must be a loud failure"
+        )
     block = text[index:]
     lines = [re.sub(r"^\s*;\s?", "", line).rstrip() for line in block.split("\n")]
     return "\n".join(line for line in lines if line.strip())

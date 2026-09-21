@@ -41,7 +41,10 @@ A repair is still recorded and reported as a cost (`repairs` per row), which is
 where shape untidiness belongs: it is priced, not prevented. Spending instruction
 tokens on it would pay twice for something the reader already handles.
 
-So this module states three things and nothing else:
+So this module renders three tables and two documents, and nothing else: the exact
+key names and the scope each is legal in, the closed tag sets, what we need back as
+properties of the delivered file, and two real conforming files that teach every
+shape the tables do not spell out.
 
 * ``KEYS_BY_SCOPE`` - the exact key names, and which scope each is legal in. This
   is what the recorded run's D7 failures violated, and Appendix C.5 forbids a
@@ -53,9 +56,10 @@ So this module states three things and nothing else:
   the translation in ``target`` with ``status`` set, the source and every id and
   header value as they were, the keys of the table above, the file's own layout,
   and each text value as one quoted string.
+* ``EXAMPLES`` - two conforming documents, one of each shape CLIFF has.
 
-Everything else - spacing, quoting, brackets, layout, style - is taught by
-``EXAMPLES``, which are real conforming documents.
+Everything else - spacing, quoting, brackets, layout, style - is taught by the
+examples rather than stated.
 
 Two rules govern the wording, and ``tests/clarion/test_tools.py`` holds both.
 Everything is stated **affirmatively**: a sentence that names the failure
@@ -129,7 +133,9 @@ VOCABULARIES: dict[str, tuple[str, ...]] = {
 
 #: The list-typed fields. Their values are brackets in every example; the
 #: tolerant reader also accepts a bare scalar and records a repair, so this is
-#: stated as a fact about the field, not as a rule to obey.
+#: stated as a fact about the field, not as a rule to obey. This is the fact set's
+#: own copy, and ``tests/clarion/test_prompt_v2.py`` compares it with the parser's
+#: list-valued keys; nothing renders it, because the examples show the shape.
 LIST_TYPED = ("emotion", "dependency", "reference")
 
 

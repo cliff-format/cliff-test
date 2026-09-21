@@ -21,7 +21,7 @@ from pathlib import Path
 import pytest
 
 from clarion.cli import build_parser, main
-from clarion.prompts import cliff_prompt_v2
+from clarion.prompts import cliff_rules
 
 #: The top-level commands. Adding one without adding it here fails the surface
 #: test below, which is the point: a command nobody tests is a command nobody
@@ -170,7 +170,7 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
         repeats=1,
         isolation="per-task",
         concurrency=1,
-        prompt_style="examples",
+        prompt_style="spec",
         provider=ProviderConfig(
             kind="openai",
             model="deepseek-flash",
@@ -189,15 +189,15 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
         assert {request.temperature for request in provider.requests} == {1.3}, (
             "the temperature the configuration names must be the one on the wire"
         )
-        # Marked by the stated-facts block's own title line, read from the module: a
+        # Marked by the specification block's own title line, read from the module: a
         # literal heading here went stale when the block was retitled, and a stale
         # literal in an assertion is worse than no assertion (it was "FIELD NAMES AND
         # THEIR SCOPE" and the block now opens "KEYS AND THEIR SCOPE").
-        facts_title = cliff_prompt_v2.CLIFF_FACTS.splitlines()[0]
+        digest_title = cliff_rules.build_normative_rules().splitlines()[0]
         assert all(
-            facts_title in request.messages[0].content
+            digest_title in request.messages[0].content
             for request in provider.requests
-        ), "prompt_style=examples must put the CLIFF field facts in every system message"
+        ), "prompt_style=spec must put the compressed specification in every system message"
 
         run_dir = next(path for path in sandbox.iterdir() if path.is_dir())
         report = (run_dir / "report.md").read_text(encoding="utf-8")
@@ -209,8 +209,8 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
         assert (run_dir / "records.jsonl").is_file()
         # The header has to name the regime that produced the numbers. It said
         # "production digest" for every run, including this one, whose
-        # configuration - and whose prompts - are the example-driven style.
-        assert "- CLIFF specification injection: examples" in report, report[:400]
+        # configuration - and whose prompts - are the compressed specification.
+        assert "- CLIFF specification injection: spec" in report, report[:400]
     finally:
         if sandbox.exists():
             shutil.rmtree(sandbox)
@@ -231,7 +231,8 @@ def test_one_variable_can_be_overridden_without_editing_a_configuration() -> Non
     base = parser.parse_args(["pipeline", "--config", "configs/deepseek-flash.json"])
     baseline = _config_from_args(base)
     assert baseline.provider.temperature == 1.3  # what the shipped config names
-    assert baseline.prompt_style == "examples"
+    assert baseline.provider.reasoning == "low"  # the shipped decoder regime
+    assert baseline.prompt_style == "spec"
 
     args = parser.parse_args(
         [
@@ -239,17 +240,17 @@ def test_one_variable_can_be_overridden_without_editing_a_configuration() -> Non
             "--config",
             "configs/deepseek-flash.json",
             "--prompt-style",
-            "spec",
+            "examples",
             "--temperature",
             "0.0",
             "--reasoning",
-            "low",
+            "off",
         ]
     )
     overridden = _config_from_args(args)
-    assert overridden.prompt_style == "spec"
+    assert overridden.prompt_style == "examples"
     assert overridden.provider.temperature == 0.0
-    assert overridden.provider.reasoning == "low"
+    assert overridden.provider.reasoning == "off"
     # One variable at a time means the rest of the provider block survives.
     assert overridden.provider.model == baseline.provider.model
     assert overridden.provider.max_output_tokens == baseline.provider.max_output_tokens
