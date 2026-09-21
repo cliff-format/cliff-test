@@ -148,7 +148,20 @@ fixture still passes, and the checks below answer the 1.1 questions.
 - **`testpaths` is `tests/`, not `tests/clarion/`.** A bare `pytest` collected 245
   tests and silently never collected `tests/test_validator_tool.py` or
   `tests/test_edit_robustness.py` — eleven tests that existed and did not run. It
-  now collects 368 plus the two pinned xfails.
+  now collects 381 plus the two pinned xfails.
+- **`tests/clarion/test_judge.py`** (13 tests): the optional MQM judge is disabled
+  by default, so nothing in a default run exercised it. The suite pins the parts
+  that fail silently — JSON wrapped in prose must still be read, a missing object is
+  an error rather than a score of zero (a zero would look like a bad translation),
+  a malformed error entry is skipped instead of crashing the run, the published
+  severity weights, the clamp at zero, and that the group score excludes entries the
+  judge never answered.
+- **C6.12 in `docs/acceptance-criteria.md` names the modification-correctness
+  criterion and its source.** It is the `D3/D4 - structural integrity of the
+  rewrite` table of the single-pass translation task. The document now states why
+  C4 (100 sequential edits) and C6.8 (twelve sequential edits) are *not* that
+  number: they measure whether a file survives being edited repeatedly, which
+  production never asks for, so the two must not be quoted for each other.
 - **The three modules an AST audit found untested**, and the audit is in
   `.tools/coverage_audit.py`:
   - `tests/clarion/test_cli.py` — the command surface: every top-level command

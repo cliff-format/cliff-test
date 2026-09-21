@@ -106,6 +106,24 @@ project might ship", using one corpus and one generation path. Protocol:
 | C6.9 | Round-trip context fidelity per format | `python -m clarion fidelity` | no |
 | C6.10 | Harness self-verification: a perfect answer scores perfectly, a damaged answer is detected, degenerate controls stay below a real answer, deterministic edits keep every format valid | `python -m clarion selfcheck` | no |
 | C6.11 | **1.1** — the same answers scored under both readings, so a report names the one behind its numbers: how many CLIFF answers a tolerant read salvages, and at what repair cost | `python -m clarion translate --read-mode tolerant` vs `--read-mode strict`; `read_mode` and `repairs` columns in the D3/D4/D7 tables | yes |
+| C6.12 | **Modification correctness of a single-pass rewrite**: `valid %`, `ids kept %`, `coverage %`, `source kept %`, `repairs/answer`, and the extra / missing / drifted / untranslated identifier counts, per format and arm | the `D3/D4 - structural integrity of the rewrite` table every report carries (`clarion/report.py` `structure_report`) | yes |
+
+### C6.12 is the modification-correctness number; C4 and C6.8 are not
+
+The pipeline asks a model for **one document and one complete file back**, which is
+what production does: the model thinks, then rewrites the file once. C6.12 measures
+that task, so it answers "how correctly does the model modify a CLIFF file" with
+the columns that decide it — an answer can be a perfectly valid file and still be
+the wrong document, which is why `ids kept %` and `coverage %` sit beside
+`valid %`.
+
+C4 (100 sequential edits) and C6.8 (twelve sequential edits per file, each applied
+to the previous answer) measure something else: whether a file **survives being
+edited repeatedly**. That is a real property, but it is not the production shape and
+it is a much harder task, so the two numbers must not be quoted for each other.
+Quoting a multi-edit rate as "the model's format correctness" understates it;
+quoting C6.12 as "robustness under repeated editing" overstates it. Both are
+reported, each stating which question it answers.
 
 Recorded in this revision:
 
@@ -145,7 +163,7 @@ exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
 | C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
 | C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
 | C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run with the example prompt (**at temperature 0.0**, see below); was 100.0% / 83.3% |
-| C6.8 | same, at the shipped temperature 1.3 | **97.7% valid / 95.9% intent** | — | CLIFF only, 171 edits over three passes; this is the deployment number |
+| C6.8 | same, at the shipped temperature 1.3 | **97.7% valid / 95.9% intent** | — | CLIFF only, 171 edits over three passes; the deployment number **for repeated editing**, which is not C6.12 |
 | C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
 
 ### C6.8 re-run: the prompt redesign, and what it fixed
