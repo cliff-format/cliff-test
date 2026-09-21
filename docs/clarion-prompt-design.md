@@ -39,9 +39,18 @@ readings and reports what happens. Under the tolerant reading the harness uses:
 | quoted tag (C.2.3) | unknown key, in any scope |
 | bare scalar in a list-typed field (C.2.1) | `status` in group scope |
 | quoted entry id (C.2.4) | value outside a closed vocabulary |
-| repeated field (C.2.2) | `status: translated` with no `target` |
-| version-line spelling (C.2.6) | unbalanced ICU brace |
-| identifier with a reserved character (C.2.5) | unquoted string |
+| quoted key (C.2.7) | `status: translated` with no `target` |
+| repeated field (C.2.2) | unbalanced ICU brace |
+| version-line spelling (C.2.6) | unquoted string |
+| identifier with a reserved character (C.2.5) | |
+
+C.2.7 was added after this table was first drawn, and it belongs in the left
+column for a checkable reason rather than a stylistic one: the repair removes the
+quotes and then checks the enclosed word against the legal keys of its scope, so
+`"translater":` is refused exactly as `translater:` is. A relaxation that cannot
+legalize a word is shape, so the prompt does not spend a token on it — and the
+prompt's "an unquoted string is unrepairable" entry is unaffected, because that is
+about a *value* carrying no determinate end, not about a key.
 
 A repair is recorded and priced as `repairs` per row, which is where shape
 untidiness belongs: it is a cost, not a failure. Spending instruction tokens on it

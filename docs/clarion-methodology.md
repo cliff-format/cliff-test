@@ -235,10 +235,10 @@ Three consequences worth stating plainly:
 
 1. **A repair is not free and not hidden.** The repairs are exactly the six of
    Appendix C.2 — a bare scalar in a list-typed field, a repeated field, a quoted
-   tag, a quoted entry id, an identifier containing a reserved character, a
-   version line spelled differently. The `repairs` column prices the answer's
-   untidiness; a format whose answers need many repairs is doing less well than
-   one whose answers need none, even when both finally parse.
+   tag, a quoted entry id, a quoted key, an identifier containing a reserved
+   character, a version line spelled differently. The `repairs` column prices the
+   answer's untidiness; a format whose answers need many repairs is doing less well
+   than one whose answers need none, even when both finally parse.
 2. **A trailing `,` / `;` is not a repair.** It is standard CLIFF 1.1 syntax
    (5.6), discarded before the line is classified, and reporting it as a repair
    would inflate the count for a habit the specification deliberately tolerates.
@@ -248,7 +248,12 @@ Three consequences worth stating plainly:
    presence of `target`, an unbalanced ICU brace, a tag outside its closed
    vocabulary, an unknown non-`x-` key, a line that is none of the six line
    kinds, a document over a resource limit, or an unimplemented version. The
-   mode preserves information; it never guesses it.
+   mode preserves information; it never guesses it. The quoted-key relaxation
+   (C.2.7) is the cleanest illustration: it removes the quotes and then checks the
+   word against the legal keys of its scope, so `"translater":` is refused exactly
+   as `translater:` is. A relaxation may change the shape of a line; it never
+   changes the vocabulary
+   (`tests/fixtures/tolerant/quoted-unknown-key.zh-CN.cliff`).
 
 ### What the tolerant read cannot save, and why that matters for prompting
 

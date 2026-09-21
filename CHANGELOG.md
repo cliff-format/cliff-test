@@ -101,6 +101,21 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Added
 
+- **A quoted key is now a repaired deviation (specification Appendix C.2.7).**
+  The specification gained the relaxation, so this suite gained the fixtures that
+  decide it: `tests/fixtures/tolerant/quoted-key.zh-CN.cliff` carries the three
+  spellings (double quotes, single quotes, `=`) in header, group and entry scope
+  and is repaired as three `name-quote` repairs, and
+  `tests/fixtures/tolerant/quoted-unknown-key.zh-CN.cliff` **must still be
+  refused** — the repair removes the quotes and then checks the word against the
+  legal keys of its scope, so the relaxation is what lets the line reach the key
+  check, not what lets it pass. `tests/run_all.py` lists the second file in
+  `UNREPAIRABLE`, `tests/clarion/test_read_modes.py` pins the repair count by
+  category, and the boundary is recorded in `docs/clarion-methodology.md`
+  (§9.1) and in the prompt-design fact table: because the relaxation cannot
+  legalize a word, the prompt still spends no token on it, and
+  `tests/clarion/test_prompt_v2.py` now rejects the phrasings a helpful edit
+  would add back ("quote a key", "unquoted key", "keys are bare").
 - **`--check-layout`**, **`--style`**, and **`--tolerant`** modes, each with its
   own fixture suite: `tests/fixtures/layout/`, `style/`, `tolerant/`.
 - **Optional line terminator** support (`CLIFF 1.1` §5.6) in the strict parser,

@@ -1,0 +1,29 @@
+# Tolerant fixture that must still be REFUSED (Appendix C.5), even though its only
+# deviation is the quoted-key relaxation of C.2.7.
+#
+# C.2.7 removes the quotes; it does not widen the key sets. The word between the
+# quotes must still be a legal key for the scope it sits in, and `translater` is
+# not one. Accepting it would let a tolerant parser launder a misspelling into a
+# field no reader knows, which is exactly what C.5 exists to forbid.
+#
+# Expected: refused in BOTH readings. The two readings refuse it for different
+# stated reasons, and the difference is worth knowing: strict mode never reaches
+# the key check (a leading quoted string is a continuation of the preceding field,
+# so it reports a mismatched continuation line), while tolerant mode unquotes the
+# key first and then reports `unknown entry key 'translater'`. The relaxation is
+# what lets the line reach the key check - it is not what lets it pass.
+# `tests/run_all.py` lists this file in UNREPAIRABLE.
+CLIFF 1.1
+namespace: demo
+clan: tolerant-refusal
+source-language: en-US
+target-language: zh-CN
+
+[video]
+type: label
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final
+"translater": "Video settings screen."

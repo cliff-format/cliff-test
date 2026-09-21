@@ -31,8 +31,11 @@ FIXTURES = ROOT / "tests" / "fixtures"
 SPEC_EXAMPLES = ROOT.parent / "cliff" / "spec" / "examples"
 
 #: Tolerant fixtures that must still be *refused* (specification Appendix C.5):
-#: tolerant parsing repairs shape, never content.
-UNREPAIRABLE = {"unrepairable.zh-CN.cliff"}
+#: tolerant parsing repairs shape, never content. The second file is refused
+#: *after* the quoted-key relaxation of C.2.7 has applied: the quotes come off and
+#: the word inside is still not a legal key, which is the boundary that keeps the
+#: relaxation from widening the key sets.
+UNREPAIRABLE = {"unrepairable.zh-CN.cliff", "quoted-unknown-key.zh-CN.cliff"}
 
 #: Answers that hold more than one CLIFF document - a translated file plus the
 #: glossary the terminology workflow produced. Splitting them is part of reading

@@ -36,6 +36,10 @@ FIXTURES = Path(__file__).resolve().parents[1] / "fixtures" / "tolerant"
 EXPECTED_REPAIRS: dict[str, dict[str, int]] = {
     "terminators-and-quoted-tags.zh-CN.cliff": {"tag-quote": 3, "list-shape": 1},
     "quoted-id-and-bare-list.zh-CN.cliff": {"name-quote": 1, "list-shape": 3},
+    # C.2.7 in its three spellings. The count is the point: three quoted keys, no
+    # other repair, and the word inside each pair of quotes is a legal key, so the
+    # relaxation never has to legalize anything.
+    "quoted-key.zh-CN.cliff": {"name-quote": 3},
 }
 
 

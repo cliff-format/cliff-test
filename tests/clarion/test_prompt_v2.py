@@ -109,12 +109,21 @@ def test_the_prompt_does_not_state_what_a_tolerant_read_repairs() -> None:
     it. The phrases below are the ones a well-meaning edit would add back.
     """
     forbidden = [
-        "never quoted",          # C.2.3 quoted tag
+        "never quoted",          # C.2.3 quoted tag, and C.2.7 quoted key
         "always brackets",       # C.2.1 bare scalar in a list-typed field
         "not `status: \"final\"`",  # the same rule, spelled out
         "case-sensitive",        # C.2.5 identifier normalization
         "kebab-case",
         "even for a single item",
+        # C.2.7 is newer than the rest of this list and is the reason each phrase
+        # is stated separately: the repair removes the quotes and then checks the
+        # word against the legal keys of its scope, so a quoted key cannot fail
+        # where a bare one would. Any of these phrasings would be tokens spent on
+        # something the reader already handles.
+        "quote a key",
+        "quotes around a key",
+        "unquoted key",
+        "keys are bare",
     ]
     lowered = RENDERED.lower()
     for phrase in forbidden:

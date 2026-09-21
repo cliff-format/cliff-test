@@ -17,9 +17,16 @@ uses:
   C.2.3 quoted tag                       an unknown key, in any scope
   C.2.1 bare scalar in a list field      `status` in group scope
   C.2.4 quoted entry id                  a tag outside its closed vocabulary
-  C.2.2 repeated field                   a missing `target` with `status: translated`
-  C.2.6 version-line spelling            an unbalanced ICU brace
-  C.2.5 identifier with reserved chars   an unquoted string
+  C.2.7 quoted key                       a missing `target` with `status: translated`
+  C.2.2 repeated field                   an unbalanced ICU brace
+  C.2.6 version-line spelling            an unquoted string
+  C.2.5 identifier with reserved chars
+
+C.2.7 is the case that shows why the boundary is drawn where it is: the repair
+removes the quotes and then checks the word against the legal keys of its scope,
+so a quoted *unknown* key is still refused. It cannot legalize anything, which is
+what makes it safe to leave out of the prompt; see
+`tests/fixtures/tolerant/quoted-unknown-key.zh-CN.cliff`.
 
 A repair is still recorded and reported as a cost (`repairs` per row), which is
 where shape untidiness belongs: it is priced, not prevented. Spending instruction

@@ -1,0 +1,30 @@
+# Tolerant fixture: a quoted key (Appendix C.2.7). A key is a bare name (6.1), so
+# quoting one is a validity error under the strict grammar; the tolerant reader
+# removes the quotes, reports a `name-quote` repair, and then applies the ordinary
+# key rules unchanged.
+#
+# The three spellings are deliberate: double quotes, single quotes, and the `=`
+# separator. What the relaxation must NOT do is widen anything - the word between
+# the quotes still has to be a legal key for the scope it sits in, so this file
+# carries no unknown key and no key from another scope.
+# `quoted-unknown-key.zh-CN.cliff` is the counter-example that must stay refused.
+#
+# Expected under `--tolerant`: THREE repairs, all `name-quote` (the `namespace`
+# line, the group `context` line, and the entry `max-width` line) - and nothing
+# else. `cliff-test/tests/clarion/test_read_modes.py` asserts exactly this, and
+# `tests/fixtures/README.md` records it.
+CLIFF 1.1
+"namespace": demo
+clan: quoted-key
+source-language: en-US
+target-language: zh-CN
+
+[video]
+'context': "Video settings screen."
+type: label
+
+<resolution>
+source: "Resolution"
+target: "分辨率"
+status: final
+"max-width" = 12

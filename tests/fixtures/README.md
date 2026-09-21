@@ -18,7 +18,7 @@ python tools/cliff_validator.py --tolerant tests/fixtures/tolerant/*.zh-CN.cliff
 | `invalid/` | Every file MUST be rejected (non-zero exit) with at least one error of the intended class. |
 | `layout/` | 0 errors by default — CLIFF 1.1 recommends a layout rather than requiring it — and at least one error under `--check-layout`. |
 | `style/` | Valid CLIFF with 0 errors, and at least one `STYLE` warning under `--style`. A style deviation is never an error. |
-| `tolerant/` | Rejected by the strict grammar and repaired under `--tolerant`, with a repair report. Files named in `UNREPAIRABLE` (`unrepairable.zh-CN.cliff`) must still be refused, because tolerant parsing repairs shape and never guesses content (specification Appendix C.5). |
+| `tolerant/` | Rejected by the strict grammar and repaired under `--tolerant`, with a repair report. Files named in `UNREPAIRABLE` (`unrepairable.zh-CN.cliff`, `quoted-unknown-key.zh-CN.cliff`) must still be refused, because tolerant parsing repairs shape and never guesses content (specification Appendix C.5). |
 
 ## Valid fixture coverage
 
@@ -72,7 +72,9 @@ python tools/cliff_validator.py --tolerant tests/fixtures/tolerant/*.zh-CN.cliff
 | `version-line.zh-CN.cliff` | C.2.6 — `cliff 1.1.0` |
 | `terminators-and-quoted-tags.zh-CN.cliff` | C.2.3 + C.2.1 — a quoted tag, and the same tag inside a list-typed field; every line also ends with `,` / `;`, which is 1.1 syntax (5.6) and MUST NOT be counted as a repair |
 | `quoted-id-and-bare-list.zh-CN.cliff` | C.2.4 + C.2.1 — a quoted entry id and bare values in `emotion` / `reference`; the ids must come back verbatim |
+| `quoted-key.zh-CN.cliff` | C.2.7 — a quoted key in all three spellings (double quotes, single quotes, `=`) in header, group and entry scope; the words inside the quotes must be legal keys, so the repair never legalizes one |
 | `unrepairable.zh-CN.cliff` | **must be refused**: C.5 forbids guessing `type: Nown` |
+| `quoted-unknown-key.zh-CN.cliff` | **must be refused**: the C.2.7 repair applies (the quotes come off) and the enclosed word is still not a legal key, so C.5 refuses it as an unknown key. The strict reading refuses the same file without ever reaching the key check |
 
 ## Invalid fixture catalog
 
