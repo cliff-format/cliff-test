@@ -15,25 +15,89 @@ arm CLIFF's instructions cost more than twice the document they describe.
 
 The replacement (`clarion/prompts/cliff_prompt_v2.py`, selected with
 `prompt_style: examples`) states only what a tolerant reader cannot repair, and
-teaches the rest with two conforming documents:
+teaches the rest with two conforming documents. Every number below is measured,
+not estimated: `.tools/price_prompt.py ui-console bare` assembles both styles
+through the same `build_translation_prompt` the run uses and prints these rows.
 
 | | current (`digest`) | example-driven (`examples`) |
 | --- | ---: | ---: |
-| specification text | 16 316 | — |
-| specification digest | 513 | — |
-| stated facts (keys, scopes, vocabularies) | — | 390 |
-| quoting rule | — | 120 |
-| edit-safety reminder | 116 | — |
+| specification text, block as sent | 16 691 | — |
+| specification digest, core + supplement | 2 785 | — |
+| stated facts: keys, scopes, vocabularies | — | 402 |
+| task rules (generic + CLIFF + output shape) | 266 | 468 |
+| format notes | 117 | — |
+| edit-safety reminder | 118 | — |
 | examples | — | 425 |
-| **one cell, `ui-console` plain arm** | **20 739** | **2 630** |
+| system role | 63 | 63 |
+| terminology policy | 236 | 236 |
+| glossary workflow | 231 | 231 |
+| the document itself | 571 | 571 |
+| **one cell, `ui-console` plain arm** | **21 078** | **2 396** |
 
-The quoting rule was added after the 1.3 edit run, and the total moved from 2 510 to
-2 630 because of it: two of that run's four invalid answers were a text value written
-without quotes, which is the one shape error no reading repairs (Appendix C.5). It
-costs 120 tokens per call; the specification text it replaced cost 16 316.
+The rows are the measured blocks of one cell; each column adds up to its total. The
+specification text was 16 316 tokens when the recorded run priced it and is 16 656
+now — the specification itself has grown since (Appendix C.2.7 among the additions),
+which is a second reason a prompt that carries it is expensive to keep current.
 
-Across the four pilot files the saving is **72 916 tokens (−77.7 %)**; measured
-per file it ranges from −64.5 % (the longest file) to −85.4 %.
+The quoting rule is the last of the five CLIFF task rules and costs 66 of those 468
+tokens: two of the 1.3 edit run's four invalid answers were a text value written
+without quotes, which is the one shape error no reading repairs (Appendix C.5). The
+specification text it replaced cost 16 691.
+
+Across the four pilot files the saving is **74 728 tokens (−78.5 %)**; measured
+per file it ranges from −65.3 % (`wmt24pp`, the longest file) to −86.1 %
+(`ui-console`). `.tools/price_pilot.py` prints that table through the same
+assembly path.
+
+## What the prompt may constrain: the specification and the deliverable
+
+A prompt block may say two things: what the format's own specification requires of
+the file, and what we need back. Anything else constrains the model's *working
+method*, and that is a constraint we have no reason to impose. If a model produces
+the answer by reproducing the file it was given and editing the values in place,
+that is a good method, and the prompt's job is to say what the answer is — not how
+to get there.
+
+The rule was written down because the shipped blocks violated it, and the clearest
+violation was the first sentence every one of the ten formats received:
+
+```
+You always return a complete file, never a diff and never a commentary.
+```
+
+Three things were wrong with it at once. It fenced a method (`never a diff`) when
+the deliverable had already been stated by the sentence before it; it named two
+failure shapes, and a named failure shape is a thing a model can produce; and it
+addressed three of the ten formats' shared blocks, so every format paid for it.
+
+`tests/clarion/test_tools.py::test_no_prompt_block_fences_the_working_method` now
+holds the rule, and it names the phrases an edit would add back rather than
+guessing at mood:
+
+| removed | why it is not allowed |
+| --- | --- |
+| `never a diff` / `never a commentary` | a prohibition where the deliverable statement belongs |
+| `Hard rules:` | our framing of the request as a rule list, in all ten formats |
+| `Leave the source field untouched` | a prohibition where a property will do |
+| `in its original order and count` | no specification section requires entry order; that was our bookkeeping |
+| `Keep the glossary concise` / `stop after the last needed term` | a house cap on the optional glossary; 13.2.2 states the criterion instead |
+
+The same rule is why `CLIFF_TASK_RULES` reads as properties of the delivered file
+(*"The translation of each entry, in that entry's `target` field"*) rather than as
+imperatives (*"Write the translation into the entry's `target` field"*), and why
+the glossary block now cites 13.2.2's own criterion for when a glossary is
+warranted instead of a rule of ours about repetition. The CLIFF rules still state
+the quoting rule and the `status`/`target` dependency, because the specification
+and the validator require those of the file; they no longer state anything the
+specification does not.
+
+The change is priced: `.tools/prompt_block_delta.py` prints the token delta of
+every block against the last commit. Across this rewrite the CLIFF facts block grew
+(+115, the orientation paragraph), the CLIFF task rules shrank (−91, the imperatives
+and the frames around them), and the net for the whole prompt is **+24 tokens per
+call** — the table above already includes it. Every other format's prompt moved by
+the shared blocks only (+13 system role, −29 task rules, +5 output shape), which is
+the same block set for all ten, so the format comparison stays like-for-like.
 
 ## The fact set is bounded by an empirical probe, not by taste
 
@@ -256,13 +320,19 @@ unquoted string" is unrepairable and therefore must be in the prompt, but the pr
 text never said it: quoting was taught only by the examples (`context: "..."`,
 `dependency: ["..."]`). Two of the four invalid answers were exactly that gap.
 
-`CLIFF_TASK_RULES` rule 5 now states it, and only it: *a text value is one quoted
-string with its final punctuation inside, and the same holds inside a list; an
-unquoted text value is the one shape error nothing downstream can repair.* It says
-nothing about tags or brackets, because those are repairs the reader already
-performs (C.2.3, C.2.1) and `tests/clarion/test_prompt_v2.py` deliberately forbids
-re-adding. The test that guards the boundary now checks both directions: the
-unrepairable fact is present, and the repairable phrasings are absent.
+`CLIFF_TASK_RULES` rule 5 now states it, and only it: *each text value is one
+quoted string, with its final punctuation inside the quotes and the closing quote
+last on the line; inside a list, each item is a quoted string.* It says nothing
+about tags or brackets, because those are repairs the reader already performs
+(C.2.3, C.2.1) and `tests/clarion/test_prompt_v2.py` deliberately forbids
+re-adding. A later edit dropped the half-sentence that named the failure ("an
+unquoted text value is the one shape error nothing downstream can repair") for the
+reason this document keeps coming back to: the prompt's job is to say what to
+write, and a sentence that describes the wrong answer is a sentence a model can
+follow. The boundary is unchanged — it is stated in the fact table above and
+asserted by the test — only the prompt stopped reciting it. The test guards both
+directions: the unrepairable fact is present, the repairable phrasings are absent,
+and so are the negative phrasings of either.
 
 Repairs introduced by the model were again confined to the two operations that
 require creating a field that is not on the page: 7 in total, `add-reference` 5
@@ -271,9 +341,11 @@ introduced once is re-counted by every later step of the chain.
 
 ## Open decisions for a full re-run
 
-1. `prompt_style: examples` is implemented and switchable but **not yet the
-   default**, and no full run has used it. The pilot justifies the saving, not a
-   quality claim.
+1. `prompt_style: examples` is what the shipped configuration
+   (`configs/deepseek-flash.json`) selects, and one deployment-settings run has
+   used it (below). The code's `DEFAULT_PROMPT_STYLE` is still `digest`, so a
+   caller that builds a prompt without a configuration gets the older style; that
+   default is what a full re-run should revisit, not the configuration.
 2. Temperature 1.3 changes the meaning of the repeats: at 0.0 the three answers of
    a cell were byte-identical, so they measured consistency rather than sampling
    variance. At 1.3 they are independent samples, which is what the paired tests
@@ -284,6 +356,11 @@ introduced once is re-counted by every later step of the chain.
    document** (fewer entries per call), since that is what the observed failure
    mode responds to. That is a change to the task, so it belongs in its own arm
    and must not be mixed into the format comparison.
+4. The prompt rewrite of this round (affirmative phrasing, and no constraint beyond
+   the specification and the deliverable) is **unmeasured**: the recorded run sent
+   the previous wording. It is +31 tokens per call and it changes the shared blocks
+   for all ten formats, so it needs its own run before any of its numbers are quoted
+   as current.
 
 ## The D7 re-run with the example prompt
 

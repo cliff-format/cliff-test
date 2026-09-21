@@ -14,6 +14,57 @@ from clarion.tools.glossary import (
 )
 
 
+def test_no_paragraph_of_the_composed_prompt_is_stated_twice(
+    corpus_root, sample_document
+) -> None:
+    """A composed prompt is read by a model, and a repetition reads as emphasis.
+
+    The deliverable statement used to be both prefixed to the terminology block and
+    appended to the task rules, so the shipped `deliverable` style sent the same
+    paragraph twice in one message. Every style must state it exactly once; the
+    style decides *where*, not *how often*.
+    """
+    from clarion.corpus.store import load_corpus
+    from clarion.metrics.terminology import load_policy
+    from clarion.prompts import templates
+
+    corpus = load_corpus("fixture", root=corpus_root)
+    corpus_file = corpus.files[0]
+    tokenizer = get_tokenizer("o200k_base")
+    policy = load_policy("zh-CN")
+    document_text = render(corpus_file.document, "cliff", arm=Arm.CONTEXT)
+
+    # The style decides where the deliverable is stated, and `appendix` states it
+    # nowhere: only the two styles that promote it say it at all.
+    expected_counts = {"appendix": 0, "deliverable": 1, "front": 1}
+    for style, expected in expected_counts.items():
+        user = build_translation_prompt(
+            document_text=document_text,
+            format_id="cliff",
+            tokenizer=tokenizer,
+            source_language="en-US",
+            target_language="zh-CN",
+            arm="context",
+            policy_fragment=policy.prompt_fragment(),
+            allow_glossary_output=True,
+            workflow_style=style,
+            prompt_style="examples",
+            document=corpus_file.document,
+        ).user
+        # Only the instruction part. The split has to use the document block's own
+        # header: the phrase "FILE TO TRANSLATE" also appears in task rule 1, so
+        # splitting on that cut the instructions off after their first sentence and
+        # the assertions below were reading almost nothing.
+        instructions = user.split(templates.DOCUMENT_HEADER, 1)[0]
+        stated = instructions.count(templates.GLOSSARY_DELIVERABLE)
+        assert stated == expected, (
+            f"workflow_style={style} states the deliverable {stated} times, expected {expected}"
+        )
+        paragraphs = [p.strip() for p in instructions.split("\n\n") if len(p.strip()) > 40]
+        repeated = [p[:60] for p in paragraphs if paragraphs.count(p) > 1]
+        assert repeated == [], f"workflow_style={style} repeats: {sorted(set(repeated))}"
+
+
 def test_spec_digest_lists_the_closed_vocabularies() -> None:
     assert len(type_tags()) == 26
     assert len(emotion_tags()) == 23
@@ -148,7 +199,12 @@ def test_d1_d2_price_the_prompt_the_translation_arms_actually_send(
     # And the run reflects the configuration rather than a default: the style the
     # config names must be the style in the system message it actually sends.
     system = provider.requests[-1].messages[0].content
-    assert "FIELD NAMES AND THEIR SCOPE" in system, (
+    # The marker is the stated-facts block's own title line, taken from the module so
+    # a retitled block cannot leave this assertion pointing at a string that no longer
+    # exists (it did: the block was retitled to "KEYS AND THEIR SCOPE" and this test
+    # kept asserting the old heading, which meant a dead check rather than a failing
+    # one). The assertion below it is the load-bearing one.
+    assert v2.CLIFF_FACTS.splitlines()[0] in system, (
         "prompt_style='examples' must reach the system message; the configuration "
         "naming a style is not the same as the run using it"
     )
@@ -197,3 +253,87 @@ def test_attach_dependency_is_idempotent(sample_document) -> None:
     once = attach_dependency(sample_document, "glossary.zh-CN.cliff")
     twice = attach_dependency(once, "glossary.zh-CN.cliff")
     assert twice.header.dependency.count("glossary.zh-CN.cliff") == 1
+
+
+#: What a prompt block is allowed to say: what the format's own specification
+#: requires of the file, and what we need back (the translated file). Anything
+#: else fences how the model works. Reproducing the file it was given and editing
+#: it is a good way to arrive at the answer, so a block may not forbid a method,
+#: and a block may not impose a house rule the specification does not have.
+#:
+#: Each entry is the phrase an edit would add back, and the reason it is not
+#: allowed. These are stated as literal phrases rather than as a check for
+#: imperative mood, because the fences that were actually there are specific.
+METHOD_FENCES: dict[str, str] = {
+    "never a diff": "the answer shape stated as a prohibition (was SYSTEM_ROLE)",
+    "never a commentary": "the same prohibition, second half (was SYSTEM_ROLE)",
+    "hard rules": "our framing of the request as a rule list (was TASK_RULES)",
+    "leave the source field untouched": "prohibition where a property will do",
+    "in its original order and count": (
+        "no specification section requires the entry order to be preserved; that "
+        "was our bookkeeping stated as a rule"
+    ),
+    "keep the glossary concise": "a house cap on the optional glossary",
+    "only the renderings that matter": "the same cap, second half",
+    "stop after the last needed term": "the same cap, third half (13.2.2 states the criterion)",
+}
+
+
+def test_no_prompt_block_fences_the_working_method() -> None:
+    """Constraint comes from the specification and the deliverable, not from us.
+
+    Checked on the blocks themselves rather than on one composed prompt, because
+    these templates are shared: SYSTEM_ROLE and TASK_RULES reach all ten formats,
+    and the glossary blocks reach every CLIFF run that allows a glossary.
+    """
+    from clarion.prompts import cliff_prompt_v2 as v2
+    from clarion.prompts import templates
+
+    blocks = {
+        "SYSTEM_ROLE": templates.SYSTEM_ROLE,
+        "TASK_RULES": templates.TASK_RULES,
+        "OUTPUT_RULES_BILINGUAL": templates.OUTPUT_RULES_BILINGUAL,
+        "OUTPUT_RULES_MONOLINGUAL": templates.OUTPUT_RULES_MONOLINGUAL,
+        "CONTEXT_HINT": templates.CONTEXT_HINT,
+        "GLOSSARY_DELIVERABLE": templates.GLOSSARY_DELIVERABLE,
+        "GLOSSARY_WORKFLOW": templates.GLOSSARY_WORKFLOW,
+        "CLIFF_EDIT_SAFETY": templates.CLIFF_EDIT_SAFETY,
+        "CLIFF_FACTS": v2.CLIFF_FACTS,
+        "CLIFF_TASK_RULES": v2.CLIFF_TASK_RULES,
+        **{f"FORMAT_NOTES[{key}]": value for key, value in templates.FORMAT_NOTES.items()},
+    }
+    for name, text in blocks.items():
+        lowered = text.lower()
+        for phrase, why in METHOD_FENCES.items():
+            assert phrase not in lowered, f"{name} fences the method: '{phrase}' - {why}"
+
+    # And the other half: the deliverable is still stated, because "state what we
+    # need and nothing about the method" is the rule, not "state nothing".
+    role = " ".join(templates.SYSTEM_ROLE.split()).lower()
+    assert "we need the translated file itself, complete" in role
+    assert "the translated file" in " ".join(templates.TASK_RULES.split()).lower()
+    # The examples style no longer carries a separate edit-safety reminder, so the
+    # glossary workflow is the only place a CLIFF run learns what a glossary is.
+    workflow = " ".join(templates.GLOSSARY_WORKFLOW.split())
+    assert "Specification 13.2.2 is the criterion" in workflow, (
+        "the glossary trigger must cite the specification's own criterion, not a "
+        "house rule about how often terminology repeats"
+    )
+
+
+def test_the_two_rule_lists_in_one_message_have_different_headings() -> None:
+    """One message, two numbered lists, and the headings have to tell them apart.
+
+    The shared rules and the CLIFF-specific rules are concatenated into the same
+    user message. Both were titled "WHAT WE NEED" for one revision, which reads as
+    one list restarted at 1 in the middle rather than as a refinement of it. The
+    paragraph-duplication test above cannot see this: it compares paragraphs longer
+    than 40 characters and both headings are two words.
+    """
+    from clarion.prompts import cliff_prompt_v2 as v2
+    from clarion.prompts import templates
+
+    shared = templates.TASK_RULES.splitlines()[2].strip()
+    cliff = v2.CLIFF_TASK_RULES.splitlines()[0].strip()
+    assert shared and cliff
+    assert shared != cliff, f"both rule lists are titled '{shared}' in one message"

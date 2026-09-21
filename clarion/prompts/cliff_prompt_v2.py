@@ -41,7 +41,7 @@ A repair is still recorded and reported as a cost (`repairs` per row), which is
 where shape untidiness belongs: it is priced, not prevented. Spending instruction
 tokens on it would pay twice for something the reader already handles.
 
-So this module states two things and nothing else:
+So this module states three things and nothing else:
 
 * ``KEYS_BY_SCOPE`` - the exact key names, and which scope each is legal in. This
   is what the recorded run's D7 failures violated, and Appendix C.5 forbids a
@@ -49,9 +49,22 @@ So this module states two things and nothing else:
   the appendix exists to prevent.
 * ``VOCABULARIES`` - the closed tag sets, because a value outside them is
   reported as a vocabulary error in both readings.
+* ``CLIFF_TASK_RULES`` - what we need back, as properties of the delivered file:
+  the translation in ``target`` with ``status`` set, the source and every id and
+  header value as they were, the keys of the table above, the file's own layout,
+  and each text value as one quoted string.
 
 Everything else - spacing, quoting, brackets, layout, style - is taught by
 ``EXAMPLES``, which are real conforming documents.
+
+Two rules govern the wording, and ``tests/clarion/test_tools.py`` holds both.
+Everything is stated **affirmatively**: a sentence that names the failure
+("an unquoted text value cannot be repaired") describes a shape a model can
+produce, so the failure lives in this file's fact table and in the test, not in the
+prompt. And the prompt constrains **only what the specification requires and what
+we need back**: no block here may fence *how* the model works, because reproducing
+the file it was given and editing the text is a good way to arrive at the answer.
+`docs/clarion-prompt-design.md` records the rule and what it removed.
 
 Every claim here is checked against ``cliff_format`` by
 ``tests/clarion/test_prompt_v2.py``, because a wrong claim would teach a model to
@@ -140,24 +153,32 @@ def _vocabulary(label: str) -> str:
 
 
 #: The stated facts. Two jobs only: which key where, and which values exist.
-CLIFF_FACTS = f"""CLIFF 1.1 — FIELD NAMES AND THEIR SCOPE
+#:
+#: Phrased affirmatively throughout, and deliberately so. CLIFF is a format the
+#: model has no prior for, so the prompt has to say what to write; a sentence that
+#: names the failure ("do not invent a field") also describes it, and a description
+#: of a failure is a thing a model can produce. Every line below is therefore a
+#: statement of what the file contains, not of what to avoid.
+CLIFF_FACTS = f"""CLIFF 1.1 — A LINE-ORIENTED TRANSLATION FILE
 
-A field name is only legal in the scope listed below. Any other name, in any
-scope, makes the file invalid; do not invent a field, and do not move one to
-another scope.
+An entry starts with a line of the form <entry-id>; the `key: value` lines under
+it are that entry's fields. A section starts with `[group.path]`, and its keys are
+inherited by the entries below it.
+
+KEYS AND THEIR SCOPE — each key belongs to the scope it is listed under
 
 {_row("header", KEYS_BY_SCOPE["header"]["required"] + KEYS_BY_SCOPE["header"]["optional"])}
 {_row("[group]", KEYS_BY_SCOPE["group"]["optional"])}
 {_row("<entry>", KEYS_BY_SCOPE["entry"]["required"] + KEYS_BY_SCOPE["entry"]["optional"])}
 
-Required: `namespace`, `clan`, `source-language`, `target-language` in the
-header; `source` and `status` on every entry, plus `type` either on the entry or
-inherited from its group.
+Required: `namespace`, `clan`, `source-language`, `target-language` in the header;
+`source` and `status` on every entry; `type` on the entry or inherited from its
+group.
 
-Read the `status` row carefully: `status` exists on an **entry only**. A group
-section accepts `context`, `type`, `emotion` and `max-width`, and nothing else.
+`status` is an entry key. A group carries `context`, `type`, `emotion` and
+`max-width`.
 
-CLOSED VOCABULARIES — these values exist, and no others
+CLOSED VOCABULARIES — write one of these values
 
   type
 {_vocabulary("type")}
@@ -172,25 +193,26 @@ CLOSED VOCABULARIES — these values exist, and no others
 {_vocabulary("variant")}
 """
 
-#: What the model does with the file. Verbs, not syntax.
-CLIFF_TASK_RULES = """WHAT TO CHANGE
+#: What we need back. Every item is a property of the delivered file, so the list
+#: states the product and leaves the working method to the model: reproducing the
+#: file it was given and editing the text is a perfectly good way to arrive at it,
+#: and a prompt that fenced that would be spending tokens on the model's process
+#: instead of on the result. The earlier wording was imperative ("Write the source
+#: text..., Follow the layout...") and read as instructions for how to work.
+CLIFF_TASK_RULES = """WHAT WE NEED IN CLIFF
 
-1. Write the translation of every entry into its `target` field, and set that
-   entry's `status` to `translated`.
-2. Everything else comes through unchanged and byte for byte: the source text,
-   every id and group path, every context, type, emotion, width and reference,
-   and every header value. Escaping included - a lost backslash changes the text.
-3. Do not add, drop, reorder or rename a field. If an entry looks like it needs a
-   field that is not in the table above, it does not: use the field that exists.
-   (`reference` is spelled `reference`; context is spelled `context`.)
-4. Keep the file's own layout and conventions. The examples below show the shape;
-   follow the file you were given wherever it differs.
-5. A text value is one quoted string, and the whole value is inside the quotes -
-   final punctuation included. `context: "Reviewed in the 2026 audit."` is right;
-   `context: Reviewed in the 2026 audit.` and `context: "Reviewed.".;` are not, and
-   neither is text left after the closing quote. The same holds inside a list:
-   `reference: ["src/ui/panel.cpp:42"]`. An unquoted text value is the one shape
-   error nothing downstream can repair, so it is worth checking."""
+1. The translation of each entry, in that entry's `target` field, with the entry's
+   `status` set to `translated`.
+2. Every context, type, emotion, width and reference field, and every header
+   value, exactly as they appear in the file you were given, escaping included.
+3. The keys in the table above, each in the scope it is listed under, once per
+   scope. (`reference` is spelled `reference`; context is spelled `context`.)
+4. The layout and conventions of the file you were given; the examples below show
+   the shape.
+5. Each text value as one quoted string, with its final punctuation inside the
+   quotes and the closing quote last on the line:
+   `context: "Reviewed in the 2026 audit."`. Inside a list, each item is a quoted
+   string: `reference: ["src/ui/panel.cpp:42"]`."""
 
 #: Two conforming documents. The first shows every construct; the second shows the
 #: only other document shape CLIFF has (a terminology glossary).

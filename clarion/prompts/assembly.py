@@ -110,6 +110,12 @@ def build_translation_prompt(
     # file to edit.
     notes = templates.FORMAT_NOTES.get(format_id, "")
     example_driven = prompt_style == "examples" and format_id == "cliff"
+    if example_driven:
+        # CLIFF_FACTS opens with the same orientation in its own words, so the notes
+        # block would state it a second time in the same message. Dropping it is part
+        # of the same rule as the deliverable statement above: a composed prompt says
+        # each thing once, in the place the style puts it.
+        notes = ""
     digest = build_grammar_plus() if (format_id == "cliff" and not example_driven) else ""
     system_digest = ""
     user_digest = ""
@@ -159,16 +165,21 @@ def build_translation_prompt(
         else templates.OUTPUT_RULES_MONOLINGUAL.format(target_language=target_language)
     )
     # Where the terminology workflow is stated changes whether it is obeyed:
-    # 'appendix' puts it after the format notes, 'deliverable' promotes it into
-    # the numbered task rules, and 'front' additionally places it before the
-    # specification block. The ablation behind the default is recorded in
-    # docs/clarion-prompting.md.
+    # 'appendix' puts it after the format notes, 'deliverable' promotes the
+    # deliverable statement into the numbered task rules, and 'front' additionally
+    # moves the workflow itself before the specification block. The ablation behind
+    # the default is recorded in docs/clarion-prompting.md.
+    #
+    # The style changes *where* the deliverable is stated and never states it twice:
+    # the statement used to be both prefixed here and appended to the rules below,
+    # so the shipped 'deliverable' configuration sent the same paragraph twice in
+    # one message. A composed prompt is read by a model, not by a diff, and a
+    # repetition reads as emphasis nobody asked for while costing tokens on every
+    # call. `tests/clarion/test_tools.py` asserts no paragraph repeats.
     workflow_enabled = format_id == "cliff" and allow_glossary_output
     workflow_block = ""
     if workflow_enabled:
         workflow_block = templates.GLOSSARY_WORKFLOW
-        if workflow_style in {"deliverable", "front"}:
-            workflow_block = templates.GLOSSARY_DELIVERABLE + "\n\n" + workflow_block
 
     rules_block = f"{rules}\n\n{output_rules}"
     if example_driven:

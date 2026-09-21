@@ -181,7 +181,9 @@ After the two prompt pilots the shipped configuration moved to
 `temperature: 1.3` (DeepSeek's recommended translation temperature, and what the
 production plugin uses) and `prompt_style: examples` (the specification text
 replaced by the key/scope facts plus two conforming documents; 20 739 → 2 510
-prompt tokens per cell). Dimension 7 was then re-run through
+prompt tokens per cell at the time; the table has since been re-measured through
+the assembly path and reads **21 078 → 2 396**, see
+`docs/clarion-prompt-design.md`). Dimension 7 was then re-run through
 `run_robustness_matrix` over the `ui` stratum, 2 passes × 12 edits, 240 calls.
 **Only the prompt change reached that run**: the edit path built its own request
 with a hard-coded `temperature=0.0` and ignored the configured value, so the

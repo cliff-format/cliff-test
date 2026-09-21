@@ -21,6 +21,7 @@ from pathlib import Path
 import pytest
 
 from clarion.cli import build_parser, main
+from clarion.prompts import cliff_prompt_v2
 
 #: The top-level commands. Adding one without adding it here fails the surface
 #: test below, which is the point: a command nobody tests is a command nobody
@@ -188,8 +189,13 @@ def test_the_final_measurement_command_runs_end_to_end(monkeypatch) -> None:
         assert {request.temperature for request in provider.requests} == {1.3}, (
             "the temperature the configuration names must be the one on the wire"
         )
+        # Marked by the stated-facts block's own title line, read from the module: a
+        # literal heading here went stale when the block was retitled, and a stale
+        # literal in an assertion is worse than no assertion (it was "FIELD NAMES AND
+        # THEIR SCOPE" and the block now opens "KEYS AND THEIR SCOPE").
+        facts_title = cliff_prompt_v2.CLIFF_FACTS.splitlines()[0]
         assert all(
-            "FIELD NAMES AND THEIR SCOPE" in request.messages[0].content
+            facts_title in request.messages[0].content
             for request in provider.requests
         ), "prompt_style=examples must put the CLIFF field facts in every system message"
 

@@ -97,6 +97,63 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Changed
 
+- **The prompt now states what the specification requires and what we need back,
+  and nothing else.** Two rules, applied to every block all ten formats receive:
+  state the rule affirmatively (a sentence that names the failure — "an unquoted
+  text value cannot be repaired", "never a diff" — describes a shape a model can
+  produce), and do not constrain the model's working method. `SYSTEM_ROLE` opened
+  with *"You always return a complete file, never a diff and never a commentary"*:
+  a prohibition where the deliverable belongs, naming two failure shapes, paid for
+  by all ten formats. It now reads *"We need the translated file itself, complete:
+  the file we gave you, with its text in the target language and its structure
+  intact."* Reproducing the file and editing it in place is a good method, and the
+  prompt's job is to say what the answer is, not how to get there.
+  - `TASK_RULES` lost its `Hard rules:` framing and the clause *"in its original
+    order and count"*: no specification section requires entry order, so that was
+    our bookkeeping stated as a rule. It now lists properties of the delivered
+    file.
+  - `CLIFF_TASK_RULES` is titled **WHAT WE NEED IN CLIFF** and every item is a
+    property of the delivered file, not an imperative. The title had to change
+    twice: it was first rewritten to **WHAT WE NEED**, which is also the shared
+    block's heading, so one message carried two numbered lists under the same
+    heading and read as one list restarting at 1. Rule 5 keeps the quoting rule
+    (the one shape error no reading repairs, C.5) and drops the half-sentence that
+    named the failure; the boundary itself is unchanged and still asserted. Rule 2
+    now states only the fields the shared rules do not already cover, since
+    "every identifier, key, group path and structural element" is rule 2 of the
+    shared block and saying it twice cost tokens for nothing.
+  - `GLOSSARY_WORKFLOW` no longer caps the optional glossary (*"keep it concise …
+    stop after the last needed term"*). It cites specification 13.2.2 instead,
+    which is where the criterion for when a glossary is warranted and what belongs
+    in it actually lives. `GLOSSARY_DELIVERABLE` and `OUTPUT_RULES_BILINGUAL` lost
+    one prohibition each (*"concise"*, *"leave the source field untouched"*).
+  - `CLIFF_EDIT_SAFETY` (the `digest` style's reminder) states the same facts as
+    properties rather than as a *"copy exactly as written"* imperative.
+  - **Priced, because these blocks reach every call of every format**:
+    `.tools/prompt_block_delta.py` prints the delta per block against the last
+    commit. CLIFF facts **+115** (the orientation paragraph), CLIFF task rules
+    **−91**, shared task rules **−29**, system role **+13**, glossary workflow
+    **+17**, output shape **+5**, edit safety **+1** — net **+24 tokens per call**.
+    The prompt-cost table in `docs/clarion-prompt-design.md` was re-measured
+    through the assembly path and now reads **21 078 → 2 396** tokens for the
+    `ui-console` plain cell (the older 20 739 / 2 630 figures are superseded; the
+    specification text alone grew from 16 316 to 16 656 tokens).
+  - The rule is held by
+    `tests/clarion/test_tools.py::test_no_prompt_block_fences_the_working_method`,
+    which names the phrases an edit would add back,
+    `test_the_two_rule_lists_in_one_message_have_different_headings` (the
+    duplication test compares paragraphs longer than 40 characters and cannot see
+    a repeated two-word heading), and `tests/clarion/test_prompt_v2.py`, which
+    holds the CLIFF blocks to the repairable/unrepairable boundary in both
+    directions.
+  - Two assertions in `tests/clarion/test_cli.py` and `tests/clarion/test_tools.py`
+    pinned the literal heading **FIELD NAMES AND THEIR SCOPE** and went stale when
+    the facts block was retitled. Both now read the marker from
+    `cliff_prompt_v2.CLIFF_FACTS`, so a retitle cannot leave an assertion pointing
+    at a string that no longer exists.
+  - **Not yet measured by a run**: the recorded deployment run sent the previous
+    wording. This is recorded as an open decision in
+    `docs/clarion-prompt-design.md` rather than quoted as a result.
 - **`tools/cliff_validator.py` follows the relaxed `name` production**
   (`A-Z a-z 0-9 _ -`, never `.`) and keeps tags narrow via a separate
   `TAG_NAME_RE`. A near-miss tag is reported as a `vocabulary` error listing the

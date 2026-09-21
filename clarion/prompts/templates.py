@@ -7,31 +7,36 @@ how many tokens the instructions cost versus the document itself.
 
 from __future__ import annotations
 
+# The last sentence states the deliverable and nothing about the method. It used
+# to read "You always return a complete file, never a diff and never a commentary",
+# which fenced how the model may work (reproducing the file and editing it is a
+# perfectly good way to produce the answer) and did it in the negative - and a
+# sentence that names a failure shape is a sentence a model can act on. What we
+# need from the model is the translated file; how it gets there is its own business.
 SYSTEM_ROLE = """You are a professional localization translator and localization engineer.
 You translate product, literary, legal and game content between languages, and you
 edit localization resource files without breaking their structure.
-You always return a complete file, never a diff and never a commentary."""
+We need the translated file itself, complete: the file we gave you, with its text
+in the target language and its structure intact."""
 
 TASK_RULES = """Translate the localization file below from {source_language} into {target_language}.
 
-Hard rules:
-1. Your answer is the file that appears under "FILE TO TRANSLATE", returned
-   complete and in the format you received it. The answer begins with the first
-   character of that file and ends with its last. Reference material such as a
-   glossary is context you read and leave where it is.
-2. Every identifier, key, group path and structural element comes through
-   unchanged, in its original order and count.
-3. The source text comes through verbatim. Your work goes into the translation.
-4. Every placeholder and ICU MessageFormat construct survives character for
-   character - {{count, plural, ...}}, {{name}}, %s, %1$s, {{{{...}}}}, HTML-like tags -
-   and you translate the human-readable text inside them.
-5. Translate meaning: keep register, tone and wordplay natural in
-   {target_language}.
-6. The context, terminology, tone and width information in the file is the
-   translation brief; follow it as written."""
+WHAT WE NEED
+1. The translated file: the file that appears under "FILE TO TRANSLATE", complete
+   and in the format you received it. Reference material such as a glossary is
+   context for your reading.
+2. Every identifier, key, group path and structural element of that file, as it
+   appears in the file you were given.
+3. The source text verbatim; your work goes into the translation.
+4. Every placeholder and ICU MessageFormat construct character for character -
+   {{count, plural, ...}}, {{name}}, %s, %1$s, {{{{...}}}}, HTML-like tags - with the
+   human-readable text inside them translated.
+5. Meaning translated: register, tone and wordplay natural in {target_language}.
+6. The brief the file carries - context, terminology, tone, width - applied as
+   written."""
 
 OUTPUT_RULES_BILINGUAL = """Fill in the translation for every entry, in the field this format uses
-for the target text. Leave the source field untouched."""
+for the target text; the source field keeps the source text as it is."""
 
 OUTPUT_RULES_MONOLINGUAL = """This file is a resource file in the source language: each key maps to
 its source text. Return the same file with every value replaced by its
@@ -84,13 +89,13 @@ GLOSSARY_FOOTER = """===== END OF REFERENCE GLOSSARY ====="""
 DOCUMENT_HEADER = """===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE ====="""
 
 CLIFF_EDIT_SAFETY = """CLIFF EDIT SAFETY
-Copy every entry id and group path exactly as written: identifiers may use
-upper- and lowercase letters, digits, "_" and "-", they are case-sensitive, and
-recapitalizing one or adding an underscore renames the translation key.
-Glossary ids are unique; one entry per term. Fixed tags (type, emotion, status)
-are the exception: they stay lowercase kebab-case words from the closed
-vocabulary, written bare. Every text value is one quoted string; escape inner
-double quotes as \\" and newlines as \\n."""
+Every entry id and group path is there as written: identifiers may use upper- and
+lowercase letters, digits, "_" and "-", they are case-sensitive, and
+recapitalizing one or adding an underscore renames the translation key. Glossary
+ids are unique; one entry per term. Fixed tags (type, emotion, status) are the
+exception: they are lowercase kebab-case words from the closed vocabulary,
+written bare. Every text value is one quoted string; inner double quotes are
+escaped as \\" and newlines as \\n."""
 
 
 # CLIFF is the only format in the comparison with a glossary variant, so it is
@@ -98,20 +103,19 @@ double quotes as \\" and newlines as \\n."""
 # of the one-file rule: it is the format's terminology workflow, and the
 # benchmark measures whether a model actually uses it.
 GLOSSARY_DELIVERABLE = """This task has one required deliverable, the translated file, and one
-optional deliverable: a concise CLIFF glossary when the file's terminology is
-widespread or highly repeated."""
+optional deliverable: a CLIFF glossary for the term decisions the translation
+makes."""
 
 GLOSSARY_WORKFLOW = """Terminology workflow.
 
-Append a glossary when terminology is widespread or highly repeated: the brief
-asks for consistency or a naming policy, many product or domain terms recur, or
-renderings must stay consistent across the file.
+Specification 13.2.2 is the criterion: a glossary is warranted when the brief
+asks for terminology consistency or a naming policy, a term recurs across
+entries, or a naming judgement would otherwise be re-made differently. A term
+belongs in it when it recurs, names something (product, feature, character,
+place, faction), is a fixed phrase or idiom, or was a judgement call; the
+rendering it records is the one used in the translated file.
 
-Keep the glossary concise: one entry per distinct term that needs a locked
-rendering, only the renderings that matter, and stop after the last needed
-term.
-
-When appended, add a CLIFF document after the translated file:
+One CLIFF document, after the translated file:
 
 CLIFF 1.1
 namespace: <same namespace>
@@ -131,8 +135,7 @@ type: <a CLIFF type tag>
 status: translated
 context: "<why this rendering, in one line>"
 
-Each entry holds a term that made the glossary useful, carries the rendering
-you used, and satisfies CLIFF."""
+Each entry holds one term, carries the rendering you used, and satisfies CLIFF."""
 
 CONTEXT_HINT = """The file carries a translation brief: family information, translation
 standards, group context and per-entry context, content type, emotion, and
