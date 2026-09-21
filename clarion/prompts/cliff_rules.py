@@ -206,6 +206,14 @@ a grammar cannot express.
 {grammar_only()}
 --- END GRAMMAR ---
 
+SECTIONS AND ENTRIES ARE SINGLE LINES
+
+  A section line `[group.path]` opens a section, and an entry line `<id>` opens an
+  entry. Each stands alone on its own line, and what it opens runs until the next
+  such line or the end of the document. Inside a string, `<` and `>` are ordinary
+  text like any other character. The ABNF comment that says so is one of the
+  comments stripped from the grammar above, which is why it is stated here.
+
 SEMANTIC CONSTRAINTS (normative)
 {semantic_constraints()}
 
@@ -221,14 +229,16 @@ A CONFORMING FILE (the specification's own quick example, section 3)
 
 {quick_example()}
 
-ESCAPING (sections 5.7 and 6.2, stated as a rule the grammar only implies)
+ESCAPING (sections 5.7 and 6.2)
 
-  Inside a double-quoted value, exactly five characters are written with a
-  backslash: the double quote (\\"), the backslash itself (\\\\), newline (\\n),
-  carriage return (\\r) and tab (\\t). Every ASCII double quote inside a value is
-  therefore written \\" - in source, target, context and reference alike, and in a
-  value of any length. Chinese, Japanese and Korean curly quotes (\u201c \u201d \u300c \u300d) are
-  ordinary characters: they are written as they are, with no backslash.
+  A value is a C-style string literal. Five characters are written with a
+  backslash inside it: the double quote (\\"), the backslash itself (\\\\), newline
+  (\\n), carriage return (\\r) and tab (\\t) - those five are the whole escape set.
+  So a value that contains a quote has \\" at that point, however long the value is,
+  and the file you were given already spells it that way: the source text and every
+  other value come through with their backslashes exactly as written. Chinese,
+  Japanese and Korean curly quotes (\u201c \u201d \u300c \u300d) are ordinary characters and are
+  written as they are, with no backslash.
 
 VARIANT: glossary (section 13)
 

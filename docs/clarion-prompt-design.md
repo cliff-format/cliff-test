@@ -270,6 +270,52 @@ of the corpus's own content rules are still violated — `require`, `forbid`,
 `max-width`, `name-policy`, `cjk-latin-space`, `regex`, `term`, `keep-verbatim`,
 `length-ratio` — in answers that parse, validate and carry every identifier.
 
+## The prompt has a floor: two levers that worked and one class that does not move
+
+Three prompt edits were made against the failures of the clean cell, and the
+difference between them is the useful part of this record.
+
+**Naming the convention worked.** The three escaping failures went to zero when the
+paragraph stopped listing the rule and started *naming* it — a value is **a C-style
+string literal**, five escapes, and the file you were given already spells them that
+way, so the backslashes come through as written. The second half is what mattered:
+the corpus line the model was copying already contained `\"`, and the model had been
+"tidying" the backslashes out of it. Naming the convention supplies the prior; the
+copy sentence stops it from being overridden.
+
+**Stating the rule the ABNF comment carried did not.** The grammar's comment on
+`entry-line` says *"single-line marker; no closing tag exists"* — and
+`grammar_only()` strips every comment, so the prompt had never said it. A paragraph
+now states it affirmatively ("each stands alone on its own line, and what it opens
+runs until the next such line or the end of the document"). It is worth keeping and
+it is guarded by a test, but it did not remove the behaviour:
+
+| prompt variant | answers | with a stray closing tag | tags in total |
+| --- | ---: | ---: | ---: |
+| recorded run (`examples` + the skeleton blocks, thinking off) | 48 | 3 | 3 |
+| `examples` after the rewrite (no skeleton, thinking off) | 48 | 5 | 10 |
+| `spec`, thinking off (one repeat) | 16 | 4 | **58** |
+| `spec` + `reasoning: low` | 48 | 3 | 3 |
+| `spec` + `reasoning: low` + the marker paragraph | 48 | **2** | 3 |
+
+The model closes what it opens — `</terms>`, `</result>`, `</preset>`, and in one
+answer a whole chain of closers (`</hp></loot></default></cache>…`) as if every entry
+needed one. It has done so in **every prompt variant this project has measured**,
+including the recorded run, and thinking off makes it an order of magnitude worse
+(58 tags in 16 answers). This is a model habit, not a missing sentence, and the
+prompt side has reached its floor on it.
+
+**What that leaves.** The class is 2–5 answers per 48, and it costs the whole answer
+even though a closing tag carries no information: the tolerant reader normalises
+`</terms>` into the entry id `terms` (Appendix C.2.5 lists `/` among its reserved
+characters, and C.3 strips it), so the document fails on `entry 'terms' is missing
+required field 'source'` — an entry the answer does not contain. **A reader that must
+not invent data is the tool for this**, which is the C.2.8 proposal in the changelog:
+either clarification (a marker whose identifier does not begin with a name character
+is not an entry marker, so the line is rejected honestly) or a documented wrapper
+relaxation (the tag is dropped and reported). Both are specification changes, and
+neither has been made.
+
 ## What the prompt may constrain: the specification and the deliverable
 
 A prompt block may say two things: what the format's own specification requires of

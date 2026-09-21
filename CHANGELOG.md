@@ -560,6 +560,45 @@ fixture still passes, and the checks below answer the 1.1 questions.
 - `docs/clarion-methodology.md` §9.1 states what each reading answers, which
   repairs exist, what a terminator is not, and which C.5 refusals hold.
 
+### Changed
+
+- **Naming a convention beats stating a rule: the escape paragraph is now "a value is
+  a C-style string literal".** Three of the four failures in the clean cell were an
+  ASCII double quote written without its backslash, and the byte-level comparison
+  showed why: the model's line and the corpus line had **the same number of quotes**
+  and the corpus had seven backslashes where the answer had one, with nothing added
+  or removed — the model was copying a line that already carried `\"` and tidying the
+  backslashes out of it. The paragraph now names the convention (five escapes, the
+  whole set) and states that the source text and every other value come through
+  *with their backslashes exactly as written*. In the same cell the escaping failures
+  went **3 → 0**.
+- **A paragraph for the rule the ABNF comment carried, which comment-stripping had
+  been deleting.** `grammar_only()` removes every `;` comment, and one of them states
+  a rule the prompt therefore never made: the ABNF says of `entry-line` that it is a
+  *"single-line marker; no closing tag exists"*. The compressed block now states it
+  affirmatively (`SECTIONS AND ENTRIES ARE SINGLE LINES`: a marker stands alone and
+  what it opens runs to the next marker or the end of the document), guarded by
+  `test_the_single_line_marker_rule_survives_the_comment_stripping`.
+  - **It did not fix the behaviour it was written for, and the measurement is the
+    point.** Stray closing tags after the glossary appear in every prompt variant
+    this project has measured: the recorded run 3 of 48 answers, `examples` after the
+    rewrite 5 of 48, `spec` with thinking off 4 of 16 (**58 tags** — one answer
+    closed every entry it had written), `spec` + `reasoning: low` 3 of 48, and 2 of
+    48 with the paragraph added. The model closes what it opens; that is a model
+    habit, and the prompt side has reached its floor on it.
+  - The cost of the class is out of proportion to its content: a closing tag carries
+    no information, but the tolerant reader normalizes `</terms>` into the entry id
+    `terms` (C.2.5 lists `/` among its reserved characters, C.3 strips it) and then
+    fails the document on `entry 'terms' is missing required field 'source'` — an
+    entry the answer does not contain. The fix belongs in the reader, and the two
+    options (clarify C.2.5, or document a wrapper relaxation) are spec changes that
+    have **not** been made.
+  - The cell's numbers with the paragraph: 43/48 = 89.6 % valid, five failures in
+    four shapes (two phantom entries from closing tags, a chain of closers, a line
+    containing only `.`, and one answer whose first line was the prompt's own
+    `===== FILE TO TRANSLATE, RETURNED COMPLETE =====`), against 45/48 before it —
+    a difference of two answers out of 48, which is noise.
+
 ### Fixed
 
 - **Two rules the specification compression had dropped, found from failures and
