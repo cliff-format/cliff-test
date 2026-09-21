@@ -189,6 +189,24 @@ def quick_example() -> str:
     return blocks[0].strip() if blocks else ""
 
 
+#: The rule the model breaks most stubbornly, quoted from the specification and
+#: injected repeatedly: at the top of the block (primacy), again at its end, and in
+#: the user message immediately before the document (recency - the last thing read
+#: before the answer starts). Stray closing tags survived every single statement of
+#: this rule (2-5 of 48 answers under every prompt variant measured here), so the
+#: next lever is position and repetition rather than another sentence. The ABNF's own
+#: words are quoted because they are the specification's statement of it, and because
+#: that comment is one of the comments ``grammar_only()`` strips.
+MARKER_RULE = """SECTIONS AND ENTRIES ARE SINGLE LINES - nothing in a CLIFF file is closed
+
+  A section line `[group.path]` opens a section; an entry line `<id>` opens an entry.
+  Each is one line standing alone, and what it opens runs until the next such line or
+  the end of the document. The specification states it of an entry line in exactly
+  these words: "single-line marker; no closing tag exists". So the last thing in the
+  answer is the last field of the last entry, `<` and `>` inside a string are ordinary
+  text, and no line of a CLIFF file exists to close anything."""
+
+
 @lru_cache(maxsize=1)
 def build_normative_rules() -> str:
     """The compressed CLIFF 1.1: the rules, and nothing but the rules."""
@@ -196,6 +214,8 @@ def build_normative_rules() -> str:
     emotions = ", ".join(emotion_tags())
     status = ", ".join(STATUS_TAGS)
     return f"""CLIFF 1.1 - THE SPECIFICATION, COMPRESSED TO ITS RULES
+
+{MARKER_RULE}
 
 The normative grammar, in ABNF (RFC 5234). It is the definition of the format, and
 its first production is the whole of what an answer is: one `cliff-file`, from its
@@ -205,14 +225,6 @@ a grammar cannot express.
 --- GRAMMAR ---
 {grammar_only()}
 --- END GRAMMAR ---
-
-SECTIONS AND ENTRIES ARE SINGLE LINES
-
-  A section line `[group.path]` opens a section, and an entry line `<id>` opens an
-  entry. Each stands alone on its own line, and what it opens runs until the next
-  such line or the end of the document. Inside a string, `<` and `>` are ordinary
-  text like any other character. The ABNF comment that says so is one of the
-  comments stripped from the grammar above, which is why it is stated here.
 
 SEMANTIC CONSTRAINTS (normative)
 {semantic_constraints()}
@@ -260,7 +272,9 @@ closed set above), status, and context saying why that rendering was chosen.
 Two documents are then one answer. A second document is recognised by its own
 version line, so the glossary begins with its own CLIFF 1.1 line placed immediately
 after the last field of the translated file, and each document is complete in
-itself: the translated file is the first, the glossary is the second."""
+itself: the translated file is the first, the glossary is the second.
+
+{MARKER_RULE}"""
 
 
 def normative_rule_tokens(tokenizer) -> int:

@@ -34,6 +34,7 @@ TRANSLATION_COMPONENTS = (
     "glossary",
     "cliff.edit_safety",
     "cliff.examples",
+    "cliff.answer_reminder",
     "document",
 )
 INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes", "cliff.examples")
@@ -278,6 +279,18 @@ def build_translation_prompt(
     if format_id == "cliff" and not example_driven and not spec_driven:
         blocks.append(templates.CLIFF_EDIT_SAFETY)
         budget.add("cliff.edit_safety", "user", templates.CLIFF_EDIT_SAFETY, tokenizer)
+
+    if spec_driven:
+        # The third injection of the marker rule, and the one with recency: it is the
+        # last thing in the user message before the file, so it is what the model has
+        # read most recently when it starts writing. See CLIFF_ANSWER_REMINDER.
+        #
+        # Scoped to the shipped style on purpose. The `examples` style is the baseline
+        # every recorded CLIFF comparison was measured against, and adding a reminder
+        # to it would change that baseline silently; the recorded deployment run's
+        # numbers would stop being comparable to a fresh one.
+        blocks.append(templates.CLIFF_ANSWER_REMINDER)
+        budget.add("cliff.answer_reminder", "user", templates.CLIFF_ANSWER_REMINDER, tokenizer)
 
     document_block = f"{templates.DOCUMENT_HEADER}\n\n{document_text}"
     blocks.append(document_block)

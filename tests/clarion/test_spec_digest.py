@@ -33,7 +33,7 @@ from clarion.prompts import cliff_rules
 #: (180), the single-line marker rule (110) - so the ceiling moved with them,
 #: deliberately and in the open. The full specification text is 16 656 tokens and the
 #: old hand-written digest was 2 785, which is the comparison that matters.
-TOKEN_CEILING = 3_000
+TOKEN_CEILING = 3_400
 
 RULE_WORDS = re.compile(r"\b(MUST|SHOULD|MAY|REQUIRED)\b")
 
@@ -209,25 +209,58 @@ def test_the_two_document_boundary_is_stated_where_the_glossary_is() -> None:
         )
 
 
-def test_the_single_line_marker_rule_survives_the_comment_stripping() -> None:
-    """`grammar_only()` strips the ABNF comments, and one of them states a rule.
+def test_the_single_line_marker_rule_is_injected_repeatedly_and_in_prime_position() -> None:
+    """`grammar_only()` strips the ABNF comment that carries the rule, so it is stated.
 
     The ABNF says of `entry-line`: *"single-line marker; no closing tag exists"*. That
-    comment is removed with the rest, so the prompt never said it - and three answers
-    ended by closing the glossary's section with a line of their own
-    (`</terms>`, `</result>`, `</invoke>`), which the tolerant reader then read as an
-    entry marker and normalized into an entry the answer does not contain. The rule is
-    stated in prose now, affirmatively: what a marker opens runs to the next marker or
-    the end of the document.
+    comment is removed with the rest, and three answers in the clean cell ended by
+    closing the glossary's section (`</terms>`, `</result>`, `</invoke>`), which the
+    tolerant reader then turned into entries the answer did not contain.
+
+    One statement did not hold: stray closing tags survived every prompt variant this
+    project measured (2-5 of 48 answers each time). So the rule is now injected three
+    times, in the two positions that carry weight - first in the format block
+    (primacy) and last before the file (recency) - and this test pins the repetition
+    and the ordering, which is the part an edit can silently drop.
     """
+    from clarion.metrics.tokens import get_tokenizer
+    from clarion.prompts import templates
+    from clarion.prompts.assembly import build_translation_prompt
+
     digest = " ".join(cliff_rules.build_normative_rules().split())
     assert "SECTIONS AND ENTRIES ARE SINGLE LINES" in digest
-    assert "stands alone on its own line" in digest
-    assert "runs until the next such line or the end of the document" in digest
-    assert "`<` and `>` are ordinary" in digest
-    # The stripped comment is why this paragraph exists; the grammar alone must not
-    # be carrying the rule, or this test would pass for the wrong reason.
-    assert "no closing tag exists" not in digest
+    assert "nowhere" not in digest
+    # Quoted from the specification, which is where the rule is stated.
+    assert "single-line marker; no closing tag exists" in digest
+    marker = "SECTIONS AND ENTRIES ARE SINGLE LINES"
+    assert cliff_rules.build_normative_rules().count(marker) == 2, (
+        "the rule must appear at the top and at the end of the specification block"
+    )
+    assert cliff_rules.build_normative_rules().index(marker) < 200
+
+    tokenizer = get_tokenizer("o200k_base")
+    bundle = build_translation_prompt(
+        document_text="CLIFF 1.1\n",
+        format_id="cliff",
+        tokenizer=tokenizer,
+        source_language="en-US",
+        target_language="zh-CN",
+        arm="bare",
+        prompt_style="spec",
+    )
+    assert bundle.user.index(templates.DOCUMENT_HEADER) > bundle.user.index(
+        templates.CLIFF_ANSWER_REMINDER
+    ), "the reminder must be the last thing read before the file"
+    # The other nine formats need their closing tags; the reminder must not reach them.
+    other = build_translation_prompt(
+        document_text="<resources/>\n",
+        format_id="android",
+        tokenizer=tokenizer,
+        source_language="en-US",
+        target_language="zh-CN",
+        arm="bare",
+    )
+    assert templates.CLIFF_ANSWER_REMINDER not in other.user
 
 
 def test_the_digest_stays_under_its_token_ceiling() -> None:
@@ -295,7 +328,7 @@ def test_the_spec_style_carries_the_digest_and_never_the_full_text() -> None:
     assert "--- GRAMMAR ---" in bundle.system
     assert "HEADER FIELDS" in bundle.system and "ENTRY FIELDS" in bundle.system
     assert "variant: glossary" in bundle.system
-    assert bundle.total_tokens < 3_600, (
+    assert bundle.total_tokens < 4_600, (
         f"the spec-style prompt is {bundle.total_tokens} tokens; the point of the style "
         "is that the specification costs a few thousand, not twenty"
     )

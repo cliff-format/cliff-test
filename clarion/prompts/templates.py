@@ -89,6 +89,20 @@ GLOSSARY_FOOTER = """===== END OF REFERENCE GLOSSARY ====="""
 
 DOCUMENT_HEADER = """===== FILE TO TRANSLATE - RETURN THIS FILE, COMPLETE ====="""
 
+# CLIFF only, and placed immediately before the file so it is the last instruction
+# read before the answer starts. The same rule is stated at the top and the end of
+# the CLIFF specification block; this is the third injection, and the reason for
+# three is that one statement never held: the model closes what it opens
+# (`</terms>` after a glossary, and in one measured answer a closing line for every
+# entry it had written), in every prompt variant this project has measured. Position
+# and repetition are the untried lever, so the rule is put where primacy and recency
+# both apply. It is deliberately not shared with the other nine formats, where
+# closing tags are part of the syntax.
+CLIFF_ANSWER_REMINDER = """The file below already has its structure. Each `<id>` and
+`[group.path]` is one line standing alone, nothing in a CLIFF file is closed, and the
+answer ends after the last field of the last entry - of the translated file, and then
+of the glossary if you append one."""
+
 CLIFF_EDIT_SAFETY = """CLIFF EDIT SAFETY
 Every entry id and group path is there as written: identifiers may use upper- and
 lowercase letters, digits, "_" and "-", they are case-sensitive, and

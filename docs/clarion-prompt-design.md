@@ -283,12 +283,14 @@ the corpus line the model was copying already contained `\"`, and the model had 
 "tidying" the backslashes out of it. Naming the convention supplies the prior; the
 copy sentence stops it from being overridden.
 
-**Stating the rule the ABNF comment carried did not.** The grammar's comment on
-`entry-line` says *"single-line marker; no closing tag exists"* — and
-`grammar_only()` strips every comment, so the prompt had never said it. A paragraph
-now states it affirmatively ("each stands alone on its own line, and what it opens
-runs until the next such line or the end of the document"). It is worth keeping and
-it is guarded by a test, but it did not remove the behaviour:
+**Stating the rule the ABNF comment carried did not — nor did stating it three times.**
+The grammar's comment on `entry-line` says *"single-line marker; no closing tag
+exists"* — and `grammar_only()` strips every comment, so the prompt had never said it.
+The rule was then injected repeatedly, in the two positions that carry weight: twice
+inside the specification block (first thing in the format section, and last) and once
+in the user message immediately before the file, so it is the last thing read before
+the answer starts. It is quoted in the specification's own words, and it is CLIFF-only
+(the other nine formats need their closing tags).
 
 | prompt variant | answers | with a stray closing tag | tags in total |
 | --- | ---: | ---: | ---: |
@@ -296,25 +298,22 @@ it is guarded by a test, but it did not remove the behaviour:
 | `examples` after the rewrite (no skeleton, thinking off) | 48 | 5 | 10 |
 | `spec`, thinking off (one repeat) | 16 | 4 | **58** |
 | `spec` + `reasoning: low` | 48 | 3 | 3 |
-| `spec` + `reasoning: low` + the marker paragraph | 48 | **2** | 3 |
+| `spec` + `reasoning: low` + the marker paragraph | 48 | 2 | 3 |
+| **`spec` + `reasoning: low` + three injections, primacy and recency** | 48 | **2** | **2** |
 
-The model closes what it opens — `</terms>`, `</result>`, `</preset>`, and in one
-answer a whole chain of closers (`</hp></loot></default></cache>…`) as if every entry
-needed one. It has done so in **every prompt variant this project has measured**,
-including the recorded run, and thinking off makes it an order of magnitude worse
-(58 tags in 16 answers). This is a model habit, not a missing sentence, and the
-prompt side has reached its floor on it.
+The valid rate moved 43/48 → 45/48 across the last two cells, which is two answers out
+of 48 and not a difference (Fisher exact p = 0.65). **The behaviour is a model habit at
+2–5 % of answers, and prompt position and repetition do not touch it**; six prompt
+variants have now been measured, including this one, which is the strongest form of
+prompt-side pressure available short of a fine-tune. The remaining failures in the
+final cell are one of these tags, one of them in the middle of a glossary
+(`</single-journey>`, closing an entry as if it were an XML element), and one ordinary
+escaping slip in the longest classical-Chinese line.
 
-**What that leaves.** The class is 2–5 answers per 48, and it costs the whole answer
-even though a closing tag carries no information: the tolerant reader normalises
-`</terms>` into the entry id `terms` (Appendix C.2.5 lists `/` among its reserved
-characters, and C.3 strips it), so the document fails on `entry 'terms' is missing
-required field 'source'` — an entry the answer does not contain. **A reader that must
-not invent data is the tool for this**, which is the C.2.8 proposal in the changelog:
-either clarification (a marker whose identifier does not begin with a name character
-is not an entry marker, so the line is rejected honestly) or a documented wrapper
-relaxation (the tag is dropped and reported). Both are specification changes, and
-neither has been made.
+What is left is therefore the reader, not the prompt: either the C.2.5 clarification
+already made (reject the line honestly, which is what happens now) or a documented
+wrapper relaxation that drops a stray tag and reports it, which is the only route to a
+clean 48/48 and is a specification change that has not been made.
 
 ## What the prompt may constrain: the specification and the deliverable
 
