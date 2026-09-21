@@ -210,33 +210,35 @@ def test_the_two_document_boundary_is_stated_where_the_glossary_is() -> None:
 
 
 def test_the_single_line_marker_rule_is_injected_repeatedly_and_in_prime_position() -> None:
-    """`grammar_only()` strips the ABNF comment that carries the rule, so it is stated.
+    """`grammar_only()` strips the ABNF comments, so the rule is stated in prose.
 
-    The ABNF says of `entry-line`: *"single-line marker; no closing tag exists"*. That
-    comment is removed with the rest, and three answers in the clean cell ended by
-    closing the glossary's section (`</terms>`, `</result>`, `</invoke>`), which the
-    tolerant reader then turned into entries the answer did not contain.
-
-    One statement did not hold: stray closing tags survived every prompt variant this
-    project measured (2-5 of 48 answers each time). So the rule is now injected three
-    times, in the two positions that carry weight - first in the format block
-    (primacy) and last before the file (recency) - and this test pins the repetition
-    and the ordering, which is the part an edit can silently drop.
+    The ABNF's own comment on `entry-line` is removed with the rest, and the prompt
+    had never made the rule. One statement did not hold either: stray closing tags
+    survived every prompt variant measured (2-5 of 48 answers each time). So the rule
+    is injected three times, in the two positions that carry weight - first in the
+    format block and last before the file - and the statement itself is now free of
+    every markup cue the prompt had been leaking: the specification's phrase "no
+    closing tag exists", an XLIFF attribution for the status tags, and the literal
+    `</terms>` that the C.5 note used as its example, which put the exact string in
+    the prompt that the model then emitted. This test pins all three: the repetition,
+    the ordering, and the absence of the cues.
     """
     from clarion.metrics.tokens import get_tokenizer
     from clarion.prompts import templates
     from clarion.prompts.assembly import build_translation_prompt
 
     digest = " ".join(cliff_rules.build_normative_rules().split())
-    assert "SECTIONS AND ENTRIES ARE SINGLE LINES" in digest
-    assert "nowhere" not in digest
-    # Quoted from the specification, which is where the rule is stated.
-    assert "single-line marker; no closing tag exists" in digest
     marker = "SECTIONS AND ENTRIES ARE SINGLE LINES"
+    assert marker in digest
     assert cliff_rules.build_normative_rules().count(marker) == 2, (
         "the rule must appear at the top and at the end of the specification block"
     )
     assert cliff_rules.build_normative_rules().index(marker) < 200
+    for cue in ("no closing tag exists", "closing tag", "XLIFF", "HTML", "markup", "stray"):
+        assert cue.lower() not in digest.lower(), (
+            f"the prompt carries a markup cue ('{cue}'); the model then writes the "
+            "shape the cue names, and the literal example is the worst of them"
+        )
 
     tokenizer = get_tokenizer("o200k_base")
     bundle = build_translation_prompt(

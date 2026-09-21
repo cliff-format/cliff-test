@@ -30,8 +30,8 @@ WHAT WE NEED
    appears in the file you were given.
 3. The source text verbatim; your work goes into the translation.
 4. Every placeholder and ICU MessageFormat construct character for character -
-   {{count, plural, ...}}, {{name}}, %s, %1$s, {{{{...}}}}, HTML-like tags - with the
-   human-readable text inside them translated.
+   {{count, plural, ...}}, {{name}}, %s, %1$s, {{{{...}}}}, and any tag-like payload a
+   string happens to carry - with the human-readable text inside them translated.
 5. Meaning translated: register, tone and wordplay natural in {target_language}.
 6. The brief the file carries - context, terminology, tone, width - applied as
    written."""

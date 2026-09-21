@@ -253,7 +253,7 @@ fixture still passes, and the checks below answer the 1.1 questions.
     executes the previous revision and reads the attribute, and
     `tests/test_prompt_cost_tool.py` holds both ends together.
     The prompt-cost table in `docs/clarion-prompt-design.md` is re-measured through
-    the assembly path and reads **21 373 → 2 410** tokens for the `ui-console` plain
+    the assembly path and reads **21 383 → 2 417** tokens for the `ui-console` plain
     cell (the older 20 739 / 2 630 figures are superseded; the specification text
     alone grew from 16 316 to 16 656 tokens).
   - The rule is held by

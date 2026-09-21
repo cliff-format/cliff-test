@@ -80,7 +80,7 @@ def test_the_saving_per_cell_is_constant_across_the_pilot_files() -> None:
     """Why the pilot table is quoted as one number and a range.
 
     The redesign swaps fixed-size instruction blocks for fixed-size instruction
-    blocks, so the saving does not depend on the file: it is the same 18 963 tokens
+    blocks, so the saving does not depend on the file: it is the same 18 966 tokens
     per cell on all four pilot files. Only the *percentage* moves, because the
     documents differ in size. A future change that makes the saving
     document-dependent would be a different claim, and this catches it.
@@ -91,7 +91,7 @@ def test_the_saving_per_cell_is_constant_across_the_pilot_files() -> None:
         _, bundles = tool.build_bundles(file_id, "bare", CONFIG)
         savings.append(bundles["digest"].budget.total - bundles["examples"].budget.total)
     assert len(set(savings)) == 1, f"the per-cell saving varies by file: {savings}"
-    assert savings[0] * len(tool.PILOT_FILES) == 75_852, (
+    assert savings[0] * len(tool.PILOT_FILES) == 75_864, (
         "the four-file total quoted in the design document moved"
     )
 

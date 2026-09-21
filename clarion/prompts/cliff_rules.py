@@ -189,22 +189,23 @@ def quick_example() -> str:
     return blocks[0].strip() if blocks else ""
 
 
-#: The rule the model breaks most stubbornly, quoted from the specification and
-#: injected repeatedly: at the top of the block (primacy), again at its end, and in
-#: the user message immediately before the document (recency - the last thing read
-#: before the answer starts). Stray closing tags survived every single statement of
-#: this rule (2-5 of 48 answers under every prompt variant measured here), so the
-#: next lever is position and repetition rather than another sentence. The ABNF's own
-#: words are quoted because they are the specification's statement of it, and because
-#: that comment is one of the comments ``grammar_only()`` strips.
-MARKER_RULE = """SECTIONS AND ENTRIES ARE SINGLE LINES - nothing in a CLIFF file is closed
+#: The rule the model breaks most stubbornly, injected repeatedly: at the top of the
+#: block (primacy), again at its end, and in the user message immediately before the
+#: document (recency - the last thing read before the answer starts). Stray closing
+#: tags survived every single statement of it, so the next lever was position and
+#: repetition, and the statement itself was rewritten to remove every markup cue the
+#: prompt had been leaking: the specification's own words ("no closing tag exists"),
+#: an XLIFF attribution for the status tags, and - worst of the three - the literal
+#: `</terms>` the C.5 note used as its example, which put the very string in the
+#: prompt that the model then emitted. What is left is a statement of what a marker
+#: *is* and how far it runs.
+MARKER_RULE = """SECTIONS AND ENTRIES ARE SINGLE LINES
 
   A section line `[group.path]` opens a section; an entry line `<id>` opens an entry.
-  Each is one line standing alone, and what it opens runs until the next such line or
-  the end of the document. The specification states it of an entry line in exactly
-  these words: "single-line marker; no closing tag exists". So the last thing in the
-  answer is the last field of the last entry, `<` and `>` inside a string are ordinary
-  text, and no line of a CLIFF file exists to close anything."""
+  Each is a label on one line standing alone, and what it opens runs until the next
+  such line or the end of the document. So the last thing in the answer is the last
+  field of the last entry, and inside a string `<` and `>` are ordinary characters
+  like any other."""
 
 
 @lru_cache(maxsize=1)
