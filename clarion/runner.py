@@ -303,6 +303,11 @@ def run_robustness_matrix(
             read_mode=config.read_mode,
             prompt_style=config.prompt_style,
             max_output_tokens=config.provider.max_output_tokens,
+            answer_dir=(
+                paths.root
+                / "answers-robustness"
+                / f"{corpus_file.id}__{format_id}__{arm}"
+            ) if provider is not None else None,
         )
         record = result.as_dict()
         record["kind"] = "robustness"

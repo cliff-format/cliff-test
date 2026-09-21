@@ -347,6 +347,9 @@ class EditOutcome:
     error: str | None = None
     latency_ms: float = 0.0
     output_tokens: int | None = None
+    #: Where the answer text is kept, when the run asked for it. A gap between
+    #: "valid" and "intent applied" is only investigable if the text survives.
+    answer_file: str | None = None
 
     def as_dict(self) -> dict[str, Any]:
         """JSON-friendly record."""
@@ -361,6 +364,7 @@ class EditOutcome:
             "unwrapped": self.unwrapped,
             "read_mode": self.read_mode,
             "repairs": self.repairs,
+            "answer_file": self.answer_file,
             "error": self.error,
             "latency_ms": round(self.latency_ms, 3),
         }
@@ -437,6 +441,7 @@ def run_robustness(
     max_output_tokens: int = 8192,
     read_mode: str = DEFAULT_READ_MODE,
     prompt_style: str = DEFAULT_PROMPT_STYLE,
+    answer_dir: Path | None = None,
 ) -> RobustnessResult:
     """Apply an edit sequence to one format, validating after every step.
 
@@ -449,6 +454,12 @@ def run_robustness(
     and their scopes. Under ``examples`` it is, which is the only defence against
     the invented keys of Appendix C.5; under ``digest`` the edit prompt carries no
     specification content at all, which is what every run before this one did.
+
+    ``answer_dir`` makes the chain auditable: every model answer is written there
+    and its path recorded on the outcome. Without it a run that reports "valid but
+    the instruction did not land" cannot be investigated afterwards, because the
+    only evidence was the text that produced it. The translation matrix already
+    keeps its answers; this is the same guarantee for dimension 7.
     """
     if prompt_style not in PROMPT_STYLES:
         raise ValueError(f"prompt_style must be one of {', '.join(PROMPT_STYLES)}")
@@ -458,6 +469,8 @@ def run_robustness(
         if (prompt_style == "examples" and format_id == "cliff")
         else EDIT_SYSTEM
     )
+    if answer_dir is not None:
+        answer_dir.mkdir(parents=True, exist_ok=True)
     arm_value = Arm(arm)
     result = RobustnessResult(format_id=format_id, arm=arm_value.value, file_id=file_id)
     current_document = copy.deepcopy(document)
@@ -504,6 +517,11 @@ def run_robustness(
                 result.outcomes.append(outcome)
                 continue
             answer_text = completion.text
+            if answer_dir is not None:
+                # Named by task so a gap can be traced to the edit that caused it.
+                answer_path = answer_dir / f"{task.id:03d}-{task.op}.answer.txt"
+                answer_path.write_text(answer_text, encoding="utf-8")
+                outcome.answer_file = str(answer_path)
 
         report = check_validity(answer_text, format_id, tolerant=tolerant)
         outcome.valid = report.ok
