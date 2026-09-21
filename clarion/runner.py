@@ -302,6 +302,7 @@ def run_robustness_matrix(
             file_id=corpus_file.id,
             read_mode=config.read_mode,
             prompt_style=config.prompt_style,
+            temperature=config.provider.temperature,
             max_output_tokens=config.provider.max_output_tokens,
             answer_dir=(
                 paths.root

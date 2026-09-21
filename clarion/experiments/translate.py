@@ -64,6 +64,11 @@ class TaskResult:
     reasoning_tokens: int | None = None
     finish_reason: str | None = None
     truncated: bool = False
+    #: The temperature the request was actually SENT at, recorded per row. A run
+    #: directory that only carries the configuration cannot show a divergence
+    #: between the two, which is exactly how dimension 7 spent its whole history
+    #: sending 0.0 while its config.json said 1.3.
+    temperature: float = 0.0
     latency_ms: float = 0.0
     cost_usd: float = 0.0
     entries: int = 0
@@ -108,6 +113,7 @@ class TaskResult:
             },
             "finish_reason": self.finish_reason,
             "truncated": self.truncated,
+            "temperature": self.temperature,
             # Which reading of the answer produced ``structure``, and how many
             # Appendix C repairs it needed. Recorded on every row so a report can
             # never mix two readings without saying so (specification C.1/C.6).
@@ -244,6 +250,7 @@ def run_translation_task(
     result.reasoning_tokens = completion.reasoning_tokens
     result.finish_reason = completion.finish_reason
     result.truncated = completion.finish_reason == "length"
+    result.temperature = request.temperature
     result.output_tokens = completion.completion_tokens or tokenizer.count(completion.text)
     result.cost_usd = config.provider.cost_usd(
         completion.prompt_tokens or result.prompt_tokens,

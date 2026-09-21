@@ -18,6 +18,7 @@ protect, not an omission to fix.
 from __future__ import annotations
 
 import pytest
+
 from clarion.prompts import cliff_prompt_v2 as v2
 
 RENDERED = f"{v2.CLIFF_FACTS}\n{v2.CLIFF_TASK_RULES}\n{v2.EXAMPLES}"

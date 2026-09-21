@@ -113,7 +113,8 @@ instruction and the file.
 
 Re-running the same edit sequence with the field table and the task verbs
 prepended to the edit prompt (`python .tools/d7_pilot.py`, 48 edits per condition,
-temperature 1.3):
+**sent at temperature 0.0** — see "The temperature that never reached the wire"
+below, because the edit dimension could not yet honour the configured value):
 
 | edit prompt | invented-key failures | edit not valid | repairs per edit |
 | --- | ---: | ---: | ---: |
@@ -151,6 +152,38 @@ pilot now counts *distinct* failures and separates semantic from syntax failures
 (`.tools/prompt_pilot.py`), because the two call for different fixes: a wrong key
 is a prompt problem, a lost escape is output degradation.
 
+## The temperature that never reached the wire
+
+**Every D7 number ever published by this harness was measured at temperature 0.0,
+including the ones labelled as the deployment settings.** The cause was one
+literal: `run_robustness` built its own `CompletionRequest` with a hard-coded
+`temperature=0.0`, and `build_provider` never passes a temperature to the provider
+at all — `ProviderConfig.temperature` reached the wire only through
+`translate.py`, which reads it for the translation dimension. The same literal was
+present in the harness's first commit and never changed.
+
+Two consequences worth separating:
+
+- **`d7_pilot.py --temperature 1.3` was a no-op.** The flag rebuilt a
+  `ProviderConfig` whose `temperature` field the provider does not read, so the
+  edit dimension kept sending 0.0. The D7 pilot table above and the D7 re-run table
+  below are 0.0 measurements.
+- **The controlled comparisons survive.** Both D7 columns use the same model, the
+  same `ui` stratum and the same 12 edits, and `EDIT_SYSTEM` was not edited, so for
+  every format except CLIFF the two runs sent byte-identical requests. CLIFF's
+  movement (validity 83.3 % → 100.0 %, intent 77.8 % → 98.6 % in the context arm)
+  is attributable to the prompt change, because that is the only input that
+  differed. What is *not* supported is any claim about behaviour at 1.3: that
+  regime had never been sampled.
+
+The defect is fixed by making the temperature a parameter of `run_robustness` and
+forwarding `provider.temperature` from `run_robustness_matrix`, with
+`tests/clarion/test_edit_request.py` as the guard: it fails with
+`{0.0} == {1.3}` if the forward is dropped, so the two cannot drift apart again.
+The first 1.3 measurement of D7 is therefore still owed, and until it exists the
+honest statement is "100 % valid / 98.6 % intent at 0.0", not at the settings the
+pipeline ships.
+
 ## Open decisions for a full re-run
 
 1. `prompt_style: examples` is implemented and switchable but **not yet the
@@ -159,49 +192,73 @@ is a prompt problem, a lost escape is output degradation.
 2. Temperature 1.3 changes the meaning of the repeats: at 0.0 the three answers of
    a cell were byte-identical, so they measured consistency rather than sampling
    variance. At 1.3 they are independent samples, which is what the paired tests
-   assume. Numbers recorded at 0.0 and at 1.3 are not comparable.
+   assume. Numbers recorded at 0.0 and at 1.3 are not comparable. **This applies to
+   the translation dimension only** — the edit dimension had no 1.3 measurement at
+   all until the defect above was fixed.
 3. The next measurement with real leverage is not prompt length but **batching the
    document** (fewer entries per call), since that is what the observed failure
    mode responds to. That is a change to the task, so it belongs in its own arm
    and must not be mixed into the format comparison.
 
-## The D7 re-run at the shipped settings
+## The D7 re-run with the example prompt
 
-Both defaults were changed after the pilots — `temperature: 1.3` and
-`prompt_style: examples` — and dimension 7 was re-run through the real matrix
+`prompt_style: examples` was adopted after the pilots along with
+`temperature: 1.3`, and dimension 7 was re-run through the real matrix
 (`run_robustness_matrix`, not a stand-in) over the configured `ui` stratum,
-2 passes × 12 edits, 240 model calls.
+2 passes × 12 edits, 240 model calls. Of the two settings **only the prompt
+change reached this run**: the edit path sent every request at temperature 0.0
+regardless of the configuration, for the reason recorded above. The comparison in
+the table is therefore valid — same model, same files, same edits, same
+temperature, only the CLIFF edit prompt differs — but it is a 0.0 comparison, not
+a deployment-settings one.
 
 | format | arm | still valid % | intent applied % | invented-key failures | repairs |
 | --- | --- | ---: | ---: | ---: | ---: |
 | **cliff** | bare | **100.0** | 100.0 | **0** | 0 |
 | **cliff** | context | **100.0** (was 83.3) | 98.6 | **0** (was 2) | 44 |
-| xliff-2.1 | bare | 59.5 (was 100.0) | 59.5 | 0 | 0 |
+| xliff-2.1 | bare | 59.5 (was 57.1) | 59.5 | 0 | 0 |
 | xliff-2.1 | context | 62.5 (was 55.6) | 48.6 | 0 | 0 |
 | the other eight formats | both arms | 100.0 | 70.8–100.0 | 0 | 0 |
 
 CLIFF's context arm moved from 83.3 % to **100.0 % still valid with no invented
-key anywhere in the run**. All 44 repairs were absorbed by the tolerant reader
-and none became a failure, on exactly the operations that require the model to
-*create* a field: `set-target` 18, `add-reference` 6, `rename-entry` 6,
-`set-context` 6, `move-entry` 4, `set-emotion` 2, `set-status` 2. That is the
-division of labour the design intends — the prompt gets the key names right, and
-the tolerant reader absorbs the shapes.
+key anywhere in the run**. The tolerant reader absorbed every repair and none
+became a failure. The count needs care, because a repair count is the count for
+the *whole document* at that step and the answer text carries forward: summing the
+per-step counts gives **44** for the six context cells, but a deviation introduced
+once is re-counted by every later step. The repairs the model actually
+*introduced* are **6**, and they sit on exactly the two operations that require it
+to create a field that is not on the page — `add-reference` 4 and `set-emotion`
+2 (`.tools/d7_audit.py` prints both numbers, and the counts are monotone within
+every cell, so the difference is re-counting rather than fluctuation). The bare
+arm introduced 0. That is the division of labour the design intends: the prompt
+gets the key names right, and the tolerant reader absorbs the shapes.
 
-**The XLIFF change is not attributable to the prompt.** The prompt change touches
-CLIFF only, and every XLIFF failure is an XML parse error
-(`not well-formed (invalid token)`, clustered at a few fixed columns of a
-reformatted document). XLIFF asks the model to rewrite a whole XML document per
-edit, so at temperature 1.3 the sampling variance breaks it; at 0.0 the single
-deterministic answer happened to be well-formed, which is why the earlier
-100 % was recorded. The honest reading is that **the earlier XLIFF row was one
-lucky sample of a fragile process**, and that D7's cross-format comparison is far
-more temperature-sensitive than the recorded 0.0 numbers made it look. A
-re-run-to-re-run spread should be reported before any XLIFF claim is made.
+**Correction to an earlier version of this paragraph**, which attributed all 44 to
+operations named per operation (`set-target` 18, `rename-entry` 6, and so on). That
+sum is real but it is not an attribution: it is the running total over steps, and
+it charges early operations for deviations introduced later. The per-operation
+claim belongs to the 6 introduced repairs only.
+
+**The XLIFF row is a model difference, not a temperature effect.** An earlier
+version of this section said the 100 % figure came from a temperature-0.0 lucky
+sample that 1.3 broke. That was wrong twice over: the edit path never ran at 1.3
+at all (see below), and the 100 % did not come from this model. It came from the
+frozen `benchmark/clarion-2026-09-02` run, whose configuration reads
+`model: deepseek-v4-flash` with the same `ui` stratum and the same 12 edits. The
+same-model baseline in the recorded `deepseek-flash` run is **57.1 % bare /
+55.6 % context**, so the model change, not the decoder temperature and not the
+prompt, is what separates 100 % from 59.5 %. Every XLIFF failure is an XML parse
+error (`not well-formed (invalid token)`, clustered at a few fixed columns of a
+reformatted document): XLIFF asks the model to rewrite a whole XML document per
+edit, and `deepseek-flash` is markedly worse at that than `deepseek-v4-flash`.
+CLIFF's own comparison is unaffected, because both of its columns come from the
+same model.
 
 Also visible once the failures stop dominating: **valid-but-ignored edits**, where
 the file stayed valid but the instruction did not take (the mock's failure mode in
-reverse). These are concentrated in the context arm and differ sharply by format —
-json-plain 21/72, json-cliff 9/72, csv 6/72 against CLIFF 1/72 and the Android /
-iOS / Fluent bare arms at 0. It is the reason both numbers are always reported
-together.
+reverse). For CLIFF that is **1 of 72** context edits — `set-emotion` on `billing`
+in `ui-console` — and 0 of 42 in the bare arm. Other formats are outside the
+question this benchmark now answers, and are listed only so the table is not
+silently truncated: json-plain 21/72, json-cliff 9/72, csv 6/72, against the
+Android / iOS / Fluent bare arms at 0. It is the reason both numbers are always
+reported together.

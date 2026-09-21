@@ -42,6 +42,8 @@ from ..prompts.assembly import DEFAULT_PROMPT_STYLE, PROMPT_STYLES
 from ..providers.base import CompletionRequest, Message, Provider
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
+    from pathlib import Path
+
     from cliff_format import CliffDocument
 
 METADATA_OPS = {
@@ -378,6 +380,11 @@ class RobustnessResult:
     arm: str
     file_id: str
     outcomes: list[EditOutcome] = field(default_factory=list)
+    #: The temperature the edits were actually SENT at, not the configured one.
+    #: The two diverged silently for the harness's whole history (see
+    #: `run_robustness`), and a run directory that only records the configuration
+    #: cannot show that: its config.json said 1.3 while the wire carried 0.0.
+    temperature: float = 0.0
 
     @property
     def applicable(self) -> int:
@@ -406,6 +413,7 @@ class RobustnessResult:
             "format": self.format_id,
             "arm": self.arm,
             "file": self.file_id,
+            "temperature": self.temperature,
             "edits_applicable": self.applicable,
             "validity_rate": round(self.validity_rate, 4),
             "intent_rate": round(self.intent_rate, 4),
@@ -441,6 +449,7 @@ def run_robustness(
     max_output_tokens: int = 8192,
     read_mode: str = DEFAULT_READ_MODE,
     prompt_style: str = DEFAULT_PROMPT_STYLE,
+    temperature: float = 0.0,
     answer_dir: Path | None = None,
 ) -> RobustnessResult:
     """Apply an edit sequence to one format, validating after every step.
@@ -454,6 +463,13 @@ def run_robustness(
     and their scopes. Under ``examples`` it is, which is the only defence against
     the invented keys of Appendix C.5; under ``digest`` the edit prompt carries no
     specification content at all, which is what every run before this one did.
+
+    ``temperature`` is a parameter rather than a constant because a run must edit
+    at the temperature it claims to edit at. It was a hard-coded 0.0, so the
+    dimension silently ignored ``provider.temperature``: every published D7 number,
+    including the ones labelled as the shipped 1.3 settings, was measured at 0.0.
+    The caller passes the configured value; `tests/clarion/test_edit_request.py`
+    fails if the two ever drift apart again.
 
     ``answer_dir`` makes the chain auditable: every model answer is written there
     and its path recorded on the outcome. Without it a run that reports "valid but
@@ -472,7 +488,9 @@ def run_robustness(
     if answer_dir is not None:
         answer_dir.mkdir(parents=True, exist_ok=True)
     arm_value = Arm(arm)
-    result = RobustnessResult(format_id=format_id, arm=arm_value.value, file_id=file_id)
+    result = RobustnessResult(
+        format_id=format_id, arm=arm_value.value, file_id=file_id, temperature=temperature
+    )
     current_document = copy.deepcopy(document)
     current_text = render_document(current_document, format_id, arm=arm_value)
 
@@ -501,7 +519,7 @@ def run_robustness(
             completion = provider.complete(
                 CompletionRequest(
                     messages=messages,
-                    temperature=0.0,
+                    temperature=temperature,
                     max_output_tokens=max_output_tokens,
                     hint={
                         "format": format_id,

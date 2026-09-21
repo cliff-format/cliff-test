@@ -144,7 +144,7 @@ exit 0, 960 translation runs + 60 robustness chains + 160 fidelity conversions,
 | C6.5 | instruction-following, plain / context | **79.5% / 83.0%** | json-cliff 76.8% / json-cliff 83.4% | rule engine over the gold manifests |
 | C6.6 | terminology / de-jargon, plain | **94.0% / 99.8%** | — | |
 | C6.7 | output tokens per run, plain | **3 111** | json-plain 1 332 | CLIFF is not the cheapest here; the spec block is part of its output budget |
-| C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run at the shipped settings (see below); was 100.0% / 83.3% |
+| C6.8 | still valid after model edits, bare / context | **100.0% / 100.0%** | android 100% / 100% | re-run with the example prompt (**at temperature 0.0**, see below); was 100.0% / 83.3% |
 | C6.9 | round-trip context retention | **100.0%** | csv/json-cliff/xliff/yaml-cliff 100% | json-plain 67.3% |
 
 ### C6.8 re-run: the prompt redesign, and what it fixed
@@ -154,34 +154,48 @@ After the two prompt pilots the shipped configuration moved to
 production plugin uses) and `prompt_style: examples` (the specification text
 replaced by the key/scope facts plus two conforming documents; 20 739 → 2 510
 prompt tokens per cell). Dimension 7 was then re-run through
-`run_robustness_matrix` over the `ui` stratum, 2 passes × 12 edits, 240 calls:
+`run_robustness_matrix` over the `ui` stratum, 2 passes × 12 edits, 240 calls.
+**Only the prompt change reached that run**: the edit path built its own request
+with a hard-coded `temperature=0.0` and ignored the configured value, so the
+column below is a 0.0 comparison — same model, same files, same edits, only the
+CLIFF edit prompt differing. The defect is fixed (the temperature is now a
+parameter forwarded from the configuration, guarded by
+`tests/clarion/test_edit_request.py`) and **a 1.3 measurement of D7 is still
+owed**; see the temperature section of
+[clarion-prompt-design.md](clarion-prompt-design.md).
 
 | format | arm | still valid % | invented-key failures | repairs |
 | --- | --- | ---: | ---: | ---: |
 | **cliff** | bare | **100.0** | 0 | 0 |
-| **cliff** | context | **100.0** (was 83.3) | **0** (was 2) | 44 |
-| xliff-2.1 | bare | 59.5 | 0 | 0 |
-| xliff-2.1 | context | 62.5 | 0 | 0 |
+| **cliff** | context | **100.0** (was 83.3) | **0** (was 2) | 44 / 6 introduced |
+| xliff-2.1 | bare | 59.5 (was 57.1) | 0 | 0 |
+| xliff-2.1 | context | 62.5 (was 55.6) | 0 | 0 |
 | other eight formats | both | 100.0 | 0 | 0 |
 
 The `cliff/context` failures were the invented keys of the previous run
 (`translator-context`, `ref`, `source-ref`, `status` in a group section); D7's
 edit prompt had carried no CLIFF content at all, so the model named the fields
 itself. With the field names and scopes stated, **no edit in the run invented a
-key**, and the 44 remaining repairs — all on `set-target`, `add-reference`,
-`rename-entry`, `set-context`, `move-entry`, `set-emotion`, `set-status` — were
-absorbed by the tolerant reader rather than failing. The isolated effect is
-measured separately: 18.8 % → 0 % invented-key failures over 48 edits per
-condition, Fisher exact p = 0.0129
-([clarion-prompt-design.md](clarion-prompt-design.md)).
+key**, and every repair was absorbed by the tolerant reader rather than failing.
+The repair figures are the running total over document-steps (44) and the repairs
+the model actually introduced (6, on `add-reference` and `set-emotion` — the two
+operations that require creating a field that is not on the page); the total is
+larger because one deviation is re-counted by every later step, so only the
+introduced count may be attributed per operation
+(`.tools/d7_audit.py` prints both). The isolated effect is measured separately:
+18.8 % → 0 % invented-key failures over 48 edits per condition, Fisher exact
+p = 0.0129 ([clarion-prompt-design.md](clarion-prompt-design.md)).
 
-**The XLIFF rows are not comparable across the two runs and must not be read as a
-CLIFF improvement.** The prompt change touches CLIFF only, and every XLIFF failure
-is an XML parse error in a document the model rewrote wholesale — at temperature
-1.3 the sampling variance breaks it, while at 0.0 the single deterministic answer
-happened to be well-formed. With one run at each temperature, this dataset cannot
-separate the format from the decoder; a repeat-spread measurement is required
-before any XLIFF claim.
+**The XLIFF rows are not comparable across the two runs, and the difference is the
+model, not the decoder.** The prompt change touches CLIFF only, and every XLIFF
+failure is an XML parse error in a document the model rewrote wholesale. An
+earlier version of this note attributed the 100.0 % to a temperature-0.0 lucky
+sample; that was wrong on both counts. Both runs sent 0.0 on the edit path, and
+the 100.0 % belongs to the frozen `benchmark/clarion-2026-09-02` run, whose
+configuration reads `model: deepseek-v4-flash` with the same stratum and edit
+count. The same-model baseline is 57.1 % / 55.6 %, so what separates 100 % from
+59.5 % is the model change (`deepseek-v4-flash` → `deepseek-flash`). CLIFF's own
+comparison is unaffected: both of its columns come from the same model.
 
 **No `truncated` runs** (0.0% in every cell), so the rows measure the format,
 not the output budget.

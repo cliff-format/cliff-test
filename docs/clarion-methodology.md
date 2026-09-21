@@ -280,7 +280,9 @@ That claim is now measured, and the measurement is worth recording because the
 number is large enough to change a default. D7's edit prompt carried **no CLIFF
 content at all**, so an instruction like "set the context of this entry" left the
 model to name the field itself. Running the same 48 edits with the field table and
-task verbs prepended (`python .tools/d7_pilot.py`):
+task verbs prepended (`python .tools/d7_pilot.py`), both conditions sent at
+temperature 0.0 — see the temperature note in the measurement protocol above for
+why the edit dimension could not yet honour the configured value:
 
 | edit prompt | invented-key failures | edit not valid |
 | --- | ---: | ---: |
@@ -357,11 +359,17 @@ and the table says which.
   **McNemar's exact test**.
 - With ten formats there are dozens of pairwise comparisons, so p-values are
   corrected (Holm or Benjamini-Hochberg) before any claim is made.
-- **Sampling temperature: 0.0 in the first recorded run, 1.3 from the prompt
-  redesign onward.** DeepSeek documents 1.3 as the recommended temperature for
-  translation, and the UE5 plugin that consumes CLIFF in production uses it, so
-  the benchmark now measures the model as it is actually deployed. The two
-  regimes are **not comparable**, and a report must say which one produced its
+- **Sampling temperature: 0.0 in the first recorded run; 1.3 by configuration
+  afterwards, but reached only by the translation dimension.** DeepSeek documents
+  1.3 as the recommended temperature for translation, and the UE5 plugin that
+  consumes CLIFF in production uses it, so the benchmark intends to measure the
+  model as it is actually deployed. The edit dimension did not: `run_robustness`
+  built its own request with a hard-coded `temperature=0.0` and ignored
+  `provider.temperature`, so **every D7 number published so far is a 0.0 number**,
+  including the rows labelled as the deployment settings. That is fixed (the
+  temperature is now a parameter, forwarded from the configuration, guarded by
+  `tests/clarion/test_edit_request.py`) and the 1.3 measurement of D7 is owed. The
+  two regimes are **not comparable**, and a report must say which one produced its
   numbers:
   - at 0.0 the three repeats of a cell were observed to be **byte-identical**
     (for example the three `wmt24pp` context answers failed on the same line with

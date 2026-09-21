@@ -120,6 +120,28 @@ fixture still passes, and the checks below answer the 1.1 questions.
   `tests/test_validator_tool.py` (the validation modes, including the
   multi-document contract), and a prompt-parity test in
   `tests/clarion/test_tools.py`.
+- **`tests/clarion/test_edit_request.py`**: the temperature contract for the edit
+  dimension — the request carries the value it is given (0.0 / 0.7 / 1.3), the
+  matrix forwards `provider.temperature`, and the CLIFF field table is present
+  under `examples` and absent under `digest`.
+- **The temperature a request was actually sent at** is recorded per row
+  (`RobustnessResult.temperature`, `TaskResult.temperature`), not only in the run
+  directory's `config.json`. A record that carries the configuration alone cannot
+  show a divergence between the two, which is exactly how D7 spent its whole
+  history sending 0.0 while its `config.json` said 1.3.
+- **A CLIFF intent assertion in `clarion/selfcheck.py`**: the deterministic
+  reference application must not merely keep the file valid, it must apply the
+  edit (100 % on both arms). The validity-only check could not see the silent
+  failure shape this dimension exists to detect — a legal file whose instruction
+  never landed. Scoped to CLIFF deliberately: json-plain fails it for a codec
+  reason (a `|` used both inside a list value and between fields, so a
+  multi-valued `reference` or `emotion` loses every element after the first on
+  read-back), which is a defect of a format outside the question this benchmark
+  now answers.
+- **`docs/clarion-prompt-design.md`** records the temperature defect, the XLIFF
+  attribution correction and the repair-attribution correction alongside the
+  existing metric-error note, so the method's own mistakes are readable rather
+  than only their fixed results.
 - Appendix C.4 behaviour documented from what the implementation actually does,
   after the recorded run contradicted the first draft of the note: a collision
   that normalization *creates* is disambiguated (`-2`, `-3`, …) and reported as
@@ -130,6 +152,41 @@ fixture still passes, and the checks below answer the 1.1 questions.
   repairs exist, what a terminator is not, and which C.5 refusals hold.
 
 ### Fixed
+
+- **The edit dimension ignored the configured temperature.** `run_robustness`
+  built its own `CompletionRequest` with a hard-coded `temperature=0.0`, and
+  `build_provider` never passes a temperature to the provider at all, so
+  `provider.temperature` reached the wire only through the translation path. Two
+  consequences: **every D7 number published so far is a 0.0 number**, including the
+  rows labelled as the deployment settings, and `d7_pilot.py --temperature 1.3`
+  was a no-op that changed a `ProviderConfig` field nothing reads. The controlled
+  CLIFF comparison survives (both its columns are the same model, the same `ui`
+  stratum, the same 12 edits and an unedited `EDIT_SYSTEM`, so only the prompt
+  differed), but no claim about D7 at 1.3 was ever supported, and a 1.3
+  measurement is now owed. The temperature is a parameter of `run_robustness`,
+  forwarded from the configuration, and
+  `tests/clarion/test_edit_request.py` fails with `{0.0} == {1.3}` if the
+  forward is dropped. Related corrections recorded in
+  [docs/clarion-prompt-design.md](docs/clarion-prompt-design.md): the D7 pilot
+  table's "temperature 1.3" heading, the "re-run at the shipped settings"
+  section, and the attribution of the XLIFF row — the 100.0 % it was compared
+  against belongs to the frozen `deepseek-v4-flash` benchmark, not to this model,
+  whose same-run baseline is 57.1 %, so that difference is a model change rather
+  than a temperature or prompt effect.
+- **The published repair attribution for D7 counted re-counts as repairs.** A
+  record's repair count is the count for the whole document at that step, and the
+  answer text carries forward, so one deviation is counted again by every later
+  step: the six CLIFF context cells sum to 44 per-step repair counts but the model
+  introduced only **6** (`add-reference` 4, `set-emotion` 2). Attributing the sum
+  per operation charged early operations for deviations introduced later.
+  `.tools/d7_audit.py` now prints both figures and warns if the counts are not
+  monotone within a cell.
+- **`clarion/experiments/robustness.py` annotated `answer_dir` with `Path`
+  without importing it.** It survived only because
+  `from __future__ import annotations` defers evaluation; ruff's F821 reports it
+  now that the annotated name is resolved.
+- **`tests/clarion/test_prompt_v2.py`** had its first-party import in the
+  third-party block, so `ruff check` failed on the file that guards the prompt.
 
 - **`split_cliff_documents` only recognised `CLIFF 1.0`.** An answer holding a
   1.1 translation plus a glossary was handed to a single-document parser as one

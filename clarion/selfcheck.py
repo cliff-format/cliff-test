@@ -307,6 +307,37 @@ def run_selfcheck(*, corpus_name: str = "clarion-core", verbose: bool = True) ->
         "; ".join(deterministic_failures[:5]) or f"{len(tasks)} edits per format",
     )
 
+    # CLIFF is the format under test, so its reference answer must also APPLY the
+    # edit, not merely stay valid. The validity check alone cannot see a defect
+    # that loses the intent while keeping the file legal, which is the silent
+    # failure shape this dimension exists to detect - D7's own worst result was a
+    # valid file whose instruction had not landed. The reference application is by
+    # definition the correct answer, so anything below 100 % here is the harness
+    # scoring the model for its own defect.
+    #
+    # The assertion is deliberately CLIFF-only. Other formats are outside the
+    # question this benchmark now answers, and at least one of them fails it for a
+    # real codec reason rather than a model reason: json-plain joins a list value
+    # with '|' and also separates its fields with '|', so every element after the
+    # first of a multi-valued `reference` or `emotion` is lost on read-back.
+    cliff_intent_failures: list[str] = []
+    for arm in (Arm.BARE, Arm.CONTEXT):
+        result = run_robustness(
+            sample.document,
+            format_id="cliff",
+            arm=arm,
+            provider=None,
+            tasks=tasks,
+            file_id=sample.id,
+        )
+        if result.intent_rate < 100.0:
+            cliff_intent_failures.append(f"{arm.value} {result.intent_rate:.0f}%")
+    report.add(
+        "deterministic CLIFF edits apply the intent",
+        not cliff_intent_failures,
+        "; ".join(cliff_intent_failures) or f"{len(tasks)} edits per arm, intent 100%",
+    )
+
     _print(report, verbose)
     return 0 if report.ok else 1
 
