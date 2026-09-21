@@ -245,6 +245,41 @@ fixture still passes, and the checks below answer the 1.1 questions.
 
 ### Added
 
+- **`prompt_style: spec` — the specification compressed to its rules, assembled
+  from the specification repository.** The format's own text is 16 656 tokens, of
+  which only **2 467 are sentences that state a rule**; the rest is motivation,
+  examples, comparisons and migration notes. `clarion/prompts/cliff_rules.py`
+  builds a **2 094-token** prompt block out of the parts that state rules and
+  nothing else: the ABNF with comments stripped, the ABNF's semantic-constraint
+  block (where required fields, the `status`/`target` dependency, the escape rules,
+  brace balance, list-typed fields and identifier case already live), the field
+  tables of sections 7-9 extracted from the specification's own markdown, the closed
+  vocabularies from its reference tables, its own quick example, and the glossary
+  rules of 13.2.
+  - **Nothing in it is hand-written**, which is the difference between this style
+    and `examples`: a hand-maintained restatement is a second source of truth, and
+    the second source is the one that goes stale. `tests/clarion/test_spec_digest.py`
+    holds the trace: the extracted key tables are compared against the key sets the
+    parser accepts (`HEADER_KEYS`/`ENTRY_KEYS`), the inherited set against section 9,
+    the vocabularies against the implementation, `SECTION_COVERAGE` must account for
+    every section of the specification that states a rule (represented, or excluded
+    with a reason), and the token ceiling is asserted so growth fails here rather
+    than in a paid run.
+  - The style is reachable per run without editing a configuration:
+    `--prompt-style {digest,examples,spec}` on `pipeline` and `translate`, because a
+    run directory records the configuration it was started with and two styles have
+    to be switchable inside one session to be comparable.
+  - Assembly fixes that came with it: the `spec` style no longer appends the full
+    specification text (the first assembled `spec` prompt came out at 20 016 tokens
+    - the digest *plus* the text it replaces), and it drops the hand-written
+    `FORMAT_NOTES`, `CLIFF_TASK_RULES`, `GLOSSARY_WORKFLOW` and edit-safety blocks,
+    each of which restates rules the specification block already carries.
+  - **First measurement** (CLIFF, bare, sixteen files, 1.3, one repeat, run
+    `clarion-deepseek-flash-20260921T164514`): **11/16 = 68.8 % valid against
+    7/16 = 43.8 %** for the `examples` style in the same cell, six files flipping
+    from a parse failure to valid and two the other way. **Not significant yet**
+    (Fisher exact p = 0.25, n = 16 on one side) and recorded as a direction to
+    confirm at three repeats, not as a result.
 - **`tools/prompt_cost.py` and `tools/prompt_block_delta.py`, with
   `tests/test_prompt_cost_tool.py`.** The prompt-cost table in
   `docs/clarion-prompt-design.md` is quoted in this changelog and in the acceptance

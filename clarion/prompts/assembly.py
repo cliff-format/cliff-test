@@ -16,7 +16,7 @@ from ..metrics.tokens import PromptBudget, Tokenizer
 from ..paths import SPEC_FILE
 from ..providers.base import Message
 from ..util import read_text
-from . import cliff_prompt_v2, templates
+from . import cliff_prompt_v2, cliff_rules, templates
 from .spec_digest import build_grammar_plus
 
 if TYPE_CHECKING:  # pragma: no cover - typing only
@@ -48,7 +48,14 @@ INSTRUCTION_COMPONENTS = ("spec.digest", "format.notes", "cliff.examples")
 #:               ``.tools/probe_repairs.py``: it states only what a tolerant read
 #:               cannot repair, because a repaired deviation is a recorded cost
 #:               rather than a failure.
-PROMPT_STYLES = ("digest", "examples")
+#: ``spec``      the specification itself, compressed to its normative content by
+#:               ``cliff_rules``: the ABNF, the semantic constraints it carries,
+#:               the field tables of sections 7-9 and the closed vocabularies,
+#:               all read from the specification repository at build time. No
+#:               sentence of it is written by hand, which is the difference
+#:               between this style and ``examples``: 2 094 tokens against 16 656
+#:               for the full text, with no second source of truth to go stale.
+PROMPT_STYLES = ("digest", "examples", "spec")
 DEFAULT_PROMPT_STYLE = "digest"
 
 
@@ -110,13 +117,19 @@ def build_translation_prompt(
     # file to edit.
     notes = templates.FORMAT_NOTES.get(format_id, "")
     example_driven = prompt_style == "examples" and format_id == "cliff"
-    if example_driven:
+    spec_driven = prompt_style == "spec" and format_id == "cliff"
+    if example_driven or spec_driven:
         # CLIFF_FACTS opens with the same orientation in its own words, so the notes
         # block would state it a second time in the same message. Dropping it is part
         # of the same rule as the deliverable statement above: a composed prompt says
-        # each thing once, in the place the style puts it.
+        # each thing once, in the place the style puts it. For the `spec` style the
+        # whole of FORMAT_NOTES is a hand-written restatement of the block that
+        # follows it.
         notes = ""
-    digest = build_grammar_plus() if (format_id == "cliff" and not example_driven) else ""
+    carries_own_rules = example_driven or spec_driven
+    digest = (
+        build_grammar_plus() if (format_id == "cliff" and not carries_own_rules) else ""
+    )
     system_digest = ""
     user_digest = ""
     if digest:
@@ -138,6 +151,12 @@ def build_translation_prompt(
     # hint, document) is unchanged, so a comparison isolates what was removed.
     if example_driven:
         system_digest = cliff_prompt_v2.CLIFF_FACTS
+    elif spec_driven:
+        # The specification's own rules, compressed and read from the specification
+        # repository. Nothing hand-written is added: the answer shape, the escape
+        # rules, the required fields and the key scopes are all in this block, so a
+        # second restatement would be a second source of truth.
+        system_digest = cliff_rules.build_normative_rules()
 
     system_parts = [templates.SYSTEM_ROLE]
     if system_digest:
@@ -176,9 +195,12 @@ def build_translation_prompt(
     # one message. A composed prompt is read by a model, not by a diff, and a
     # repetition reads as emphasis nobody asked for while costing tokens on every
     # call. `tests/clarion/test_tools.py` asserts no paragraph repeats.
-    workflow_enabled = format_id == "cliff" and allow_glossary_output
+    workflow_enabled = format_id == "cliff" and allow_glossary_output and not spec_driven
     workflow_block = ""
     if workflow_enabled:
+        # The `spec` style states the glossary rules inside the specification block
+        # (section 13.2), so the hand-written workflow would be a second statement of
+        # the same rules - and the one that can go stale.
         workflow_block = templates.GLOSSARY_WORKFLOW
 
     rules_block = f"{rules}\n\n{output_rules}"
@@ -230,7 +252,12 @@ def build_translation_prompt(
         # verbs, and `CLIFF_SHAPE_EXAMPLES` shows the constructs they describe.
         blocks.append(cliff_prompt_v2.EXAMPLES)
         budget.add("cliff.examples", "user", cliff_prompt_v2.EXAMPLES, tokenizer)
-    elif spec_reference and format_id == "cliff" and SPEC_FILE.exists():
+    elif spec_reference and format_id == "cliff" and not carries_own_rules and SPEC_FILE.exists():
+        # Never for the two styles that carry their own CLIFF rules: the `spec` style
+        # *is* the specification compressed, and appending the full text as well would
+        # pay 16 691 tokens for a second copy of what the block already states. The
+        # assembly asserted that in a paid run before this guard existed (a `spec`
+        # prompt came out at 20 016 tokens, the full-text total plus the digest).
         full_spec = read_text(SPEC_FILE)
         spec_ref = (
             "===== REFERENCE: FULL CLIFF SPECIFICATION =====\n"
@@ -242,7 +269,7 @@ def build_translation_prompt(
         blocks.append(spec_ref)
         budget.add("spec.reference", "user", spec_ref, tokenizer)
 
-    if format_id == "cliff" and not example_driven:
+    if format_id == "cliff" and not example_driven and not spec_driven:
         blocks.append(templates.CLIFF_EDIT_SAFETY)
         budget.add("cliff.edit_safety", "user", templates.CLIFF_EDIT_SAFETY, tokenizer)
 

@@ -55,6 +55,59 @@ document: −75.9 % (`wmt24pp`, the longest file) to −88.7 % (`probe-ambiguity
 the plain arm. `tests/test_prompt_cost_tool.py` asserts that constancy, because a
 change that made the saving document-dependent would be a different claim.
 
+## The third style: the specification, compressed to its rules
+
+Both styles above are a choice about how much of the specification to *drop*. The
+question they answer badly is the obvious one: the specification does not have to
+be 16 656 tokens, because **only 2 467 of its tokens are sentences that state a
+rule**. Everything else is motivation, worked examples, comparisons with other
+formats, migration notes and design discussion — material a model reproducing a
+file cannot use.
+
+`prompt_style: spec` (`clarion/prompts/cliff_rules.py`) sends the rules and nothing
+else. It is assembled **from the specification repository at prompt-build time**,
+which is the part that matters: there is no hand-written restatement to go stale.
+It carries
+
+- the normative ABNF, comments stripped;
+- the ABNF's trailing semantic-constraint block, where the rules a grammar cannot
+  express already live (required fields, the `status`/`target` dependency, escape
+  rules, brace balance, list-typed fields, key uniqueness, identifier case);
+- the field tables of sections 7, 8 and 9, extracted from the specification's own
+  markdown, so the key names, required flags and inheritance cannot drift;
+- the closed vocabularies, read from the specification's reference tables;
+- the specification's own quick example (section 3), not one of ours;
+- the `variant: glossary` rules of section 13.2.
+
+| what one CLIFF cell carries | tokens |
+| --- | ---: |
+| the full specification text (the `digest` style) | 16 656 |
+| the old hand-written digest plus that text | 21 078 |
+| **`spec`: the specification compressed to its rules** | **2 094** |
+| `examples`: our hand-written facts plus two conforming files | 1 036 |
+
+Three guards hold it in `tests/clarion/test_spec_digest.py`: the key tables are
+compared against the key sets the parser actually accepts, every section of the
+specification that states a rule must appear in `SECTION_COVERAGE` with a reason
+(so a compression pass cannot drop a normative section silently), and the token
+ceiling is asserted — a change that doubles the digest fails there rather than in a
+paid run.
+
+**First measurement, one repeat.** CLIFF, bare arm, the sixteen files, 1.3, one
+repeat per file (16 answers, run `clarion-deepseek-flash-20260921T164514`):
+
+| style | valid | 95 % Wilson | prompt tokens per call |
+| --- | ---: | --- | ---: |
+| `spec` | **11/16 = 68.8 %** | 44–86 % | 4 297 |
+| `examples` | 7/16 = 43.8 % | 23–67 % | 3 326 |
+
+Six files flip from a parse failure to valid (`game-quest`, `game-shard`,
+`godot-l10n`, `legal-privacy`, `news-wire`, `probe-ambiguity`), two flip the other
+way, and the difference is **not yet significant** (Fisher exact p = 0.25 against
+the three-repeat `examples` cell; n = 16 on one side). It is recorded because the
+direction is the one the failure analysis predicted: what the hand-written prompt
+was missing is exactly what the specification states and we had compressed away.
+
 ## What the prompt may constrain: the specification and the deliverable
 
 A prompt block may say two things: what the format's own specification requires of

@@ -27,6 +27,7 @@ from .formats.registry import FORMATS
 from .metrics.terminology import load_policy
 from .metrics.tokens import get_tokenizer
 from .paths import RESULTS_ROOT, ensure_cliff_format, pycliff_version
+from .prompts.assembly import PROMPT_STYLES
 from .report import build_report, fidelity_report, token_report
 from .runner import (
     RunPaths,
@@ -55,6 +56,12 @@ def _config_from_args(args: argparse.Namespace) -> RunConfig:
         overrides["repeats"] = args.repeats
     if getattr(args, "read_mode", None):
         overrides["read_mode"] = args.read_mode
+    if getattr(args, "prompt_style", None):
+        # A prompt style is an experimental condition, and the configuration file is
+        # the wrong place to switch one: a run directory records the configuration it
+        # was started with, so an override here is what keeps two styles comparable
+        # within one session. The run still records the value it used.
+        overrides["prompt_style"] = args.prompt_style
     return load_config(getattr(args, "config", None), **overrides)
 
 
@@ -471,6 +478,19 @@ def build_parser() -> argparse.ArgumentParser:
                 "how a CLIFF answer is read back: 'tolerant' applies the documented "
                 "relaxations of specification Appendix C and counts each repair "
                 "(default); 'strict' is the reference-toolchain reading"
+            ),
+        )
+        target.add_argument(
+            "--prompt-style",
+            dest="prompt_style",
+            choices=list(PROMPT_STYLES),
+            default=None,
+            help=(
+                "how much CLIFF specification the prompt carries: 'digest' adds the "
+                "full specification text, 'examples' states the repairable boundary "
+                "with two conforming files, 'spec' carries the specification "
+                "compressed to its normative content (ABNF, constraints, field "
+                "tables, vocabularies). Defaults to the configuration's value."
             ),
         )
 
