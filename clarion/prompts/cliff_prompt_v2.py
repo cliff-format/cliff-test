@@ -9,8 +9,11 @@ document they describe. The redesign replaces that text with examples plus the
 smallest set of stated facts that still prevents *failures*.
 
 The fact set is bounded by an empirical probe of the repair boundary
-(`.tools/probe_repairs.py`), not by taste. Under the tolerant reading the harness
-uses:
+(`../.tools/probe_repairs.py`, a working-copy script beside the checkouts and not
+part of this repository), not by taste. The boundary it found is pinned **in-repo**
+by `tests/fixtures/tolerant/` and `tests/clarion/test_prompt_v2.py`, which is what a
+reader can check; the probe is the instrument that drew it. Under the tolerant
+reading the harness uses:
 
   repaired (so NOT worth prompt tokens)   unrepairable (must be stated)
   ------------------------------------   -------------------------------------
