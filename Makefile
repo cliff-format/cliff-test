@@ -1,12 +1,12 @@
 .PHONY: test check bench selfcheck quality robustness clean
 
-# What CI runs, in the order it runs it. `make check` is the local gate: if it
-# passes here it passes there, and every step is here rather than in the workflow
-# so the two cannot drift.
+# The gate. Every check this project has is here, in the order it runs, so `make
+# check` is the whole story: there is no hosted workflow to drift from, and a green
+# local run is the greenest this repository gets.
 #
-# CLIFF_REQUIRE_SIBLINGS=1 is what the workflow sets for the test step: without it a
-# failed sibling checkout or corpus turns the dependent suites into skips, and this
-# gate would pass having checked nothing.
+# CLIFF_REQUIRE_SIBLINGS=1 is what turns a missing sibling checkout or corpus from a
+# skip into a failure. Without it the dependent suites skip, and this gate would pass
+# having checked nothing - which is the failure mode the variable exists to prevent.
 check:
 	CLIFF_REQUIRE_SIBLINGS=1 python tests/run_all.py
 	# `run_all.py` rewrites the token-benchmark report and its nine fixtures; this is
