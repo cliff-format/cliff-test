@@ -80,17 +80,20 @@ jobs:
         working-directory: cliff-test
         env:
           CLIFF_REQUIRE_SIBLINGS: ${{ hashFiles('cliff/spec/**') != '' && '1' || '0' }}
-        # The trailing `|| true` exists so the failure text can be surfaced where a
-        # reader of the run can see it: a bare `pytest` that dies during collection
-        # reports exit 2 and nothing else, which is not enough to act on.
+        # The tail of a pytest run is a list of PASSED lines; what a reader needs is
+        # the short summary and the first traceback, and those are emitted as error
+        # annotations so they are visible without the job log.
         run: |
           set +e
-          pytest -q --no-header -rA 2>&1 | tee /tmp/pytest.log
+          pytest -q --no-header 2>&1 | tee /tmp/pytest.log
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
-            echo "::error::pytest exited $status; last lines follow"
-            tail -n 60 /tmp/pytest.log | while IFS= read -r line; do
-              echo "::error::$line"
+            echo "::error::pytest exited $status"
+            for start in $(grep -n "short test summary info" /tmp/pytest.log | cut -d: -f1) \
+                         $(grep -n "^=\{5,\}\|^_\{5,\}" /tmp/pytest.log | head -1 | cut -d: -f1); do
+              sed -n "${start},$((start + 45))p" /tmp/pytest.log | while IFS= read -r line; do
+                echo "::error::$line"
+              done
             done
           fi
           exit "$status"
