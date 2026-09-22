@@ -21,6 +21,7 @@ under the wrong mode is not evidence of anything:
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -67,9 +68,35 @@ UNREPAIRABLE = {
 MULTI_DOCUMENT = FIXTURES / "tolerant" / "two-documents.txt"
 
 
+#: The reference implementation, as a sibling checkout. The validator runs in a
+#: **subprocess**, and that process imports `cliff_format`; this package does not
+#: depend on it (CI installs `cliff-test`, not `cliff-python`), so the child needs the
+#: sibling on its path. Locally the caller usually has it there already, which is why
+#: the two tolerant suites passed by hand and failed in CI: they are the only suites
+#: that need the reader, and without it the validator exits 1 with
+#: "error: --tolerant requires cliff_format".
+SIBLING_SRC = ROOT.parent / "cliff-python" / "src"
+
+
+def child_env() -> dict[str, str]:
+    """The environment for a validator subprocess, with the sibling on its path."""
+    env = dict(os.environ)
+    if SIBLING_SRC.is_dir():
+        existing = [part for part in env.get("PYTHONPATH", "").split(os.pathsep) if part]
+        if str(SIBLING_SRC) not in existing:
+            env["PYTHONPATH"] = os.pathsep.join([str(SIBLING_SRC), *existing])
+    return env
+
+
 def run(cmd: list[str]) -> tuple[int, str]:
     proc = subprocess.run(
-        cmd, cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace"
+        cmd,
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        env=child_env(),
     )
     return proc.returncode, (proc.stdout + proc.stderr)
 

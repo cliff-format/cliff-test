@@ -174,3 +174,33 @@ def test_the_two_extra_batteries_are_declared_arguments() -> None:
     assert run_all.parse_args([]).quality is False
     with pytest.raises(SystemExit):
         run_all.parse_args(["--qualty"])
+
+
+def test_validator_subprocesses_get_the_sibling_on_their_path(monkeypatch) -> None:
+    """The validator runs in a subprocess, and that process needs `cliff_format`.
+
+    This package does not depend on the reference implementation - CI installs
+    `cliff-test`, not `cliff-python` - so the child only finds it if the sibling is on
+    its `PYTHONPATH`. It was not, and the two suites that need the reader (the
+    tolerant fixtures and the two-document answer) failed in CI while passing by hand,
+    where the caller happened to have set `PYTHONPATH` already.
+    """
+    captured: dict[str, object] = {}
+
+    def fake_run(cmd, **kwargs):  # noqa: ANN001, ANN003 - mirrors subprocess.run
+        captured.update(kwargs)
+        return run_all.subprocess.CompletedProcess(cmd, 0, "ok", "")
+
+    monkeypatch.setattr(run_all.subprocess, "run", fake_run)
+    monkeypatch.setenv("PYTHONPATH", "somewhere-else")
+    run_all.run(["python", "tools/cliff_validator.py", "--suite", "x"])
+    parts = str(captured["env"]["PYTHONPATH"]).split(";")  # os.pathsep on Windows
+    assert str(run_all.SIBLING_SRC) in parts, (
+        f"the child's PYTHONPATH is {captured['env']['PYTHONPATH']!r}, which does not "
+        f"carry {run_all.SIBLING_SRC}"
+    )
+    assert "somewhere-else" in parts, "the caller's PYTHONPATH must survive"
+
+    # And it is added once, not once per call.
+    run_all.run(["python", "tools/cliff_validator.py", "--suite", "y"])
+    assert str(captured["env"]["PYTHONPATH"]).split(";").count(str(run_all.SIBLING_SRC)) == 1

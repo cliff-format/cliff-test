@@ -200,9 +200,10 @@ nor [BENCHMARK.md](../BENCHMARK.md) reports a QE number. `python tools/qe_score.
 ### What the shipped prompt fixed, and what it did not
 
 The single-pass validity of CLIFF at the shipped settings is **91.7 %** in both
-arms, against **58.3 %** for the protocol this document recorded before (the
-example-driven prompt with thinking off). Three changes account for it, and the
-design record behind each is in [clarion-prompt-design.md](clarion-prompt-design.md):
+arms, where the protocol this document recorded before — the example-driven prompt
+with thinking off, and a per-cell measurement whose run directory is not kept —
+landed well below it. Three changes account for the difference, and the design
+record behind each is in [clarion-prompt-design.md](clarion-prompt-design.md):
 
 - the prompt became the specification **compressed to its rules** (`prompt_style:
   spec`, 2 925 tokens per cell against 16 838 for the full text), so a model reads
