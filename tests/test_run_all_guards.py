@@ -14,6 +14,7 @@ is pinned here rather than left to review:
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -194,7 +195,9 @@ def test_validator_subprocesses_get_the_sibling_on_their_path(monkeypatch) -> No
     monkeypatch.setattr(run_all.subprocess, "run", fake_run)
     monkeypatch.setenv("PYTHONPATH", "somewhere-else")
     run_all.run(["python", "tools/cliff_validator.py", "--suite", "x"])
-    parts = str(captured["env"]["PYTHONPATH"]).split(";")  # os.pathsep on Windows
+    # Split on `os.pathsep`: it is ":" on the runner and ";" here, and a test that
+    # hard-codes one separator fails on the other platform while the code is right.
+    parts = str(captured["env"]["PYTHONPATH"]).split(os.pathsep)
     assert str(run_all.SIBLING_SRC) in parts, (
         f"the child's PYTHONPATH is {captured['env']['PYTHONPATH']!r}, which does not "
         f"carry {run_all.SIBLING_SRC}"
@@ -203,4 +206,4 @@ def test_validator_subprocesses_get_the_sibling_on_their_path(monkeypatch) -> No
 
     # And it is added once, not once per call.
     run_all.run(["python", "tools/cliff_validator.py", "--suite", "y"])
-    assert str(captured["env"]["PYTHONPATH"]).split(";").count(str(run_all.SIBLING_SRC)) == 1
+    assert str(captured["env"]["PYTHONPATH"]).split(os.pathsep).count(str(run_all.SIBLING_SRC)) == 1
