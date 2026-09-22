@@ -80,7 +80,20 @@ jobs:
         working-directory: cliff-test
         env:
           CLIFF_REQUIRE_SIBLINGS: ${{ hashFiles('cliff/spec/**') != '' && '1' || '0' }}
-        run: pytest
+        # The trailing `|| true` exists so the failure text can be surfaced where a
+        # reader of the run can see it: a bare `pytest` that dies during collection
+        # reports exit 2 and nothing else, which is not enough to act on.
+        run: |
+          set +e
+          pytest -q --no-header -rA 2>&1 | tee /tmp/pytest.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            echo "::error::pytest exited $status; last lines follow"
+            tail -n 60 /tmp/pytest.log | while IFS= read -r line; do
+              echo "::error::$line"
+            done
+          fi
+          exit "$status"
 
       # The harness's own end-to-end gate: offline, no model calls, and the only
       # check that exercises the CLI, the pipeline and the scoring chain together.
