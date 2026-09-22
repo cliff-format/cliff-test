@@ -270,7 +270,7 @@ def build_translation_prompt(
     elif spec_reference and format_id == "cliff" and not carries_own_rules and SPEC_FILE.exists():
         # Never for the two styles that carry their own CLIFF rules: the `spec` style
         # *is* the specification compressed, and appending the full text as well would
-        # pay 16 691 tokens for a second copy of what the block already states. The
+        # pay 16 838 tokens for a second copy of what the block already states. The
         # assembly asserted that in a paid run before this guard existed (a `spec`
         # prompt came out at 20 016 tokens, the full-text total plus the digest).
         full_spec = read_text(SPEC_FILE)

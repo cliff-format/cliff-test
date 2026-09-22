@@ -330,17 +330,17 @@ def test_the_digest_stays_under_its_token_ceiling() -> None:
     cost = cliff_rules.normative_rule_tokens(tokenizer)
     assert cost < TOKEN_CEILING, (
         f"the compressed specification is {cost} tokens (ceiling {TOKEN_CEILING}); the "
-        "full text is 16 656 and the whole point is the difference"
+        "full text is 16 803 and the whole point is the difference"
     )
 
 
 def test_the_specification_itself_is_not_in_the_digest() -> None:
     """The digest is a compression, not an inclusion: rationale must be gone.
 
-    The ratio is a floor rather than a target. It was 6x when the block was 2 094
-    tokens and is 5.9x now: four rules were added, each because an observed failure
-    needed it, and the specification grew too. Five is the assertion because it is
-    the point below which this stops being a compression at all.
+    The ratio is a floor rather than a target. It is about 5.7x now (16 803 tokens of
+    specification against a 2 925-token block), and it was lower when the block was
+    smaller and the specification shorter. Five is the assertion because it is the
+    point below which this stops being a compression at all.
     """
     digest = cliff_rules.build_normative_rules()
     full = SPEC_FILE.read_text(encoding="utf-8")
@@ -366,7 +366,7 @@ def test_the_spec_style_carries_the_digest_and_never_the_full_text() -> None:
     """The assembly, not just the module: the full text is 5x the digest.
 
     The `spec` style exists because the digest is enough; appending the full
-    specification as well would cost 16 691 tokens for a second copy of the rules
+    specification as well would cost 16 838 tokens for a second copy of the rules
     the block already states, and the prompt would silently become the most
     expensive of the three.
     """
